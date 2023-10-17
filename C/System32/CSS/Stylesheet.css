@@ -976,7 +976,7 @@ p {
 }
 
 #version-info::before {
-    content: "|  Activated  | | Commercial | |  MagnusWare 3.1 |\A|Sphynx| |Vortex| |08/16/2023| |stable,commercial|";
+    content: "|  Un-Activated | | Developer || MagnusWare 4.0 |\A|Siamese| |Nighthawk| |??/??/????| |unstable,dev|";
     white-space: pre-wrap;
     opacity: 1;
     transition: font-size 1s ease-in-out;
