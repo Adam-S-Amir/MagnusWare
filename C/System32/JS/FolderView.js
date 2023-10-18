@@ -251,22 +251,27 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		}
 		for (const item of this.items) {
 			$(item.element).css({
-				left: x,
 				top: y,
+				left: x,
 			});
-			if (horizontal_first) {
-				x += grid_size_x;
-				if (x + grid_size_x > $folder_view[0].clientWidth) {
-					y += grid_size_y;
-					x = 0;
-				}
-			} else {
+			x += grid_size_x;
+			if (x + grid_size_x > innerWidth) {
 				y += grid_size_y;
-				if (y + grid_size_y > $folder_view[0].clientHeight) {
-					x += grid_size_x;
-					y = 0;
-				}
+				x = 0;
 			}
+			// if (horizontal_first) {
+			// 	x += grid_size_x;
+			// 	if (x + grid_size_x > $folder_view[0].clientWidth) {
+			// 		y += grid_size_y;
+			// 		x = 0;
+			// 	}
+			// } else {
+			// 	y += grid_size_y;
+			// 	if (y + grid_size_y > $folder_view[0].clientHeight) {
+			// 		x += grid_size_x;
+			// 		y = 0;
+			// 	}
+			// }
 
 			item.setIconSize(icon_size);
 
