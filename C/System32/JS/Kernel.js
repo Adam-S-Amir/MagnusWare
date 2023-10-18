@@ -1,3 +1,60 @@
+let CSSLinks = [
+    "./C/System32/CSS/OS-Layout.css",
+    "./C/System32/CSS/Stylesheet.css",
+    // "./C/System32/CSS/jQuery-ui.css",
+    // "./C/System32/CSS/System.css"
+]
+
+for (var i = 0; i < CSSLinks.length; i++) {
+    let CSS = document.createElement("link");
+    CSS.rel = "stylesheet";
+    CSS.href = CSSLinks[i];
+    document.head.appendChild(CSS);
+}
+
+let scriptUrls = [
+    "./C/System32/JS/Browserfs.js",
+    "./C/System32/JS/parse-theme.js",
+    "./C/System32/JS/MenuBar.js",
+    "./C/System32/JS/Window.js",
+    "./C/System32/JS/msgbox.js",
+    "./C/System32/JS/helpers.js",
+    "./C/System32/JS/Filesystem-Setup.js",
+    "./C/System32/JS/iframe-windows.js",
+    "./C/System32/JS/Task.js",
+    "./C/System32/JS/taskbar-time.js",
+    "./C/System32/JS/$start-menu.js",
+    "./C/System32/JS/FolderView.js",
+    "./C/System32/JS/FolderViewItem.js",
+    "./C/System32/JS/$Desktop.js",
+    "./C/System32/JS/window-switcher.js",
+    "./C/System32/JS/visualizer-overlay.js",
+    "./C/System32/JS/programs.js",
+    "./C/System32/JS/Widgets.js",
+    "./C/System32/JS/Settings.js",
+    "./C/System32/JS/StoreFront.js",
+    "./C/System32/JS/Update.js",
+    "./C/System32/JS/Cursor.js",
+    "./C/System32/JS/MagnusFS.js",
+    "./C/System32/JS/System.js",
+    "./C/System32/JS/JukeBox.js",
+    "./C/System32/JS/Clippy/Build/clippy.min.js",
+];
+
+function loadScriptsSequentially(index) {
+    if (index < scriptUrls.length) {
+        let script = document.createElement("script");
+        script.src = scriptUrls[index];
+        script.onload = function () {
+            // When this script is loaded, load the next one
+            loadScriptsSequentially(index + 1);
+        };
+        document.body.appendChild(script);
+    }
+}
+
+loadScriptsSequentially(0); // Start loading scripts from index 0
+
 const vInfo = document.createElement('span');
 const splash = document.createElement('div');
 const taskbr = document.createElement('div');
@@ -33,58 +90,3 @@ document.body.appendChild(vInfo);
 document.body.appendChild(taskbr);
 document.body.appendChild(splash);
 document.getElementById('splash-screen').style.display = 'none';
-
-let CSSLinks = [
-    "./C/System32/CSS/OS-Layout.css",
-    "./C/System32/CSS/Stylesheet.css",
-    // "./C/System32/CSS/jQuery-ui.css",
-    // "./C/System32/CSS/System.css"
-]
-
-for (var i = 0; i < CSSLinks.length; i++) {
-    let CSS = document.createElement("link");
-    CSS.rel = "stylesheet";
-    CSS.href = CSSLinks[i];
-    document.head.appendChild(CSS);
-}
-
-let scriptUrls = [
-    // windows
-    "./C/System32/JS/$Window.js",
-    "./C/System32/JS/window-switcher.js",
-    // end windows
-    "./C/System32/JS/JukeBox.js",
-    "./C/System32/JS/Clippy/Build/clippy.min.js",
-    "./C/System32/JS/Msgbox.js",
-    "./C/System32/JS/Widgets.js",
-    "./C/System32/JS/Settings.js",
-    "./C/System32/JS/StoreFront.js",
-    "./C/System32/JS/Update.js",
-    "./C/System32/JS/Cursor.js",
-    "./C/System32/JS/Pep.js",
-    "./C/System32/JS/Parse-Theme.js",
-    "./C/System32/JS/Helpers.js",
-    "./C/System32/JS/Filesystem-Setup.js",
-    "./C/System32/JS/Task.js",
-    "./C/System32/JS/Taskbar-Time.js",
-    "./C/System32/JS/$Start-Menu.js",
-    // folder shit
-    "./C/System32/JS/FolderViewItem.js",
-    "./C/System32/JS/FolderView.js",
-    // end shit
-    "./C/System32/JS/$Desktop.js",
-    "./C/System32/JS/Visualizer-overlay.js",
-    "./C/System32/JS/Programs.js",
-    "./C/System32/JS/MagnusFS.js",
-    "./C/System32/JS/MenuBar.js",
-    "./C/System32/JS/System.js"
-
-];
-
-while (i < scriptUrls.length) {
-    let script = document.createElement("script");
-    script.src = scriptUrls[i];
-    //     script.defer = true;
-    document.body.appendChild(script);
-    i++;
-}

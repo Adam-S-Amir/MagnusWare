@@ -16,45 +16,6 @@ document.addEventListener('keydown', function (event) {
         toggle_start_menu();
     }
 })
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'F12') {
-        if (document.location.href.startsWith("file:")) {
-            console.log("Dev Settings Enabled!");
-        } else if (document.location.hostname === '127.0.0.1') {
-            console.log("Dev Settings Enabled!");
-        } else if (document.location.href.startsWith("localhost:")) {
-            console.log("Dev Settings Enabled!");
-        } else {
-            event.preventDefault();
-            console.log("Dev Settings disabled!");
-            showMessageBox({
-                title: "Damn :(",
-                message: "Dev Tools have been disabled for the public :(",
-                sound: [SecurityBand.play()],
-                buttons: [{
-                    label: "Tuff",
-                }],
-            })
-        }
-    }
-})
-
-function beforeUnloadHandler() {
-    LogOff.play();
-    setTimeout(() => {
-        location.reload()
-    }, "3000");
-}
-
-document.addEventListener('keydown', function (event) {
-    if (event.ctrlKey && event.key === 'r') {
-        event.preventDefault();
-        confirm_reboot();
-    } else if (event.key == 'F5') {
-        event.preventDefault();
-        confirm_reboot();
-    }
-});
 
 // ! Ugh, can't open dev console via JS :(
 function toggleConsole() {
@@ -270,13 +231,14 @@ function hidecal() {
 }
 
 function toggle_dp() {
-    dp = $("#datepicker");
-    if (dp.attr('datepicker')) {
-        dp.datepicker('destroy');
-        dp.removeAttr('datepicker');
+    let dp = $("#datepicker");
+    if (dp.hasClass("hidden")) {
+        dp.removeClass("hidden");
+        dp.datepicker();
     } else {
         dp.datepicker();
-        dp.attr('datepicker', 1);
+        dp.addClass("hidden");
+        dp.datepicker("hide");
     }
 }
 //* End Calendar
@@ -340,51 +302,54 @@ function hidevol() {
 let level;
 
 function getBatLevel(target) {
-    navigator.getBattery().then(function (battery) {
-        let level;
-        let animationInterval;
-        level = battery.level * 100;
-        let titleElement = document.getElementById("battery");
-        let bats = Math.round(level) + "%";
-        titleElement.title = `${bats}`;
+    if ('getBattery' in navigator) {
+        navigator.getBattery().then(function (battery) {
+            let level;
+            let animationInterval;
+            level = battery.level * 100;
+            let titleElement = document.getElementById("battery");
+            let bats = Math.round(level) + "%";
+            titleElement.title = `${bats}`;
 
-        if (battery.charging) {
-            let batteryani = [
-                './C/System32/Images/Icons/Battery-5.png',
-                './C/System32/Images/Icons/Battery-4.png',
-                './C/System32/Images/Icons/Battery-3.png',
-                './C/System32/Images/Icons/Battery-2.png',
-                './C/System32/Images/Icons/Battery-1.png'
-            ];
-            let curani = 0;
+            if (battery.charging) {
+                let batteryani = [
+                    './Assets/Images/Icons/Battery-5.png',
+                    './Assets/Images/Icons/Battery-4.png',
+                    './Assets/Images/Icons/Battery-3.png',
+                    './Assets/Images/Icons/Battery-2.png',
+                    './Assets/Images/Icons/Battery-1.png'
+                ];
+                let curani = 0;
 
-            function anistart() {
-                curani = (curani === 4) ? 0 : ++curani;
-                titleElement.src = batteryani[curani];
+                function anistart() {
+                    curani = (curani === 4) ? 0 : ++curani;
+                    titleElement.src = batteryani[curani];
+                }
+                clearInterval(animationInterval);
+                animationInterval = setInterval(anistart, 2000);
+            } else if (!battery.charging) {
+                clearInterval(animationInterval);
+                if (level >= 100) {
+                    titleElement.src = './Assets/Images/Icons/Battery-16x16.png';
+                } else if (level >= 80) {
+                    titleElement.src = './Assets/Images/Icons/Battery-1.png';
+                } else if (level >= 60) {
+                    titleElement.src = './Assets/Images/Icons/Battery-2.png';
+                } else if (level >= 40) {
+                    titleElement.src = './Assets/Images/Icons/Battery-3.png';
+                } else if (level >= 20) {
+                    titleElement.src = './Assets/Images/Icons/Battery-4.png';
+                } else if (level >= 10) {
+                    titleElement.src = './Assets/Images/Icons/Battery-5.png';
+                }
             }
-            clearInterval(animationInterval);
-            animationInterval = setInterval(anistart, 2000);
-        } else if (!battery.charging) {
-            clearInterval(animationInterval);
-            if (level >= 100) {
-                titleElement.src = './C/System32/Images/Icons/Battery-16x16.png';
-            } else if (level >= 80) {
-                titleElement.src = './C/System32/Images/Icons/Battery-1.png';
-            } else if (level >= 60) {
-                titleElement.src = './C/System32/Images/Icons/Battery-2.png';
-            } else if (level >= 40) {
-                titleElement.src = './C/System32/Images/Icons/Battery-3.png';
-            } else if (level >= 20) {
-                titleElement.src = './C/System32/Images/Icons/Battery-4.png';
-            } else if (level >= 10) {
-                titleElement.src = './C/System32/Images/Icons/Battery-5.png';
-            }
-        }
-    });
+        });
+    }
     navigator.getBattery().then(function (battery) {
         battery.addEventListener('chargingchange', getBatLevel);
     });
 }
+
 
 if (level === 20) {
     showMessageBox({
@@ -472,7 +437,7 @@ function WiFi() {
 //* End Wifi
 
 //* Clippy
-document.addEventListener('DOMContentLoaded', function () {});
+document.addEventListener('DOMContentLoaded', function () { });
 let Tclippy = localStorage.getItem('Tclippy');
 let clappy = localStorage.getItem('clippy');
 if (Tclippy === '1') {
@@ -519,14 +484,14 @@ function CClippy() {
 
 //* User Settings
 let uid = localStorage.getItem("uid");
-let buildNumber = localStorage.getItem("buildNumber");
+let BN = localStorage.getItem("BN");
 
-if (uid === null && buildNumber === null) {
+if (uid === null && BN === null) {
     UID();
     BuildNumber();
     console.log('Making UID')
 } else {
-    console.log("UID is " + uid + " and BuildNumber is " + buildNumber);
+    console.log("UID is " + uid + " and BuildNumber is " + BN);
 }
 
 function UID() {
@@ -536,12 +501,13 @@ function UID() {
 
 function BuildNumber() {
     function randomString(length, chars) {
-        let result;
+        let result = '';
         for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
         return result;
     }
-    let BuildNumber = (randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'));
-    localStorage.setItem('buildNumber', BuildNumber);
+    let BuildNumber = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    console.log(BuildNumber);
+    localStorage.setItem('BN', BuildNumber);
 }
 
 let uname = localStorage.getItem('username');
@@ -554,6 +520,6 @@ if (uname === null) {
     console.log("Welcome back, " + uname + "!");
 }
 
-document.title = `MagnusWare | v3.0 ${buildNumber}`
+document.title = `MagnusWare | v3.2 ${BN}`
 
 //* End User
