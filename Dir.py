@@ -4,6 +4,8 @@ import json
 def generate_dir_structure(path):
     result = {}
     for item in os.listdir(path):
+        if item == '.git':
+            continue  # Skip the .git folder
         item_path = os.path.join(path, item)
         if os.path.isdir(item_path):
             result[item] = generate_dir_structure(item_path)
@@ -16,6 +18,6 @@ dir_structure = generate_dir_structure(current_directory)
 
 json_structure = json.dumps(dir_structure, indent=2)
 print(json_structure)
-f = open("filesystem-index.json", "w")
-f.write(json_structure)
-f.close()
+
+with open("filesystem-index.json", "w") as f:
+    f.write(json_structure)
