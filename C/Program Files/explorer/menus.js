@@ -535,21 +535,10 @@ var menus = {
 	"&Help": [
 		// description: "Contains commands for displaying Help.",
 		{
-			item: "&Help Topics",
+			item: "&Yeah Me Too",
 			enabled: false, // @TODO
-			description: "Opens Help.",
+			description: "Help Me.",
 		},
-		MENU_DIVIDER,
-		{
-			// item: "&About Windows 98",
-			item: "&About 98.js.org",
-			action: function () {
-				// TODO: about dialog
-				window.open("https://github.com/1j01/98#readme");
-			},
-			// description: "Displays program information, version number, and copyright.",
-			description: "Opens the 98.js project Web page.",
-		}
 	],
 };
 
