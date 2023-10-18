@@ -1,3 +1,37 @@
+:root {
+	--ButtonAlternateFace: rgb(181, 181, 181);
+	--ButtonDkShadow: rgb(175, 63, 171);
+	--ButtonFace: rgb(62, 98, 152);
+	--ButtonHilight: rgb(150, 63, 171);
+	--ButtonLight: rgb(179, 64, 147);
+	--ButtonShadow: rgb(62, 77, 156);
+	--ButtonText: rgb(7, 217, 249);
+	--ActiveBorder: rgb(62, 98, 152);
+	--AppWorkspace: rgb(128, 128, 128);
+	--Background: rgb(61, 232, 255);
+	--InactiveBorder: rgb(62, 98, 152);
+	--Scrollbar: rgb(121, 153, 200);
+	--Window: rgb(161, 161, 161);
+	--WindowFrame: rgb(17, 16, 216);
+	--WindowText: rgb(61, 232, 255);
+	--ActiveTitle: rgb(255, 0, 0);
+	--GradientActiveTitle: rgb(4, 0, 255);
+	--GradientInactiveTitle: rgb(255, 0, 0);
+	--InactiveTitle: rgb(4, 0, 255);
+	--InactiveTitleText: rgb(122, 63, 167);
+	--TitleText: rgb(61, 232, 255);
+	--Menu: rgb(62, 98, 152);
+	--MenuBar: rgb(212, 208, 200);
+	--MenuHilight: rgb(10, 36, 106);
+	--MenuText: rgb(61, 232, 255);
+	--GrayText: rgb(4, 0, 255);
+	--Hilight: rgb(10, 36, 106);
+	--HilightText: rgb(255, 255, 255);
+	--HotTrackingColor: rgb(0, 83, 159);
+	--InfoText: rgb(183, 64, 121);
+	--InfoWindow: rgb(187, 64, 93);
+}
+
 .menus,
 .menu-popup,
 .os-window,
@@ -800,40 +834,6 @@ body {
 
 #webamp-context-menu {
 	z-index: 5000000 !important;
-}
-
-:root {
-	--ButtonAlternateFace: rgb(181, 181, 181);
-	--ButtonDkShadow: rgb(175, 63, 171);
-	--ButtonFace: rgb(62, 98, 152);
-	--ButtonHilight: rgb(150, 63, 171);
-	--ButtonLight: rgb(179, 64, 147);
-	--ButtonShadow: rgb(62, 77, 156);
-	--ButtonText: rgb(7, 217, 249);
-	--ActiveBorder: rgb(62, 98, 152);
-	--AppWorkspace: rgb(128, 128, 128);
-	--Background: rgb(61, 232, 255);
-	--InactiveBorder: rgb(62, 98, 152);
-	--Scrollbar: rgb(121, 153, 200);
-	--Window: rgb(161, 161, 161);
-	--WindowFrame: rgb(17, 16, 216);
-	--WindowText: rgb(61, 232, 255);
-	--ActiveTitle: rgb(255, 0, 0);
-	--GradientActiveTitle: rgb(4, 0, 255);
-	--GradientInactiveTitle: rgb(255, 0, 0);
-	--InactiveTitle: rgb(4, 0, 255);
-	--InactiveTitleText: rgb(122, 63, 167);
-	--TitleText: rgb(61, 232, 255);
-	--Menu: rgb(62, 98, 152);
-	--MenuBar: rgb(212, 208, 200);
-	--MenuHilight: rgb(10, 36, 106);
-	--MenuText: rgb(61, 232, 255);
-	--GrayText: rgb(4, 0, 255);
-	--Hilight: rgb(10, 36, 106);
-	--HilightText: rgb(255, 255, 255);
-	--HotTrackingColor: rgb(0, 83, 159);
-	--InfoText: rgb(183, 64, 121);
-	--InfoWindow: rgb(187, 64, 93);
 }
 
 .inset-deep {

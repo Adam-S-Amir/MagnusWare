@@ -520,6 +520,6 @@ if (uname === null) {
     console.log("Welcome back, " + uname + "!");
 }
 
-document.title = `MagnusWare | v3.2 ${BN}`
+document.title = `MagnusWare | v4.0 ${BN}`
 
 //* End User
