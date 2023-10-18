@@ -248,7 +248,7 @@ function Notepad(file_path) {
 	// TODO: focus existing window if file is currently open?
 
 	var $win = make_iframe_window({
-		src: "programs/notepad/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		src: "./C/Program Files/notepad/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: iconsAtTwoSizes("notepad"),
 		title: win_title,
 		outerWidth: 480,
@@ -261,7 +261,7 @@ Notepad.acceptsFilePaths = true;
 
 function Paint(file_path) {
 	var $win = make_iframe_window({
-		src: "programs/jspaint/index.html",
+		src: "./C/Program Files/jspaint/index.html",
 		icons: iconsAtTwoSizes("paint"),
 		// NOTE: in Windows 98, "untitled" is lowercase, but TODO: we should just make it consistent
 		title: "untitled - Paint",
@@ -346,8 +346,8 @@ function Paint(file_path) {
 			}
 			$help_window = show_help({
 				title: "Paint Help",
-				contentsFile: "programs/jspaint/help/mspaint.hhc",
-				root: "programs/jspaint/help",
+				contentsFile: "./C/Program Files/jspaint/help/mspaint.hhc",
+				root: "./C/Program Files/jspaint/help",
 			}).$help_window;
 			$help_window.on("close", () => {
 				$help_window = null;
@@ -380,7 +380,7 @@ Paint.acceptsFilePaths = true;
 
 function Minesweeper() {
 	var $win = make_iframe_window({
-		src: "programs/minesweeper/index.html",
+		src: "./C/Program Files/minesweeper/index.html",
 		icons: iconsAtTwoSizes("minesweeper"),
 		title: "Minesweeper",
 		innerWidth: 280,
@@ -396,7 +396,7 @@ function SoundRecorder(file_path) {
 	var win_title = document_title + " - Sound Recorder";
 	// TODO: focus existing window if file is currently open?
 	var $win = make_iframe_window({
-		src: "programs/sound-recorder/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		src: "./C/Program Files/sound-recorder/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: iconsAtTwoSizes("speaker"),
 		title: win_title,
 		innerWidth: 270,
@@ -410,7 +410,7 @@ SoundRecorder.acceptsFilePaths = true;
 
 function Solitaire() {
 	var $win = make_iframe_window({
-		src: "programs/js-solitaire/index.html",
+		src: "./C/Program Files/js-solitaire/index.html",
 		icons: iconsAtTwoSizes("solitaire"),
 		title: "Solitaire",
 		innerWidth: 585,
@@ -487,16 +487,16 @@ function showScreensaver(iframeSrc) {
 
 function Pipes() {
 	const options = { hideUI: true };
-	showScreensaver(`programs/pipes/index.html#${encodeURIComponent(JSON.stringify(options))}`);
+	showScreensaver(`./C/Program Files/pipes/index.html#${encodeURIComponent(JSON.stringify(options))}`);
 }
 
 function FlowerBox() {
-	showScreensaver("programs/3D-FlowerBox/index.html");
+	showScreensaver("./C/Program Files/3D-FlowerBox/index.html");
 }
 
 function CommandPrompt() {
 	var $win = make_iframe_window({
-		src: "programs/command/index.html",
+		src: "./C/Program Files/command/index.html",
 		icons: iconsAtTwoSizes("msdos"),
 		title: "MS-DOS Prompt",
 		// TODO: default dimensions
@@ -544,7 +544,7 @@ function CommandPrompt() {
 
 function Calculator() {
 	var $win = make_iframe_window({
-		src: "programs/calculator/index.html",
+		src: "./C/Program Files/calculator/index.html",
 		icons: iconsAtTwoSizes("calculator"),
 		title: "Calculator",
 		innerWidth: 256,
@@ -557,7 +557,7 @@ function Calculator() {
 
 function Pinball() {
 	var $win = make_iframe_window({
-		src: "programs/pinball/space-cadet.html",
+		src: "./C/Program Files/pinball/space-cadet.html",
 		icons: iconsAtTwoSizes("pinball"),
 		title: "3D Pinball for Windows - Space Cadet",
 		innerWidth: 600,
@@ -603,7 +603,7 @@ function Explorer(address) {
 	var win_title = document_title;
 	// TODO: focus existing window if folder is currently open
 	var $win = make_iframe_window({
-		src: "programs/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
+		src: "./C/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
 		icons: iconsAtTwoSizes("folder-open"),
 		title: win_title,
 		// this is based on one measurement, but it uses different sizes depending on the screen resolution,
@@ -625,10 +625,10 @@ var load_winamp_bundle_if_not_loaded = function (includeButterchurn, callback) {
 		callback();
 	} else {
 		// TODO: parallelize (if possible)
-		$.getScript("programs/winamp/lib/webamp.bundle.min.js", () => {
+		$.getScript("./C/Program Files/winamp/lib/webamp.bundle.min.js", () => {
 			if (includeButterchurn) {
-				$.getScript("programs/winamp/lib/butterchurn.min.js", () => {
-					$.getScript("programs/winamp/lib/butterchurnPresets.min.js", () => {
+				$.getScript("./C/Program Files/winamp/lib/butterchurn.min.js", () => {
+					$.getScript("./C/Program Files/winamp/lib/butterchurnPresets.min.js", () => {
 						callback();
 					});
 				});
@@ -731,11 +731,11 @@ function openWinamp(file_path) {
 					artist: "DJ Mike Llama",
 					title: "Llama Whippin' Intro",
 				},
-				url: "programs/winamp/mp3/llama-2.91.mp3",
+				url: "./C/Program Files/winamp/mp3/llama-2.91.mp3",
 				duration: 5.322286,
 			}],
 			// initialSkin: {
-			// 	url: "programs/winamp/skins/base-2.91.wsz",
+			// 	url: "./C/Program Files/winamp/skins/base-2.91.wsz",
 			// },
 			enableHotkeys: true,
 			handleTrackDropEvent: (event) =>
@@ -1179,21 +1179,21 @@ var add_icon_not_via_filesystem = function (options) {
 add_icon_not_via_filesystem({
 	title: "My Computer",
 	iconID: "my-computer",
-	open: function () { systemExecuteFile("/"); },
+	open: function () { systemExecuteFile("/C/"); },
 	// file_path: "/",
 	is_system_folder: true,
 });
 add_icon_not_via_filesystem({
 	title: "My Documents",
 	iconID: "my-documents-folder",
-	open: function () { systemExecuteFile("/my-documents"); },
+	open: function () { systemExecuteFile("/C/my-documents"); },
 	// file_path: "/my-documents/",
 	is_system_folder: true,
 });
 add_icon_not_via_filesystem({
 	title: "Network Neighborhood",
 	iconID: "network",
-	open: function () { systemExecuteFile("/network-neighborhood"); },
+	open: function () { systemExecuteFile("/C/network-neighborhood"); },
 	// file_path: "/network-neighborhood/",
 	is_system_folder: true,
 });
@@ -1206,7 +1206,7 @@ add_icon_not_via_filesystem({
 add_icon_not_via_filesystem({
 	title: "My Pictures",
 	iconID: "folder",
-	open: function () { systemExecuteFile("/my-pictures"); },
+	open: function () { systemExecuteFile("/C/my-pictures"); },
 	// file_path: "/my-pictures/",
 	is_system_folder: true,
 });
