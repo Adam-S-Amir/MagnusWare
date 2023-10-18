@@ -5,14 +5,22 @@ let CSSLinks = [
     // "./C/System32/CSS/System.css"
 ]
 
-for (var i = 0; i < CSSLinks.length; i++) {
-    let CSS = document.createElement("link");
-    CSS.rel = "stylesheet";
-    CSS.href = CSSLinks[i];
-    document.head.appendChild(CSS);
+function loadCSSSequentially(index) {
+    if (index < CSSLinks.length) {
+        let CSS = document.createElement("link");
+        CSS.rel = "stylesheet";
+        CSS.href = CSSLinks[index];
+        CSS.onload = function () {
+            loadCSSSequentially(index + 1);
+        };
+        document.head.appendChild(CSS);
+    }
 }
 
+loadCSSSequentially(0);
+
 let scriptUrls = [
+    "./C/System32/JS/Clippy/Build/clippy.min.js",
     "./C/System32/JS/Browserfs.js",
     "./C/System32/JS/parse-theme.js",
     "./C/System32/JS/MenuBar.js",
@@ -22,7 +30,6 @@ let scriptUrls = [
     "./C/System32/JS/Filesystem-Setup.js",
     "./C/System32/JS/iframe-windows.js",
     "./C/System32/JS/Task.js",
-    "./C/System32/JS/taskbar-time.js",
     "./C/System32/JS/$start-menu.js",
     "./C/System32/JS/FolderView.js",
     "./C/System32/JS/FolderViewItem.js",
@@ -31,6 +38,7 @@ let scriptUrls = [
     "./C/System32/JS/visualizer-overlay.js",
     "./C/System32/JS/programs.js",
     "./C/System32/JS/Widgets.js",
+    "./C/System32/JS/taskbar-time.js",
     "./C/System32/JS/Settings.js",
     "./C/System32/JS/StoreFront.js",
     "./C/System32/JS/Update.js",
@@ -38,7 +46,6 @@ let scriptUrls = [
     "./C/System32/JS/MagnusFS.js",
     "./C/System32/JS/System.js",
     "./C/System32/JS/JukeBox.js",
-    "./C/System32/JS/Clippy/Build/clippy.min.js",
 ];
 
 function loadScriptsSequentially(index) {
@@ -46,14 +53,13 @@ function loadScriptsSequentially(index) {
         let script = document.createElement("script");
         script.src = scriptUrls[index];
         script.onload = function () {
-            // When this script is loaded, load the next one
             loadScriptsSequentially(index + 1);
         };
         document.body.appendChild(script);
     }
 }
 
-loadScriptsSequentially(0); // Start loading scripts from index 0
+loadScriptsSequentially(0);
 
 const vInfo = document.createElement('span');
 const splash = document.createElement('div');

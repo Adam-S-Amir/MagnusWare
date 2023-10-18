@@ -302,53 +302,51 @@ function hidevol() {
 let level;
 
 function getBatLevel(target) {
-    if ('getBattery' in navigator) {
-        navigator.getBattery().then(function (battery) {
-            let level;
-            let animationInterval;
-            level = battery.level * 100;
-            let titleElement = document.getElementById("battery");
-            let bats = Math.round(level) + "%";
-            titleElement.title = `${bats}`;
+    if ('battery' in navigator) {
+        let battery = navigator.battery;
+        let level;
+        let animationInterval;
+        level = battery.level * 100;
+        let titleElement = document.getElementById("battery");
+        let bats = Math.round(level) + "%";
+        titleElement.title = `${bats}`;
 
-            if (battery.charging) {
-                let batteryani = [
-                    './Assets/Images/Icons/Battery-5.png',
-                    './Assets/Images/Icons/Battery-4.png',
-                    './Assets/Images/Icons/Battery-3.png',
-                    './Assets/Images/Icons/Battery-2.png',
-                    './Assets/Images/Icons/Battery-1.png'
-                ];
-                let curani = 0;
+        if (battery.charging) {
+            let batteryani = [
+                './Assets/Images/Icons/Battery-5.png',
+                './Assets/Images/Icons/Battery-4.png',
+                './Assets/Images/Icons/Battery-3.png',
+                './Assets/Images/Icons/Battery-2.png',
+                './Assets/Images/Icons/Battery-1.png'
+            ];
+            let curani = 0;
 
-                function anistart() {
-                    curani = (curani === 4) ? 0 : ++curani;
-                    titleElement.src = batteryani[curani];
-                }
-                clearInterval(animationInterval);
-                animationInterval = setInterval(anistart, 2000);
-            } else if (!battery.charging) {
-                clearInterval(animationInterval);
-                if (level >= 100) {
-                    titleElement.src = './Assets/Images/Icons/Battery-16x16.png';
-                } else if (level >= 80) {
-                    titleElement.src = './Assets/Images/Icons/Battery-1.png';
-                } else if (level >= 60) {
-                    titleElement.src = './Assets/Images/Icons/Battery-2.png';
-                } else if (level >= 40) {
-                    titleElement.src = './Assets/Images/Icons/Battery-3.png';
-                } else if (level >= 20) {
-                    titleElement.src = './Assets/Images/Icons/Battery-4.png';
-                } else if (level >= 10) {
-                    titleElement.src = './Assets/Images/Icons/Battery-5.png';
-                }
+            function anistart() {
+                curani = (curani === 4) ? 0 : ++curani;
+                titleElement.src = batteryani[curani];
             }
-        });
+            clearInterval(animationInterval);
+            animationInterval = setInterval(anistart, 2000);
+        } else if (!battery.charging) {
+            clearInterval(animationInterval);
+            if (level >= 100) {
+                titleElement.src = './Assets/Images/Icons/Battery-16x16.png';
+            } else if (level >= 80) {
+                titleElement.src = './Assets/Images/Icons/Battery-1.png';
+            } else if (level >= 60) {
+                titleElement.src = './Assets/Images/Icons/Battery-2.png';
+            } else if (level >= 40) {
+                titleElement.src = './Assets/Images/Icons/Battery-3.png';
+            } else if (level >= 20) {
+                titleElement.src = './Assets/Images/Icons/Battery-4.png';
+            } else if (level >= 10) {
+                titleElement.src = './Assets/Images/Icons/Battery-5.png';
+            }
+        }
     }
-    navigator.getBattery().then(function (battery) {
-        battery.addEventListener('chargingchange', getBatLevel);
-    });
 }
+
+getBatLevel(); // Call the function to start monitoring the battery level
 
 
 if (level === 20) {
@@ -368,7 +366,8 @@ if (level === 20) {
 }
 
 function batteryalert() {
-    navigator.getBattery().then(function (battery) {
+    if ('battery' in navigator) {
+        let battery = navigator.battery;
         level = (battery.level * 100);
         let bats = Math.round(level) + "%";
         showMessageBox({
@@ -377,8 +376,9 @@ function batteryalert() {
             iconID: "Battery",
             sound: [Battery.play()],
         });
-    });
+    }
 }
+
 
 //* End Battery Level
 

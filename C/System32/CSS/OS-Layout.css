@@ -125,6 +125,11 @@ body>.window-titlebar {
 	font-family: "Arcade_R";
 	font-size: 7px;
 	color: var(--ActiveTitle);
+	display: inline-table;
+	margin-top: 2px;
+	margin-right: 5px;
+	width: 60px;
+	text-align: center;
 }
 
 .start-menu-titlebar {
@@ -550,11 +555,6 @@ body {
 
 .tray-icon {
 	margin-left: 1px;
-}
-
-.taskbar-time {
-	width: 60px;
-	text-align: center;
 }
 
 /* TODO: offset task button contents down a px when depressed... actually most buttons */
