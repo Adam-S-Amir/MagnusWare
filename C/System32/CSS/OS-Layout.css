@@ -1907,7 +1907,7 @@ so I think I'll immitate that. */
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Traffix";
-	src: url("../font/Traffix/Traffix.ttf") format("truetype");
+	src: url("../font/Traffix/Traffix.TTF") format("truetype");
 }
 
 

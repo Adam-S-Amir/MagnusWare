@@ -707,6 +707,7 @@ ${doc.documentElement.outerHTML}`;
 									/* mix-blend-mode seems to need a background (for the dotted focus effect) */
 									background: var(--Window);
 									color: var(--WindowText);
+									font-family: "Verdana";
 								}
 							</style>
 						`);
@@ -842,7 +843,7 @@ ${doc.documentElement.outerHTML}`;
 		<link href="/C/System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<script src="/C/System32/JS/jquery.min.js"></script>
-		<script src="/C/System32/JS/$Window.js"></script>
+		<script src="/C/System32/JS/Window.js"></script>
 		<script src="/C/System32/JS/msgbox.js"></script>
 		<script>defaultMessageBoxTitle = "Explorer";</script>
 		<script>

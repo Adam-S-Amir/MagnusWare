@@ -354,8 +354,7 @@
         "explorer.css": null,
         "explorer.js": null,
         "index.html": null,
-        "menus.js": null,
-        "README.md": null
+        "menus.js": null
       },
       "js-solitaire": {
         ".eslintrc.js": null,
@@ -4550,11 +4549,10 @@
       "JS": {
         "$Desktop.js": null,
         "$Start-Menu.js": null,
-        "$Window.js": null,
         "Browserfs.js": null,
-        "Browserfs.Js.map": null,
+        "Browserfs.js.map": null,
         "Browserfs.Min.js": null,
-        "Browserfs.Min.Js.map": null,
+        "Browserfs.Min.js.map": null,
         "Clippy": {
           "agents": {
             "Bonzi": {
@@ -4651,7 +4649,8 @@
         "Update.js": null,
         "Visualizer-Overlay.js": null,
         "Widgets.js": null,
-        "Window-Switcher.js": null
+        "Window-Switcher.js": null,
+        "Window.js": null
       }
     },
     "WEB": {
