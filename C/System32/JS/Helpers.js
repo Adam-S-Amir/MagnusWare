@@ -32,7 +32,7 @@ function E(t) {
 	return document.createElement(t);
 }
 
-var DESKTOP_ICON_SIZE = 32;
+var DESKTOP_ICON_SIZE = 48;
 var TASKBAR_ICON_SIZE = 16;
 var TITLEBAR_ICON_SIZE = 16;
 
@@ -58,7 +58,7 @@ If the check in step 2 returns a falsy value (meaning "98.js.org" is not found i
 function iconsAtTwoSizes(iconID) {
 	return {
 		16: `C/System32/Images/icons/${iconID}-16x16.png`,
-		32: `C/System32/Images/icons/${iconID}-32x32.png`,
+		48: `C/System32/Images/icons/${iconID}-48x48.png`,
 	};
 }
 
