@@ -1,7 +1,7 @@
 function show_help(options) {
 	const $help_window = $Window({
 		title: options.title || "Help Topics",
-		icons: iconsAtTwoSizes("chm"),
+		icons: "chm",
 		resizable: true,
 	})
 	$help_window.addClass("help-window");
@@ -249,7 +249,7 @@ function Notepad(file_path) {
 
 	var $win = make_iframe_window({
 		src: "./C/Program Files/notepad/index.html" + (file_path ? ("?path=" + file_path) : ""),
-		icons: iconsAtTwoSizes("notepad"),
+		icons: "notepad",
 		title: win_title,
 		outerWidth: 480,
 		outerHeight: 321,
@@ -262,7 +262,7 @@ Notepad.acceptsFilePaths = true;
 function Paint(file_path) {
 	var $win = make_iframe_window({
 		src: "./C/Program Files/jspaint/index.html",
-		icons: iconsAtTwoSizes("paint"),
+		icons: "paint",
 		// NOTE: in Windows 98, "untitled" is lowercase, but TODO: we should just make it consistent
 		title: "untitled - Paint",
 		outerWidth: 275,
@@ -381,7 +381,7 @@ Paint.acceptsFilePaths = true;
 function Minesweeper() {
 	var $win = make_iframe_window({
 		src: "./C/Program Files/minesweeper/index.html",
-		icons: iconsAtTwoSizes("minesweeper"),
+		icons: "minesweeper",
 		title: "Minesweeper",
 		innerWidth: 280,
 		innerHeight: 320 + 21,
@@ -397,7 +397,7 @@ function SoundRecorder(file_path) {
 	// TODO: focus existing window if file is currently open?
 	var $win = make_iframe_window({
 		src: "./C/Program Files/sound-recorder/index.html" + (file_path ? ("?path=" + file_path) : ""),
-		icons: iconsAtTwoSizes("speaker"),
+		icons: "speaker",
 		title: win_title,
 		innerWidth: 270,
 		innerHeight: 108 + 21,
@@ -411,7 +411,7 @@ SoundRecorder.acceptsFilePaths = true;
 function Solitaire() {
 	var $win = make_iframe_window({
 		src: "./C/Program Files/js-solitaire/index.html",
-		icons: iconsAtTwoSizes("solitaire"),
+		icons: "solitaire",
 		title: "Solitaire",
 		innerWidth: 585,
 		innerHeight: 384 + 21,
@@ -497,7 +497,7 @@ function FlowerBox() {
 function CommandPrompt() {
 	var $win = make_iframe_window({
 		src: "./C/Program Files/command/index.html",
-		icons: iconsAtTwoSizes("msdos"),
+		icons: "msdos",
 		title: "MS-DOS Prompt",
 		// TODO: default dimensions
 		innerWidth: 640,
@@ -545,7 +545,7 @@ function CommandPrompt() {
 function Calculator() {
 	var $win = make_iframe_window({
 		src: "./C/Program Files/calculator/index.html",
-		icons: iconsAtTwoSizes("calculator"),
+		icons: "calculator",
 		title: "Calculator",
 		innerWidth: 256,
 		innerHeight: 208 + 21,
@@ -558,7 +558,7 @@ function Calculator() {
 function Pinball() {
 	var $win = make_iframe_window({
 		src: "./C/Program Files/pinball/space-cadet.html",
-		icons: iconsAtTwoSizes("pinball"),
+		icons: "pinball",
 		title: "3D Pinball for Windows - Space Cadet",
 		innerWidth: 600,
 		innerHeight: 416 + 20, // @TODO: where's this 20 coming from?
@@ -604,7 +604,7 @@ function Explorer(address) {
 	// TODO: focus existing window if folder is currently open
 	var $win = make_iframe_window({
 		src: "./C/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
-		icons: iconsAtTwoSizes("folder-open"),
+		icons: "folder-open",
 		title: win_title,
 		// this is based on one measurement, but it uses different sizes depending on the screen resolution,
 		// and may be different for different Explorer window types (Microsoft Internet Explorer, "Exploring", normal Windows Explorer*),
@@ -1283,10 +1283,3 @@ add_icon_not_via_filesystem({
 });
 
 folder_view.arrange_icons();
-
-function iconsAtTwoSizes(iconID) {
-	return {
-		16: `images/icons/${iconID}-16x16.png`,
-		32: `images/icons/${iconID}-32x32.png`,
-	};
-}

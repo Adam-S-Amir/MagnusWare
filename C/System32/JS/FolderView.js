@@ -14,7 +14,7 @@ window.resetAllFolderCustomizations = () => {
 };
 
 const icon_size_by_view_mode = {
-	LARGE_ICONS: 32,
+	LARGE_ICONS: 48,
 	SMALL_ICONS: 16,
 	DETAILS: 16,
 	LIST: 16,
