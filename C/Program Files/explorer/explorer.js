@@ -279,10 +279,10 @@ var resolve_address = async function (address) {
 				address = "https://web.archive.org/web/2015-05-05/" + address;
 			// complete exemptions:
 			} else if (
-				!address.match(/^https?:\/\/(www\.)?(copy.sh|topotech.github.io\/interdimensionalcable|isaiahodhner.io|brie.fi\/ng)/) &&
+				!address.match() &&
 				!address.match(/^(file|data|blob):\/\//)
 			) {
-				address = "https://web.archive.org/web/1998/" + address;
+				address = "" + address;
 			}
 		}
 		is_url = true;
@@ -364,7 +364,7 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 		htt = `
 			<object border=0 tabindex=1 classid="clsid:1820FED0-473E-11D0-A96C-00C04FD705A2" style="height: 100%; width: 100%;"></object>
 		`;
-		template_url = "https://isaiahodhner.io/lock-ness-monster/sorry"; // valid URL, but nonsense (I'm a little bit tired so doing things stupidly)
+		template_url = "https://github.com/Adam-S-Amir/"; // valid URL, but nonsense (I'm a little bit tired so doing things stupidly)
 	} else {
 		// @TODO: load FOLDER.HTT from the folder we're showing, if it exists
 		const template_file_name =
@@ -955,7 +955,7 @@ function can_go_up() {
 }
 
 function go_home() {
-	go_to("https://isaiahodhner.io/"); // My personal homepage; I might use a search engine, but they don't support iframes
+	go_to("https://github.com/Adam-S-Amir/"); // My personal homepage; I might use a search engine, but they don't support iframes
 }
 
 function executeFile(file_path) {

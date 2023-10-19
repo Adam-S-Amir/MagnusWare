@@ -1070,6 +1070,7 @@ var file_extension_associations = {
 	sh: Notepad,
 	ts: Notepad,
 	txt: Notepad,
+	py: Notepad,
 	vcxproj: Notepad,
 	webmanifest: Notepad,
 	xml: Notepad,
@@ -1167,7 +1168,7 @@ function systemExecuteFile(file_path) {
 // Note: `C:\Windows\Desktop` doesn't contain My Computer, My Documents, Network Neighborhood, Recycle Bin, or Internet Explorer,
 // or Connect to the Internet, or Setup MSN Internet Access,
 // whereas `Desktop` does (that's the full address it shows; it's one of them "special locations")
-var add_icon_not_via_filesystem = function (options) {
+var Create_Icon = function (options) {
 	folder_view.add_item(new FolderViewItem({
 		icons: {
 			// @TODO: know what sizes are available
@@ -1176,106 +1177,106 @@ var add_icon_not_via_filesystem = function (options) {
 		...options,
 	}));
 };
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "My Computer",
 	iconID: "my-computer",
 	open: function () { systemExecuteFile("/C/"); },
 	// file_path: "/",
 	is_system_folder: true,
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "My Documents",
 	iconID: "my-documents-folder",
 	open: function () { systemExecuteFile("/C/my-documents"); },
 	// file_path: "/my-documents/",
 	is_system_folder: true,
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Network Neighborhood",
 	iconID: "network",
 	open: function () { systemExecuteFile("/C/network-neighborhood"); },
 	// file_path: "/network-neighborhood/",
 	is_system_folder: true,
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Recycle Bin",
 	iconID: "recycle-bin",
 	open: function () { Explorer("https://www.epa.gov/recycle/"); },
 	is_system_folder: true,
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "My Pictures",
 	iconID: "folder",
 	open: function () { systemExecuteFile("/C/my-pictures"); },
 	// file_path: "/my-pictures/",
 	is_system_folder: true,
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Internet Explorer",
 	iconID: "internet-explorer",
 	open: function () { Explorer("https://www.google.com/"); }
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Paint",
 	iconID: "paint",
 	open: Paint,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Minesweeper",
 	iconID: "minesweeper",
 	open: Minesweeper,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Sound Recorder",
 	iconID: "speaker",
 	open: SoundRecorder,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Solitaire",
 	iconID: "solitaire",
 	open: Solitaire,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Notepad",
 	iconID: "notepad",
 	open: Notepad,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Winamp",
 	iconID: "winamp2",
 	open: openWinamp,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "3D Pipes",
 	iconID: "pipes",
 	open: Pipes,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "3D Flower Box",
 	iconID: "pipes",
 	open: FlowerBox,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "MS-DOS Prompt",
 	iconID: "msdos",
 	open: CommandPrompt,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Calculator",
 	iconID: "calculator",
 	open: Calculator,
 	shortcut: false
 });
-add_icon_not_via_filesystem({
+Create_Icon({
 	title: "Pinball",
 	iconID: "pinball",
 	open: Pinball,

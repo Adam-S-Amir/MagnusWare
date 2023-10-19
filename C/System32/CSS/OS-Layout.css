@@ -452,10 +452,10 @@ body>.window-titlebar {
 	text-overflow: ellipsis;
 }
 
-* {
+/* * {
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
-}
+} */
 
 .menu-hotkey {
 	/* TODO: remove once this is in os-gui */
