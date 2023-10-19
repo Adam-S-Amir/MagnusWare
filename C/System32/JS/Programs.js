@@ -1219,67 +1219,67 @@ add_icon_not_via_filesystem({
 	title: "Paint",
 	iconID: "paint",
 	open: Paint,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "Minesweeper",
 	iconID: "minesweeper",
 	open: Minesweeper,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "Sound Recorder",
 	iconID: "speaker",
 	open: SoundRecorder,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "Solitaire",
 	iconID: "solitaire",
 	open: Solitaire,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "Notepad",
 	iconID: "notepad",
 	open: Notepad,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "Winamp",
 	iconID: "winamp2",
 	open: openWinamp,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "3D Pipes",
 	iconID: "pipes",
 	open: Pipes,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "3D Flower Box",
 	iconID: "pipes",
 	open: FlowerBox,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "MS-DOS Prompt",
 	iconID: "msdos",
 	open: CommandPrompt,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "Calculator",
 	iconID: "calculator",
 	open: Calculator,
-	shortcut: true
+	shortcut: false
 });
 add_icon_not_via_filesystem({
 	title: "Pinball",
 	iconID: "pinball",
 	open: Pinball,
-	shortcut: true
+	shortcut: false
 });
 
 folder_view.arrange_icons();

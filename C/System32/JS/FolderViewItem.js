@@ -77,7 +77,6 @@ function FolderViewItem(options) {
 			$selection_effect[0].style.setProperty("--icon-image", "none");
 		}
 		$icon_wrapper[0].style.setProperty("--icon-size", this.iconSize + "px");
-		$icon_wrapper[0].style.setProperty("--shortcut-icon", `url("${getIconPath("shortcut", this.iconSize)}")`);
 	};
 	this.setIcons = (new_icons) => {
 		this.icons = new_icons;

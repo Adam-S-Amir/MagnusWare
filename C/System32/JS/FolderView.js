@@ -15,15 +15,17 @@ window.resetAllFolderCustomizations = () => {
 
 const icon_size_by_view_mode = {
 	LARGE_ICONS: 48,
+	MEDIUM_ICONS: 32,
 	SMALL_ICONS: 16,
 	DETAILS: 16,
 	LIST: 16,
-	DESKTOP: 32,
+	DESKTOP: 48,
 };
 
 FolderView.VIEW_MODES = {
 	THUMBNAILS: "THUMBNAILS", // hidden until you right click in a folder, go to Properties, and enable thumbnails
 	LARGE_ICONS: "LARGE_ICONS", // left to right, then top to bottom
+	MEDIUM_ICONS: "MEDIUM_ICONS",
 	SMALL_ICONS: "SMALL_ICONS", // left to right, then top to bottom
 	DETAILS: "DETAILS", // table view
 	LIST: "LIST", // top to bottom, then left to right
@@ -213,7 +215,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		const large_icons =
 			this.config.view_mode === FolderView.VIEW_MODES.LARGE_ICONS ||
 			this.config.view_mode === FolderView.VIEW_MODES.DESKTOP;
-		const icon_size = icon_size_by_view_mode[this.config.view_mode] || 32;
+		const icon_size = icon_size_by_view_mode[this.config.view_mode] || 48;
 
 		const grid_size_x = large_icons ? grid_size_x_for_large_icons : grid_size_x_for_small_icons;
 		const grid_size_y = large_icons ? grid_size_y_for_large_icons : grid_size_y_for_small_icons;
