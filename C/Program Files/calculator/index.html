@@ -4,18 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <title>Calculator</title>
-    <link href="../../lib/os-gui/layout.css" rel="stylesheet" type="text/css">
-    <link href="../../lib/os-gui/windows-98.css" rel="stylesheet" type="text/css">
+    <link href="../../System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="../../images/icons/calculator-16x16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="../../images/icons/calculator-32x32.png" sizes="32x32" type="image/png">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <script src="../../lib/jquery.min.js"></script>
-    <script src="../../lib/os-gui/MenuBar.js"></script>
-    <script src="../../lib/os-gui/$Window.js"></script>
-    <script src="../../src/msgbox.js"></script>
-    <script>defaultMessageBoxTitle = "Calculator";</script>
-    <script src="menus.js"></script>
-    <link href="windows-98-calc.css" rel="stylesheet" type="text/css">
+    <script src="../../System32/JS/jquery.min.js"></script>
+    <script src="../../System32/JS/MenuBar.js"></script>
+    <script src="../../System32/JS/Window.js"></script>
+    <script src="../../System32/JS/msgbox.js"></script>
+    <script>
+        defaultMessageBoxTitle = "Calculator";
+    </script>
+    <script src="./menus.js"></script>
+    <link href="./calc.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -28,22 +29,22 @@
         function show(msg) {
             document.querySelector(".splash > .msg").innerHTML = msg;
         }
+
         function revealCalc() {
             document.querySelector(".container").style.display = "";
             document.querySelector(".splash").style.display = "none";
         }
     </script>
     <!--TODO: is there a race condition where script.js loads too late to define initialise for engine.js to call? or is order guaranteed even with async somehow?-->
-    <script async src="mcalculator/server/public/js/script.js"></script>
-    <script async onload="show('Please wait...');" src="mcalculator/server/public/js/engine.js"></script>
+    <script async src="./mcalculator/server/public/js/script.js"></script>
+    <script async onload="show('Please wait...');" src="./mcalculator/server/public/js/engine.js"></script>
     <!--Ids of buttons exactly match the Command enum names of CalculationManager namespace of engine-->
     <div style="display: none;" class="container">
         <div id="calc">
 
             <div id="display">
                 <div id="expression" hidden>expression panel</div>
-                <input id="primary" class="inset-deep" style="background: var(--Window); color: var(--WindowText)"
-                    readonly value="0">
+                <input id="primary" class="inset-deep" style="background: var(--Window); color: var(--WindowText)" readonly value="0">
             </div>
             <div id="inp">
                 <div class="row row-with-deletion-options">
@@ -150,7 +151,7 @@
             </div>
         </div>
     </div>
-    <link rel="stylesheet" href="mcalculator/server/public/fonts.css" />
+    <link rel="stylesheet" href="./mcalculator/server/public/fonts.css" />
     <!-- <link rel="stylesheet" href="mcalculator/server/public/standard.css" /> -->
     <noscript>
         <p>Calculator requires Javascript and WebAssembly to be enabled.</p>

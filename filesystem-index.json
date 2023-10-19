@@ -168,134 +168,18 @@
         "README.md": null
       },
       "calculator": {
-        "calculator-reference-screenshot.png": null,
-        "calculator-remake-screenshot.png": null,
+        "calc.css": null,
         "index.html": null,
         "mcalculator": {
-          ".gitignore": null,
-          ".gitrepo": null,
           "engine": {
-            ".gitignore": null,
-            "CalcManager": {
-              "CalcManager.vcxproj": null,
-              "CalcManager.vcxproj.filters": null,
-              "CalculatorHistory.cpp": null,
-              "CalculatorHistory.h": null,
-              "CalculatorManager.cpp": null,
-              "CalculatorManager.h": null,
-              "CalculatorResource.h": null,
-              "CalculatorVector.h": null,
-              "CEngine": {
-                "calc.cpp": null,
-                "CalcInput.cpp": null,
-                "CalcUtils.cpp": null,
-                "History.cpp": null,
-                "Number.cpp": null,
-                "Rational.cpp": null,
-                "RationalMath.cpp": null,
-                "scicomm.cpp": null,
-                "scidisp.cpp": null,
-                "scifunc.cpp": null,
-                "scioper.cpp": null,
-                "sciset.cpp": null
-              },
-              "CMakeLists.txt": null,
-              "Command.h": null,
-              "ExpressionCommand.cpp": null,
-              "ExpressionCommand.h": null,
-              "ExpressionCommandInterface.h": null,
-              "Header Files": {
-                "CalcEngine.h": null,
-                "CalcInput.h": null,
-                "CalcUtils.h": null,
-                "CCommand.h": null,
-                "EngineStrings.h": null,
-                "History.h": null,
-                "ICalcDisplay.h": null,
-                "IHistoryDisplay.h": null,
-                "Number.h": null,
-                "RadixType.h": null,
-                "Rational.h": null,
-                "RationalMath.h": null
-              },
-              "NumberFormattingUtils.cpp": null,
-              "NumberFormattingUtils.h": null,
-              "pch.cpp": null,
-              "pch.h": null,
-              "Ratpack": {
-                "basex.cpp": null,
-                "CalcErr.h": null,
-                "conv.cpp": null,
-                "exp.cpp": null,
-                "fact.cpp": null,
-                "itrans.cpp": null,
-                "itransh.cpp": null,
-                "logic.cpp": null,
-                "num.cpp": null,
-                "rat.cpp": null,
-                "ratconst.h": null,
-                "ratpak.h": null,
-                "support.cpp": null,
-                "trans.cpp": null,
-                "transh.cpp": null
-              },
-              "sal_cross_platform.h": null,
-              "UnitConverter.cpp": null,
-              "UnitConverter.h": null,
-              "winerror_cross_platform.h": null
-            },
-            "CalcModel": {
-              "CMakeLists.txt": null,
-              "Common": {
-                "CalcDisplay.cpp": null,
-                "CalcDisplay.h": null,
-                "EngineResourceProv.cpp": null,
-                "EngineResourceProv.h": null
-              },
-              "StandardModel.cpp": null,
-              "StandardModel.h": null
-            },
-            "clean.sh": null,
-            "CMakeLists.txt": null,
-            "CODE_OF_CONDUCT.md": null,
-            "CONTRIBUTING.md": null,
-            "docs": {
-              "ApplicationArchitecture.md": null,
-              "Images": {
-                "calc screenshot.png": null,
-                "calc-memory.gif": null,
-                "calc-responsive.gif": null,
-                "calc-screenshot.png": null,
-                "CalculatorScreenshot.png": null,
-                "VisualStates": {
-                  "Converter1.gif": null,
-                  "Scientific1.gif": null,
-                  "Standard1.gif": null
-                },
-                "VSInstallationScreenshot.png": null
-              },
-              "ManualTests.md": null,
-              "NewFeatureProcess.md": null,
-              "Roadmap.md": null
-            },
             "engine.js": null,
-            "engine.wasm": null,
-            "LICENSE": null,
-            "NOTICE.txt": null,
-            "README.md": null,
-            "SECURITY.md": null,
-            "wrapper.cpp": null
+            "engine.wasm": null
           },
-          "LICENSE": null,
-          "README.md": null,
           "server": {
-            ".gitignore": null,
             "app.js": null,
             "bin": {
               "www": null
             },
-            "package-lock.json": null,
-            "package.json": null,
             "public": {
               "assets": {
                 "CalcMDL2.ttf": null,
@@ -335,15 +219,12 @@
               "splash.css": null,
               "standard.css": null
             },
-            "README.md": null,
             "routes": {
               "index.js": null
             }
           }
         },
-        "menus.js": null,
-        "README.md": null,
-        "windows-98-calc.css": null
+        "menus.js": null
       },
       "command": {
         "command-message.zip": null,
@@ -3778,7 +3659,6 @@
           "FileSaver.js": null,
           "moment.js": null
         },
-        "README.md": null,
         "src": {
           "app.js": null,
           "menus.js": null
