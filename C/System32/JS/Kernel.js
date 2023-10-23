@@ -79,7 +79,6 @@ let start = [`
     <div class="start-button toggle" title="Click here to begin.">
         <img id="start-img" src="./C/System32/Images/Common/start.png">
     </div>
-    <div class="taskbar-divider"></div>
     <div class="tasks"></div>
     <div id="tray" class="tray inset-shallow">
     <div class="tray-icons">
