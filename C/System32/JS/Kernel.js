@@ -85,7 +85,6 @@ let start = [`
     <div id="tray" class="tray inset-shallow">
     <div class="tray-icons">
         <img class="tray-icon" src="./C/System32/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
-        <img class="tray-icon" src="./C/System32/Images/Icons/battery-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
         <img class="tray-icon" src="./C/System32/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
     </div>
     <div class="taskbar-time" id="time" onclick="hidecal()"></div>

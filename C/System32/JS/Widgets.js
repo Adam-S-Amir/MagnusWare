@@ -1,6 +1,3 @@
-// * Onload function
-getBatLevel();
-
 // ^ Lame attempt at closing a window with CTRL + W
 document.addEventListener('keydown', function (event) {
     if (event.ctrlKey && event.key === 'W') {
@@ -299,87 +296,87 @@ function hidevol() {
 //* End JukeBox
 
 //* Battery Level
-let level;
+// <img class="tray-icon" src="./C/System32/Images/Icons/battery-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
+// ^ Placed in kernel, but shit is outdated now :(
+// let level;
 
-function getBatLevel(target) {
-    if ('battery' in navigator) {
-        let battery = navigator.battery;
-        let level;
-        let animationInterval;
-        level = battery.level * 100;
-        let titleElement = document.getElementById("battery");
-        let bats = Math.round(level) + "%";
-        titleElement.title = `${bats}`;
+// let animationInterval; // Moved this variable outside of the function to prevent multiple interval instances.
 
-        if (battery.charging) {
-            let batteryani = [
-                './Assets/Images/Icons/Battery-5.png',
-                './Assets/Images/Icons/Battery-4.png',
-                './Assets/Images/Icons/Battery-3.png',
-                './Assets/Images/Icons/Battery-2.png',
-                './Assets/Images/Icons/Battery-1.png'
-            ];
-            let curani = 0;
+// function getBatLevel() {
+//     navigator.getBattery().then(function (battery) {
+//         level = battery.level * 100; // Removed the "let" here to update the global variable.
+//         let titleElement = document.getElementById("battery");
+//         let bats = Math.round(level) + "%";
+//         titleElement.title = `${bats}`;
 
-            function anistart() {
-                curani = (curani === 4) ? 0 : ++curani;
-                titleElement.src = batteryani[curani];
-            }
-            clearInterval(animationInterval);
-            animationInterval = setInterval(anistart, 2000);
-        } else if (!battery.charging) {
-            clearInterval(animationInterval);
-            if (level >= 100) {
-                titleElement.src = './Assets/Images/Icons/Battery-16x16.png';
-            } else if (level >= 80) {
-                titleElement.src = './Assets/Images/Icons/Battery-1.png';
-            } else if (level >= 60) {
-                titleElement.src = './Assets/Images/Icons/Battery-2.png';
-            } else if (level >= 40) {
-                titleElement.src = './Assets/Images/Icons/Battery-3.png';
-            } else if (level >= 20) {
-                titleElement.src = './Assets/Images/Icons/Battery-4.png';
-            } else if (level >= 10) {
-                titleElement.src = './Assets/Images/Icons/Battery-5.png';
-            }
-        }
-    }
-}
+//         if (battery.charging) {
+//             let batteryani = [
+//                 './Assets/Images/Icons/Battery-5.png',
+//                 './Assets/Images/Icons/Battery-4.png',
+//                 './Assets/Images/Icons/Battery-3.png',
+//                 './Assets/Images/Icons/Battery-2.png',
+//                 './Assets/Images/Icons/Battery-1.png'
+//             ];
+//             let curani = 0;
 
-getBatLevel(); // Call the function to start monitoring the battery level
+//             function anistart() {
+//                 curani = (curani === 4) ? 0 : ++curani;
+//                 titleElement.src = batteryani[curani];
+//             }
 
+//             clearInterval(animationInterval);
+//             animationInterval = setInterval(anistart, 2000);
+//         } else {
+//             clearInterval(animationInterval);
+//             if (level >= 100) {
+//                 titleElement.src = './Assets/Images/Icons/Battery-16x16.png';
+//             } else if (level >= 80) {
+//                 titleElement.src = './Assets/Images/Icons/Battery-1.png';
+//             } else if (level >= 60) {
+//                 titleElement.src = './Assets/Images/Icons/Battery-2.png';
+//             } else if (level >= 40) {
+//                 titleElement.src = './Assets/Images/Icons/Battery-3.png';
+//             } else if (level >= 20) {
+//                 titleElement.src = './Assets/Images/Icons/Battery-4.png';
+//             } else if (level >= 10) {
+//                 titleElement.src = './Assets/Images/Icons/Battery-5.png';
+//             }
+//         }
+//     });
+// }
 
-if (level === 20) {
-    showMessageBox({
-        title: "Battery Alert",
-        message: 'Battery is at ' + `${bats}` + '!',
-        iconID: "Battery",
-        sound: [Battery.play()],
-    });
-} else if (level === 10) {
-    showMessageBox({
-        title: "Battery Alert",
-        message: 'Battery is at ' + `${bats}` + '!',
-        iconID: "Battery",
-        sound: [CriticalBattery.play()],
-    });
-}
+// navigator.getBattery().then(function (battery) {
+//     battery.addEventListener('chargingchange', getBatLevel);
+// });
 
-function batteryalert() {
-    if ('battery' in navigator) {
-        let battery = navigator.battery;
-        level = (battery.level * 100);
-        let bats = Math.round(level) + "%";
-        showMessageBox({
-            title: "Battery Alert",
-            message: 'Battery is at ' + `${bats}` + '!',
-            iconID: "Battery",
-            sound: [Battery.play()],
-        });
-    }
-}
+// if (level === 20) {
+//     showMessageBox({
+//         title: "Battery Alert",
+//         message: 'Battery is at ' + `${bats}` + '!',
+//         iconID: "Battery",
+//         sound: [Battery.play()],
+//     });
+// } else if (level === 10) {
+//     showMessageBox({
+//         title: "Battery Alert",
+//         message: 'Battery is at ' + `${bats}` + '!',
+//         iconID: "Battery",
+//         sound: [CriticalBattery.play()],
+//     });
+// }
 
-
+// function batteryalert() {
+//     navigator.getBattery().then(function (battery) {
+//         level = (battery.level * 100);
+//         let bats = Math.round(level) + "%";
+//         showMessageBox({
+//             title: "Battery Alert",
+//             message: 'Battery is at ' + `${bats}` + '!',
+//             iconID: "Battery",
+//             sound: [Battery.play()],
+//         });
+//     });
+// }
 //* End Battery Level
 
 //* Wifi
