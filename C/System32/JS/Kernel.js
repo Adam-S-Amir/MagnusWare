@@ -81,7 +81,6 @@ let start = [`
     </div>
     <div class="taskbar-divider"></div>
     <div class="tasks"></div>
-    <div class="taskbar-divider"></div>
     <div id="tray" class="tray inset-shallow">
     <div class="tray-icons">
         <img class="tray-icon" src="./C/System32/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">

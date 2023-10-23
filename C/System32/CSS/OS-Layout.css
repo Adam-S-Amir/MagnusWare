@@ -1,5 +1,4 @@
 :root {
-
 	--tray: url("../Images/Common/Tray.png");
 
 	--checker: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAABtJREFUGFdjPHjm5v9DZ28wMDbP3PjfzliDAQBkbgk09F7oYQAAAABJRU5ErkJggg==);
@@ -162,11 +161,6 @@ body>.window-titlebar {
 
 .desktop {
 	background: var(--Background);
-}
-
-.taskbar-divider {
-	border-left: 1px solid var(--ButtonShadow);
-	border-right: 1px solid var(--ButtonHilight);
 }
 
 .taskbar-time {
@@ -553,9 +547,9 @@ body {
 
 /* .taskbar-button is generally .task or .start-button for now */
 .taskbar,
-.taskbar-divider,
 .tray {
-	background: var(--tray);
+	/* background: var(--tray); */
+	background-color: var(--ButtonFace)
 }
 .taskbar button,
 .taskbar-divider,
