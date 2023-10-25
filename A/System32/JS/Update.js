@@ -3,7 +3,7 @@ function checkUpdate() {
   if (UpdateData) {
     let UpdateObj = JSON.parse(UpdateData);
     if (!UpdateObj.hasOwnProperty("1")) {
-      console.log("System Is Up To Date!");
+      console.warn("System Is Up To Date!");
     }
   } else {
     updater();

@@ -5,8 +5,8 @@ var __fs_waiting_callbacks = [];
 const desktop_folder_path = "/A/desktop/";
 const web_server_root_for_browserfs =
 	location.href.match(/98.js.org/) ?
-	location.href.match(/.*98.js.org/)[0] + "/" :
-	`${window.location.origin}/`;
+		location.href.match(/.*98.js.org/)[0] + "/" :
+		`${window.location.origin}/`;
 
 BrowserFS.configure({
 	fs: "OverlayFS",
@@ -14,13 +14,17 @@ BrowserFS.configure({
 		writable: {
 			fs: "IndexedDB",
 			options: {
-				storeName: "C:"
+				storeName: "A:&#92;"
 			}
 		},
 		readable: {
 			fs: "XmlHttpRequest",
 			options: {
 				index: web_server_root_for_browserfs + "filesystem-index.json",
+				action: function() {
+					console.log('JSON file loaded successfully.');
+					// You can perform further actions here after the JSON file is loaded.
+				}
 			}
 		}
 	}

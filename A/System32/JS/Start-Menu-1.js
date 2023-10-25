@@ -1070,8 +1070,7 @@ function dbbc(id, url, w, h, add) {
         return "";
     }
     // image src
-    let source = `./A/System32/Images/Icons/${url}-32x32.png`;
-    return "<img id=\"" + id + "\" src=\"" + source + "\" " + (w ? "width=" + w : "") + (h ? " height=" + h : "") + " " + add + " border=0>";
+    return "<img id=\"" + id + "\" src=\"" + url + "\" " + (w ? "width=" + w : "") + (h ? " height=" + h : "") + " " + add + " border=0>";
 }
 
 function dm_mouseSmOut(doj) {

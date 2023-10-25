@@ -438,9 +438,9 @@ document.addEventListener('DOMContentLoaded', function () { });
 let Tclippy = localStorage.getItem('Tclippy');
 let clappy = localStorage.getItem('clippy');
 if (Tclippy === '1') {
-    console.log("Clippy disabled");
+    console.warn("Clippy is Disabled");
 } else if (Tclippy === null) {
-    console.log("Clippy Toggle never initialized");
+    console.warn("Toggle Clippy Never Initialized.");
 }
 if (clappy === null && Tclippy === null) {
     CClippy();
@@ -453,7 +453,7 @@ if (clappy === null && Tclippy === null) {
         CClippy();
     }
 } else if (clappy === null && Tclippy === null) {
-    console.log("Clippy never initialized");
+    console.log("Clippy Never Initialized.");
 }
 
 function CClippy() {
@@ -486,9 +486,10 @@ let BN = localStorage.getItem("BN");
 if (uid === null && BN === null) {
     UID();
     BuildNumber();
-    console.log('Making UID')
+    console.log('Defining UID...')
 } else {
-    console.log("UID is " + uid + " and BuildNumber is " + BN);
+    console.warn("User ID [UID] is " + uid + ".");
+    console.warn("Current MagnusWare v" + MagnusWare_V + " Build Number is " + BN + ".");
 }
 
 function UID() {
@@ -512,11 +513,12 @@ let uname = localStorage.getItem('username');
 if (uname === null) {
     let username = 'User';
     localStorage.setItem('username', username);
-    console.log('No username specified, using default username');
+    console.error('Username Unspecified. Loading Default Username...');
+    console.warn("Welcome to MagnusWare v" + MagnusWare_V + ", " + uname);
 } else {
-    console.log("Welcome back, " + uname + "!");
+    console.warn("Welcome back, " + uname + "!");
 }
 
-document.title = `MagnusWare | v4.0 ${BN}`
+document.title = `MagnusWare | v${MagnusWare_V} ${BN}`
 
 //* End User
