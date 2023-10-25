@@ -1,7 +1,7 @@
 console.log("Kernel Successfully Initialized.")
 
 let CSSLinks = [
-    "OS-Layout.css",
+    "MagnusWare-Layout.css",
     "Stylesheet.css",
     // "jQuery-ui.css",
     // "System.css"
@@ -30,7 +30,7 @@ let scriptUrls = [
     "Window.js",
     "Msgbox.js",
     "Filesystem-Setup.js",
-    "iframe-windows.js",
+    "Iframe-Windows.js",
     "Task.js",
     "Start-Menu.js",
     "FolderView.js",
@@ -39,12 +39,12 @@ let scriptUrls = [
     "Window-Switcher.js",
     "Visualizer-Overlay.js",
     "Programs.js",
-    "Widgets.js",
+    "Cursor.js",
     "Taskbar-Time.js",
     "Settings.js",
     "StoreFront.js",
+    "Widgets.js",
     "Update.js",
-    "Cursor.js",
     "MagnusFS.js",
     "System.js",
     "JukeBox.js",
@@ -196,3 +196,72 @@ document.body.appendChild(vInfo);
 document.body.appendChild(taskbr);
 document.body.appendChild(splash);
 document.getElementById('splash-screen').style.display = 'none';
+
+let wifi = `
+<div class="wifi-body">
+    <p>
+        <span id='wifi-type'></span>
+    </p>
+    <p>
+        <span id='wifi-downlink'></span>
+    </p>
+    <p>
+        <span id='wifi-downlink-max'></span>
+    </p>
+    <p>
+        <span id='wifi-rtt'></span>
+    </p>
+    <p>
+        <span id='wifi-save-data'></span>
+    </p>
+    <p>
+        <span id='wifi-effective-type'></span>
+    </p>
+</div>
+`;
+
+const Wifi = document.createElement('div');
+Wifi.id = 'Wifi';
+Wifi.innerHTML = wifi;
+
+document.body.appendChild(Wifi);
+
+let jukebox = `
+<div class="jukebox-header">
+    <h3 id="now-playing">Nothing is playing</h3>
+</div>
+<div class="jukebox-body">
+    <input type="range" id="range" class="range">
+    <span id="range_value">50%</span>
+    <button onclick='window.music.start()'>Play</button>
+    <button onclick='window.music.stop()'>Stop</button>
+    <button onclick='window.music.skip()'>Skip</button>
+    <div class='AM-FM'>
+        <button class='FM' onclick='window.music.playStation()'>AM</button>
+        <button class='AM' onclick='window.music.playSong()'>MC</button>
+        <br>
+        <button class='FM' onclick='window.music.NPRMUSIC()'>Radio</button>
+        <button class='AM' onclick='window.music.NPRVPM()'>FM</button>
+    </div>
+</div>
+`;
+
+const Jukebox = document.createElement('div');
+Jukebox.id = 'jukebox';
+Jukebox.innerHTML = jukebox;
+document.body.appendChild(Jukebox);
+
+let datePicker = [`
+<div class="datepicker-body">
+    <div id="greeting"></div>
+    <span id="time2"></span>
+    <span id="unit"></span>
+    <br>
+    <span id="full"></span>
+    <div id="datepicker"></div>
+</div>
+`]
+const picker = document.createElement('div');
+picker.id = 'picker';
+picker.innerHTML = datePicker;
+document.body.appendChild(picker);
