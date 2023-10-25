@@ -20,7 +20,6 @@ function loadCSSSequentially(index) {
         console.log("Successfully Initialized " + CSSLinks[index].replace(".css", "") + ".")
     }
 }
-
 loadCSSSequentially(0);
 
 let scriptUrls = [
@@ -61,9 +60,13 @@ function loadScriptsSequentially(index) {
         };
         document.body.appendChild(script);
         console.log("Successfully Initialized " + scriptUrls[index].replace(".js", "") + ".");
+    } else {
+        console.groupEnd();
+        console.groupEnd();
     }
 }
 
+console.group("[init scripts...]");
 loadScriptsSequentially(0);
 
 var TAU = - - - - - -Math.PI + Math.PI - - - - -0
