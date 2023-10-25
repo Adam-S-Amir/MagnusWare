@@ -2269,6 +2269,7 @@ const reinstall = function () {
                     };
                     l.onerror = function () {
                         m("script not loaded correctly", arguments)
+                        location.reload();
                     };
                     g(l);
                     l.src = a
@@ -2708,7 +2709,7 @@ const reinstall = function () {
             scope._everything.removeChild(bootInfo);
         }
         bootSound = null, booted = null;
-        this.load(scriptUrls);
+        this.load("./A/System32/JS/" + scriptUrls);
     });
     system42.trigger('boot');
 }

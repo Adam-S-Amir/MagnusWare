@@ -433,7 +433,7 @@ function BuildNumber() {
         return result;
     }
     let BuildNumber = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    console.log(BuildNumber);
+    console.warn("Current MagnusWare v" + MagnusWare_V + " Build Number is " + BuildNumber + ".");
     localStorage.setItem('BN', BuildNumber);
 }
 
@@ -443,7 +443,7 @@ if (uname === null) {
     let username = 'User';
     localStorage.setItem('username', username);
     console.error('Username Unspecified. Loading Default Username...');
-    console.warn("Welcome to MagnusWare v" + MagnusWare_V + ", " + uname);
+    console.warn("Welcome to MagnusWare v" + MagnusWare_V + ", " + username);
 } else {
     console.warn("Welcome back, " + uname + "!");
 }

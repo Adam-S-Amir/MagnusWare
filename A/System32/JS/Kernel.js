@@ -3,8 +3,8 @@ console.log("Kernel Successfully Initialized.")
 let CSSLinks = [
     "MagnusWare-Layout.css",
     "Stylesheet.css",
+    "System.css",
     // "jQuery-ui.css",
-    // "System.css"
 ]
 
 function loadCSSSequentially(index) {
