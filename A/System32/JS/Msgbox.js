@@ -7,7 +7,6 @@ let SystemNotification = new Audio(SoundLocation + "System Notification.wav");
 let SystemHand = new Audio(SoundLocation + "System Hand.wav");
 let SecurityBand = new Audio(SoundLocation + "Security Band.wav");
 let LogOff = new Audio(SoundLocation + "Windows Logoff.wav");
-var chord_audio = new Audio(window.location.origin + "/A/System32/Audio/CHORD.WAV");
 
 window.showMessageBox = window.showMessageBox || (({
 	title = window.defaultMessageBoxTitle ?? "Alert",
@@ -96,9 +95,9 @@ window.showMessageBox = window.showMessageBox || (({
 	promise.$message = $message;
 	promise.promise = promise; // for easy destructuring
 	try {
-		chord_audio.play();
+		Asterisk.play();
 	} catch (error) {
-		console.log(`Failed to play ${chord_audio.src}: `, error);
+		console.log(`Failed to play ${Asterisk.src}: `, error);
 	}
 	return promise;
 });

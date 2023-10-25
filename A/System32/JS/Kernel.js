@@ -10,8 +10,9 @@ let CSSLinks = [
 function loadCSSSequentially(index) {
     if (index < CSSLinks.length) {
         let CSS = document.createElement("link");
+        let CSSlocation = "./A/System32/CSS/";
         CSS.rel = "stylesheet";
-        CSS.href = "./A/System32/CSS/" + CSSLinks[index];
+        CSS.href = CSSlocation + CSSLinks[index];
         CSS.onload = function () {
             loadCSSSequentially(index + 1);
         };
@@ -53,7 +54,8 @@ let scriptUrls = [
 function loadScriptsSequentially(index) {
     if (index < scriptUrls.length) {
         let script = document.createElement("script");
-        script.src = "./A/System32/JS/" + scriptUrls[index];
+        let JSlocation = "./A/System32/js/";
+        script.src = JSlocation + scriptUrls[index];
         script.onload = function () {
             loadScriptsSequentially(index + 1);
         };

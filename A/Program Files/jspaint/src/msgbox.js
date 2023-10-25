@@ -9,7 +9,7 @@
 
 window.defaultMessageBoxTitle = localize("Paint");
 
-var chord_audio = new Audio("audio/chord.wav");
+var Asterisk = new Audio("audio/chord.wav");
 
 window.showMessageBox = window.showMessageBox || (({
 	title = window.defaultMessageBoxTitle ?? "Alert",
@@ -93,9 +93,9 @@ window.showMessageBox = window.showMessageBox || (({
 	promise.$message = $message;
 	promise.promise = promise; // for easy destructuring
 	try {
-		chord_audio.play();
+		Asterisk.play();
 	} catch (error) {
-		console.log(`Failed to play ${chord_audio.src}: `, error);
+		console.log(`Failed to play ${Asterisk.src}: `, error);
 	}
 	return promise;
 });
