@@ -57,17 +57,17 @@ If the check in step 2 returns a falsy value (meaning "98.js.org" is not found i
 
 function iconsAtTwoSizes(iconID) {
 	return {
-		16: `C/System32/Images/icons/${iconID}-16x16.png`,
-		48: `C/System32/Images/icons/${iconID}-48x48.png`,
+		16: `A/System32/Images/icons/${iconID}-16x16.png`,
+		48: `A/System32/Images/icons/${iconID}-48x48.png`,
 	};
 }
 
 function getIconPath(iconID, size) {
-	return web_server_root_for_icons + "./C/System32/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
+	return web_server_root_for_icons + "./A/System32/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
 }
 
 function getDeskIconPath(iconID, size) {
-	return window.location.href.replace("index.html", "") + "C/System32/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
+	return window.location.href.replace("index.html", "") + "A/System32/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
 }
 function Canvas(width, height) {
 	var new_canvas = E("canvas");

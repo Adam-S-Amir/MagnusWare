@@ -166,7 +166,7 @@ function dpd(id) {
         return dbd[parseInt(ex[1])].m[parseInt(ex[2])];
     }
 }
-var dbb = new(function () {
+var dbb = new (function () {
     var dd1 = this;
     dd1.ddbo = function (base, dbc) {
         for (var p in dbc) {
@@ -194,7 +194,7 @@ var dbb = new(function () {
                 l += parseInt(o.offsetLeft);
                 t += parseInt(o.offsetTop);
                 if (o.parentNode && o.parentNode.tagName) {
-                    with(o.parentNode) {
+                    with (o.parentNode) {
                         if (!/HTML|BODY/.test(tagName)) {
                             l -= scrollLeft;
                             t -= scrollTop;
@@ -243,7 +243,7 @@ var dbb = new(function () {
             } else {
                 var doc = dd1.ddqb(win.document);
                 if (doc) {
-                    with(doc) {
+                    with (doc) {
                         l = scrollLeft;
                         t = scrollTop;
                         w = clientWidth;
@@ -400,7 +400,7 @@ var dbb = new(function () {
             return dq1;
         },
         dbo1: function (dbc, dbib, dc1, dbpo) {
-            with(dbc.style) {
+            with (dbc.style) {
                 var dIo = [left, top, width, height];
             }
             var dqI = dd1.dpj(dbc);
@@ -523,7 +523,7 @@ var dbb = new(function () {
                 dbc[event] = typeof o == "function" ? function (v) {
                     try {
                         o(v);
-                    } catch (e) {}
+                    } catch (e) { }
                     func(v);
                 } : func;
             }
@@ -574,7 +574,7 @@ function dpo1() {
         };
     }
     for (var i = 0; i < dbd.length; i++) {
-        with(dbd[i]) {
+        with (dbd[i]) {
             if (dbIo >= 0 && diq >= 0) {
                 dbpb.dbq1 = 1;
                 dm_ext_setPressedItem(dbI, dbpp, diq, 0);
@@ -873,7 +873,7 @@ function ddip(dbl, dbbb, dpq1) {
             }
         },
         StartHide: function (time) {
-            with(this) {
+            with (this) {
                 if (dddl) {
                     return;
                 }
@@ -975,7 +975,7 @@ function dddo(dbl, dqd, ddb, dqo, iVar) {
         arrObj: null,
         dbi1: 0,
         db1b: function () {
-            with(dbb) {
+            with (dbb) {
                 dIc(this.dbi.dob);
                 dIc(this.dbi.dbbd);
                 dIc(this.dbi.dbdb);
@@ -991,7 +991,7 @@ function dddo(dbl, dqd, ddb, dqo, iVar) {
             return dpq(this.id + "it");
         }
     };
-    with(dqd.i[ddb]) {
+    with (dqd.i[ddb]) {
         dqd.i[ddb].dIj = link.indexOf("search:") == 0 ? 4 : !text ? 0 : text == "-" ? 1 : dbi.dbdb.length > 0 && dbi.dbdb[0] || dbi.dbbd.length > 0 && dbi.dbbd[0] ? 2 : 3;
     }
     return dqd.i[ddb];
@@ -1000,7 +1000,7 @@ function dddo(dbl, dqd, ddb, dqo, iVar) {
 function dplp(dq) {
     var dppp = ["Blinds", "Checkerboard", "GradientWipe", "Inset", "Iris", "Pixelate", "RadialWipe", "RandomBars", "RandomDissolve", "Slide", "Spiral", "Stretch", "Strips", "Wheel", "Zigzag"];
     var sf = "";
-    with(dq) {
+    with (dq) {
         if (ddjp && dbIp) {
             if (dbbo >= 0 && dbbo < 40) {
                 var dur = duration / 1000;
@@ -1069,7 +1069,9 @@ function dbbc(id, url, w, h, add) {
     if (url == "") {
         return "";
     }
-    return "<img id=\"" + id + "\" src=\"" + url + "\" " + (w ? "width=" + w : "") + (h ? " height=" + h : "") + " " + add + " border=0>";
+    // image src
+    let source = `./A/System32/Images/Icons/${url}-32x32.png`;
+    return "<img id=\"" + id + "\" src=\"" + source + "\" " + (w ? "width=" + w : "") + (h ? " height=" + h : "") + " " + add + " border=0>";
 }
 
 function dm_mouseSmOut(doj) {
@@ -1106,7 +1108,7 @@ function ddqI(dc, dbqj) {
     if (!dbqj) {
         dbqj = "";
     }
-    with(dc) {
+    with (dc) {
         var db1i = dbq ? dbi.dddb[0] : dbi.dddd[0];
         if (db1i) {
             s = dcd(dc.id + "tdA", dmDefStyle + "padding:" + dq.ddd.dbc1 + ";" + dbqj, "") + dbbc(id + "ddiI", db1i, ddIp, ddId, "style=\"display:block;\"") + dcb();
@@ -1197,7 +1199,7 @@ function ddld(dI, dq) {
 }
 
 function dpIb(doj) {
-    with(dpd(doj)) {
+    with (dpd(doj)) {
         dbIq = 0;
         doc.ddpb = "";
         doc.dq = null;
@@ -1270,7 +1272,7 @@ function dm_applyItemTree(mVar, dc, dI) {
             mVar.i[i].dpc[1],
             mVar.i[i].tip,
             mVar.i[i].target,
-            mVar.i[i].style, 
+            mVar.i[i].style,
             typeof mVar.i[i].childMenu == "string" ? mVar.i[i].childMenu : ""], mVar.i[i]);
         if (mVar.i[i].childMenu && typeof mVar.i[i].childMenu != "string") {
             dm_applyItemTree(mVar.i[i].childMenu, dpdi, dI);
@@ -1659,7 +1661,7 @@ function dpdp(dI) {
                     }
                 }
             }
-        } catch (e) {}
+        } catch (e) { }
     }
 }
 
@@ -1677,8 +1679,8 @@ function dbjq(dI, dq, pos, vis) {
         s = (pos == "relative" ? "<DIV style=\"position:relative;\">" : "") + "<iframe id=\"" + dq.id + "frame\"" + (document.all && !window.atob ? " src=\"javascript:false;\"" : "") + " scrolling=\"no\" framespacing=\"0\" border=\"0\" frameBorder=\"no\" dm=1 style=\"display:none;position:absolute;filter:alpha(opacity=0);height:0px;top:0px;left:0px;z-index:" + ddli + (dI._useIFRAME == 2 ? ";background-color:" + (dq.ddd.dIi || "#FFF") : "") + ";\"></iframe>" + (pos == "relative" ?
             "</DIV>" : "");
     }
-    with(dq) {
-        with(ddd) {
+    with (dq) {
+        with (ddd) {
             var ddoo = (dIi ? "background-color:" + dIi + ";" : "") + (dob ? "background-image:url(" + dob + ");background-repeat:" + dpd1 + ";" : "");
             var h, w, divW, divH;
             if (dbq) {
@@ -1702,7 +1704,7 @@ function dbjq(dI, dq, pos, vis) {
             var borderStyle = ";border-style:" + dbl1 + ";border-width:" + db1j + ";border-color:" + dbld + ";";
             var innerBorder = dbI && shadowLen || !dbI && !SmartScroll;
             var of = !dbI && SmartScroll ? "overflow:hidden;" : "";
-            var ddbp = "position:" + (pos ? pos : "absolute") + ";left:" + left + ";" + "top:" + top + ";" + (!innerBorder && !cssClass ? borderStyle : "") + (ddcl ? ddoo : "") + dbIb + ";visibility:" + (vis ? vis : "hidden") + ";z-index:" + ddli + ";" + (!dbq && shadowLen || dbq ? dplp(dq) + ";" : "") + of ;
+            var ddbp = "position:" + (pos ? pos : "absolute") + ";left:" + left + ";" + "top:" + top + ";" + (!innerBorder && !cssClass ? borderStyle : "") + (ddcl ? ddoo : "") + dbIb + ";visibility:" + (vis ? vis : "hidden") + ";z-index:" + ddli + ";" + (!dbq && shadowLen || dbq ? dplp(dq) + ";" : "") + of;
             if (!dI.dbdi || !dq.dpb) {
                 ddbp += divH + divW;
             }
@@ -1731,7 +1733,7 @@ function dbjq(dI, dq, pos, vis) {
     if (dq.ddd.cssClass) {
         s += ddll(dq.id + "tbl", innerBorder ? dq.ddd.cssClass : "", dq.ddd.ddoi, 0, "style=\"" + dbcj + "\"");
     } else {
-        with(dq.ddd) {
+        with (dq.ddd) {
             dbcj += "padding:0px;margin:0px;" + (!ddcl ? ddoo : "") + (innerBorder ? borderStyle : "") + ";";
             s += ddqi(dq.id + "tbl", dq.ddd.ddoi, 0, dbcj, "", "");
         }
@@ -1800,12 +1802,12 @@ function dddj(dI, dq, dc, frame) {
     var ss = "";
     var events = "onMouseOver=\"" + frame + "dpcI(event,'" + dc.id + "it');return true\" " + "onMouseOut=\"" + frame + "dpci(event,'" + dc.id + "it')\" " + "onClick=\"" + frame + "dpId(event,'" + dc.id + "it');\"";
     var itemStyle = "";
-    with(dc.dbi) {
+    with (dc.dbi) {
         if (!(cssClass[0] || cssClass[1])) {
             itemStyle = "background-color:" + dIi[0] + ";cursor:" + dpbi(dc.cursor) + ";" + "border-color:" + dbld[0] + ";border-style:" + dbl1[0] + ";border-width:" + db1j + ";" + (dc.dIj != 2 && dc.dbi.dob[0] ? "background-image:url(" + dc.dbi.dob[0] + ");" : "") + addStyle;
         }
     }
-    with(dc.dbi) {
+    with (dc.dbi) {
         if (dlb) {
             ss += "<DIV id=\"" + dc.id + "it\"" + (cssClass[0] || cssClass[1] ? " class=\"" + cssClass[0] + "\" style=\"" : " style=\"" + itemStyle) + "height:" + itHeight + ";" + "zoom:1;margin-" + (dlb > 0 ? "right" : "left") + ":" + Math.abs(dlb) + "px;" + (dlb < 0 ? "background-position:100% 0;" : "") + "\" " + events + "\">";
             events = "";
@@ -1814,14 +1816,14 @@ function dddj(dI, dq, dc, frame) {
     if (dc.dbi.cssClass[0] || dc.dbi.cssClass[1]) {
         ss += ddll(dc.id + "it", !dc.dbi.dlb ? dc.dbi.cssClass[0] : "", 0, 0, "title=\"" + dc.tip + "\" " + events);
     } else {
-        with(dc.dbi) {
+        with (dc.dbi) {
             var dbcj = "height:" + itHeight + ";width:" + dppj + ";padding:0px;margin:0px;" + itemStyle + (dlb ? "position:relative;left:" + dlb + "px;" : "") + (dlb > 0 ? "background-position:100% 0;" : "");
         }
         ss += ddqi(!dc.dbi.dlb ? dc.id + "it" : "", 0, 0, dbcj, events, "title=\"" + dc.tip + "\"") + dbd1();
     }
     var dbqj = "",
         dlo = "";
-    with(dc.dbi) {
+    with (dc.dbi) {
         if (cssClassText[0] || cssClassText[1]) {
             dlo = "class=\"" + cssClassText[0] + "\"";
         } else {
@@ -1831,7 +1833,7 @@ function dddj(dI, dq, dc, frame) {
     if (dc.dIj == 0) {
         ss += dcd(dc.id + "tdT", dlo ? "" : dmDefStyle, dlo) + dbbc(dc.id + "img", dc.dpc[0], "", "", "alt=\"" + dc.tip + "\"") + dcb();
     } else if (dc.dIj == 1) {
-        with(dI) {
+        with (dI) {
             ss += dcd(dc.id + "tdT", (dlo ? "" : dmDefStyle) + "line-height:0;text-align:" + dbji + (ddop ? ";padding:" + ddop : ""), dlo);
             if (!dq.dbj) {
                 ss += ddlo(dI, dpbI, dp1d, dpbd, dpbl, dbji);
@@ -1843,7 +1845,7 @@ function dddj(dI, dq, dc, frame) {
     } else {
         var itemBackComposit = "";
         if (dc.dIj == 2) {
-            with(dc.dbi) {
+            with (dc.dbi) {
                 if (dc.dbi.dob[0]) {
                     ss += ddco(dc.id + "tdLImg", dlo ? "" : dmDefStyle, dlo, dc.id + "limg", dc.dbi.dbdb[0], backImgBW, backImgBH, "style=\"display:block\"");
                 }
@@ -1862,7 +1864,7 @@ function dddj(dI, dq, dc, frame) {
         if (!dI.dmRTL && dc.ddI) {
             ss += ddqI(dc, itemBackComposit);
         }
-        with(dc.dbi) {
+        with (dc.dbi) {
         }
     }
     ss += dbdl("") + ddd1();
@@ -1888,7 +1890,7 @@ function dic(it, ddc) {
         }
         return;
     }
-    with(it.dbi) {
+    with (it.dbi) {
         if (cssClass[0] || cssClass[1]) {
             dpp.className = cssClass[ddc];
         } else {
@@ -1904,7 +1906,7 @@ function dic(it, ddc) {
                 is.backgroundImage = "url(\"" + it.dbi.dob[ddc] + "\")";
             }
             if (dpp.tagName == "DIV") {
-                with(dpp.childNodes[0].style) {
+                with (dpp.childNodes[0].style) {
                     if (dbb.dIc(it.dbi.dob[ddc])) {
                         backgroundImage = "url(\"" + it.dbi.dob[ddc] + "\")";
                     }
@@ -1914,14 +1916,14 @@ function dic(it, ddc) {
                 }
             }
             if (it.dIj == 2 && dpp.tagName == "TABLE" && dpp.rows[0]) {
-                with(dpp.rows[0]) {
+                with (dpp.rows[0]) {
                     if (dbb.dIc(it.dbi.dbdb[ddc])) {
                         if (cells[0].childNodes.length && cells[0].childNodes[0].tagName == "IMG") {
                             cells[0].childNodes[0].src = it.dbi.dbdb[ddc];
                         }
                     }
                     if (dbb.dIc(it.dbi.dob[ddc])) {
-                        with(it.dbi) {
+                        with (it.dbi) {
                             for (var i = dbdb[0] || dbdb[1] ? 1 : 0; i < cells.length - (dbbd[0] || dbbd[1] ? 1 : 0); i++) {
                                 cells[i].style.backgroundImage = "url(\"" + dob[ddc] + "\")";
                             }
@@ -1940,7 +1942,7 @@ function dic(it, ddc) {
             if (cssClassText[0] || cssClassText[1]) {
                 dbjc.className = cssClassText[ddc];
             } else {
-                with(dbjc.style) {
+                with (dbjc.style) {
                     if (it.dcl) {
                         color = dbd[it.dbp].ddI1;
                     } else if (ddcb[ddc]) {
@@ -1956,9 +1958,9 @@ function dic(it, ddc) {
             }
         }
     }
-    with(it) {
+    with (it) {
         if (it.dpc[ddc]) {
-            with(dpq(id + "ic")) {
+            with (dpq(id + "ic")) {
                 if (icState != ddc) {
                     if (dbb.dIc(it.dpc[ddc])) {
                         src = it.dpc[ddc];
@@ -1989,7 +1991,7 @@ function dpcI(e, id) {
         }
     }
     window.status = dc.dpqo;
-    with(dc) {
+    with (dc) {
         if (!dcl && text != "-" && !dco) {
             djI = 1;
             dic(dc, 1);
@@ -2029,10 +2031,10 @@ function dpcI(e, id) {
         return;
     }
     dpqi = dq.dqb ? dq.dqb.id : "";
-    with(dc) {
+    with (dc) {
         var ddp1 = !dcl && ddI ? ddI : "";
     }
-    with(dq) {
+    with (dq) {
         var ddjq = ddj && ddj != dc.ddI ? ddj : "";
     }
     if (dc.dbco && (dI._ajaxReload || dc.ddbj)) {
@@ -2076,7 +2078,7 @@ function dpci(e, id) {
         clearTimeout(dq.diI);
         dq.diI = null;
     }
-    with(dc) {
+    with (dc) {
         if (dcl || text == "-" || dco) {
             return;
         }
@@ -2124,7 +2126,7 @@ function ddol(dI, dc) {
     if (dc.dcl || !dc.link) {
         return;
     }
-    with(dc) {
+    with (dc) {
         if (!link || link.toLowerCase().indexOf("search:") == 0) {
             return;
         }
@@ -2139,7 +2141,7 @@ function ddol(dI, dc) {
                 var win = dI.doi && (dci == 1 || dci == 3) ? parent.frames[dI.dio] : window;
                 try {
                     win.location.href = link;
-                } catch (e) {}
+                } catch (e) { }
             } else {
                 open(link, target);
             }
@@ -2150,7 +2152,7 @@ function ddol(dI, dc) {
 function dblc(dbo, dI) {
     if (dI._useIFRAME) {
         var iframe = dpq(dbo.id + "frame");
-        with(iframe.style) {
+        with (iframe.style) {
             if (dbo.style.position != "relative") {
                 iframe.style.left = dbo.style.left;
                 iframe.style.top = dbo.style.top;
@@ -2227,7 +2229,7 @@ function dbqo(id, parentID) {
     var dc = dq.dqb;
     if (!(dq.dpb == 1 && dI.dIb)) {
         var u = dpl && ddp < 6 ? "" : "px";
-        with(dbo.style) {
+        with (dbo.style) {
             left = djd[0] + u;
             top = djd[1] + u;
         }
@@ -2237,10 +2239,10 @@ function dbqo(id, parentID) {
     }
     dI.m[dc.dbq].ddj = id;
     dc.djI = dI.saveNavigation;
-    with(dbpI.parentNode.style) {
+    with (dbpI.parentNode.style) {
         width = djd[2] + "px";
         height = djd[3] + "px";
-        with(dq) {
+        with (dq) {
             sX = djd[0];
             sY = djd[1];
         }
@@ -2273,7 +2275,7 @@ function dbqo(id, parentID) {
             dq.dbip = 0;
         }
     }
-    with(dbo.style) {
+    with (dbo.style) {
         dblc(dbo, dI);
         if (visibility != "visible") {
             var fl = ddjl(dbo, dq.duration, 1, dq);
@@ -2295,7 +2297,7 @@ function ddjl(dbo, dur, vis, dq) {
     if (dq.dbbo < 40) {
         if (dbo.filters && dbo.filters[0]) {
             dq.filter = dbo.filters[0];
-            with(dq.filter) {
+            with (dq.filter) {
                 enabled = 1;
                 if (status != 0) {
                     stop();
@@ -2392,7 +2394,7 @@ function dlc(id) {
     var dI = dbd[dq.dbp];
     dq.dddl = 0;
     if (dq.dbIq && !doc.dbbq) {
-        with(dbo.style) {
+        with (dbo.style) {
             left = dq.left + "px";
             top = dq.top + "px";
         }
@@ -2407,7 +2409,7 @@ function dlc(id) {
     }
     dq.StopHide();
     if (!dq.dbIq && doc.ddpb != dq.id) {
-        with(dbo.style) {
+        with (dbo.style) {
             var fl = ddjl(dbo, dq.ddIl, 0, dq);
             if (fl) {
                 try {
@@ -2423,7 +2425,7 @@ function dlc(id) {
         }
     }
     if (dq.dpb == 1 && dci == 3 && dbcp) {
-        with(parent.document.getElementById(dI.ddji)) {
+        with (parent.document.getElementById(dI.ddji)) {
             if (dI.dbpi) {
                 cols = dbcp;
             } else {
@@ -2496,7 +2498,7 @@ function dpob(dq) {
         w = 0,
         h = 0,
         resize = 0;
-    with(dq.ddd) {
+    with (dq.ddd) {
         w = (smW ? parseInt(smW) : ddq[2]) + dq.shadowLen;
         h = (dbql ? parseInt(dbql) : ddq[3]) + dq.shadowLen;
     }
@@ -2618,7 +2620,7 @@ function dbod() {
 
 function dm_ext_setPressedItem(dbp, dbq, ddb, dbij, ddii) {
     var dI = dbd[dbp];
-    with(dI) {
+    with (dI) {
         if (!dbpb.dbq1 && dI.diq != -1) {
             dbpb.dbq1 = 1;
             dm_ext_setPressedItem(dbp, dbpp, diq, dbij);
@@ -2636,7 +2638,7 @@ function dm_ext_setPressedItem(dbp, dbq, ddb, dbij, ddii) {
         }
     }
     var dc = dpd("dm" + dbp + "m" + dbq + "i" + ddb);
-    with(dbpb) {
+    with (dbpb) {
         if (!ddb1) {
             dc.dco = !dc.dco;
         }

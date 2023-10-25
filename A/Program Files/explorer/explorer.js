@@ -45,11 +45,11 @@ function get_icon_for_address(address) {
 		return "hard-disk-drive";
 		// }else if(address === "/my-computer/"){ // we don't have an actual My Computer location yet, it just opens (C:)
 		// 	return "my-computer";
-	} else if (address === "/C/my-documents/") {
+	} else if (address === "/A/my-documents/") {
 		return "my-documents";
-	} else if (address === "/C/network-neighborhood/") {
+	} else if (address === "/A/network-neighborhood/") {
 		return "network";
-	} else if (address === "/C/desktop/") { // i.e. C:\Windows\Desktop
+	} else if (address === "/A/desktop/") { // i.e. C:\Windows\Desktop
 		return "desktop";
 	} else if (address.match(/^\w+:\/\//) || address.match(/\.html?$/)) {
 		return "html";
@@ -58,7 +58,7 @@ function get_icon_for_address(address) {
 	}
 }
 
-var navigate_audio = new Audio(window.location.origin + "/C/System32/Audio/START.WAV");
+var navigate_audio = new Audio(window.location.origin + "/A/System32/Audio/START.WAV");
 
 var offline_mode = false;
 
@@ -243,9 +243,9 @@ var go_to = async function (address, action_name = "go") {
 		});
 
 		if (
-			address !== "/C/desktop/" &&
-			address !== "/C/recycle-bin/" &&
-			address !== "/C/network-neighborhood/"
+			address !== "/A/desktop/" &&
+			address !== "/A/recycle-bin/" &&
+			address !== "/A/network-neighborhood/"
 		) {
 			$("#status-bar-right-icon").attr({
 				src: getIconPath("my-computer", 16),
@@ -372,7 +372,7 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 				address === "/network-neighborhood/" ? "nethood.htt" :
 					// address === "/my-computer/" ? "MYCOMP.HTT" : // I don't have a proper My Computer folder yet
 					"FOLDER.HTT";
-		template_url = new URL(`/C/WEB/${template_file_name}`, location.href);
+		template_url = new URL(`/A/WEB/${template_file_name}`, location.href);
 		// console.log("fetching template", template_url.href);
 		htt = await (await fetch(template_url)).text();
 	}
@@ -693,7 +693,7 @@ ${doc.documentElement.outerHTML}`;
 						this.shadowRoot.append(folder_view.element);
 						// jQuery's append does HTML, vs native which does Text
 						$(this.shadowRoot).append(`
-							<link href="/C/System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
+							<link href="/A/System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
 							<style>
 								:host {
 									display: flex;
@@ -825,7 +825,7 @@ ${doc.documentElement.outerHTML}`;
 	const head_start_injected_html = `
 		<meta charset="utf-8">
 		<title>Folder Template</title>
-		<link href="/C/System32/CSS/ie-6.css" rel="stylesheet" type="text/css">
+		<link href="/A/System32/CSS/ie-6.css" rel="stylesheet" type="text/css">
 		<style>
 		p {margin: 0;}
 
@@ -840,11 +840,11 @@ ${doc.documentElement.outerHTML}`;
 	`;
 
 	const head_end_injected_html = `
-		<link href="/C/System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
+		<link href="/A/System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<script src="/C/System32/JS/jquery.min.js"></script>
-		<script src="/C/System32/JS/Window.js"></script>
-		<script src="/C/System32/JS/msgbox.js"></script>
+		<script src="/A/System32/JS/jquery.min.js"></script>
+		<script src="/A/System32/JS/Window.js"></script>
+		<script src="/A/System32/JS/msgbox.js"></script>
 		<script>defaultMessageBoxTitle = "Explorer";</script>
 		<script>
 			(${head_end_injected_script_fn})();

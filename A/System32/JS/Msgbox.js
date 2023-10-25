@@ -5,7 +5,7 @@
 // Note `defaultMessageBoxTitle` handling in make_iframe_window
 // Any other default parameters need to be handled there (as it works now)
 
-var chord_audio = new Audio(window.location.origin + "/C/System32/Audio/CHORD.WAV");
+var chord_audio = new Audio(window.location.origin + "/A/System32/Audio/CHORD.WAV");
 
 window.showMessageBox = window.showMessageBox || (({
 	title = window.defaultMessageBoxTitle ?? "Alert",
@@ -48,7 +48,7 @@ window.showMessageBox = window.showMessageBox || (({
 			});
 		}
 		$("<div>").append(
-			$("<img width='32' height='32'>").attr("src", `./C/System32/images/icons/${iconID}-32x32.png`).css({
+			$("<img width='32' height='32'>").attr("src", `./A/System32/images/icons/${iconID}-32x32.png`).css({
 				margin: "16px",
 				display: "block",
 			}),
