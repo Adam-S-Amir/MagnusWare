@@ -184,7 +184,7 @@ span {
 }
 
 #build-id {
-    color: azure;
+    color: #07d9f9;
 }
 
 div.about-body>div.about-body-center>p a {
@@ -971,35 +971,19 @@ p {
     opacity: 0.2;
     bottom: 5px;
     right: 2px;
+    transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -webkit-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -moz-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -ms-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -o-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
 }
 
 #version-info:hover {
-    font-size: 35%;
-    color: azure;
-    opacity: 1;
-    animation: font-size 0.5s ease-in;
-    -webkit-animation: font-size 0.5s ease-in;
-}
-
-#version-info::before {
-    content: "|  Un-Activated | | Developer || MagnusWare 4.0 |\A|Siamese| |Nighthawk| |??/??/????| |unstable,dev|";
-    white-space: pre-wrap;
-    opacity: 1;
-    transition: font-size 1s ease-in-out;
-    -webkit-transition: font-size 1s ease-in-out;
-    -moz-transition: font-size 1s ease-in-out;
-    -ms-transition: font-size 1s ease-in-out;
-    -o-transition: font-size 1s ease-in-out;
-}
-
-@keyframes font-size {
-    from {
-        opacity: 0.2;
-    }
-
-    to {
-        opacity: 1;
-    }
+    transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -webkit-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -moz-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -ms-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
+    -o-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
 }
 
 #canvas {

@@ -28,6 +28,7 @@ let scriptUrls = [
     "Parse-Theme.js",
     "MenuBar.js",
     "Window.js",
+    "X-Window.js",
     "Msgbox.js",
     "Filesystem-Setup.js",
     "Iframe-Windows.js",
@@ -41,10 +42,10 @@ let scriptUrls = [
     "Programs.js",
     "Cursor.js",
     "Taskbar-Time.js",
-    "Settings.js",
     "StoreFront.js",
     "Widgets.js",
     "Update.js",
+    "Settings.js",
     "MagnusFS.js",
     "System.js",
     "JukeBox.js",
@@ -174,13 +175,30 @@ const splash = document.createElement('div');
 const taskbr = document.createElement('div');
 
 taskbr.classList.add('taskbar');
-
 vInfo.id = 'version-info';
+vInfo.style.fontSize = "5px";
+vInfo.style.opacity = 0.2;
+vInfo.style.color = "rgb(183, 202, 202)";
 taskbr.id = 'taskbr';
 splash.id = 'splash-screen';
 
 vInfo.setAttribute("onclick", "hideinfo();");
-
+var lineBreak = document.createElement("br");
+var text = document.createTextNode(`|  Un-Activated | | Developer || MagnusWare v${MagnusWare_V} |`);
+vInfo.appendChild(text);
+vInfo.appendChild(lineBreak);
+text = document.createTextNode("|Siamese| |Nighthawk| |??/??/????| |unstable,dev|");
+vInfo.appendChild(text);
+vInfo.addEventListener("mouseover", function () {
+    vInfo.style.fontSize = "6px";
+    vInfo.style.opacity = 1;
+    vInfo.style.color = "azure";
+});
+vInfo.addEventListener("mouseout", function () {
+    vInfo.style.fontSize = "5px";
+    vInfo.style.opacity = 0.2;
+    vInfo.style.color = "rgb(183, 202, 202)";
+});
 vInfo.title = 'Click to hide';
 
 let start = [`

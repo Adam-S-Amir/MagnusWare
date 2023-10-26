@@ -1,3 +1,19 @@
+function hidemenu() {
+	document.getElementById('-start-menu-').style.display = 'none';
+}
+
+function About() {
+	let $win = new $EmbedWindow2({
+		src: null,
+		icons: iconsAtTwoSizes("document"),
+		title: "About",
+		innerWidth: 420,
+		innerHeight: 400
+	});
+	about();
+	hidemenu();
+	return new Task($win);
+}
 function show_help(options) {
 	const $help_window = $Window({
 		title: options.title || "Help Topics",

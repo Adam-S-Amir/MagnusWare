@@ -1482,12 +1482,12 @@ function about() {
   
   <div class="about">
   <div class="about-header">
-      <img class="About-Icon" src="./Assets/Images/Common/Start.png">
+      <img class="About-Icon" src="./A/System32/Images/Common/Start.png">
       <h1 class="about-heading">MagnusWare</h1>
   </div>
   <div class="about-body">
       <p>
-          MagnusWare v3.0
+          MagnusWare v${MagnusWare_V}
           <br>
           <div id="build-id"></div>
           (Egyptian Mau)[Xenon]
@@ -1520,5 +1520,5 @@ function about() {
 </div>
   `]
   document.getElementById("div1").innerHTML = about;
-  document.getElementById('build-id').innerHTML = '(' + buildNumber + ')';
+  document.getElementById('build-id').innerHTML = `(${BN})`;
 }

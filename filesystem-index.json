@@ -3749,21 +3749,50 @@
     "Program Files (x86)": {},
     "System32": {
       "Audio": {
-        "CHIMES.WAV": null,
-        "CHORD.WAV": null,
-        "DING.WAV": null,
-        "LOGOFF.WAV": null,
-        "NOTIFY.WAV": null,
-        "RECYCLE.WAV": null,
-        "START.WAV": null,
-        "TADA.WAV": null,
-        "The Microsoft Sound.wav": null
+        "MagnusWare": {
+          "Critical Battery Alarm.wav": null,
+          "Default.wav": null,
+          "Device Connect.wav": null,
+          "Device Disconnect.wav": null,
+          "Device Fail.wav": null,
+          "Empty Recycle Bin.wav": null,
+          "Low Battery Alarm.wav": null,
+          "Mail Beep.wav": null,
+          "MSNMSGR_Contact Online.wav": null,
+          "MSNMSGR_New Alert.wav": null,
+          "MSNMSGR_New Mail.wav": null,
+          "MSNMSGR_New Message.wav": null,
+          "Security Band.wav": null,
+          "System Asterisk.wav": null,
+          "System Exclamation.wav": null,
+          "System Exit.wav": null,
+          "System Hand.wav": null,
+          "System Notification.wav": null,
+          "System Start.wav": null,
+          "Windows Blocked Popup.wav": null,
+          "Windows Logoff.wav": null,
+          "Windows Logon.wav": null
+        },
+        "Music": {
+          "Aria_Math.mp3": null,
+          "Biome_Fest.mp3": null,
+          "Blind_Spots.mp3": null,
+          "Clark.mp3": null,
+          "Haunt_Muskie.mp3": null,
+          "Minecraft.mp3": null,
+          "Moog_City.mp3": null,
+          "Moog_City_2.mp3": null,
+          "Mutation.mp3": null,
+          "Subwoofer_Lullaby.mp3": null,
+          "Sweden.mp3": null,
+          "Wet_Hands.mp3": null
+        }
       },
       "CSS": {
         "ie-6.css": null,
-        "MagnusWare - Default.css": null,
-        "OS-Layout.css": null,
-        "Stylesheet.css": null
+        "MagnusWare-Layout.css": null,
+        "Stylesheet.css": null,
+        "System.css": null
       },
       "Font": {
         "1968-Odyssey": {
