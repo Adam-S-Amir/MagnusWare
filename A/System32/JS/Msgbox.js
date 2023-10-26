@@ -8,6 +8,7 @@ let SystemHand = new Audio(SoundLocation + "System Hand.wav");
 let SecurityBand = new Audio(SoundLocation + "Security Band.wav");
 let LogOff = new Audio(SoundLocation + "Windows Logoff.wav");
 
+defaultMessageBoxTitle = "MagnusWare";
 window.showMessageBox = window.showMessageBox || (({
 	title = window.defaultMessageBoxTitle ?? "Alert",
 	message,
@@ -107,4 +108,97 @@ window.alert = (message) => {
 		message
 	});
 };
-defaultMessageBoxTitle = "Windows";
+
+window.toast = window.toast || (({
+	message,
+	messageHTML,
+	iconID = "warning", // "error", "warning", "info", or "nuke" for deleting files/folders
+	windowOptions = {}, // for controlling width, etc.
+}) => {
+	let $window, $message, $bar;
+	const promise = new Promise((resolve, reject) => {
+		$window = new $Window(Object.assign({
+			title: false,
+			resizable: false,
+			innerWidth: 400,
+			maximizeButton: false,
+			minimizeButton: false,
+			closeButton: false,
+		}, windowOptions));
+		// $window.addClass("dialog-window horizontal-buttons");
+
+		$bar =
+			$("<div>").css({
+				height: "18px",
+				width: "99%",
+				position: "absolute",
+				"background": "linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)",
+				top: "2px",
+				right: "2px",
+				flex: 1,
+			});
+		$bar.attr('id', 'progressbar'); // Set the ID to "progressbar"
+		$bar.appendTo($window.$titlebar);
+		function move() {
+			var elem = $("#progressbar");
+			var width = 0;
+			var id = setInterval(frame, 15);
+			function frame() {
+				if (width >= 99) {
+					clearInterval(id);
+					$window.close();
+				} else {
+					width++;
+					elem.css('width', width + '%');
+				}
+			}
+		}
+		move();
+		$message =
+			$("<div>").css({
+				fontFamily: "MS Sans Serif, Arial, sans-serif",
+				fontSize: "14px",
+				marginTop: "22px",
+				bottom: "10px",
+				left: "20px",
+				position: "relative",
+				minWidth: 0, // Fixes hidden overflow, see https://css-tricks.com/flexbox-truncated-text/
+				whiteSpace: "normal", // overriding .window:not(.squish)
+			});
+		if (messageHTML) {
+			$message.html(messageHTML);
+		} else if (message) { // both are optional because you may populate later with dynamic content
+			$message.text(message).css({
+				whiteSpace: "pre-wrap",
+				wordWrap: "break-word",
+			});
+		}
+		$("<div>").append(
+			$message
+		).css({
+			display: "flex",
+			flexDirection: "row",
+		}).appendTo($window.$content);
+
+		$window.$content.css({
+			textAlign: "center",
+		});
+		$window.css({
+			top: "1px",
+			right: "1px",
+		});
+		$window.focus();
+	});
+	try {
+		Asterisk.play();
+	} catch (error) {
+		console.log(`Failed to play ${Asterisk.src}: `, error);
+	}
+	return promise;
+});
+
+window.confirm = (message) => {
+	toast({
+		message
+	});
+};

@@ -1591,9 +1591,9 @@ You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}
 		$w.title(options.title);
 	}
 
-	if (!$component) {
-		$w.center();
-	}
+	// if (!$component) {
+	// 	$w.center();
+	// }
 
 	// mustHaveMethods($w, windowInterfaceMethods);
 

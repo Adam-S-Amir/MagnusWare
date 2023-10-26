@@ -1,3 +1,4 @@
+let MagnusWare_V = "4.0";
 console.log("Kernel Successfully Initialized.")
 
 let CSSLinks = [
