@@ -32,7 +32,7 @@ let scriptUrls = [
     "X-Window.js",
     "Msgbox.js",
     "Filesystem-Setup.js",
-    "Iframe-Windows.js",
+    "Embed-Windows.js",
     "Task.js",
     "Start-Menu.js",
     "FolderView.js",
