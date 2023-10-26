@@ -41,7 +41,7 @@ function WadCMD() {
 
 function Theme1() {
 	let $win = make_embed_window({
-		src: "./programs/ThemeEditor/index.html",
+		src: "./A/System32/Program%20Files/ThemeEditor/index.html",
 		icons: iconsAtTwoSizes("themes"),
 		title: "Theme Editor",
 		innerWidth: 1000,
@@ -53,7 +53,7 @@ function Theme1() {
 
 function Cookie() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Cookies/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Cookies/index.html",
 		icons: iconsAtTwoSizes("Cookie"),
 		title: "Cookie Clicker",
 		innerWidth: 660,
@@ -78,7 +78,7 @@ function Dino() {
 
 function JellyM() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/mario/jellymar.io/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/mario/jellymar.io/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Jelly Mario",
 		innerWidth: 800,
@@ -91,7 +91,7 @@ function JellyM() {
 
 function MinecrapA() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Minecraft/MineCrap Alpha/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Minecraft/MineCrap Alpha/index.html",
 		icons: iconsAtTwoSizes("Minecraft"),
 		title: "MineCrap Alpha",
 		innerWidth: 1000,
@@ -104,7 +104,7 @@ function MinecrapA() {
 
 function Minecrap3() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Minecraft/MineCrap 1.3/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Minecraft/MineCrap 1.3/index.html",
 		icons: iconsAtTwoSizes("Minecraft"),
 		title: "MineCrap 1.3",
 		innerWidth: 1000,
@@ -117,7 +117,7 @@ function Minecrap3() {
 
 function Minecrap5() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Minecraft/MineCrap 1.5.2/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Minecraft/MineCrap 1.5.2/index.html",
 		icons: iconsAtTwoSizes("Minecraft"),
 		title: "MineCrap 1.5.2",
 		innerWidth: 1000,
@@ -130,7 +130,7 @@ function Minecrap5() {
 
 function NoGame() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/NoGame/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/NoGame/index.html",
 		icons: iconsAtTwoSizes("NoGame"),
 		title: "There is No Game",
 		innerWidth: 500,
@@ -143,7 +143,7 @@ function NoGame() {
 
 function Power() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Power_Player_Super_Joy_III/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Power_Player_Super_Joy_III/index.html",
 		icons: iconsAtTwoSizes("Power"),
 		title: "Power Player Super Joy III",
 		innerWidth: 500,
@@ -156,7 +156,7 @@ function Power() {
 
 function Baldi() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Baldis%20Basics/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Baldis%20Basics/index.html",
 		icons: iconsAtTwoSizes("Baldi"),
 		title: "Baldi's Basics",
 		innerWidth: 500,
@@ -169,7 +169,7 @@ function Baldi() {
 
 function Rioluvania() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Sans/Rioluvania/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Sans/Rioluvania/index.html",
 		icons: iconsAtTwoSizes("Rioluvania"),
 		title: "Rioluvania",
 		innerWidth: 500,
@@ -182,7 +182,7 @@ function Rioluvania() {
 
 function Sans() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Sans/Sans/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Sans/Sans/index.html",
 		icons: iconsAtTwoSizes("Rioluvania"),
 		title: "Rioluvania",
 		innerWidth: 500,
@@ -195,7 +195,7 @@ function Sans() {
 
 function Funky() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Funky Karts/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Funky Karts/index.html",
 		icons: iconsAtTwoSizes("Funky"),
 		title: "Funky Karts",
 		innerWidth: 1000,
@@ -208,7 +208,7 @@ function Funky() {
 
 function Mario2() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/Mario/super.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/Mario/super.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Super Mario Bros.",
 		innerWidth: 1000,
@@ -221,7 +221,7 @@ function Mario2() {
 
 function MarMakr() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/Mario/maker.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/Mario/maker.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Super Mario Maker",
 		innerWidth: 1000,
@@ -234,7 +234,7 @@ function MarMakr() {
 
 function iMario() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/infinite/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/infinite/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Infinite Mario",
 		innerWidth: 660,
@@ -247,7 +247,7 @@ function iMario() {
 
 function TBOI() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/TBOI/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/TBOI/index.html",
 		icons: iconsAtTwoSizes("TBOI"),
 		title: "The Binding of Isaac",
 		innerWidth: 970,
@@ -260,7 +260,7 @@ function TBOI() {
 
 function Rocket() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Rocket Custa/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Rocket Custa/index.html",
 		icons: iconsAtTwoSizes("Rocket"),
 		title: "Rocket Custa",
 		innerWidth: 500,
@@ -273,7 +273,7 @@ function Rocket() {
 
 function Spelunky() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Spelunky/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Spelunky/index.html",
 		icons: iconsAtTwoSizes("Spelunky"),
 		title: "Spelunky",
 		innerWidth: 1000,
@@ -338,7 +338,7 @@ function Star() {
 
 function Zamboni() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Zamboni/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Zamboni/index.html",
 		icons: iconsAtTwoSizes("Zamboni"),
 		title: "Frank Zamboni",
 		innerWidth: 670,
@@ -403,7 +403,7 @@ function Emulator() {
 
 function Drift() {
 	let $win = make_embed_window({
-		src: "./programs/Games/Drift Hunters/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Drift Hunters/index.html",
 		icons: iconsAtTwoSizes("Drift"),
 		title: "Drift Hunters",
 		innerWidth: 1000,
@@ -1101,7 +1101,7 @@ function Dario2() {
 
 function Regular() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Regular/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Regular/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Chrome Dino Game",
 		innerWidth: 1000,
@@ -1114,7 +1114,7 @@ function Regular() {
 
 function BDay() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/BDay/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/BDay/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Birthday Edition",
 		innerWidth: 1000,
@@ -1127,7 +1127,7 @@ function BDay() {
 
 function D3D() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/3D/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/3D/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "3D Dino",
 		innerWidth: 1000,
@@ -1140,7 +1140,7 @@ function D3D() {
 
 function Godzilla() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Godzilla.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Godzilla.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Godzilla",
 		innerWidth: 1000,
@@ -1153,7 +1153,7 @@ function Godzilla() {
 
 function Modz() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Mod/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Mod/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Modded Chrome Dino Game",
 		innerWidth: 1000,
@@ -1166,7 +1166,7 @@ function Modz() {
 
 function Sonic1() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Sonic/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Sonic/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Sonic v1.0",
 		innerWidth: 1000,
@@ -1179,7 +1179,7 @@ function Sonic1() {
 
 function Sonic2() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/BSonic/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/BSonic/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Sonic v1.2",
 		innerWidth: 1000,
@@ -1192,7 +1192,7 @@ function Sonic2() {
 
 function Batz() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Batman/Bats/Batman/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Batman/Bats/Batman/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Batman",
 		innerWidth: 1000,
@@ -1205,7 +1205,7 @@ function Batz() {
 
 function Halloween() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Halloween.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Halloween.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Halloween",
 		innerWidth: 1000,
@@ -1218,7 +1218,7 @@ function Halloween() {
 
 function Joker() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Joker/Jokes/Joker/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Joker/Jokes/Joker/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Joker",
 		innerWidth: 1000,
@@ -1231,7 +1231,7 @@ function Joker() {
 
 function Mines1() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Minecraft.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Minecraft.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Minecraft v1.0",
 		innerWidth: 1000,
@@ -1244,7 +1244,7 @@ function Mines1() {
 
 function Mines2() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Minecraft/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Minecraft/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Minecraft v1.2",
 		innerWidth: 1000,
@@ -1257,7 +1257,7 @@ function Mines2() {
 
 function Naruto() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Naruto.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Naruto.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Naruto",
 		innerWidth: 1000,
@@ -1270,7 +1270,7 @@ function Naruto() {
 
 function Anime() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Anime/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Anime/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Anime",
 		innerWidth: 1000,
@@ -1283,7 +1283,7 @@ function Anime() {
 
 function DNyan() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Nyan.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Nyan.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Nyan",
 		innerWidth: 1000,
@@ -1296,7 +1296,7 @@ function DNyan() {
 
 function Santa() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Santa.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Santa.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Santa Claus",
 		innerWidth: 1000,
@@ -1309,7 +1309,7 @@ function Santa() {
 
 function DMario1() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Super_Mario/Mars/Mario/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Super_Mario/Mars/Mario/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.",
 		innerWidth: 1000,
@@ -1322,7 +1322,7 @@ function DMario1() {
 
 function DMario2() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Mario/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Mario/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.2",
 		innerWidth: 1000,
@@ -1335,7 +1335,7 @@ function DMario2() {
 
 function DMario3() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Maro/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Maro/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.3",
 		innerWidth: 1000,
@@ -1348,7 +1348,7 @@ function DMario3() {
 
 function DMario4() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Marilol/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Marilol/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.4",
 		innerWidth: 1000,
@@ -1361,7 +1361,7 @@ function DMario4() {
 
 function MegaMan() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/MegaMan/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/MegaMan/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Mega-Man",
 		innerWidth: 1000,
@@ -1374,7 +1374,7 @@ function MegaMan() {
 
 function Vivaldi() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Vivaldi/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Vivaldi/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Vivaldi",
 		innerWidth: 1000,
@@ -1387,7 +1387,7 @@ function Vivaldi() {
 
 function Covid() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Covid/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Covid/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Covid",
 		innerWidth: 1000,
@@ -1400,7 +1400,7 @@ function Covid() {
 
 function Fish() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Fish/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Fish/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Fish",
 		innerWidth: 1000,
@@ -1413,7 +1413,7 @@ function Fish() {
 
 function Guy() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Guy/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Guy/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Kumamon Runner",
 		innerWidth: 1000,
@@ -1426,7 +1426,7 @@ function Guy() {
 
 function Zombie() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/Zombie/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/Zombie/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Zombie Runner",
 		innerWidth: 1000,
@@ -1439,7 +1439,7 @@ function Zombie() {
 
 function Mario1() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/Mario/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/Mario/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Modded Super Mario Bros.",
 		innerWidth: 1000,
@@ -1452,7 +1452,7 @@ function Mario1() {
 
 function Mario2() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/Mario/super.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/Mario/super.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Super Mario Bros.",
 		innerWidth: 1000,
@@ -1465,7 +1465,7 @@ function Mario2() {
 
 function iMario() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/infinite/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/infinite/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Infinite Mario",
 		innerWidth: 660,
@@ -1478,7 +1478,7 @@ function iMario() {
 
 function Cat() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/Catmario/chrome/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/Catmario/chrome/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Cat Mario",
 		innerWidth: 500,
@@ -1491,7 +1491,7 @@ function Cat() {
 
 function Mari0() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Mario/Mari0/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Mario/Mari0/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Mari0",
 		innerWidth: 800,
@@ -1595,7 +1595,7 @@ function Ice2() {
 
 function Contranoid() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Brain Games/Contranoid/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Brain Games/Contranoid/index.html",
 		icons: iconsAtTwoSizes("Contranoid"),
 		title: "Contranoid",
 		innerWidth: 392,
@@ -1608,7 +1608,7 @@ function Contranoid() {
 
 function CDG() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Dino/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Dino/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Chrome Dino Games",
 		innerWidth: 500,
@@ -1621,7 +1621,7 @@ function CDG() {
 
 function Hi() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Brain Games/Oh Hi/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Brain Games/Oh Hi/index.html",
 		icons: iconsAtTwoSizes("0HH1"),
 		title: "OH H1",
 		innerWidth: 500,
@@ -1634,7 +1634,7 @@ function Hi() {
 
 function No() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Brain Games/Oh No/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Brain Games/Oh No/index.html",
 		icons: iconsAtTwoSizes("0HN0"),
 		title: "OH N0",
 		innerWidth: 500,
@@ -1647,7 +1647,7 @@ function No() {
 
 function Quento() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Brain Games/Quento/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Brain Games/Quento/index.html",
 		icons: iconsAtTwoSizes("Quento"),
 		title: "Quento",
 		innerWidth: 500,
@@ -1660,7 +1660,7 @@ function Quento() {
 
 function Hextris() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/Brain Games/Hextris/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/Brain Games/Hextris/index.html",
 		icons: iconsAtTwoSizes("Hextris"),
 		title: "Hextris",
 		innerWidth: 500,
@@ -1673,7 +1673,7 @@ function Hextris() {
 
 function Pac() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/PacMan/PacMan/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/PacMan/PacMan/index.html",
 		icons: iconsAtTwoSizes("Pacman"),
 		title: "PacMan 1.0",
 		innerWidth: 500,
@@ -1686,7 +1686,7 @@ function Pac() {
 
 function Google1() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/PacMan/google pacman/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/PacMan/google pacman/index.html",
 		icons: iconsAtTwoSizes("Pacman"),
 		title: "Google PacMan 1.2",
 		innerWidth: 1000,
@@ -1699,7 +1699,7 @@ function Google1() {
 
 function Google2() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/PacMan/google pacman 2/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/PacMan/google pacman 2/index.html",
 		icons: iconsAtTwoSizes("Pacman"),
 		title: "Google PacMan 1.0",
 		innerWidth: 1000,
@@ -1712,7 +1712,7 @@ function Google2() {
 
 function Snake() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/snake.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/snake.html",
 		icons: iconsAtTwoSizes("Snake"),
 		title: "Snake",
 		innerWidth: 500,
@@ -1725,7 +1725,7 @@ function Snake() {
 
 function Pong() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/Pong/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/Pong/index.html",
 		icons: iconsAtTwoSizes("Pong"),
 		title: "Pong",
 		innerWidth: 660,
@@ -1738,7 +1738,7 @@ function Pong() {
 
 function Tetriz() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/tetris/tetris.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/tetris/tetris.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Tetris 1.0",
 		innerWidth: 500,
@@ -1751,7 +1751,7 @@ function Tetriz() {
 
 function Cubes() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/tetris/cubes/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/tetris/cubes/index.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Tetris 2.0",
 		innerWidth: 500,
@@ -1764,7 +1764,7 @@ function Cubes() {
 
 function Jelly() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/tetris/Jelly/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/tetris/Jelly/index.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Jelly Tetris",
 		innerWidth: 500,
@@ -1777,7 +1777,7 @@ function Jelly() {
 
 function AIT() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/tetris/AI/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/tetris/AI/index.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Tetris with AI",
 		innerWidth: 500,
@@ -1790,7 +1790,7 @@ function AIT() {
 
 function SpaceI() {
 	let $win = make_embed_window({
-		src: "./Programs/Games/arcade/Space/index.html",
+		src: "./A/System32/Program%20Files%20(x86)/arcade/Space/index.html",
 		icons: iconsAtTwoSizes("Space"),
 		title: "Space Invaders",
 		innerWidth: 850,
@@ -1804,7 +1804,7 @@ function SpaceI() {
 function Twenty() {
 	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048/index.html",
-		icons: iconsAtTwoSizes("Twenty"),
+		icons: iconsAtTwoSizes("2048"),
 		title: "2048",
 		innerWidth: 500,
 		innerHeight: 500
@@ -1816,7 +1816,7 @@ function Twenty() {
 function One() {
 	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/Flappy-2048/index.html",
-		icons: iconsAtTwoSizes("Twenty"),
+		icons: iconsAtTwoSizes("2048"),
 		title: "Flappy 2048 1.0",
 		innerWidth: 500,
 		innerHeight: 500
@@ -1828,7 +1828,7 @@ function One() {
 function Two() {
 	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/Flappy-2048-2.0/index.html",
-		icons: iconsAtTwoSizes("Twenty"),
+		icons: iconsAtTwoSizes("2048"),
 		title: "Flappy 2048 2.0",
 		innerWidth: 500,
 		innerHeight: 500
@@ -1840,7 +1840,7 @@ function Two() {
 function Three() {
 	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048-3D/index.html",
-		icons: iconsAtTwoSizes("Twenty"),
+		icons: iconsAtTwoSizes("2048"),
 		title: "2048 3D",
 		innerWidth: 1000,
 		innerHeight: 500
@@ -1852,7 +1852,7 @@ function Three() {
 function Four() {
 	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/4/index.html",
-		icons: iconsAtTwoSizes("Twenty"),
+		icons: iconsAtTwoSizes("2048"),
 		title: "4",
 		innerWidth: 500,
 		innerHeight: 500
@@ -1864,7 +1864,7 @@ function Four() {
 function AI() {
 	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048-AI/index.html",
-		icons: iconsAtTwoSizes("Twenty"),
+		icons: iconsAtTwoSizes("2048"),
 		title: "2048 AI",
 		innerWidth: 1000,
 		innerHeight: 650
@@ -1876,7 +1876,7 @@ function AI() {
 function Hardcore() {
 	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048-Hardcore/index.html",
-		icons: iconsAtTwoSizes("Twenty"),
+		icons: iconsAtTwoSizes("2048"),
 		title: "2048 Hardcore",
 		innerWidth: 500,
 		innerHeight: 500
@@ -2434,14 +2434,14 @@ function Pipes() {
 		hideUI: true
 	};
 	showScreensaver(
-		`./programs/pipes/index.html#${encodeURIComponent(JSON.stringify(options))}`
+		`./A/System32/Program%20Files/pipes/index.html#${encodeURIComponent(JSON.stringify(options))}`
 	);
 	localStorage.removeItem("scv");
 	localStorage.setItem("scv", "Pipes()");
 }
 
 function FlowerBox() {
-	showScreensaver("./programs/FlowerBox/index.html");
+	showScreensaver("./A/System32/Program%20Files/FlowerBox/index.html");
 	localStorage.removeItem("scv");
 	localStorage.setItem("scv", "FlowerBox()");
 }

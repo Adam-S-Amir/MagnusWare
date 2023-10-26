@@ -16,7 +16,6 @@ function enhance_embed(embed) {
 		try {
 			console.assert(embed.contentWindow.document === embed.contentDocument); // just something that won't get optimized away if we were to ever use a minifier (or by the JIT compiler??)
 		} catch (e) {
-			console.warn(`[enhance_embed] embed integration is not available for '${embed.src}'`);
 			return;
 		}
 
