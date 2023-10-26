@@ -14,6 +14,1901 @@ function About() {
 	hidemenu();
 	return new Task($win);
 }
+
+function Chat() {
+	let $win = make_embed_window({
+		src: "./programs/chat/index.php",
+		icons: iconsAtTwoSizes("Chat"),
+		title: "Chat Room",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function WadCMD() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/WadCMD/index.html",
+		icons: iconsAtTwoSizes("WadCMD"),
+		title: "WadCMD",
+		innerWidth: 1000,
+		innerHeight: 515
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Theme1() {
+	let $win = make_embed_window({
+		src: "./programs/ThemeEditor/index.html",
+		icons: iconsAtTwoSizes("themes"),
+		title: "Theme Editor",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Cookie() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Cookies/index.html",
+		icons: iconsAtTwoSizes("Cookie"),
+		title: "Cookie Clicker",
+		innerWidth: 660,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Dino() {
+	let $win = make_embed_window({
+		src: "./Dino.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Chrome Dino",
+		innerWidth: 700,
+		innerHeight: 600
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function JellyM() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/mario/jellymar.io/index.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Jelly Mario",
+		innerWidth: 800,
+		innerHeight: 650
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function MinecrapA() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Minecraft/MineCrap Alpha/index.html",
+		icons: iconsAtTwoSizes("Minecraft"),
+		title: "MineCrap Alpha",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Minecrap3() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Minecraft/MineCrap 1.3/index.html",
+		icons: iconsAtTwoSizes("Minecraft"),
+		title: "MineCrap 1.3",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Minecrap5() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Minecraft/MineCrap 1.5.2/index.html",
+		icons: iconsAtTwoSizes("Minecraft"),
+		title: "MineCrap 1.5.2",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function NoGame() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/NoGame/index.html",
+		icons: iconsAtTwoSizes("NoGame"),
+		title: "There is No Game",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Power() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Power_Player_Super_Joy_III/index.html",
+		icons: iconsAtTwoSizes("Power"),
+		title: "Power Player Super Joy III",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Baldi() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Baldis%20Basics/index.html",
+		icons: iconsAtTwoSizes("Baldi"),
+		title: "Baldi's Basics",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Rioluvania() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Sans/Rioluvania/index.html",
+		icons: iconsAtTwoSizes("Rioluvania"),
+		title: "Rioluvania",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Sans() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Sans/Sans/index.html",
+		icons: iconsAtTwoSizes("Rioluvania"),
+		title: "Rioluvania",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Funky() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Funky Karts/index.html",
+		icons: iconsAtTwoSizes("Funky"),
+		title: "Funky Karts",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Mario2() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/Mario/super.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Super Mario Bros.",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function MarMakr() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/Mario/maker.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Super Mario Maker",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function iMario() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/infinite/index.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Infinite Mario",
+		innerWidth: 660,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function TBOI() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/TBOI/index.html",
+		icons: iconsAtTwoSizes("TBOI"),
+		title: "The Binding of Isaac",
+		innerWidth: 970,
+		innerHeight: 696
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Rocket() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Rocket Custa/index.html",
+		icons: iconsAtTwoSizes("Rocket"),
+		title: "Rocket Custa",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Spelunky() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Spelunky/index.html",
+		icons: iconsAtTwoSizes("Spelunky"),
+		title: "Spelunky",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Button() {
+	let $win = make_embed_window({
+		src: "./Programs/Toys/Button/index.html",
+		icons: iconsAtTwoSizes("Button"),
+		title: "Button",
+		innerWidth: 300,
+		innerHeight: 300
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Clock() {
+	let $win = make_embed_window({
+		src: "./Programs/Toys/Clock/index.html",
+		icons: iconsAtTwoSizes("Clock"),
+		title: "Clock",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function AcidBox() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Acid-Box/index.html",
+		icons: iconsAtTwoSizes("AcidBox"),
+		title: "Acid Box",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Star() {
+	let $win = make_embed_window({
+		src: "./Programs/Toys/StrWrz/index.html",
+		icons: iconsAtTwoSizes("Starwars"),
+		title: "Star Wars Episode IV",
+		innerWidth: 830,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Zamboni() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Zamboni/index.html",
+		icons: iconsAtTwoSizes("Zamboni"),
+		title: "Frank Zamboni",
+		innerWidth: 670,
+		innerHeight: 292
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Soda() {
+	let $win = make_embed_window({
+		src: "./Programs/Toys/Soda/index.htm",
+		icons: iconsAtTwoSizes("Soda"),
+		title: "Vending Machine",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Ice() {
+	let $win = make_embed_window({
+		src: "./Dodo.html",
+		icons: iconsAtTwoSizes("Ice"),
+		title: "Ice Dodo",
+		innerWidth: 700,
+		innerHeight: 600
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function GBC() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Prometheus/index.html",
+		icons: iconsAtTwoSizes("joystick"),
+		title: "Games",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Emulator() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Emulator/index.html",
+		icons: iconsAtTwoSizes("joystick"),
+		title: "Games",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Drift() {
+	let $win = make_embed_window({
+		src: "./programs/Games/Drift Hunters/index.html",
+		icons: iconsAtTwoSizes("Drift"),
+		title: "Drift Hunters",
+		innerWidth: 1000,
+		innerHeight: 600
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Surf1() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%201.0/index.html",
+		icons: iconsAtTwoSizes("Surf"),
+		title: "Microsoft Surf 1.0",
+		innerWidth: 1000,
+		innerHeight: 600
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Surf2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%202.0/index.html",
+		icons: iconsAtTwoSizes("Surf"),
+		title: "Microsoft Surf 2.0",
+		innerWidth: 1000,
+		innerHeight: 600
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Surf3() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%203.0/index.html",
+		icons: iconsAtTwoSizes("Surf"),
+		title: "Microsoft Surf 3.0",
+		innerWidth: 1000,
+		innerHeight: 600
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Hex() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Race/index.html",
+		icons: iconsAtTwoSizes("Hex"),
+		title: "Hex GL",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Box() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Boxel%20Rebound/index.html",
+		icons: iconsAtTwoSizes("Box"),
+		title: "Boxel Rebound",
+		innerWidth: 360,
+		innerHeight: 640
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Doom2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom2/Doom2.exe.html",
+		icons: iconsAtTwoSizes("Doom2"),
+		title: "Doom 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Master() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Master/Master.exe.html",
+		icons: iconsAtTwoSizes("Master"),
+		title: "The Master Levels for Doom 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function UD2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/UD2/UD2.exe.html",
+		icons: iconsAtTwoSizes("UD2"),
+		title: "The Ultimate Doom 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function MSCMD() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/CMD.html",
+		icons: iconsAtTwoSizes("msdos"),
+		title: "MS-CMD",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function StarDoom() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/StarWars/StarWars.exe.html",
+		icons: iconsAtTwoSizes("SDoom"),
+		title: "Star Wars Doom",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function BatDoom() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Batman/Batman.exe.html",
+		icons: iconsAtTwoSizes("Batman"),
+		title: "Batman Doom",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function BDoom2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Brutal/Brutal.exe.html",
+		icons: iconsAtTwoSizes("BDoom"),
+		title: "Brutal Doom 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Nine() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/95/95.exe.html",
+		icons: iconsAtTwoSizes("95"),
+		title: "Windows 95",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Duke() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Duke/Duke.exe.html",
+		icons: iconsAtTwoSizes("Duke"),
+		title: "Duke 3D",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function GTA() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/GTA/GTA.exe.html",
+		icons: iconsAtTwoSizes("GTA"),
+		title: "Grand Theft Auto",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function DTrail() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Trail/Oregon.exe.html",
+		icons: iconsAtTwoSizes("Oregon"),
+		title: "Deluxe Oregon Trail",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Trail() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Trail2/Oregon.exe.html",
+		icons: iconsAtTwoSizes("Trail"),
+		title: "Oregon Trail",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Castle() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/CW/CW.exe.html",
+		icons: iconsAtTwoSizes("Castle"),
+		title: "Castle Wolfenstien",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Doom() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom/Doom.exe.html",
+		icons: iconsAtTwoSizes("Doom"),
+		title: "Ultimate Doom",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Heretic() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Heretic/Heretic.exe.html",
+		icons: iconsAtTwoSizes("Heretic"),
+		title: "Heretic",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Heretic2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Heretic2/Heretic2.exe.html",
+		icons: iconsAtTwoSizes("Heretic2"),
+		title: "Heretic 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Hexen() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Hexen/Hexen.exe.html",
+		icons: iconsAtTwoSizes("Hexen"),
+		title: "Hexen",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Plutonia() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia/Plutonia.exe.html",
+		icons: iconsAtTwoSizes("Plutonia"),
+		title: "Plutonia",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Plutonia2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia2/PL2.exe.html",
+		icons: iconsAtTwoSizes("Plutonia2"),
+		title: "Plutonia 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function TNT() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/TNT/TNT.exe.html",
+		icons: iconsAtTwoSizes("FDoom"),
+		title: "TNT",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Sixty() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom64/64.exe.html",
+		icons: iconsAtTwoSizes("64"),
+		title: "Doom64",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Zero() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Zero/Zero.exe.html",
+		icons: iconsAtTwoSizes("Zero"),
+		title: "Doom Zero",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Quake() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Quake/Quake.exe.html",
+		icons: iconsAtTwoSizes("Quake"),
+		title: "Quake",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function QuakeM1() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/QuakeM1/Quake.exe.html",
+		icons: iconsAtTwoSizes("Q1M"),
+		title: "Quake Mission Pack 1",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function QuakeM2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/QuakeM2/Quake.exe.html",
+		icons: iconsAtTwoSizes("Q1M"),
+		title: "Quake Mission Pack 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Quake2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Quake2-PlayN-MagnusPort/index.html",
+		icons: iconsAtTwoSizes("Quake2"),
+		title: "Quake 2",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Shool() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/School/School.exe.html",
+		icons: iconsAtTwoSizes("School"),
+		title: "Doom: School Shooter Edition",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Spear() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Spear/Spear.exe.html",
+		icons: iconsAtTwoSizes("Spear"),
+		title: "Spear of Destiny",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Rekkr() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Rekkr/Rekkr.exe.html",
+		icons: iconsAtTwoSizes("Rekkr"),
+		title: "Rekkr",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Strife() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Strife/Strife.exe.html",
+		icons: iconsAtTwoSizes("Strife"),
+		title: "Strife",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FreeDm() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/FreeDM/FreeDM.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDM",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Free1() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/free1/FreeDoom.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: Phase 1",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Free2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/free2/FreeDoom2.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: Phase 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FDoom() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom/FDoom.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "The Ultimate FreeDoom",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FDoom2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom2/FDoom2.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom Phase 2: Hell on Earth",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FDoom64() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom64/F64.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom 64",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FTNT() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/TNT/FTNT.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: TNT Evilution",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FPL() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia/FPlutonia.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: The Plutonia Experiment",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FPL2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia2/FPl2.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: The Plutonia Experiment Phase 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FChex() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex1/FChex.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: Chex Quest Phase 1",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FChex2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex2/FChex.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: Chex Quest Phase 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function FChex3() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex3/FChex.exe.html",
+		icons: iconsAtTwoSizes("FreeDoom"),
+		title: "FreeDoom: Chex Quest Phase 3",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Wolf3D() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Wolf3D/Wolf.exe.html",
+		icons: iconsAtTwoSizes("Wolf"),
+		title: "Wolf 3D",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function BTSX() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/BTSX/BTSX.exe.html",
+		icons: iconsAtTwoSizes("BTSX"),
+		title: "Back to Saturn X",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function BTSX2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/BTSX2/BTSX2.exe.html",
+		icons: iconsAtTwoSizes("BTSX"),
+		title: "Back to Saturn X 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Chex1() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex1/Chex.exe.html",
+		icons: iconsAtTwoSizes("Chex"),
+		title: "Chex Quest 1",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Chex2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex2/Chex.exe.html",
+		icons: iconsAtTwoSizes("Chex2"),
+		title: "Chex Quest 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Chex3() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex3/Chex.exe.html",
+		icons: iconsAtTwoSizes("Chex3"),
+		title: "Chex Quest 3",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Doom2D() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom2D/Doom2D.exe.html",
+		icons: iconsAtTwoSizes("2D"),
+		title: "Doom 2D",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Dario1() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Mario/Mario.exe.html",
+		icons: iconsAtTwoSizes("Dario"),
+		title: "Mario Doom",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Dario2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Mario2/Mario2.exe.html",
+		icons: iconsAtTwoSizes("Dario"),
+		title: "Mario Doom 2",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Regular() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Regular/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Chrome Dino Game",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function BDay() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/BDay/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Birthday Edition",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function D3D() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/3D/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "3D Dino",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Godzilla() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Godzilla.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Godzilla",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Modz() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Mod/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Modded Chrome Dino Game",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Sonic1() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Sonic/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Sonic v1.0",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Sonic2() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/BSonic/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Sonic v1.2",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Batz() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Batman/Bats/Batman/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Batman",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Halloween() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Halloween.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Halloween",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Joker() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Joker/Jokes/Joker/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Joker",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Mines1() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Minecraft.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Minecraft v1.0",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Mines2() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Minecraft/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Minecraft v1.2",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Naruto() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Naruto.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Naruto",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Anime() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Anime/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Anime",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function DNyan() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Nyan.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Nyan",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Santa() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Santa.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Santa Claus",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function DMario1() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Super_Mario/Mars/Mario/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Super Mario v1.",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function DMario2() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Mario/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Super Mario v1.2",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function DMario3() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Maro/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Super Mario v1.3",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function DMario4() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Marilol/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Super Mario v1.4",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function MegaMan() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/MegaMan/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Mega-Man",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Vivaldi() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Vivaldi/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Vivaldi",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Covid() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Covid/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Covid",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Fish() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Fish/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Fish",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Guy() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Guy/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Kumamon Runner",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Zombie() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/Zombie/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Zombie Runner",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Mario1() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/Mario/index.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Modded Super Mario Bros.",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Mario2() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/Mario/super.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Super Mario Bros.",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function iMario() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/infinite/index.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Infinite Mario",
+		innerWidth: 660,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Cat() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/Catmario/chrome/index.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Cat Mario",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Mari0() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Mario/Mari0/index.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Mari0",
+		innerWidth: 800,
+		innerHeight: 600
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Surf1() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%201.0/index.html",
+		icons: iconsAtTwoSizes("Surf"),
+		title: "Microsoft Surf 1.0",
+		innerWidth: 660,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Surf2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%202.0/index.html",
+		icons: iconsAtTwoSizes("Surf"),
+		title: "Microsoft Surf 2.0",
+		innerWidth: 660,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Surf3() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%203.0/index.html",
+		icons: iconsAtTwoSizes("Surf"),
+		title: "Microsoft Surf 3.0",
+		innerWidth: 660,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function D4() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom4/Doom4.exe.html",
+		icons: iconsAtTwoSizes("4"),
+		title: "Doom4",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function SMWDX() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/MS-DOS/SMWDX/SMWDX.exe.html",
+		icons: iconsAtTwoSizes("Mario"),
+		title: "Super Mario World Deluxe",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Ice() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Ice/ICE%201.0/index.html",
+		icons: iconsAtTwoSizes("Ice"),
+		title: "Ice Dodo 1.0",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Ice2() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/Ice/ICE%202.0/index.html",
+		icons: iconsAtTwoSizes("Ice"),
+		title: "Ice Dodo 2.0",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Contranoid() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Brain Games/Contranoid/index.html",
+		icons: iconsAtTwoSizes("Contranoid"),
+		title: "Contranoid",
+		innerWidth: 392,
+		innerHeight: 539
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function CDG() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Dino/index.html",
+		icons: iconsAtTwoSizes("Dino"),
+		title: "Chrome Dino Games",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Hi() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Brain Games/Oh Hi/index.html",
+		icons: iconsAtTwoSizes("0HH1"),
+		title: "OH H1",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function No() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Brain Games/Oh No/index.html",
+		icons: iconsAtTwoSizes("0HN0"),
+		title: "OH N0",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Quento() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Brain Games/Quento/index.html",
+		icons: iconsAtTwoSizes("Quento"),
+		title: "Quento",
+		innerWidth: 500,
+		innerHeight: 621
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Hextris() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/Brain Games/Hextris/index.html",
+		icons: iconsAtTwoSizes("Hextris"),
+		title: "Hextris",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Pac() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/PacMan/PacMan/index.html",
+		icons: iconsAtTwoSizes("Pacman"),
+		title: "PacMan 1.0",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Google1() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/PacMan/google pacman/index.html",
+		icons: iconsAtTwoSizes("Pacman"),
+		title: "Google PacMan 1.2",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Google2() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/PacMan/google pacman 2/index.html",
+		icons: iconsAtTwoSizes("Pacman"),
+		title: "Google PacMan 1.0",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Snake() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/snake.html",
+		icons: iconsAtTwoSizes("Snake"),
+		title: "Snake",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Pong() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/Pong/index.html",
+		icons: iconsAtTwoSizes("Pong"),
+		title: "Pong",
+		innerWidth: 660,
+		innerHeight: 505
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Tetriz() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/tetris/tetris.html",
+		icons: iconsAtTwoSizes("Tetris"),
+		title: "Tetris 1.0",
+		innerWidth: 500,
+		innerHeight: 621
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Cubes() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/tetris/cubes/index.html",
+		icons: iconsAtTwoSizes("Tetris"),
+		title: "Tetris 2.0",
+		innerWidth: 500,
+		innerHeight: 621
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Jelly() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/tetris/Jelly/index.html",
+		icons: iconsAtTwoSizes("Tetris"),
+		title: "Jelly Tetris",
+		innerWidth: 500,
+		innerHeight: 621
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function AIT() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/tetris/AI/index.html",
+		icons: iconsAtTwoSizes("Tetris"),
+		title: "Tetris with AI",
+		innerWidth: 500,
+		innerHeight: 621
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function SpaceI() {
+	let $win = make_embed_window({
+		src: "./Programs/Games/arcade/Space/index.html",
+		icons: iconsAtTwoSizes("Space"),
+		title: "Space Invaders",
+		innerWidth: 850,
+		innerHeight: 560
+	});
+
+	hidemenu();
+	return new Task($win);
+}
+
+function Twenty() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/2048/2048/index.html",
+		icons: iconsAtTwoSizes("Twenty"),
+		title: "2048",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function One() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/2048/Flappy-2048/index.html",
+		icons: iconsAtTwoSizes("Twenty"),
+		title: "Flappy 2048 1.0",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Two() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/2048/Flappy-2048-2.0/index.html",
+		icons: iconsAtTwoSizes("Twenty"),
+		title: "Flappy 2048 2.0",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Three() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/2048/2048-3D/index.html",
+		icons: iconsAtTwoSizes("Twenty"),
+		title: "2048 3D",
+		innerWidth: 1000,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Four() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/2048/4/index.html",
+		icons: iconsAtTwoSizes("Twenty"),
+		title: "4",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function AI() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/2048/2048-AI/index.html",
+		icons: iconsAtTwoSizes("Twenty"),
+		title: "2048 AI",
+		innerWidth: 1000,
+		innerHeight: 650
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Hardcore() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/2048/2048-Hardcore/index.html",
+		icons: iconsAtTwoSizes("Twenty"),
+		title: "2048 Hardcore",
+		innerWidth: 500,
+		innerHeight: 500
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function Gore() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/GoreScript/index.html",
+		icons: iconsAtTwoSizes("Gore"),
+		title: "GoreScript Classic",
+		innerWidth: 1000,
+		innerHeight: 650
+	});
+	hidemenu();
+	return new Task($win);
+}
+
+function VLC() {
+	let $win = make_embed_window({
+		src: "https://Adam-S-Amir.github.io/VLC-Media-Web-Player/index.html",
+		icons: iconsAtTwoSizes("VLC"),
+		title: "VLC Media Player",
+		innerWidth: 1000,
+		innerHeight: 650
+	});
+	hidemenu();
+	return new Task($win);
+}
+
 function show_help(options) {
 	const $help_window = $Window({
 		title: options.title || "Help Topics",
@@ -258,12 +2153,12 @@ function show_help(options) {
 }
 
 function Notepad(file_path) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
+	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_embed_window)
 	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
 	var win_title = document_title + " - Notepad";
 	// TODO: focus existing window if file is currently open?
 
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/notepad/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: iconsAtTwoSizes("notepad"),
 		title: win_title,
@@ -276,7 +2171,7 @@ function Notepad(file_path) {
 Notepad.acceptsFilePaths = true;
 
 function Paint(file_path) {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/jspaint/index.html",
 		icons: iconsAtTwoSizes("paint"),
 		// NOTE: in Windows 98, "untitled" is lowercase, but TODO: we should just make it consistent
@@ -318,11 +2213,11 @@ function Paint(file_path) {
 		writeBlobToHandle: async (file_path, blob) => {
 			const arrayBuffer = await blob.arrayBuffer();
 			return new Promise((resolve, reject) => {
-				withFilesystem(()=> {
+				withFilesystem(() => {
 					const fs = BrowserFS.BFSRequire("fs");
 					const { Buffer } = BrowserFS.BFSRequire("buffer");
 					const buffer = Buffer.from(arrayBuffer);
-					fs.writeFile(file_path, buffer, (err)=> {
+					fs.writeFile(file_path, buffer, (err) => {
 						if (err) {
 							return reject(err);
 						}
@@ -351,7 +2246,7 @@ function Paint(file_path) {
 	// $(contentWindow).on("load", function(){
 	// $win.$iframe.load(function(){
 	// $win.$iframe[0].addEventListener("load", function(){
-	waitUntil(()=> contentWindow.systemHooks, 500, ()=> {
+	waitUntil(() => contentWindow.systemHooks, 500, () => {
 		Object.assign(contentWindow.systemHooks, systemHooks);
 
 		let $help_window;
@@ -395,7 +2290,7 @@ function Paint(file_path) {
 Paint.acceptsFilePaths = true;
 
 function Minesweeper() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/minesweeper/index.html",
 		icons: iconsAtTwoSizes("minesweeper"),
 		title: "Minesweeper",
@@ -407,11 +2302,11 @@ function Minesweeper() {
 }
 
 function SoundRecorder(file_path) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
+	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_embed_window)
 	var document_title = file_path ? file_name_from_path(file_path) : "Sound";
 	var win_title = document_title + " - Sound Recorder";
 	// TODO: focus existing window if file is currently open?
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/sound-recorder/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: iconsAtTwoSizes("speaker"),
 		title: win_title,
@@ -425,7 +2320,7 @@ function SoundRecorder(file_path) {
 SoundRecorder.acceptsFilePaths = true;
 
 function Solitaire() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/js-solitaire/index.html",
 		icons: iconsAtTwoSizes("solitaire"),
 		title: "Solitaire",
@@ -501,17 +2396,82 @@ function showScreensaver(iframeSrc) {
 	window.addEventListener("keydown", keydownHandler, true);
 }
 
+function Settings() {
+	let $win = new $IframeWindow2({
+		src: null,
+		icons: iconsAtTwoSizes("settings"),
+		title: "Settings",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	Settingz();
+	hidemenu();
+	return new Task($win);
+}
+
+function Store() {
+	let $win = new $IframeWindow2({
+		src: null,
+		icons: iconsAtTwoSizes("Store"),
+		title: "Software Center",
+		innerWidth: 665,
+		innerHeight: 436
+	});
+	StoreFront();
+	hidemenu();
+	return new Task($win);
+}
+
+function tmr() {
+	let timer = document.getElementById("scvtmr").value;
+	setInterval(function () {
+		eval(localStorage.getItem("scv"));
+	}, timer * 15000);
+}
+
 function Pipes() {
-	const options = { hideUI: true };
-	showScreensaver(`./A/Program Files/pipes/index.html#${encodeURIComponent(JSON.stringify(options))}`);
+	const options = {
+		hideUI: true
+	};
+	showScreensaver(
+		`./programs/pipes/index.html#${encodeURIComponent(JSON.stringify(options))}`
+	);
+	localStorage.removeItem("scv");
+	localStorage.setItem("scv", "Pipes()");
 }
 
 function FlowerBox() {
-	showScreensaver("./A/Program Files/3D-FlowerBox/index.html");
+	showScreensaver("./programs/FlowerBox/index.html");
+	localStorage.removeItem("scv");
+	localStorage.setItem("scv", "FlowerBox()");
+}
+
+function DVD() {
+	showScreensaver("./Programs/Toys/DVD/index.html");
+	localStorage.removeItem("scv");
+	localStorage.setItem("scv", "DVD()");
+}
+
+function Matrix() {
+	showScreensaver("./programs/toys/matrix/index.html");
+	localStorage.removeItem("scv");
+	localStorage.setItem("scv", "Matrix()");
+}
+
+function Dotz() {
+	showScreensaver("./programs/toys/Dotz/index.html");
+	localStorage.removeItem("scv");
+	localStorage.setItem("scv", "Dotz()");
+}
+
+function Bubz() {
+	showScreensaver("./programs/toys/Bubbles/index.html");
+	localStorage.removeItem("scv");
+	localStorage.setItem("scv", "Bubz()");
 }
 
 function CommandPrompt() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/command/index.html",
 		icons: iconsAtTwoSizes("msdos"),
 		title: "MS-DOS Prompt",
@@ -559,7 +2519,7 @@ function CommandPrompt() {
 }
 
 function Calculator() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/calculator/index.html",
 		icons: iconsAtTwoSizes("calculator"),
 		title: "Calculator",
@@ -572,7 +2532,7 @@ function Calculator() {
 }
 
 function Pinball() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/pinball/space-cadet.html",
 		icons: iconsAtTwoSizes("pinball"),
 		title: "3D Pinball for Windows - Space Cadet",
@@ -614,11 +2574,11 @@ function Pinball() {
 }
 
 function Explorer(address) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
+	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_embed_window)
 	var document_title = address;
 	var win_title = document_title;
 	// TODO: focus existing window if folder is currently open
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
 		icons: iconsAtTwoSizes("folder-open"),
 		title: win_title,
@@ -1208,7 +3168,7 @@ Create_Icon({
 	is_system_folder: true,
 });
 Create_Icon({
-	title: "Network Neighborhood",
+	title: "Da Hood",
 	iconID: "network",
 	open: function () { systemExecuteFile("/A/network-neighborhood"); },
 	// file_path: "/network-neighborhood/",
@@ -1280,23 +3240,79 @@ Create_Icon({
 	open: FlowerBox,
 	shortcut: false
 });
-Create_Icon({
-	title: "MS-DOS Prompt",
-	iconID: "msdos",
-	open: CommandPrompt,
-	shortcut: false
-});
+
 Create_Icon({
 	title: "Calculator",
 	iconID: "calculator",
 	open: Calculator,
 	shortcut: false
 });
+
 Create_Icon({
 	title: "Pinball",
 	iconID: "pinball",
 	open: Pinball,
 	shortcut: false
+});
+
+Create_Icon({
+	title: "VLC Media Player",
+	iconID: "VLC",
+	open: VLC
+});
+
+Create_Icon({
+	title: "MS-CMD",
+	iconID: "msdos",
+	open: MSCMD
+});
+
+Create_Icon({
+	title: "Duke Nukem 3D",
+	iconID: "Duke",
+	open: Duke
+});
+
+Create_Icon({
+	title: "Grand Theft Auto",
+	iconID: "GTA",
+	open: GTA
+});
+
+Create_Icon({
+	title: "Oregon Trail",
+	iconID: "Trail",
+	open: Trail
+});
+
+Create_Icon({
+	title: "Doom64",
+	iconID: "64",
+	open: Sixty
+});
+
+Create_Icon({
+	title: "Doom Zero",
+	iconID: "Zero",
+	open: Zero
+});
+
+Create_Icon({
+	title: "Quake",
+	iconID: "Quake",
+	open: Quake
+});
+
+Create_Icon({
+	title: "Quake 2",
+	iconID: "Quake2",
+	open: Quake2
+});
+
+Create_Icon({
+	title: "Wolf 3D",
+	iconID: "Wolf",
+	open: Wolf3D
 });
 
 folder_view.arrange_icons();
