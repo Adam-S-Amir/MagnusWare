@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
+
+* {
+    font-family: 'Rubik Iso', cursive;
+}
+
+html {
+    margin: 0;
+    background: #222;
+}
+
+canvas {
+    top: 0;
+    left: 0;
+    image-rendering: optimizeSpeed;
+    -webkit-interpolation-mode: nearest-neighbor;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+canvas>div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.Outer-Bar {
+    position: relative;
+    margin-top: 5px;
+    width: 98%;
+    height: 50px;
+    z-index: 2;
+    border-radius: 2vmin;
+    background-color: #22222291;
+}
+
+.Inner-Bar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Inner-Bar>div {
+    position: relative;
+    z-index: 3;
+    height: 30px;
+    border-radius: 5vmax;
+}
+
+.Player-HP,
+.Enemy-HP {
+    top: 10px;
+    width: 35%;
+    background-color: navy;
+}
+
+.Player-HP-HP {
+    float: left;
+    position: relative;
+    border-radius: 5vmax;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+.Enemy-HP-HP {
+    float: right;
+    position: relative;
+    border-radius: 5vmax;
+    height: 100%;
+    width: 0%;
+    background-color: transparent;
+}
+
+.Player-HP {
+    float: left;
+    left: 2px;
+}
+
+.Timer {
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 28%;
+    border-radius: 2vmin;
+    background-color: aqua;
+}
+
+.Inner-Timer {
+    margin: 0 auto;
+    margin-top: 5px;
+    display: flex;
+    text-align: -webkit-center;
+    align-items: center;
+    justify-content: center;
+}
+
+.Enemy-HP {
+    float: right;
+    right: 2px;
+}
+
+@keyframes fade {
+    0% {
+        background-color: maroon;
+    }
+
+    100% {
+        background-color: navy;
+    }
+}
+
+.Animated {
+    animation: fade 1s ease-in;
+}
+
+.Outer-End {
+    top: 12%;
+    left: 10%;
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    z-index: 2;
+    border-radius: 2vmin;
+    background-color: #3CBBD8;
+    display: none;
+}
+
+.End-Header {
+    text-align: -webkit-center;
+}
+
+.End-Results {
+    text-align: -webkit-center;
+    font-weight: bolder;
+}
+
+.Restart {
+    float: left;
+    font-size: 18px;
+    height: 60%;
+    width: 30%;
+    margin-top: 6%;
+    margin-left: 35%;
+    outline: none;
+    border-width: 5vmin;
+    border-style: outset;
+    border-image: none;
+    padding: 0;
+    background-color: black;
+    background-image: linear-gradient(to bottom right, black, #6c6c6c);
+    color: cyan;
+}
+
+.Restart:hover {
+    color: lime;
+}
