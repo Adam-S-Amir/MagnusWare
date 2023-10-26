@@ -115,26 +115,26 @@ window.toast = window.toast || (({
 	iconID = "warning", // "error", "warning", "info", or "nuke" for deleting files/folders
 	windowOptions = {}, // for controlling width, etc.
 }) => {
-	let $window, $message, $bar;
+	let $window, $message, $bar, $cls;
 	const promise = new Promise((resolve, reject) => {
 		$window = new $Window(Object.assign({
 			title: false,
 			resizable: false,
-			innerWidth: 400,
+			innerWidth: 250,
 			maximizeButton: false,
 			minimizeButton: false,
 			closeButton: false,
 		}, windowOptions));
 		// $window.addClass("dialog-window horizontal-buttons");
-
 		$bar =
 			$("<div>").css({
 				height: "18px",
 				width: "99%",
 				position: "absolute",
-				"background": "linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)",
+				background: "linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)",
 				top: "2px",
 				right: "2px",
+				"z-index": "1",
 				flex: 1,
 			});
 		$bar.attr('id', 'progressbar'); // Set the ID to "progressbar"
