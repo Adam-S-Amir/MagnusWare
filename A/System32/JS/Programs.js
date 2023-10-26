@@ -17,7 +17,7 @@ function About() {
 
 function Chat() {
 	let $win = make_embed_window({
-		src: "./programs/chat/index.php",
+		src: "./A/System32/Program%20Files/chat/index.php",
 		icons: iconsAtTwoSizes("Chat"),
 		title: "Chat Room",
 		innerWidth: 1000,
@@ -59,19 +59,6 @@ function Cookie() {
 		innerWidth: 660,
 		innerHeight: 500
 	});
-	hidemenu();
-	return new Task($win);
-}
-
-function Dino() {
-	let $win = make_embed_window({
-		src: "./Dino.html",
-		icons: iconsAtTwoSizes("Dino"),
-		title: "Chrome Dino",
-		innerWidth: 700,
-		innerHeight: 600
-	});
-
 	hidemenu();
 	return new Task($win);
 }
@@ -286,7 +273,7 @@ function Spelunky() {
 
 function Button() {
 	let $win = make_embed_window({
-		src: "./Programs/Toys/Button/index.html",
+		src: "./A/System32/Program%20Files/Button/index.html",
 		icons: iconsAtTwoSizes("Button"),
 		title: "Button",
 		innerWidth: 300,
@@ -299,7 +286,7 @@ function Button() {
 
 function Clock() {
 	let $win = make_embed_window({
-		src: "./Programs/Toys/Clock/index.html",
+		src: "./A/System32/Program%20Files/Clock/index.html",
 		icons: iconsAtTwoSizes("Clock"),
 		title: "Clock",
 		innerWidth: 500,
@@ -325,7 +312,7 @@ function AcidBox() {
 
 function Star() {
 	let $win = make_embed_window({
-		src: "./Programs/Toys/StrWrz/index.html",
+		src: "./A/System32/Program%20Files/StrWrz/index.html",
 		icons: iconsAtTwoSizes("Starwars"),
 		title: "Star Wars Episode IV",
 		innerWidth: 830,
@@ -351,7 +338,7 @@ function Zamboni() {
 
 function Soda() {
 	let $win = make_embed_window({
-		src: "./Programs/Toys/Soda/index.htm",
+		src: "./A/System32/Program%20Files/Soda/index.htm",
 		icons: iconsAtTwoSizes("Soda"),
 		title: "Vending Machine",
 		innerWidth: 500,
@@ -2447,25 +2434,25 @@ function FlowerBox() {
 }
 
 function DVD() {
-	showScreensaver("./Programs/Toys/DVD/index.html");
+	showScreensaver("./A/System32/Program%20Files/DVD/index.html");
 	localStorage.removeItem("scv");
 	localStorage.setItem("scv", "DVD()");
 }
 
 function Matrix() {
-	showScreensaver("./programs/toys/matrix/index.html");
+	showScreensaver("./A/System32/Program%20Files/matrix/index.html");
 	localStorage.removeItem("scv");
 	localStorage.setItem("scv", "Matrix()");
 }
 
 function Dotz() {
-	showScreensaver("./programs/toys/Dotz/index.html");
+	showScreensaver("./A/System32/Program%20Files/Dotz/index.html");
 	localStorage.removeItem("scv");
 	localStorage.setItem("scv", "Dotz()");
 }
 
 function Bubz() {
-	showScreensaver("./programs/toys/Bubbles/index.html");
+	showScreensaver("./A/System32/Program%20Files/Bubbles/index.html");
 	localStorage.removeItem("scv");
 	localStorage.setItem("scv", "Bubz()");
 }
