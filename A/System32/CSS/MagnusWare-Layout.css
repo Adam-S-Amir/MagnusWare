@@ -551,6 +551,7 @@ body {
 	/* background: var(--tray); */
 	background-color: var(--ButtonFace)
 }
+
 .taskbar button,
 .taskbar-divider,
 .tray {
@@ -1273,6 +1274,10 @@ body>.window-titlebar {
 
 .window-action-minimize .window-button-icon {
 	--sprite-x: calc(-0 * 13px - 1px);
+}
+
+.window-maximize-button {
+	margin-left: 2px;
 }
 
 .window-close-button {
