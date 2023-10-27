@@ -1,8 +1,0 @@
-{
-    "dataUrl": "./webgl.data.unityweb",
-    "asmCodeUrl": "./webgl.wasm.code.unityweb",
-    "asmFrameworkUrl": "./webgl.wasm.framework.unityweb",
-    "backgroundUrl": "../images/cover.jpg",
-    "splashScreenStyle": "Light",
-    "backgroundColor": "#FFFFFF"
-}
