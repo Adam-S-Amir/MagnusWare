@@ -142,7 +142,7 @@ function ChangeAgent() {
     var div = document.getElementById("clippy");
     var div2 = document.getElementById("clippy-2");
     if (div !== null) {
-        div.parentNode.removeChild(div);
+        div.remove();
         div2.parentNode.removeChild(div2);
         clippy.load(`${randomAgent}`, function (agent) {
             agent.show();
@@ -254,7 +254,7 @@ function hidevol() {
 //* End JukeBox
 
 //* Battery Level
-// <img class="tray-icon" src="./C/System32/Images/Icons/battery-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
+// <img class="tray-icon" src="./C/System64/Images/Icons/battery-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
 // ^ Placed in kernel, but shit is outdated now :(
 // let level;
 
@@ -377,8 +377,8 @@ if (clappy === null && Tclippy === null) {
     var div = document.getElementById("clippy");
     var div2 = document.getElementById("clippy-2");
     if (div !== null) {
-        div.parentNode.removeChild(div);
-        div2.parentNode.removeChild(div2);
+        div.remove();
+        div2.remove();
         CClippy();
     }
 } else if (clappy === null && Tclippy === null) {
@@ -389,8 +389,8 @@ function CClippy() {
     var div = document.getElementById("clippy");
     var div2 = document.getElementById("clippy-2");
     if (div !== null) {
-        div.parentNode.removeChild(div);
-        div2.parentNode.removeChild(div2);
+        div.remove();
+        div2.remove();
         clippy.load('Clippy', function (agent) {
             agent.show();
             agent.animate();

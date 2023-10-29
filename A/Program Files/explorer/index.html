@@ -3,20 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Explorer</title>
-		<link rel="icon" href="../../System32/Images/icons/explorer-16x16.png" sizes="16x16" type="image/png">
-		<link rel="icon" href="../../System32/Images/icons/explorer-32x32.png" sizes="32x32" type="image/png">
+		<link rel="icon" href="../../System64/Images/icons/explorer-16x16.png" sizes="16x16" type="image/png">
+		<link rel="icon" href="../../System64/Images/icons/explorer-32x32.png" sizes="32x32" type="image/png">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<link href="../../System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
-		<script src="../../System32/JS/jquery.min.js"></script>
-		<script src="../../System32/JS/browserfs.js"></script>
-		<script src="../../System32/JS/filesystem-setup.js"></script>
-		<script src="../../System32/JS/MenuBar.js"></script>
-		<script src="../../System32/JS/Window.js"></script>
-		<script src="../../System32/JS/msgbox.js"></script>
-		<script src="../../System32/JS/iframe-windows.js"></script>
-		<script src="../../System32/JS/Kernel.js"></script>
-		<script src="../../System32/JS/FolderView.js"></script>
-		<script src="../../System32/JS/FolderViewItem.js"></script>
+		<link href="../../System64/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
+		<script src="../../System64/JS/jquery.min.js"></script>
+		<script src="../../System64/JS/browserfs.js"></script>
+		<script src="../../System64/JS/filesystem-setup.js"></script>
+		<script src="../../System64/JS/MenuBar.js"></script>
+		<script src="../../System64/JS/Window.js"></script>
+		<script src="../../System64/JS/msgbox.js"></script>
+		<script src="../../System64/JS/iframe-windows.js"></script>
+		<script src="../../System64/JS/Kernel.js"></script>
+		<script src="../../System64/JS/FolderView.js"></script>
+		<script src="../../System64/JS/FolderViewItem.js"></script>
 		<script>
 			defaultMessageBoxTitle = "Explorer";
 		</script>
@@ -124,7 +124,7 @@
 			<!-- @TODO: d access key -->
 			<label for="address">Address</label>
 			<div id="address-compound-input" class="inset-deep">
-				<img id="address-icon" width="16" height="16" src="../../System32/Images/icons/folder-16x16.png" alt="">
+				<img id="address-icon" width="16" height="16" src="../../System64/Images/icons/folder-16x16.png" alt="">
 				<input type="text" id="address" autocomplete="off">
 				<button id="address-dropdown-button" disabled>
 					<!-- Outer SVG must not have the transform, because it has a filter when disabled which would get rotated. -->
@@ -141,19 +141,19 @@
 		<div id="content" class="inset-deep"></div>
 		<div id="status-bar">
 			<div id="status-bar-left" class="inset-shallow">
-				<img id="status-bar-left-icon" style="display: none;" width="16" height="16" src="../../System32/Images/icons/folder-16x16.png" alt="">
+				<img id="status-bar-left-icon" style="display: none;" width="16" height="16" src="../../System64/Images/icons/folder-16x16.png" alt="">
 				<span id="status-bar-left-text"></span>
 			</div>
 			<div id="status-bar-middle" class="inset-shallow">
 				<span id="status-bar-middle-text"></span>
 			</div>
 			<div id="status-bar-right" class="inset-shallow">
-				<img id="status-bar-right-icon" style="display: none;" width="16" height="16" src="../../System32/Images/icons/my-computer-16x16.png" alt="">
+				<img id="status-bar-right-icon" style="display: none;" width="16" height="16" src="../../System64/Images/icons/my-computer-16x16.png" alt="">
 				<span id="status-bar-right-text"></span>
 			</div>
 			<!-- for menu descriptions, replace left/middle/right layout with non-inset, singular area -->
 			<div id="status-bar-simple" style="display: none;">
-				<img id="status-bar-simple-icon" width="16" height="16" src="../../System32/Images/icons/my-computer-16x16.png" alt="">
+				<img id="status-bar-simple-icon" width="16" height="16" src="../../System64/Images/icons/my-computer-16x16.png" alt="">
 				<span id="status-bar-simple-text"></span>
 			</div>
 		</div>

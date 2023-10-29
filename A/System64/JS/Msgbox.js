@@ -1,4 +1,4 @@
-let SoundLocation = "./A/System32/Audio/MagnusWare/"
+let SoundLocation = "./A/System64/Audio/MagnusWare/"
 let Asterisk = new Audio(SoundLocation + "System Asterisk.wav");
 let Notification = new Audio(SoundLocation + "System Exclamation.wav");
 let Battery = new Audio(SoundLocation + "Low Battery Alarm.wav");
@@ -50,7 +50,7 @@ window.showMessageBox = window.showMessageBox || (({
 			});
 		}
 		$("<div>").append(
-			$("<img width='32' height='32'>").attr("src", `./A/System32/images/icons/${iconID}-32x32.png`).css({
+			$("<img width='32' height='32'>").attr("src", `./A/System64/images/icons/${iconID}-32x32.png`).css({
 				margin: "16px",
 				display: "block",
 			}),

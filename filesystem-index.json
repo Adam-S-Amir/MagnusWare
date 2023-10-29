@@ -1,4 +1,7 @@
 {
+  ".vscode": {
+    "settings.json": null
+  },
   "A": {
     "desktop": {
       "CREDITS.txt": null,
@@ -3747,7 +3750,7 @@
       }
     },
     "Program Files (x86)": {},
-    "System32": {
+    "System64": {
       "Audio": {
         "MagnusWare": {
           "Critical Battery Alarm.wav": null,
@@ -4538,10 +4541,10 @@
         },
         "Cursor.js": null,
         "Desktop.js": null,
+        "Embed-Windows.js": null,
         "Filesystem-Setup.js": null,
         "FolderView.js": null,
         "FolderViewItem.js": null,
-        "Iframe-Windows.js": null,
         "jquery.min.js": null,
         "JukeBox.js": null,
         "Kernel.js": null,
@@ -4565,7 +4568,8 @@
         "Visualizer-Overlay.js": null,
         "Widgets.js": null,
         "Window-Switcher.js": null,
-        "Window.js": null
+        "Window.js": null,
+        "X-Window.js": null
       }
     },
     "WEB": {

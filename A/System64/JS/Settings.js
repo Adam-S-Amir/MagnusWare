@@ -1482,7 +1482,7 @@ function about() {
   
   <div class="about">
   <div class="about-header">
-      <img class="About-Icon" src="./A/System32/Images/Common/Start.png">
+      <img class="About-Icon" src="./A/System64/Images/Common/Start.png">
       <h1 class="about-heading">MagnusWare</h1>
   </div>
   <div class="about-body">

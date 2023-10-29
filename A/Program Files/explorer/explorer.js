@@ -58,7 +58,7 @@ function get_icon_for_address(address) {
 	}
 }
 
-var navigate_audio = new Audio(window.location.origin + "/A/System32/Audio/START.WAV");
+var navigate_audio = new Audio(window.location.origin + "/A/System64/Audio/START.WAV");
 
 var offline_mode = false;
 
@@ -693,7 +693,7 @@ ${doc.documentElement.outerHTML}`;
 						this.shadowRoot.append(folder_view.element);
 						// jQuery's append does HTML, vs native which does Text
 						$(this.shadowRoot).append(`
-							<link href="/A/System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
+							<link href="/A/System64/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
 							<style>
 								:host {
 									display: flex;
@@ -825,7 +825,7 @@ ${doc.documentElement.outerHTML}`;
 	const head_start_injected_html = `
 		<meta charset="utf-8">
 		<title>Folder Template</title>
-		<link href="/A/System32/CSS/ie-6.css" rel="stylesheet" type="text/css">
+		<link href="/A/System64/CSS/ie-6.css" rel="stylesheet" type="text/css">
 		<style>
 		p {margin: 0;}
 
@@ -840,11 +840,11 @@ ${doc.documentElement.outerHTML}`;
 	`;
 
 	const head_end_injected_html = `
-		<link href="/A/System32/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
+		<link href="/A/System64/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<script src="/A/System32/JS/jquery.min.js"></script>
-		<script src="/A/System32/JS/Window.js"></script>
-		<script src="/A/System32/JS/msgbox.js"></script>
+		<script src="/A/System64/JS/jquery.min.js"></script>
+		<script src="/A/System64/JS/Window.js"></script>
+		<script src="/A/System64/JS/msgbox.js"></script>
 		<script>defaultMessageBoxTitle = "Explorer";</script>
 		<script>
 			(${head_end_injected_script_fn})();

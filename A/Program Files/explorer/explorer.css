@@ -196,11 +196,11 @@ button {
 	top: 2px;
 }
 .toolbar-button .icon {
-	background-image: url("../../System32/Images/Common/browse-ui-icons.png");
+	background-image: url("../../System64/Images/Common/browse-ui-icons.png");
 }
 .toolbar-button:enabled:hover .icon,
 .toolbar-compound-button-wrapper:hover .toolbar-button:enabled .icon {
-	background-image: url("../../System32/Images/Common/browse-ui-icons-grayscale.png");
+	background-image: url("../../System64/Images/Common/browse-ui-icons-grayscale.png");
 }
 .toolbar-button:disabled .icon,
 #address-dropdown-button:disabled svg,

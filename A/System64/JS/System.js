@@ -2709,7 +2709,7 @@ const reinstall = function () {
             scope._everything.removeChild(bootInfo);
         }
         bootSound = null, booted = null;
-        this.load("./A/System32/JS/" + scriptUrls);
+        this.load("./A/System64/JS/" + scriptUrls);
     });
     system42.trigger('boot');
 }

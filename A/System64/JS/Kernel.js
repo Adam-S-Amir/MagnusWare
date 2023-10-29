@@ -1,6 +1,31 @@
 let MagnusWare_V = "4.0";
 console.log("Successfully Initialized Kernel.")
 
+let pElement = document.createElement("p");
+pElement.id = "splash-log";
+let splashScreen = document.querySelector("#splash-screen");
+
+pElement.innerHTML = "Successfully Initialized BOM." + "<br>";
+splashScreen.appendChild(pElement);
+splashScreen.scrollTop = splashScreen.scrollHeight;
+
+pElement.innerHTML = "Initializing DOM..." + "<br>";
+splashScreen.appendChild(pElement);
+splashScreen.scrollTop = splashScreen.scrollHeight;
+
+pElement.innerHTML = "Successfully Initialized DOM." + "<br>";
+splashScreen.appendChild(pElement);
+splashScreen.scrollTop = splashScreen.scrollHeight;
+
+pElement.innerHTML = "Initializing Kernel..." + "<br>";
+splashScreen.appendChild(pElement);
+splashScreen.scrollTop = splashScreen.scrollHeight;
+
+pElement.innerHTML = "Successfully Initialized Kernel." + "<br>";
+splashScreen.appendChild(pElement);
+splashScreen.scrollTop = splashScreen.scrollHeight;
+
+
 let CSSLinks = [
     "MagnusWare-Layout.css",
     "Stylesheet.css",
@@ -11,16 +36,25 @@ let CSSLinks = [
 function loadCSSSequentially(index) {
     if (index < CSSLinks.length) {
         let CSS = document.createElement("link");
-        let CSSlocation = "./A/System32/CSS/";
+        let CSSlocation = "./A/System64/CSS/";
         CSS.rel = "stylesheet";
         CSS.href = CSSlocation + CSSLinks[index];
         CSS.onload = function () {
             loadCSSSequentially(index + 1);
         };
         document.head.appendChild(CSS);
-        console.log("Successfully Initialized " + CSSLinks[index].replace(".css", "") + ".")
+        console.log("Successfully Initialized " + CSSLinks[index].replace(".css", "") + ".");
+
+        let pElement = document.createElement("p");
+        pElement.id = "splash-log";
+        pElement.innerHTML = CSSLinks[index] + "<br>";
+        let splashScreen = document.querySelector("#splash-screen");
+        splashScreen.appendChild(pElement);
+        splashScreen.scrollTop = splashScreen.scrollHeight;
+
     }
 }
+
 loadCSSSequentially(0);
 
 let scriptUrls = [
@@ -55,16 +89,29 @@ let scriptUrls = [
 function loadScriptsSequentially(index) {
     if (index < scriptUrls.length) {
         let script = document.createElement("script");
-        let JSlocation = "./A/System32/js/";
+        let JSlocation = "./A/System64/js/";
         script.src = JSlocation + scriptUrls[index];
         script.onload = function () {
             loadScriptsSequentially(index + 1);
         };
         document.body.appendChild(script);
         console.log("Successfully Initialized " + scriptUrls[index].replace(".js", "") + ".");
+
+        let pElement = document.createElement("p");
+        pElement.id = "splash-log";
+        pElement.innerHTML = scriptUrls[index] + "<br>";
+        let splashScreen = document.querySelector("#splash-screen");
+        splashScreen.appendChild(pElement);
+        splashScreen.scrollTop = splashScreen.scrollHeight;
     } else {
         console.groupEnd();
         console.groupEnd();
+        let x = document.getElementById("splash-screen");
+        x.style.opacity = 0
+        x.style.transition = "opacity 1s ease-out"
+        setTimeout(function () {
+            x.remove();
+        }, 1500);
     }
 }
 
@@ -110,17 +157,17 @@ If the check in step 2 returns a falsy value (meaning "98.js.org" is not found i
 
 function iconsAtTwoSizes(iconID) {
     return {
-        16: `A/System32/Images/icons/${iconID}-16x16.png`,
-        48: `A/System32/Images/icons/${iconID}-48x48.png`,
+        16: `A/System64/Images/icons/${iconID}-16x16.png`,
+        48: `A/System64/Images/icons/${iconID}-48x48.png`,
     };
 }
 
 function getIconPath(iconID, size) {
-    return web_server_root_for_icons + "./A/System32/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
+    return web_server_root_for_icons + "./A/System64/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
 }
 
 function getDeskIconPath(iconID, size) {
-    return window.location.href.replace("index.html", "") + "A/System32/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
+    return window.location.href.replace("index.html", "") + "A/System64/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
 }
 function Canvas(width, height) {
     var new_canvas = E("canvas");
@@ -172,7 +219,6 @@ const windowInterfaceMethods = [
 ];
 
 const vInfo = document.createElement('span');
-const splash = document.createElement('div');
 const taskbr = document.createElement('div');
 
 taskbr.classList.add('taskbar');
@@ -181,7 +227,6 @@ vInfo.style.fontSize = "5px";
 vInfo.style.opacity = 0.2;
 vInfo.style.color = "rgb(183, 202, 202)";
 taskbr.id = 'taskbr';
-splash.id = 'splash-screen';
 
 vInfo.setAttribute("onclick", "hideinfo();");
 var lineBreak = document.createElement("br");
@@ -204,22 +249,19 @@ vInfo.title = 'Click to hide';
 
 let start = [`
     <div class="start-button toggle" title="Click here to begin.">
-        <img id="start-img" src="./A/System32/Images/Common/start.png">
+        <img id="start-img" src="./A/System64/Images/Common/start.png">
     </div>
     <div class="tasks"></div>
     <div id="tray" class="tray inset-shallow">
     <div class="tray-icons">
-        <img class="tray-icon" src="./A/System32/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
-        <img class="tray-icon" src="./A/System32/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
+        <img class="tray-icon" src="./A/System64/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
+        <img class="tray-icon" src="./A/System64/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
     </div>
     <div class="taskbar-time" id="time" onclick="hidecal()"></div>
 `]
 taskbr.innerHTML = start;
-splash.innerHTML = "Loading...";
 document.body.appendChild(vInfo);
 document.body.appendChild(taskbr);
-document.body.appendChild(splash);
-document.getElementById('splash-screen').style.display = 'none';
 
 let wifi = `
 <div class="wifi-body">

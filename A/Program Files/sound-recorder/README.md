@@ -32,7 +32,7 @@ Try it [as part of 98](https://98.js.org/) or [standalone](https://98.js.org/pro
   ---------------------------
   Sound - Sound Recorder: SNDREC32.EXE - Ordinal Not Found
   ---------------------------
-  The ordinal 379 could not be located in the dynamic link library C:\Windows\SYSTEM32\MMSYS.CPL. 
+  The ordinal 379 could not be located in the dynamic link library C:\Windows\System64\MMSYS.CPL. 
   ---------------------------
   OK   
   ---------------------------
