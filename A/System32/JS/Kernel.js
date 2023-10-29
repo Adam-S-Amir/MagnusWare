@@ -1,5 +1,5 @@
 let MagnusWare_V = "4.0";
-console.log("Kernel Successfully Initialized.")
+console.log("Successfully Initialized Kernel.")
 
 let CSSLinks = [
     "MagnusWare-Layout.css",
