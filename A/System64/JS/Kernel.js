@@ -64,7 +64,7 @@ let scriptUrls = [
     "MenuBar.js",
     "Window.js",
     "X-Window.js",
-    "Msgbox.js",
+    "Notifications.js",
     "Filesystem-Setup.js",
     "Embed-Windows.js",
     "Task.js",

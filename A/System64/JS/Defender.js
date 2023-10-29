@@ -9,13 +9,8 @@ document.addEventListener('keydown', function (event) {
         } else {
             event.preventDefault();
             console.log("Dev Settings disabled!");
-            showMessageBox({
-                title: "Turbo Defender: Damn ;(",
-                message: "Dev Tools have been disabled for the public :(",
-                sound: [SecurityBand.play()],
-                buttons: [{
-                    label: "Tuff",
-                }],
+            toast({
+                message: "Dev Tools have been\ndisabled for the public :(",
             })
         }
     }

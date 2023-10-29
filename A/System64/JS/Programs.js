@@ -181,16 +181,19 @@ function Sans() {
 }
 
 function Funky() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Funky Karts/index.html",
-		icons: iconsAtTwoSizes("Funky"),
-		title: "Funky Karts",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
+	toast({
+		message: "Funky Karts is deprecated"
+	})
+	// let $win = make_embed_window({
+	// 	src: "./A/System64/Program%20Files%20(x86)/Funky Karts/index.html",
+	// 	icons: iconsAtTwoSizes("Funky"),
+	// 	title: "Funky Karts",
+	// 	innerWidth: 1000,
+	// 	innerHeight: 500
+	// });
 
-	hidemenu();
-	return new Task($win);
+	// hidemenu();
+	// return new Task($win);
 }
 
 function Mario2() {

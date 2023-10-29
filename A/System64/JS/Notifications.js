@@ -4,6 +4,7 @@ let Notification = new Audio(SoundLocation + "System Exclamation.wav");
 let Battery = new Audio(SoundLocation + "Low Battery Alarm.wav");
 let CriticalBattery = new Audio(SoundLocation + "Critical Battery Alarm.wav");
 let SystemNotification = new Audio(SoundLocation + "System Notification.wav");
+let SystemExclamation = new Audio(SoundLocation + "System Exclamation.wav");
 let SystemHand = new Audio(SoundLocation + "System Hand.wav");
 let SecurityBand = new Audio(SoundLocation + "Security Band.wav");
 let LogOff = new Audio(SoundLocation + "Windows Logoff.wav");
@@ -112,7 +113,6 @@ window.alert = (message) => {
 window.toast = window.toast || (({
 	message,
 	messageHTML,
-	iconID = "warning", // "error", "warning", "info", or "nuke" for deleting files/folders
 	windowOptions = {}, // for controlling width, etc.
 }) => {
 	let $window, $message, $bar, $cls;
@@ -156,7 +156,7 @@ window.toast = window.toast || (({
 		move();
 		$message =
 			$("<div>").css({
-				fontFamily: "MS Sans Serif, Arial, sans-serif",
+				fontFamily: "Orbitron",
 				fontSize: "14px",
 				marginTop: "22px",
 				bottom: "10px",
@@ -190,9 +190,9 @@ window.toast = window.toast || (({
 		$window.focus();
 	});
 	try {
-		Asterisk.play();
+		SystemExclamation.play();
 	} catch (error) {
-		console.log(`Failed to play ${Asterisk.src}: `, error);
+		console.log(`Failed to play ${SystemExclamation.src}: `, error);
 	}
 	return promise;
 });
