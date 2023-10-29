@@ -83,6 +83,7 @@ let scriptUrls = [
     "Settings.js",
     "MagnusFS.js",
     "System.js",
+    "Defender.js",
     "JukeBox.js",
 ];
 
