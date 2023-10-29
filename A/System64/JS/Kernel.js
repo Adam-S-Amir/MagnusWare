@@ -300,15 +300,15 @@ let jukebox = `
 <div class="jukebox-body">
     <input type="range" id="range" class="range">
     <span id="range_value">50%</span>
-    <button onclick='window.music.start()'>Play</button>
+    <button onclick='window.music.play()'>Play</button>
     <button onclick='window.music.stop()'>Stop</button>
     <button onclick='window.music.skip()'>Skip</button>
     <div class='AM-FM'>
-        <button class='FM' onclick='window.music.playStation()'>AM</button>
-        <button class='AM' onclick='window.music.playSong()'>MC</button>
+        <button class='FM' onclick='window.music.playRandomStation()'>AM</button>
+        <button class='AM' onclick='window.music.playMCSong()'>MC</button>
         <br>
-        <button class='FM' onclick='window.music.NPRMUSIC()'>Radio</button>
-        <button class='AM' onclick='window.music.NPRVPM()'>FM</button>
+        <button class='FM' onclick='window.music.playWCVEFM()'>FM-1</button>
+        <button class='AM' onclick='window.music.playWCVEHD2()'>FM-2</button>
     </div>
 </div>
 `;
