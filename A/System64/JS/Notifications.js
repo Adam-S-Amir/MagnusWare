@@ -125,7 +125,6 @@ window.toast = window.toast || (({
 			minimizeButton: false,
 			closeButton: false,
 		}, windowOptions));
-		// $window.addClass("dialog-window horizontal-buttons");
 		$bar =
 			$("<div>").css({
 				height: "18px",

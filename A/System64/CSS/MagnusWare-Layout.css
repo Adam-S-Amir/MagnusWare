@@ -467,11 +467,16 @@ body>.window-titlebar {
 
 .folder-view .marquee {
 	border: 3px outset var(--ButtonShadow);
+	border-radius: 1vmin;
 	background-color: var(--ButtonFace);
 	opacity: 0.5;
 	z-index: 1;
 	box-sizing: border-box;
 	mix-blend-mode: color-dodge;
+	-webkit-border-radius: 1vmin;
+	-moz-border-radius: 1vmin;
+	-ms-border-radius: 1vmin;
+	-o-border-radius: 1vmin;
 }
 
 .help-window .item {

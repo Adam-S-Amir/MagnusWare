@@ -407,20 +407,34 @@ div#storefront-right-other>button>img {
     width: 270px;
 }
 
-#jukebox,
-.wifi-body {
+#jukebox {
     z-index: 2;
     background-color: var(--ButtonFace);
-    border-radius: 1vmin;
     display: none;
     position: fixed;
     bottom: 27px;
     right: 30%;
     width: 270px;
+    border: solid var(--ButtonShadow);
+    border-radius: 1vmin;
+    -webkit-border-radius: 1vmin;
+    -moz-border-radius: 1vmin;
+    -ms-border-radius: 1vmin;
+    -o-border-radius: 1vmin;
 }
 
 .wifi-body {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    text-align: start;
+    background-color: var(--ButtonFace);
     border: solid var(--ButtonShadow);
+    border-radius: 1vmin;
+    -webkit-border-radius: 1vmin;
+    -moz-border-radius: 1vmin;
+    -ms-border-radius: 1vmin;
+    -o-border-radius: 1vmin;
 }
 
 .jukebox-body,
