@@ -7,7 +7,7 @@ MagnusWare, formerly known as MagnusSoft, is an operating system created primari
 - [@Adam-S-Amir](https://www.github.com/Adam-S-Amir)
 ## FAQ
 
-#### Why use HTML, JavaScript, & jQuery?
+#### Why use JavaScript, & jQuery?
 
 The languages are easy to write in and most critical functions and components of an operating system can be easily replicated using mainly JS & jQuery.
 
