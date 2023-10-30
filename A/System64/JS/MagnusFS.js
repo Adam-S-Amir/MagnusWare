@@ -1,8 +1,8 @@
-/* 
- 
+/*
+
 * Welcome to MagnusFS!
 * This lame excuse of a file system is really simple
-* and easy to understand because I don't want to 
+* and easy to understand because I don't want to
 * do the tedious tasks of setting up JSON files for
 * BrowserFS. This is so damn simple because it uses
 * localStorage.

@@ -1,3 +1,8 @@
+window.onload = function () {
+  localStorage.removeItem("Update");
+  localStorage.setItem("Update", "3");
+}
+
 function checkUpdate() {
   let UpdateData = localStorage.getItem("Update");
   if (UpdateData) {
@@ -6,7 +11,9 @@ function checkUpdate() {
       console.warn("System Is Up To Date!");
     }
   } else {
-    updater();
+    toast({
+      message: `Welcome to\nMagnusWare v${MagnusWare_V}`
+    })
   }
 }
 
@@ -66,28 +73,6 @@ function Decline() {
   while (upbutton.firstChild) {
     upbutton.removeChild(upbutton.firstChild);
   }
-}
-
-function updater() {
-  showMessageBox({
-    title: "Update",
-    message: "A new version of MagnusWare has been released!\nPlease Update your system to experience MagnusWare's newest features!",
-    iconID: "update",
-    sound: [null],
-    buttons: [
-      {
-        label: "Yes",
-        value: "yes",
-        action: () => {
-          Update();
-        },
-      },
-      {
-        label: "No",
-        value: "no",
-      },
-    ],
-  })
 }
 
 function Update() {

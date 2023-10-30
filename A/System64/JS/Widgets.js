@@ -446,6 +446,9 @@ if (uname === null) {
     console.warn("Welcome to MagnusWare v" + MagnusWare_V + ", " + username);
 } else {
     console.warn("Welcome back, " + uname + "!");
+    toast({
+        message: `Welcome back, ${uname}!`
+    })
 }
 
 document.title = `MagnusWare | v${MagnusWare_V} ${BN}`

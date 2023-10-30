@@ -1,40 +1,40 @@
 
 var programs_being_loaded = 0;
 
-function enhance_embed(embed) {
-	var $embed = $(embed);
+function enhance_iframe(iframe) {
+	var $iframe = $(iframe);
 
 	$("body").addClass("loading-program");
 	programs_being_loaded += 1;
 
-	$embed.on("load", function () {
+	$iframe.on("load", function () {
 
 		if (--programs_being_loaded <= 0) {
 			$("body").removeClass("loading-program");
 		}
 
 		try {
-			console.assert(embed.contentWindow.document === embed.contentDocument); // just something that won't get optimized away if we were to ever use a minifier (or by the JIT compiler??)
+			console.assert(iframe.contentWindow.document === iframe.contentDocument); // just something that won't get optimized away if we were to ever use a minifier (or by the JIT compiler??)
 		} catch (e) {
 			return;
 		}
 
 		if (window.themeCSSProperties) {
-			applyTheme(themeCSSProperties, embed.contentDocument.documentElement);
+			applyTheme(themeCSSProperties, iframe.contentDocument.documentElement);
 		}
 
-		// Let the embed to handle mouseup events outside itself
+		// Let the iframe to handle mouseup events outside itself
 		// (without using setPointerCapture)
-		embed.contentDocument.addEventListener("mousedown", (event) => {
+		iframe.contentDocument.addEventListener("mousedown", (event) => {
 			var delegate_pointerup = function () {
-				if (embed.contentWindow && embed.contentWindow.jQuery) {
-					embed.contentWindow.jQuery("body").trigger("pointerup");
+				if (iframe.contentWindow && iframe.contentWindow.jQuery) {
+					iframe.contentWindow.jQuery("body").trigger("pointerup");
 				}
-				if (embed.contentWindow) {
-					const event = new embed.contentWindow.MouseEvent("mouseup", { button: 0 });
-					embed.contentWindow.dispatchEvent(event);
-					const event2 = new embed.contentWindow.MouseEvent("mouseup", { button: 2 });
-					embed.contentWindow.dispatchEvent(event2);
+				if (iframe.contentWindow) {
+					const event = new iframe.contentWindow.MouseEvent("mouseup", { button: 0 });
+					iframe.contentWindow.dispatchEvent(event);
+					const event2 = new iframe.contentWindow.MouseEvent("mouseup", { button: 2 });
+					iframe.contentWindow.dispatchEvent(event2);
 				}
 				clean_up_delegation();
 			};
@@ -43,18 +43,18 @@ function enhance_embed(embed) {
 			// is it delegation? I think I mean proxying (but I'm really tired and don't have internet right now so I can't say for sure haha)
 
 			$G.on("mouseup blur", delegate_pointerup);
-			embed.contentDocument.addEventListener("mouseup", clean_up_delegation);
+			iframe.contentDocument.addEventListener("mouseup", clean_up_delegation);
 			function clean_up_delegation() {
 				$G.off("mouseup blur", delegate_pointerup);
-				embed.contentDocument.removeEventListener("mouseup", clean_up_delegation);
+				iframe.contentDocument.removeEventListener("mouseup", clean_up_delegation);
 			}
 		});
 
 		// Let the containing page handle keyboard events, with an opportunity to cancel them
-		proxy_keyboard_events(embed);
+		proxy_keyboard_events(iframe);
 
-		// on Wayback Machine, and embed's url not saved yet
-		if (embed.contentDocument.querySelector("#error #livewebInfo.available")) {
+		// on Wayback Machine, and iframe's url not saved yet
+		if (iframe.contentDocument.querySelector("#error #livewebInfo.available")) {
 			var message = document.createElement("div");
 			message.style.position = "absolute";
 			message.style.left = "0";
@@ -64,40 +64,40 @@ function enhance_embed(embed) {
 			message.style.background = "#c0c0c0";
 			message.style.color = "#000";
 			message.style.padding = "50px";
-			embed.contentDocument.body.appendChild(message);
+			iframe.contentDocument.body.appendChild(message);
 			message.innerHTML = `<a target="_blank">Save this url in the Wayback Machine</a>`;
 			message.querySelector("a").href =
 				"https://web.archive.org/save/https://98.js.org/" +
-				embed.src.replace(/.*https:\/\/98.js.org\/?/, "");
+				iframe.src.replace(/.*https:\/\/98.js.org\/?/, "");
 			message.querySelector("a").style.color = "blue";
 		}
 
-		var $contentWindow = $(embed.contentWindow);
+		var $contentWindow = $(iframe.contentWindow);
 		$contentWindow.on("pointerdown click", function (e) {
-			embed.$window && embed.$window.focus();
+			iframe.$window && iframe.$window.focus();
 
 			// from close_menus in $MenuBar
 			$(".menu-button").trigger("release");
 			// Close any rogue floating submenus
 			$(".menu-popup").hide();
 		});
-		// We want to disable pointer events for other embeds, but not this one
+		// We want to disable pointer events for other iframes, but not this one
 		$contentWindow.on("pointerdown", function (e) {
-			$embed.css("pointer-events", "all");
+			$iframe.css("pointer-events", "all");
 			$("body").addClass("drag");
 		});
 		$contentWindow.on("pointerup", function (e) {
 			$("body").removeClass("drag");
-			$embed.css("pointer-events", "");
+			$iframe.css("pointer-events", "");
 		});
-		// $("embed").css("pointer-events", ""); is called elsewhere.
-		// Otherwise embeds would get stuck in this interaction mode
+		// $("iframe").css("pointer-events", ""); is called elsewhere.
+		// Otherwise iframes would get stuck in this interaction mode
 
-		embed.contentWindow.close = function () {
-			embed.$window && embed.$window.close();
+		iframe.contentWindow.close = function () {
+			iframe.$window && iframe.$window.close();
 		};
 		// TODO: hook into saveAs (a la FileSaver.js) and another function for opening files
-		// embed.contentWindow.saveAs = function(){
+		// iframe.contentWindow.saveAs = function(){
 		// 	saveAsDialog();
 		// };
 
@@ -105,14 +105,14 @@ function enhance_embed(embed) {
 		// but override the underlying message box function that
 		// the alert override uses, so that the message boxes can
 		// go outside the window.
-		embed.contentWindow.showMessageBox = (options) => {
+		iframe.contentWindow.showMessageBox = (options) => {
 			return showMessageBox({
-				title: options.title ?? embed.contentWindow.defaultMessageBoxTitle,
+				title: options.title ?? iframe.contentWindow.defaultMessageBoxTitle,
 				...options,
 			});
 		};
 	});
-	$embed.css({
+	$iframe.css({
 		minWidth: 0,
 		minHeight: 0, // overrides user agent styling apparently, fixes Sound Recorder
 		flex: 1,
@@ -121,13 +121,13 @@ function enhance_embed(embed) {
 }
 
 // Let the containing page handle keyboard events, with an opportunity to cancel them
-function proxy_keyboard_events(embed) {
-	// Note: embed must be same-origin, or this will fail.
+function proxy_keyboard_events(iframe) {
+	// Note: iframe must be same-origin, or this will fail.
 	for (const event_type of ["keyup", "keydown", "keypress"]) {
-		embed.contentWindow.addEventListener(event_type, (event) => {
+		iframe.contentWindow.addEventListener(event_type, (event) => {
 			const proxied_event = new KeyboardEvent(event_type, {
-				target: embed,
-				view: embed.ownerDocument.defaultView,
+				target: iframe,
+				view: iframe.ownerDocument.defaultView,
 				bubbles: true,
 				cancelable: true,
 				key: event.key,
@@ -141,7 +141,7 @@ function proxy_keyboard_events(embed) {
 				repeat: event.repeat,
 				//...@TODO: should it copy ALL properties?
 			});
-			const result = embed.dispatchEvent(proxied_event);
+			const result = iframe.dispatchEvent(proxied_event);
 			// console.log("proxied", event, "as", proxied_event, "result", result);
 			if (!result) {
 				event.preventDefault();
@@ -150,21 +150,21 @@ function proxy_keyboard_events(embed) {
 	}
 }
 
-function make_embed_window(options) {
+function make_iframe_window(options) {
 
 	options.resizable ??= true;
 	var $win = new $Window(options);
 
-	var $embed = $win.$embed = $("<embed>").attr({ src: options.src });
-	enhance_embed($embed[0]);
-	$win.$content.append($embed);
-	var embed = $win.embed = $embed[0];
-	// TODO: should I instead of having embed.$window, have a get$Window type of dealio?
+	var $iframe = $win.$iframe = $("<iframe>").attr({ src: options.src });
+	enhance_iframe($iframe[0]);
+	$win.$content.append($iframe);
+	var iframe = $win.iframe = $iframe[0];
+	// TODO: should I instead of having iframe.$window, have a get$Window type of dealio?
 	// where all is $window needed?
-	// I know it's used from within the embed contents as frameElement.$window
-	embed.$window = $win;
+	// I know it's used from within the iframe contents as frameElement.$window
+	iframe.$window = $win;
 
-	$embed.on("load", function () {
+	$iframe.on("load", function () {
 		$win.show();
 		$win.focus();
 	});
@@ -181,9 +181,9 @@ function make_embed_window(options) {
 	return $win;
 }
 
-// Fix dragging things (i.e. windows) over embeds (i.e. other windows)
-// (when combined with a bit of css, .drag embed { pointer-events: none; })
-// (and a similar thing in make_embed_window)
+// Fix dragging things (i.e. windows) over iframes (i.e. other windows)
+// (when combined with a bit of css, .drag iframe { pointer-events: none; })
+// (and a similar thing in make_iframe_window)
 $(window).on("pointerdown", function (e) {
 	//console.log(e.type);
 	$("body").addClass("drag");
@@ -191,10 +191,10 @@ $(window).on("pointerdown", function (e) {
 $(window).on("pointerup dragend blur", function (e) {
 	//console.log(e.type);
 	if (e.type === "blur") {
-		if (document.activeElement.tagName.match(/embed/i)) {
+		if (document.activeElement.tagName.match(/iframe/i)) {
 			return;
 		}
 	}
 	$("body").removeClass("drag");
-	$("embed").css("pointer-events", "");
+	$("iframe").css("pointer-events", "");
 });

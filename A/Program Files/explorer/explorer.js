@@ -693,7 +693,7 @@ ${doc.documentElement.outerHTML}`;
 						this.shadowRoot.append(folder_view.element);
 						// jQuery's append does HTML, vs native which does Text
 						$(this.shadowRoot).append(`
-							<link href="/A/System64/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
+							<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 							<style>
 								:host {
 									display: flex;
@@ -840,7 +840,7 @@ ${doc.documentElement.outerHTML}`;
 	`;
 
 	const head_end_injected_html = `
-		<link href="/A/System64/CSS/OS-Layout.css" rel="stylesheet" type="text/css">
+		<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<script src="/A/System64/JS/jquery.min.js"></script>
 		<script src="/A/System64/JS/Window.js"></script>

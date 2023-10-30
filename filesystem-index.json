@@ -4540,6 +4540,7 @@
           }
         },
         "Cursor.js": null,
+        "Defender.js": null,
         "Desktop.js": null,
         "Embed-Windows.js": null,
         "Filesystem-Setup.js": null,
@@ -4550,7 +4551,7 @@
         "Kernel.js": null,
         "MagnusFS.js": null,
         "MenuBar.js": null,
-        "Msgbox.js": null,
+        "Notifications.js": null,
         "Parse-Theme.js": null,
         "Pep.js": null,
         "Programs.js": null,
