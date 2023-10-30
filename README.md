@@ -1,6 +1,6 @@
 # MagnusWare Dev Channel
 
-MagnusWare, formerly known as MagnusSoft, is an operating system created primarily for the purpose of testing and developing a desktop environment. My inspiration for delving into OS development as a potential career came from reading Andrew S. Tanenbaum's 'Modern Operating Systems' and 'Distributed Operating Systems.
+MagnusWare, formerly known as MagnusSoft, is an operating system created primarily for the purpose of testing and developing a desktop environment. My inspiration for delving into OS development as a potential career came from reading Andrew S. Tanenbaum's "Modern Operating Systems" and "Distributed Operating Systems".
 
 ## Authors
 
