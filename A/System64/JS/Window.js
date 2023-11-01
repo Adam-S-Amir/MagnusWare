@@ -7,7 +7,7 @@ function E(tagName) {
 
 function element_to_string(element) {
 	// returns a CSS-selector-like string for the given element
-	// if (element instanceof Element) { // doesn't work with different window.Element from iframes
+	// if (element instanceof Element) { // doesn't work with different window.Element from embeds
 	if (typeof element === "object" && "tagName" in element) {
 		return element.tagName.toLowerCase() +
 			(element.id ? "#" + element.id : "") +
@@ -30,7 +30,7 @@ function find_tabstops(container_el) {
 	// Note: for audio[controls], Chrome at least has two tabstops (the audio element and three dots menu button).
 	// It might be possible to detect this in the shadow DOM, I don't know, I haven't worked with the shadow DOM.
 	// But it might be more reliable to make a dummy tabstop element to detect when you tab out of the first/last element.
-	// Also for iframes!
+	// Also for embeds!
 	// Assuming that doesn't mess with screen readers.
 	// Right now you can't tab to the three dots menu if it's the last element.
 	// @TODO: see what ally.js does. Does it handle audio[controls]? https://allyjs.io/api/query/tabsequence.html
@@ -43,9 +43,9 @@ function find_tabstops(container_el) {
 		a[href],
 		[tabIndex='0'],
 		details summary,
-		iframe,
+		embed,
 		object,
-		iframe,
+		embed,
 		video[controls],
 		audio[controls],
 		[contenteditable]:not([contenteditable='false'])
@@ -140,8 +140,7 @@ function $Window(options) {
 	if (typeof options.icon === "object" && "tagName" in options.icon) {
 		options.icons = { any: options.icon };
 	} else if (options.icon) {
-		// old terrible API using globals that you have to define
-		console.warn("DEPRECATED: use options.icons instead of options.icon, e.g. new $Window({icons: {16: 'app-16x16.png', any: 'app-icon.svg'}})");
+		debugger;
 		if (typeof $Icon !== "undefined" && typeof TITLEBAR_ICON_SIZE !== "undefined") {
 			$w.icon_name = options.icon;
 			$w.$icon = $Icon(options.icon, TITLEBAR_ICON_SIZE).prependTo($w.$titlebar);
@@ -206,11 +205,9 @@ function $Window(options) {
 	$w.setTitlebarIconSize(iconSize);
 
 	$w.getIconName = () => {
-		console.warn("DEPRECATED: use $w.icons object instead of $w.icon_name");
 		return $w.icon_name;
 	};
 	$w.setIconByID = (icon_name) => {
-		console.warn("DEPRECATED: use $w.setIcons(icons) instead of $w.setIconByID(icon_name)");
 		var old_$icon = $w.$icon;
 		$w.$icon = $Icon(icon_name, TITLEBAR_ICON_SIZE);
 		old_$icon.replaceWith($w.$icon);
@@ -344,17 +341,17 @@ function $Window(options) {
 	} else {
 		// global focusout is needed, to continue showing as focused while child windows or menu popups are focused (@TODO: Is this redundant with focusin?)
 		// global focusin is needed, to show as focused when a child window becomes focused (when perhaps nothing was focused before, so no focusout event)
-		// global blur is needed, to show as focused when an iframe gets focus, because focusin/out doesn't fire at all in that case
-		// global focus is needed, to stop showing as focused when an iframe loses focus
+		// global blur is needed, to show as focused when an embed gets focus, because focusin/out doesn't fire at all in that case
+		// global focus is needed, to stop showing as focused when an embed loses focus
 		// pretty ridiculous!!
-		// but it still doesn't handle the case where the browser window is not focused, and the user clicks an iframe directly.
-		// for that, we need to listen inside the iframe, because no events are fired at all outside in that case,
-		// and :focus/:focus-within doesn't work with iframes so we can't even do a hack with transitionstart.
+		// but it still doesn't handle the case where the browser window is not focused, and the user clicks an embed directly.
+		// for that, we need to listen inside the embed, because no events are fired at all outside in that case,
+		// and :focus/:focus-within doesn't work with embeds so we can't even do a hack with transitionstart.
 		// @TODO: simplify the strategy; I ended up piling a few strategies on top of each other, and the earlier ones may be redundant.
-		// In particular, 1. I ended up making it proactively inject into iframes, rather than when focused since there's a case where focus can't be detected otherwise.
-		// 2. I ended up simulating focusin events for iframes.
+		// In particular, 1. I ended up making it proactively inject into embeds, rather than when focused since there's a case where focus can't be detected otherwise.
+		// 2. I ended up simulating focusin events for embeds.
 		// I may want to rely on that, or, I may want to remove that and set up a refocus chain directly instead,
-		// avoiding refocus() which may interfere with drag operations in an iframe when focusing the iframe (e.g. clicking into Paint to draw or drag a sub-window).
+		// avoiding refocus() which may interfere with drag operations in an embed when focusing the embed (e.g. clicking into Paint to draw or drag a sub-window).
 
 		// console.log("adding global focusin/focusout/blur/focus for window", $w[0].id);
 		const global_focus_update_handler = make_focus_in_out_handler($w[0], true); // must be $w and not $content so semantic parent chain works, with [data-semantic-parent] pointing to the window not the content
@@ -363,89 +360,89 @@ function $Window(options) {
 		window.addEventListener("blur", global_focus_update_handler);
 		window.addEventListener("focus", global_focus_update_handler);
 
-		function setupIframe(iframe) {
-			if (!focus_update_handlers_by_container.has(iframe)) {
-				const iframe_update_focus = make_focus_in_out_handler(iframe, false);
-				// this also operates as a flag to prevent multiple handlers from being added, or waiting for the iframe to load duplicately
-				focus_update_handlers_by_container.set(iframe, iframe_update_focus);
+		function setupEmbed(embed) {
+			if (!focus_update_handlers_by_container.has(embed)) {
+				const embed_update_focus = make_focus_in_out_handler(embed, false);
+				// this also operates as a flag to prevent multiple handlers from being added, or waiting for the embed to load duplicately
+				focus_update_handlers_by_container.set(embed, embed_update_focus);
 
 				// @TODO: try removing setTimeout(s)
-				setTimeout(() => { // for iframe src to be set? I forget.
+				setTimeout(() => { // for embed src to be set? I forget.
 					// Note: try must be INSIDE setTimeout, not outside, to work.
 					try {
-						const wait_for_iframe_load = (callback) => {
-							// Note: error may occur accessing iframe.contentDocument; this must be handled by the caller.
+						const wait_for_embed_load = (callback) => {
+							// Note: error may occur accessing embed.contentDocument; this must be handled by the caller.
 							// To that end, this function must access it synchronously, to allow the caller to handle the error.
-							if (iframe.contentDocument.readyState == "complete") {
+							if (embed.contentDocument.readyState == "complete") {
 								callback();
 							} else {
-								// iframe.contentDocument.addEventListener("readystatechange", () => {
-								// 	if (iframe.contentDocument.readyState == "complete") {
+								// embed.contentDocument.addEventListener("readystatechange", () => {
+								// 	if (embed.contentDocument.readyState == "complete") {
 								// 		callback();
 								// 	}
 								// });
 								setTimeout(() => {
-									wait_for_iframe_load(callback);
+									wait_for_embed_load(callback);
 								}, 100);
 							}
 						};
-						wait_for_iframe_load(() => {
-							// console.log("adding focusin/focusout/blur/focus for iframe", iframe);
-							iframe.contentWindow.addEventListener("focusin", iframe_update_focus);
-							iframe.contentWindow.addEventListener("focusout", iframe_update_focus);
-							iframe.contentWindow.addEventListener("blur", iframe_update_focus);
-							iframe.contentWindow.addEventListener("focus", iframe_update_focus);
-							observeIframes(iframe.contentDocument);
+						wait_for_embed_load(() => {
+							// console.log("adding focusin/focusout/blur/focus for embed", embed);
+							embed.contentWindow.addEventListener("focusin", embed_update_focus);
+							embed.contentWindow.addEventListener("focusout", embed_update_focus);
+							embed.contentWindow.addEventListener("blur", embed_update_focus);
+							embed.contentWindow.addEventListener("focus", embed_update_focus);
+							observeEmbeds(embed.contentDocument);
 						});
 					} catch (error) {
-						warn_iframe_access(iframe, error);
+						warn_embed_access(embed, error);
 					}
 				}, 100);
 			}
 		}
 
-		function observeIframes(container_node) {
+		function observeEmbeds(container_node) {
 			const observer = new MutationObserver((mutations) => {
 				for (const mutation of mutations) {
 					for (const node of mutation.addedNodes) {
-						if (node.tagName == "IFRAME") {
-							setupIframe(node);
+						if (node.tagName == "EMBED") {
+							setupEmbed(node);
 						}
 					}
 				}
 			});
 			observer.observe(container_node, { childList: true, subtree: true });
-			// needed in recursive calls (for iframes inside iframes)
-			// (for the window, it shouldn't be able to have iframes yet)
-			for (const iframe of container_node.querySelectorAll("iframe")) {
-				setupIframe(iframe);
+			// needed in recursive calls (for embeds inside embeds)
+			// (for the window, it shouldn't be able to have embeds yet)
+			for (const embed of container_node.querySelectorAll("embed")) {
+				setupEmbed(embed);
 			}
 		}
 
-		observeIframes($w.$content[0]);
+		observeEmbeds($w.$content[0]);
 		
 		function make_focus_in_out_handler(logical_container_el, is_root) {
-			// In case of iframes, logical_container_el is the iframe, and container_node is the iframe's contentDocument.
-			// container_node is not a parameter here because it can change over time, may be an empty document before the iframe is loaded.
+			// In case of embeds, logical_container_el is the embed, and container_node is the embed's contentDocument.
+			// container_node is not a parameter here because it can change over time, may be an empty document before the embed is loaded.
 
 			return function handle_focus_in_out(event) {
-				const container_node = logical_container_el.tagName == "IFRAME" ? logical_container_el.contentDocument : logical_container_el;
+				const container_node = logical_container_el.tagName == "EMBED" ? logical_container_el.contentDocument : logical_container_el;
 				const document = container_node.ownerDocument ?? container_node;
 				// is this equivalent?
-				// const document = logical_container_el.tagName == "IFRAME" ? logical_container_el.contentDocument : logical_container_el.ownerDocument;
+				// const document = logical_container_el.tagName == "EMBED" ? logical_container_el.contentDocument : logical_container_el.ownerDocument;
 
 				// console.log(`handling ${event.type} for container`, container_el);
 				let newly_focused = event ? (event.type === "focusout" || event.type === "blur") ? event.relatedTarget : event.target : document.activeElement;
 				if (event?.type === "blur") {
-					newly_focused = null; // only handle iframe
+					newly_focused = null; // only handle embed
 				}
 
 				// console.log(`[${$w.title()}] (is_root=${is_root})`, `newly_focused is (preliminarily)`, element_to_string(newly_focused), `\nlogical_container_el`, logical_container_el, `\ncontainer_node`, container_node, `\ndocument.activeElement`, document.activeElement, `\ndocument.hasFocus()`, document.hasFocus(), `\ndocument`, document);
 
-				// Iframes are stingy about focus events, so we need to check if focus is actually within an iframe.
+				// Embeds are stingy about focus events, so we need to check if focus is actually within an embed.
 				if (
 					document.activeElement &&
-					document.activeElement.tagName === "IFRAME" &&
+					document.activeElement.tagName === "EMBED" &&
 					(event?.type === "focusout" || event?.type === "blur") &&
 					!newly_focused // doesn't exist for security reasons in this case
 				) {
@@ -456,7 +453,7 @@ function $Window(options) {
 				const outside_or_at_exactly =
 					!newly_focused ||
 					// contains() only works with DOM nodes (elements and documents), not window objects.
-					// Since container_node is a DOM node, it will never have a Window inside of it (ignoring iframes).
+					// Since container_node is a DOM node, it will never have a Window inside of it (ignoring embeds).
 					newly_focused.window === newly_focused || // is a Window object (cross-frame test)
 					!container_node.contains(newly_focused); // Note: node.contains(node) === true
 				const firmly_outside = outside_or_at_exactly && container_node !== newly_focused;
@@ -474,30 +471,30 @@ function $Window(options) {
 					!newly_focused.closest(".menus") &&
 					!newly_focused.closest(".window-titlebar")
 				) {
-					last_focus_by_container.set(logical_container_el, newly_focused); // overwritten for iframes below
+					last_focus_by_container.set(logical_container_el, newly_focused); // overwritten for embeds below
 					debug_focus_tracking(document, container_node, newly_focused, is_root);
 				}
 
 				if (
 					!outside_or_at_exactly &&
-					newly_focused.tagName === "IFRAME"
+					newly_focused.tagName === "EMBED"
 				) {
-					const iframe = newly_focused;
-					// console.log("iframe", iframe, onfocusin_by_container.has(iframe));
+					const embed = newly_focused;
+					// console.log("embed", embed, onfocusin_by_container.has(embed));
 					try {
-						const focus_in_iframe = iframe.contentDocument.activeElement;
+						const focus_in_embed = embed.contentDocument.activeElement;
 						if (
-							focus_in_iframe &&
-							focus_in_iframe.tagName !== "HTML" &&
-							focus_in_iframe.tagName !== "BODY" &&
-							!focus_in_iframe.closest(".menus")
+							focus_in_embed &&
+							focus_in_embed.tagName !== "HTML" &&
+							focus_in_embed.tagName !== "BODY" &&
+							!focus_in_embed.closest(".menus")
 						) {
-							// last_focus_by_container.set(logical_container_el, iframe); // done above
-							last_focus_by_container.set(iframe, focus_in_iframe);
-							debug_focus_tracking(iframe.contentDocument, iframe.contentDocument, focus_in_iframe, is_root);
+							// last_focus_by_container.set(logical_container_el, embed); // done above
+							last_focus_by_container.set(embed, focus_in_embed);
+							debug_focus_tracking(embed.contentDocument, embed.contentDocument, focus_in_embed, is_root);
 						}
 					} catch (e) {
-						warn_iframe_access(iframe, e);
+						warn_embed_access(embed, e);
 					}
 				}
 
@@ -524,7 +521,6 @@ function $Window(options) {
 							// console.log("following semantic parent, from", newly_focused, "\nto", parent, "\nvia", waypoint);
 							newly_focused = parent;
 							if (!parent) {
-								console.warn("semantic parent not found with id", id);
 								break;
 							}
 						} else {
@@ -533,8 +529,8 @@ function $Window(options) {
 					} while (true);
 				}
 
-				// Note: allowing showing window as focused from listeners inside iframe (non-root) too,
-				// in order to handle clicking an iframe when the browser window was not previously focused (e.g. after reload)
+				// Note: allowing showing window as focused from listeners inside embed (non-root) too,
+				// in order to handle clicking an embed when the browser window was not previously focused (e.g. after reload)
 				if (
 					newly_focused &&
 					newly_focused.window !== newly_focused && // cross-frame test for Window object
@@ -543,7 +539,7 @@ function $Window(options) {
 					showAsFocused();
 					$w.bringToFront();
 					if (!is_root) {
-						// trigger focusin events for iframes
+						// trigger focusin events for embeds
 						// @TODO: probably don't need showAsFocused() here since it'll be handled externally (on this simulated focusin),
 						// and might not need a lot of other logic frankly if I'm simulating focusin events
 						let el = logical_container_el;
@@ -578,7 +574,6 @@ function $Window(options) {
 			return task;
 		},
 		set(new_task) {
-			console.warn("DEPRECATED: use $w.setMinimizeTarget(taskbar_button_el) instead of setting $window.task object");
 			task = new_task;
 		},
 	});
@@ -839,42 +834,38 @@ function $Window(options) {
 	// where containers include:
 	// - window (global focus tracking)
 	// - $w[0] (window-local, for restoring focus when refocusing window)
-	// - any iframes that are same-origin (for restoring focus when refocusing window)
+	// - any embeds that are same-origin (for restoring focus when refocusing window)
 	// @TODO: should these be WeakMaps? probably.
 	// @TODO: share this Map between all windows? but clean it up when destroying windows? or would a WeakMap take care of that?
 	var last_focus_by_container = new Map(); // element to restore focus to, by container
 	var focus_update_handlers_by_container = new Map(); // event handlers by container; note use as a flag to avoid adding multiple handlers
 	var debug_svg_by_container = new Map(); // visualization
 	var debug_svgs_in_window = []; // visualization
-	var warned_iframes = new WeakSet(); // prevent spamming console
+	var warned_embeds = new WeakSet(); // prevent spamming console
 
-	const warn_iframe_access = (iframe, error) => {
-		const log_template = (message) => [`OS-GUI.js failed to access an iframe (${element_to_string(iframe)}) for focus integration.
+	const warn_embed_access = (embed, error) => {
+		const log_template = (message) => [`OS-GUI.js failed to access an embed (${element_to_string(embed)}) for focus integration.
 ${message}
 Original error:
 `, error];
 
 		let cross_origin;
-		if (iframe.srcdoc) {
+		if (embed.srcdoc) {
 			cross_origin = false;
 		} else {
 			try {
-				const url = new URL(iframe.src);
-				cross_origin = url.origin !== window.location.origin; // shouldn't need to use iframe.ownerDocument.location.origin because intermediate iframes must be same-origin
+				const url = new URL(embed.src);
+				cross_origin = url.origin !== window.location.origin; // shouldn't need to use embed.ownerDocument.location.origin because intermediate embeds must be same-origin
 			} catch (parse_error) {
-				console.error(...log_template(`This may be a bug in OS-GUI. Is this a cross-origin iframe? Failed to parse URL (${parse_error}).`));
 				return;
 			}
 		}
 		if (cross_origin) {
-			if (options.iframes?.ignoreCrossOrigin && !warned_iframes.has(iframe)) {
-				console.warn(...log_template(`Only same-origin iframes can work with focus integration (showing window as focused, refocusing last focused controls).
-If you can re-host the content on the same origin, you can resolve this and enable focus integration.
-You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}} to $Window.`));
-				warned_iframes.add(iframe);
+			if (options.embeds?.ignoreCrossOrigin && !warned_embeds.has(embed)) {
+				return;
 			}
 		} else {
-			console.error(...log_template(`This may be a bug in OS-GUI, since it doesn't appear to be a cross-origin iframe.`));
+			return;
 		}
 	};
 
@@ -979,11 +970,11 @@ You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}
 		const last_focus = last_focus_by_container.get(logical_container_el);
 		if (last_focus) {
 			last_focus.focus({ preventScroll: true });
-			if (last_focus.tagName === "IFRAME") {
+			if (last_focus.tagName === "EMBED") {
 				try {
 					refocus(last_focus);
 				} catch (e) {
-					warn_iframe_access(last_focus, e);
+					warn_embed_access(last_focus, e);
 				}
 			}
 			return;
@@ -995,11 +986,11 @@ You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}
 			return;
 		}
 		if ($tabstops.length) {
-			if ($tabstops[0].tagName === "IFRAME") {
+			if ($tabstops[0].tagName === "EMBED") {
 				try {
 					refocus($tabstops[0]); // not .contentDocument.body because we want the container tracked by last_focus_by_container
 				} catch (e) {
-					warn_iframe_access($tabstops[0], e);
+					warn_embed_access($tabstops[0], e);
 				}
 			} else {
 				$tabstops[0].focus({ preventScroll: true });
@@ -1011,11 +1002,11 @@ You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}
 			return;
 		}
 		container_el.focus({ preventScroll: true });
-		if (container_el.tagName === "IFRAME") {
+		if (container_el.tagName === "EMBED") {
 			try {
 				refocus(container_el.contentDocument.body);
 			} catch (e) {
-				warn_iframe_access(container_el, e);
+				warn_embed_access(container_el, e);
 			}
 		}
 	};
@@ -1259,9 +1250,9 @@ You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}
 		const release = (event) => {
 			// blur is just to handle the edge case of alt+tabbing/ctrl+tabbing away
 			if (event && event.type === "blur") {
-				// if (document.activeElement?.tagName === "IFRAME") {
+				// if (document.activeElement?.tagName === "EMBED") {
 				if (document.hasFocus()) {
-					return; // the window isn't really blurred; an iframe got focus
+					return; // the window isn't really blurred; an embed got focus
 				}
 			}
 			button.classList.remove("pressing");
@@ -1294,7 +1285,7 @@ You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}
 		drag_pointer_id = (e.pointerId ?? e.originalEvent.pointerId);
 		$G.on("pointermove", update_drag);
 		$G.on("scroll", update_drag);
-		$("body").addClass("dragging"); // for when mouse goes over an iframe
+		$("body").addClass("dragging"); // for when mouse goes over an embed
 	});
 	$G.on("pointerup pointercancel", (e) => {
 		if ((e.pointerId ?? e.originalEvent.pointerId) !== drag_pointer_id) { return; }
@@ -1370,7 +1361,7 @@ You can also disable this warning by passing {iframes: {ignoreCrossOrigin: true}
 
 				$G.on("pointermove", handle_pointermove);
 				$G.on("scroll", update_resize); // scroll doesn't have clientX/Y, so we have to remember it
-				$("body").addClass("dragging"); // for when mouse goes over an iframe
+				$("body").addClass("dragging"); // for when mouse goes over an embed
 				$G.on("pointerup pointercancel", end_resize);
 
 				rect = {

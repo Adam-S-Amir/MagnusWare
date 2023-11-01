@@ -1,7 +1,4 @@
 {
-  ".vscode": {
-    "settings.json": null
-  },
   "A": {
     "desktop": {
       "CREDITS.txt": null,
@@ -260,10 +257,6 @@
         ".gitignore": null,
         ".gitrepo": null,
         ".travis.yml": null,
-        ".vscode": {
-          "extensions.json": null,
-          "settings.json": null
-        },
         "audio": {
           "chord.wav": null
         },
@@ -4546,6 +4539,7 @@
         "Filesystem-Setup.js": null,
         "FolderView.js": null,
         "FolderViewItem.js": null,
+        "index.js": null,
         "jquery.min.js": null,
         "JukeBox.js": null,
         "Kernel.js": null,

@@ -3,7 +3,7 @@ function hidemenu() {
 }
 
 function About() {
-	let $win = new $IframeWindow2({
+	let $win = new $EmbedWindow2({
 		src: null,
 		icons: iconsAtTwoSizes("document"),
 		title: "About",
@@ -16,7 +16,7 @@ function About() {
 }
 
 function Chat() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files/chat/index.php",
 		icons: iconsAtTwoSizes("Chat"),
 		title: "Chat Room",
@@ -28,7 +28,7 @@ function Chat() {
 }
 
 function WadCMD() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/WadCMD/index.html",
 		icons: iconsAtTwoSizes("WadCMD"),
 		title: "WadCMD",
@@ -40,7 +40,7 @@ function WadCMD() {
 }
 
 function Theme1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files/ThemeEditor/index.html",
 		icons: iconsAtTwoSizes("themes"),
 		title: "Theme Editor",
@@ -52,7 +52,7 @@ function Theme1() {
 }
 
 function Cookie() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Cookies/index.html",
 		icons: iconsAtTwoSizes("Cookie"),
 		title: "Cookie Clicker",
@@ -64,7 +64,7 @@ function Cookie() {
 }
 
 function JellyM() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/mario/jellymar.io/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Jelly Mario",
@@ -77,7 +77,7 @@ function JellyM() {
 }
 
 function MinecrapA() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Minecraft/MineCrap Alpha/index.html",
 		icons: iconsAtTwoSizes("Minecraft"),
 		title: "MineCrap Alpha",
@@ -90,7 +90,7 @@ function MinecrapA() {
 }
 
 function Minecrap3() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Minecraft/MineCrap 1.3/index.html",
 		icons: iconsAtTwoSizes("Minecraft"),
 		title: "MineCrap 1.3",
@@ -103,7 +103,7 @@ function Minecrap3() {
 }
 
 function Minecrap5() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Minecraft/MineCrap 1.5.2/index.html",
 		icons: iconsAtTwoSizes("Minecraft"),
 		title: "MineCrap 1.5.2",
@@ -116,7 +116,7 @@ function Minecrap5() {
 }
 
 function NoGame() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/NoGame/index.html",
 		icons: iconsAtTwoSizes("NoGame"),
 		title: "There is No Game",
@@ -129,7 +129,7 @@ function NoGame() {
 }
 
 function Power() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Power_Player_Super_Joy_III/index.html",
 		icons: iconsAtTwoSizes("Power"),
 		title: "Power Player Super Joy III",
@@ -142,7 +142,7 @@ function Power() {
 }
 
 function Baldi() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Baldis%20Basics/index.html",
 		icons: iconsAtTwoSizes("Baldi"),
 		title: "Baldi's Basics",
@@ -155,7 +155,7 @@ function Baldi() {
 }
 
 function Rioluvania() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Sans/Rioluvania/index.html",
 		icons: iconsAtTwoSizes("Rioluvania"),
 		title: "Rioluvania",
@@ -168,7 +168,7 @@ function Rioluvania() {
 }
 
 function Sans() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Sans/Sans/index.html",
 		icons: iconsAtTwoSizes("Rioluvania"),
 		title: "Rioluvania",
@@ -184,7 +184,7 @@ function Funky() {
 	toast({
 		message: "Funky Karts is deprecated"
 	})
-	// let $win = make_iframe_window({
+	// let $win = make_embed_window({
 	// 	src: "./A/System64/Program%20Files%20(x86)/Funky Karts/index.html",
 	// 	icons: iconsAtTwoSizes("Funky"),
 	// 	title: "Funky Karts",
@@ -197,7 +197,7 @@ function Funky() {
 }
 
 function Mario2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/Mario/super.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Super Mario Bros.",
@@ -210,7 +210,7 @@ function Mario2() {
 }
 
 function MarMakr() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/Mario/maker.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Super Mario Maker",
@@ -223,7 +223,7 @@ function MarMakr() {
 }
 
 function iMario() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/infinite/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Infinite Mario",
@@ -236,7 +236,7 @@ function iMario() {
 }
 
 function TBOI() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/TBOI/index.html",
 		icons: iconsAtTwoSizes("TBOI"),
 		title: "The Binding of Isaac",
@@ -249,7 +249,7 @@ function TBOI() {
 }
 
 function Rocket() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Rocket Custa/index.html",
 		icons: iconsAtTwoSizes("Rocket"),
 		title: "Rocket Custa",
@@ -262,7 +262,7 @@ function Rocket() {
 }
 
 function Spelunky() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Spelunky/index.html",
 		icons: iconsAtTwoSizes("Spelunky"),
 		title: "Spelunky",
@@ -275,7 +275,7 @@ function Spelunky() {
 }
 
 function Button() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files/Button/index.html",
 		icons: iconsAtTwoSizes("Button"),
 		title: "Button",
@@ -288,7 +288,7 @@ function Button() {
 }
 
 function Clock() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files/Clock/index.html",
 		icons: iconsAtTwoSizes("Clock"),
 		title: "Clock",
@@ -301,7 +301,7 @@ function Clock() {
 }
 
 function AcidBox() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Acid-Box/index.html",
 		icons: iconsAtTwoSizes("AcidBox"),
 		title: "Acid Box",
@@ -314,7 +314,7 @@ function AcidBox() {
 }
 
 function Star() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files/StrWrz/index.html",
 		icons: iconsAtTwoSizes("Starwars"),
 		title: "Star Wars Episode IV",
@@ -327,7 +327,7 @@ function Star() {
 }
 
 function Zamboni() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Zamboni/index.html",
 		icons: iconsAtTwoSizes("Zamboni"),
 		title: "Frank Zamboni",
@@ -340,7 +340,7 @@ function Zamboni() {
 }
 
 function Soda() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files/Soda/index.htm",
 		icons: iconsAtTwoSizes("Soda"),
 		title: "Vending Machine",
@@ -353,7 +353,7 @@ function Soda() {
 }
 
 function Ice() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./Dodo.html",
 		icons: iconsAtTwoSizes("Ice"),
 		title: "Ice Dodo",
@@ -366,7 +366,7 @@ function Ice() {
 }
 
 function GBC() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Prometheus/index.html",
 		icons: iconsAtTwoSizes("joystick"),
 		title: "Games",
@@ -379,7 +379,7 @@ function GBC() {
 }
 
 function Emulator() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Emulator/index.html",
 		icons: iconsAtTwoSizes("joystick"),
 		title: "Games",
@@ -392,7 +392,7 @@ function Emulator() {
 }
 
 function Drift() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Drift Hunters/index.html",
 		icons: iconsAtTwoSizes("Drift"),
 		title: "Drift Hunters",
@@ -405,7 +405,7 @@ function Drift() {
 }
 
 function Surf1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%201.0/index.html",
 		icons: iconsAtTwoSizes("Surf"),
 		title: "Microsoft Surf 1.0",
@@ -418,7 +418,7 @@ function Surf1() {
 }
 
 function Surf2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%202.0/index.html",
 		icons: iconsAtTwoSizes("Surf"),
 		title: "Microsoft Surf 2.0",
@@ -431,7 +431,7 @@ function Surf2() {
 }
 
 function Surf3() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%203.0/index.html",
 		icons: iconsAtTwoSizes("Surf"),
 		title: "Microsoft Surf 3.0",
@@ -444,7 +444,7 @@ function Surf3() {
 }
 
 function Hex() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Race/index.html",
 		icons: iconsAtTwoSizes("Hex"),
 		title: "Hex GL",
@@ -457,7 +457,7 @@ function Hex() {
 }
 
 function Box() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Boxel%20Rebound/index.html",
 		icons: iconsAtTwoSizes("Box"),
 		title: "Boxel Rebound",
@@ -470,7 +470,7 @@ function Box() {
 }
 
 function Doom2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom2/Doom2.exe.html",
 		icons: iconsAtTwoSizes("Doom2"),
 		title: "Doom 2",
@@ -483,7 +483,7 @@ function Doom2() {
 }
 
 function Master() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Master/Master.exe.html",
 		icons: iconsAtTwoSizes("Master"),
 		title: "The Master Levels for Doom 2",
@@ -496,7 +496,7 @@ function Master() {
 }
 
 function UD2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/UD2/UD2.exe.html",
 		icons: iconsAtTwoSizes("UD2"),
 		title: "The Ultimate Doom 2",
@@ -509,7 +509,7 @@ function UD2() {
 }
 
 function MSCMD() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/CMD.html",
 		icons: iconsAtTwoSizes("msdos"),
 		title: "MS-CMD",
@@ -522,7 +522,7 @@ function MSCMD() {
 }
 
 function StarDoom() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/StarWars/StarWars.exe.html",
 		icons: iconsAtTwoSizes("SDoom"),
 		title: "Star Wars Doom",
@@ -535,7 +535,7 @@ function StarDoom() {
 }
 
 function BatDoom() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Batman/Batman.exe.html",
 		icons: iconsAtTwoSizes("Batman"),
 		title: "Batman Doom",
@@ -548,7 +548,7 @@ function BatDoom() {
 }
 
 function BDoom2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Brutal/Brutal.exe.html",
 		icons: iconsAtTwoSizes("BDoom"),
 		title: "Brutal Doom 2",
@@ -561,7 +561,7 @@ function BDoom2() {
 }
 
 function Nine() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/95/95.exe.html",
 		icons: iconsAtTwoSizes("95"),
 		title: "Windows 95",
@@ -574,7 +574,7 @@ function Nine() {
 }
 
 function Duke() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Duke/Duke.exe.html",
 		icons: iconsAtTwoSizes("Duke"),
 		title: "Duke 3D",
@@ -586,7 +586,7 @@ function Duke() {
 }
 
 function GTA() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/GTA/GTA.exe.html",
 		icons: iconsAtTwoSizes("GTA"),
 		title: "Grand Theft Auto",
@@ -598,7 +598,7 @@ function GTA() {
 }
 
 function DTrail() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Trail/Oregon.exe.html",
 		icons: iconsAtTwoSizes("Oregon"),
 		title: "Deluxe Oregon Trail",
@@ -610,7 +610,7 @@ function DTrail() {
 }
 
 function Trail() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Trail2/Oregon.exe.html",
 		icons: iconsAtTwoSizes("Trail"),
 		title: "Oregon Trail",
@@ -622,7 +622,7 @@ function Trail() {
 }
 
 function Castle() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/CW/CW.exe.html",
 		icons: iconsAtTwoSizes("Castle"),
 		title: "Castle Wolfenstien",
@@ -634,7 +634,7 @@ function Castle() {
 }
 
 function Doom() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom/Doom.exe.html",
 		icons: iconsAtTwoSizes("Doom"),
 		title: "Ultimate Doom",
@@ -646,7 +646,7 @@ function Doom() {
 }
 
 function Heretic() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Heretic/Heretic.exe.html",
 		icons: iconsAtTwoSizes("Heretic"),
 		title: "Heretic",
@@ -658,7 +658,7 @@ function Heretic() {
 }
 
 function Heretic2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Heretic2/Heretic2.exe.html",
 		icons: iconsAtTwoSizes("Heretic2"),
 		title: "Heretic 2",
@@ -670,7 +670,7 @@ function Heretic2() {
 }
 
 function Hexen() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Hexen/Hexen.exe.html",
 		icons: iconsAtTwoSizes("Hexen"),
 		title: "Hexen",
@@ -682,7 +682,7 @@ function Hexen() {
 }
 
 function Plutonia() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia/Plutonia.exe.html",
 		icons: iconsAtTwoSizes("Plutonia"),
 		title: "Plutonia",
@@ -694,7 +694,7 @@ function Plutonia() {
 }
 
 function Plutonia2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia2/PL2.exe.html",
 		icons: iconsAtTwoSizes("Plutonia2"),
 		title: "Plutonia 2",
@@ -706,7 +706,7 @@ function Plutonia2() {
 }
 
 function TNT() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/TNT/TNT.exe.html",
 		icons: iconsAtTwoSizes("FDoom"),
 		title: "TNT",
@@ -718,7 +718,7 @@ function TNT() {
 }
 
 function Sixty() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom64/64.exe.html",
 		icons: iconsAtTwoSizes("64"),
 		title: "Doom64",
@@ -730,7 +730,7 @@ function Sixty() {
 }
 
 function Zero() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Zero/Zero.exe.html",
 		icons: iconsAtTwoSizes("Zero"),
 		title: "Doom Zero",
@@ -742,7 +742,7 @@ function Zero() {
 }
 
 function Quake() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Quake/Quake.exe.html",
 		icons: iconsAtTwoSizes("Quake"),
 		title: "Quake",
@@ -754,7 +754,7 @@ function Quake() {
 }
 
 function QuakeM1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/QuakeM1/Quake.exe.html",
 		icons: iconsAtTwoSizes("Q1M"),
 		title: "Quake Mission Pack 1",
@@ -766,7 +766,7 @@ function QuakeM1() {
 }
 
 function QuakeM2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/QuakeM2/Quake.exe.html",
 		icons: iconsAtTwoSizes("Q1M"),
 		title: "Quake Mission Pack 2",
@@ -778,7 +778,7 @@ function QuakeM2() {
 }
 
 function Quake2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Quake2-PlayN-MagnusPort/index.html",
 		icons: iconsAtTwoSizes("Quake2"),
 		title: "Quake 2",
@@ -790,7 +790,7 @@ function Quake2() {
 }
 
 function Shool() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/School/School.exe.html",
 		icons: iconsAtTwoSizes("School"),
 		title: "Doom: School Shooter Edition",
@@ -802,7 +802,7 @@ function Shool() {
 }
 
 function Spear() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Spear/Spear.exe.html",
 		icons: iconsAtTwoSizes("Spear"),
 		title: "Spear of Destiny",
@@ -814,7 +814,7 @@ function Spear() {
 }
 
 function Rekkr() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Rekkr/Rekkr.exe.html",
 		icons: iconsAtTwoSizes("Rekkr"),
 		title: "Rekkr",
@@ -826,7 +826,7 @@ function Rekkr() {
 }
 
 function Strife() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Strife/Strife.exe.html",
 		icons: iconsAtTwoSizes("Strife"),
 		title: "Strife",
@@ -838,7 +838,7 @@ function Strife() {
 }
 
 function FreeDm() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/FreeDM/FreeDM.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDM",
@@ -850,7 +850,7 @@ function FreeDm() {
 }
 
 function Free1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/free1/FreeDoom.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: Phase 1",
@@ -862,7 +862,7 @@ function Free1() {
 }
 
 function Free2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/free2/FreeDoom2.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: Phase 2",
@@ -874,7 +874,7 @@ function Free2() {
 }
 
 function FDoom() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom/FDoom.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "The Ultimate FreeDoom",
@@ -886,7 +886,7 @@ function FDoom() {
 }
 
 function FDoom2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom2/FDoom2.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom Phase 2: Hell on Earth",
@@ -898,7 +898,7 @@ function FDoom2() {
 }
 
 function FDoom64() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom64/F64.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom 64",
@@ -910,7 +910,7 @@ function FDoom64() {
 }
 
 function FTNT() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/TNT/FTNT.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: TNT Evilution",
@@ -922,7 +922,7 @@ function FTNT() {
 }
 
 function FPL() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia/FPlutonia.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: The Plutonia Experiment",
@@ -934,7 +934,7 @@ function FPL() {
 }
 
 function FPL2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Plutonia2/FPl2.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: The Plutonia Experiment Phase 2",
@@ -946,7 +946,7 @@ function FPL2() {
 }
 
 function FChex() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex1/FChex.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: Chex Quest Phase 1",
@@ -958,7 +958,7 @@ function FChex() {
 }
 
 function FChex2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex2/FChex.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: Chex Quest Phase 2",
@@ -970,7 +970,7 @@ function FChex2() {
 }
 
 function FChex3() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex3/FChex.exe.html",
 		icons: iconsAtTwoSizes("FreeDoom"),
 		title: "FreeDoom: Chex Quest Phase 3",
@@ -982,7 +982,7 @@ function FChex3() {
 }
 
 function Wolf3D() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Wolf3D/Wolf.exe.html",
 		icons: iconsAtTwoSizes("Wolf"),
 		title: "Wolf 3D",
@@ -994,7 +994,7 @@ function Wolf3D() {
 }
 
 function BTSX() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/BTSX/BTSX.exe.html",
 		icons: iconsAtTwoSizes("BTSX"),
 		title: "Back to Saturn X",
@@ -1006,7 +1006,7 @@ function BTSX() {
 }
 
 function BTSX2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/BTSX2/BTSX2.exe.html",
 		icons: iconsAtTwoSizes("BTSX"),
 		title: "Back to Saturn X 2",
@@ -1018,7 +1018,7 @@ function BTSX2() {
 }
 
 function Chex1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex1/Chex.exe.html",
 		icons: iconsAtTwoSizes("Chex"),
 		title: "Chex Quest 1",
@@ -1030,7 +1030,7 @@ function Chex1() {
 }
 
 function Chex2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex2/Chex.exe.html",
 		icons: iconsAtTwoSizes("Chex2"),
 		title: "Chex Quest 2",
@@ -1042,7 +1042,7 @@ function Chex2() {
 }
 
 function Chex3() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Chex3/Chex.exe.html",
 		icons: iconsAtTwoSizes("Chex3"),
 		title: "Chex Quest 3",
@@ -1054,7 +1054,7 @@ function Chex3() {
 }
 
 function Doom2D() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom2D/Doom2D.exe.html",
 		icons: iconsAtTwoSizes("2D"),
 		title: "Doom 2D",
@@ -1066,7 +1066,7 @@ function Doom2D() {
 }
 
 function Dario1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Mario/Mario.exe.html",
 		icons: iconsAtTwoSizes("Dario"),
 		title: "Mario Doom",
@@ -1078,7 +1078,7 @@ function Dario1() {
 }
 
 function Dario2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Mario2/Mario2.exe.html",
 		icons: iconsAtTwoSizes("Dario"),
 		title: "Mario Doom 2",
@@ -1090,7 +1090,7 @@ function Dario2() {
 }
 
 function Regular() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Regular/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Chrome Dino Game",
@@ -1103,7 +1103,7 @@ function Regular() {
 }
 
 function BDay() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/BDay/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Birthday Edition",
@@ -1116,7 +1116,7 @@ function BDay() {
 }
 
 function D3D() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/3D/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "3D Dino",
@@ -1129,7 +1129,7 @@ function D3D() {
 }
 
 function Godzilla() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Godzilla.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Godzilla",
@@ -1142,7 +1142,7 @@ function Godzilla() {
 }
 
 function Modz() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Mod/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Modded Chrome Dino Game",
@@ -1155,7 +1155,7 @@ function Modz() {
 }
 
 function Sonic1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Sonic/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Sonic v1.0",
@@ -1168,7 +1168,7 @@ function Sonic1() {
 }
 
 function Sonic2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/BSonic/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Sonic v1.2",
@@ -1181,7 +1181,7 @@ function Sonic2() {
 }
 
 function Batz() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Batman/Bats/Batman/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Batman",
@@ -1194,7 +1194,7 @@ function Batz() {
 }
 
 function Halloween() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Halloween.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Halloween",
@@ -1207,7 +1207,7 @@ function Halloween() {
 }
 
 function Joker() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Joker/Jokes/Joker/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Joker",
@@ -1220,7 +1220,7 @@ function Joker() {
 }
 
 function Mines1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Minecraft.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Minecraft v1.0",
@@ -1233,7 +1233,7 @@ function Mines1() {
 }
 
 function Mines2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Minecraft/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Minecraft v1.2",
@@ -1246,7 +1246,7 @@ function Mines2() {
 }
 
 function Naruto() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Naruto.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Naruto",
@@ -1259,7 +1259,7 @@ function Naruto() {
 }
 
 function Anime() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Anime/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Anime",
@@ -1272,7 +1272,7 @@ function Anime() {
 }
 
 function DNyan() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Nyan.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Nyan",
@@ -1285,7 +1285,7 @@ function DNyan() {
 }
 
 function Santa() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Santa.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Santa Claus",
@@ -1298,7 +1298,7 @@ function Santa() {
 }
 
 function DMario1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Super_Mario/Mars/Mario/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.",
@@ -1311,7 +1311,7 @@ function DMario1() {
 }
 
 function DMario2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Mario/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.2",
@@ -1324,7 +1324,7 @@ function DMario2() {
 }
 
 function DMario3() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Maro/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.3",
@@ -1337,7 +1337,7 @@ function DMario3() {
 }
 
 function DMario4() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Marilol/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Super Mario v1.4",
@@ -1350,7 +1350,7 @@ function DMario4() {
 }
 
 function MegaMan() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/MegaMan/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Mega-Man",
@@ -1363,7 +1363,7 @@ function MegaMan() {
 }
 
 function Vivaldi() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Vivaldi/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Vivaldi",
@@ -1376,7 +1376,7 @@ function Vivaldi() {
 }
 
 function Covid() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Covid/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Covid",
@@ -1389,7 +1389,7 @@ function Covid() {
 }
 
 function Fish() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Fish/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Fish",
@@ -1402,7 +1402,7 @@ function Fish() {
 }
 
 function Guy() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Guy/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Kumamon Runner",
@@ -1415,7 +1415,7 @@ function Guy() {
 }
 
 function Zombie() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/Zombie/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Zombie Runner",
@@ -1428,7 +1428,7 @@ function Zombie() {
 }
 
 function Mario1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/Mario/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Modded Super Mario Bros.",
@@ -1441,7 +1441,7 @@ function Mario1() {
 }
 
 function Mario2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/Mario/super.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Super Mario Bros.",
@@ -1454,7 +1454,7 @@ function Mario2() {
 }
 
 function iMario() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/infinite/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Infinite Mario",
@@ -1467,7 +1467,7 @@ function iMario() {
 }
 
 function Cat() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/Catmario/chrome/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Cat Mario",
@@ -1480,7 +1480,7 @@ function Cat() {
 }
 
 function Mari0() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Mario/Mari0/index.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Mari0",
@@ -1493,7 +1493,7 @@ function Mari0() {
 }
 
 function Surf1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%201.0/index.html",
 		icons: iconsAtTwoSizes("Surf"),
 		title: "Microsoft Surf 1.0",
@@ -1506,7 +1506,7 @@ function Surf1() {
 }
 
 function Surf2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%202.0/index.html",
 		icons: iconsAtTwoSizes("Surf"),
 		title: "Microsoft Surf 2.0",
@@ -1519,7 +1519,7 @@ function Surf2() {
 }
 
 function Surf3() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/SURF/S.U.R.F%203.0/index.html",
 		icons: iconsAtTwoSizes("Surf"),
 		title: "Microsoft Surf 3.0",
@@ -1532,7 +1532,7 @@ function Surf3() {
 }
 
 function D4() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/Doom4/Doom4.exe.html",
 		icons: iconsAtTwoSizes("4"),
 		title: "Doom4",
@@ -1545,7 +1545,7 @@ function D4() {
 }
 
 function SMWDX() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/MS-DOS/SMWDX/SMWDX.exe.html",
 		icons: iconsAtTwoSizes("Mario"),
 		title: "Super Mario World Deluxe",
@@ -1558,7 +1558,7 @@ function SMWDX() {
 }
 
 function Ice() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Ice/ICE%201.0/index.html",
 		icons: iconsAtTwoSizes("Ice"),
 		title: "Ice Dodo 1.0",
@@ -1571,7 +1571,7 @@ function Ice() {
 }
 
 function Ice2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/Ice/ICE%202.0/index.html",
 		icons: iconsAtTwoSizes("Ice"),
 		title: "Ice Dodo 2.0",
@@ -1584,7 +1584,7 @@ function Ice2() {
 }
 
 function Contranoid() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Brain Games/Contranoid/index.html",
 		icons: iconsAtTwoSizes("Contranoid"),
 		title: "Contranoid",
@@ -1597,7 +1597,7 @@ function Contranoid() {
 }
 
 function CDG() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Dino/index.html",
 		icons: iconsAtTwoSizes("Dino"),
 		title: "Chrome Dino Games",
@@ -1610,7 +1610,7 @@ function CDG() {
 }
 
 function Hi() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Brain Games/Oh Hi/index.html",
 		icons: iconsAtTwoSizes("0HH1"),
 		title: "OH H1",
@@ -1623,7 +1623,7 @@ function Hi() {
 }
 
 function No() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Brain Games/Oh No/index.html",
 		icons: iconsAtTwoSizes("0HN0"),
 		title: "OH N0",
@@ -1636,7 +1636,7 @@ function No() {
 }
 
 function Quento() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Brain Games/Quento/index.html",
 		icons: iconsAtTwoSizes("Quento"),
 		title: "Quento",
@@ -1649,7 +1649,7 @@ function Quento() {
 }
 
 function Hextris() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Brain Games/Hextris/index.html",
 		icons: iconsAtTwoSizes("Hextris"),
 		title: "Hextris",
@@ -1662,7 +1662,7 @@ function Hextris() {
 }
 
 function Pac() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/PacMan/PacMan/index.html",
 		icons: iconsAtTwoSizes("Pacman"),
 		title: "PacMan 1.0",
@@ -1675,7 +1675,7 @@ function Pac() {
 }
 
 function Google1() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/PacMan/google pacman/index.html",
 		icons: iconsAtTwoSizes("Pacman"),
 		title: "Google PacMan 1.2",
@@ -1688,7 +1688,7 @@ function Google1() {
 }
 
 function Google2() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/PacMan/google pacman 2/index.html",
 		icons: iconsAtTwoSizes("Pacman"),
 		title: "Google PacMan 1.0",
@@ -1701,7 +1701,7 @@ function Google2() {
 }
 
 function Snake() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/snake.html",
 		icons: iconsAtTwoSizes("Snake"),
 		title: "Snake",
@@ -1714,7 +1714,7 @@ function Snake() {
 }
 
 function Pong() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/Pong/index.html",
 		icons: iconsAtTwoSizes("Pong"),
 		title: "Pong",
@@ -1727,7 +1727,7 @@ function Pong() {
 }
 
 function Tetriz() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/tetris/tetris.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Tetris 1.0",
@@ -1740,7 +1740,7 @@ function Tetriz() {
 }
 
 function Cubes() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/tetris/cubes/index.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Tetris 2.0",
@@ -1753,7 +1753,7 @@ function Cubes() {
 }
 
 function Jelly() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/tetris/Jelly/index.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Jelly Tetris",
@@ -1766,7 +1766,7 @@ function Jelly() {
 }
 
 function AIT() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/tetris/AI/index.html",
 		icons: iconsAtTwoSizes("Tetris"),
 		title: "Tetris with AI",
@@ -1779,7 +1779,7 @@ function AIT() {
 }
 
 function SpaceI() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/Space/index.html",
 		icons: iconsAtTwoSizes("Space"),
 		title: "Space Invaders",
@@ -1792,7 +1792,7 @@ function SpaceI() {
 }
 
 function Twenty() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048/index.html",
 		icons: iconsAtTwoSizes("2048"),
 		title: "2048",
@@ -1804,7 +1804,7 @@ function Twenty() {
 }
 
 function One() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/Flappy-2048/index.html",
 		icons: iconsAtTwoSizes("2048"),
 		title: "Flappy 2048 1.0",
@@ -1816,7 +1816,7 @@ function One() {
 }
 
 function Two() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/Flappy-2048-2.0/index.html",
 		icons: iconsAtTwoSizes("2048"),
 		title: "Flappy 2048 2.0",
@@ -1828,7 +1828,7 @@ function Two() {
 }
 
 function Three() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048-3D/index.html",
 		icons: iconsAtTwoSizes("2048"),
 		title: "2048 3D",
@@ -1840,7 +1840,7 @@ function Three() {
 }
 
 function Four() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/4/index.html",
 		icons: iconsAtTwoSizes("2048"),
 		title: "4",
@@ -1852,7 +1852,7 @@ function Four() {
 }
 
 function AI() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048-AI/index.html",
 		icons: iconsAtTwoSizes("2048"),
 		title: "2048 AI",
@@ -1864,7 +1864,7 @@ function AI() {
 }
 
 function Hardcore() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/2048/2048-Hardcore/index.html",
 		icons: iconsAtTwoSizes("2048"),
 		title: "2048 Hardcore",
@@ -1876,7 +1876,7 @@ function Hardcore() {
 }
 
 function Gore() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/GoreScript/index.html",
 		icons: iconsAtTwoSizes("Gore"),
 		title: "GoreScript Classic",
@@ -1888,7 +1888,7 @@ function Gore() {
 }
 
 function VLC() {
-	let $win = make_iframe_window({
+	let $win = make_embed_window({
 		src: "https://Adam-S-Amir.github.io/VLC-Media-Web-Player/index.html",
 		icons: iconsAtTwoSizes("VLC"),
 		title: "VLC Media Player",
@@ -1963,49 +1963,49 @@ function show_help(options) {
 		}
 	}).hide();
 	add_toolbar_button("Back", 1, () => {
-		$iframe[0].contentWindow.history.back();
+		$embed[0].contentWindow.history.back();
 		ignore_one_load = true;
 		back_length -= 1;
 		forward_length += 1;
 	}, () => back_length > 0);
 	add_toolbar_button("Forward", 2, () => {
-		$iframe[0].contentWindow.history.forward();
+		$embed[0].contentWindow.history.forward();
 		ignore_one_load = true;
 		forward_length -= 1;
 		back_length += 1;
 	}, () => forward_length > 0);
 	add_toolbar_button("Options", 3, () => { }, () => false); // TODO: hotkey and underline on O
 	add_toolbar_button("Web Help", 4, () => {
-		iframe.src = "help/online_support.htm";
+		embed.src = "help/online_support.htm";
 	});
 
-	const $iframe = $("<iframe sandbox='allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads'>")
+	const $embed = $("<embed sandbox='allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads'>")
 		.attr({ src: "help/default.html" })
 		.addClass("inset-deep");
-	const iframe = $iframe[0];
-	enhance_iframe(iframe);
-	iframe.$window = $help_window; // for focus handling integration
+	const embed = $embed[0];
+	enhance_embed(embed);
+	embed.$window = $help_window; // for focus handling integration
 	const $resizer = $(E("div")).addClass("resizer");
 	const $contents = $(E("ul")).addClass("contents inset-deep");
 
 	// TODO: fix race conditions
-	$iframe.on("load", () => {
+	$embed.on("load", () => {
 		if (!ignore_one_load) {
 			back_length += 1;
 			forward_length = 0;
 		}
-		iframe.contentWindow.location.href
+		embed.contentWindow.location.href
 		ignore_one_load = false;
 		$help_window.triggerHandler("update-buttons");
 	});
 
-	$main.append($contents, $resizer, $iframe);
+	$main.append($contents, $resizer, $embed);
 	$help_window.$content.append($toolbar, $main);
 
 	$help_window.css({ width: 800, height: 600 });
 
-	$iframe.attr({ name: "help-frame" });
-	$iframe.css({
+	$embed.attr({ name: "help-frame" });
+	$embed.css({
 		backgroundColor: "white",
 		border: "",
 		margin: "1px",
@@ -2092,7 +2092,7 @@ function show_help(options) {
 
 	const $default_item_li = $(E("li")).addClass("page");
 	$default_item_li.append(make_$item("Welcome to Help").on("click", () => {
-		$iframe.attr({ src: "help/default.html" });
+		$embed.attr({ src: "help/default.html" });
 	}));
 	$contents.append($default_item_li);
 
@@ -2113,7 +2113,7 @@ function show_help(options) {
 		} else {
 			const $item_li = $(E("li")).addClass("page");
 			$item_li.append(make_$item(object.Name).on("click", () => {
-				$iframe.attr({ src: `${options.root}/${object.Local}` });
+				$embed.attr({ src: `${options.root}/${object.Local}` });
 			}));
 			if ($folder_items_ul) {
 				$folder_items_ul.append($item_li);
@@ -2143,12 +2143,12 @@ function show_help(options) {
 }
 
 function Notepad(file_path) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
+	// TODO: DRY the default file names and title code (use document.title of the page in the embed, in make_embed_window)
 	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
 	var win_title = document_title + " - Notepad";
 	// TODO: focus existing window if file is currently open?
 
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/notepad/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: iconsAtTwoSizes("notepad"),
 		title: win_title,
@@ -2161,7 +2161,7 @@ function Notepad(file_path) {
 Notepad.acceptsFilePaths = true;
 
 function Paint(file_path) {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/jspaint/index.html",
 		icons: iconsAtTwoSizes("paint"),
 		// NOTE: in Windows 98, "untitled" is lowercase, but TODO: we should just make it consistent
@@ -2172,7 +2172,7 @@ function Paint(file_path) {
 		minOuterHeight: 400,
 	});
 
-	var contentWindow = $win.$iframe[0].contentWindow;
+	var contentWindow = $win.$embed[0].contentWindow;
 
 	var waitUntil = function (test, interval, callback) {
 		if (test()) {
@@ -2234,8 +2234,8 @@ function Paint(file_path) {
 
 	// contentWindow.addEventListener("load", function(){
 	// $(contentWindow).on("load", function(){
-	// $win.$iframe.load(function(){
-	// $win.$iframe[0].addEventListener("load", function(){
+	// $win.$embed.load(function(){
+	// $win.$embed[0].addEventListener("load", function(){
 	waitUntil(() => contentWindow.systemHooks, 500, () => {
 		Object.assign(contentWindow.systemHooks, systemHooks);
 
@@ -2280,7 +2280,7 @@ function Paint(file_path) {
 Paint.acceptsFilePaths = true;
 
 function Minesweeper() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/minesweeper/index.html",
 		icons: iconsAtTwoSizes("minesweeper"),
 		title: "Minesweeper",
@@ -2292,11 +2292,11 @@ function Minesweeper() {
 }
 
 function SoundRecorder(file_path) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
+	// TODO: DRY the default file names and title code (use document.title of the page in the embed, in make_embed_window)
 	var document_title = file_path ? file_name_from_path(file_path) : "Sound";
 	var win_title = document_title + " - Sound Recorder";
 	// TODO: focus existing window if file is currently open?
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/sound-recorder/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: iconsAtTwoSizes("speaker"),
 		title: win_title,
@@ -2310,7 +2310,7 @@ function SoundRecorder(file_path) {
 SoundRecorder.acceptsFilePaths = true;
 
 function Solitaire() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/js-solitaire/index.html",
 		icons: iconsAtTwoSizes("solitaire"),
 		title: "Solitaire",
@@ -2320,9 +2320,9 @@ function Solitaire() {
 	return new Task($win);
 }
 
-function showScreensaver(iframeSrc) {
+function showScreensaver(embedSrc) {
 	const mouseDistanceToExit = 15;
-	const $iframe = $("<iframe>").attr("src", iframeSrc);
+	const $embed = $("<embed>").attr("src", embedSrc);
 	const $backing = $("<div>");
 	$backing.css({
 		position: "fixed",
@@ -2334,7 +2334,7 @@ function showScreensaver(iframeSrc) {
 		cursor: "none",
 		backgroundColor: "black",
 	});
-	$iframe.css({
+	$embed.css({
 		position: "fixed",
 		left: 0,
 		top: 0,
@@ -2345,10 +2345,10 @@ function showScreensaver(iframeSrc) {
 		pointerEvents: "none",
 	});
 	$backing.appendTo("body");
-	$iframe.appendTo("body");
+	$embed.appendTo("body");
 	const cleanUp = () => {
 		$backing.remove();
-		$iframe.remove();
+		$embed.remove();
 		const prevent = (event) => {
 			event.preventDefault();
 		};
@@ -2387,7 +2387,7 @@ function showScreensaver(iframeSrc) {
 }
 
 function Settings() {
-	let $win = new $IframeWindow2({
+	let $win = new $EmbedWindow2({
 		src: null,
 		icons: iconsAtTwoSizes("settings"),
 		title: "Settings",
@@ -2400,7 +2400,7 @@ function Settings() {
 }
 
 function Store() {
-	let $win = new $IframeWindow2({
+	let $win = new $EmbedWindow2({
 		src: null,
 		icons: iconsAtTwoSizes("Store"),
 		title: "Software Center",
@@ -2461,7 +2461,7 @@ function Bubz() {
 }
 
 function CommandPrompt() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/command/index.html",
 		icons: iconsAtTwoSizes("msdos"),
 		title: "MS-DOS Prompt",
@@ -2509,7 +2509,7 @@ function CommandPrompt() {
 }
 
 function Calculator() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/calculator/index.html",
 		icons: iconsAtTwoSizes("calculator"),
 		title: "Calculator",
@@ -2522,7 +2522,7 @@ function Calculator() {
 }
 
 function Pinball() {
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/pinball/space-cadet.html",
 		icons: iconsAtTwoSizes("pinball"),
 		title: "3D Pinball for Windows - Space Cadet",
@@ -2546,10 +2546,10 @@ function Pinball() {
 	setTimeout(() => {
 		$splash.remove(); // just in case
 	}, 5000);
-	$win.$content.find("iframe").on("game-loaded", () => { // custom event dispatched from within the iframe
+	$win.$content.find("embed").on("game-loaded", () => { // custom event dispatched from within the embed
 		$splash.remove();
 	});
-	$win.$content.find("iframe").on("game-load-failed", () => { // custom event dispatched from within the iframe
+	$win.$content.find("embed").on("game-load-failed", () => { // custom event dispatched from within the embed
 		$splash.remove();
 		// on some systems, if the game fails to load,
 		// it may result in the canvas showing through to the desktop behind the browser window
@@ -2564,11 +2564,11 @@ function Pinball() {
 }
 
 function Explorer(address) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in make_iframe_window)
+	// TODO: DRY the default file names and title code (use document.title of the page in the embed, in make_embed_window)
 	var document_title = address;
 	var win_title = document_title;
 	// TODO: focus existing window if folder is currently open
-	var $win = make_iframe_window({
+	var $win = make_embed_window({
 		src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
 		icons: iconsAtTwoSizes("folder-open"),
 		title: win_title,
@@ -2980,7 +2980,7 @@ openThemeFile.acceptsFilePaths = true;
 // Note: extensions must be lowercase here. This is used to implement case-insensitive matching.
 var file_extension_associations = {
 	// Fonts:
-	// - eot (Iframeded OpenType)
+	// - eot (Embedded OpenType)
 	// - otf (OpenType)
 	// - ttf (TrueType)
 	// - woff (Web Open Font Format)
