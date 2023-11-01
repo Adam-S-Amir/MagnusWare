@@ -4,7 +4,7 @@ import os
 def delete_md_files(root_dir):
     for foldername, subfolders, filenames in os.walk(root_dir):
         for filename in filenames:
-            if filename.endswith('.md'):
+            if filename.endswith('.gitignore'):
                 file_path = os.path.join(foldername, filename)
                 os.remove(file_path)
                 print(f"Deleted: {file_path}")
