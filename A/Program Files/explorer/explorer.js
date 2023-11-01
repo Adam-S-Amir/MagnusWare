@@ -844,7 +844,7 @@ ${doc.documentElement.outerHTML}`;
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<script src="/A/System64/JS/jquery.min.js"></script>
 		<script src="/A/System64/JS/Window.js"></script>
-		<script src="/A/System64/JS/msgbox.js"></script>
+		<script src="/A/System64/JS/Notifications.js"></script>
 		<script>defaultMessageBoxTitle = "Explorer";</script>
 		<script>
 			(${head_end_injected_script_fn})();
