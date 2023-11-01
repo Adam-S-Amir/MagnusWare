@@ -699,13 +699,12 @@ ${doc.documentElement.outerHTML}`;
 									display: flex;
 								}
 								.folder-view {
-									background: var(--Window); /* needed for mix-blend-mode */
+									background: var(--Background); /* needed for mix-blend-mode */
 									color: var(--WindowText);
 								}
 								.desktop-icon .title {
-									/* background: transparent; */
+									background: transparent;
 									/* mix-blend-mode seems to need a background (for the dotted focus effect) */
-									background: var(--Window);
 									color: var(--WindowText);
 									font-family: "Verdana";
 								}
@@ -865,7 +864,7 @@ ${doc.documentElement.outerHTML}`;
 	$iframe[0]._folder_view = folder_view;
 	$iframe[0]._folder_icon_src = getIconPath(get_icon_for_address(address), 32);
 
-	enhance_iframe($iframe[0]);
+	enhance_embed($iframe[0]);
 
 	$iframe.on("load", () => {
 		var doc = $iframe[0].contentDocument;

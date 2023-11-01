@@ -48,14 +48,12 @@ FolderView.SORT_MODES = {
 // Note: extensions must be lowercase here. This is used to implement case-insensitive matching.
 var file_extension_icons = {
 	txt: "notepad-file",
-	py: "notepad-file",
-	md: "notepad-file",
+	py: "python",
+	md: "html",
 	json: "notepad-file",
 	js: "notepad-file",
 	css: "notepad-file",
 	html: "notepad-file",
-	gitattributes: "notepad-file",
-	gitignore: "notepad-file",
 	png: "image-gif", // "image-png"? nope... (but should it be image-gif or image-wmf?)
 	jpg: "image-jpeg",
 	jpeg: "image-jpeg",
@@ -76,14 +74,11 @@ var file_extension_icons = {
 	"exe": "task",
 	htm: "html",
 	html: "html",
-	url: "html",
+	url: "url",
 	theme: "themes",
 	themepack: "themes",
 };
 
-// @TODO: maintain less fake naming abstraction
-// base it more on the actual filesystem
-// @TODO: bring system folders, icons, and file associations into one place
 const system_folder_path_to_name = {
 	"/": "This PC", //"My Computer",
 	"/my-pictures/": "My Pictures",

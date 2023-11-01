@@ -67,77 +67,6 @@
         }
       }
     },
-    "help": {
-      "98.js.org.svg": null,
-      "calculator-help": {
-        "calc.hhc": null,
-        "calc.hhk": null,
-        "calc_buttons.htm": null,
-        "calc_keyboard_seq.htm": null,
-        "calc_list_equiv.htm": null,
-        "calc_memory.htm": null,
-        "calc_number_system.htm": null,
-        "calc_precision.htm": null,
-        "calc_scientific.htm": null,
-        "calc_simple.htm": null,
-        "calc_statistics.htm": null,
-        "calc_transfer.htm": null,
-        "onestep.gif": null
-      },
-      "cloud-mask.png": null,
-      "clouds.jpg": null,
-      "coUA.css": null,
-      "default.html": null,
-      "flag&clouds.gif": null,
-      "memcopy.html": null,
-      "minesweeper-help": {
-        "mine_object.htm": null,
-        "mine_play.htm": null,
-        "mine_tips.htm": null,
-        "winmine.hhc": null,
-        "winmine.hhk": null
-      },
-      "nobgcolor.css": null,
-      "notepad-help": {
-        "notepad.hhc": null,
-        "notepad.hhk": null,
-        "onestep.gif": null,
-        "win_notepad_delete_text.htm": null,
-        "win_notepad_finding_words.htm": null,
-        "win_notepad_header_footer.htm": null,
-        "win_notepad_time_date.htm": null,
-        "win_notepad_tracking_time.htm": null,
-        "win_notepad_wrapping_text.htm": null
-      },
-      "online_support.htm": null,
-      "prettify-html.ahk": null,
-      "sound-recorder-help": {
-        "mm_forw.gif": null,
-        "mm_play.gif": null,
-        "mm_rec.gif": null,
-        "mm_rewd.gif": null,
-        "mm_stop.gif": null,
-        "onestep.gif": null,
-        "soundrec.hhc": null,
-        "soundrec.hhk": null,
-        "soundrec_add_echo.htm": null,
-        "soundrec_add_sound.htm": null,
-        "soundrec_change_speed.htm": null,
-        "soundrec_change_volume.htm": null,
-        "soundrec_convert_file.htm": null,
-        "soundrec_create.htm": null,
-        "soundrec_delete_sound.htm": null,
-        "soundrec_insert_sound.htm": null,
-        "soundrec_overlay_file.htm": null,
-        "soundrec_playing.htm": null,
-        "soundrec_pr_change_format.htm": null,
-        "soundrec_reverse.htm": null,
-        "soundrec_undo_changes.htm": null,
-        "windows_soundrec_insert.htm": null,
-        "windows_soundrec_link.htm": null
-      },
-      "vaporwave.js": null
-    },
     "my-documents": {
       "Dropbox.url": null,
       "Google Docs.url": null
@@ -164,8 +93,7 @@
         "img": {
           "FlowerBox.PNG": null
         },
-        "index.html": null,
-        "README.md": null
+        "index.html": null
       },
       "calculator": {
         "calc.css": null,
@@ -239,10 +167,8 @@
       },
       "js-solitaire": {
         ".eslintrc.js": null,
-        ".gitignore": null,
         "index.html": null,
         "LICENSE": null,
-        "README.md": null,
         "screen-shot-win.png": null,
         "screen-shot.png": null,
         "src": {
@@ -253,16 +179,9 @@
         }
       },
       "jspaint": {
-        ".eslintrc.js": null,
-        ".gitignore": null,
-        ".gitrepo": null,
-        ".travis.yml": null,
         "audio": {
           "chord.wav": null
         },
-        "browserconfig.xml": null,
-        "CNAME": null,
-        "CONTRIBUTING.md": null,
         "cypress": {
           "cypress-image-snapshot-viewer.js": null,
           "fixtures": {
@@ -316,7 +235,6 @@
             "index.js": null
           }
         },
-        "cypress.json": null,
         "favicon.ico": null,
         "help": {
           "cloud-mask.png": null,
@@ -579,7 +497,6 @@
           }
         },
         "index.html": null,
-        "jsconfig.json": null,
         "lib": {
           "98.css": {
             "98.custom-build.css": null,
@@ -1182,8 +1099,6 @@
           },
           "tracky-mouse": {
             ".gitattributes": null,
-            ".gitignore": null,
-            ".gitrepo": null,
             "facemesh.worker.js": null,
             "images": {
               "tracky-mouse-logo-16.png": null,
@@ -1212,9 +1127,7 @@
             },
             "LICENSE.txt": null,
             "package.json": null,
-            "README.md": null,
             "tracky-mouse-electron": {
-              ".gitignore": null,
               "forge.config.js": null,
               "package-lock.json": null,
               "package.json": null,
@@ -3574,10 +3487,6 @@
             }
           }
         },
-        "manifest.webmanifest": null,
-        "package-lock.json": null,
-        "package.json": null,
-        "README.md": null,
         "src": {
           "$ColorBox.js": null,
           "$Component.js": null,
@@ -3627,8 +3536,7 @@
             "winter.css": null
           }
         },
-        "test-news-newer.html": null,
-        "TODO.md": null
+        "test-news-newer.html": null
       },
       "minesweeper": {
         "face.js": null,
@@ -3645,7 +3553,6 @@
         },
         "menus.js": null,
         "minesweeper.js": null,
-        "README.md": null,
         "ssd.js": null,
         "tile.js": null
       },
@@ -3670,8 +3577,6 @@
       "pipes": {
         ".editorconfig": null,
         ".gitattributes": null,
-        ".gitignore": null,
-        ".gitrepo": null,
         ".prettierignore": null,
         ".prettierrc.json": null,
         "images": {
@@ -3696,12 +3601,10 @@
         "LICENSE": null,
         "package-lock.json": null,
         "package.json": null,
-        "README.md": null,
         "screensaver.js": null
       },
       "sound-recorder": {
         ".gitattributes": null,
-        ".gitignore": null,
         "img": {
           "buttons-spaced-out.png": null,
           "buttons.png": null
@@ -3714,7 +3617,6 @@
           "recorder.js": null,
           "recorderWorker.js": null
         },
-        "README.md": null,
         "src": {
           "$app.js": null,
           "app.js": null,
@@ -3736,7 +3638,6 @@
         "mp3": {
           "llama-2.91.mp3": null
         },
-        "README.md": null,
         "skins": {
           "base-2.91.wsz": null
         }
@@ -3930,7 +3831,6 @@
           "favicon-48x48-enlarged-6x.png": null,
           "favicon-48x48.png": null,
           "faviconDescription.json": null,
-          "FOLDER-README.md": null,
           "mstile-48x48-enlarged-6x.png": null,
           "mstile-48x48-globe-outline.png": null,
           "safari-pinned-tab-16x16.png": null
@@ -4134,11 +4034,8 @@
           "Hextris-16x16.png": null,
           "Hextris-32x32.png": null,
           "Hextris-48x48.png": null,
-          "html-16x16-higher-color.png": null,
           "html-16x16.png": null,
-          "html-32x32-higher-color.png": null,
           "html-32x32.png": null,
-          "html-48x48-higher-color.png": null,
           "html-48x48.png": null,
           "Ice-16x16.png": null,
           "Ice-32x32.png": null,
@@ -4267,6 +4164,9 @@
           "programs-folder-16x16.png": null,
           "programs-folder-32x32.png": null,
           "programs-folder-48x48.png": null,
+          "Python-16x16.png": null,
+          "Python-32x32.png": null,
+          "Python-48x48.png": null,
           "Q1M-128x128.png": null,
           "Q1M-16x16.png": null,
           "Q1M-256x256.png": null,
@@ -4384,6 +4284,9 @@
           "unknown-printer-32x32.png": null,
           "unknown-printer-48x48.png": null,
           "Update-32x32.png": null,
+          "url-16x16.png": null,
+          "url-32x32.png": null,
+          "url-48x48.png": null,
           "video-16x16.png": null,
           "video-32x32.png": null,
           "virtualdesktop.org-16x16.png": null,
@@ -4600,6 +4503,7 @@
       "WVLOGO.GIF": null
     }
   },
+  "del.py": null,
   "Dir.py": null,
   "filesystem-index.json": null,
   "index.html": null,
