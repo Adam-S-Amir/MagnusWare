@@ -58,6 +58,7 @@ function loadCSSSequentially(index) {
 loadCSSSequentially(0);
 
 let scriptUrls = [
+    "icons.js",
     "index.js",
     "Clippy/Build/clippy.min.js",
     "BrowserFS.js",
