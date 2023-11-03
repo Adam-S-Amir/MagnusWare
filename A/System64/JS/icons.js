@@ -2,7 +2,7 @@ function iconsAtTwoSizes(iconID, size) {
     const iconSizes = [16, 32, 48, 64, 128, 256, 512];
 
     if (!iconSizes.includes(size)) {
-        console.log("Invalid size. Using the default size (16x16).");
+        console.error("Invalid size. Using the default (16x16).");
         size = 16;
     }
 
