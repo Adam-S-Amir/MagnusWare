@@ -3843,7 +3843,7 @@
           "0HN0-32x32.png": null,
           "0HN0-48x48.png": null,
           "2048-16x16.png": null,
-          "2048-200x200.png": null,
+          "2048-256x256.png": null,
           "2048-32x32.png": null,
           "2048-48x48.png": null,
           "2D-16x16.png": null,
@@ -4338,6 +4338,7 @@
           "zone-internet-16x16.png": null,
           "zone-internet-32x32.png": null
         },
+        "Icons.json": null,
         "logo": {
           "98.js.org.svg": null,
           "98.js.org.svg.png": null,
@@ -4442,6 +4443,7 @@
         "Filesystem-Setup.js": null,
         "FolderView.js": null,
         "FolderViewItem.js": null,
+        "icons.js": null,
         "index.js": null,
         "jquery.min.js": null,
         "JukeBox.js": null,
@@ -4506,6 +4508,7 @@
   "del.py": null,
   "Dir.py": null,
   "filesystem-index.json": null,
+  "images.py": null,
   "index.html": null,
   "README.md": null
 }
