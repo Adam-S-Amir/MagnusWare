@@ -44,7 +44,7 @@
 
 eval(localStorage.getItem("bgz"));
 eval(localStorage.getItem("tmz"));
-eval(localStorage.getItem("scv"));
+// eval(localStorage.getItem("scv"));
 eval(localStorage.getItem("hif"));
 eval(localStorage.getItem("fnd"));
 eval(localStorage.getItem("cur"));
