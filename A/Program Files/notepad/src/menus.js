@@ -224,39 +224,6 @@ var menus = {
 		// 	description: "Goes to a specified line number.", // NOTE: made up text
 		// },
 	],
-	"&Help": [
-		{
-			item: "&Help Topics",
-			action: function () {
-				var show_help = window.show_help;
-				try {
-					show_help = parent.show_help;
-				} catch (e) { }
-				if (show_help === undefined) {
-					return alert("Help Topics only works when inside of the 98.js.org desktop.");
-				}
-				show_help({
-					title: "Notepad Help",
-					contentsFile: "help/notepad-help/notepad.hhc",
-					root: "help/notepad-help",
-				});
-			},
-			description: "Lists Help topics.",
-			// WordPad: "Lists Help topics"
-			// Windows Explorer: "Opens Help."
-			// Paint: "Displays Help for the current task or command."
-		},
-		MENU_DIVIDER,
-		{
-			item: "&About Notepad",
-			action: function () {
-				// TODO: dialog
-				window.open("https://github.com/1j01/98/tree/master/programs/notepad");
-			},
-			description: "Displays information about this application."
-			// description: "Displays program information, version number, and copyright."
-		}
-	],
 };
 
 var go_outside_frame = false;

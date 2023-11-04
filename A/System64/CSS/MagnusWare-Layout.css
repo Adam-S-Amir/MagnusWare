@@ -636,6 +636,13 @@ body {
 	padding: 15px;
 }
 
+.start-menu-content,
+.start-menu-content * {
+	font-family: 'Orbitron';
+	font-weight: bolder;
+	font-size: 12px;
+}
+
 .start-menu ul {
 	list-style: none;
 	margin: 1em 0;

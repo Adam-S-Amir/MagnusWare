@@ -5,7 +5,7 @@ function hidemenu() {
 function About() {
 	let $win = new $EmbedWindow2({
 		src: null,
-		icons: iconsAtTwoSizes("document"),
+		icons: iconsAtTwoSizes("About", 32),
 		title: "About",
 		innerWidth: 420,
 		innerHeight: 400

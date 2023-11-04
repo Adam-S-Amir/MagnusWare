@@ -46,6 +46,7 @@ function iconsAtTwoSizes(iconID, size) {
             "48": "./A/System64/Images/Icons/aaronos-48x48.png"
         },
         "about": {
+            "16": "./A/System64/Images/Icons/About-16x16.png",
             "32": "./A/System64/Images/Icons/About-32x32.png",
             "48": "./A/System64/Images/Icons/About-48x48.png"
         },
@@ -59,6 +60,11 @@ function iconsAtTwoSizes(iconID, size) {
             "16": "./A/System64/Images/Icons/Arcade-16x16.png",
             "32": "./A/System64/Images/Icons/Arcade-32x32.png",
             "48": "./A/System64/Images/Icons/Arcade-48x48.png"
+        },
+        "archive": {
+            "16": "./A/System64/Images/Icons/Archive-16x16.png",
+            "32": "./A/System64/Images/Icons/Archive-32x32.png",
+            "48": "./A/System64/Images/Icons/Archive-48x48.png"
         },
         "audio-nope": {
             "16": "./A/System64/Images/Icons/audio-nope-16x16.png"
@@ -297,6 +303,7 @@ function iconsAtTwoSizes(iconID, size) {
             "16": "./A/System64/Images/Icons/FPS-16x16.png",
             "256": "./A/System64/Images/Icons/FPS-256x256.png",
             "32": "./A/System64/Images/Icons/FPS-32x32.png",
+            "48": "./A/System64/Images/Icons/FPS-48x48.png",
             "512": "./A/System64/Images/Icons/FPS-512x512.png",
             "64": "./A/System64/Images/Icons/FPS-64x64.png"
         },
@@ -641,7 +648,8 @@ function iconsAtTwoSizes(iconID, size) {
         },
         "school": {
             "16": "./A/System64/Images/Icons/School-16x16.png",
-            "32": "./A/System64/Images/Icons/School-32x32.png"
+            "32": "./A/System64/Images/Icons/School-32x32.png",
+            "48": "./A/System64/Images/Icons/School-48x48.png"
         },
         "settings": {
             "16": "./A/System64/Images/Icons/settings-16x16.png",

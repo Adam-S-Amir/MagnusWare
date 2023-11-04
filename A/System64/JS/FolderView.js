@@ -1,4 +1,3 @@
-
 const grid_size_x_for_large_icons = 75;
 const grid_size_y_for_large_icons = 75;
 // @TODO: this is supposed to be dynamic based on length of names
@@ -47,42 +46,47 @@ FolderView.SORT_MODES = {
 // https://github.com/1j01/retrores
 // Note: extensions must be lowercase here. This is used to implement case-insensitive matching.
 var file_extension_icons = {
-	txt: "notepad-file",
-	py: "python",
-	md: "html",
-	json: "notepad-file",
-	js: "notepad-file",
-	css: "notepad-file",
-	html: "notepad-file",
-	png: "image-file", // "image-png"? nope... (but should it be image-gif or image-wmf?)
-	jpg: "image-file",
-	jpeg: "image-file",
-	gif: "image-file",
-	webp: "image-file",
-	bmp: "paint-file",
-	tif: "image-file",
-	tiff: "image-file",
-	otf: "font-file",
-	ttf: "font-file",
-	woff: "font-file",
-	eof: "font-file",
-	js: "JS-File",
-	css: "CSS-File",
+	"txt": "notepad-file",
+	"py": "python",
+	"md": "html",
+	"json": "notepad-file",
+	"js": "notepad-file",
+	"css": "notepad-file",
+	"html": "notepad-file",
+	"png": "image-file", // "image-png"? nope... (but should it be image-gif or image-wmf?)
+	"jpg": "image-file",
+	"jpeg": "image-file",
+	"gif": "image-file",
+	"webp": "image-file",
+	"bmp": "paint-file",
+	"tif": "image-file",
+	"tiff": "image-file",
+	"otf": "font-file",
+	"ttf": "font-file",
+	"woff": "font-file",
+	"eot": "font-file",
+	"map": "JS-File",
+	"js": "JS-File",
+	"css": "CSS-File",
+	"zip": "Archive",
+	"rar": "Archive",
+	"7z": "Archive",
+	"tar": "Archive",
 	// wmf: "image-wmf"? nope (https://en.wikipedia.org/wiki/Windows_Metafile)
 	// emf: "image-wmf"? nope
 	// wmz: "image-wmf"? nope
 	// emz: "image-wmf"? nope
-	wav: "sound",
-	mp3: "sound", // TODO: show blue video icon, as it's a container format that can contain video
-	ogg: "sound", // TODO: probably ditto
-	wma: "sound",
+	"wav": "sound",
+	"mp3": "sound",
+	"ogg": "sound",
+	"wma": "sound",
 	// "doc": "doc"?
 	"exe": "task",
-	htm: "html",
-	html: "html",
-	url: "url",
-	theme: "themes",
-	themepack: "themes",
+	"htm": "html",
+	"html": "html",
+	"url": "url",
+	"theme": "themes",
+	"themepack": "themes",
 };
 
 const system_folder_path_to_name = {
@@ -378,6 +382,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 						deleteRecursiveSync(fs, file_path);
 						single_delete_success = true;
 						num_deleted += 1;
+						folder_view.arrange_icons();
 					} catch (error) {
 						console.log("failed to delete", file_path, error);
 					}
@@ -386,6 +391,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 							if (item.element.dataset.filePath === file_path) {
 								item.element.remove();
 								updateStatus();
+								folder_view.arrange_icons();
 							}
 						});
 					}
