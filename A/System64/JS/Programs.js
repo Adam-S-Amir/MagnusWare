@@ -2454,10 +2454,19 @@ function openWinamp(file_path) {
 				},
 				url: "./A/Program Files/winamp/mp3/llama-2.91.mp3",
 				duration: 5.322286,
-			}],
-			// initialSkin: {
-			// 	url: "./A/Program Files/winamp/skins/base-2.91.wsz",
-			// },
+			},
+			{
+				metaData: {
+					artist: "Christopher Mintz-Plasse",
+					title: "Nuke Radio",
+				},
+				url: "./A/Program Files/winamp/mp3/Nuke%20Radio.mp3",
+				duration: 5,
+			},
+			],
+			initialSkin: {
+				url: "./A/Program Files/winamp/skins/base-2.91.wsz",
+			},
 			enableHotkeys: true,
 			handleTrackDropEvent: (event) =>
 				Promise.all(

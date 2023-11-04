@@ -78,6 +78,7 @@
       "Instagram.url": null
     },
     "network-neighborhood": {
+      "MagnusWare.url": null,
       "Windows 93.url": null,
       "Windows 98 (Virtual x86).url": null
     },
@@ -3636,9 +3637,11 @@
           "webamp.bundle.min.js.map": null
         },
         "mp3": {
-          "llama-2.91.mp3": null
+          "llama-2.91.mp3": null,
+          "Nuke Radio.mp3": null
         },
         "skins": {
+          "Axon_amp.wsz": null,
           "base-2.91.wsz": null
         }
       }
@@ -4441,6 +4444,7 @@
         "Parse-Theme.js": null,
         "Pep.js": null,
         "Programs.js": null,
+        "Search.js": null,
         "Settings.js": null,
         "Start-Menu-1.js": null,
         "Start-Menu-2.js": null,

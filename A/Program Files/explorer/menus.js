@@ -440,7 +440,7 @@ var menus = {
 			item: "Channel &Guide",
 			action: () => {
 				// http://interdimensionalcable.io/ doesn't work because of HTTP vs HTTPS (Mixed Content)
-				go_to("https://topotech.github.io/interdimensionalcable/");
+				go_to("https://invidious.zapashcanon.fr/feed/popular");
 			},
 			description: "Opens the Channel Guide Web page.",
 		},
@@ -467,7 +467,7 @@ var menus = {
 				// @TODO: host a configured version in order to theme it,
 				// maybe allow sharing individual windows on the 98.js desktop?
 				// How much of NetMeeting should I implement? :P
-				go_to("https://brie.fi/ng/98?audio=1&video=1&fs=0&invite=0&share=0&chat=1");
+				go_to("https://brie.fi/ng/MagnusWare");
 			},
 			description: "Opens your Internet call and meeting program.",
 		},
