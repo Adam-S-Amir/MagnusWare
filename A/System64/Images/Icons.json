@@ -1,10 +1,10 @@
 {
-    "0HH1": {
+    "0hh1": {
         "16": "./A/System64/Images/Icons/0HH1-16x16.png",
         "32": "./A/System64/Images/Icons/0HH1-32x32.png",
         "48": "./A/System64/Images/Icons/0HH1-48x48.png"
     },
-    "0HN0": {
+    "0hn0": {
         "16": "./A/System64/Images/Icons/0HN0-16x16.png",
         "32": "./A/System64/Images/Icons/0HN0-32x32.png",
         "48": "./A/System64/Images/Icons/0HN0-48x48.png"
@@ -15,7 +15,7 @@
         "32": "./A/System64/Images/Icons/2048-32x32.png",
         "48": "./A/System64/Images/Icons/2048-48x48.png"
     },
-    "2D": {
+    "2d": {
         "16": "./A/System64/Images/Icons/2D-16x16.png",
         "32": "./A/System64/Images/Icons/2D-32x32.png"
     },
@@ -37,15 +37,20 @@
         "32": "./A/System64/Images/Icons/aaronos-32x32.png",
         "48": "./A/System64/Images/Icons/aaronos-48x48.png"
     },
-    "About": {
+    "about": {
         "32": "./A/System64/Images/Icons/About-32x32.png",
         "48": "./A/System64/Images/Icons/About-48x48.png"
     },
-    "AcidBox": {
+    "acidbox": {
         "16": "./A/System64/Images/Icons/AcidBox-16x16.png",
         "32": "./A/System64/Images/Icons/AcidBox-32x32.png",
         "48": "./A/System64/Images/Icons/AcidBox-48x48.png",
         "512": "./A/System64/Images/Icons/AcidBox-512x512.png"
+    },
+    "arcade": {
+        "16": "./A/System64/Images/Icons/Arcade-16x16.png",
+        "32": "./A/System64/Images/Icons/Arcade-32x32.png",
+        "48": "./A/System64/Images/Icons/Arcade-48x48.png"
     },
     "audio-nope": {
         "16": "./A/System64/Images/Icons/audio-nope-16x16.png"
@@ -53,69 +58,67 @@
     "audio-okay": {
         "16": "./A/System64/Images/Icons/audio-okay-16x16.png"
     },
-    "Baldi": {
+    "baldi": {
         "16": "./A/System64/Images/Icons/Baldi-16x16.png",
         "32": "./A/System64/Images/Icons/Baldi-32x32.png",
         "48": "./A/System64/Images/Icons/Baldi-48x48.png",
         "64": "./A/System64/Images/Icons/Baldi-64x64.png"
     },
-    "Batman": {
+    "batman": {
         "16": "./A/System64/Images/Icons/Batman-16x16.png",
         "32": "./A/System64/Images/Icons/Batman-32x32.png",
         "48": "./A/System64/Images/Icons/Batman-48x48.png",
         "512": "./A/System64/Images/Icons/Batman-512x512.png"
     },
-    "Battery": {
+    "battery": {
         "16": "./A/System64/Images/Icons/Battery-16x16.png",
         "32": "./A/System64/Images/Icons/Battery-32x32.png",
         "512": "./A/System64/Images/Icons/Battery-512x512.png"
     },
-    "Box": {
+    "box": {
         "128": "./A/System64/Images/Icons/Box-128x128.png",
         "16": "./A/System64/Images/Icons/Box-16x16.png",
         "32": "./A/System64/Images/Icons/Box-32x32.png"
     },
-    "Brain": {
+    "brain": {
         "16": "./A/System64/Images/Icons/Brain-16x16.png",
         "32": "./A/System64/Images/Icons/Brain-32x32.png"
     },
-    "Brutal": {
+    "brutal": {
         "16": "./A/System64/Images/Icons/Brutal-16x16.png",
         "32": "./A/System64/Images/Icons/Brutal-32x32.png"
     },
-    "BTSX": {
+    "btsx": {
         "16": "./A/System64/Images/Icons/BTSX-16x16.png",
         "32": "./A/System64/Images/Icons/BTSX-32x32.png"
     },
-    "Button": {
+    "button": {
         "16": "./A/System64/Images/Icons/Button-16x16.png",
         "32": "./A/System64/Images/Icons/Button-32x32.png"
     },
     "calculator": {
         "16": "./A/System64/Images/Icons/calculator-16x16.png",
-        "32": "./A/System64/Images/Icons/calculator-32x32.png"
+        "32": "./A/System64/Images/Icons/calculator-32x32.png",
+        "48": "./A/System64/Images/Icons/calculator-48x48.png"
     },
-    "Calculator": {
-        "48": "./A/System64/Images/Icons/Calculator-48x48.png"
-    },
-    "Castle": {
+    "castle": {
         "16": "./A/System64/Images/Icons/Castle-16x16.png",
         "32": "./A/System64/Images/Icons/Castle-32x32.png"
     },
-    "Chat": {
+    "chat": {
         "16": "./A/System64/Images/Icons/Chat-16x16.png",
         "32": "./A/System64/Images/Icons/Chat-32x32.png",
         "48": "./A/System64/Images/Icons/Chat-48x48.png"
     },
-    "Chex": {
+    "chex": {
         "16": "./A/System64/Images/Icons/Chex-16x16.png",
         "32": "./A/System64/Images/Icons/Chex-32x32.png"
     },
-    "Chex2": {
+    "chex2": {
         "16": "./A/System64/Images/Icons/Chex2-16x16.png",
         "32": "./A/System64/Images/Icons/Chex2-32x32.png"
     },
-    "Chex3": {
+    "chex3": {
         "16": "./A/System64/Images/Icons/Chex3-16x16.png",
         "32": "./A/System64/Images/Icons/Chex3-32x32.png"
     },
@@ -124,19 +127,19 @@
         "32": "./A/System64/Images/Icons/chm-32x32.png",
         "48": "./A/System64/Images/Icons/chm-48x48.png"
     },
-    "Clock": {
+    "clock": {
         "16": "./A/System64/Images/Icons/Clock-16x16.png",
         "32": "./A/System64/Images/Icons/Clock-32x32.png"
     },
     "clouddesk": {
         "16": "./A/System64/Images/Icons/clouddesk-16x16.png"
     },
-    "Contranoid": {
+    "contranoid": {
         "16": "./A/System64/Images/Icons/Contranoid-16x16.png",
         "32": "./A/System64/Images/Icons/Contranoid-32x32.png",
         "48": "./A/System64/Images/Icons/Contranoid-48x48.png"
     },
-    "Contranoid-Dell-7480": {
+    "contranoid-dell-7480": {
         "48": "./A/System64/Images/Icons/Contranoid-48x48-Dell-7480.png"
     },
     "convert-audio": {
@@ -147,12 +150,17 @@
         "16": "./A/System64/Images/Icons/convert-video-16x16.png",
         "32": "./A/System64/Images/Icons/convert-video-32x32.png"
     },
-    "Cookie": {
+    "cookie": {
         "16": "./A/System64/Images/Icons/Cookie-16x16.png",
         "32": "./A/System64/Images/Icons/Cookie-32x32.png",
         "48": "./A/System64/Images/Icons/Cookie-48x48.png"
     },
-    "Dario": {
+    "css-file": {
+        "16": "./A/System64/Images/Icons/CSS-File-16x16.png",
+        "32": "./A/System64/Images/Icons/CSS-File-32x32.png",
+        "48": "./A/System64/Images/Icons/CSS-File-48x48.png"
+    },
+    "dario": {
         "16": "./A/System64/Images/Icons/Dario-16x16.png",
         "32": "./A/System64/Images/Icons/Dario-32x32.png"
     },
@@ -161,7 +169,7 @@
         "32": "./A/System64/Images/Icons/desktop-32x32.png",
         "48": "./A/System64/Images/Icons/desktop-48x48.png"
     },
-    "Dino": {
+    "dino": {
         "16": "./A/System64/Images/Icons/Dino-16x16.png",
         "32": "./A/System64/Images/Icons/Dino-32x32.png",
         "48": "./A/System64/Images/Icons/Dino-48x48.png"
@@ -175,12 +183,12 @@
         "32": "./A/System64/Images/Icons/document-32x32.png",
         "48": "./A/System64/Images/Icons/document-48x48.png"
     },
-    "Doom": {
+    "doom": {
         "16": "./A/System64/Images/Icons/Doom-16x16.png",
         "32": "./A/System64/Images/Icons/Doom-32x32.png",
         "48": "./A/System64/Images/Icons/Doom-48x48.png"
     },
-    "Doom2": {
+    "doom2": {
         "16": "./A/System64/Images/Icons/Doom2-16x16.png",
         "32": "./A/System64/Images/Icons/Doom2-32x32.png",
         "48": "./A/System64/Images/Icons/Doom2-48x48.png"
@@ -188,7 +196,7 @@
     "doomguy": {
         "16": "./A/System64/Images/Icons/doomguy-16x16.gif"
     },
-    "Drift": {
+    "drift": {
         "128": "./A/System64/Images/Icons/Drift-128x128.png",
         "16": "./A/System64/Images/Icons/Drift-16x16.png",
         "256": "./A/System64/Images/Icons/Drift-256x256.png",
@@ -196,10 +204,15 @@
         "512": "./A/System64/Images/Icons/Drift-512x512.png",
         "64": "./A/System64/Images/Icons/Drift-64x64.png"
     },
-    "Duke": {
+    "duke": {
         "16": "./A/System64/Images/Icons/Duke-16x16.png",
         "32": "./A/System64/Images/Icons/Duke-32x32.png",
         "48": "./A/System64/Images/Icons/Duke-48x48.png"
+    },
+    "emu": {
+        "16": "./A/System64/Images/Icons/emu-16x16.png",
+        "32": "./A/System64/Images/Icons/emu-32x32.png",
+        "48": "./A/System64/Images/Icons/emu-48x48.png"
     },
     "emuos": {
         "16": "./A/System64/Images/Icons/emuos-16x16.png",
@@ -228,7 +241,7 @@
         "32": "./A/System64/Images/Icons/favorites-folder-32x32.png",
         "48": "./A/System64/Images/Icons/favorites-folder-48x48.png"
     },
-    "FDoom": {
+    "fdoom": {
         "16": "./A/System64/Images/Icons/FDoom-16x16.png",
         "32": "./A/System64/Images/Icons/FDoom-32x32.png"
     },
@@ -261,12 +274,17 @@
         "32": "./A/System64/Images/Icons/folder-open-32x32.png",
         "48": "./A/System64/Images/Icons/folder-open-48x48.png"
     },
+    "font-file": {
+        "16": "./A/System64/Images/Icons/Font-File-16x16.png",
+        "32": "./A/System64/Images/Icons/Font-File-32x32.png",
+        "48": "./A/System64/Images/Icons/Font-File-48x48.png"
+    },
     "fonts-folder": {
         "16": "./A/System64/Images/Icons/fonts-folder-16x16.png",
         "32": "./A/System64/Images/Icons/fonts-folder-32x32.png",
         "48": "./A/System64/Images/Icons/fonts-folder-48x48.png"
     },
-    "FPS": {
+    "fps": {
         "128": "./A/System64/Images/Icons/FPS-128x128.png",
         "16": "./A/System64/Images/Icons/FPS-16x16.png",
         "256": "./A/System64/Images/Icons/FPS-256x256.png",
@@ -274,35 +292,35 @@
         "512": "./A/System64/Images/Icons/FPS-512x512.png",
         "64": "./A/System64/Images/Icons/FPS-64x64.png"
     },
-    "FreeDoom": {
+    "freedoom": {
         "16": "./A/System64/Images/Icons/FreeDoom-16x16.png",
         "32": "./A/System64/Images/Icons/FreeDoom-32x32.png"
     },
     "friend": {
         "16": "./A/System64/Images/Icons/friend-16x16.png"
     },
-    "Funky": {
+    "funky": {
         "128": "./A/System64/Images/Icons/Funky-128x128.png",
         "16": "./A/System64/Images/Icons/Funky-16x16.png",
         "32": "./A/System64/Images/Icons/Funky-32x32.png",
         "48": "./A/System64/Images/Icons/Funky-48x48.png"
     },
-    "Funky-Grey": {
+    "funky-grey": {
         "32": "./A/System64/Images/Icons/Funky-Grey-32x32.png"
     },
-    "Gore": {
+    "game-folder": {
+        "16": "./A/System64/Images/Icons/Game-Folder-16x16.png",
+        "32": "./A/System64/Images/Icons/Game-Folder-32x32.png",
+        "48": "./A/System64/Images/Icons/Game-Folder-48x48.png"
+    },
+    "gore": {
         "16": "./A/System64/Images/Icons/Gore-16x16.png",
         "32": "./A/System64/Images/Icons/Gore-32x32.png"
     },
-    "GTA": {
+    "gta": {
         "16": "./A/System64/Images/Icons/GTA-16x16.png",
         "32": "./A/System64/Images/Icons/GTA-32x32.png",
         "48": "./A/System64/Images/Icons/GTA-48x48.png"
-    },
-    "hard-disk-drive-higher-color": {
-        "16": "./A/System64/Images/Icons/hard-disk-drive-16x16-higher-color.png",
-        "32": "./A/System64/Images/Icons/hard-disk-drive-32x32-higher-color.png",
-        "48": "./A/System64/Images/Icons/hard-disk-drive-48x48-higher-color.png"
     },
     "hard-disk-drive": {
         "16": "./A/System64/Images/Icons/hard-disk-drive-16x16.png",
@@ -314,26 +332,26 @@
         "32": "./A/System64/Images/Icons/help-32x32.png",
         "48": "./A/System64/Images/Icons/help-48x48.png"
     },
-    "Heretic": {
+    "heretic": {
         "16": "./A/System64/Images/Icons/Heretic-16x16.png",
         "32": "./A/System64/Images/Icons/Heretic-32x32.png"
     },
-    "Heretic2": {
+    "heretic2": {
         "16": "./A/System64/Images/Icons/Heretic2-16x16.png",
         "32": "./A/System64/Images/Icons/Heretic2-32x32.png"
     },
-    "Hex": {
+    "hex": {
         "128": "./A/System64/Images/Icons/Hex-128x128.png",
         "16": "./A/System64/Images/Icons/Hex-16x16.png",
         "256": "./A/System64/Images/Icons/Hex-256x256.png",
         "32": "./A/System64/Images/Icons/Hex-32x32.png",
         "64": "./A/System64/Images/Icons/Hex-64x64.png"
     },
-    "Hexen": {
+    "hexen": {
         "16": "./A/System64/Images/Icons/Hexen-16x16.png",
         "32": "./A/System64/Images/Icons/Hexen-32x32.png"
     },
-    "Hextris": {
+    "hextris": {
         "16": "./A/System64/Images/Icons/Hextris-16x16.png",
         "32": "./A/System64/Images/Icons/Hextris-32x32.png",
         "48": "./A/System64/Images/Icons/Hextris-48x48.png"
@@ -343,42 +361,14 @@
         "32": "./A/System64/Images/Icons/html-32x32.png",
         "48": "./A/System64/Images/Icons/html-48x48.png"
     },
-    "Ice": {
+    "ice": {
         "16": "./A/System64/Images/Icons/Ice-16x16.png",
         "32": "./A/System64/Images/Icons/Ice-32x32.png"
     },
-    "image-gif": {
-        "16": "./A/System64/Images/Icons/image-gif-16x16.png",
-        "32": "./A/System64/Images/Icons/image-gif-32x32.png"
-    },
-    "image-jpeg": {
-        "16": "./A/System64/Images/Icons/image-jpeg-16x16.png",
-        "32": "./A/System64/Images/Icons/image-jpeg-32x32.png"
-    },
-    "image-kodak": {
-        "16": "./A/System64/Images/Icons/image-kodak-16x16.png",
-        "32": "./A/System64/Images/Icons/image-kodak-32x32.png"
-    },
-    "image-old-gif": {
-        "16": "./A/System64/Images/Icons/image-old-gif-16x16.png",
-        "32": "./A/System64/Images/Icons/image-old-gif-32x32.png"
-    },
-    "image-old-jpeg": {
-        "16": "./A/System64/Images/Icons/image-old-jpeg-16x16.png",
-        "32": "./A/System64/Images/Icons/image-old-jpeg-32x32.png"
-    },
-    "image-other": {
-        "16": "./A/System64/Images/Icons/image-other-16x16.png",
-        "32": "./A/System64/Images/Icons/image-other-32x32.png"
-    },
-    "image-png": {
-        "16": "./A/System64/Images/Icons/image-png-16x16.png",
-        "32": "./A/System64/Images/Icons/image-png-32x32.png",
-        "48": "./A/System64/Images/Icons/image-png-48x48.png"
-    },
-    "image-wmf": {
-        "16": "./A/System64/Images/Icons/image-wmf-16x16.png",
-        "32": "./A/System64/Images/Icons/image-wmf-32x32.png"
+    "image-file": {
+        "16": "./A/System64/Images/Icons/image-file-16x16.png",
+        "32": "./A/System64/Images/Icons/image-file-32x32.png",
+        "48": "./A/System64/Images/Icons/image-file-48x48.png"
     },
     "info-8bpp": {
         "16": "./A/System64/Images/Icons/info-16x16-8bpp.png",
@@ -405,6 +395,11 @@
         "16": "./A/System64/Images/Icons/joystick-16x16.png",
         "32": "./A/System64/Images/Icons/joystick-32x32.png"
     },
+    "js-file": {
+        "16": "./A/System64/Images/Icons/JS-File-16x16.png",
+        "32": "./A/System64/Images/Icons/JS-File-32x32.png",
+        "48": "./A/System64/Images/Icons/JS-File-48x48.png"
+    },
     "kodak-imaging": {
         "16": "./A/System64/Images/Icons/kodak-imaging-16x16.png",
         "32": "./A/System64/Images/Icons/kodak-imaging-32x32.png"
@@ -422,12 +417,12 @@
         "16": "./A/System64/Images/Icons/mail-16x16.png",
         "32": "./A/System64/Images/Icons/mail-32x32.png"
     },
-    "Mario": {
+    "mario": {
         "16": "./A/System64/Images/Icons/Mario-16x16.png",
         "32": "./A/System64/Images/Icons/Mario-32x32.png",
         "48": "./A/System64/Images/Icons/Mario-48x48.png"
     },
-    "Master": {
+    "master": {
         "16": "./A/System64/Images/Icons/Master-16x16.png",
         "32": "./A/System64/Images/Icons/Master-32x32.png"
     },
@@ -442,7 +437,7 @@
     "microphone-volume-control": {
         "32": "./A/System64/Images/Icons/microphone-volume-control-32x32.png"
     },
-    "Minecraft": {
+    "minecraft": {
         "16": "./A/System64/Images/Icons/Minecraft-16x16.png",
         "32": "./A/System64/Images/Icons/Minecraft-32x32.png",
         "48": "./A/System64/Images/Icons/Minecraft-48x48.png"
@@ -481,7 +476,7 @@
         "16": "./A/System64/Images/Icons/news-16x16.png",
         "32": "./A/System64/Images/Icons/news-32x32.png"
     },
-    "NoGame": {
+    "nogame": {
         "16": "./A/System64/Images/Icons/NoGame-16x16.png",
         "32": "./A/System64/Images/Icons/NoGame-32x32.png"
     },
@@ -514,7 +509,7 @@
         "32": "./A/System64/Images/Icons/outlook-express-32x32.png",
         "48": "./A/System64/Images/Icons/outlook-express-48x48.png"
     },
-    "Pacman": {
+    "pacman": {
         "16": "./A/System64/Images/Icons/Pacman-16x16.png",
         "32": "./A/System64/Images/Icons/Pacman-32x32.png"
     },
@@ -522,11 +517,6 @@
         "16": "./A/System64/Images/Icons/paint-16x16.png",
         "32": "./A/System64/Images/Icons/paint-32x32.png",
         "48": "./A/System64/Images/Icons/paint-48x48.png"
-    },
-    "paint-file-higher-color": {
-        "16": "./A/System64/Images/Icons/paint-file-16x16-higher-color.png",
-        "32": "./A/System64/Images/Icons/paint-file-32x32-higher-color.png",
-        "48": "./A/System64/Images/Icons/paint-file-48x48-higher-color.png"
     },
     "paint-file": {
         "16": "./A/System64/Images/Icons/paint-file-16x16.png",
@@ -543,15 +533,15 @@
         "32": "./A/System64/Images/Icons/pipes-32x32.png",
         "48": "./A/System64/Images/Icons/pipes-48x48.png"
     },
-    "Plutonia": {
+    "plutonia": {
         "16": "./A/System64/Images/Icons/Plutonia-16x16.png",
         "32": "./A/System64/Images/Icons/Plutonia-32x32.png"
     },
-    "Plutonia2": {
+    "plutonia2": {
         "16": "./A/System64/Images/Icons/Plutonia2-16x16.png",
         "32": "./A/System64/Images/Icons/Plutonia2-32x32.png"
     },
-    "Pong": {
+    "pong": {
         "16": "./A/System64/Images/Icons/Pong-16x16.png",
         "32": "./A/System64/Images/Icons/Pong-32x32.png"
     },
@@ -565,22 +555,17 @@
         "32": "./A/System64/Images/Icons/printers-folder-32x32.png",
         "48": "./A/System64/Images/Icons/printers-folder-48x48.png"
     },
-    "programs": {
-        "16": "./A/System64/Images/Icons/programs-16x16.png",
-        "32": "./A/System64/Images/Icons/programs-32x32.png",
-        "48": "./A/System64/Images/Icons/programs-48x48.png"
-    },
     "programs-folder": {
         "16": "./A/System64/Images/Icons/programs-folder-16x16.png",
         "32": "./A/System64/Images/Icons/programs-folder-32x32.png",
         "48": "./A/System64/Images/Icons/programs-folder-48x48.png"
     },
-    "Python": {
+    "python": {
         "16": "./A/System64/Images/Icons/Python-16x16.png",
         "32": "./A/System64/Images/Icons/Python-32x32.png",
         "48": "./A/System64/Images/Icons/Python-48x48.png"
     },
-    "Q1M": {
+    "q1m": {
         "128": "./A/System64/Images/Icons/Q1M-128x128.png",
         "16": "./A/System64/Images/Icons/Q1M-16x16.png",
         "256": "./A/System64/Images/Icons/Q1M-256x256.png",
@@ -588,17 +573,17 @@
         "512": "./A/System64/Images/Icons/Q1M-512x512.png",
         "64": "./A/System64/Images/Icons/Q1M-64x64.png"
     },
-    "Quake": {
+    "quake": {
         "16": "./A/System64/Images/Icons/Quake-16x16.png",
         "32": "./A/System64/Images/Icons/Quake-32x32.png",
         "48": "./A/System64/Images/Icons/Quake-48x48.png"
     },
-    "Quake2": {
+    "quake2": {
         "16": "./A/System64/Images/Icons/Quake2-16x16.png",
         "32": "./A/System64/Images/Icons/Quake2-32x32.png",
         "48": "./A/System64/Images/Icons/Quake2-48x48.png"
     },
-    "Quento": {
+    "quento": {
         "16": "./A/System64/Images/Icons/Quento-16x16.png",
         "32": "./A/System64/Images/Icons/Quento-32x32.png",
         "48": "./A/System64/Images/Icons/Quento-48x48.png"
@@ -622,17 +607,17 @@
     "recycle-bin-stuff": {
         "32": "./A/System64/Images/Icons/recycle-bin-stuff-32x32.png"
     },
-    "Rekkr": {
+    "rekkr": {
         "16": "./A/System64/Images/Icons/Rekkr-16x16.png",
         "32": "./A/System64/Images/Icons/Rekkr-32x32.png"
     },
-    "Rioluvania": {
+    "rioluvania": {
         "128": "./A/System64/Images/Icons/Rioluvania-128x128.png",
         "16": "./A/System64/Images/Icons/Rioluvania-16x16.png",
         "256": "./A/System64/Images/Icons/Rioluvania-256x256.png",
         "32": "./A/System64/Images/Icons/Rioluvania-32x32.png"
     },
-    "Rocket": {
+    "rocket": {
         "16": "./A/System64/Images/Icons/Rocket-16x16.png",
         "32": "./A/System64/Images/Icons/Rocket-32x32.png",
         "48": "./A/System64/Images/Icons/Rocket-48x48.png"
@@ -642,11 +627,11 @@
         "32": "./A/System64/Images/Icons/run-32x32.png",
         "48": "./A/System64/Images/Icons/run-48x48.png"
     },
-    "Sans": {
+    "sans": {
         "16": "./A/System64/Images/Icons/Sans-16x16.png",
         "32": "./A/System64/Images/Icons/Sans-32x32.png"
     },
-    "School": {
+    "school": {
         "16": "./A/System64/Images/Icons/School-16x16.png",
         "32": "./A/System64/Images/Icons/School-32x32.png"
     },
@@ -671,21 +656,15 @@
     },
     "solitaire": {
         "16": "./A/System64/Images/Icons/solitaire-16x16.png",
-        "32": "./A/System64/Images/Icons/solitaire-32x32.png"
-    },
-    "Solitaire": {
+        "32": "./A/System64/Images/Icons/solitaire-32x32.png",
         "48": "./A/System64/Images/Icons/Solitaire-48x48.png"
-    },
-    "sound-higher-color": {
-        "16": "./A/System64/Images/Icons/sound-16x16-higher-color.png",
-        "32": "./A/System64/Images/Icons/sound-32x32-higher-color.png"
     },
     "sound": {
         "16": "./A/System64/Images/Icons/sound-16x16.png",
         "32": "./A/System64/Images/Icons/sound-32x32.png",
         "48": "./A/System64/Images/Icons/sound-48x48.png"
     },
-    "Space": {
+    "space": {
         "16": "./A/System64/Images/Icons/Space-16x16.png",
         "32": "./A/System64/Images/Icons/Space-32x32.png"
     },
@@ -697,15 +676,15 @@
     "speaker-volume-control": {
         "32": "./A/System64/Images/Icons/speaker-volume-control-32x32.png"
     },
-    "Spear": {
+    "spear": {
         "16": "./A/System64/Images/Icons/Spear-16x16.png",
         "32": "./A/System64/Images/Icons/Spear-32x32.png"
     },
-    "Spelunky": {
+    "spelunky": {
         "16": "./A/System64/Images/Icons/Spelunky-16x16.png",
         "32": "./A/System64/Images/Icons/Spelunky-32x32.png"
     },
-    "StarDoom": {
+    "stardoom": {
         "16": "./A/System64/Images/Icons/StarDoom-16x16.png",
         "32": "./A/System64/Images/Icons/StarDoom-32x32.png",
         "48": "./A/System64/Images/Icons/StarDoom-48x48.png",
@@ -718,11 +697,11 @@
         "16": "./A/System64/Images/Icons/start-settings-16x16.png",
         "32": "./A/System64/Images/Icons/start-settings-32x32.png"
     },
-    "Starwars": {
+    "starwars": {
         "16": "./A/System64/Images/Icons/Starwars-16x16.png",
         "32": "./A/System64/Images/Icons/Starwars-32x32.png"
     },
-    "Store": {
+    "store": {
         "128": "./A/System64/Images/Icons/Store-128x128.png",
         "16": "./A/System64/Images/Icons/Store-16x16.png",
         "256": "./A/System64/Images/Icons/Store-256x256.png",
@@ -731,11 +710,11 @@
         "512": "./A/System64/Images/Icons/Store-512x512.png",
         "64": "./A/System64/Images/Icons/Store-64x64.png"
     },
-    "Strife": {
+    "strife": {
         "16": "./A/System64/Images/Icons/Strife-16x16.png",
         "32": "./A/System64/Images/Icons/Strife-32x32.png"
     },
-    "Surf": {
+    "surf": {
         "16": "./A/System64/Images/Icons/Surf-16x16.png",
         "32": "./A/System64/Images/Icons/Surf-32x32.png"
     },
@@ -749,19 +728,14 @@
     "task-scheduler": {
         "16": "./A/System64/Images/Icons/task-scheduler-16x16.png"
     },
-    "TBOI": {
+    "tboi": {
         "16": "./A/System64/Images/Icons/TBOI-16x16.png",
         "32": "./A/System64/Images/Icons/TBOI-32x32.png",
         "48": "./A/System64/Images/Icons/TBOI-48x48.png"
     },
-    "Tetris": {
+    "tetris": {
         "16": "./A/System64/Images/Icons/Tetris-16x16.png",
         "32": "./A/System64/Images/Icons/Tetris-32x32.png"
-    },
-    "themes-higher-color": {
-        "16": "./A/System64/Images/Icons/themes-16x16-higher-color.png",
-        "32": "./A/System64/Images/Icons/themes-32x32-higher-color.png",
-        "48": "./A/System64/Images/Icons/themes-48x48-higher-color.png"
     },
     "themes": {
         "16": "./A/System64/Images/Icons/themes-16x16.png",
@@ -773,15 +747,15 @@
         "32": "./A/System64/Images/Icons/tools-folder-32x32.png",
         "48": "./A/System64/Images/Icons/tools-folder-48x48.png"
     },
-    "Trail": {
+    "trail": {
         "16": "./A/System64/Images/Icons/Trail-16x16.png",
         "32": "./A/System64/Images/Icons/Trail-32x32.png",
         "48": "./A/System64/Images/Icons/Trail-48x48.png"
     },
-    "Turbo": {
+    "turbo": {
         "16": "./A/System64/Images/Icons/Turbo-16x16.png"
     },
-    "UD2": {
+    "ud2": {
         "16": "./A/System64/Images/Icons/UD2-16x16.png",
         "32": "./A/System64/Images/Icons/UD2-32x32.png"
     },
@@ -790,7 +764,7 @@
         "32": "./A/System64/Images/Icons/unknown-printer-32x32.png",
         "48": "./A/System64/Images/Icons/unknown-printer-48x48.png"
     },
-    "Update": {
+    "update": {
         "32": "./A/System64/Images/Icons/Update-32x32.png"
     },
     "url": {
@@ -805,15 +779,16 @@
     "virtualdesktop.org": {
         "16": "./A/System64/Images/Icons/virtualdesktop.org-16x16.png"
     },
-    "VLC": {
+    "vlc": {
         "16": "./A/System64/Images/Icons/VLC-16x16.png",
+        "32": "./A/System64/Images/Icons/VLC-32x32.png",
         "48": "./A/System64/Images/Icons/VLC-48x48.png"
     },
     "vue-win3.1": {
         "16": "./A/System64/Images/Icons/vue-win3.1-16x16.png",
         "32": "./A/System64/Images/Icons/vue-win3.1-32x32.png"
     },
-    "WadCMD": {
+    "wadcmd": {
         "128": "./A/System64/Images/Icons/WadCMD-128x128.png",
         "16": "./A/System64/Images/Icons/WadCMD-16x16.png",
         "256": "./A/System64/Images/Icons/WadCMD-256x256.png",
@@ -860,21 +835,21 @@
     "winxp-doge": {
         "16": "./A/System64/Images/Icons/winxp-doge-16x16.png"
     },
-    "Wolf": {
+    "wolf": {
         "16": "./A/System64/Images/Icons/Wolf-16x16.png",
         "32": "./A/System64/Images/Icons/Wolf-32x32.png",
         "48": "./A/System64/Images/Icons/Wolf-48x48.png"
     },
-    "Youtube": {
+    "youtube": {
         "16": "./A/System64/Images/Icons/Youtube-16x16.png",
         "32": "./A/System64/Images/Icons/Youtube-32x32.png"
     },
-    "Zamboni": {
+    "zamboni": {
         "16": "./A/System64/Images/Icons/Zamboni-16x16.png",
         "32": "./A/System64/Images/Icons/Zamboni-32x32.png",
         "48": "./A/System64/Images/Icons/Zamboni-48x48.png"
     },
-    "Zero": {
+    "zero": {
         "16": "./A/System64/Images/Icons/Zero-16x16.png",
         "32": "./A/System64/Images/Icons/Zero-32x32.png",
         "48": "./A/System64/Images/Icons/Zero-48x48.png"

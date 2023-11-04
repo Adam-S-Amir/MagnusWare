@@ -8,7 +8,7 @@ icon_sizes = {"512x512", "256x256", "128x128", "64x64", "48x48", "32x32", "16x16
 for filename in os.listdir(directory):
     if any(size in filename for size in icon_sizes):
         # Extract the image name without the size and extension
-        image_name = os.path.splitext(filename)[0]
+        image_name = os.path.splitext(filename)[0].lower()  # Convert to lowercase
 
         # Remove the size from the image name
         for size in icon_sizes:

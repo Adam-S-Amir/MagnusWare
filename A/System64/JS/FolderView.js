@@ -54,14 +54,20 @@ var file_extension_icons = {
 	js: "notepad-file",
 	css: "notepad-file",
 	html: "notepad-file",
-	png: "image-gif", // "image-png"? nope... (but should it be image-gif or image-wmf?)
-	jpg: "image-jpeg",
-	jpeg: "image-jpeg",
-	gif: "image-gif",
-	webp: "image-other",
+	png: "image-file", // "image-png"? nope... (but should it be image-gif or image-wmf?)
+	jpg: "image-file",
+	jpeg: "image-file",
+	gif: "image-file",
+	webp: "image-file",
 	bmp: "paint-file",
-	tif: "kodak-imaging-file",
-	tiff: "kodak-imaging-file",
+	tif: "image-file",
+	tiff: "image-file",
+	otf: "font-file",
+	ttf: "font-file",
+	woff: "font-file",
+	eof: "font-file",
+	js: "JS-File",
+	css: "CSS-File",
 	// wmf: "image-wmf"? nope (https://en.wikipedia.org/wiki/Windows_Metafile)
 	// emf: "image-wmf"? nope
 	// wmz: "image-wmf"? nope
