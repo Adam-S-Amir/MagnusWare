@@ -15,7 +15,8 @@ function Search() {
     Search_Input.placeholder = "Search..."
 
     Close.onclick = function () {
-        Splash.remove()
+        Splash.style.backgroundColor = "rgba(79, 101, 125, 0)";
+        Splash.remove();
     }
 
     function createIcon(options) {

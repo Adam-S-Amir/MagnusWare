@@ -407,7 +407,11 @@ div#storefront-right-other>button>img {
     display: none;
     position: fixed;
     bottom: 27px;
-    right: 30%;
+    right: 0;
+    /* width: 270px; */
+}
+
+#Wifi {
     width: 270px;
 }
 
@@ -417,7 +421,7 @@ div#storefront-right-other>button>img {
     display: none;
     position: fixed;
     bottom: 27px;
-    right: 30%;
+    right: 0;
     width: 270px;
     border: solid var(--ButtonShadow);
     border-radius: 1vmin;
@@ -1047,10 +1051,30 @@ p {
     height: 100%;
     width: 100%;
     background-color: rgba(79, 101, 125, 0.8);
-    /* opacity: 0.8; Make all the child elements gay */
+    /*opacity: 0.8; Makes all the child elements gay*/
     z-index: 200;
     top: 0;
     left: 0;
+    transition: background-color 1s;
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    -ms-transition: background-color 1s;
+    -o-transition: background-color 1s;
+}
+
+#Search_Splash>* {
+    animation: fadeInOut 0.7s ease-in-out;
+    -webkit-animation: fadeInOut 0.7s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 #Search_Close {
@@ -1086,7 +1110,7 @@ p {
     overflow-y: scroll;
 }
 
-#Search_Programs>.desktop-icon{
+#Search_Programs>.desktop-icon {
     position: relative;
     display: inline-block;
     text-align: unset;

@@ -18,6 +18,7 @@ function UpdateTime() {
 	let d = document.getElementById("greeting");
 	let a = document.getElementById("unit");
 	let x = document.getElementById("full");
+	let time = document.getElementById("time");
 
 	function checkTime(i) {
 		if (i < 10) {
@@ -53,7 +54,10 @@ function UpdateTime() {
 	u.innerHTML = cHour + ":" + minVal + ":" + secVal;
 	x.innerHTML = dayVal + "," + mothVal + " " + dateVal + "," + yearVal;
 	v.innerHTML = cHour + ':' + minVal + "<span style='font-size:5px;'>" + unitVal + "</span>" + '<br>' + monthVal + "/" + dateVal + "/" + yearVal;
-}
-UpdateTime();
 
+	time.setAttribute('title', `${cHour + ":" + minVal}\n${dayVal + "," + mothVal + " " + dateVal + "," + yearVal}`)
+}
+
+
+UpdateTime();
 setInterval(UpdateTime, 1000);

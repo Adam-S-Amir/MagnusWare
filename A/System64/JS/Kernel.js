@@ -34,7 +34,7 @@ let CSSLinks = [
     "MagnusWare-Layout.css",
     "Stylesheet.css",
     "System.css",
-    // "jQuery-ui.css",
+    "Calendar.css",
 ]
 
 function loadCSSSequentially(index) {
@@ -83,7 +83,7 @@ let scriptUrls = [
     "Programs.js",
     "Search.js",
     "Cursor.js",
-    "Taskbar-Time.js",
+    "Time.js",
     "StoreFront.js",
     "Widgets.js",
     "Update.js",
