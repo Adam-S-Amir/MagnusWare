@@ -127,7 +127,7 @@ window.toast = window.toast || (({
 			"background-color": "var(--Menu)",
 			flexDirection: 'column',
 			position: 'fixed',
-		    "border-color": "var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight)",
+			"border-color": "var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight)",
 			"border-style": "solid",
 			"border-width": "2px 2px",
 		});
