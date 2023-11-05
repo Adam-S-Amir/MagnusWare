@@ -50,6 +50,10 @@ function UpdateTime() {
 		secVal = secVal.toString().padStart(2, '0');
 	}
 
+	if (cHour === "00") {
+		cHour = "12";
+	}
+
 	a.innerHTML = unitVal;
 	u.innerHTML = cHour + ":" + minVal + ":" + secVal;
 	x.innerHTML = dayVal + "," + mothVal + " " + dateVal + "," + yearVal;
