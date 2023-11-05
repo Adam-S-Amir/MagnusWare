@@ -384,7 +384,9 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 						num_deleted += 1;
 						folder_view.arrange_icons();
 					} catch (error) {
-						console.log("failed to delete", file_path, error);
+						toast({
+							message:`failed to delete ${file_path} ${error}`
+						});
 					}
 					if (single_delete_success) {
 						self.items.forEach((item) => {
@@ -398,7 +400,9 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				}
 				// TODO: pluralization, and be more specific about folders vs files vs selected items, and total
 				if (num_deleted < selected_file_paths.length) {
-					alert(`Failed to delete ${selected_file_paths.length - num_deleted} items.`);
+					toast({
+						message: `Failed to delete ${selected_file_paths.length - num_deleted} items.`
+					});
 				}
 				// self.refresh();
 			});

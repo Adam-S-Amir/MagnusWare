@@ -667,18 +667,22 @@ body {
 .taskbar {
 	position: absolute;
 	z-index: 2;
-	border-radius: 5vmax;
+	border-radius: 1vmin;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
 	height: 27px;
 	display: flex;
-	width: 50%;
+	/*width: 50%;
 	min-width: 50%;
 	margin-left: 25%;
-	text-align: -webkit-center;
+	*/text-align: -webkit-center;
 	z-index: 1;
 	background-color: var(--Menu);
+	-webkit-border-radius: 1vmin;
+	-moz-border-radius: 1vmin;
+	-ms-border-radius: 1vmin;
+	-o-border-radius: 1vmin;
 }
 
 /* .taskbar-button is generally .task or .start-button for now */

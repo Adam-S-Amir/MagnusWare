@@ -117,82 +117,89 @@ window.toast = window.toast || (({
 }) => {
 	let $window, $message, $bar, $cls;
 	const promise = new Promise((resolve, reject) => {
-		$window = new $Window(Object.assign({
-			title: false,
-			resizable: false,
-			innerWidth: 250,
-			maximizeButton: false,
-			minimizeButton: false,
-			closeButton: false,
-		}, windowOptions));
-		$bar =
-			$("<div>").css({
-				height: "18px",
-				width: "99%",
-				position: "absolute",
-				background: "linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)",
-				top: "2px",
-				right: "2px",
-				"z-index": "1",
-				flex: 1,
-			});
-		$bar.attr('id', 'progressbar'); // Set the ID to "progressbar"
-		$bar.appendTo($window.$titlebar);
-		function move() {
-			var elem = $("#progressbar");
-			var width = 0;
-			var id = setInterval(frame, 15);
-			function frame() {
-				if (width >= 99) {
-					clearInterval(id);
-					$window.close();
-				} else {
-					width++;
-					elem.css('width', width + '%');
-				}
-			}
-		}
-		move();
-		$message =
-			$("<div>").css({
-				fontFamily: "Orbitron",
-				fontSize: "14px",
-				marginTop: "22px",
-				bottom: "10px",
-				left: "20px",
-				position: "relative",
-				minWidth: 0, // Fixes hidden overflow, see https://css-tricks.com/flexbox-truncated-text/
-				whiteSpace: "normal", // overriding .window:not(.squish)
-			});
-		if (messageHTML) {
-			$message.html(messageHTML);
-		} else if (message) { // both are optional because you may populate later with dynamic content
-			$message.text(message).css({
-				whiteSpace: "pre-wrap",
-				wordWrap: "break-word",
-			});
-		}
-		$("<div>").append(
-			$message
-		).css({
-			display: "flex",
-			flexDirection: "row",
-		}).appendTo($window.$content);
+		// Create the window
+		$window = document.createElement('div');
+		$window.setAttribute('id', 'toast');
+		Object.assign($window.style, {
+			width: '250px',
+			height: '80px',
+			display: 'flex',
+			"background-color": "var(--Menu)",
+			flexDirection: 'column',
+			position: 'fixed',
+		    "border-color": "var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight)",
+			"border-style": "solid",
+			"border-width": "2px 2px",
+		});
 
-		$window.$content.css({
-			textAlign: "center",
+		// Create the progress bar
+		$bar = document.createElement('div');
+		$bar.style.height = '18px';
+		$bar.style.width = '100%';
+		$bar.style.position = 'relative';
+		$bar.style.background = 'linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)';
+		$bar.style.zIndex = '1';
+		$bar.id = 'progressbar';
+		$window.appendChild($bar);
+
+		// Create the message container
+		$message = document.createElement('div');
+		$message.style.fontFamily = 'Orbitron';
+		$message.style.fontSize = '14px';
+		$message.style.marginTop = '22px';
+		$message.style.bottom = '10px';
+		$message.style.left = '20px';
+		$message.style.position = 'relative';
+		$message.style.minWidth = 0; // Fixes hidden overflow
+		$message.style.whiteSpace = 'normal';
+		$message.style.wordWrap = 'break-word';
+
+		// Create the message content
+		if (messageHTML) {
+			$message.innerHTML = messageHTML;
+		} else if (message) {
+			$message.textContent = message;
+			$message.style.whiteSpace = 'pre-wrap';
+			$message.style.wordWrap = 'break-word';
+		}
+
+		// Append the message container to the window
+		$window.appendChild($message);
+
+		// Set styles for the window and content
+		Object.assign($window.style, windowOptions);
+		Object.assign($window.style, {
+			top: '1px',
+			right: '1px',
 		});
-		$window.css({
-			top: "1px",
-			right: "1px",
-		});
+
+		// Add the window to the document
+		document.body.appendChild($window);
+
+		// Focus the window
 		$window.focus();
 	});
+	function move() {
+		var elem = $("#progressbar");
+		var width = 0;
+		var id = setInterval(frame, 15);
+		function frame() {
+			if (width >= 99) {
+				clearInterval(id);
+				document.getElementById("toast").remove()
+			} else {
+				width++;
+				elem.css('width', width + '%');
+			}
+		}
+	}
+	move();
 	try {
 		SystemExclamation.play();
 	} catch (error) {
 		console.log(`Failed to play ${SystemExclamation.src}: `, error);
 	}
+
 	return promise;
 });
 
@@ -201,3 +208,4 @@ window.confirm = (message) => {
 		message
 	});
 };
+

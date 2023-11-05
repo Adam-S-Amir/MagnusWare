@@ -160,7 +160,7 @@ span {
     display: none;
     position: fixed;
     width: 160px;
-    left: 25%;
+    /* left: 25%; */
     bottom: 27px;
 }
 
@@ -237,6 +237,10 @@ div.about-body>a:visited {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: normal;
     font-size: 10px;
+}
+
+#div1 {
+    overflow-y: auto;
 }
 
 #sidebar {
@@ -1010,7 +1014,7 @@ p {
     position: absolute;
     color: rgb(183, 202, 202);
     opacity: 0.2;
-    bottom: 5px;
+    bottom: 30px;
     right: 2px;
     transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
     -webkit-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
