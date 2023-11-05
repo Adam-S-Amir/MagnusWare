@@ -81,6 +81,9 @@
         "32": "./A/System64/Images/Icons/Battery-32x32.png",
         "512": "./A/System64/Images/Icons/Battery-512x512.png"
     },
+    "battery-err": {
+        "16": "./A/System64/Images/Icons/Battery-err-16x16.png"
+    },
     "box": {
         "128": "./A/System64/Images/Icons/Box-128x128.png",
         "16": "./A/System64/Images/Icons/Box-16x16.png",

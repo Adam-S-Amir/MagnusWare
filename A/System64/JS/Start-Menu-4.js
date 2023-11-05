@@ -301,6 +301,7 @@ var menuItems = [
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
+    ["|Cookie<br>Clicker", "javascript:Cookie();", `${iconsAtTwoSizes("Cookie", size)}`, "", "", "", "", "", "", "", "",],
     ["|Spelunky", "javascript:Spelunky();", `${iconsAtTwoSizes("Spelunky", size)}`, "", "", "", "", "", "", "", "",],
     ["|Funky Karts", "javascript:Funky();", `${iconsAtTwoSizes("Funky-Grey", size)}`, "", "Under Construction", "", "", "", "", "", "",],
     ["|Rocket<br>Custa", "javascript:Rocket();", `${iconsAtTwoSizes("Rocket", size)}`, "", "", "", "", "", "", "", "",],

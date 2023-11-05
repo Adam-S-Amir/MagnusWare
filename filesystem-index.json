@@ -3689,6 +3689,7 @@
         }
       },
       "CSS": {
+        "Calendar.css": null,
         "ie-6.css": null,
         "MagnusWare-Layout.css": null,
         "Stylesheet.css": null,
@@ -3882,6 +3883,7 @@
           "Battery-4.png": null,
           "Battery-5.png": null,
           "Battery-512x512.png": null,
+          "Battery-err-16x16.png": null,
           "Box-128x128.png": null,
           "Box-16x16.png": null,
           "Box-32x32.png": null,
@@ -4329,13 +4331,6 @@
           "zone-internet-32x32.png": null
         },
         "Icons.json": null,
-        "logo": {
-          "98.js.org.svg": null,
-          "98.js.org.svg.png": null,
-          "98.js.org.text-source.svg": null,
-          "98.js.svg": null,
-          "98.js.svg.png": null
-        },
         "ThemeEditor": {
           "close-inkscape.svg": null,
           "close.bmp": null,
@@ -4454,7 +4449,7 @@
         "StoreFront.js": null,
         "System.js": null,
         "Task.js": null,
-        "Taskbar-Time.js": null,
+        "Time.js": null,
         "Update.js": null,
         "Visualizer-Overlay.js": null,
         "Widgets.js": null,

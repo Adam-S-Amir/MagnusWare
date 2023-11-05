@@ -663,12 +663,18 @@ function Search() {
                 Box();
             }
         },
-
         {
             title: 'Drift Hunters',
             src: 'Drift',
             ondblclick: function () {
                 Drift();
+            }
+        },
+        {
+            title: 'Cookie Clicker',
+            src: 'Cookie',
+            ondblclick: function () {
+                Cookie();
             }
         },
         {

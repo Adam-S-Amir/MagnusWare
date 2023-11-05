@@ -256,85 +256,100 @@ function hidevol() {
 //* Battery Level
 // <img class="tray-icon" src="./C/System64/Images/Icons/battery-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
 // ^ Placed in kernel, but shit is outdated now :(
-// let level;
+try {
+    let level;
 
-// let animationInterval; // Moved this variable outside of the function to prevent multiple interval instances.
+    let animationInterval; // Moved this variable outside of the function to prevent multiple interval instances.
 
-// function getBatLevel() {
-//     navigator.getBattery().then(function (battery) {
-//         level = battery.level * 100; // Removed the "let" here to update the global variable.
-//         let titleElement = document.getElementById("battery");
-//         let bats = Math.round(level) + "%";
-//         titleElement.title = `${bats}`;
+    function getBatLevel() {
+        navigator.getBattery().then(function (battery) {
+            level = battery.level * 100; // Removed the "let" here to update the global variable.
+            let titleElement = document.getElementById("battery");
+            let bats = Math.round(level) + "%";
+            titleElement.title = `${bats}`;
 
-//         if (battery.charging) {
-//             let batteryani = [
-//                 './Assets/Images/Icons/Battery-5.png',
-//                 './Assets/Images/Icons/Battery-4.png',
-//                 './Assets/Images/Icons/Battery-3.png',
-//                 './Assets/Images/Icons/Battery-2.png',
-//                 './Assets/Images/Icons/Battery-1.png'
-//             ];
-//             let curani = 0;
+            if (battery.charging) {
+                let batteryani = [
+                    './A/System64/Images/Icons/Battery-5.png',
+                    './A/System64/Images/Icons/Battery-4.png',
+                    './A/System64/Images/Icons/Battery-3.png',
+                    './A/System64/Images/Icons/Battery-2.png',
+                    './A/System64/Images/Icons/Battery-1.png'
+                ];
+                let curani = 0;
 
-//             function anistart() {
-//                 curani = (curani === 4) ? 0 : ++curani;
-//                 titleElement.src = batteryani[curani];
-//             }
+                function anistart() {
+                    curani = (curani === 4) ? 0 : ++curani;
+                    titleElement.src = batteryani[curani];
+                }
 
-//             clearInterval(animationInterval);
-//             animationInterval = setInterval(anistart, 2000);
-//         } else {
-//             clearInterval(animationInterval);
-//             if (level >= 100) {
-//                 titleElement.src = './Assets/Images/Icons/Battery-16x16.png';
-//             } else if (level >= 80) {
-//                 titleElement.src = './Assets/Images/Icons/Battery-1.png';
-//             } else if (level >= 60) {
-//                 titleElement.src = './Assets/Images/Icons/Battery-2.png';
-//             } else if (level >= 40) {
-//                 titleElement.src = './Assets/Images/Icons/Battery-3.png';
-//             } else if (level >= 20) {
-//                 titleElement.src = './Assets/Images/Icons/Battery-4.png';
-//             } else if (level >= 10) {
-//                 titleElement.src = './Assets/Images/Icons/Battery-5.png';
-//             }
-//         }
-//     });
-// }
+                clearInterval(animationInterval);
+                animationInterval = setInterval(anistart, 2000);
+            } else {
+                clearInterval(animationInterval);
+                if (level >= 100) {
+                    titleElement.src = './A/System64/Images/Icons/Battery-16x16.png';
+                } else if (level >= 80) {
+                    titleElement.src = './A/System64/Images/Icons/Battery-1.png';
+                } else if (level >= 60) {
+                    titleElement.src = './A/System64/Images/Icons/Battery-2.png';
+                } else if (level >= 40) {
+                    titleElement.src = './A/System64/Images/Icons/Battery-3.png';
+                } else if (level >= 20) {
+                    titleElement.src = './A/System64/Images/Icons/Battery-4.png';
+                } else if (level >= 10) {
+                    titleElement.src = './A/System64/Images/Icons/Battery-5.png';
+                }
+            }
+        });
+    }
 
-// navigator.getBattery().then(function (battery) {
-//     battery.addEventListener('chargingchange', getBatLevel);
-// });
+    if (level === 20) {
+        showMessageBox({
+            title: "Battery Alert",
+            message: 'Battery is at ' + `${bats}` + '!',
+            iconID: "Battery",
+            sound: [Battery.play()],
+        });
+    } else if (level === 10) {
+        showMessageBox({
+            title: "Battery Alert",
+            message: 'Battery is at ' + `${bats}` + '!',
+            iconID: "Battery",
+            sound: [CriticalBattery.play()],
+        });
+    }
 
-// if (level === 20) {
-//     showMessageBox({
-//         title: "Battery Alert",
-//         message: 'Battery is at ' + `${bats}` + '!',
-//         iconID: "Battery",
-//         sound: [Battery.play()],
-//     });
-// } else if (level === 10) {
-//     showMessageBox({
-//         title: "Battery Alert",
-//         message: 'Battery is at ' + `${bats}` + '!',
-//         iconID: "Battery",
-//         sound: [CriticalBattery.play()],
-//     });
-// }
+    function batteryalert() {
+        navigator.getBattery().then(function (battery) {
+            level = (battery.level * 100);
+            let bats = Math.round(level) + "%";
+            showMessageBox({
+                title: "Battery Alert",
+                message: 'Battery is at ' + `${bats}` + '!',
+                iconID: "Battery",
+                sound: [Battery.play()],
+            });
+        });
+    }
+    navigator.getBattery().then(function (battery) {
+        battery.addEventListener('chargingchange', getBatLevel);
+    });
 
-// function batteryalert() {
-//     navigator.getBattery().then(function (battery) {
-//         level = (battery.level * 100);
-//         let bats = Math.round(level) + "%";
-//         showMessageBox({
-//             title: "Battery Alert",
-//             message: 'Battery is at ' + `${bats}` + '!',
-//             iconID: "Battery",
-//             sound: [Battery.play()],
-//         });
-//     });
-// }
+    getBatLevel()
+} catch (error) {
+    toast({
+        message: error,
+    })
+    function batteryalert() {
+        toast({
+            message: "Can't get battery info :(",
+        })
+    }
+    document.getElementById("battery").setAttribute("title", "Can't get battery info :(");
+    document.getElementById("battery").src = iconsAtTwoSizes("battery-err", 16);
+
+}
 //* End Battery Level
 
 //* Wifi
@@ -389,21 +404,34 @@ function CClippy() {
     var div = document.getElementById("clippy");
     var div2 = document.getElementById("clippy-2");
     if (div !== null) {
-        div.remove();
-        div2.remove();
-        clippy.load('Clippy', function (agent) {
-            agent.show();
-            agent.animate();
-        });
-        localStorage.removeItem("clippy");
-        localStorage.setItem("clippy", "CClippy()");
+        try {
+            div.remove();
+            div2.remove();
+            clippy.load('Clippy', function (agent) {
+                agent.show();
+                agent.animate();
+            });
+            localStorage.removeItem("clippy");
+            localStorage.setItem("clippy", "CClippy()");
+
+        } catch (error) {
+            toast({
+                message: "You haven't interacted yet!"
+            })
+        }
     } else {
-        clippy.load('Clippy', function (agent) {
-            agent.show();
-            agent.animate();
-        });
-        localStorage.removeItem("clippy");
-        localStorage.setItem("clippy", "CClippy()");
+        try {
+            clippy.load('Clippy', function (agent) {
+                agent.show();
+                agent.animate();
+            });
+            localStorage.removeItem("clippy");
+            localStorage.setItem("clippy", "CClippy()");
+        } catch (error) {
+            toast({
+                message: "You haven't interacted yet!"
+            })
+        }
     }
 }
 //* End Clippy
@@ -446,9 +474,15 @@ if (uname === null) {
     console.warn("Welcome to MagnusWare v" + MagnusWare_V + ", " + username);
 } else {
     console.warn("Welcome back, " + uname + "!");
-    toast({
-        message: `Welcome back, ${uname}!`
-    })
+    try {
+        toast({
+            message: `Welcome back, ${uname}!`
+        })
+    } catch (error) {
+        toast({
+            message: "You haven't interacted yet!"
+        })
+    }
 }
 
 document.title = `MagnusWare | v${MagnusWare_V} ${BN}`
