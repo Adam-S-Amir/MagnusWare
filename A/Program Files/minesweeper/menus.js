@@ -116,33 +116,6 @@ var menus = {
 			},
 		}
 	],
-	"&Help": [
-		{
-			item: "&Help Topics",
-			action: function(){
-				var show_help = window.show_help;
-				try {
-					show_help = parent.show_help;
-				} catch(e) {}
-				if (show_help === undefined) {
-					return alert("Help Topics only works when inside of the 98.js.org desktop.");
-				}
-				show_help({
-					title: "Minesweeper Help",
-					contentsFile: "help/minesweeper-help/winmine.hhc",
-					root: "help/minesweeper-help",
-				});
-			},
-		},
-		MENU_DIVIDER,
-		{
-			item: "&About Minesweeper",
-			action: function(){
-				// TODO: about dialog
-				window.open("https://github.com/ziebelje/minesweeper");
-			},
-		}
-	],
 };
 
 var go_outside_frame = false;

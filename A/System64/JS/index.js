@@ -35,12 +35,12 @@ If the check in step 2 returns a falsy value (meaning "98.js.org" is not found i
 "/": In this case, the root path is set to just "/", indicating the base directory of the web server.
 */
 
-// function iconsAtTwoSizes(iconID) {
-//     return {
-//         16: `A/System64/Images/icons/${iconID}-16x16.png`,
-//         48: `A/System64/Images/icons/${iconID}-48x48.png`,
-//     };
-// }
+function Window_icons(iconID) {
+    return {
+        16: `A/System64/Images/icons/${iconID}-16x16.png`,
+        48: `A/System64/Images/icons/${iconID}-48x48.png`,
+    };
+}
 
 function getIconPath(iconID, size) {
     return web_server_root_for_icons + "./A/System64/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";

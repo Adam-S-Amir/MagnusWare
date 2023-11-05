@@ -361,37 +361,6 @@ var menus = {
 			enabled: false,
 		},
 	],
-	"&Help": [
-		{
-			item: "&Help Topics",
-			shortcut: "F1", // @TODO
-			action: function () {
-				/* @TODO
-				var show_help = window.show_help;
-				try {
-					show_help = parent.show_help;
-				} catch(e) {}
-				if (show_help === undefined) {
-					return alert("Help Topics only works when inside of the 98.js.org desktop.");
-				}
-				show_help({
-					title: "Pinball Help",
-					contentsFile: "help/pinball-help/pinball.hhc",
-					root: "help/pinball-help",
-				});
-				*/
-			},
-			enabled: false,
-		},
-		MENU_DIVIDER,
-		{
-			item: "&About Pinball",
-			action: function () {
-				// @TODO: about dialog
-				window.open("https://github.com/alula/SpaceCadetPinball");
-			},
-		}
-	],
 };
 
 var go_outside_frame = false;

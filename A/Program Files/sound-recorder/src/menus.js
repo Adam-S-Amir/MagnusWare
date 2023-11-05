@@ -165,34 +165,6 @@ var menus = {
 			description: "Reverses the sound.",
 		},
 	],
-	"&Help": [
-		{
-			item: "&Help Topics",
-			action: function () {
-				var show_help = window.show_help;
-				try {
-					show_help = parent.show_help;
-				} catch (e) { }
-				if (show_help === undefined) {
-					return alert("Help Topics only works when inside of the 98.js.org desktop.");
-				}
-				show_help({
-					title: "Sound Recorder Help",
-					contentsFile: "help/sound-recorder-help/soundrec.hhc",
-					root: "help/sound-recorder-help",
-				});
-			},
-			description: "Displays Help for the current task or command.",
-		},
-		MENU_DIVIDER,
-		{
-			item: "&About Sound Recorder",
-			action: function () {
-				window.open("https://github.com/1j01/98/tree/master/programs/sound-recorder");
-			},
-			description: "Displays information about this application."
-		}
-	],
 };
 
 var go_outside_frame = false;
