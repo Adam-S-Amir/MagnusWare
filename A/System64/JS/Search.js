@@ -789,6 +789,13 @@ function Search() {
                 MWCMD();
             }
         },
+        {
+            title: 'Explorer',
+            src: 'Explorer',
+            ondblclick: function () {
+                Explorer();
+            }
+        },
 
         // {
         //     title: '',

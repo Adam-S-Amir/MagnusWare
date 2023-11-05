@@ -240,6 +240,11 @@
     "error-1bpp": {
         "32": "./A/System64/Images/Icons/error-32x32-1bpp.png"
     },
+    "explorer": {
+        "16": "./A/System64/Images/Icons/Explorer-16x16.png",
+        "32": "./A/System64/Images/Icons/Explorer-32x32.png",
+        "48": "./A/System64/Images/Icons/Explorer-48x48.png"
+    },
     "favorites": {
         "16": "./A/System64/Images/Icons/favorites-16x16.png",
         "32": "./A/System64/Images/Icons/favorites-32x32.png",
