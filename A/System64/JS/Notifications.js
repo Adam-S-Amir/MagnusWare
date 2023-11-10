@@ -130,6 +130,7 @@ window.toast = window.toast || (({
 			"border-color": "var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight)",
 			"border-style": "solid",
 			"border-width": "2px 2px",
+			"border-radius": "5px"
 		});
 
 		// Create the progress bar
@@ -138,6 +139,7 @@ window.toast = window.toast || (({
 		$bar.style.width = '100%';
 		$bar.style.position = 'relative';
 		$bar.style.background = 'linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)';
+		$bar.style.borderRadius = '5px';
 		$bar.style.zIndex = '1';
 		$bar.id = 'progressbar';
 		$window.appendChild($bar);
