@@ -472,6 +472,11 @@ if (uname === null) {
     localStorage.setItem('username', username);
     console.error('Username Unspecified. Loading Default Username...');
     console.warn("Welcome to MagnusWare v" + MagnusWare_V + ", " + username);
+    window.confirm("Welcome to MagnusWare v" + MagnusWare_V + ", " + username);
+    setTimeout(() => {
+        window.confirm("Click the start button in the bottom left corner!")
+    }, "2000");
+
 } else {
     console.warn("Welcome back, " + uname + "!");
     try {

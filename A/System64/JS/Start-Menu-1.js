@@ -640,6 +640,7 @@ function ddIi(dI, style, is) {
         dbli: parseInt(ddl("smColumns")),
         db1j: dbb.dbqb(ddl("menuBorderWidth")),
         dbl1: ddl("menuBorderStyle"),
+        dbl13: ddl("menuBorderRadius"),
         dbld: ddl("menuBorderColor"),
         ddoi: ddl("itemSpacing"),
         dbc1: ddl("itemPadding"),
@@ -678,6 +679,7 @@ function ddpi(dI, style, is) {
         dIi: ddl("itemBackColor", "array"),
         db1j: dbb.dbqb(ddl("itemBorderWidth")),
         dbl1: ddl("itemBorderStyle", "array"),
+        dbl13: ddl("itemBorderRadius", "array"),
         dbld: ddl("itemBorderColor", "array"),
         ddcb: ddl("fontColor", "array"),
         dddI: ddl("fontStyle", "array"),
@@ -1309,6 +1311,7 @@ function dm_init() {
         menuBorderColor: "",
         menuBorderWidth: 0,
         menuBorderStyle: "",
+        menuBorderRadius: "",
         smFrameImage: "",
         smFrameWidth: 0,
         itemBackColor: "",
@@ -1700,7 +1703,7 @@ function dbjq(dI, dq, pos, vis) {
                 }
             }
             var dbcj = w + h;
-            var borderStyle = ";border-style:" + dbl1 + ";border-width:" + db1j + ";border-color:" + dbld + ";";
+            var borderStyle = ";border-style:" + dbl1 + ";border-width:" + db1j + ";border-radius:" + dbl13 + ";border-color:" + dbld + ";";
             var innerBorder = dbI && shadowLen || !dbI && !SmartScroll;
             var of = !dbI && SmartScroll ? "overflow:hidden;" : "";
             var ddbp = "position:" + (pos ? pos : "absolute") + ";left:" + left + ";" + "top:" + top + ";" + (!innerBorder && !cssClass ? borderStyle : "") + (ddcl ? ddoo : "") + dbIb + ";visibility:" + (vis ? vis : "hidden") + ";z-index:" + ddli + ";" + (!dbq && shadowLen || dbq ? dplp(dq) + ";" : "") + of;
@@ -1803,7 +1806,7 @@ function dddj(dI, dq, dc, frame) {
     var itemStyle = "";
     with (dc.dbi) {
         if (!(cssClass[0] || cssClass[1])) {
-            itemStyle = "background-color:" + dIi[0] + ";cursor:" + dpbi(dc.cursor) + ";" + "border-color:" + dbld[0] + ";border-style:" + dbl1[0] + ";border-width:" + db1j + ";" + (dc.dIj != 2 && dc.dbi.dob[0] ? "background-image:url(" + dc.dbi.dob[0] + ");" : "") + addStyle;
+            itemStyle = "background-color:" + dIi[0] + ";cursor:" + dpbi(dc.cursor) + ";" + "border-color:" + dbld[0] + ";border-style:" + dbl1[0] + ";border-style:" + dbl13[0] + ";border-width:" + db1j + ";" + (dc.dIj != 2 && dc.dbi.dob[0] ? "background-image:url(" + dc.dbi.dob[0] + ");" : "") + addStyle;
         }
     }
     with (dc.dbi) {

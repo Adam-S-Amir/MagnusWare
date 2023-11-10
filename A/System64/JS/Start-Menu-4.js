@@ -47,6 +47,7 @@ var menuBackRepeat = "repeat";
 var menuBorderColor = "var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight)";
 var menuBorderWidth = null;
 var menuBorderStyle = "solid";
+var menuBorderRadius = "1px";
 
 //--- Item Appearance
 var itemBackColor = ["", "#000080"];
@@ -58,6 +59,7 @@ var afterItemImageW = "";
 var beforeItemImageH = "";
 var afterItemImageH = "";
 var itemBorderWidth = null;
+var itemBorderRadius = "";
 var itemBorderColor = "";
 var itemBorderStyle = "solid";
 var itemSpacing = "0px";
