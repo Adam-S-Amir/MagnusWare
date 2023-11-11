@@ -38,7 +38,7 @@
 	--MenuHilight: rgb(0 0 0);
 	--MenuText: rgb(0 0 0);
 	--GrayText: rgb(79 101 125);
-	--Hilight: rgb(0 128 128);
+	--Hilight: rgb(0 198 255);
 	--HilightText: rgb(255 255 255);
 	--HotTrackingColor: rgb(159 96 112);
 	--InfoText: rgb(0 0 0);
@@ -409,6 +409,11 @@ body>.window-titlebar {
 .folder-view:focus-within .desktop-icon.selected:not(.renaming) .title {
 	background: var(--Hilight);
 	color: var(--HilightText);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .folder-view:focus-within .desktop-icon.focused:not(.renaming) .title::after {
@@ -737,6 +742,10 @@ body {
 	white-space: nowrap;
 }
 
+.taskbar>* {
+	outline: none;
+}
+
 /* .taskbar .start-button {
 	flex-shrink: 0;
 	padding: 2px 4px;
@@ -856,11 +865,13 @@ body {
 	font-size: 9px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	/* TODO: make this work with multiline text! This is apparently a limitation of this CSS property and there are various crazy CSS hacks and JS libs to solve this. */
 	word-wrap: break-word;
-	/* All browsers since IE 5.5+ */
 	overflow-wrap: break-word;
-	/* Renamed property in CSS3 draft spec */
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .desktop-icon:not(.focused) .title {
