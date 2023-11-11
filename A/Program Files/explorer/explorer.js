@@ -58,7 +58,7 @@ function get_icon_for_address(address) {
 	}
 }
 
-var navigate_audio = new Audio(window.location.origin + "/A/System64/Audio/START.WAV");
+var navigate_audio = new Audio("../../System64/Audio/MagnusWare/Default.wav");
 
 var offline_mode = false;
 
@@ -358,9 +358,6 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 
 	let htt, template_url;
 	if (folder_view.config.view_as_web_page === false) {
-		// I'm faking the "View as Web Page" option for now
-		// everything's in iframes anyways, so what's the harm in one more iframe, right?
-		// I'm treating this option as just "to use folder templates or not".
 		htt = `
 			<object border=0 tabindex=1 classid="clsid:1820FED0-473E-11D0-A96C-00C04FD705A2" style="height: 100%; width: 100%;"></object>
 		`;
@@ -610,7 +607,7 @@ ${doc.documentElement.outerHTML}`;
 			`)
 			$window.$content.find("pre")
 				.css({
-					overflow: "auto",
+					"overflow-x": "scroll",
 					maxHeight: 400,
 					textAlign: "left",
 					background: "var(--Window)",
@@ -830,6 +827,7 @@ ${doc.documentElement.outerHTML}`;
 
 		#Panel {
 			scrollbar-gutter: stable;
+			background-color: var(--Background);
 		}
 
 		body {

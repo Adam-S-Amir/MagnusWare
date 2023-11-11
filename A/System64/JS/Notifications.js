@@ -1,13 +1,13 @@
 let SoundLocation = "/A/System64/Audio/MagnusWare/"
-let Asterisk = new Audio(window.location.origin + SoundLocation + "System Asterisk.wav");
-let Notification = new Audio(window.location.origin + SoundLocation + "System Exclamation.wav");
-let Battery = new Audio(window.location.origin + SoundLocation + "Low Battery Alarm.wav");
-let CriticalBattery = new Audio(window.location.origin + SoundLocation + "Critical Battery Alarm.wav");
-let SystemNotification = new Audio(window.location.origin + SoundLocation + "System Notification.wav");
-let SystemExclamation = new Audio(window.location.origin + SoundLocation + "System Exclamation.wav");
-let SystemHand = new Audio(window.location.origin + SoundLocation + "System Hand.wav");
-let SecurityBand = new Audio(window.location.origin + SoundLocation + "Security Band.wav");
-let LogOff = new Audio(window.location.origin + SoundLocation + "Windows Logoff.wav");
+let Asterisk = new Audio(SoundLocation + "System Asterisk.wav");
+let Notification = new Audio(SoundLocation + "System Exclamation.wav");
+let Battery = new Audio(SoundLocation + "Low Battery Alarm.wav");
+let CriticalBattery = new Audio(SoundLocation + "Critical Battery Alarm.wav");
+let SystemNotification = new Audio(SoundLocation + "System Notification.wav");
+let SystemExclamation = new Audio(SoundLocation + "System Exclamation.wav");
+let SystemHand = new Audio(SoundLocation + "System Hand.wav");
+let SecurityBand = new Audio(SoundLocation + "Security Band.wav");
+let LogOff = new Audio(SoundLocation + "Windows Logoff.wav");
 
 defaultMessageBoxTitle = "MagnusWare";
 window.showMessageBox = window.showMessageBox || (({

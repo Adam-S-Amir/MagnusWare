@@ -6,6 +6,7 @@ body {
 	font-family: sans-serif;
 	font-size: 10pt;
 }
+
 .toolbars {
 	display: flex;
 	flex-direction: column;
@@ -15,6 +16,7 @@ body {
 	border: 1px solid var(--ButtonShadow);
 	box-shadow: 0 1px 0 var(--ButtonHilight), 0 1px 0 var(--ButtonHilight) inset;
 }
+
 .toolbar {
 	display: flex;
 	flex-direction: row;
@@ -24,14 +26,17 @@ body {
 	overflow: hidden;
 	position: relative;
 }
+
 .toolbar-drag-handle {
 	flex: 0 0 auto;
 	width: 10px;
 	box-sizing: border-box;
-	align-self: stretch; /* height: 100%; doesn't work in Firefox https://stackoverflow.com/questions/51877276/height-100-not-working-with-flex-box */
+	align-self: stretch;
+	/* height: 100%; doesn't work in Firefox https://stackoverflow.com/questions/51877276/height-100-not-working-with-flex-box */
 	position: relative;
 	touch-action: none;
 }
+
 .toolbar-drag-handle::before {
 	content: "";
 	display: block;
@@ -47,11 +52,13 @@ body {
 	border-color: rgb(255, 255, 255) rgb(128, 128, 128) rgb(128, 128, 128) rgb(255, 255, 255);
 	border-color: var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight);
 }
-.toolbar + .toolbar {
+
+.toolbar+.toolbar {
 	border-top: 1px solid var(--ButtonHilight);
 	box-shadow: 0px -1px 0px var(--ButtonShadow);
 	margin-top: 2px;
 }
+
 .toolbar-overflow-menu-button {
 	position: absolute;
 	right: 0;
@@ -64,14 +71,17 @@ body {
 	padding: 0;
 	overflow: hidden;
 }
+
 .toolbar-overflow-menu {
 	display: flex;
 	flex-direction: row;
 }
+
 .toolbar hr[aria-orientation="vertical"] {
 	display: block;
 	width: 0px;
-	height: 36px; /* height: 100%; is not working (would do calc(100% - something) if it did) */
+	height: 36px;
+	/* height: 100%; is not working (would do calc(100% - something) if it did) */
 	margin: 0;
 	border: 0;
 	border-left: 1px solid var(--ButtonShadow);
@@ -89,9 +99,11 @@ body {
 	flex-direction: row;
 	align-items: center;
 }
+
 #address-bar {
 	flex: 1;
 }
+
 #address-compound-input {
 	background: var(--Window);
 	color: var(--WindowText);
@@ -100,12 +112,14 @@ body {
 	margin-top: 1px;
 	margin-bottom: 1px;
 }
+
 #address-icon {
 	display: inline-block;
 	margin-right: 4px;
 	margin-left: 1px;
 	align-self: center;
 }
+
 #address {
 	flex: 1;
 	background: transparent;
@@ -114,13 +128,16 @@ body {
 	outline: 0;
 	padding: 0;
 	min-width: 0;
-	width: 0; /* this is weird to have to write; but this is needed to prevent minimum width and thus overflow */
+	width: 0;
+	/* this is weird to have to write; but this is needed to prevent minimum width and thus overflow */
 }
+
 #address-dropdown-button {
 	width: 17px;
 	height: 19px;
 	padding: 0;
 }
+
 label[for="address"] {
 	margin-right: 5px;
 }
@@ -128,6 +145,7 @@ label[for="address"] {
 button {
 	padding: 5px;
 }
+
 .toolbar-button {
 	width: 54px;
 	height: 40px;
@@ -136,19 +154,23 @@ button {
 	font-size: 12px;
 	line-height: 12px;
 }
+
 .toolbar-button .label-text {
 	margin-top: 24px;
 }
+
 .toolbar-compound-button-wrapper {
 	display: flex;
 	flex-direction: row;
 }
+
 .toolbar-dropdown-button {
 	padding: 0;
 	width: 16px;
 	line-height: 30px;
 	height: 40px;
 }
+
 .toolbar-compound-button-wrapper:hover:not(:active) button.lightweight:enabled {
 	/* border: var(--outset-shallow); */
 	/* @TODO: DRY with os-gui library, maybe by using JS */
@@ -156,7 +178,8 @@ button {
 	border-width: 1px;
 	border-color: var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight);
 }
-.toolbar-compound-button-wrapper .toolbar-button:enabled:hover:active ~ button.lightweight {
+
+.toolbar-compound-button-wrapper .toolbar-button:enabled:hover:active~button.lightweight {
 	border-style: solid;
 	border-width: 1px;
 	border-color: var(--ButtonShadow) var(--ButtonHilight) var(--ButtonHilight) var(--ButtonShadow);
@@ -165,20 +188,25 @@ button {
 .hiding-label-text .label-text {
 	display: none;
 }
+
 .hiding-label-text .toolbar-button {
 	width: 27px;
 	height: 26px;
 	/* @TODO: icon alignment */
 }
+
 .hiding-label-text .toolbar-dropdown-button {
 	height: 26px;
 	width: 13px;
-    line-height: 24px; /* for SVG alignment */
+	line-height: 24px;
+	/* for SVG alignment */
 }
+
 .hiding-label-text .toolbar-dropdown-button svg {
 	width: 12px;
 	height: 12px;
 }
+
 .toolbar hr[aria-orientation="vertical"] {
 	height: 22px;
 }
@@ -189,23 +217,28 @@ button {
 	align-items: center;
 	position: relative;
 }
+
 .toolbar-button .icon {
 	width: 20px;
 	height: 20px;
 	position: absolute;
 	top: 2px;
 }
+
 .toolbar-button .icon {
 	background-image: url("../../System64/Images/Common/browse-ui-icons.png");
 }
+
 .toolbar-button:enabled:hover .icon,
 .toolbar-compound-button-wrapper:hover .toolbar-button:enabled .icon {
 	background-image: url("../../System64/Images/Common/browse-ui-icons-grayscale.png");
 }
+
 .toolbar-button:disabled .icon,
 #address-dropdown-button:disabled svg,
 .toolbar-dropdown-button:disabled svg {
-	filter: saturate(0%) opacity(50%); /* fallback */
+	filter: saturate(0%) opacity(50%);
+	/* fallback */
 	filter: url("#disabled-inset-filter");
 }
 
@@ -217,24 +250,31 @@ button {
 	gap: 2px;
 	height: 18px;
 }
-#status-bar > * {
+
+#status-bar>* {
 	height: 16px;
 	white-space: nowrap;
 	overflow: hidden;
 	pointer-events: none;
 	user-select: none;
 }
+
 #status-bar-left {
-	width: 250px; /* estimated */
+	width: 250px;
+	/* estimated */
 }
+
 #status-bar-middle {
 	flex: 1;
 }
+
 #status-bar-right {
-	width: 170px; /* estimated */
+	width: 170px;
+	/* estimated */
 	display: flex;
 	gap: 3px;
 }
+
 #status-bar-simple {
 	display: flex;
 	flex-direction: row;
@@ -250,9 +290,10 @@ button {
 	min-width: 0;
 	min-height: 0;
 }
+
 #content iframe {
 	flex: 1;
 	min-width: 0;
 	min-height: 0;
-    border: 0;
+	border: 0;
 }

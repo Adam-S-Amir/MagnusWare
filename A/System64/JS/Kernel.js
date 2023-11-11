@@ -48,7 +48,6 @@ function loadCSSSequentially(index) {
         };
         document.head.appendChild(CSS);
         console.log("Successfully Initialized " + CSSLinks[index].replace(".css", "") + ".");
-
         let pElement = document.createElement("p");
         pElement.id = "splash-log";
         pElement.innerHTML = CSSLinks[index] + "<br>";
@@ -104,7 +103,6 @@ function loadScriptsSequentially(index) {
         };
         document.body.appendChild(script);
         console.log("Successfully Initialized " + scriptUrls[index].replace(".js", "") + ".");
-
         let pElement = document.createElement("p");
         pElement.id = "splash-log";
         pElement.innerHTML = scriptUrls[index] + "<br>";

@@ -286,7 +286,7 @@
 		<!-- end mini banner -->
 
 		<!-- start left info panel -->
-		<div id=Panel style="background: white URL(file://%TEMPLATEDIR%\wvleft.bmp) no-repeat">
+		<div id=Panel>
 			<p>
 			<object classid="clsid:E5DF9D10-3B52-11D1-83E8-00A0C90DC849" width=32 height=32>
 				<param name="scale" value=100>
