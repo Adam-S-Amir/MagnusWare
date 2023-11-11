@@ -2929,13 +2929,6 @@ Create_Icon({
 });
 
 Create_Icon({
-	title: "Pinball",
-	iconID: "pinball",
-	open: Pinball,
-	shortcut: false
-});
-
-Create_Icon({
 	title: "VLC Media Player",
 	iconID: "VLC",
 	open: VLC

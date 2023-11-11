@@ -101,7 +101,7 @@ span {
 .start-button {
     width: 23px;
     height: 23px;
-    background: -webkit-radial-gradient(50% 90%,circle closest-corner,#07d9f9,#03456f 100%,#fff 300%);
+    background: -webkit-radial-gradient(50% 90%, circle closest-corner, #07d9f9, #03456f 100%, #fff 300%);
     border: 1px solid #00c6ff;
     margin-left: 5px;
     margin-right: 5px;
@@ -1155,6 +1155,11 @@ p {
     -moz-transform: translate(-50%);
     -ms-transform: translate(-50%);
     -o-transform: translate(-50%);
+}
+
+#hideAllWindows {
+    background-color: var(--ActiveTitle);
+    width: 0;
 }
 
 /* background: repeating-linear-gradient(190deg,

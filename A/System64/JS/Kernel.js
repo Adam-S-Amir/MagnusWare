@@ -159,13 +159,16 @@ let start = [`
     </div>
     <div class="tasks"></div>
     <div id="tray" class="tray inset-shallow">
-    <div class="tray-icons">
-        <img class="tray-icon" src="./A/System64/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
-        <img class="tray-icon" src="./A/System64/Images/Icons/battery-err-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
-        <img class="tray-icon" src="./A/System64/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
+        <div class="tray-icons">
+            <img class="tray-icon" src="./A/System64/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
+            <img class="tray-icon" src="./A/System64/Images/Icons/battery-err-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
+            <img class="tray-icon" src="./A/System64/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
+            <div class="taskbar-time" id="time" onclick="hidecal()"></div>
+        </div>
     </div>
-    <div class="taskbar-time" id="time" onclick="hidecal()"></div>
+    <button id="hideAllWindows" onclick="hideAllWindows()" title="Click to hide windows"></button>
 `]
+
 taskbr.innerHTML = start;
 document.body.appendChild(vInfo);
 document.body.appendChild(taskbr);
@@ -238,3 +241,33 @@ const picker = document.createElement('div');
 picker.id = 'picker';
 picker.innerHTML = datePicker;
 document.body.appendChild(picker);
+
+let hideAllWindow = document.getElementById("hideAllWindows");
+let dextop;
+
+function hideAllWindows() {
+    const windowElements = document.querySelectorAll(".window");
+    windowElements.forEach(windowElement => {
+        windowElement.style.display = "none";
+    });
+    dextop = 1;
+}
+
+hideAllWindow.addEventListener("mouseover", function () {
+    const windowElements = document.querySelectorAll(".window");
+    windowElements.forEach(windowElement => {
+        windowElement.style.display = "none";
+    });
+});
+hideAllWindow.addEventListener("mouseout", function () {
+    const windowElements = document.querySelectorAll(".window");
+    if (dextop === 1) {
+        windowElements.forEach(windowElement => {
+            windowElement.style.display = "none";
+        });
+    } else {
+        windowElements.forEach(windowElement => {
+            windowElement.style.display = "flex";
+        });
+    }
+});

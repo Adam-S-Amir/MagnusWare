@@ -1267,7 +1267,6 @@ button:not(.lightweight).pressed {
 .os-window .window-titlebar,
 body>.window-titlebar {
 	background: linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%);
-	color: rgb(255, 255, 255);
 	color: var(--TitleText);
 }
 
@@ -1306,14 +1305,7 @@ body>.window-titlebar {
 }
 
 .os-window {
-	/* Needed for when maximized, otherwise would be provided by %outset-deep */
-	background: rgb(192, 192, 192);
 	background: var(--ButtonFace);
-
-	/* background: var(--Window); */
-	/*color: var(--WindowText);*/
-	/*border: 1px solid var(--WindowFrame);*/
-	/* TODO: use window-specific theme colors; also different types of windows */
 }
 
 .os-window:not(.maximized) {
@@ -1477,14 +1469,11 @@ body>.window-titlebar {
 }
 
 .menus {
-	background: rgb(192, 192, 192);
 	background: var(--Menu);
-	color: rgb(0, 0, 0);
 	color: var(--MenuText);
 }
 
 .os-window:not(.focused) .menus {
-	color: rgb(128, 128, 128);
 	color: var(--GrayText);
 }
 
