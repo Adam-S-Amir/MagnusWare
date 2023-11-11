@@ -313,7 +313,6 @@ var menuItems = [
     ["|The Binding<br> of Isaac", "javascript:TBOI();", `${iconsAtTwoSizes("TBOI", size)}`, "", "", "", "", "", "", "", "",],
     ["|There is<br>No Game", "javascript:NoGame();", `${iconsAtTwoSizes("NoGame", size)}`, "", "", "", "", "", "", "", "",],
     ["|Frank Zamboni", "javascript:Zamboni();", `${iconsAtTwoSizes("Zamboni", size)}`, "", "", "", "", "", "", "", "",],
-    ["|<hr class='clear-hr'>"],
     ["Programs", "", `${iconsAtTwoSizes("programs-folder", size)}`, "", "", "", "", "", "", "", "",],
     ["|Time<br>Wasting", "", `${iconsAtTwoSizes("fonts-folder", size)}`, "", "", "", "", "", "", "", "",],
     ["||Acid Box", "javascript:AcidBox();", `${iconsAtTwoSizes("AcidBox", size)}`, "", "", "", "", "", "", "", "",],

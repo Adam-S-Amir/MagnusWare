@@ -1921,14 +1921,11 @@ function Paint(file_path) {
 	var $win = make_embed_window({
 		src: "./A/Program Files/jspaint/index.html",
 		icons: Window_icons("paint"),
-		// NOTE: in Windows 98, "untitled" is lowercase, but TODO: we should just make it consistent
 		title: "untitled - Paint",
-		outerWidth: 275,
-		outerHeight: 400,
-		minOuterWidth: 275,
-		minOuterHeight: 400,
+		innerWidth: 500,
+		innerHeight: 500
 	});
-
+	return new Task($win);
 	var contentWindow = $win.$embed[0].contentWindow;
 
 	var waitUntil = function (test, interval, callback) {
@@ -1984,15 +1981,6 @@ function Paint(file_path) {
 			});
 		},
 	};
-
-	// it seems like I should be able to use onload here, but when it works (overrides the function),
-	// it for some reason *breaks the scrollbar styling* in jspaint
-	// I don't know what's going on there
-
-	// contentWindow.addEventListener("load", function(){
-	// $(contentWindow).on("load", function(){
-	// $win.$embed.load(function(){
-	// $win.$embed[0].addEventListener("load", function(){
 	waitUntil(() => contentWindow.systemHooks, 500, () => {
 		Object.assign(contentWindow.systemHooks, systemHooks);
 
@@ -2031,8 +2019,6 @@ function Paint(file_path) {
 			$win.title(contentWindow.document.title);
 		};
 	});
-
-	return new Task($win);
 }
 Paint.acceptsFilePaths = true;
 
@@ -2287,44 +2273,13 @@ function Pinball() {
 		innerHeight: 416 + 20, // @TODO: where's this 20 coming from?
 		minInnerWidth: 600,
 		minInnerHeight: 416 + 20,
-		// resizable: false, // @TODO (maybe) once gray maximized button is implemented
-		override_alert: false, // to handle the alert as a fatal error, and to compensate for overzealous preventDefault()
-	});
-	const $splash = $("<div>").css({
-		position: "fixed",
-		top: 0,
-		left: 0,
-		width: "100%",
-		height: "100%",
-		background: "url(images/pinball-splash.png) no-repeat center center",
-		backgroundColor: "black",
-		zIndex: $Window.Z_INDEX + 6000,
-	}).appendTo("body");
-	setTimeout(() => {
-		$splash.remove(); // just in case
-	}, 5000);
-	$win.$content.find("embed").on("game-loaded", () => { // custom event dispatched from within the embed
-		$splash.remove();
-	});
-	$win.$content.find("embed").on("game-load-failed", () => { // custom event dispatched from within the embed
-		$splash.remove();
-		// on some systems, if the game fails to load,
-		// it may result in the canvas showing through to the desktop behind the browser window
-		// let's call it a feature, tie it in thematically,
-		// and pretend like we did it on purpose, to baffle and amuse.
-		// This happens for me on Chrome on Ubuntu with Xfce, when coming out of suspend.
-		// It says "Could not create renderer / Couldn't find matching render driver"
-		// It keeps happening with live reload, but stops on a regular reload, or duplicating the tab.
-		$win.title("Wormhole Window - Space Cadet");
 	});
 	return new Task($win);
 }
 
 function Explorer(address) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the embed, in make_embed_window)
 	var document_title = address;
 	var win_title = document_title;
-	// TODO: focus existing window if folder is currently open
 	var $win = make_embed_window({
 		src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
 		icons: Window_icons("folder-open"),
@@ -2342,12 +2297,9 @@ Explorer.acceptsFilePaths = true;
 
 var webamp_bundle_loaded = false;
 var load_winamp_bundle_if_not_loaded = function (includeButterchurn, callback) {
-	// FIXME: webamp_bundle_loaded not actually set to true when loaded
-	// TODO: also maybe handle already-loading-but-not-done
 	if (webamp_bundle_loaded) {
 		callback();
 	} else {
-		// TODO: parallelize (if possible)
 		$.getScript("./A/Program Files/winamp/lib/webamp.bundle.min.js", () => {
 			if (includeButterchurn) {
 				$.getScript("./A/Program Files/winamp/lib/butterchurn.min.js", () => {
@@ -2362,7 +2314,6 @@ var load_winamp_bundle_if_not_loaded = function (includeButterchurn, callback) {
 	}
 }
 
-// from https://github.com/jberg/butterchurn/blob/master/src/isSupported.js
 const isButterchurnSupported = () => {
 	const canvas = document.createElement('canvas');
 	let gl;
@@ -2383,7 +2334,6 @@ let $webamp;
 let winamp_task;
 let winamp_interface;
 let winamp_loading = false;
-// TODO: support opening multiple files at once
 function openWinamp(file_path) {
 	const filePathToBlob = (file_path) => {
 		return new Promise((resolve, reject) => {
@@ -2404,7 +2354,6 @@ function openWinamp(file_path) {
 	const filePathToTrack = async (file_path) => {
 		const blob = await filePathToBlob(file_path);
 		const blob_url = URL.createObjectURL(blob);
-		// TODO: revokeObjectURL
 		const track = {
 			url: blob_url,
 			defaultName: file_name_from_path(file_path).replace(/\.[a-z0-9]+$/i, ""),
@@ -2439,12 +2388,9 @@ function openWinamp(file_path) {
 		return;
 	}
 	if (winamp_loading) {
-		return; // TODO: queue up files?
+		return;
 	}
 	winamp_loading = true;
-
-	// This check creates a WebGL context, so don't do it if you try to open Winamp while it's opening or open.
-	// (Otherwise it will lead to "WARNING: Too many active WebGL contexts. Oldest context will be lost.")
 	const includeButterchurn = isButterchurnSupported();
 
 	load_winamp_bundle_if_not_loaded(includeButterchurn, function () {
@@ -2464,8 +2410,7 @@ function openWinamp(file_path) {
 				},
 				url: "./A/Program Files/winamp/mp3/Nuke%20Radio.mp3",
 				duration: 5,
-			},
-			],
+			}],
 			initialSkin: {
 				url: "./A/Program Files/winamp/skins/base-2.91.wsz",
 			},
@@ -2474,7 +2419,6 @@ function openWinamp(file_path) {
 				Promise.all(
 					dragging_file_paths.map(filePathToTrack)
 				),
-			// TODO: filePickers
 		};
 		if (includeButterchurn) {
 			webamp_options.__butterchurnOptions = {
@@ -2572,23 +2516,16 @@ function openWinamp(file_path) {
 				if ($webamp.hasClass("focused")) {
 					$webamp.removeClass("focused");
 					$eventTarget.triggerHandler("blur");
-					// TODO: really blur
 				}
 			};
 			winamp_interface.minimize = () => {
-				// TODO: are these actually useful or does webamp hide it?
 				$webamp.hide();
 			};
 			winamp_interface.unminimize = () => {
-				// more to the point does this work necessarily??
 				$webamp.show();
 				// $webamp.focus();
 			};
 			winamp_interface.close = () => {
-				// not allowing canceling close event in this case (generally used *by* an application (for "Save changes?"), not outside of it)
-				// TODO: probably something like winamp_task.close()
-				// winamp_interface.triggerHandler("close");
-				// winamp_interface.triggerHandler("closed");
 				webamp.dispose();
 				$webamp.remove();
 
@@ -2617,9 +2554,7 @@ function openWinamp(file_path) {
 			};
 			winamp_interface.setMinimizeTarget = () => {
 				// dummy function; it won't animate to the minimize target anyway
-				// (did Winamp on Windows 98 animate minimize/restore?)
 			};
-			// @TODO: this wasn't supposed to be part of the API, but it's needed for the taskbar
 			winamp_interface.on = (event_name, callback) => {
 				if (event_name === "title-change") {
 					webamp.onTrackDidChange(callback);
@@ -2664,9 +2599,6 @@ function openWinamp(file_path) {
 				{ mirror: true, stretch: true },
 			);
 
-			// TODO: replace with setInterval
-			// Note: can't access butterchurn canvas image data during a requestAnimationFrame here
-			// because of double buffering
 			const animate = () => {
 				const windowElements = $(".os-window, .window:not(.gen-window)").toArray();
 				windowElements.forEach(windowEl => {
@@ -2687,7 +2619,6 @@ function openWinamp(file_path) {
 
 			whenLoaded()
 		}, (error) => {
-			// TODO: show_error_message("Failed to load Webamp:", error);
 			alert("Failed to render Webamp:\n\n" + error);
 			console.error(error);
 		});

@@ -1047,8 +1047,8 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
   border: 2px solid var(--MenuHilight);
-  background: var(--Background);
-  color: var(--InfoText);
+  background: var(--MenuHilight);
+  color: var(--ButtonText);
 }
 
 .ui-state-highlight a,

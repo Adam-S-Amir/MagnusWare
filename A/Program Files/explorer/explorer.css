@@ -32,7 +32,6 @@ body {
 	width: 10px;
 	box-sizing: border-box;
 	align-self: stretch;
-	/* height: 100%; doesn't work in Firefox https://stackoverflow.com/questions/51877276/height-100-not-working-with-flex-box */
 	position: relative;
 	touch-action: none;
 }
@@ -46,10 +45,7 @@ body {
 	width: 4px;
 	bottom: 1px;
 	box-sizing: border-box;
-
-	/* copied from .outset-shallow class (CSS is bad at composition) */
 	border: 1px solid;
-	border-color: rgb(255, 255, 255) rgb(128, 128, 128) rgb(128, 128, 128) rgb(255, 255, 255);
 	border-color: var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight);
 }
 
@@ -111,6 +107,11 @@ body {
 	display: flex;
 	margin-top: 1px;
 	margin-bottom: 1px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 #address-icon {
@@ -172,17 +173,25 @@ button {
 }
 
 .toolbar-compound-button-wrapper:hover:not(:active) button.lightweight:enabled {
-	/* border: var(--outset-shallow); */
-	/* @TODO: DRY with os-gui library, maybe by using JS */
 	border-style: solid;
 	border-width: 1px;
 	border-color: var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .toolbar-compound-button-wrapper .toolbar-button:enabled:hover:active~button.lightweight {
 	border-style: solid;
 	border-width: 1px;
 	border-color: var(--ButtonShadow) var(--ButtonHilight) var(--ButtonHilight) var(--ButtonShadow);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .hiding-label-text .label-text {
@@ -192,7 +201,6 @@ button {
 .hiding-label-text .toolbar-button {
 	width: 27px;
 	height: 26px;
-	/* @TODO: icon alignment */
 }
 
 .hiding-label-text .toolbar-dropdown-button {
@@ -216,6 +224,11 @@ button {
 	flex-direction: column;
 	align-items: center;
 	position: relative;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .toolbar-button .icon {
@@ -261,18 +274,31 @@ button {
 
 #status-bar-left {
 	width: 250px;
-	/* estimated */
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 #status-bar-middle {
 	flex: 1;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 #status-bar-right {
 	width: 170px;
-	/* estimated */
 	display: flex;
 	gap: 3px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 #status-bar-simple {
