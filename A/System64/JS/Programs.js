@@ -2266,13 +2266,11 @@ function Calculator() {
 
 function Pinball() {
 	var $win = make_embed_window({
-		src: "./A/Program Files/pinball/space-cadet.html",
+		src: "./A/Program Files/pinball/index.html",
 		icons: Window_icons("pinball"),
-		title: "3D Pinball for Windows - Space Cadet",
+		title: "Pinball",
 		innerWidth: 600,
-		innerHeight: 416 + 20, // @TODO: where's this 20 coming from?
-		minInnerWidth: 600,
-		minInnerHeight: 416 + 20,
+		innerHeight: 442
 	});
 	return new Task($win);
 }
