@@ -417,7 +417,7 @@ function hideinfo() {
 
 function bg0() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Bliss.png);";
+    "background-image: url(./A/System64/Images/common/Bliss.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg0()");
@@ -425,7 +425,7 @@ function bg0() {
 
 function bg1() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Candy.png);";
+    "background-image: url(./A/System64/Images/common/Candy.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg1()");
@@ -433,7 +433,7 @@ function bg1() {
 
 function bg2() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/clouds.png);";
+    "background-image: url(./A/System64/Images/common/clouds.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg2()");
@@ -466,7 +466,7 @@ function bg3() {
 
 function bg4() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/glacier.png);";
+    "background-image: url(./A/System64/Images/common/glacier.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg4()");
@@ -474,7 +474,7 @@ function bg4() {
 
 function bg5() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/grass.png);";
+    "background-image: url(./A/System64/Images/common/grass.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg5()");
@@ -482,7 +482,7 @@ function bg5() {
 
 function bg6() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/home.png);";
+    "background-image: url(./A/System64/Images/common/home.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg6()");
@@ -490,7 +490,7 @@ function bg6() {
 
 function bg7() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/intel.png);";
+    "background-image: url(./A/System64/Images/common/intel.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg7()");
@@ -498,7 +498,7 @@ function bg7() {
 
 function bg8() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/nebula.png);";
+    "background-image: url(./A/System64/Images/common/nebula.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg8()");
@@ -506,7 +506,7 @@ function bg8() {
 
 function bg9() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/outrun.png);";
+    "background-image: url(./A/System64/Images/common/outrun.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg9()");
@@ -514,7 +514,7 @@ function bg9() {
 
 function bg10() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/verticle.png);";
+    "background-image: url(./A/System64/Images/common/verticle.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg10()");
@@ -522,7 +522,7 @@ function bg10() {
 
 function bg11() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Waves.png);";
+    "background-image: url(./A/System64/Images/common/Waves.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg11()");
@@ -530,7 +530,7 @@ function bg11() {
 
 function bg12() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/1.0.png);";
+    "background-image: url(./A/System64/Images/common/1.0.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg12()");
@@ -538,7 +538,7 @@ function bg12() {
 
 function bg13() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/10.png);";
+    "background-image: url(./A/System64/Images/common/10.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg13()");
@@ -546,7 +546,7 @@ function bg13() {
 
 function bg14() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/95.png);";
+    "background-image: url(./A/System64/Images/common/95.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg14()");
@@ -554,7 +554,7 @@ function bg14() {
 
 function bg15() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/95C.png);";
+    "background-image: url(./A/System64/Images/common/95C.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg15()");
@@ -562,7 +562,7 @@ function bg15() {
 
 function bg16() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/9.8.png);";
+    "background-image: url(./A/System64/Images/common/9.8.png);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "bg16()");
@@ -570,7 +570,7 @@ function bg16() {
 
 function bg17() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Moonroof.png);";
+    "background-image: url(./A/System64/Images/common/Moonroof.png);";
   // background-image: linear-gradient(red, yellow);
   canvas.remove();
   localStorage.removeItem("bgz");
@@ -619,7 +619,7 @@ function bg20() {
 
 function lv0() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Abstract.gif);";
+    "background-image: url(./A/System64/Images/common/Abstract.gif);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "lv0()");
@@ -627,7 +627,7 @@ function lv0() {
 
 function lv1() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Beach.gif);";
+    "background-image: url(./A/System64/Images/common/Beach.gif);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "lv1()");
@@ -635,7 +635,7 @@ function lv1() {
 
 function lv2() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Clouds.gif);";
+    "background-image: url(./A/System64/Images/common/Clouds.gif);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "lv2()");
@@ -643,7 +643,7 @@ function lv2() {
 
 function lv3() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Fast-Paint.gif);";
+    "background-image: url(./A/System64/Images/common/Fast-Paint.gif);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "lv3()");
@@ -651,7 +651,7 @@ function lv3() {
 
 function lv4() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Glitch.gif);";
+    "background-image: url(./A/System64/Images/common/Glitch.gif);";
   canvas.remove();
   localStorage.removeItem("bgz");
   // @import compass @function multiple-box-shadow ($n) $value: '#{random(2000)}px #{random(20000)}px #FFF' @for $i from 2 through $n $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF' @return unquote($value) $shadows-small:  multiple-box-shadow(700) $shadows-medium: multiple-box-shadow(200) $shadows-big:    multiple-box-shadow(100) html height: 100% background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%) overflow: hidden #stars width: 1px height: 1px background: transparent box-shadow: $shadows-small animation			: animStar 50s linear infinite &:after content: " " position: absolute top: 2000px width: 1px height: 1px background: transparent box-shadow: $shadows-small #stars2 width: 2px height: 2px background: transparent box-shadow: $shadows-medium animation			: animStar 100s linear infinite &:after content: " " position: absolute top: 2000px width: 2px height: 2px background: transparent box-shadow: $shadows-medium #stars3 width: 3px height: 3px background: transparent box-shadow: $shadows-big animation			: animStar 150s linear infinite &:after content: " " position: absolute top: 2000px width: 3px height: 3px background: transparent box-shadow: $shadows-big @keyframes animStar from transform: translateY(0px) to transform: translateY(-2000px)
@@ -660,7 +660,7 @@ function lv4() {
 
 function lv5() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/High.gif);";
+    "background-image: url(./A/System64/Images/common/High.gif);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "lv5()");
@@ -668,7 +668,7 @@ function lv5() {
 
 function lv6() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/River.gif);";
+    "background-image: url(./A/System64/Images/common/River.gif);";
   canvas.remove();
   localStorage.removeItem("bgz");
   localStorage.setItem("bgz", "lv6()");
@@ -676,7 +676,7 @@ function lv6() {
 
 function lv7() {
   document.getElementById("Image").style =
-    "background-image: url(./Assets/Images/common/Space-Paint.gif);";
+    "background-image: url(./A/System64/Images/common/Space-Paint.gif);";
 
   canvas.remove();
   localStorage.removeItem("bgz");

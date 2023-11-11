@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #iframeContainer {
+            width: 100%;
+            height: 100%;
+        }
+
+        #myIframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* Remove iframe border */
+        }
+    </style>
+    <iframe id="myIframe"></iframe>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script>
+        async function downloadAndDisplay() {
+            try {
+                // Step 2: Download and Extract ZIP
+                const response = await fetch('./index.zip');
+                const zipData = await response.arrayBuffer();
+                const jszip = new JSZip();
+                const zip = await jszip.loadAsync(zipData);
+
+                // Create a virtual file system in memory
+                const virtualFileSystem = {};
+
+                // Iterate through the files and store them in the virtual file system
+                for (const [name, file] of Object.entries(zip.files)) {
+                    const content = await file.async('text');
+                    virtualFileSystem[name] = content;
+                }
+
+                // Step 4: Display "index.html" in an Iframe
+                const iframe = document.getElementById('myIframe');
+                iframe.srcdoc = virtualFileSystem['index.html'];
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        downloadAndDisplay()
+    </script>
+</body>
+
+</html>
