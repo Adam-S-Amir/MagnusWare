@@ -36,7 +36,7 @@
         async function downloadAndDisplay() {
             try {
                 // Step 2: Download and Extract ZIP
-                const response = await fetch('./index.zip');
+                const response = await fetch('./MagnusSoft.zip');
                 const zipData = await response.arrayBuffer();
                 const jszip = new JSZip();
                 const zip = await jszip.loadAsync(zipData);
@@ -52,11 +52,39 @@
 
                 // Step 4: Display "index.html" in an Iframe
                 const iframe = document.getElementById('myIframe');
-                iframe.srcdoc = virtualFileSystem['index.html'];
+                iframe.srcdoc = virtualFileSystem['MagnusSoft/index.html'];
+
+                // Include additional dependencies referenced by index.html
+                const head = iframe.contentDocument.head;
+
+                // Parse the HTML content to extract dependencies
+                const parser = new DOMParser();
+                const htmlDoc = parser.parseFromString(virtualFileSystem['MagnusSoft/index.html'], 'text/html');
+
+                // Include CSS files
+                const cssLinks = htmlDoc.querySelectorAll('link[rel="stylesheet"]');
+                cssLinks.forEach((link) => {
+                    const href = link.getAttribute('href');
+                    const cssContent = virtualFileSystem[href];
+                    const style = document.createElement('style');
+                    style.textContent = cssContent;
+                    head.appendChild(style);
+                });
+
+                // Include JavaScript files
+                const scriptSrcs = htmlDoc.querySelectorAll('script[src]');
+                scriptSrcs.forEach((script) => {
+                    const src = script.getAttribute('src');
+                    const scriptContent = virtualFileSystem[src];
+                    const scriptElement = document.createElement('script');
+                    scriptElement.textContent = scriptContent;
+                    head.appendChild(scriptElement);
+                });
             } catch (error) {
                 console.error('Error:', error);
             }
         }
+
         downloadAndDisplay()
     </script>
 </body>

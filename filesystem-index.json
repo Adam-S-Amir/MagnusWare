@@ -3568,12 +3568,9 @@
           "menus.js": null
         }
       },
-      "pinball": {
-        "space-cadet-menus.js": null,
-        "space-cadet.html": null,
-        "SpaceCadetPinball.data": null,
-        "SpaceCadetPinball.js": null,
-        "SpaceCadetPinball.wasm": null
+      "Persistent": {
+        "index.html": null,
+        "MagnusSoft.zip": null
       },
       "pipes": {
         ".editorconfig": null,
@@ -3629,6 +3626,7 @@
         }
       },
       "winamp": {
+        "example.html": null,
         "lib": {
           "butterchurn.min.js": null,
           "butterchurnPresets.min.js": null,
@@ -3693,7 +3691,8 @@
         "ie-6.css": null,
         "MagnusWare-Layout.css": null,
         "Stylesheet.css": null,
-        "System.css": null
+        "System.css": null,
+        "ThemePacks.css": null
       },
       "Font": {
         "1968-Odyssey": {
@@ -4489,7 +4488,6 @@
       "WULOGO.GIF": null,
       "WUM.HTM": null,
       "WVBACK.GIF": null,
-      "wvleft.bmp": null,
       "wvline.gif": null,
       "WVLOGO.GIF": null
     }
