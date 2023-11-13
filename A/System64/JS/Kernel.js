@@ -96,7 +96,7 @@ let scriptUrls = [
 function loadScriptsSequentially(index) {
     if (index < scriptUrls.length) {
         let script = document.createElement("script");
-        let JSlocation = "./A/System64/js/";
+        let JSlocation = "./A/System64/J/";
         script.src = JSlocation + scriptUrls[index];
         script.onload = function () {
             loadScriptsSequentially(index + 1);
@@ -161,7 +161,7 @@ let start = [`
     <div id="tray" class="tray inset-shallow">
         <div class="tray-icons">
             <img class="tray-icon" src="./A/System64/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
-            <img class="tray-icon" src="./A/System64/Images/Icons/battery-err-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
+            <img class="tray-icon" src="./A/System64/Images/Icons/Battery-err-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
             <img class="tray-icon" src="./A/System64/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
             <div class="taskbar-time" id="time" onclick="hidecal()"></div>
         </div>
