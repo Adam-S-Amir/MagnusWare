@@ -96,7 +96,7 @@ let scriptUrls = [
 function loadScriptsSequentially(index) {
     if (index < scriptUrls.length) {
         let script = document.createElement("script");
-        let JSlocation = "./A/System64/J/";
+        let JSlocation = "./A/System64/JS/";
         script.src = JSlocation + scriptUrls[index];
         script.onload = function () {
             loadScriptsSequentially(index + 1);
