@@ -76,10 +76,10 @@ var iconWidth = 32;
 var iconHeight = 32;
 var arrowWidth = 7;
 var arrowHeight = 7;
-var arrowImageMain = ["./A/System64/Images/Common/Black.gif", "./A/System64/Images/Common/white.gif"];
+var arrowImageMain = ["./A/System64/Images/Common/Black.gif", "./A/System64/Images/Common/White.gif"];
 var arrowWidthSub = 0;
 var arrowHeightSub = 0;
-var arrowImageSub = ["./A/System64/Images/Common/black.gif", "./A/System64/Images/Common/white.gif"];
+var arrowImageSub = ["./A/System64/Images/Common/Black.gif", "./A/System64/Images/Common/White.gif"];
 
 
 //--- Separators

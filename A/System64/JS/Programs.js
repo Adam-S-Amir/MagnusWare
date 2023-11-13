@@ -2055,7 +2055,7 @@ SoundRecorder.acceptsFilePaths = true;
 function Solitaire() {
 	var $win = make_embed_window({
 		src: "./A/Program Files/js-solitaire/index.html",
-		icons: Window_icons("solitaire"),
+		icons: Window_icons("Solitaire"),
 		title: "Solitaire",
 		innerWidth: 585,
 		innerHeight: 384 + 21,
@@ -2892,7 +2892,7 @@ Create_Icon({
 });
 Create_Icon({
 	title: "Solitaire",
-	iconID: "solitaire",
+	iconID: "Solitaire",
 	open: Solitaire,
 	shortcut: false
 });
