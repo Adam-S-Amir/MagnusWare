@@ -62,7 +62,7 @@ loadCSSSequentially(0);
 
 let scriptUrls = [
     "Icons.js",
-    "index.js",
+    "Index.js",
     "Clippy/build/clippy.min.js",
     "BrowserFS.js",
     "Parse-Theme.js",
