@@ -81,7 +81,7 @@
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Traffix";
-	src: url("../font/Traffix/Traffix.ttf") format("truetype");
+	src: url("../Font/Traffix/Traffix.ttf") format("truetype");
 }
 
 
@@ -90,7 +90,7 @@
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Arcade_R";
-	src: url("../font/Arcade/ARCADE_R.TTF") format("truetype");
+	src: url("../Font/Arcade/ARCADE_R.TTF") format("truetype");
 }
 
 @font-face {
@@ -98,7 +98,7 @@
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Arcade_N";
-	src: url("../font/Arcade/ARCADE_N.TTF") format("truetype");
+	src: url("../Font/Arcade/ARCADE_N.TTF") format("truetype");
 }
 
 @font-face {
@@ -106,7 +106,7 @@
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Arcade_I";
-	src: url("../font/Arcade/ARCADE_I.TTF") format("truetype");
+	src: url("../Font/Arcade/ARCADE_I.TTF") format("truetype");
 }
 
 /* latin */
@@ -2097,7 +2097,7 @@ so I think I'll immitate that. */
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Traffix";
-	src: url("../font/Traffix/Traffix.TTF") format("truetype");
+	src: url("../Font/Traffix/Traffix.TTF") format("truetype");
 }
 
 
@@ -2106,7 +2106,7 @@ so I think I'll immitate that. */
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Arcade_R";
-	src: url("../font/Arcade/ARCADE_R.TTF") format("truetype");
+	src: url("../Font/Arcade/ARCADE_R.TTF") format("truetype");
 }
 
 @font-face {
@@ -2114,7 +2114,7 @@ so I think I'll immitate that. */
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Arcade_N";
-	src: url("../font/Arcade/ARCADE_N.TTF") format("truetype");
+	src: url("../Font/Arcade/ARCADE_N.TTF") format("truetype");
 }
 
 @font-face {
@@ -2122,7 +2122,7 @@ so I think I'll immitate that. */
 	font-weight: normal;
 	-webkit-font-smoothing: aliased;
 	font-family: "Arcade_I";
-	src: url("../font/Arcade/ARCADE_I.TTF") format("truetype");
+	src: url("../Font/Arcade/ARCADE_I.TTF") format("truetype");
 }
 
 /* latin */

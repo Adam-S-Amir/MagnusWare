@@ -63,7 +63,7 @@ loadCSSSequentially(0);
 let scriptUrls = [
     "Icons.js",
     "index.js",
-    "Clippy/Build/clippy.min.js",
+    "Clippy/build/clippy.min.js",
     "BrowserFS.js",
     "Parse-Theme.js",
     "MenuBar.js",
@@ -162,7 +162,7 @@ let start = [`
         <div class="tray-icons">
             <img class="tray-icon" src="./A/System64/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
             <img class="tray-icon" src="./A/System64/Images/Icons/Battery-err-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
-            <img class="tray-icon" src="./A/System64/Images/Common/wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
+            <img class="tray-icon" src="./A/System64/Images/Common/Wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
             <div class="taskbar-time" id="time" onclick="hidecal()"></div>
         </div>
     </div>
