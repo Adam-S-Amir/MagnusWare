@@ -1,4 +1,6 @@
 function iconsAtTwoSizes(iconID, size) {
+    iconID = iconID.toLowerCase();
+
     const iconSizes = [16, 32, 48, 64, 128, 256, 512];
 
     if (!iconSizes.includes(size)) {
@@ -884,7 +886,6 @@ function iconsAtTwoSizes(iconID, size) {
         }
     };
 
-    iconID = iconID.toLowerCase();
     if (iconPaths[iconID] && iconPaths[iconID][size]) {
         return iconPaths[iconID][size];
     } else {

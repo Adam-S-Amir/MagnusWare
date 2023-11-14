@@ -270,11 +270,11 @@ try {
 
             if (battery.charging) {
                 let batteryani = [
-                    './A/System64/Images/Icons/Battery-5.png',
-                    './A/System64/Images/Icons/Battery-4.png',
-                    './A/System64/Images/Icons/Battery-3.png',
-                    './A/System64/Images/Icons/Battery-2.png',
-                    './A/System64/Images/Icons/Battery-1.png'
+                    './A/System64/Images/Icons/battery-5.png',
+                    './A/System64/Images/Icons/battery-4.png',
+                    './A/System64/Images/Icons/battery-3.png',
+                    './A/System64/Images/Icons/battery-2.png',
+                    './A/System64/Images/Icons/battery-1.png'
                 ];
                 let curani = 0;
 
@@ -288,17 +288,17 @@ try {
             } else {
                 clearInterval(animationInterval);
                 if (level >= 100) {
-                    titleElement.src = './A/System64/Images/Icons/Battery-16x16.png';
+                    titleElement.src = './A/System64/Images/Icons/battery-16x16.png';
                 } else if (level >= 80) {
-                    titleElement.src = './A/System64/Images/Icons/Battery-1.png';
+                    titleElement.src = './A/System64/Images/Icons/battery-1.png';
                 } else if (level >= 60) {
-                    titleElement.src = './A/System64/Images/Icons/Battery-2.png';
+                    titleElement.src = './A/System64/Images/Icons/battery-2.png';
                 } else if (level >= 40) {
-                    titleElement.src = './A/System64/Images/Icons/Battery-3.png';
+                    titleElement.src = './A/System64/Images/Icons/battery-3.png';
                 } else if (level >= 20) {
-                    titleElement.src = './A/System64/Images/Icons/Battery-4.png';
+                    titleElement.src = './A/System64/Images/Icons/battery-4.png';
                 } else if (level >= 10) {
-                    titleElement.src = './A/System64/Images/Icons/Battery-5.png';
+                    titleElement.src = './A/System64/Images/Icons/battery-5.png';
                 }
             }
         });
