@@ -113,6 +113,7 @@ window.alert = (message) => {
 window.toast = window.toast || (({
 	message,
 	messageHTML,
+	sound = SystemExclamation,
 	windowOptions = {}, // for controlling width, etc.
 }) => {
 	let $window, $message, $bar, $cls;
@@ -180,6 +181,11 @@ window.toast = window.toast || (({
 
 		// Focus the window
 		$window.focus();
+		try {
+			sound.play();
+		} catch (error) {
+			console.log(`Failed to play ${sound}: `, error);
+		}
 	});
 	function move() {
 		var elem = $("#progressbar");
@@ -196,12 +202,6 @@ window.toast = window.toast || (({
 		}
 	}
 	move();
-	try {
-		SystemExclamation.play();
-	} catch (error) {
-		console.log(`Failed to play ${SystemExclamation.src}: `, error);
-	}
-
 	return promise;
 });
 

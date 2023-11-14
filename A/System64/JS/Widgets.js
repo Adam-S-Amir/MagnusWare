@@ -307,10 +307,12 @@ try {
     if (level === 20) {
         toast({
             message: 'Battery is at ' + `${bats}` + '!',
+            sound: Battery,
         });
     } else if (level === 10) {
         toast({
             message: 'Battery is at ' + `${bats}` + '!',
+            sound: Battery,
         });
     }
 
@@ -320,6 +322,7 @@ try {
             let bats = Math.round(level) + "%";
             toast({
                 message: `Battery is at ${bats}!`,
+                sound: Battery,
             })
         });
     }
@@ -331,10 +334,12 @@ try {
 } catch (error) {
     toast({
         message: error,
+        sound: Battery,
     })
     function batteryalert() {
         toast({
             message: "Can't get battery info :(",
+            sound: Battery,
         })
     }
     document.getElementById("battery").setAttribute("title", "Can't get battery info :(");
@@ -436,8 +441,8 @@ if (uid === null && BN === null) {
     BuildNumber();
     console.log('Defining UID...')
 } else {
-    console.warn("User ID [UID] is " + uid + ".");
-    console.warn("Current MagnusWare v" + MagnusWare_V + " Build Number is " + BN + ".");
+    console.warn(`User ID [UID] is \n${uid}.`);
+    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
 }
 
 function UID() {
@@ -458,7 +463,7 @@ function BuildNumber() {
         return result;
     }
     let BuildNumber = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    console.warn("Current MagnusWare v" + MagnusWare_V + " Build Number is " + BuildNumber + ".");
+    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
     localStorage.setItem('BN', BuildNumber);
 }
 
@@ -468,14 +473,14 @@ if (uname === null) {
     let username = 'User';
     localStorage.setItem('username', username);
     console.error('Username Unspecified. Loading Default Username...');
-    console.warn("Welcome to MagnusWare v" + MagnusWare_V + ", " + username);
-    window.confirm("Welcome to MagnusWare v" + MagnusWare_V + ", " + username);
+    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
+    window.confirm(`Welcome to MagnusWare v${MagnusWare_V}, ${username}`);
     setTimeout(() => {
         window.confirm("Click the start button in the bottom left corner!")
     }, "2000");
 
 } else {
-    console.warn("Welcome back, " + uname + "!");
+    console.warn(`Welcome back, ${uname}!`);
     try {
         toast({
             message: `Welcome back, ${uname}!`
