@@ -42,10 +42,12 @@ function Window_icons(iconID) {
 }
 
 function getIconPath(iconID, size) {
+    iconID = iconID.toLowerCase();
     return web_server_root_for_icons + "./A/System64/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
 }
 
 function getDeskIconPath(iconID, size) {
+    iconID = iconID.toLowerCase();
     return window.location.href.replace("index.html", "") + "A/System64/Images/Icons/" + iconID + "-" + size + "x" + size + ".png";
 }
 
