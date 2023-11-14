@@ -469,7 +469,7 @@ body>.window-titlebar {
 }
 
 .desktop-icon.shortcut .icon-wrapper:after {
-	content: var(--shortcut-icon, url("../Images/icons/shortcut-32x32.png"));
+	content: var(--shortcut-icon, url("../Images/Icons/shortcut-32x32.png"));
 	position: absolute;
 	left: 0;
 	top: 0;
