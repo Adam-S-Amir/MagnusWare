@@ -210,7 +210,8 @@ span {
     overflow: hidden;
 }
 
-#build-id {
+#build-id, #uuid {
+    font-family: "Orbitron";
     color: #07d9f9;
 }
 

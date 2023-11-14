@@ -450,7 +450,13 @@ if (uid === null && BN === null) {
 }
 
 function UID() {
-    let UiD = Math.floor(1000000000000000 + Math.random() * 9000000000000000);
+    // A UUID is typically in the format "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
+    const UiD = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+
     localStorage.setItem('uid', UiD);
 }
 

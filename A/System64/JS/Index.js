@@ -36,6 +36,7 @@ If the check in step 2 returns a falsy value (meaning "98.js.org" is not found i
 */
 
 function Window_icons(iconID) {
+    iconID = iconID.toLowerCase();
     return {
         16: `A/System64/Images/icons/${iconID}-16x16.png`,
         48: `A/System64/Images/icons/${iconID}-48x48.png`,

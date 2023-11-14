@@ -1490,6 +1490,7 @@ function about() {
           MagnusWare v${MagnusWare_V}
           <br>
           <div id="build-id"></div>
+          <div id="uuid"></div>
           (Egyptian Mau)[Xenon]
       </p>
       <br>
@@ -1520,5 +1521,6 @@ function about() {
 </div>
   `]
   document.getElementById("div1").innerHTML = about;
-  document.getElementById('build-id').innerHTML = `(${BN})`;
+  document.getElementById('build-id').innerHTML = `${BN}`;
+  document.getElementById('uuid').innerHTML = `${uid}`;
 }
