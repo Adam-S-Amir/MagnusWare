@@ -305,18 +305,12 @@ try {
     }
 
     if (level === 20) {
-        showMessageBox({
-            title: "Battery Alert",
+        toast({
             message: 'Battery is at ' + `${bats}` + '!',
-            iconID: "Battery",
-            sound: [Battery.play()],
         });
     } else if (level === 10) {
-        showMessageBox({
-            title: "Battery Alert",
+        toast({
             message: 'Battery is at ' + `${bats}` + '!',
-            iconID: "Battery",
-            sound: [CriticalBattery.play()],
         });
     }
 
@@ -327,12 +321,6 @@ try {
             toast({
                 message: `Battery is at ${bats}!`,
             })
-            showMessageBox({
-                title: "Battery Alert",
-                message: 'Battery is at ' + `${bats}` + '!',
-                iconID: "Battery",
-                sound: [Battery.play()],
-            });
         });
     }
     navigator.getBattery().then(function (battery) {
