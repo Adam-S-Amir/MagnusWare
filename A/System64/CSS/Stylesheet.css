@@ -404,7 +404,7 @@ div#storefront-right-other>button>img {
 
 #picker,
 #Wifi {
-    z-index: 2;
+    z-index: 15;
     display: none;
     position: fixed;
     bottom: 27px;
@@ -417,7 +417,7 @@ div#storefront-right-other>button>img {
 }
 
 #jukebox {
-    z-index: 2;
+    z-index: 15;
     background-color: var(--ButtonFace);
     display: none;
     position: fixed;
