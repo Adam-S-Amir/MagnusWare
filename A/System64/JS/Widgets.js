@@ -324,6 +324,9 @@ try {
         navigator.getBattery().then(function (battery) {
             level = (battery.level * 100);
             let bats = Math.round(level) + "%";
+            toast({
+                message: `Battery is at ${bats}!`,
+            })
             showMessageBox({
                 title: "Battery Alert",
                 message: 'Battery is at ' + `${bats}` + '!',
