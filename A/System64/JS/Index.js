@@ -16,22 +16,20 @@ var DESKTOP_ICON_SIZE = 48;
 var TASKBAR_ICON_SIZE = 16;
 var TITLEBAR_ICON_SIZE = 16;
 
-// For Wayback Machine, match URLs like https://web.archive.org/web/20191213113214/https://98.js.org/
-// (also match URLs like https://98.js.org/ because why not)
 const web_server_root_for_icons =
-    location.href.match(/98.js.org/) ?
-        location.href.match(/.*98.js.org/)[0] + "/" :
+    location.href.match(/magnusware.vercel.app/) ?
+        location.href.match(/.*magnusware.vercel.app/)[0] + "/" :
         `${window.location.origin}/`;
 
 /*
 const web_server_root_for_icons: This declares a constant variable named web_server_root_for_icons.
-location.href.match(/98.js.org/): This part of the code checks if the current URL (retrieved from location.href) contains the substring "98.js.org".
-The match() function is used with a regular expression (/98.js.org/) to search for this substring within the URL.
-If the previous check returns a truthy value (meaning "98.js.org" is found in the URL), the code within the ternary operator's first branch is executed:
-location.href.match(/.*98.js.org/)[0] + "/": Here, the regular expression /.*98.js.org/ is used
-to capture the entire part of the URL that matches the pattern "98.js.org" along with any characters preceding it.
+location.href.match(/magnusware.vercel.app/): This part of the code checks if the current URL (retrieved from location.href) contains the substring "magnusware.vercel.app".
+The match() function is used with a regular expression (/magnusware.vercel.app/) to search for this substring within the URL.
+If the previous check returns a truthy value (meaning "magnusware.vercel.app" is found in the URL), the code within the ternary operator's first branch is executed:
+location.href.match(/.*magnusware.vercel.app/)[0] + "/": Here, the regular expression /.*magnusware.vercel.app/ is used
+to capture the entire part of the URL that matches the pattern "magnusware.vercel.app" along with any characters preceding it.
 The [0] index extracts the first (and only) match from the result of the match() function. The code then appends a trailing "/" to this matched URL part.
-If the check in step 2 returns a falsy value (meaning "98.js.org" is not found in the URL), the code within the ternary operator's second branch is executed:
+If the check in step 2 returns a falsy value (meaning "magnusware.vercel.app" is not found in the URL), the code within the ternary operator's second branch is executed:
 "/": In this case, the root path is set to just "/", indicating the base directory of the web server.
 */
 

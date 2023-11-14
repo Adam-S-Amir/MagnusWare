@@ -59,7 +59,7 @@ var menus = {
 					show_help = parent.show_help;
 				} catch (e) { }
 				if (show_help === undefined) {
-					return alert("Help Topics only works when inside of the 98.js.org desktop.");
+					return alert("Help Topics only works when inside of the MagnusWare desktop.");
 				}
 				show_help({
 					title: "Calculator Help",

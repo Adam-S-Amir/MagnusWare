@@ -1923,8 +1923,8 @@ function enhance_embed(embed) {
       embed.contentDocument.body.appendChild(message);
       message.innerHTML = `<a target="_blank">Save this url in the Wayback Machine</a>`;
       message.querySelector("a").href =
-        "https://web.archive.org/save/https://98.js.org/" +
-        embed.src.replace(/.*https:\/\/98.js.org\/?/, "");
+        "https://web.archive.org/save/https://magnusware.vercel.app/" +
+        embed.src.replace(/.*https:\/\/magnusware.vercel.app\/?/, "");
       message.querySelector("a").style.color = "blue";
     }
 

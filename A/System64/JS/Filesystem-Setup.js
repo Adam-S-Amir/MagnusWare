@@ -4,8 +4,8 @@ var __fs_timed_out;
 var __fs_waiting_callbacks = [];
 const desktop_folder_path = "/A/desktop/";
 const web_server_root_for_browserfs =
-	location.href.match(/98.js.org/) ?
-		location.href.match(/.*98.js.org/)[0] + "/" :
+	location.href.match(/magnusware.vercel.app/) ?
+		location.href.match(/.*magnusware.vercel.app/)[0] + "/" :
 		`${window.location.origin}/`;
 
 BrowserFS.configure({
