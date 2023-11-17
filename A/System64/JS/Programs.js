@@ -382,7 +382,7 @@ function Prometheus() {
 
 function Kronos() {
 	let $win = make_embed_window({
-		src: "https://Adam-S-Amir.github.io/Emulator/index.html",
+		src: "https://Adam-S-Amir.github.io/Kronos/index.html",
 		icons: Window_icons("Emu"),
 		title: "Kronos",
 		innerWidth: 1000,
