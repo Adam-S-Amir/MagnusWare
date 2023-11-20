@@ -8,16 +8,16 @@ function cursor() {
 
     if (e.pageX > oldx && e.pageY == oldy) {
       direction = "East";
-      document.body.style.cursor = "url('./Assets/Images/common/cursor/Right.png'), auto";
+      document.body.style.cursor = "url('./A/System64/Images/Common/cursor/Right.png'), auto";
     } else if (e.pageX == oldx && e.pageY > oldy) {
       direction = "South";
-      document.body.style.cursor = "url('./Assets/Images/common/cursor/Down.png'), auto";
+      document.body.style.cursor = "url('./A/System64/Images/Common/cursor/Down.png'), auto";
     } else if (e.pageX == oldx && e.pageY < oldy) {
       direction = "North";
-      document.body.style.cursor = "url('./Assets/Images/common/cursor/Up.png'), auto";
+      document.body.style.cursor = "url('./A/System64/Images/Common/cursor/Up.png'), auto";
     } else if (e.pageX < oldx && e.pageY == oldy) {
       direction = "West";
-      document.body.style.cursor = "url('./Assets/Images/common/cursor/Left.png'), auto";
+      document.body.style.cursor = "url('./A/System64/Images/Common/cursor/Left.png'), auto";
     }
 
 
@@ -31,18 +31,18 @@ function cursor() {
 
     if (prevX !== null && prevY !== null) {
       if (currX < prevX && currY < prevY) {
-        document.body.style.cursor = "url('./Assets/Images/common/cursor/UpLeft.png'), auto";
+        document.body.style.cursor = "url('./A/System64/Images/Common/cursor/UpLeft.png'), auto";
       }
       if (currX > prevX && currY < prevY) {
-        document.body.style.cursor = "url('./Assets/Images/common/cursor/UpRight.png'), auto";
+        document.body.style.cursor = "url('./A/System64/Images/Common/cursor/UpRight.png'), auto";
       }
       if (currX > prevX && currY > prevY) {
         // Mouse moved down and to the right diagonally
-        document.body.style.cursor = "url('./Assets/Images/common/cursor/DownRight.png'), auto";
+        document.body.style.cursor = "url('./A/System64/Images/Common/cursor/DownRight.png'), auto";
       }
       if (currX < prevX && currY > prevY) {
         // Mouse moved down and to the left diagonally
-        document.body.style.cursor = "url('./Assets/Images/common/cursor/DownLeft.png'), auto";
+        document.body.style.cursor = "url('./A/System64/Images/Common/cursor/DownLeft.png'), auto";
       }
     }
 
