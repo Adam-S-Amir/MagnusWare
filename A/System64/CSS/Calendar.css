@@ -279,7 +279,7 @@ button.ui-button::-moz-focus-inner {
   position: absolute;
   left: 50%;
   margin-left: -8px;
-  top: 50%;
+  top: 40%;
   margin-top: -8px;
 }
 
