@@ -166,19 +166,6 @@
         "index.html": null,
         "menus.js": null
       },
-      "js-solitaire": {
-        ".eslintrc.js": null,
-        "index.html": null,
-        "LICENSE": null,
-        "screen-shot-win.png": null,
-        "screen-shot.png": null,
-        "src": {
-          "index.js": null,
-          "menus.js": null,
-          "solitaire.css": null,
-          "spritesheet.png": null
-        }
-      },
       "jspaint": {
         "audio": {
           "chord.wav": null
@@ -3536,8 +3523,7 @@
             "vista-esque-midnight-green.css": null,
             "winter.css": null
           }
-        },
-        "test-news-newer.html": null
+        }
       },
       "minesweeper": {
         "face.js": null,
@@ -3573,10 +3559,6 @@
         "MagnusSoft.zip": null
       },
       "pipes": {
-        ".editorconfig": null,
-        ".gitattributes": null,
-        ".prettierignore": null,
-        ".prettierrc.json": null,
         "images": {
           "meta": {
             "favicon.ico": null,
@@ -3596,10 +3578,16 @@
           "TeapotBufferGeometry.js": null,
           "three.min.js": null
         },
-        "LICENSE": null,
-        "package-lock.json": null,
-        "package.json": null,
         "screensaver.js": null
+      },
+      "Solitaire": {
+        "index.html": null,
+        "src": {
+          "index.js": null,
+          "menus.js": null,
+          "solitaire.css": null,
+          "spritesheet.png": null
+        }
       },
       "sound-recorder": {
         ".gitattributes": null,
@@ -3813,7 +3801,7 @@
           "start-menu-side-98-js.png": null,
           "start-menu-side-98.png": null,
           "start-menu-side.png": null,
-          "start.png": null,
+          "Start.png": null,
           "Sync.png": null,
           "Tray.png": null,
           "Ui-icons-256x240.png": null,

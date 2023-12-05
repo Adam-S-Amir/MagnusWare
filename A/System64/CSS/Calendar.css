@@ -254,6 +254,7 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker .ui-datepicker-header {
   position: relative;
   padding: 0.2em 0;
+  border: none;
 }
 
 .ui-datepicker .ui-datepicker-prev,
@@ -285,6 +286,7 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker .ui-datepicker-title {
   /* margin: 0 2.3em; */
   /* line-height: 1.8em; */
+  margin-right: 15px;
   text-align: center;
   color: var(--ButtonText);
 }
@@ -312,6 +314,8 @@ button.ui-button::-moz-focus-inner {
 	font-weight: bold;
 	border: 0; */
   font-size: 15px;
+  padding-left: 10px;
+  border: 2px solid var(--ButtonShadow);
 }
 
 .ui-datepicker td {
@@ -966,7 +970,7 @@ body .ui-tooltip {
 }
 
 .ui-widget-content {
-  border: 2px solid var(--ButtonShadow);
+  /* border: 2px solid var(--ButtonShadow); */
   background: var(--ButtonFace);
   color: var(--MenuText);
 }
