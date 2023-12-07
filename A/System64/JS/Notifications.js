@@ -161,7 +161,7 @@ window.toast = window.toast || (({
 		if (messageHTML) {
 			$message.innerHTML = messageHTML;
 		} else if (message) {
-			$message.textContent = message;
+			$message.innerHTML = message;
 			$message.style.whiteSpace = 'pre-wrap';
 			$message.style.wordWrap = 'break-word';
 		}

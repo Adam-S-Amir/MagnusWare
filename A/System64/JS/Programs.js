@@ -2705,7 +2705,7 @@ var file_extension_associations = {
 	cmd: Notepad,
 	conf: Notepad,
 	cpp: Notepad,
-	css: Notepad,
+	css: accessDenied,
 	d: Notepad,
 	editorconfig: Notepad,
 	filters: Notepad,
@@ -2715,15 +2715,15 @@ var file_extension_associations = {
 	h: Notepad,
 	hhc: Notepad,
 	hhk: Notepad,
-	html: Notepad,
+	html: Explorer,
 	ini: Notepad,
-	js: Notepad,
-	json: Notepad,
+	js: accessDenied,
+	json: accessDenied,
 	log: Notepad,
 	make: Notepad,
-	map: Notepad,
+	map: accessDenied,
 	marks: Notepad,
-	md: Notepad,
+	md: Explorer,
 	prettierignore: Notepad,
 	properties: Notepad,
 	rc: Notepad,
@@ -2788,12 +2788,15 @@ var file_extension_associations = {
 	pls: openWinamp,
 
 	// Misc:
-	htm: Explorer,
-	html: Explorer,
 	url: openURLFile,
 	theme: openThemeFile,
 	themepack: openThemeFile,
 };
+
+function accessDenied() {
+	window.confirm("Access Denied");
+}
+accessDenied.acceptsFilePaths = true;
 
 // Note: global systemExecuteFile called by explorer
 function systemExecuteFile(file_path) {
@@ -2804,7 +2807,7 @@ function systemExecuteFile(file_path) {
 		var fs = BrowserFS.BFSRequire("fs");
 		fs.stat(file_path, function (err, stats) {
 			if (err) {
-				return alert("Failed to get info about " + file_path + "\n\n" + err);
+				return window.confirm("Failed to get info about " + file_path + "\n\n" + err);
 			}
 			if (stats.isDirectory()) {
 				Explorer(file_path);
@@ -2813,12 +2816,12 @@ function systemExecuteFile(file_path) {
 				var program = file_extension_associations[file_extension.toLowerCase()];
 				if (program) {
 					if (!program.acceptsFilePaths) {
-						alert(program.name + " does not support opening files via the virtual filesystem yet");
+						window.confirm(program.name + " does not support opening files via the virtual filesystem yet");
 						return;
 					}
 					program(file_path);
 				} else {
-					alert("No program is associated with " + file_extension + " files");
+					window.confirm("No program is associated<br>with ." + file_extension + " files");
 				}
 			}
 		});
