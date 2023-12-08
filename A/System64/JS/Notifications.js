@@ -154,7 +154,7 @@ window.toast = window.toast || (({
 		messageHTML.style.padding = '5px';
 		messageHTML.style.wordWrap = 'break-word';
 
-		messageHTML.textContent = message;
+		messageHTML.innerHTML = message;
 
 		// Append the message container to the window
 		window.appendChild(messageHTML);

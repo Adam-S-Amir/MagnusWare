@@ -2793,8 +2793,9 @@ var file_extension_associations = {
 	themepack: openThemeFile,
 };
 
-function accessDenied() {
-	window.confirm("Access Denied");
+function accessDenied(file_path) {
+	var file_extension = file_extension_from_path(file_path);
+	window.confirm(`Access Denied.<br>Cannot Edit .${file_extension} Files.`);
 }
 accessDenied.acceptsFilePaths = true;
 
