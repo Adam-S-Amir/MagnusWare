@@ -112,102 +112,103 @@ window.alert = (message) => {
 
 window.toast = window.toast || (({
 	message,
-	messageHTML,
 	sound = SystemExclamation,
 	windowOptions = {}, // for controlling width, etc.
 }) => {
-	let $window, $message, $bar, $cls;
+	const toastQueue = document.getElementById('toast-queue') || createToastQueue();
+	const activeToasts = document.querySelectorAll('.toast-window').length;
+
+	if (activeToasts > 0) {
+		console.log(`${activeToasts} active toasts.`);
+	}
+
 	const promise = new Promise((resolve, reject) => {
 		// Create the window
-		$window = document.createElement('div');
-		$window.setAttribute('id', 'toast');
-		Object.assign($window.style, {
-			width: '250px',
-			height: '80px',
-			display: 'flex',
+		const window = document.createElement('div');
+		window.classList.add('toast-window');
+		Object.assign(window.style, {
+			"width": '250px',
+			"height": '80px',
 			"background-color": "var(--Menu)",
-			flexDirection: 'column',
-			position: 'fixed',
 			"border-color": "var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight)",
 			"border-style": "solid",
 			"border-width": "2px 2px",
-			"border-radius": "5px"
+			"border-radius": "5px",
+			"margin-bottom": "5px",
 		});
 
 		// Create the progress bar
-		$bar = document.createElement('div');
-		$bar.style.height = '18px';
-		$bar.style.width = '100%';
-		$bar.style.position = 'relative';
-		$bar.style.background = 'linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)';
-		$bar.style.borderRadius = '5px';
-		$bar.style.zIndex = '1';
-		$bar.id = 'progressbar';
-		$window.appendChild($bar);
+		const bar = document.createElement('div');
+		bar.style.height = '18px';
+		bar.style.width = '0%';
+		bar.style.background = 'linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)';
+		bar.style.borderRadius = '5px';
+		bar.id = 'progressbar';
+		window.appendChild(bar);
 
 		// Create the message container
-		$message = document.createElement('div');
-		$message.style.fontFamily = 'Orbitron';
-		$message.style.fontSize = '14px';
-		$message.style.marginTop = '22px';
-		$message.style.bottom = '10px';
-		$message.style.left = '20px';
-		$message.style.position = 'relative';
-		$message.style.minWidth = 0; // Fixes hidden overflow
-		$message.style.whiteSpace = 'normal';
-		$message.style.wordWrap = 'break-word';
+		const messageHTML = document.createElement('div');
+		messageHTML.style.fontFamily = 'Orbitron';
+		messageHTML.style.fontSize = '14px';
+		messageHTML.style.marginTop = '5px';
+		messageHTML.style.padding = '5px';
+		messageHTML.style.wordWrap = 'break-word';
 
-		// Create the message content
-		if (messageHTML) {
-			$message.innerHTML = messageHTML;
-		} else if (message) {
-			$message.innerHTML = message;
-			$message.style.whiteSpace = 'pre-wrap';
-			$message.style.wordWrap = 'break-word';
-		}
+		messageHTML.textContent = message;
 
 		// Append the message container to the window
-		$window.appendChild($message);
+		window.appendChild(messageHTML);
 
 		// Set styles for the window and content
-		Object.assign($window.style, windowOptions);
-		Object.assign($window.style, {
-			top: '1px',
-			right: '1px',
-		});
+		Object.assign(window.style, windowOptions);
 
-		// Add the window to the document
-		document.body.appendChild($window);
+		// Add the window to the queue
+		toastQueue.appendChild(window);
 
 		// Focus the window
-		$window.focus();
+		window.focus();
 		try {
 			sound.play();
 		} catch (error) {
 			console.log(`Failed to play ${sound}: `, error);
 		}
+
+		// Move progress bar
+		move(bar, resolve, window);
 	});
-	function move() {
-		var elem = $("#progressbar");
-		var width = 0;
-		var id = setInterval(frame, 15);
+
+	function move(elem, callback, window) {
+		let width = 0;
+		const id = setInterval(frame, 15);
+
 		function frame() {
-			if (width >= 99) {
+			if (width >= 100) {
 				clearInterval(id);
-				document.getElementById("toast").remove()
+				// Remove the toast after completion
+				window.remove();
+				callback();
 			} else {
 				width++;
-				elem.css('width', width + '%');
+				elem.style.width = width + '%';
 			}
 		}
 	}
-	move();
+
 	return promise;
 });
 
+function createToastQueue() {
+	const toastQueue = document.createElement('div');
+	toastQueue.id = 'toast-queue';
+	toastQueue.style.position = 'fixed';
+	toastQueue.style.top = '0';
+	toastQueue.style.right = '0';
+	toastQueue.style.zIndex = '9999';
+	document.body.appendChild(toastQueue);
+	return toastQueue;
+}
 window.confirm = (message) => {
 	toast({
 		message
 	});
 };
-
