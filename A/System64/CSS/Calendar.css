@@ -59,7 +59,15 @@
 /* Interaction Cues
 ----------------------------------*/
 .ui-state-disabled {
-  cursor: default !important;
+  border: 2px solid var(--ButtonShadow);
+  background: var(--ButtonFace);
+  font-weight: normal;
+  color: var(--MenuText);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 /* Icons
@@ -304,18 +312,29 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker table {
   /* width: 100%; */
   font-size: 0.9em;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   /* margin: 0 0 .4em; */
 }
 
+.ui-datepicker tbody {
+  border-collapse: collapse;
+}
+
 .ui-datepicker th {
-  /* padding: .7em .3em;
-	text-align: center;
-	font-weight: bold;
-	border: 0; */
+  /*padding: .7em .3em;
+  text-align: center;
+  font-weight: bold;
+  border: 0;
+  */
   font-size: 15px;
   padding-left: 10px;
+  /* color: var(--ButtonText); */
   border: 2px solid var(--ButtonShadow);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .ui-datepicker td {
@@ -999,6 +1018,11 @@ body .ui-tooltip {
   background: var(--ButtonFace);
   font-weight: normal;
   color: var(--MenuText);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .ui-state-default a,
@@ -1050,9 +1074,14 @@ body .ui-tooltip {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-  border: 2px solid var(--MenuHilight);
+  border: 2px solid var(--ButtonText);
   background: var(--MenuHilight);
   color: var(--ButtonText);
+  border-radius: 1vmax;
+  -webkit-border-radius: 1vmax;
+  -moz-border-radius: 1vmax;
+  -ms-border-radius: 1vmax;
+  -o-border-radius: 1vmax;
 }
 
 .ui-state-highlight a,
@@ -1090,25 +1119,25 @@ body .ui-tooltip {
 .ui-priority-secondary,
 .ui-widget-content .ui-priority-secondary,
 .ui-widget-header .ui-priority-secondary {
-  opacity: 0.7;
+  color: var(--ButtonShadow);
+  /* opacity: 0.7;
   filter: Alpha(Opacity=70);
-  /* support: IE8 */
-  font-weight: normal;
+  /* support: IE8
+  font-weight: normal; */
 }
 
-.ui-state-disabled,
-.ui-widget-content .ui-state-disabled,
+/* .ui-widget-content .ui-state-disabled,
 .ui-widget-header .ui-state-disabled {
   opacity: 0.35;
   filter: Alpha(Opacity=35);
-  /* support: IE8 */
+  /* support: IE8
   background-image: none;
-}
+} */
 
-.ui-state-disabled .ui-icon {
+/* .ui-state-disabled .ui-icon {
   filter: Alpha(Opacity=35);
-  /* support: IE8 - See #6059 */
-}
+  /* support: IE8 - See #6059;
+} */
 
 /* Icons
 ----------------------------------*/
