@@ -65,3 +65,4 @@ function UpdateTime() {
 
 UpdateTime();
 setInterval(UpdateTime, 1000);
+//# sourceURL=MagnusWare

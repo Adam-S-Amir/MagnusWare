@@ -99,3 +99,5 @@ $("html").on("drop", function (event) {
 $(window).on("scroll focusin", () => {
 	window.scrollTo(0, 0);
 });
+
+//# sourceURL=MagnusWare

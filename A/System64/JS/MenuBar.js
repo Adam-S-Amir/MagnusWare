@@ -989,3 +989,5 @@ exports.MenuBar = MenuBar;
 exports.MENU_DIVIDER = MENU_DIVIDER;
 
 })(window);
+
+//# sourceURL=MagnusWare

@@ -945,3 +945,5 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		});
 	});
 }
+
+//# sourceURL=MagnusWare

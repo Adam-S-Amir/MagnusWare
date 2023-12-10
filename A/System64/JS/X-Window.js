@@ -1976,3 +1976,4 @@ function enhance_embed(embed) {
     "overflow-x": "hidden" // overrides user agent styling
   });
 }
+//# sourceURL=MagnusWare

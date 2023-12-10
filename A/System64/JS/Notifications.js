@@ -212,3 +212,5 @@ window.confirm = (message) => {
 		message
 	});
 };
+
+//# sourceURL=MagnusWare

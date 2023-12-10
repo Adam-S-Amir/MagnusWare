@@ -195,3 +195,5 @@ class VisualizerOverlay {
 		});
 	}
 }
+
+//# sourceURL=MagnusWare

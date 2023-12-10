@@ -42,7 +42,7 @@ function loadCSSSequentially(index) {
         let CSS = document.createElement("link");
         let CSSlocation = "./A/System64/CSS/";
         CSS.rel = "stylesheet";
-        CSS.href = CSSlocation + CSSLinks[index];
+        CSS.href = CSSlocation + CSSLinks[index] + "?v=" + new Date().getTime();
         CSS.onload = function () {
             loadCSSSequentially(index + 1);
         };
@@ -97,7 +97,7 @@ function loadScriptsSequentially(index) {
     if (index < scriptUrls.length) {
         let script = document.createElement("script");
         let JSlocation = "./A/System64/JS/";
-        script.src = JSlocation + scriptUrls[index];
+        script.src = JSlocation + scriptUrls[index] + "?v=" + new Date().getTime();
         script.onload = function () {
             loadScriptsSequentially(index + 1);
         };
@@ -113,8 +113,8 @@ function loadScriptsSequentially(index) {
         console.groupEnd();
         console.groupEnd();
         let x = document.getElementById("splash-screen");
-        x.style.opacity = 0
-        x.style.transition = "opacity 1s ease-out"
+        x.style.opacity = 0;
+        x.style.transition = "opacity 1s ease-out";
         setTimeout(function () {
             x.remove();
         }, 1500);
@@ -271,3 +271,5 @@ hideAllWindow.addEventListener("mouseout", function () {
         });
     }
 });
+
+//# sourceURL=MagnusWare

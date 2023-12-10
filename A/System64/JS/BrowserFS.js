@@ -24754,3 +24754,4 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=Browserfs.js.map
+//# sourceURL=MagnusWare

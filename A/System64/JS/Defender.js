@@ -72,3 +72,5 @@ const rebooting = function () {
     }, 900);
     intervalId;
 };
+
+//# sourceURL=MagnusWare

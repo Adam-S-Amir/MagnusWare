@@ -148,3 +148,5 @@ function FolderViewItem(options) {
 		$input[0].select();
 	};
 }
+
+//# sourceURL=MagnusWare

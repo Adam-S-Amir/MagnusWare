@@ -892,3 +892,4 @@ function iconsAtTwoSizes(iconID, size) {
         console.error(iconID + " " + size + " not found.");
     }
 }
+//# sourceURL=MagnusWare

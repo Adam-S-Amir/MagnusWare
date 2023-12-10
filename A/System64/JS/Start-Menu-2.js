@@ -286,3 +286,4 @@ function dddi(dq, ddq) {
         dcI(dq, ddq, "APPLET");
     }
 }
+//# sourceURL=MagnusWare

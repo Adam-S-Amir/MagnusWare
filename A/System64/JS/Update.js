@@ -35,7 +35,7 @@ function checkUpdate2() {
   } else {
     let UpdateObj = JSON.parse(UpdateData);
     if (!UpdateObj.hasOwnProperty("1")) {
-      changers.innerHTML = "System is Up to Date!";
+      window.confirm("System Is Up To Date!");
     }
   }
 }
@@ -69,7 +69,7 @@ function Accept() {
 function Decline() {
   let changers = document.getElementById("update-rs");
   let upbutton = document.getElementById("update-buttons");
-  changers.innerHTML = "Update Will Not Be Installed!";
+  window.confirm("Update Will Not Be Installed!");
   while (upbutton.firstChild) {
     upbutton.removeChild(upbutton.firstChild);
   }
@@ -107,3 +107,5 @@ function Update() {
 }
 
 checkUpdate();
+
+//# sourceURL=MagnusWare

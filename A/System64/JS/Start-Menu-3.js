@@ -226,3 +226,4 @@ function dm_ext_keystrokes(e, win) {
     }
     return false;
 }
+//# sourceURL=MagnusWare

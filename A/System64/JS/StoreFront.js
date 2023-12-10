@@ -193,3 +193,4 @@ function install_WadCMD() {
         ],
     })
 }
+//# sourceURL=MagnusWare

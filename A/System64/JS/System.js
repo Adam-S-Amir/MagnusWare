@@ -2666,3 +2666,4 @@ const reinstall = function () {
     });
     system42.trigger('boot');
 }
+//# sourceURL=MagnusWare

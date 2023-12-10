@@ -495,3 +495,4 @@ if (uname === null) {
 document.title = `MagnusWare | v${MagnusWare_V} ${BN}`
 
 //* End User
+//# sourceURL=MagnusWare

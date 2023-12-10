@@ -198,3 +198,5 @@ $(window).on("pointerup dragend blur", function (e) {
 	$("body").removeClass("drag");
 	$("embed").css("pointer-events", "");
 });
+
+//# sourceURL=MagnusWare

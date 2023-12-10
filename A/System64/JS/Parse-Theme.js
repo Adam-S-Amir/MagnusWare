@@ -315,3 +315,5 @@ function makeBlackToInsetFilter() {
 	const $svg = $(svg_xml);
 	$svg.appendTo("body");
 }
+
+//# sourceURL=MagnusWare

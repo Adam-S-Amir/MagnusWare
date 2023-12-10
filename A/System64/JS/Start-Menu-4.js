@@ -346,3 +346,4 @@ var menuItems = [
     ["About", "javascript:About();", `${iconsAtTwoSizes("About", size)}`, "", "", "", "", "", "", "",],
 ];
 dm_init();
+//# sourceURL=MagnusWare

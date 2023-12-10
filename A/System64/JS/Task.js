@@ -69,3 +69,5 @@ function Task(win) {
 		win.focus();
 	}
 }
+
+//# sourceURL=MagnusWare

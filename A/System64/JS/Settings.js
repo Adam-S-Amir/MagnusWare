@@ -1524,3 +1524,4 @@ function about() {
   document.getElementById('build-id').innerHTML = `${BN}`;
   document.getElementById('uuid').innerHTML = `${uid}`;
 }
+//# sourceURL=MagnusWare

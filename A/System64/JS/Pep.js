@@ -1328,3 +1328,4 @@
   return pointerevents;
 
 }));
+//# sourceURL=MagnusWare

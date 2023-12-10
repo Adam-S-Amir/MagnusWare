@@ -55,3 +55,4 @@ function cursor() {
   localStorage.removeItem("cur");
   localStorage.setItem("cur", "cursor()");
 }
+//# sourceURL=MagnusWare

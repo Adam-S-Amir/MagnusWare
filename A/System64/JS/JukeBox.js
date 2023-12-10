@@ -90,3 +90,5 @@ window.music = (function () {
         play,
     };
 })();
+
+//# sourceURL=MagnusWare

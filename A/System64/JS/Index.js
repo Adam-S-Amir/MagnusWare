@@ -99,3 +99,4 @@ const windowInterfaceMethods = [
     "onBlur",
     "onClosed",
 ];
+//# sourceURL=MagnusWare

@@ -1013,3 +1013,4 @@ clippy.Queue.prototype = {
     }
 };
 
+//# sourceURL=MagnusWare

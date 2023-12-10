@@ -1623,3 +1623,5 @@ exports.$Window = $Window;
 exports.$FormWindow = $FormWindow;
 
 })(window);
+
+//# sourceURL=MagnusWare

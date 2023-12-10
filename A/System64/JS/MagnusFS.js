@@ -51,3 +51,4 @@ eval(localStorage.getItem("cur"));
 eval(localStorage.getItem("fx"));
 eval(localStorage.getItem("clippy"));
 eval(localStorage.getItem("WadCMD"));
+//# sourceURL=MagnusWare
