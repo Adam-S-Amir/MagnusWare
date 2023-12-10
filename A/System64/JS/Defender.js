@@ -63,10 +63,12 @@ const rebooting = function () {
             clearInterval(intervalId);
             toast({
                 message: `Rebooting...`,
+                sound: Mute,
             });
         } else {
             toast({
                 message: `Rebooting in...${count}`,
+                sound: DeviceFail,
             });
         }
     }, 900);

@@ -3,11 +3,14 @@ let Asterisk = new Audio(SoundLocation + "System Asterisk.wav");
 let Notification = new Audio(SoundLocation + "System Exclamation.wav");
 let Battery = new Audio(SoundLocation + "Low Battery Alarm.wav");
 let CriticalBattery = new Audio(SoundLocation + "Critical Battery Alarm.wav");
+let DeviceFail = new Audio(SoundLocation + "Device Fail.wav");
 let SystemNotification = new Audio(SoundLocation + "System Notification.wav");
 let SystemExclamation = new Audio(SoundLocation + "System Exclamation.wav");
 let SystemHand = new Audio(SoundLocation + "System Hand.wav");
 let SecurityBand = new Audio(SoundLocation + "Security Band.wav");
+let LogOn = new Audio(SoundLocation + "Windows Logon.wav");
 let LogOff = new Audio(SoundLocation + "Windows Logoff.wav");
+let Mute = new Audio().pause();
 
 defaultMessageBoxTitle = "MagnusWare";
 window.showMessageBox = window.showMessageBox || (({
@@ -112,7 +115,7 @@ window.alert = (message) => {
 
 window.toast = window.toast || (({
 	message,
-	sound = SystemExclamation,
+	sound = SystemHand,
 	windowOptions = {}, // for controlling width, etc.
 }) => {
 	const toastQueue = document.getElementById('toast-queue') || createToastQueue();

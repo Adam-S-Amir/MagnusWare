@@ -10,10 +10,6 @@ function checkUpdate() {
     if (!UpdateObj.hasOwnProperty("1")) {
       console.warn("System Is Up To Date!");
     }
-  } else {
-    toast({
-      message: `Welcome to\nMagnusWare v${MagnusWare_V}`
-    })
   }
 }
 

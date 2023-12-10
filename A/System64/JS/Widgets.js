@@ -469,27 +469,32 @@ function BuildNumber() {
 
 let uname = localStorage.getItem('username');
 
-if (uname === null) {
-    let username = 'User';
-    localStorage.setItem('username', username);
-    console.error('Username Unspecified. Loading Default Username...');
-    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
-    window.confirm(`Welcome to MagnusWare v${MagnusWare_V}, ${username}`);
-    setTimeout(() => {
-        window.confirm("Click the start button in the bottom left corner!")
-    }, "2000");
-
-} else {
-    console.warn(`Welcome back, ${uname}!`);
+if (localStorage.getItem(uname)) {
     try {
         toast({
-            message: `Welcome back, ${uname}!`
+            message: `Welcome back, ${uname}!`,
+            sound: LogOn
         })
     } catch (error) {
         toast({
             message: "You haven't interacted yet!"
         })
     }
+} else {
+    let username = 'User';
+    localStorage.setItem('username', username);
+    console.error('Username Unspecified. Loading Default Username...');
+    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
+    toast({
+        message: `Welcome to MagnusWare v${MagnusWare_V}, ${username}`,
+        sound: LogOn
+    });
+    setTimeout(() => {
+        toast({
+            message: "Click the start button in the bottom left corner!",
+            sound: Asterisk,
+        })
+    }, "5000");
 }
 
 document.title = `MagnusWare | v${MagnusWare_V} ${BN}`
