@@ -5,6 +5,7 @@ function hidemenu() {
 }
 
 function About() {
+	// document.getElementById("x-window").remove();
 	let $win = new $EmbedWindow2({
 		src: null,
 		icons: Window_icons("About"),
@@ -14,7 +15,7 @@ function About() {
 	});
 	about();
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "About");
 }
 
 function Chat() {
@@ -2139,7 +2140,7 @@ function Settings() {
 	});
 	Settingz();
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Settings");
 }
 
 function Store() {
@@ -2152,7 +2153,7 @@ function Store() {
 	});
 	StoreFront();
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Store");
 }
 
 function tmr() {

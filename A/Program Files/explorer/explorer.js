@@ -194,7 +194,7 @@ var go_to = async function (address, action_name = "go") {
 			allow: "camera https://brie.fi;microphone https://brie.fi",
 		}).appendTo("#content");
 
-		enhance_iframe($iframe[0]);
+		enhance_embed($iframe[0]);
 
 		// If only we could access the contentDocument cross-origin
 		// For https://archive.is/szqQ5

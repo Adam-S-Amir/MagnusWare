@@ -1,10 +1,10 @@
 Task.all_tasks = [];
-function Task(win) {
+function Task(win, id) {
 	Task.all_tasks.push(this);
 
 	this.$window = win;
 	
-	const $task = this.$task = $("<button class='task toggle'/>").appendTo($(".tasks"));
+	const $task = this.$task = $(`<button class='task toggle' id="${id}"/>`).appendTo($(".tasks"));
 	const $title = $("<span class='title'/>");
 
 	this.updateTitle = () => {

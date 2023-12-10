@@ -6,7 +6,8 @@ function $Window2(options) {
     var $w = $(E("div")).addClass("window os-window").appendTo("body");
     $w[0].$window = $w;
     $w.element = $w[0];
-    $w[0].id = `os-window-${Math.random().toString(36).substr(2, 9)}`;
+    $w[0].id = `x-window`;
+    // x-window-${Math.random().toString(36).substr(2, 9)}
     $w.$titlebar = $(E("div")).addClass("window-titlebar").appendTo($w);
     $w.$title_area = $(E("div")).addClass("window-title-area").appendTo($w.$titlebar);
     $w.$title = $(E("span")).addClass("window-title").appendTo($w.$title_area);
@@ -1815,7 +1816,7 @@ function $EmbedWindow2(options) {
     options.resizable ??= false;
     var $win = new $Window2(options);
 
-    var $embed = ($win.$embed = $("<div id='div1'>").attr({
+    var $embed = ($win.$embed = $(`<div id='div1'>`).attr({
         src: options.src
     }));
     enhance_embed($embed[0]);
@@ -1976,4 +1977,4 @@ function enhance_embed(embed) {
     "overflow-x": "hidden" // overrides user agent styling
   });
 }
-//# sourceURL=MagnusWare
+//# sourceURL=VM
