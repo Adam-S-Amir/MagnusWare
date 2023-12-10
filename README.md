@@ -21,3 +21,8 @@ Yes...and no. My primary inspiration for creating MagnusWare was [Windows96.net]
 - [Vercel App Overview](https://vercel.com/adam-s-amirs-projects/magnusware)
 - [Live Preview](https://magnusware.vercel.app/index.html)
 - [MagnusWare Stable Release](https://adamtrex.azurewebsites.net/index.html)
+
+## TODO
+
+Task mgr
+Win id constructor

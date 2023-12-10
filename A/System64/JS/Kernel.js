@@ -154,7 +154,7 @@ vInfo.addEventListener("mouseout", function () {
 vInfo.title = 'Click to hide';
 
 let start = [`
-    <div class="start-button toggle" title="Click here to begin.">
+    <div class="start-button toggle" title="Start">
         <img id="start-img" src="./A/System64/Images/Common/Start.png">
     </div>
     <div class="tasks"></div>
