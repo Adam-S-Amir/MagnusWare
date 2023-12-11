@@ -1,4 +1,4 @@
-function $Window2(options) {
+function $Window2(options, id) {
     options = options || {};
     // @TODO: handle all option defaults here
     // and validate options.
@@ -6,8 +6,7 @@ function $Window2(options) {
     var $w = $(E("div")).addClass("window os-window").appendTo("body");
     $w[0].$window = $w;
     $w.element = $w[0];
-    $w[0].id = `x-window`;
-    // x-window-${Math.random().toString(36).substr(2, 9)}
+    $w[0].id = id || `x-window-${Math.random().toString(36).substr(2, 9)}`;
     $w.$titlebar = $(E("div")).addClass("window-titlebar").appendTo($w);
     $w.$title_area = $(E("div")).addClass("window-title-area").appendTo($w.$titlebar);
     $w.$title = $(E("span")).addClass("window-title").appendTo($w.$title_area);
@@ -1812,9 +1811,9 @@ function $embed2(options) {
     return $embed2;
 }
 
-function $EmbedWindow2(options) {
+function $EmbedWindow2(options, id) {
     options.resizable ??= false;
-    var $win = new $Window2(options);
+    var $win = new $Window2(options, id);
 
     var $embed = ($win.$embed = $(`<div id='div1'>`).attr({
         src: options.src

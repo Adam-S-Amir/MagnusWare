@@ -150,10 +150,10 @@ function proxy_keyboard_events(embed) {
 	}
 }
 
-function make_embed_window(options) {
+function make_embed_window(options, id) {
 
 	options.resizable ??= true;
-	var $win = new $Window(options);
+	var $win = new $Window(options, id);
 
 	var $embed = $win.$embed = $("<embed>").attr({ src: options.src });
 	enhance_embed($embed[0]);

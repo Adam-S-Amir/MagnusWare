@@ -5,17 +5,29 @@ function hidemenu() {
 }
 
 function About() {
-	// document.getElementById("x-window").remove();
 	let $win = new $EmbedWindow2({
 		src: null,
 		icons: Window_icons("About"),
 		title: "About",
 		innerWidth: 420,
 		innerHeight: 400
-	});
+	}, "About.MXW");
 	about();
 	hidemenu();
-	return new Task($win, "About");
+	return new Task($win, "About.MX7");
+}
+
+function TaskMngr() {
+	let $win = new $EmbedWindow2({
+		src: null,
+		icons: Window_icons("About"),
+		title: "Task Manager",
+		innerWidth: 420,
+		innerHeight: 400
+	}, "Task.MXW");
+	TaskMgr();
+	hidemenu();
+	return new Task($win, "Task.MX7");
 }
 
 function Chat() {
@@ -2261,8 +2273,8 @@ function Calculator() {
 		innerHeight: 208 + 21,
 		minInnerWidth: 256,
 		minInnerHeight: 208 + 21,
-	});
-	return new Task($win);
+	}, "Calculator.MXW");
+	return new Task($win, "Calculator.MX7");
 }
 
 function Pinball() {
@@ -2290,6 +2302,7 @@ function Explorer(address) {
 		innerWidth: Math.min(856, innerWidth * 0.9),
 		innerHeight: Math.min(547, innerHeight * 0.7),
 	});
+	hidemenu();
 	return new Task($win);
 }
 Explorer.acceptsFilePaths = true;

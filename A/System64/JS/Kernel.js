@@ -80,6 +80,7 @@ let scriptUrls = [
     "Window-Switcher.js",
     "Visualizer-Overlay.js",
     "Programs.js",
+    "TaskManager.js",
     "Search.js",
     "Cursor.js",
     "Time.js",

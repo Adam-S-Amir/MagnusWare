@@ -1479,7 +1479,6 @@ function fxinvertlights() {
 
 function about() {
   let about = [`
-  
   <div class="about">
   <div class="about-header">
       <img class="About-Icon" src="./A/System64/Images/Common/Start.png">

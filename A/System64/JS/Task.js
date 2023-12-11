@@ -3,7 +3,7 @@ function Task(win, id) {
 	Task.all_tasks.push(this);
 
 	this.$window = win;
-	
+
 	const $task = this.$task = $(`<button class='task toggle' id="${id}"/>`).appendTo($(".tasks"));
 	const $title = $("<span class='title'/>");
 
