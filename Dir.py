@@ -19,5 +19,5 @@ dir_structure = generate_dir_structure(current_directory)
 json_structure = json.dumps(dir_structure, indent=2)
 print(json_structure)
 
-with open("filesystem-index.json", "w") as f:
+with open("filesystem.json", "w") as f:
     f.write(json_structure)

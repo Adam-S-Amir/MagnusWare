@@ -20,7 +20,7 @@ BrowserFS.configure({
 		readable: {
 			fs: "XmlHttpRequest",
 			options: {
-				index: web_server_root_for_browserfs + "filesystem-index.json",
+				index: web_server_root_for_browserfs + "filesystem.json",
 				action: function() {
 					console.log('JSON file loaded successfully.');
 					// You can perform further actions here after the JSON file is loaded.

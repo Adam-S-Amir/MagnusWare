@@ -25,4 +25,4 @@ Yes...and no. My primary inspiration for creating MagnusWare was [Windows96.net]
 ## TODO
 
 Task mgr
-Win id constructor
+Explorer, copy/paste/print
