@@ -92,6 +92,7 @@ let scriptUrls = [
     "System.js",
     "Defender.js",
     "JukeBox.js",
+    "Device.js",
 ];
 
 function loadScriptsSequentially(index) {
