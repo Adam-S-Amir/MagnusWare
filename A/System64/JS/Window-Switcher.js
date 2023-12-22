@@ -173,7 +173,7 @@
 				clippy.load("Clippy", function (loaded_agent) {
 					agent = loaded_agent;
 					agent.show();
-					const message = "It looks like you're trying to switch windows.\n\nUse Alt+` (grave accent) instead of Alt+Tab within the 98.js desktop.\n\nAlso, use Alt+4 instead of Alt+F4 to close windows.";
+					const message = "It looks like you're trying to switch windows.\n\nUse Alt+` (grave accent) instead of Alt+Tab within MagnusWare.\n\nAlso, use Alt+4 instead of Alt+F4 to close windows.";
 					agent.speak(message, true);
 					// held message causes double click to not animate Clippy, for some reason (even after message is cleared)
 					$(agent._el).one("dblclick", function () {

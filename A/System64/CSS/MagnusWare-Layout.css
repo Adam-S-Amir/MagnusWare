@@ -2,11 +2,16 @@
 	--tray: url("../Images/Common/Tray.png");
 
 	--checker: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAABtJREFUGFdjPHjm5v9DZ28wMDbP3PjfzliDAQBkbgk09F7oYQAAAABJRU5ErkJggg==);
-	--button-active-border-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
-	--button-normal-border-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
-	--inset-deep-border-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
-	--button-default-border-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h96v32h-64v64h-32v-96z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M160%2064h32v128h-128v-32h96v-96z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M96%2096h64v64h-64v-64z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 96 / 3px;
-	--button-default-active-border-image: url(data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--button-active-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--button-normal-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--inset-deep-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--button-default-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h96v32h-64v64h-32v-96z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M160%2064h32v128h-128v-32h96v-96z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M96%2096h64v64h-64v-64z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 96 / 3px;
+	--button-default-active-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
 	--scrollbar-arrows-ButtonText: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAFtJREFUOE9jZBhkgHGQuYeBVg76z8BAtNkoapEdBJJAB7gcTMhCmFmEPIyhDl0DsqPwOQbmcKqrwWYgPt8TG4pUCyFqpXFCUYpsD840RC3HUGQOoURHkeHkaAYAaF4QCuqIjIcAAAAASUVORK5CYII=);
 	--scrollbar-arrows-GrayText: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg7yT639v3F2M1Fmo6uFawJJoIcWLkMJWQgzi5CjsKlD8QWyo/A5BuZwWqjBCFZ8vic2FKkWQtRK4ISiFNkenGmIWo6h1ByicgKllpCiHwCi9kAK+UQY+QAAAABJRU5ErkJggg==);
 	--scrollbar-arrows-ButtonHilight: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg46eObmf3sTdaLMRlcL1wSSQA8tXIYSshBmFiFHYVOH4gtkR+FzDMzhtFCDEaz4fE9sKFIthKiVwAlFKbI9ONMQtRxDqTlE5QRKLSFFPwBQ1UAKPuXIywAAAABJRU5ErkJggg==);
@@ -45,22 +50,23 @@
 	--InfoWindow: rgb(193 204 217);
 }
 
-/* latin-ext */
 @font-face {
-	font-family: 'Audiowide';
+	font-family: "Audiowide";
 	font-style: normal;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format('woff2');
-	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format("woff2");
+	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+		U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Audiowide';
+	font-family: "Audiowide";
 	font-style: normal;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdlg_O.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdlg_O.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -73,7 +79,6 @@
 	font-weight: normal;
 	font-style: normal;
 	-webkit-font-smoothing: aliased;
-	font-smooth: never;
 }
 
 @font-face {
@@ -83,7 +88,6 @@
 	font-family: "Traffix";
 	src: url("../Font/Traffix/Traffix.ttf") format("truetype");
 }
-
 
 @font-face {
 	font-size: small;
@@ -109,64 +113,70 @@
 	src: url("../Font/Arcade/ARCADE_I.TTF") format("truetype");
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 600;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 800;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 900;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 .menus,
@@ -183,22 +193,13 @@
 
 .os-window {
 	contain: layout;
-	/* contain: paint; seems to clip children to the padding-box, including for interaction, not just painting; it breaks being able to grab resize handles over the border */
-	/* overflow: hidden; is also not usable for the same reason */
-	/* I might be able to do either with overflow-clip-margin however (@TODO) */
 	display: flex;
 	flex-direction: column;
-	/* will-change: width height left top; */
 }
 
 .window-content {
 	flex: 1;
 	min-height: 0px;
-	/* Text overflowing the window frame is really ugly!
-	overflow: hidden; would make it harder to enable scrollbars (overflow: auto !important)
-	We want to allow scrollbars to be enabled easily (but not enable them),
-	and we want to clip to the border of the window, without contents overlapping the border at all. */
-	/* @FIXME: this breaks menu bar popup menus! (they get cut off, except for second level ones which are not descendents of the window; another reason to reimplement the menus!) */
 	contain: layout paint;
 }
 
@@ -224,10 +225,8 @@ body>.window-titlebar {
 .os-window.maximized .handle,
 .os-window.minimized-without-taskbar .handle {
 	display: none;
-	/* prevent resizing when window is minimized */
 }
 
-/* Fix dragging things (like windows) over iframes */
 .dragging iframe {
 	pointer-events: none;
 }
@@ -269,14 +268,6 @@ body>.window-titlebar {
 .menu-item-submenu-area {
 	text-align: center;
 }
-
-/* .window-content .button-group {
-	width: 85px;
-}
-.window-content .button-group > button {
-	width: 95%;
-	padding: 3px 5px;
-} */
 
 ::before,
 ::after {
@@ -336,15 +327,10 @@ body>.window-titlebar {
 	content: "";
 }
 
-.the-thing-heading {
-	/* font-size: 1em; */
-}
+.the-thing-heading {}
 
 .windows-cant-do-it-you-can {
 	margin-top: 2em;
-	/* background: white;
-	padding: 5px;
-	border: inset 1px; */
 }
 
 .task.selected {
@@ -429,18 +415,14 @@ body>.window-titlebar {
 
 .folder-view .desktop-icon.renaming .title {
 	border: 1px solid var(--ButtonText);
-	/* @TODO: is this the right theme color? */
 }
 
 .desktop-icon .title input {
 	font: inherit;
 	outline: none;
 	border: none;
-	/* using border of the .title */
 	height: 17px;
-	/* @TODO: auto-size */
 	line-height: 13px;
-	/* 17px-4px so the selection highlight doesn't abut the border (height is also important) */
 	box-sizing: border-box;
 	background: var(--Window);
 	color: var(--WindowText);
@@ -490,16 +472,15 @@ body>.window-titlebar {
 }
 
 .help-window .item {
-	font-family: 'Segoe UI', sans-serif;
+	font-family: "Segoe UI", sans-serif;
 	font-size: 12px;
 	padding: 0 2px;
 	position: relative;
-	/* for ::after */
 }
 
 .help-window .item:hover {
 	text-decoration: underline;
-	color: #0000FF;
+	color: #0000ff;
 	cursor: pointer;
 }
 
@@ -510,28 +491,14 @@ body>.window-titlebar {
 .help-window:not(.focused) .item.selected {
 	background-color: var(--ButtonFace);
 	color: var(--ButtonText);
-	/* ?? */
 }
 
 .help-window.focused .item.selected {
 	background-color: var(--Hilight);
 	color: var(--HilightText);
-	/* @TODO: separate focus state of the item */
 	outline: 1px dotted black;
 	outline-offset: -1px;
 }
-
-/* @TODO: separate focus state of the item; while mouse down, the main highlight does not move with the arrow keys but this does, among other differences */
-/* .help-window.focused .item.selected::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	border: 1px dotted white;
-	mix-blend-mode: difference;
-} */
 
 .window-switcher {
 	position: absolute;
@@ -543,6 +510,7 @@ body>.window-titlebar {
 	align-items: center;
 	width: 350px;
 	z-index: 1000;
+	-webkit-user-select: none;
 	user-select: none;
 }
 
@@ -586,11 +554,9 @@ body>.window-titlebar {
 	align-self: stretch;
 	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
 	font-size: 10pt;
-	/* not sure about the font-size/line-height */
 	line-height: 16px;
 	font-weight: bold;
 	height: 24px;
-	/* should be 25px, but the border is getting screwed up if this isn't an even number */
 	box-sizing: border-box;
 	padding: 2px;
 	margin: 8px 12px;
@@ -599,13 +565,7 @@ body>.window-titlebar {
 	text-overflow: ellipsis;
 }
 
-/* * {
-	image-rendering: crisp-edges;
-	image-rendering: pixelated;
-} */
-
 .menu-hotkey {
-	/* TODO: remove once this is in os-gui */
 	text-decoration-skip: none;
 	text-decoration-skip-ink: none;
 }
@@ -655,7 +615,7 @@ body {
 
 .start-menu-content,
 .start-menu-content * {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-weight: bolder;
 	font-size: 12px;
 }
@@ -690,10 +650,6 @@ body {
 	right: 0px;
 	height: 27px;
 	display: flex;
-	/*width: 50%;
-	min-width: 50%;
-	margin-left: 25%;
-	*/
 	text-align: -webkit-center;
 	z-index: 1;
 	background-color: var(--Menu);
@@ -703,11 +659,9 @@ body {
 	-o-border-radius: 1vmin;
 }
 
-/* .taskbar-button is generally .task or .start-button for now */
 .taskbar,
 .tray {
-	/* background: var(--tray); */
-	background-color: var(--ButtonFace)
+	background-color: var(--ButtonFace);
 }
 
 .taskbar button,
@@ -719,7 +673,6 @@ body {
 .taskbar-divider {
 	margin-right: 0px;
 	margin-left: 0px;
-	/* TODO: maybe make that 2px rule padding on the taskbar instead and avoid resetting this */
 }
 
 .taskbar button {
@@ -746,11 +699,6 @@ body {
 	outline: none;
 }
 
-/* .taskbar .start-button {
-	flex-shrink: 0;
-	padding: 2px 4px;
-} */
-
 .tray {
 	display: flex;
 	flex-direction: row;
@@ -767,14 +715,12 @@ body {
 	display: flex;
 	align-items: center;
 	margin-left: 2px;
-	/* XXX basically 1px, but 2px because of the way the border is done */
 }
 
 .tray-icon {
 	margin-left: 1px;
 }
 
-/* TODO: offset task button contents down a px when depressed... actually most buttons */
 .tasks {
 	display: flex;
 	flex: 1;
@@ -825,11 +771,11 @@ body {
 
 .desktop-icon {
 	margin: 5px;
-	transition: all .2s ease-in-out;
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
 }
 
 .desktop-icon:hover {
@@ -843,14 +789,12 @@ body {
 .desktop-icon {
 	display: inline-block;
 	vertical-align: bottom;
-	/* with inline-block, always */
 	text-align: center;
 }
 
 .desktop-icon .icon-wrapper {
 	display: inline-block;
 	vertical-align: bottom;
-	/* with inline-block, always */
 	position: relative;
 }
 
@@ -875,13 +819,11 @@ body {
 }
 
 .desktop-icon:not(.focused) .title {
-	/* max-height: 2em would only work with line-height: 1 */
 	max-height: calc(13px * 2);
 }
 
 .desktop-icon.focused {
 	z-index: 1;
-	/* for multi-line title display */
 }
 
 .desktop-icon .title input {
@@ -889,7 +831,6 @@ body {
 	width: 100%;
 }
 
-/* Fix dragging things (like windows) over iframes */
 .drag iframe {
 	pointer-events: none;
 }
@@ -930,7 +871,6 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	/* flex centering + preventing overflow wrap means the font can be too big and it'll still stay centered */
 	font-size: 12px;
 	white-space: pre;
 	justify-content: center;
@@ -958,7 +898,6 @@ body {
 
 .help-window .toolbar button[disabled] .icon {
 	filter: saturate(0%) opacity(50%);
-	/* fallback */
 	filter: url("#disabled-inset-filter");
 }
 
@@ -967,7 +906,6 @@ body {
 	background: var(--Window);
 	color: var(--WindowText);
 	flex-basis: 300px;
-	/* normally the default is 200px, but that leaves a scrollbar and we don't have rollover viewing of longer titles (@TODO) */
 	flex-grow: 0;
 	flex-shrink: 0;
 	overflow: auto;
@@ -1044,9 +982,7 @@ body {
 	background-color: var(--ButtonFace);
 	color: rgb(0, 0, 0);
 	color: var(--ButtonText);
-	/* as fallback */
 	position: relative;
-	/* for pseudo element(s) */
 	-o-border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	-o-border-image: var(--inset-deep-border-image);
@@ -1100,7 +1036,6 @@ button {
 
 button:not(.lightweight) {
 	outline: none;
-	/* replaced with inner dotted focus ring (which is admittedly not so prominent...) */
 	border-style: solid;
 	border-width: 1px;
 	border-color: rgb(255, 255, 255) rgb(128, 128, 128) rgb(128, 128, 128) rgb(255, 255, 255);
@@ -1109,9 +1044,7 @@ button:not(.lightweight) {
 	background-color: var(--ButtonFace);
 	color: rgb(0, 0, 0);
 	color: var(--ButtonText);
-	/* as fallback */
 	position: relative;
-	/* for pseudo element(s) */
 	-o-border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	-o-border-image: var(--button-normal-border-image);
@@ -1145,17 +1078,6 @@ button:not(.lightweight).default:enabled:hover:active {
 	border-image: var(--button-default-active-border-image);
 }
 
-/* TODO: offset content on press! */
-/* (this would need a child ELEMENT, wouldn't work with text nodes as direct descendants:) */
-/*button:active > * {
-	position: relative;
-	left: 1px;
-	top: 1px;
-}
-*/
-/* also, this is more complicated; see Paint; the tool buttons translate when being pushed and when depressed, and these add together */
-/* omg, a thought... what if I used feDisplacementMap SVG filter... */
-
 button:not(.lightweight):focus::before {
 	content: "";
 	display: block;
@@ -1166,21 +1088,15 @@ button:not(.lightweight):focus::before {
 	bottom: 2px;
 	border: 1px dotted rgb(0, 0, 0);
 	border: 1px dotted var(--ButtonDkShadow);
-	/* ?? */
-	/* TODO: get exact inset dimensions, and have corners without dots ideally */
-	/* (could use outline instead of ::before at this point) */
 }
 
 button.lightweight {
 	outline: none;
-	/* these buttons are not usually keyboard accessible, or the focus it shown just by inset (menu buttons) */
-
 	border-style: solid;
 	border-width: 1px;
 	border-color: transparent;
 }
 
-/* TODO: recommend preventing focus on click for lightweight buttons */
 button.lightweight:enabled:hover {
 	border-style: solid;
 	border-width: 1px;
@@ -1222,9 +1138,7 @@ button:not(.lightweight).pressing {
 	background-color: var(--ButtonFace);
 	color: rgb(0, 0, 0);
 	color: var(--ButtonText);
-	/* as fallback */
 	position: relative;
-	/* for pseudo element(s) */
 	-o-border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	-o-border-image: var(--inset-deep-border-image);
@@ -1249,9 +1163,7 @@ button:not(.lightweight).pressed {
 	background-color: var(--ButtonFace);
 	color: rgb(0, 0, 0);
 	color: var(--ButtonText);
-	/* as fallback */
 	position: relative;
-	/* for pseudo element(s) */
 	-o-border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
 	-o-border-image: var(--inset-deep-border-image);
@@ -1271,24 +1183,26 @@ button:not(.lightweight).pressed {
 	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC") repeat;
 	background: var(--checker) repeat;
 	-ms-interpolation-mode: nearest-neighbor;
-	image-rendering: -moz-crisp-edges;
-	image-rendering: pixelated;
 }
 
 .os-window .window-titlebar,
 body>.window-titlebar {
-	background: linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%);
+	background: linear-gradient(to right,
+			var(--ActiveTitle) 0%,
+			var(--GradientActiveTitle) 100%);
 	color: var(--TitleText);
 }
 
 .os-window .window-titlebar,
 body>.window-titlebar {
-	font-family: 'Segoe UI', sans-serif;
+	font-family: "Segoe UI", sans-serif;
 	font-size: 12px;
 }
 
 .os-window.rtl .window-titlebar {
-	background: linear-gradient(to left, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%);
+	background: linear-gradient(to left,
+			var(--ActiveTitle) 0%,
+			var(--GradientActiveTitle) 100%);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1302,7 +1216,9 @@ body>.window-titlebar {
 }
 
 .os-window:not(.focused) .window-titlebar {
-	background: linear-gradient(to right, var(--InactiveTitle) 0%, var(--GradientInactiveTitle) 100%);
+	background: linear-gradient(to right,
+			var(--InactiveTitle) 0%,
+			var(--GradientInactiveTitle) 100%);
 	color: var(--InactiveTitleText);
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -1312,7 +1228,9 @@ body>.window-titlebar {
 }
 
 .os-window.rtl:not(.focused) .window-titlebar {
-	background: linear-gradient(to left, var(--InactiveTitle) 0%, var(--GradientInactiveTitle) 100%);
+	background: linear-gradient(to left,
+			var(--InactiveTitle) 0%,
+			var(--GradientInactiveTitle) 100%);
 }
 
 .os-window {
@@ -1351,12 +1269,9 @@ body>.window-titlebar {
 
 .window-button-icon {
 	display: block;
-	/* background-image: url("images/titlebar-buttons.png"); */
 	--sprite-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAKCAYAAADo3z3CAAAAoUlEQVRIS9VVWw7AIAib9z/0FpZgCOFRgpluf9MClhYdV++7gfDhYLxYDw+UyiHd5F8S5lr6zNa6Xpv/KwhHOahQpLB1+CwfycgYrwmE0WK8MTsIR1aOGsR+NYkkYzN5/pGwVA9xA/diq8LeHCKuQxQ+aoYt2yJWtpSNZth0edRpGVC5eGQcSg4hXLml3fdpBeHs8evWyPKX9ruXVqnYCeAHA8IyC9K2kmkAAAAASUVORK5CYII=");
 	--sprite-y: 0;
 	-ms-interpolation-mode: nearest-neighbor;
-	image-rendering: -moz-crisp-edges;
-	image-rendering: pixelated;
 	width: 12px;
 	height: 10px;
 	position: relative;
@@ -1369,9 +1284,29 @@ body>.window-titlebar {
 	left: 1px;
 }
 
-.window-button:disabled .window-button-icon {
-	/* filter: saturate(0%) opacity(50%); fallback */
-	/* filter: url("#os-gui-black-to-inset-filter"); */
+
+span.window-button-icon::before {
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+button.window-close-button.window-action-close.window-button>span.window-button-icon::before {
+	background-color: red;
+}
+
+button.window-maximize-button.window-action-maximize.window-button>span.window-button-icon::before {
+	background-color: lime;
+}
+
+button.window-maximize-button.window-button.window-action-restore>span.window-button-icon::before {
+	background-color: lime;
+}
+
+button.window-minimize-button.window-action-minimize.window-button>span.window-button-icon::before {
+	background-color: orange;
 }
 
 .window-button .window-button-icon::before,
@@ -1383,16 +1318,14 @@ body>.window-titlebar {
 	top: 0;
 	right: 0;
 	bottom: 0;
-	-webkit-mask-image: var(--sprite-image);
+	/* -webkit-mask-image: var(--sprite-image);
 	mask-image: var(--sprite-image);
 	-webkit-mask-position: var(--sprite-x) var(--sprite-y);
 	mask-position: var(--sprite-x) var(--sprite-y);
-	background-color: rgb(0, 0, 0);
-	background-color: var(--ButtonText);
+	background-color: var(--ButtonText); */
 }
 
 .window-button:disabled .window-button-icon::before {
-	background-color: rgb(255, 255, 255);
 	background-color: var(--ButtonHilight);
 	left: 1px;
 	top: 1px;
@@ -1403,12 +1336,11 @@ body>.window-titlebar {
 }
 
 .window-button:disabled .window-button-icon::after {
-	background-color: rgb(128, 128, 128);
 	background-color: var(--GrayText);
 }
 
-.window-action-close .window-button-icon {
-	--sprite-x: calc(-3 * 13px - 1px);
+/* .window-action-close .window-button-icon::before {
+	content: "X";
 }
 
 .window-action-maximize .window-button-icon {
@@ -1421,7 +1353,7 @@ body>.window-titlebar {
 
 .window-action-minimize .window-button-icon {
 	--sprite-x: calc(-0 * 13px - 1px);
-}
+} */
 
 .window-maximize-button {
 	margin-left: 2px;
@@ -1430,6 +1362,22 @@ body>.window-titlebar {
 .window-close-button {
 	margin-left: 2px;
 	margin-right: 2px;
+}
+
+div.window.os-window.focused>div.window-titlebar>button {
+	border-radius: 5vmax;
+	-webkit-border-radius: 5vmax;
+	-moz-border-radius: 5vmax;
+	-ms-border-radius: 5vmax;
+	-o-border-radius: 5vmax;
+}
+
+div.window.os-window>div.window-titlebar>button {
+	border-radius: 5vmax;
+	-webkit-border-radius: 5vmax;
+	-moz-border-radius: 5vmax;
+	-ms-border-radius: 5vmax;
+	-o-border-radius: 5vmax;
 }
 
 .os-window.tool-window .window-close-button {
@@ -1490,7 +1438,7 @@ body>.window-titlebar {
 
 .menus *,
 .menu-popup * {
-	font-family: 'Segoe UI', sans-serif;
+	font-family: "Segoe UI", sans-serif;
 	font-size: 12px;
 }
 
@@ -1511,18 +1459,11 @@ body>.window-titlebar {
 	-o-border-radius: 5px;
 }
 
-/* Note: In Windows 98, normal menu bars have an inset highlight if you use Esc and then the arrow keys,
-whereas Explorer's menu bars are outset and match the hover effect, which I feel makes more sense,
-so I think I'll immitate that. */
-/* Also, to prevent duplicate highlight, and lingering highlight with touch, I'm using a class, rather than :hover/:focus/:active */
 .menu-button.highlight {
-	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
 	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
 }
 
 .menu-button.highlight.active {
-	box-shadow: 1px 1px 0 rgb(128, 128, 128) inset, -1px -1px 0 rgb(255, 255, 255) inset;
-	box-shadow: 1px 1px 0 var(--ButtonShadow) inset, -1px -1px 0 var(--ButtonHilight) inset;
 	top: 1px;
 	left: 1px;
 }
@@ -1530,22 +1471,19 @@ so I think I'll immitate that. */
 .menu-popup {
 	display: block;
 	padding: 2px;
-	background-color: rgb(192, 192, 192);
 	background-color: var(--ButtonFace);
-	border-top: 1px solid rgb(192, 192, 192);
 	border-top: 1px solid var(--ButtonFace);
-	border-left: 1px solid rgb(192, 192, 192);
 	border-left: 1px solid var(--ButtonFace);
-	border-right: 1px solid rgb(0, 0, 0);
 	border-right: 1px solid var(--ButtonDkShadow);
-	border-bottom: 1px solid rgb(0, 0, 0);
 	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
 	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
-	background: rgb(192, 192, 192);
 	background: var(--Menu);
-	color: rgb(0, 0, 0);
 	color: var(--MenuText);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .menu-popup td {
@@ -1559,24 +1497,25 @@ so I think I'll immitate that. */
 }
 
 .menu-item[disabled] {
-	color: rgb(128, 128, 128);
 	color: var(--GrayText);
-	text-shadow: 0.8px 0.8px 0px rgb(255, 255, 255);
 	text-shadow: 0.8px 0.8px 0px var(--ButtonHilight);
 }
 
 .menu-item.highlight:not([disabled]),
 .menu-item.active:not([disabled]) {
-	color: rgb(255, 255, 255);
 	color: var(--HilightText);
 }
 
 .menu-item.highlight,
 .menu-item.active {
-	background: rgb(0, 0, 128);
-	background: var(--Hilight);
+	background-color: var(--Hilight);
 	text-shadow: none;
 	outline: 0;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 .menu-item .menu-item-shortcut {
@@ -1585,9 +1524,7 @@ so I think I'll immitate that. */
 
 .menu-hr {
 	border: 0;
-	border-top: 1px solid rgb(128, 128, 128);
 	border-top: 1px solid var(--ButtonShadow);
-	border-bottom: 1px solid rgb(255, 255, 255);
 	border-bottom: 1px solid var(--ButtonHilight);
 	margin: 0;
 	margin-top: 3px;
@@ -1599,67 +1536,46 @@ so I think I'll immitate that. */
 }
 
 .menu-hotkey::-moz-selection {
-	/* prevent weird looking white underlines if menubar is contained in a selection, possible in the demo (minute edge case) */
-	text-decoration-color: rgb(0, 0, 0) !important;
 	text-decoration-color: var(--MenuText) !important;
 }
 
 .menu-hotkey::selection {
-	/* prevent weird looking white underlines if menubar is contained in a selection, possible in the demo (minute edge case) */
-	-webkit-text-decoration-color: rgb(0, 0, 0) !important;
-	text-decoration-color: rgb(0, 0, 0) !important;
 	-webkit-text-decoration-color: var(--MenuText) !important;
 	text-decoration-color: var(--MenuText) !important;
 }
 
-
 ::-moz-selection {
-	background-color: rgb(0, 0, 128);
 	background-color: var(--Hilight);
-	color: rgb(255, 255, 255);
 	color: var(--HilightText);
 }
 
-
 ::selection {
-	background-color: rgb(0, 0, 128);
 	background-color: var(--Hilight);
-	color: rgb(255, 255, 255);
 	color: var(--HilightText);
 }
 
 .scrollbar {
-	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC") repeat;
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////") repeat;
 	background: var(--checker) repeat;
 	-ms-interpolation-mode: nearest-neighbor;
-	image-rendering: -moz-crisp-edges;
-	image-rendering: pixelated;
 }
 
 .scrollbar-thumb {
-	background-color: rgb(192, 192, 192);
 	background-color: var(--ButtonFace);
-	border-top: 1px solid rgb(192, 192, 192);
 	border-top: 1px solid var(--ButtonFace);
-	border-left: 1px solid rgb(192, 192, 192);
 	border-left: 1px solid var(--ButtonFace);
-	border-right: 1px solid rgb(0, 0, 0);
 	border-right: 1px solid var(--ButtonDkShadow);
-	border-bottom: 1px solid rgb(0, 0, 0);
 	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
+	box-shadow: 1px 1px 0 var(--ButtonHilight) inset,
+		-1px -1px 0 var(--ButtonShadow) inset;
 }
 
 .scrollbar-track-piece:hover:active {
 	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC") repeat;
 	background: var(--checker) repeat;
 	-ms-interpolation-mode: nearest-neighbor;
-	image-rendering: -moz-crisp-edges;
-	image-rendering: pixelated;
 	background-color: white;
 	background-blend-mode: difference;
-	/* background-attachment: fixed; breaks the checkered background in chrome */
 }
 
 .scrollbar-track-piece.increment {
@@ -1672,23 +1588,15 @@ so I think I'll immitate that. */
 }
 
 .scrollbar-button {
-	background-color: rgb(192, 192, 192);
 	background-color: var(--ButtonFace);
-	border-top: 1px solid rgb(192, 192, 192);
 	border-top: 1px solid var(--ButtonFace);
-	border-left: 1px solid rgb(192, 192, 192);
 	border-left: 1px solid var(--ButtonFace);
-	border-right: 1px solid rgb(0, 0, 0);
 	border-right: 1px solid var(--ButtonDkShadow);
-	border-bottom: 1px solid rgb(0, 0, 0);
 	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAW0lEQVQ4T2NkGGSAcZC5h4FWDvrPwEC02ShqkR0EkkAHuBxMyEKYWYQ8jKEOXQOyo/A5BuZwqqvBZiA+3xMbilQLIWqlcUJRimwPzjRELcdQZA6hREeR4eRoBgBoXhAK6oiMhwAAAABJRU5ErkJggg==");
+	box-shadow: 1px 1px 0 var(--ButtonHilight) inset,
+		-1px -1px 0 var(--ButtonShadow) inset;
 	background-image: var(--scrollbar-arrows-ButtonText);
 	-ms-interpolation-mode: nearest-neighbor;
-	image-rendering: -moz-crisp-edges;
-	image-rendering: pixelated;
 	width: 13px;
 	width: var(--scrollbar-size);
 	height: 13px;
@@ -1703,76 +1611,54 @@ so I think I'll immitate that. */
 }
 
 .scrollbar-button.disabled {
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
-	background-image: var(--scrollbar-arrows-GrayText), var(--scrollbar-arrows-ButtonHilight);
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"),
+		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
+	background-image: var(--scrollbar-arrows-GrayText),
+		var(--scrollbar-arrows-ButtonHilight);
 }
 
 .scrollbar-button.horizontal.decrement.disabled {
-	background-position:
-		/* left arrow */
-		calc(9px * -3 + 1px) 1px,
-		calc(9px * -3 + 2px) 2px;
-	background-position:
-		/* left arrow */
-		calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
+	background-position: calc(9px * -3 + 1px) 1px, calc(9px * -3 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -3 + 2px) 2px;
 }
 
 .scrollbar-button.horizontal.increment.disabled {
-	background-position:
-		/* right arrow */
-		calc(9px * -2 + 1px) 1px,
-		calc(9px * -2 + 2px) 2px;
-	background-position:
-		/* right arrow */
-		calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
+	background-position: calc(9px * -2 + 1px) 1px, calc(9px * -2 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -2 + 2px) 2px;
 }
 
 .scrollbar-button.vertical.decrement.disabled {
-	background-position:
-		/* up arrow */
-		calc(9px * -1 + 1px) 1px,
-		calc(9px * -1 + 2px) 2px;
-	background-position:
-		/* up arrow */
-		calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
+	background-position: calc(9px * -1 + 1px) 1px, calc(9px * -1 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -1 + 2px) 2px;
 }
 
 .scrollbar-button.vertical.increment.disabled {
-	background-position:
-		/* down arrow */
-		calc(9px * -0 + 1px) 1px,
-		calc(9px * -0 + 2px) 2px;
-	background-position:
-		/* down arrow */
-		calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
+	background-position: calc(9px * -0 + 1px) 1px, calc(9px * -0 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -0 + 2px) 2px;
 }
 
 .scrollbar-button.horizontal.decrement {
 	background-position: calc(9px * -3 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px;
-	/* left */
 }
 
 .scrollbar-button.horizontal.increment {
 	background-position: calc(9px * -2 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px;
-	/* right */
 }
 
 .scrollbar-button.vertical.decrement {
 	background-position: calc(9px * -1 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px;
-	/* up */
 }
 
 .scrollbar-button.vertical.increment {
 	background-position: calc(9px * -0 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px;
-	/* down */
 }
 
 ::-webkit-scrollbar,
@@ -1804,8 +1690,10 @@ so I think I'll immitate that. */
 	border-right: 1px solid var(--ButtonDkShadow);
 	border-bottom: 1px solid rgb(0, 0, 0);
 	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
+	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset,
+		-1px -1px 0 rgb(128, 128, 128) inset;
+	box-shadow: 1px 1px 0 var(--ButtonHilight) inset,
+		-1px -1px 0 var(--ButtonShadow) inset;
 }
 
 ::-webkit-scrollbar-corner {
@@ -1824,8 +1712,10 @@ so I think I'll immitate that. */
 	border-right: 1px solid var(--ButtonDkShadow);
 	border-bottom: 1px solid rgb(0, 0, 0);
 	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
+	box-shadow: 1px 1px 0 rgb(255, 255, 255) inset,
+		-1px -1px 0 rgb(128, 128, 128) inset;
+	box-shadow: 1px 1px 0 var(--ButtonHilight) inset,
+		-1px -1px 0 var(--ButtonShadow) inset;
 	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAW0lEQVQ4T2NkGGSAcZC5h4FWDvrPwEC02ShqkR0EkkAHuBxMyEKYWYQ8jKEOXQOyo/A5BuZwqqvBZiA+3xMbilQLIWqlcUJRimwPzjRELcdQZA6hREeR4eRoBgBoXhAK6oiMhwAAAABJRU5ErkJggg==");
 	background-image: var(--scrollbar-arrows-ButtonText);
 	image-rendering: pixelated;
@@ -1843,76 +1733,54 @@ so I think I'll immitate that. */
 }
 
 ::-webkit-scrollbar-button.disabled {
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
-	background-image: var(--scrollbar-arrows-GrayText), var(--scrollbar-arrows-ButtonHilight);
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"),
+		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
+	background-image: var(--scrollbar-arrows-GrayText),
+		var(--scrollbar-arrows-ButtonHilight);
 }
 
 ::-webkit-scrollbar-button.horizontal.decrement.disabled {
-	background-position:
-		/* left arrow */
-		calc(9px * -3 + 1px) 1px,
-		calc(9px * -3 + 2px) 2px;
-	background-position:
-		/* left arrow */
-		calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
+	background-position: calc(9px * -3 + 1px) 1px, calc(9px * -3 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -3 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button.horizontal.increment.disabled {
-	background-position:
-		/* right arrow */
-		calc(9px * -2 + 1px) 1px,
-		calc(9px * -2 + 2px) 2px;
-	background-position:
-		/* right arrow */
-		calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
+	background-position: calc(9px * -2 + 1px) 1px, calc(9px * -2 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -2 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button.vertical.decrement.disabled {
-	background-position:
-		/* up arrow */
-		calc(9px * -1 + 1px) 1px,
-		calc(9px * -1 + 2px) 2px;
-	background-position:
-		/* up arrow */
-		calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
+	background-position: calc(9px * -1 + 1px) 1px, calc(9px * -1 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -1 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button.vertical.increment.disabled {
-	background-position:
-		/* down arrow */
-		calc(9px * -0 + 1px) 1px,
-		calc(9px * -0 + 2px) 2px;
-	background-position:
-		/* down arrow */
-		calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
+	background-position: calc(9px * -0 + 1px) 1px, calc(9px * -0 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -0 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button.horizontal.decrement {
 	background-position: calc(9px * -3 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px;
-	/* left */
 }
 
 ::-webkit-scrollbar-button.horizontal.increment {
 	background-position: calc(9px * -2 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px;
-	/* right */
 }
 
 ::-webkit-scrollbar-button.vertical.decrement {
 	background-position: calc(9px * -1 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px;
-	/* up */
 }
 
 ::-webkit-scrollbar-button.vertical.increment {
 	background-position: calc(9px * -0 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px;
-	/* down */
 }
 
 ::-webkit-scrollbar-button:hover:active {
@@ -1922,120 +1790,78 @@ so I think I'll immitate that. */
 }
 
 ::-webkit-scrollbar-button:disabled {
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
-	background-image: var(--scrollbar-arrows-GrayText), var(--scrollbar-arrows-ButtonHilight);
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"),
+		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
+	background-image: var(--scrollbar-arrows-GrayText),
+		var(--scrollbar-arrows-ButtonHilight);
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement:disabled {
-	background-position:
-		/* left arrow */
-		calc(9px * -3 + 1px) 1px,
-		calc(9px * -3 + 2px) 2px;
-	background-position:
-		/* left arrow */
-		calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
+	background-position: calc(9px * -3 + 1px) 1px, calc(9px * -3 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -3 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:horizontal:increment:disabled {
-	background-position:
-		/* right arrow */
-		calc(9px * -2 + 1px) 1px,
-		calc(9px * -2 + 2px) 2px;
-	background-position:
-		/* right arrow */
-		calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
+	background-position: calc(9px * -2 + 1px) 1px, calc(9px * -2 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -2 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:vertical:decrement:disabled {
-	background-position:
-		/* up arrow */
-		calc(9px * -1 + 1px) 1px,
-		calc(9px * -1 + 2px) 2px;
-	background-position:
-		/* up arrow */
-		calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
+	background-position: calc(9px * -1 + 1px) 1px, calc(9px * -1 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -1 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:vertical:increment:disabled {
-	background-position:
-		/* down arrow */
-		calc(9px * -0 + 1px) 1px,
-		calc(9px * -0 + 2px) 2px;
-	background-position:
-		/* down arrow */
-		calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
+	background-position: calc(9px * -0 + 1px) 1px, calc(9px * -0 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -0 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement.disabled {
-	background-position:
-		/* left arrow */
-		calc(9px * -3 + 1px) 1px,
-		calc(9px * -3 + 2px) 2px;
-	background-position:
-		/* left arrow */
-		calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
+	background-position: calc(9px * -3 + 1px) 1px, calc(9px * -3 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -3 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement {
 	background-position: calc(9px * -3 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px;
-	/* left */
 }
 
 ::-webkit-scrollbar-button:horizontal:increment.disabled {
-	background-position:
-		/* right arrow */
-		calc(9px * -2 + 1px) 1px,
-		calc(9px * -2 + 2px) 2px;
-	background-position:
-		/* right arrow */
-		calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
+	background-position: calc(9px * -2 + 1px) 1px, calc(9px * -2 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -2 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:horizontal:increment {
 	background-position: calc(9px * -2 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px;
-	/* right */
 }
 
 ::-webkit-scrollbar-button:vertical:decrement.disabled {
-	background-position:
-		/* up arrow */
-		calc(9px * -1 + 1px) 1px,
-		calc(9px * -1 + 2px) 2px;
-	background-position:
-		/* up arrow */
-		calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
+	background-position: calc(9px * -1 + 1px) 1px, calc(9px * -1 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -1 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:vertical:decrement {
 	background-position: calc(9px * -1 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px;
-	/* up */
 }
 
 ::-webkit-scrollbar-button:vertical:increment.disabled {
-	background-position:
-		/* down arrow */
-		calc(9px * -0 + 1px) 1px,
-		calc(9px * -0 + 2px) 2px;
-	background-position:
-		/* down arrow */
-		calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
+	background-position: calc(9px * -0 + 1px) 1px, calc(9px * -0 + 2px) 2px;
+	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
 		calc(var(--scrollbar-button-inner-size) * -0 + 2px) 2px;
 }
 
 ::-webkit-scrollbar-button:vertical:increment {
 	background-position: calc(9px * -0 + 1px) 1px;
 	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px;
-	/* down */
 }
 
 ::-webkit-scrollbar-track-piece:hover:active {
@@ -2044,7 +1870,6 @@ so I think I'll immitate that. */
 	image-rendering: pixelated;
 	background-color: white;
 	background-blend-mode: difference;
-	/* background-attachment: fixed; breaks the checkered background in chrome */
 }
 
 ::-webkit-scrollbar-track-piece.increment {
@@ -2055,28 +1880,28 @@ so I think I'll immitate that. */
 	background-position: bottom;
 }
 
-/* turn off double buttons */
 ::-webkit-scrollbar-button:start:increment,
 ::-webkit-scrollbar-button:end:decrement {
 	display: none;
 }
 
-/* latin-ext */
 @font-face {
-	font-family: 'Audiowide';
+	font-family: "Audiowide";
 	font-style: normal;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format('woff2');
-	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format("woff2");
+	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+		U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Audiowide';
+	font-family: "Audiowide";
 	font-style: normal;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdlg_O.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdlg_O.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -2089,7 +1914,6 @@ so I think I'll immitate that. */
 	font-weight: normal;
 	font-style: normal;
 	-webkit-font-smoothing: aliased;
-	font-smooth: never;
 }
 
 @font-face {
@@ -2099,7 +1923,6 @@ so I think I'll immitate that. */
 	font-family: "Traffix";
 	src: url("../Font/Traffix/Traffix.TTF") format("truetype");
 }
-
 
 @font-face {
 	font-size: small;
@@ -2125,64 +1948,68 @@ so I think I'll immitate that. */
 	src: url("../Font/Arcade/ARCADE_I.TTF") format("truetype");
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 600;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 800;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
 @font-face {
-	font-family: 'Orbitron';
+	font-family: "Orbitron";
 	font-style: normal;
 	font-weight: 900;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
-/* # sourceURL=MagnusWare */
