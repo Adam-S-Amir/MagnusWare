@@ -292,8 +292,6 @@ button.ui-button::-moz-focus-inner {
 }
 
 .ui-datepicker .ui-datepicker-title {
-  /* margin: 0 2.3em; */
-  /* line-height: 1.8em; */
   margin-right: 15px;
   text-align: center;
   color: var(--ButtonText);

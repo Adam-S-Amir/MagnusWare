@@ -1,0 +1,25 @@
+{
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "linenumber.din",
+                "settings": {
+                    "foreground": "#3E54AC"
+                }
+            },
+            {
+                "scope": "linenumber.cpl",
+                "settings": {
+                    "foreground": "#E96479"
+                }
+            },
+            {
+                "scope": "keyword.other.dotenv",
+                "settings": {
+                    "foreground": "#FF000000"
+                }
+            }
+        ],
+        "comments": ""
+    }
+}
