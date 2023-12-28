@@ -691,7 +691,6 @@ ${doc.documentElement.outerHTML}`;
 						// jQuery's append does HTML, vs native which does Text
 						$(this.shadowRoot).append(`
 							<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
-							<link href="/A/System64/CSS/trash.css" rel="stylesheet" type="text/css">
 							<style>
 								:host {
 									display: flex;

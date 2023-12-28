@@ -654,6 +654,7 @@ function $Window(options, id) {
 						});
 					}
 				};
+
 				const instantly_unminimize = () => {
 					before_unminimize = {
 						position: $w.css("position"),

@@ -29,27 +29,6 @@ function toggleConsole() {
     }
 }
 
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    deferredPrompt = event;
-    // Display a custom install button or UI element
-    // Add a click event listener to trigger the installation
-    installButton.addEventListener('click', () => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('App installed');
-            } else {
-                console.log('App installation dismissed');
-            }
-            deferredPrompt = null; // Reset the deferredPrompt variable
-        });
-    });
-    // Show the install button or UI element
-    installButton.style.display = 'block';
-});
-
 //* End onload
 
 //* Context Menu
@@ -254,8 +233,6 @@ function hidevol() {
 //* End JukeBox
 
 //* Battery Level
-// <img class="tray-icon" src="./C/System64/Images/Icons/battery-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
-// ^ Placed in kernel, but shit is outdated now :(
 try {
     let level;
 
@@ -469,16 +446,16 @@ function BuildNumber() {
 
 let uname = localStorage.getItem('username');
 
-if (localStorage.getItem(uname)) {
+if (uname !== null && uname !== undefined) {
     try {
         toast({
             message: `Welcome back, ${uname}!`,
             sound: LogOn
-        })
+        });
     } catch (error) {
         toast({
             message: "You haven't interacted yet!"
-        })
+        });
     }
 } else {
     let username = 'User';
@@ -486,16 +463,17 @@ if (localStorage.getItem(uname)) {
     console.error('Username Unspecified. Loading Default Username...');
     console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
     toast({
-        message: `Welcome to MagnusWare v${MagnusWare_V}, ${username}`,
+        message: `Welcome to MagnusWare v${MagnusWare_V}, ${username}!`,
         sound: LogOn
     });
     setTimeout(() => {
         toast({
             message: "Click the start button in the bottom left corner!",
             sound: Asterisk,
-        })
-    }, "5000");
+        });
+    }, 5000);
 }
+
 
 document.title = `MagnusWare | v${MagnusWare_V} ${BN}`
 
