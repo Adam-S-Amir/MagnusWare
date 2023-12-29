@@ -108,10 +108,13 @@ span {
     margin-bottom: 5px;
     margin-top: 1.3px;
     border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
 }
 
 .start-button:hover {
@@ -217,7 +220,8 @@ span {
     overflow: hidden;
 }
 
-#build-id, #uuid {
+#build-id,
+#uuid {
     font-family: "Orbitron";
     color: #07d9f9;
 }
@@ -1150,16 +1154,18 @@ p {
 #Search_Programs>.desktop-icon {
     position: relative;
     display: inline-block;
-    text-align: unset;
+    /* text-align: unset; */
     margin: 35px;
 }
 
 #Search_Programs>.desktop-icon>.title {
-    word-break: break-word;
     position: absolute;
-    font-size: 10px;
     font-family: Orbitron;
-    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
 }
 
 #Search_Programs>.desktop-icon>.icon {
