@@ -794,7 +794,7 @@ function QuakeM2() {
 
 function Quake2() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Quake2-PlayN-MagnusPort/index.html",
+		src: "https://adam-s-amir.github.io/Quake2-PlayN-MagnusPort/index.html",
 		icons: Window_icons("Quake2"),
 		title: "Quake 2",
 		innerWidth: 1000,
