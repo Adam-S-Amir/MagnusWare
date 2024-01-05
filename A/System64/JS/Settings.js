@@ -1486,11 +1486,11 @@ function about() {
   </div>
   <div class="about-body">
       <p>
-          MagnusWare v${MagnusWare_V}
-          <br>
-          <div id="build-id"></div>
-          <div id="uuid"></div>
-          (Egyptian Mau)[Xenon]
+          <div id="MagnusWareV">MagnusWare v${MagnusWare_V}</div>
+          Build ID: <div id="build-id">${BN}</div>
+          UUID: <div id="uuid">${uid}</div>
+          Color Scheme: <div id=clrsh>${Color_Scheme}</div>
+          Code Name: <div id="cdnm">${Codename}</div>
       </p>
       <br>
       <div class="about-body-center">
@@ -1520,7 +1520,5 @@ function about() {
 </div>
   `]
   document.getElementById("div1").innerHTML = about;
-  document.getElementById('build-id').innerHTML = `${BN}`;
-  document.getElementById('uuid').innerHTML = `${uid}`;
 }
 //# sourceURL=MagnusWare

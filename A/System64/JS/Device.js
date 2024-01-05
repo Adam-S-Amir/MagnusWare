@@ -12,15 +12,22 @@ function detectDeviceType() {
     console.log("Device Type: Phone");
     device = "Phone";
   } else if (isiPadAir()) {
+    SupportedPlatform();
     console.log("Device Type: Tablet");
     device = "Tablet";
   } else if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(userAgent)) {
+    SupportedPlatform();
     console.log("Device Type: Tablet");
     device = "Tablet";
   } else {
+    SupportedPlatform();
     console.log("Device Type: Computer");
     device = "Computer";
   }
+}
+
+function SupportedPlatform() {
+  let x = document.getElementById("splash-screen").remove;
 }
 
 function UnsupportedPlatform() {
@@ -56,6 +63,10 @@ function UnsupportedPlatform() {
 
 if (device === "Phone") {
   UnsupportedPlatform();
+} else if (device === "Tablet") {
+  SupportedPlatform();
+} else if (device === "Computer") {
+  SupportedPlatform();
 }
 
 detectDeviceType()

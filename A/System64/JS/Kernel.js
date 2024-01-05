@@ -156,7 +156,7 @@ vInfo.addEventListener("mouseout", function () {
 vInfo.title = 'Click to hide';
 
 let start = [`
-    <div class="start-button toggle" title="Start">
+    <div id="start-button" class="start-button toggle" title="Start">
         <img id="start-img" src="./A/System64/Images/Common/Start.png">
     </div>
     <div class="tasks"></div>
@@ -174,6 +174,24 @@ let start = [`
 taskbr.innerHTML = start;
 document.body.appendChild(vInfo);
 document.body.appendChild(taskbr);
+
+let StartButton = document.getElementById("start-button");
+
+StartButton.addEventListener('mouseover', function () {
+    StartButton.classList.remove('start-button-out');
+    StartButton.classList.add('start-button-in');
+    StartButton.addEventListener('animationend', function () {
+        StartButton.classList.add('start-in');
+    });
+});
+
+// Add mouseout event listener
+StartButton.addEventListener('mouseout', function () {
+    StartButton.classList.remove('start-button-in');
+    StartButton.classList.remove('start-in');
+    StartButton.classList.add('start-button-out');
+});
+
 
 let wifi = `
 <div class="wifi-body">

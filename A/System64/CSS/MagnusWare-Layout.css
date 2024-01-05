@@ -1337,6 +1337,11 @@ button.window-minimize-button.window-action-minimize.window-button>span.window-b
 
 .window-button:disabled .window-button-icon::after {
 	background-color: var(--GrayText);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 /* .window-action-close .window-button-icon::before {
