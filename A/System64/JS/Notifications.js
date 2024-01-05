@@ -1,4 +1,4 @@
-let SoundLocation = "/A/System64/Audio/MagnusWare/"
+let SoundLocation = "/A/System64/Audio/MagnusWare/";
 let Asterisk = new Audio(SoundLocation + "System Asterisk.wav");
 let Notification = new Audio(SoundLocation + "System Exclamation.wav");
 let Battery = new Audio(SoundLocation + "Low Battery Alarm.wav");
@@ -22,7 +22,7 @@ window.showMessageBox = window.showMessageBox || (({
 		value: "ok",
 		default: true
 	}],
-	iconID = "warning", // "error", "warning", "info", or "nuke" for deleting files/folders
+	iconID = "warning" || iconID, // "error", "warning", "info", or "nuke" for deleting files/folders
 	windowOptions = {}, // for controlling width, etc.
 }) => {
 	let $window, $message;
@@ -54,7 +54,7 @@ window.showMessageBox = window.showMessageBox || (({
 			});
 		}
 		$("<div>").append(
-			$("<img width='32' height='32'>").attr("src", `./A/System64/Images/Icons/${iconID}-32x32.png`).css({
+			$("<img width='32' height='32'>").attr("src", iconsAtTwoSizes(iconID, 32)).css({
 				margin: "16px",
 				display: "block",
 			}),

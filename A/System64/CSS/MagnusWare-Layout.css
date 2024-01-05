@@ -1022,16 +1022,13 @@ button {
 }
 
 button:not(.lightweight) {
-	outline: none;
-	border-style: solid;
-	border-width: 1px;
-	border-color: var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight);
+	outline: transparent;
+	border-color: var(--ButtonShadow);
 	background-color: var(--ButtonFace);
 	color: var(--ButtonText);
 	position: relative;
-	-o-border-image: var(--button-normal-border-image);
 	border-image: var(--button-normal-border-image);
-	border-color: var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight);
+	-o-border-image: var(--button-normal-border-image);
 	border-style: solid;
 	border-width: 2px 2px;
 	border-image: var(--button-normal-border-image);
@@ -1059,13 +1056,7 @@ button:not(.lightweight).default:enabled:hover:active {
 
 button:not(.lightweight):focus::before {
 	content: "";
-	display: block;
-	position: absolute;
-	left: 2px;
-	top: 2px;
-	right: 2px;
-	bottom: 2px;
-	border: 1px dotted rgb(0, 0, 0);
+	outline: none;
 }
 
 button.lightweight {

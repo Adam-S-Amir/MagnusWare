@@ -70,10 +70,8 @@ function Search() {
         }
     }
 
-    // Function to filter and display icons by title
     function filterIconsByTitle(searchText) {
-        Programs.innerHTML = ''; // Clear the existing icons
-
+        Programs.innerHTML = '';
         for (const options of iconOptions) {
             if (options.title.toLowerCase().includes(searchText.toLowerCase())) {
                 const icon = createIcon(options);
@@ -81,8 +79,6 @@ function Search() {
             }
         }
     }
-
-    // Example: Search by title
 
     Search_Input.addEventListener('input', function () {
         const searchText = Search_Input.value;

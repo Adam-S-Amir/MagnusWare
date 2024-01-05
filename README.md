@@ -31,3 +31,41 @@ Any and all icons have been recreated using Photopea, or sourced directly from g
 - [ ] Task manager
 - [x] Explorer
   - [ ] Copy/paste/print
+- [ ] Migrate from JS-DOS to WadCMD
+  - [ ] Single wad files
+  - [ ] Multiple wad files
+  - [ ] Wad and deh files
+
+## Get Better Than The Competition
+
+  MagnusWare is better than marked entries.
+
+  - [x] 98.js.org
+    - [x] https://98.js.org
+  - [ ] AaronOS
+    - [ ] https://aaronos.dev/AaronOS/aosBeta.php
+  - [ ] daedalOS
+    - [ ] https://dustinbrett.com/
+  - [x] Emupedia
+    - [x] https://emupedia.net/beta/emuos/
+    - [x] https://emuos.emupedia.net/
+  - [x] jQuery Desktop
+    - [x] https://desktop.sonspring.com/
+  - [x] macos-web
+    - [x] https://macos-web.app/
+  - [x] OS.js
+    - [x] https://www.os-js.org/
+  - [x] Packard Belle
+    - [x] https://packard-belle.netlify.app/
+  - [x] Rahul.io
+    - [x] https://rahul.io/
+  - [ ] windows93
+    - [ ] https://windows93.net/
+  - [x] Windows96
+    - [x] https://www.windows93.net/
+  - [x] winXP
+    - [x] https://winxp.vercel.app/
+  - [x] X-WebDesktop-Vue
+    - [x] https://oxoyo.co/X-WebDesktop-Vue/
+  - [ ] ZineOS
+    - [ ] https://whimsy.space/

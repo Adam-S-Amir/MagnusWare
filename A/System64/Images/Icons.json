@@ -506,6 +506,7 @@
         "48": "./A/System64/Images/Icons/notepad-file-48x48.png"
     },
     "nuke": {
+        "16": "./A/System64/Images/Icons/nuke-16x16.png",
         "32": "./A/System64/Images/Icons/nuke-32x32.png"
     },
     "offline-8bpp": {
