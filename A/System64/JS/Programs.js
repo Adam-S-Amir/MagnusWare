@@ -44,7 +44,7 @@ function Chat() {
 
 function WadCMD() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/WadCMD/index.html",
+		src: "https://adam-s-amir.github.io/WadCMD/index.html",
 		icons: Window_icons("WadCMD"),
 		title: "WadCMD",
 		innerWidth: 1000,
@@ -317,7 +317,7 @@ function Clock() {
 
 function AcidBox() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Acid-Box/index.html",
+		src: "https://adam-s-amir.github.io/Acid-Box/index.html",
 		icons: Window_icons("AcidBox"),
 		title: "Acid Box",
 		innerWidth: 1000,
@@ -1808,7 +1808,7 @@ function SpaceI() {
 
 function Twenty() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/2048/2048/index.html",
+		src: "https://adam-s-amir.github.io/2048/2048/index.html",
 		icons: Window_icons("2048"),
 		title: "2048",
 		innerWidth: 500,
@@ -1820,7 +1820,7 @@ function Twenty() {
 
 function One() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/2048/Flappy-2048/index.html",
+		src: "https://adam-s-amir.github.io/2048/Flappy-2048/index.html",
 		icons: Window_icons("2048"),
 		title: "Flappy 2048 1.0",
 		innerWidth: 500,
@@ -1832,7 +1832,7 @@ function One() {
 
 function Two() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/2048/Flappy-2048-2.0/index.html",
+		src: "https://adam-s-amir.github.io/2048/Flappy-2048-2.0/index.html",
 		icons: Window_icons("2048"),
 		title: "Flappy 2048 2.0",
 		innerWidth: 500,
@@ -1844,7 +1844,7 @@ function Two() {
 
 function Three() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/2048/2048-3D/index.html",
+		src: "https://adam-s-amir.github.io/2048/2048-3D/index.html",
 		icons: Window_icons("2048"),
 		title: "2048 3D",
 		innerWidth: 1000,
@@ -1856,7 +1856,7 @@ function Three() {
 
 function Four() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/2048/4/index.html",
+		src: "https://adam-s-amir.github.io/2048/4/index.html",
 		icons: Window_icons("2048"),
 		title: "4",
 		innerWidth: 500,
@@ -1868,7 +1868,7 @@ function Four() {
 
 function AI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/2048/2048-AI/index.html",
+		src: "https://adam-s-amir.github.io/2048/2048-AI/index.html",
 		icons: Window_icons("2048"),
 		title: "2048 AI",
 		innerWidth: 1000,
@@ -1880,7 +1880,7 @@ function AI() {
 
 function Hardcore() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/2048/2048-Hardcore/index.html",
+		src: "https://adam-s-amir.github.io/2048/2048-Hardcore/index.html",
 		icons: Window_icons("2048"),
 		title: "2048 Hardcore",
 		innerWidth: 500,
@@ -1892,7 +1892,7 @@ function Hardcore() {
 
 function Gore() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/GoreScript/index.html",
+		src: "https://adam-s-amir.github.io/GoreScript/index.html",
 		icons: Window_icons("Gore"),
 		title: "GoreScript Classic",
 		innerWidth: 1000,
@@ -1904,7 +1904,7 @@ function Gore() {
 
 function VLC() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/VLC-Media-Web-Player/index.html",
+		src: "https://adam-s-amir.github.io/VLC-Media-Web-Player/index.html",
 		icons: Window_icons("VLC"),
 		title: "VLC Media Player",
 		innerWidth: 1000,

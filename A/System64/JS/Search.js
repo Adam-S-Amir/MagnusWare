@@ -48,24 +48,25 @@ function Search() {
     }
 
     let iconOptions = [];
-    let itemName, func, ico;
 
     for (let i = 0; i < menuItems.length; i++) {
+        let itemName, func, ico;
         if (menuItems[i] && menuItems[i][1] && menuItems[i][1].includes('javascript')) {
             itemName = menuItems[i][0].replace(/\|\||\|/g, '').replace(/<br>/g, ' ');
             func = menuItems[i][1].replace('javascript:', '');
             ico = menuItems[i][2];
-            console.log(itemName);
-            console.log(func);
-            console.log(ico);
-            const option = {
-                title: itemName,
-                src: ico,
-                ondblclick: function () {
-                    eval(func);
-                },
-            };
-            iconOptions.push(option);
+            if (func) {
+                const option = {
+                    title: itemName,
+                    src: ico,
+                    ondblclick: function () {
+                        eval(func);
+                    },
+                };
+                iconOptions.push(option);
+            } else {
+                console.log(`Menu Item "${menuItems}" not found.`);
+            }
         }
     }
 
