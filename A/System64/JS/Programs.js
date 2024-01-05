@@ -20,12 +20,14 @@ function About() {
 function TaskMngr() {
 	let $win = new $EmbedWindow2({
 		src: null,
-		icons: Window_icons("About"),
+		icons: Window_icons("Task"),
 		title: "Task Manager",
 		innerWidth: 420,
 		innerHeight: 400
 	}, "Task.MXW");
 	TaskMgr();
+	updateTaskList();
+	setInterval(updateTaskList, 2000);
 	hidemenu();
 	return new Task($win, "Task.MX7");
 }
@@ -37,9 +39,9 @@ function Chat() {
 		title: "Chat Room",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
+	}, "Chat-Room.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Chat-Room.MX7");
 }
 
 function WadCMD() {
@@ -49,9 +51,9 @@ function WadCMD() {
 		title: "WadCMD",
 		innerWidth: 1000,
 		innerHeight: 515
-	});
+	}, "WadCMD.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "WadCMD.MX7");
 }
 
 function Theme1() {
@@ -61,9 +63,9 @@ function Theme1() {
 		title: "Theme Editor",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
+	}, "Theme-Editor.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Theme-Editor.MX7");
 }
 
 function Cookie() {
@@ -73,9 +75,9 @@ function Cookie() {
 		title: "Cookie Clicker",
 		innerWidth: 660,
 		innerHeight: 500
-	});
+	}, "Cookie-Clicker.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Cookie-Clicker.MX7");
 }
 
 function JellyM() {
@@ -85,10 +87,9 @@ function JellyM() {
 		title: "Jelly Mario",
 		innerWidth: 800,
 		innerHeight: 650
-	});
-
+	}, "Jelly-Mario.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Jelly-Mario.MX7");
 }
 
 function MinecrapA() {
@@ -98,10 +99,9 @@ function MinecrapA() {
 		title: "MineCrap Alpha",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "MineCrap-Alpha.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "MineCrap-Alpha.MX7");
 }
 
 function Minecrap3() {
@@ -111,10 +111,9 @@ function Minecrap3() {
 		title: "MineCrap 1.3",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "MineCrap-1.3.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "MineCrap-1.3.MX7");
 }
 
 function Minecrap5() {
@@ -124,10 +123,9 @@ function Minecrap5() {
 		title: "MineCrap 1.5.2",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "MineCrap-1.5.2-MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "MineCrap-1.5.2-MX7");
 }
 
 function NoGame() {
@@ -137,10 +135,9 @@ function NoGame() {
 		title: "There is No Game",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "There-is-No-Game.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "There-is-No-Game.MX7");
 }
 
 function Power() {
@@ -150,10 +147,9 @@ function Power() {
 		title: "Power Player Super Joy III",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "");
 }
 
 function Baldi() {
@@ -163,10 +159,9 @@ function Baldi() {
 		title: "Baldi's Basics",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Baldi's-Basics.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Baldi's-Basics.MX7");
 }
 
 function Rioluvania() {
@@ -176,23 +171,21 @@ function Rioluvania() {
 		title: "Rioluvania",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Rioluvania.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Rioluvania.MX7");
 }
 
 function Sans() {
 	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/Sans/Sans/index.html",
-		icons: Window_icons("Rioluvania"),
-		title: "Rioluvania",
+		icons: Window_icons("Sans"),
+		title: "Sans Fight",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Sans-Fight.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Sans-Fight.MX7");
 }
 
 function Funky() {
@@ -206,9 +199,8 @@ function Funky() {
 	// 	innerWidth: 1000,
 	// 	innerHeight: 500
 	// });
-
 	// hidemenu();
-	// return new Task($win);
+	// return new Task($win, "");
 }
 
 function Mario2() {
@@ -218,10 +210,9 @@ function Mario2() {
 		title: "Super Mario Bros.",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Super-Mario-Bros.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Super-Mario-Bros.MX7");
 }
 
 function MarMakr() {
@@ -231,10 +222,9 @@ function MarMakr() {
 		title: "Super Mario Maker",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Super-Mario-Maker.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Super-Mario-Maker.MX7");
 }
 
 function iMario() {
@@ -244,10 +234,9 @@ function iMario() {
 		title: "Infinite Mario",
 		innerWidth: 660,
 		innerHeight: 500
-	});
-
+	}, "Infinite-Mario.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Infinite-Mario.MX7");
 }
 
 function TBOI() {
@@ -257,10 +246,9 @@ function TBOI() {
 		title: "The Binding of Isaac",
 		innerWidth: 970,
 		innerHeight: 696
-	});
-
+	}, "The-Binding-of-Isaac.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "The-Binding-of-Isaac.MX7");
 }
 
 function Rocket() {
@@ -270,10 +258,9 @@ function Rocket() {
 		title: "Rocket Custa",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Rocket-Custa.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Rocket-Custa.MX7");
 }
 
 function Spelunky() {
@@ -283,10 +270,9 @@ function Spelunky() {
 		title: "Spelunky",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Spelunky.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Spelunky.MX7");
 }
 
 function Button() {
@@ -296,10 +282,9 @@ function Button() {
 		title: "Button",
 		innerWidth: 300,
 		innerHeight: 300
-	});
-
+	}, "Button.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Button.MX7");
 }
 
 function Clock() {
@@ -309,10 +294,9 @@ function Clock() {
 		title: "Clock",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Clock.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Clock.MX7");
 }
 
 function AcidBox() {
@@ -322,10 +306,9 @@ function AcidBox() {
 		title: "Acid Box",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Acid-Box.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Acid-Box.MX7");
 }
 
 function Star() {
@@ -335,10 +318,9 @@ function Star() {
 		title: "Star Wars Episode IV",
 		innerWidth: 830,
 		innerHeight: 500
-	});
-
+	}, "Star-Wars-Episode-IV.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Star-Wars-Episode-IV.MX7");
 }
 
 function Zamboni() {
@@ -348,10 +330,9 @@ function Zamboni() {
 		title: "Frank Zamboni",
 		innerWidth: 670,
 		innerHeight: 292
-	});
-
+	}, "Zamboni.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Zamboni.MX7");
 }
 
 function Soda() {
@@ -361,23 +342,9 @@ function Soda() {
 		title: "Vending Machine",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Vending-Machine.MXW");
 	hidemenu();
-	return new Task($win);
-}
-
-function Ice() {
-	let $win = make_embed_window({
-		src: "./Dodo.html",
-		icons: Window_icons("Ice"),
-		title: "Ice Dodo",
-		innerWidth: 700,
-		innerHeight: 600
-	});
-
-	hidemenu();
-	return new Task($win);
+	return new Task($win, "Vending-Machine.MX7");
 }
 
 function Prometheus() {
@@ -387,10 +354,9 @@ function Prometheus() {
 		title: "Prometheus",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Prometheus.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Prometheus.MX7");
 }
 
 function Kronos() {
@@ -400,10 +366,9 @@ function Kronos() {
 		title: "Kronos",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Kronos.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Kronos.MX7");
 }
 
 function Drift() {
@@ -413,10 +378,9 @@ function Drift() {
 		title: "Drift Hunters",
 		innerWidth: 1000,
 		innerHeight: 600
-	});
-
+	}, "Drift-Hunters.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Drift-Hunters.MX7");
 }
 
 function Surf1() {
@@ -426,10 +390,9 @@ function Surf1() {
 		title: "Microsoft Surf 1.0",
 		innerWidth: 1000,
 		innerHeight: 600
-	});
-
+	}, "Microsoft-Surf-1.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Microsoft-Surf-1.0.MX7");
 }
 
 function Surf2() {
@@ -439,10 +402,9 @@ function Surf2() {
 		title: "Microsoft Surf 2.0",
 		innerWidth: 1000,
 		innerHeight: 600
-	});
-
+	}, "Microsoft-Surf-2.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Microsoft-Surf-2.0.MX7");
 }
 
 function Surf3() {
@@ -452,10 +414,9 @@ function Surf3() {
 		title: "Microsoft Surf 3.0",
 		innerWidth: 1000,
 		innerHeight: 600
-	});
-
+	}, "Microsoft-Surf-3.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Microsoft-Surf-3.0.MX7");
 }
 
 function Hex() {
@@ -465,10 +426,9 @@ function Hex() {
 		title: "Hex GL",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Hex-GL.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Hex-GL.MX7");
 }
 
 function Box() {
@@ -478,10 +438,9 @@ function Box() {
 		title: "Boxel Rebound",
 		innerWidth: 360,
 		innerHeight: 640
-	});
-
+	}, "Boxel-Rebound.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Boxel-Rebound.MX7");
 }
 
 function Doom2() {
@@ -491,10 +450,9 @@ function Doom2() {
 		title: "Doom 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "Doom-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Doom-2.MX7");
 }
 
 function Master() {
@@ -504,10 +462,9 @@ function Master() {
 		title: "The Master Levels for Doom 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "The-Master-Levels-for-Doom-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "The-Master-Levels-for-Doom-2.MX7");
 }
 
 function UD2() {
@@ -517,10 +474,9 @@ function UD2() {
 		title: "The Ultimate Doom 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "The-Ultimate-Doom-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "The-Ultimate-Doom-2.MX7");
 }
 
 function MWCMD() {
@@ -530,10 +486,9 @@ function MWCMD() {
 		title: "MW-CMD",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "MW-CMD.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "MW-CMD.MX7");
 }
 
 function StarDoom() {
@@ -543,10 +498,9 @@ function StarDoom() {
 		title: "Star Wars Doom",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "Star-Wars-Doom.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Star-Wars-Doom.MX7");
 }
 
 function BatDoom() {
@@ -556,10 +510,9 @@ function BatDoom() {
 		title: "Batman Doom",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "Batman-Doom.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Batman-Doom.MX7");
 }
 
 function BDoom2() {
@@ -569,10 +522,9 @@ function BDoom2() {
 		title: "Brutal Doom 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "Brutal-Doom-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Brutal-Doom-2.MX7");
 }
 
 function Nine() {
@@ -582,22 +534,21 @@ function Nine() {
 		title: "Windows 95",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "Windows-95.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Windows-95.MX7");
 }
 
 function Duke() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/MS-DOS/Duke/Duke.exe.html",
 		icons: Window_icons("Duke"),
-		title: "Duke 3D",
+		title: "Duke Nukem 3D",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Duke-Nukem-3D.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Duke-Nukem-3D.MX7");
 }
 
 function GTA() {
@@ -607,9 +558,9 @@ function GTA() {
 		title: "Grand Theft Auto",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Grand-Theft-Auto.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Grand-Theft-Auto.MX7");
 }
 
 function DTrail() {
@@ -619,9 +570,9 @@ function DTrail() {
 		title: "Deluxe Oregon Trail",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Deluxe-Oregon-Trail.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Deluxe-Oregon-Trail.MX7");
 }
 
 function Trail() {
@@ -631,21 +582,21 @@ function Trail() {
 		title: "Oregon Trail",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Oregon-Trail.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Oregon-Trail.MX7");
 }
 
 function Castle() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/MS-DOS/CW/CW.exe.html",
 		icons: Window_icons("Castle"),
-		title: "Castle Wolfenstien",
+		title: "Castle Wolfenstein",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Castle-Wolfenstein.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Castle-Wolfenstein.MX7");
 }
 
 function Doom() {
@@ -655,9 +606,9 @@ function Doom() {
 		title: "Ultimate Doom",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Ultimate-Doom.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Ultimate-Doom.MX7");
 }
 
 function Heretic() {
@@ -667,9 +618,9 @@ function Heretic() {
 		title: "Heretic",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Heretic.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Heretic.MX7");
 }
 
 function Heretic2() {
@@ -679,9 +630,9 @@ function Heretic2() {
 		title: "Heretic 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Heretic-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Heretic-2.MX7");
 }
 
 function Hexen() {
@@ -691,45 +642,45 @@ function Hexen() {
 		title: "Hexen",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Hexen.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Hexen.MX7");
 }
 
 function Plutonia() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/MS-DOS/Plutonia/Plutonia.exe.html",
 		icons: Window_icons("Plutonia"),
-		title: "Plutonia",
+		title: "The-Plutonia-Experiment.MXW",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "The-Plutonia-Experiment.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "The-Plutonia-Experiment.MX7");
 }
 
 function Plutonia2() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/MS-DOS/Plutonia2/PL2.exe.html",
 		icons: Window_icons("Plutonia2"),
-		title: "Plutonia 2",
+		title: "The Plutonia Experiment 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "The-Plutonia-Experiment-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "The-Plutonia-Experiment-2.MX7");
 }
 
 function TNT() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/MS-DOS/TNT/TNT.exe.html",
 		icons: Window_icons("FDoom"),
-		title: "TNT",
+		title: "TNT Evilution",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "TNT-Evilution.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "TXT.MX7");
 }
 
 function Sixty() {
@@ -739,9 +690,9 @@ function Sixty() {
 		title: "Doom64",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Doom-64.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Doom-64.MX7");
 }
 
 function Zero() {
@@ -751,9 +702,9 @@ function Zero() {
 		title: "Doom Zero",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Doom-Zero.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Doom-64.MX7");
 }
 
 function Quake() {
@@ -763,9 +714,9 @@ function Quake() {
 		title: "Quake",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Quake.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Quake.MX7");
 }
 
 function QuakeM1() {
@@ -775,9 +726,9 @@ function QuakeM1() {
 		title: "Quake Mission Pack 1",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Quake-Mission-Pack-1.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Quake-Mission-Pack-1.MX7");
 }
 
 function QuakeM2() {
@@ -787,9 +738,9 @@ function QuakeM2() {
 		title: "Quake Mission Pack 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Quake-Mission-Pack-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Quake-Mission-Pack-2.MX7");
 }
 
 function Quake2() {
@@ -799,9 +750,9 @@ function Quake2() {
 		title: "Quake 2",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
+	}, "Quake-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Quake-2.MX7");
 }
 
 function Shool() {
@@ -811,9 +762,9 @@ function Shool() {
 		title: "Doom: School Shooter Edition",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Doom:-School-Shooter-Edition.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Doom:-School-Shooter-Edition.MX7");
 }
 
 function Spear() {
@@ -823,9 +774,9 @@ function Spear() {
 		title: "Spear of Destiny",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Spear-of-Destiny.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Spear-of-Destiny.MX7");
 }
 
 function Rekkr() {
@@ -835,9 +786,9 @@ function Rekkr() {
 		title: "Rekkr",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Rekkr.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Rekkr.MX7");
 }
 
 function Strife() {
@@ -847,9 +798,9 @@ function Strife() {
 		title: "Strife",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Strife.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Strife.MX7");
 }
 
 function FreeDm() {
@@ -859,9 +810,9 @@ function FreeDm() {
 		title: "FreeDM",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom.MX7");
 }
 
 function Free1() {
@@ -871,9 +822,9 @@ function Free1() {
 		title: "FreeDoom: Phase 1",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-Phase-1.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-Phase-1.MX7");
 }
 
 function Free2() {
@@ -883,9 +834,9 @@ function Free2() {
 		title: "FreeDoom: Phase 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-Phase-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-Phase-2.MX7");
 }
 
 function FDoom() {
@@ -895,9 +846,9 @@ function FDoom() {
 		title: "The Ultimate FreeDoom",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "The-Ultimate-FreeDoom.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "The-Ultimate-FreeDoom.MX7");
 }
 
 function FDoom2() {
@@ -907,9 +858,9 @@ function FDoom2() {
 		title: "FreeDoom Phase 2: Hell on Earth",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom-Phase-2:-Hell-on-Earth.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom-Phase-2:-Hell-on-Earth.MX7");
 }
 
 function FDoom64() {
@@ -919,9 +870,9 @@ function FDoom64() {
 		title: "FreeDoom 64",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom-64.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom-64.MX7");
 }
 
 function FTNT() {
@@ -931,9 +882,9 @@ function FTNT() {
 		title: "FreeDoom: TNT Evilution",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-TNT-Evilution.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-TNT-Evilution.MX7");
 }
 
 function FPL() {
@@ -943,9 +894,9 @@ function FPL() {
 		title: "FreeDoom: The Plutonia Experiment",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-The-Plutonia-Experiment.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-The-Plutonia-Experiment.MX7");
 }
 
 function FPL2() {
@@ -955,9 +906,9 @@ function FPL2() {
 		title: "FreeDoom: The Plutonia Experiment Phase 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-The-Plutonia-Experiment-Phase-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-The-Plutonia-Experiment-Phase-2.MX7");
 }
 
 function FChex() {
@@ -967,9 +918,9 @@ function FChex() {
 		title: "FreeDoom: Chex Quest Phase 1",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-Chex-Quest-Phase-1.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-Chex-Quest-Phase-1.MX7");
 }
 
 function FChex2() {
@@ -979,9 +930,9 @@ function FChex2() {
 		title: "FreeDoom: Chex Quest Phase 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-Chex-Quest-Phase-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-Chex-Quest-Phase-2.MX7");
 }
 
 function FChex3() {
@@ -991,21 +942,21 @@ function FChex3() {
 		title: "FreeDoom: Chex Quest Phase 3",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "FreeDoom:-Chex-Quest-Phase-3.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "FreeDoom:-Chex-Quest-Phase-3.MX7");
 }
 
 function Wolf3D() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/MS-DOS/Wolf3D/Wolf.exe.html",
 		icons: Window_icons("Wolf"),
-		title: "Wolf 3D",
+		title: "Wolfenstein 3D",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Wolfenstein-3D.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Wolfenstein-3D.MX7");
 }
 
 function BTSX() {
@@ -1015,9 +966,9 @@ function BTSX() {
 		title: "Back to Saturn X",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Back-to-Saturn-X.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Back-to-Saturn-X.MX7");
 }
 
 function BTSX2() {
@@ -1027,9 +978,9 @@ function BTSX2() {
 		title: "Back to Saturn X 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Back-to-Saturn-X-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Back-to-Saturn-X-2.MX7");
 }
 
 function Chex1() {
@@ -1039,9 +990,9 @@ function Chex1() {
 		title: "Chex Quest 1",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Chex-Quest-1.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Chex-Quest-1.MX7");
 }
 
 function Chex2() {
@@ -1051,9 +1002,9 @@ function Chex2() {
 		title: "Chex Quest 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Chex-Quest-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Chex-Quest-2.MX7");
 }
 
 function Chex3() {
@@ -1063,9 +1014,9 @@ function Chex3() {
 		title: "Chex Quest 3",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Chex-Quest-3.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Chex-Quest-3.MX7");
 }
 
 function Doom2D() {
@@ -1075,9 +1026,9 @@ function Doom2D() {
 		title: "Doom 2D",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Doom-2D.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Doom-2D.MX7");
 }
 
 function Dario1() {
@@ -1087,9 +1038,9 @@ function Dario1() {
 		title: "Mario Doom",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Mario-Doom.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Mario-Doom.MX7");
 }
 
 function Dario2() {
@@ -1099,35 +1050,21 @@ function Dario2() {
 		title: "Mario Doom 2",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Mario-Doom-2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Mario-Doom-2.MX7");
 }
 
-function Regular() {
+function CDG() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Regular/index.html",
+		src: "./A/System64/Program%20Files%20(x86)/Dino/index.html",
 		icons: Window_icons("Dino"),
-		title: "Chrome Dino Game",
+		title: "Chrome Dino Games",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Chrome-Dino-Games.MXW");
 	hidemenu();
-	return new Task($win);
-}
-
-function BDay() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/BDay/index.html",
-		icons: Window_icons("Dino"),
-		title: "Birthday Edition",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
+	return new Task($win, "Chrome-Dino-Games.MX7");
 }
 
 function D3D() {
@@ -1137,348 +1074,9 @@ function D3D() {
 		title: "3D Dino",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "3D-Dino.MXW");
 	hidemenu();
-	return new Task($win);
-}
-
-function Godzilla() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Godzilla.html",
-		icons: Window_icons("Dino"),
-		title: "Godzilla",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Modz() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Mod/index.html",
-		icons: Window_icons("Dino"),
-		title: "Modded Chrome Dino Game",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Sonic1() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Sonic/index.html",
-		icons: Window_icons("Dino"),
-		title: "Sonic v1.0",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Sonic2() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/BSonic/index.html",
-		icons: Window_icons("Dino"),
-		title: "Sonic v1.2",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Batz() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Batman/Bats/Batman/index.html",
-		icons: Window_icons("Dino"),
-		title: "Batman",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Halloween() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Halloween.html",
-		icons: Window_icons("Dino"),
-		title: "Halloween",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Joker() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Joker/Jokes/Joker/index.html",
-		icons: Window_icons("Dino"),
-		title: "Joker",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Mines1() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Minecraft.html",
-		icons: Window_icons("Dino"),
-		title: "Minecraft v1.0",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Mines2() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Minecraft/index.html",
-		icons: Window_icons("Dino"),
-		title: "Minecraft v1.2",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Naruto() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Naruto.html",
-		icons: Window_icons("Dino"),
-		title: "Naruto",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Anime() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Anime/index.html",
-		icons: Window_icons("Dino"),
-		title: "Anime",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function DNyan() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Nyan.html",
-		icons: Window_icons("Dino"),
-		title: "Nyan",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Santa() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Santa.html",
-		icons: Window_icons("Dino"),
-		title: "Santa Claus",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function DMario1() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Super_Mario/Mars/Mario/index.html",
-		icons: Window_icons("Dino"),
-		title: "Super Mario v1.",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function DMario2() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Mario/index.html",
-		icons: Window_icons("Dino"),
-		title: "Super Mario v1.2",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function DMario3() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Maro/index.html",
-		icons: Window_icons("Dino"),
-		title: "Super Mario v1.3",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function DMario4() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Marilol/index.html",
-		icons: Window_icons("Dino"),
-		title: "Super Mario v1.4",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function MegaMan() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/MegaMan/index.html",
-		icons: Window_icons("Dino"),
-		title: "Mega-Man",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Vivaldi() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Vivaldi/index.html",
-		icons: Window_icons("Dino"),
-		title: "Vivaldi",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Covid() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Covid/index.html",
-		icons: Window_icons("Dino"),
-		title: "Covid",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Fish() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Fish/index.html",
-		icons: Window_icons("Dino"),
-		title: "Fish",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Guy() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Guy/index.html",
-		icons: Window_icons("Dino"),
-		title: "Kumamon Runner",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Zombie() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/Zombie/index.html",
-		icons: Window_icons("Dino"),
-		title: "Zombie Runner",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Mario1() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Mario/Mario/index.html",
-		icons: Window_icons("Mario"),
-		title: "Modded Super Mario Bros.",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Mario2() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Mario/Mario/super.html",
-		icons: Window_icons("Mario"),
-		title: "Super Mario Bros.",
-		innerWidth: 1000,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function iMario() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Mario/infinite/index.html",
-		icons: Window_icons("Mario"),
-		title: "Infinite Mario",
-		innerWidth: 660,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
+	return new Task($win, "3D-Dino.MX7");
 }
 
 function Cat() {
@@ -1488,10 +1086,9 @@ function Cat() {
 		title: "Cat Mario",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Cat-Mario.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Cat-Mario.MX7");
 }
 
 function Mari0() {
@@ -1501,62 +1098,21 @@ function Mari0() {
 		title: "Mari0",
 		innerWidth: 800,
 		innerHeight: 600
-	});
-
+	}, "Mari0.MXW");
 	hidemenu();
-	return new Task($win);
-}
-
-function Surf1() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/SURF/S.U.R.F%201.0/index.html",
-		icons: Window_icons("Surf"),
-		title: "Microsoft Surf 1.0",
-		innerWidth: 660,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Surf2() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/SURF/S.U.R.F%202.0/index.html",
-		icons: Window_icons("Surf"),
-		title: "Microsoft Surf 2.0",
-		innerWidth: 660,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
-}
-
-function Surf3() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/SURF/S.U.R.F%203.0/index.html",
-		icons: Window_icons("Surf"),
-		title: "Microsoft Surf 3.0",
-		innerWidth: 660,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
+	return new Task($win, "Mari0.MX7");
 }
 
 function D4() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/MS-DOS/Doom4/Doom4.exe.html",
 		icons: Window_icons("4"),
-		title: "Doom4",
+		title: "Doom 4",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "Doom-4.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Doom-4.MX7");
 }
 
 function SMWDX() {
@@ -1566,10 +1122,9 @@ function SMWDX() {
 		title: "Super Mario World Deluxe",
 		innerWidth: 665,
 		innerHeight: 436
-	});
-
+	}, "Super-Mario-World-Deluxe.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Super-Mario-World-Deluxe.MX7");
 }
 
 function Ice() {
@@ -1579,10 +1134,9 @@ function Ice() {
 		title: "Ice Dodo 1.0",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Ice-Dodo-1.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Ice-Dodo-1.0.MX7");
 }
 
 function Ice2() {
@@ -1592,10 +1146,9 @@ function Ice2() {
 		title: "Ice Dodo 2.0",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Ice-Dodo-2.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Ice-Dodo-2.0.MX7");
 }
 
 function Contranoid() {
@@ -1605,23 +1158,9 @@ function Contranoid() {
 		title: "Contranoid",
 		innerWidth: 392,
 		innerHeight: 539
-	});
-
+	}, "Contranoid.MXW");
 	hidemenu();
-	return new Task($win);
-}
-
-function CDG() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Dino/index.html",
-		icons: Window_icons("Dino"),
-		title: "Chrome Dino Games",
-		innerWidth: 500,
-		innerHeight: 500
-	});
-
-	hidemenu();
-	return new Task($win);
+	return new Task($win, "Contranoid.MX7");
 }
 
 function Hi() {
@@ -1631,10 +1170,9 @@ function Hi() {
 		title: "OH H1",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "OH-H1.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "OH-H1.MX7");
 }
 
 function No() {
@@ -1644,10 +1182,9 @@ function No() {
 		title: "OH N0",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "OH-N0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "OH-N0.MX7");
 }
 
 function Quento() {
@@ -1657,10 +1194,9 @@ function Quento() {
 		title: "Quento",
 		innerWidth: 500,
 		innerHeight: 621
-	});
-
+	}, "Quento.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Quento.MX7");
 }
 
 function Hextris() {
@@ -1670,10 +1206,9 @@ function Hextris() {
 		title: "Hextris",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Hextris.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Hextris.MX7");
 }
 
 function Pac() {
@@ -1683,10 +1218,9 @@ function Pac() {
 		title: "PacMan 1.0",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "PacMan-1.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "PacMan-1.0.MX7");
 }
 
 function Google1() {
@@ -1696,10 +1230,9 @@ function Google1() {
 		title: "Google PacMan 1.2",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Google-PacMan-1.2.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Google-PacMan-1.2.MX7");
 }
 
 function Google2() {
@@ -1709,10 +1242,9 @@ function Google2() {
 		title: "Google PacMan 1.0",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
-
+	}, "Google-PacMan-1.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Google-PacMan-1.0.MX7");
 }
 
 function Snake() {
@@ -1722,10 +1254,9 @@ function Snake() {
 		title: "Snake",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-
+	}, "Snake.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Snake.MX7");
 }
 
 function Pong() {
@@ -1735,10 +1266,9 @@ function Pong() {
 		title: "Pong",
 		innerWidth: 660,
 		innerHeight: 505
-	});
-
+	}, "Pong.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Pong.MX7");
 }
 
 function Tetriz() {
@@ -1748,10 +1278,9 @@ function Tetriz() {
 		title: "Tetris 1.0",
 		innerWidth: 500,
 		innerHeight: 621
-	});
-
+	}, "Tetris-1.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Tetris-1.0.MX7");
 }
 
 function Cubes() {
@@ -1761,10 +1290,9 @@ function Cubes() {
 		title: "Tetris 2.0",
 		innerWidth: 500,
 		innerHeight: 621
-	});
-
+	}, "Tetris-2.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Tetris-2.0.MX7");
 }
 
 function Jelly() {
@@ -1774,23 +1302,21 @@ function Jelly() {
 		title: "Jelly Tetris",
 		innerWidth: 500,
 		innerHeight: 621
-	});
-
+	}, "Jelly-Tetris.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Jelly-Tetris.MX7");
 }
 
 function AIT() {
 	let $win = make_embed_window({
 		src: "./A/System64/Program%20Files%20(x86)/arcade/tetris/AI/index.html",
 		icons: Window_icons("Tetris"),
-		title: "Tetris with AI",
+		title: "AI Tetris",
 		innerWidth: 500,
 		innerHeight: 621
-	});
-
+	}, "AI-Tetris.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "AI-Tetris.MX7");
 }
 
 function SpaceI() {
@@ -1800,10 +1326,9 @@ function SpaceI() {
 		title: "Space Invaders",
 		innerWidth: 850,
 		innerHeight: 560
-	});
-
+	}, "Space-Invaders.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Space-Invaders.MX7");
 }
 
 function Twenty() {
@@ -1813,9 +1338,9 @@ function Twenty() {
 		title: "2048",
 		innerWidth: 500,
 		innerHeight: 500
-	});
+	}, "2048.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "2048.MX7");
 }
 
 function One() {
@@ -1825,9 +1350,9 @@ function One() {
 		title: "Flappy 2048 1.0",
 		innerWidth: 500,
 		innerHeight: 500
-	});
+	}, "Flappy-2048-1.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Flappy-2048-1.0.MX7");
 }
 
 function Two() {
@@ -1837,9 +1362,9 @@ function Two() {
 		title: "Flappy 2048 2.0",
 		innerWidth: 500,
 		innerHeight: 500
-	});
+	}, "Flappy-2048-2.0.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "Flappy-2048-2.0.MX7");
 }
 
 function Three() {
@@ -1849,9 +1374,9 @@ function Three() {
 		title: "2048 3D",
 		innerWidth: 1000,
 		innerHeight: 500
-	});
+	}, "2048-3D.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "2048-3D.MX7");
 }
 
 function Four() {
@@ -1861,9 +1386,9 @@ function Four() {
 		title: "4",
 		innerWidth: 500,
 		innerHeight: 500
-	});
+	}, "4.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "4.MX7");
 }
 
 function AI() {
@@ -1873,9 +1398,9 @@ function AI() {
 		title: "2048 AI",
 		innerWidth: 1000,
 		innerHeight: 650
-	});
+	}, "2048-AI.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "2048-AI.MX7");
 }
 
 function Hardcore() {
@@ -1885,9 +1410,9 @@ function Hardcore() {
 		title: "2048 Hardcore",
 		innerWidth: 500,
 		innerHeight: 500
-	});
+	}, "2048-Hardcore.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "2048-Hardcore.MX7");
 }
 
 function Gore() {
@@ -1897,9 +1422,9 @@ function Gore() {
 		title: "GoreScript Classic",
 		innerWidth: 1000,
 		innerHeight: 650
-	});
+	}, "GoreScript-Classic.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "GoreScript-Classic.MX7");
 }
 
 function VLC() {
@@ -1909,15 +1434,14 @@ function VLC() {
 		title: "VLC Media Player",
 		innerWidth: 1000,
 		innerHeight: 650
-	});
+	}, "VLC-Media-Player.MXW");
 	hidemenu();
-	return new Task($win);
+	return new Task($win, "VLC-Media-Player.MX7");
 }
 
 function Notepad(file_path) {
 	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
 	var win_title = document_title + " - Notepad";
-
 	var $win = make_embed_window({
 		src: "./A/Program Files/notepad/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: Window_icons("notepad"),
@@ -1925,8 +1449,9 @@ function Notepad(file_path) {
 		outerWidth: 480,
 		outerHeight: 321,
 		resizable: true,
-	});
-	return new Task($win);
+	}, "Notepad.MXW");
+	hidemenu();
+	return new Task($win, "Notepad.MX7");
 }
 Notepad.acceptsFilePaths = true;
 
@@ -1937,10 +1462,8 @@ function Paint(file_path) {
 		title: "untitled - Paint",
 		innerWidth: 500,
 		innerHeight: 500
-	});
-	return new Task($win);
+	}, "Paint.MXW");
 	var contentWindow = $win.$embed[0].contentWindow;
-
 	var waitUntil = function (test, interval, callback) {
 		if (test()) {
 			callback();
@@ -1972,7 +1495,9 @@ function Paint(file_path) {
 			return new Promise((resolve, reject) => {
 				withFilesystem(() => {
 					const fs = BrowserFS.BFSRequire("fs");
-					const { Buffer } = BrowserFS.BFSRequire("buffer");
+					const {
+						Buffer
+					} = BrowserFS.BFSRequire("buffer");
 					const buffer = Buffer.from(arrayBuffer);
 					fs.writeFile(file_path, buffer, (err) => {
 						if (err) {
@@ -1996,23 +1521,6 @@ function Paint(file_path) {
 	};
 	waitUntil(() => contentWindow.systemHooks, 500, () => {
 		Object.assign(contentWindow.systemHooks, systemHooks);
-
-		let $help_window;
-		contentWindow.show_help = () => {
-			if ($help_window) {
-				$help_window.focus();
-				return;
-			}
-			$help_window = show_help({
-				title: "Paint Help",
-				contentsFile: "./A/Program Files/jspaint/help/mspaint.hhc",
-				root: "./A/Program Files/jspaint/help",
-			}).$help_window;
-			$help_window.on("close", () => {
-				$help_window = null;
-			});
-		};
-
 		if (file_path) {
 			// window.initial_system_file_handle = ...; is too late to set this here
 			// contentWindow.open_from_file_handle(...); doesn't exist
@@ -2032,6 +1540,8 @@ function Paint(file_path) {
 			$win.title(contentWindow.document.title);
 		};
 	});
+	hidemenu();
+	return new Task($win, "Paint.MX7");
 }
 Paint.acceptsFilePaths = true;
 
@@ -2043,15 +1553,14 @@ function Minesweeper() {
 		innerWidth: 280,
 		innerHeight: 320 + 21,
 		resizable: false,
-	});
-	return new Task($win);
+	}, "Minesweeper.MXW");
+	hidemenu();
+	return new Task($win, "Minesweeper.MX7");
 }
 
 function SoundRecorder(file_path) {
-	// TODO: DRY the default file names and title code (use document.title of the page in the embed, in make_embed_window)
 	var document_title = file_path ? file_name_from_path(file_path) : "Sound";
 	var win_title = document_title + " - Sound Recorder";
-	// TODO: focus existing window if file is currently open?
 	var $win = make_embed_window({
 		src: "./A/Program Files/sound-recorder/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icons: Window_icons("speaker"),
@@ -2060,8 +1569,9 @@ function SoundRecorder(file_path) {
 		innerHeight: 108 + 21,
 		minInnerWidth: 270,
 		minInnerHeight: 108 + 21,
-	});
-	return new Task($win);
+	}, "Sound-Recorder.MXW");
+	hidemenu();
+	return new Task($win, "Sound-Recorder.MX7");
 }
 SoundRecorder.acceptsFilePaths = true;
 
@@ -2072,8 +1582,9 @@ function Solitaire() {
 		title: "Solitaire",
 		innerWidth: 585,
 		innerHeight: 384 + 21,
-	});
-	return new Task($win);
+	}, "Solitaire.MXW");
+	hidemenu();
+	return new Task($win, "Solitaire.MX7");
 }
 
 function showScreensaver(embedSrc) {
@@ -2149,10 +1660,10 @@ function Settings() {
 		title: "Settings",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Settings.MXW");
 	Settingz();
 	hidemenu();
-	return new Task($win, "Settings");
+	return new Task($win, "Settings.MX7");
 }
 
 function Store() {
@@ -2162,10 +1673,10 @@ function Store() {
 		title: "Software Center",
 		innerWidth: 665,
 		innerHeight: 436
-	});
+	}, "Software-Center.MXW");
 	StoreFront();
 	hidemenu();
-	return new Task($win, "Store");
+	return new Task($win, "Software-Center.MX7");
 }
 
 function tmr() {
@@ -2216,54 +1727,6 @@ function Bubz() {
 	localStorage.setItem("scv", "Bubz()");
 }
 
-function CommandPrompt() {
-	var $win = make_embed_window({
-		src: "./A/Program Files/command/index.html",
-		icons: Window_icons("msdos"),
-		title: "MS-DOS Prompt",
-		// TODO: default dimensions
-		innerWidth: 640,
-		innerHeight: 400,
-		constrainRect(rect, x_axis, y_axis) {
-			const char_width = 8;
-			const char_height = 16;
-			const border = ($win.outerWidth() - $win.$content.outerWidth()) / 2;
-			const inner_rect = {
-				x: rect.x + border,
-				y: rect.y + border + $win.$titlebar.outerHeight(),
-				width: rect.width - $win.outerWidth() + $win.$content.outerWidth(),
-				height: rect.height - $win.outerHeight() + $win.$content.outerHeight(),
-			};
-			const new_inner_rect = {
-				width: Math.floor(inner_rect.width / char_width) * char_width,
-				height: Math.floor(inner_rect.height / char_height) * char_height,
-			};
-			const new_rect = {
-				x: inner_rect.x - border,
-				y: inner_rect.y - border - $win.$titlebar.outerHeight(),
-				width: new_inner_rect.width + $win.outerWidth() - $win.$content.outerWidth(),
-				height: new_inner_rect.height + $win.outerHeight() - $win.$content.outerHeight(),
-			};
-			if (x_axis === -1) {
-				new_rect.x = rect.x + rect.width - new_rect.width;
-			}
-			if (y_axis === -1) {
-				new_rect.y = rect.y + rect.height - new_rect.height;
-			}
-			return new_rect;
-		},
-		// TODO: make the API simpler / more flexible like:
-		// constrainDimensions({ innerWidth, innerHeight }) {
-		// 	const charWidth = 8;
-		// 	const charHeight = 16;
-		// 	innerWidth = Math.floor(innerWidth / charWidth) * charWidth;
-		// 	innerHeight = Math.floor(innerHeight / charHeight) * charHeight;
-		// 	return { innerWidth, innerHeight };
-		// },
-	});
-	return new Task($win);
-}
-
 function Calculator() {
 	var $win = make_embed_window({
 		src: "./A/Program Files/calculator/index.html",
@@ -2274,6 +1737,7 @@ function Calculator() {
 		minInnerWidth: 256,
 		minInnerHeight: 208 + 21,
 	}, "Calculator.MXW");
+	hidemenu();
 	return new Task($win, "Calculator.MX7");
 }
 
@@ -2284,8 +1748,9 @@ function Pinball() {
 		title: "Pinball",
 		innerWidth: 600,
 		innerHeight: 442
-	});
-	return new Task($win);
+	}, "Pinball.MXW");
+	hidemenu();
+	return new Task($win, "Pinball.MXW");
 }
 
 function Explorer(address) {
@@ -2301,9 +1766,9 @@ function Explorer(address) {
 		// *See different types (resized for posing this screenshot): https://imgur.com/nxAcT9C
 		innerWidth: Math.min(856, innerWidth * 0.9),
 		innerHeight: Math.min(547, innerHeight * 0.7),
-	});
+	}, `${address.replace("/A/", "")}.MXW`);
 	hidemenu();
-	return new Task($win);
+	return new Task($win, `${address.replace("/A/", "")}.MX7`);
 }
 Explorer.acceptsFilePaths = true;
 
@@ -2346,6 +1811,9 @@ let $webamp;
 let winamp_task;
 let winamp_interface;
 let winamp_loading = false;
+
+// TODO: Phase out from WinAMP to VLC
+
 function openWinamp(file_path) {
 	const filePathToBlob = (file_path) => {
 		return new Promise((resolve, reject) => {
@@ -2408,21 +1876,22 @@ function openWinamp(file_path) {
 	load_winamp_bundle_if_not_loaded(includeButterchurn, function () {
 		const webamp_options = {
 			initialTracks: [{
-				metaData: {
-					artist: "DJ Mike Llama",
-					title: "Llama Whippin' Intro",
+					metaData: {
+						artist: "DJ Mike Llama",
+						title: "Llama Whippin' Intro",
+					},
+					url: "./A/Program Files/winamp/mp3/llama-2.91.mp3",
+					duration: 5.322286,
 				},
-				url: "./A/Program Files/winamp/mp3/llama-2.91.mp3",
-				duration: 5.322286,
-			},
-			{
-				metaData: {
-					artist: "Christopher Mintz-Plasse",
-					title: "Nuke Radio",
-				},
-				url: "./A/Program Files/winamp/mp3/Nuke%20Radio.mp3",
-				duration: 5,
-			}],
+				{
+					metaData: {
+						artist: "Christopher Mintz-Plasse",
+						title: "Nuke Radio",
+					},
+					url: "./A/Program Files/winamp/mp3/Nuke%20Radio.mp3",
+					duration: 5,
+				}
+			],
 			initialSkin: {
 				url: "./A/Program Files/winamp/skins/base-2.91.wsz",
 			},
@@ -2447,10 +1916,32 @@ function openWinamp(file_path) {
 				butterchurnOpen: true,
 			};
 			webamp_options.__initialWindowLayout = {
-				main: { position: { x: 0, y: 0 } },
-				equalizer: { position: { x: 0, y: 116 } },
-				playlist: { position: { x: 0, y: 232 }, size: [0, 4] },
-				milkdrop: { position: { x: 275, y: 0 }, size: [7, 12] }
+				main: {
+					position: {
+						x: 0,
+						y: 0
+					}
+				},
+				equalizer: {
+					position: {
+						x: 0,
+						y: 116
+					}
+				},
+				playlist: {
+					position: {
+						x: 0,
+						y: 232
+					},
+					size: [0, 4]
+				},
+				milkdrop: {
+					position: {
+						x: 275,
+						y: 0
+					},
+					size: [7, 12]
+				}
 			};
 		}
 		webamp = new Webamp(webamp_options);
@@ -2607,8 +2098,10 @@ function openWinamp(file_path) {
 			});
 
 			const visualizerOverlay = new VisualizerOverlay(
-				$webamp.find(".gen-window canvas")[0],
-				{ mirror: true, stretch: true },
+				$webamp.find(".gen-window canvas")[0], {
+					mirror: true,
+					stretch: true
+				},
 			);
 
 			const animate = () => {
@@ -2854,41 +2347,53 @@ var Create_Icon = function (options) {
 Create_Icon({
 	title: "My Computer",
 	iconID: "my-computer",
-	open: function () { systemExecuteFile("/A/"); },
+	open: function () {
+		systemExecuteFile("/A/");
+	},
 	file_path: "/",
 	is_system_folder: true,
 });
 Create_Icon({
 	title: "My Documents",
 	iconID: "my-documents-folder",
-	open: function () { systemExecuteFile("/A/my-documents"); },
+	open: function () {
+		systemExecuteFile("/A/my-documents");
+	},
 	// file_path: "/my-documents/",
 	is_system_folder: true,
 });
 Create_Icon({
 	title: "Da Hood",
 	iconID: "network",
-	open: function () { systemExecuteFile("/A/network-neighborhood"); },
+	open: function () {
+		systemExecuteFile("/A/network-neighborhood");
+	},
 	// file_path: "/network-neighborhood/",
 	is_system_folder: true,
 });
 Create_Icon({
 	title: "Recycle Bin",
 	iconID: "recycle-bin",
-	open: function () { Explorer("https://www.epa.gov/recycle/"); },
+	open: function () {
+		Explorer("https://www.epa.gov/recycle/");
+	},
 	is_system_folder: true,
 });
 Create_Icon({
 	title: "My Pictures",
 	iconID: "folder",
-	open: function () { systemExecuteFile("/A/my-pictures"); },
+	open: function () {
+		systemExecuteFile("/A/my-pictures");
+	},
 	// file_path: "/my-pictures/",
 	is_system_folder: true,
 });
 Create_Icon({
 	title: "Internet Explorer",
 	iconID: "internet-explorer",
-	open: function () { Explorer("https://www.google.com/"); }
+	open: function () {
+		Explorer("https://www.google.com/");
+	}
 });
 Create_Icon({
 	title: "Paint",

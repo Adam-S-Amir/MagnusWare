@@ -3,10 +3,22 @@ function $Window2(options, id) {
     // @TODO: handle all option defaults here
     // and validate options.
 
-    var $w = $(E("div")).addClass("window os-window").appendTo("body");
+    var $w = $(E("div")).addClass("window os-window window2").appendTo("body");
     $w[0].$window = $w;
     $w.element = $w[0];
     $w[0].id = id || `x-window-${Math.random().toString(36).substr(2, 9)}`;
+    let windowElements = document.querySelectorAll(".window2");
+    windowElements.forEach(windowElement => {
+        let windowID = windowElement.id;
+        let taskDel = document.getElementById(`${windowID.replace(".MXW", ".MX7")}`);
+
+        if ($w[0].id !== windowID) {
+            windowElement.remove();
+            if (taskDel) {
+                taskDel.remove();
+            }
+        }
+    });
     $w.$titlebar = $(E("div")).addClass("window-titlebar").appendTo($w);
     $w.$title_area = $(E("div")).addClass("window-title-area").appendTo($w.$titlebar);
     $w.$title = $(E("span")).addClass("window-title").appendTo($w.$title_area);
@@ -1761,14 +1773,9 @@ function $embed2(options) {
 
     // @TODO: delegate pointermove events too?
 
-    $("body").addClass("loading-program");
     programs_being_loaded += 1;
 
     $embed2.on("load", function () {
-        if (--programs_being_loaded <= 0) {
-            $("body").removeClass("loading-program");
-        }
-
         if (window.themeCSSProperties) {
             applyTheme(themeCSSProperties, embed2.contentDocument.documentElement);
         }
@@ -1818,7 +1825,7 @@ function $EmbedWindow2(options, id) {
     var $embed = ($win.$embed = $(`<div id='div1'>`).attr({
         src: options.src
     }));
-    enhance_embed($embed[0]);
+    enhance_embed2($embed[0]);
     $win.$content.append($embed);
     var embed = ($win.embed = $embed[0]);
     embed.$window = $win;
@@ -1851,16 +1858,12 @@ function $EmbedWindow2(options, id) {
     return $win;
 }
 
-function enhance_embed(embed) {
+function enhance_embed2(embed) {
   var $embed = $(embed);
 
-  $("body").addClass("loading-program");
   programs_being_loaded += 1;
 
   $embed.on("load", function () {
-    if (--programs_being_loaded <= 0) {
-      $("body").removeClass("loading-program");
-    }
 
     try {
       console.assert(embed.contentWindow.document === embed.contentDocument); // just something that won't get optimized away if we were to ever use a minifier (or by the JIT compiler??)

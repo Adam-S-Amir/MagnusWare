@@ -61,6 +61,7 @@ loadCSSSequentially(0);
 
 let scriptUrls = [
     "Icons.js",
+    "TaskManager.js",
     "Index.js",
     "Clippy/build/clippy.min.js",
     "BrowserFS.js",
@@ -79,7 +80,6 @@ let scriptUrls = [
     "Window-Switcher.js",
     "Visualizer-Overlay.js",
     "Programs.js",
-    "TaskManager.js",
     "Search.js",
     "Cursor.js",
     "Time.js",

@@ -159,25 +159,17 @@ function make_embed_window(options, id) {
 	enhance_embed($embed[0]);
 	$win.$content.append($embed);
 	var embed = $win.embed = $embed[0];
-	// TODO: should I instead of having embed.$window, have a get$Window type of dealio?
-	// where all is $window needed?
-	// I know it's used from within the embed contents as frameElement.$window
 	embed.$window = $win;
-
 	$embed.on("load", function () {
 		$win.show();
 		$win.focus();
 	});
-
 	$win.$content.css({
 		display: "flex",
 		flexDirection: "column",
 	});
-
-	// TODO: cascade windows
 	$win.center();
 	$win.hide();
-
 	return $win;
 }
 

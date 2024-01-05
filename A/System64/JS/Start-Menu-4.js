@@ -322,6 +322,7 @@ var menuItems = [
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
+    ["|Task Manager", "javascript:TaskMngr()", `${iconsAtTwoSizes("Task", size)}`, "", "", "", "", "", "", "", "",],
     ["|Explorer", "javascript:Explorer()", `${iconsAtTwoSizes("hard-disk-drive", size)}`, "", "", "", "", "", "", "", "",],
     ["|MagnusWare<br>Software<br>Center", "javascript:Store();", `${iconsAtTwoSizes("Store", size)}`, "", "", "", "", "", "", "", "",],
     ["|Chat Room", "javascript:Chat();", `${iconsAtTwoSizes("Chat", size)}`, "", "", "", "", "", "", "", "",],
