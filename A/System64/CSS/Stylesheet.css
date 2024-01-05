@@ -1200,6 +1200,20 @@ p {
     width: 0;
 }
 
+.Unsupported-Platform {
+    display: block;
+    position: relative;
+    color: var(--ActiveTitle);
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
 /* background: repeating-linear-gradient(190deg,
       #1a2980 40px,
       #d53369 80px,

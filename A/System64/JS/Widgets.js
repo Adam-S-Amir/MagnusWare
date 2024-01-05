@@ -447,6 +447,7 @@ function BuildNumber() {
 let uname = localStorage.getItem('username');
 
 if (uname !== null && uname !== undefined) {
+    detectDeviceType();
     try {
         toast({
             message: `Welcome back, ${uname}!`,
@@ -458,6 +459,7 @@ if (uname !== null && uname !== undefined) {
         });
     }
 } else {
+    detectDeviceType();
     let username = 'User';
     localStorage.setItem('username', username);
     console.error('Username Unspecified. Loading Default Username...');

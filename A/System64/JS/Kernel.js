@@ -85,6 +85,7 @@ let scriptUrls = [
     "Cursor.js",
     "Time.js",
     "StoreFront.js",
+    "Device.js",
     "Widgets.js",
     "Update.js",
     "Settings.js",
@@ -92,7 +93,6 @@ let scriptUrls = [
     "System.js",
     "Defender.js",
     "JukeBox.js",
-    "Device.js",
 ];
 
 function loadScriptsSequentially(index) {
@@ -272,6 +272,10 @@ hideAllWindow.addEventListener("mouseout", function () {
             windowElement.style.display = "flex";
         });
     }
+});
+
+window.addEventListener('resize', function (event) {
+    detectDeviceType();
 });
 
 //# sourceURL=MagnusWare
