@@ -88,7 +88,6 @@ let scriptUrls = [
     "Device.js",
     "Widgets.js",
     "Update.js",
-    "Settings.js",
     "MagnusFS.js",
     "System.js",
     "Defender.js",
