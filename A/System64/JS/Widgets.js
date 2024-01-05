@@ -120,7 +120,7 @@ function ChangeAgent() {
     var div2 = document.getElementById("clippy-2");
     if (div !== null) {
         div.remove();
-        div2.parentNode.removeChild(div2);
+        div2.remove();
         clippy.load(`${randomAgent}`, function (agent) {
             agent.show();
             agent.animate();

@@ -93,7 +93,7 @@ const system_folder_path_to_name = {
 	"/": "This PC", //"My Computer",
 	"/my-pictures/": "My Pictures",
 	"/my-documents/": "My Documents",
-	"/network-neighborhood/": "Network Neighborhood",
+	"/da-hood/": "Network Neighborhood",
 	"/desktop/": "Desktop",
 	"/programs/": "Program Files",
 	"/recycle-bin/": "Recycle Bin",

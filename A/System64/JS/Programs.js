@@ -1756,6 +1756,9 @@ function Pinball() {
 function Explorer(address) {
 	var document_title = address;
 	var win_title = document_title;
+	if(document_title === "/A/"){
+		document_title = "Explorer";
+	}
 	var $win = make_embed_window({
 		src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
 		icons: Window_icons("folder-open"),
@@ -1766,9 +1769,12 @@ function Explorer(address) {
 		// *See different types (resized for posing this screenshot): https://imgur.com/nxAcT9C
 		innerWidth: Math.min(856, innerWidth * 0.9),
 		innerHeight: Math.min(547, innerHeight * 0.7),
-	}, `${address.replace("/A/", "")}.MXW`);
+		},
+
+
+	`${document_title.replace("/A/", "")}.MXW`);
 	hidemenu();
-	return new Task($win, `${address.replace("/A/", "")}.MX7`);
+	return new Task($win, `${document_title.replace("/A/", "")}.MX7`);
 }
 Explorer.acceptsFilePaths = true;
 
@@ -2366,9 +2372,9 @@ Create_Icon({
 	title: "Da Hood",
 	iconID: "network",
 	open: function () {
-		systemExecuteFile("/A/network-neighborhood");
+		systemExecuteFile("/A/da-hood");
 	},
-	// file_path: "/network-neighborhood/",
+	// file_path: "/da-hood/",
 	is_system_folder: true,
 });
 Create_Icon({

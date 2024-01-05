@@ -60,7 +60,6 @@ function loadCSSSequentially(index) {
 loadCSSSequentially(0);
 
 let scriptUrls = [
-    "Icons.js",
     "TaskManager.js",
     "Index.js",
     "Clippy/build/clippy.min.js",
@@ -87,16 +86,17 @@ let scriptUrls = [
     "Device.js",
     "Widgets.js",
     "Update.js",
-    "MagnusFS.js",
     "System.js",
     "Defender.js",
     "JukeBox.js",
+    "MagnusFS.js",
 ];
 
 function loadScriptsSequentially(index) {
     if (index < scriptUrls.length) {
         let script = document.createElement("script");
         let JSlocation = "./A/System64/JS/";
+        script.defer = true;
         script.src = JSlocation + scriptUrls[index] + "?v=" + new Date().getTime();
         script.onload = function () {
             loadScriptsSequentially(index + 1);

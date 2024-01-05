@@ -47,7 +47,7 @@ function get_icon_for_address(address) {
 		// 	return "my-computer";
 	} else if (address === "/A/my-documents/") {
 		return "my-documents";
-	} else if (address === "/A/network-neighborhood/") {
+	} else if (address === "/A/da-hood/") {
 		return "network";
 	} else if (address === "/A/desktop/") { // i.e. C:\Windows\Desktop
 		return "desktop";
@@ -245,7 +245,7 @@ var go_to = async function (address, action_name = "go") {
 		if (
 			address !== "/A/desktop/" &&
 			address !== "/A/recycle-bin/" &&
-			address !== "/A/network-neighborhood/"
+			address !== "/A/da-hood/"
 		) {
 			$("#status-bar-right-icon").attr({
 				src: getIconPath("my-computer", 16),
@@ -366,7 +366,7 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 		// @TODO: load FOLDER.HTT from the folder we're showing, if it exists
 		const template_file_name =
 			address === "/recycle-bin/" ? "recycle.htt" :
-				address === "/network-neighborhood/" ? "nethood.htt" :
+				address === "/da-hood/" ? "nethood.htt" :
 					// address === "/my-computer/" ? "MYCOMP.HTT" : // I don't have a proper My Computer folder yet
 					"FOLDER.HTT";
 		template_url = new URL(`/A/WEB/${template_file_name}`, location.href);
@@ -770,7 +770,7 @@ ${doc.documentElement.outerHTML}`;
 												"/": "This PC", //"My Computer",
 												"/my-pictures/": "My Pictures",
 												"/my-documents/": "My Documents",
-												"/network-neighborhood/": "Network Neighborhood",
+												"/da-hood/": "Network Neighborhood",
 												"/desktop/": "Desktop",
 												"/programs/": "Program Files",
 												"/recycle-bin/": "Recycle Bin",

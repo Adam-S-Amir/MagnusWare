@@ -42,13 +42,26 @@
 ! YOUR HTML FILE FOR FASTEST AND BEST RESULTS !
 */
 
-eval(localStorage.getItem("bgz"));
-eval(localStorage.getItem("tmz"));
-// eval(localStorage.getItem("scv"));
-eval(localStorage.getItem("hif"));
-eval(localStorage.getItem("fnd"));
-eval(localStorage.getItem("cur"));
-eval(localStorage.getItem("fx"));
-eval(localStorage.getItem("clippy"));
-eval(localStorage.getItem("WadCMD"));
+try {
+    eval(localStorage.getItem("bgz"));
+    eval(localStorage.getItem("tmz"));
+    // eval(localStorage.getItem("scv"));
+    eval(localStorage.getItem("hif"));
+    eval(localStorage.getItem("fnd"));
+    eval(localStorage.getItem("cur"));
+    eval(localStorage.getItem("fx"));
+    eval(localStorage.getItem("clippy"));
+    eval(localStorage.getItem("WadCMD"));
+
+} catch (error) {
+    eval(localStorage.getItem("bgz"));
+    eval(localStorage.getItem("tmz"));
+    // eval(localStorage.getItem("scv"));
+    eval(localStorage.getItem("hif"));
+    eval(localStorage.getItem("fnd"));
+    eval(localStorage.getItem("cur"));
+    eval(localStorage.getItem("fx"));
+    eval(localStorage.getItem("clippy"));
+    eval(localStorage.getItem("WadCMD"));
+}
 //# sourceURL=MagnusWare

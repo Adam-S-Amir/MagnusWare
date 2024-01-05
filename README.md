@@ -28,7 +28,7 @@ Any and all icons have been recreated using Photopea, or sourced directly from g
 
 ## TODO
 
-- [ ] Task manager
+- [x] Task manager
 - [x] Explorer
   - [ ] Copy/paste/print
 - [ ] Migrate from JS-DOS to WadCMD
