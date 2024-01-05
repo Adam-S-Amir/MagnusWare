@@ -72,21 +72,19 @@ let ContextMenu = [`
 `]
 
 const cmenu = document.createElement('div');
-const GadgetDiv = document.createElement('div');
-const GameDiv = document.createElement('div');
-
 cmenu.classList.add('cmenu');
-GadgetDiv.classList.add('GadgetDiv');
-GadgetDiv.classList.add('GadgetDiv');
-
 cmenu.id = 'cmenu';
-GameDiv.id = 'GameDiv';
-
 cmenu.innerHTML = ContextMenu;
+let desktop = document.getElementById("Image");
+desktop.appendChild(cmenu);
 
-document.body.appendChild(cmenu);
-document.body.insertBefore(GadgetDiv, cmenu);
-document.body.insertBefore(GameDiv, GadgetDiv);
+// const GadgetDiv = document.createElement('div');
+// const GameDiv = document.createElement('div');
+// GameDiv.id = 'GameDiv';
+// GadgetDiv.classList.add('GadgetDiv');
+// GadgetDiv.classList.add('GadgetDiv');
+// document.body.insertBefore(GadgetDiv, cmenu);
+// document.body.insertBefore(GameDiv, GadgetDiv);
 
 function viewSource() {
     let source = "<html>";

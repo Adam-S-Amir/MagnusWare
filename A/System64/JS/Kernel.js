@@ -29,7 +29,6 @@ pElement.innerHTML = "Successfully Initialized Kernel." + "<br>";
 splashScreen.appendChild(pElement);
 splashScreen.scrollTop = splashScreen.scrollHeight;
 
-
 let CSSLinks = [
     "MagnusWare-Layout.css",
     "Stylesheet.css",
@@ -179,16 +178,24 @@ let StartButton = document.getElementById("start-button");
 StartButton.addEventListener('mouseover', function () {
     StartButton.classList.remove('start-button-out');
     StartButton.classList.add('start-button-in');
-    StartButton.addEventListener('animationend', function () {
+    StartButton.addEventListener('animationend', function handleAnimationEnd() {
         StartButton.classList.add('start-in');
+        StartButton.removeEventListener('animationend', handleAnimationEnd);
     });
 });
 
-// Add mouseout event listener
 StartButton.addEventListener('mouseout', function () {
-    StartButton.classList.remove('start-button-in');
-    StartButton.classList.remove('start-in');
-    StartButton.classList.add('start-button-out');
+    if (StartButton.classList.contains("start-in")) {
+        StartButton.classList.remove('start-in');
+    } else if (!StartButton.classList.contains("start-in")) {
+        StartButton.classList.add('start-button-out');
+        StartButton.classList.remove('start-button-in');
+        StartButton.classList.remove('start-in');
+    } else {
+        StartButton.classList.add('start-button-out');
+        StartButton.classList.remove('start-button-in');
+        StartButton.classList.remove('start-in');
+    }
 });
 
 
