@@ -61,10 +61,10 @@ let ContextMenu = [`
 	<ul>
 		<li onclick="window.history.back();"><a id="Back">Back</a></li>
 		<li onclick="window.history.forward();"><a id="Forward">Forward</a></li>
-		<li onclick="location.reload();"><a id="Reload">Reload</a></li>
+		<li class="group" onclick="location.reload();"><a id="Reload">Reload</a></li>
 		<li onclick="window.open('https://google.com', '_blank')"><a id="New-Tab">New-Tab</a></li>
 		<li onclick="window.print();"><a id="Print">Print</a></li>
-		<li onclick="viewSource();"><a id="View-Source">View Page<br>Source</a></li>
+		<li class="group" onclick="viewSource();"><a id="View-Source">View Page<br>Source</a></li>
 		<li onclick="GadgetsMenu();"><a id="Gadgets">Gadgets</a></li>
 		<li onclick="ChangeAgent();"><a id="Gadgets">Change Clippy<br>Agent</a></li>
 	</ul>

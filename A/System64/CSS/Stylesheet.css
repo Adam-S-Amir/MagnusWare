@@ -976,18 +976,19 @@ p {
 }
 
 .context-menu {
+    font-size: 14px;
     position: absolute;
-    text-align: center;
+    text-align: left;
     display: none;
-    width: 120px;
+    /* width: 150px; */
     z-index: 1;
     background-color: var(--ButtonFace);
     border: 2px solid var(--ButtonShadow);
-    border-radius: 1vmin;
-    -webkit-border-radius: 1vmin;
-    -moz-border-radius: 1vmin;
-    -ms-border-radius: 1vmin;
-    -o-border-radius: 1vmin;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .context-menu ul {
@@ -997,10 +998,21 @@ p {
 }
 
 .context-menu ul li {
+    margin: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border-bottom: 0px solid transparent;
+}
+
+.context-menu ul li.group {
+    padding-left: 15px;
     padding-bottom: 7px;
     padding-top: 7px;
     border-bottom: 2px solid var(--ButtonShadow);
 }
+
 
 .context-menu ul li:last-child {
     padding-bottom: 7px;
@@ -1016,18 +1028,19 @@ p {
 
 .context-menu ul li:hover {
     background-color: var(--ButtonShadow);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
 
 .context-menu ul li:first-child:hover {
     background-color: var(--ButtonShadow);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
 }
 
 .context-menu ul li:last-child:hover {
     background-color: var(--ButtonShadow);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
 }
 
 #GameDiv {
