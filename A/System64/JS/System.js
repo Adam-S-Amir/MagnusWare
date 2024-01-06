@@ -1487,10 +1487,14 @@ function about() {
   <div class="about-body">
       <p>
           <div id="MagnusWareV">MagnusWare v${MagnusWare_V}</div>
-          Build ID: <div id="build-id">${BN}</div>
-          UUID: <div id="uuid">${uid}</div>
           Color Scheme: <div id=clrsh>${Color_Scheme}</div>
           Code Name: <div id="cdnm">${Codename}</div>
+          Release Date: <div id="build-id">${Release_Date}</div>
+          Release State: <div id="build-id">${Release_State}</div>
+          OS State: <div id="build-id">${OS_State}</div>
+          Activation State: <div id="build-id">${Activation_State}</div>
+          Build ID: <div id="build-id">${BN}</div>
+          UUID: <div id="uuid">${uid}</div>
       </p>
       <br>
       <div class="about-body-center">

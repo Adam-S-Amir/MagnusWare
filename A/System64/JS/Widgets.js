@@ -233,61 +233,117 @@ function hidevol() {
 //* Battery Level
 try {
     let level;
-
-    let animationInterval; // Moved this variable outside of the function to prevent multiple interval instances.
-
+    let animationInterval;
     function getBatLevel() {
         navigator.getBattery().then(function (battery) {
-            level = battery.level * 100; // Removed the "let" here to update the global variable.
-            let titleElement = document.getElementById("battery");
+            level = battery.level * 100;
+            let batteryElement = document.getElementById("battery");
             let bats = Math.round(level) + "%";
-            titleElement.title = `${bats}`;
-
+            batteryElement.title = `${bats}`;
+            if (level === 100) {
+                toast({
+                    message: `Battery is fully charged at ${bats}!`,
+                    sound: Battery,
+                });
+            } else if (level === 69) {
+                toast({
+                    message: `Battery is at ${bats}, nice!`,
+                    sound: Battery,
+                })
+            }
+            if (level === 20) {
+                toast({
+                    message: `Battery is low at ${bats}!`,
+                    sound: Battery,
+                });
+            } else if (level === 10) {
+                toast({
+                    message: `Battery is critically low at ${bats}!`,
+                    sound: Battery,
+                });
+            }
             if (battery.charging) {
-                let batteryani = [
-                    './A/System64/Images/Icons/battery-5.png',
-                    './A/System64/Images/Icons/battery-4.png',
-                    './A/System64/Images/Icons/battery-3.png',
-                    './A/System64/Images/Icons/battery-2.png',
-                    './A/System64/Images/Icons/battery-1.png'
+                toast({
+                    message: `Battery is charging at ${bats}.`,
+                    sound: Battery,
+                });
+                let batteryani0 = [
+                    './A/System64/Images/Icons/battery-6.png', //0
+                    './A/System64/Images/Icons/battery-5.png', //20
+                    './A/System64/Images/Icons/battery-4.png', //40
+                    './A/System64/Images/Icons/battery-3.png', //60
+                    './A/System64/Images/Icons/battery-2.png', //80
+                    './A/System64/Images/Icons/battery-1.png' //100
+                ];
+                let batteryani1 = [
+                    './A/System64/Images/Icons/battery-5.png', //20
+                    './A/System64/Images/Icons/battery-4.png', //40
+                    './A/System64/Images/Icons/battery-3.png', //60
+                    './A/System64/Images/Icons/battery-2.png', //80
+                    './A/System64/Images/Icons/battery-1.png' //100
+                ];
+                let batteryani2 = [
+                    './A/System64/Images/Icons/battery-4.png', //40
+                    './A/System64/Images/Icons/battery-3.png', //60
+                    './A/System64/Images/Icons/battery-2.png', //80
+                    './A/System64/Images/Icons/battery-1.png' //100
+                ];
+                let batteryani3 = [
+                    './A/System64/Images/Icons/battery-3.png', //60
+                    './A/System64/Images/Icons/battery-2.png', //80
+                    './A/System64/Images/Icons/battery-1.png' //100
+                ];
+                let batteryani4 = [
+                    './A/System64/Images/Icons/battery-2.png', //80
+                    './A/System64/Images/Icons/battery-1.png' //100
+                ];
+                let batteryani5 = [
+                    './A/System64/Images/Icons/battery-1.png' //100
                 ];
                 let curani = 0;
-
                 function anistart() {
-                    curani = (curani === 4) ? 0 : ++curani;
-                    titleElement.src = batteryani[curani];
+                    if (Math.round(level / 20) * 20 === 100) {
+                        curani = (curani === 0) ? 0 : ++curani;
+                        batteryElement.src = batteryani5[curani];
+                    } else if (Math.round(level / 20) * 20 === 80) {
+                        curani = (curani === 1) ? 0 : ++curani;
+                        batteryElement.src = batteryani4[curani];
+                    } else if (Math.round(level / 20) * 20 === 60) {
+                        curani = (curani === 2) ? 0 : ++curani;
+                        batteryElement.src = batteryani3[curani];
+                    } else if (Math.round(level / 20) * 20 === 40) {
+                        curani = (curani === 3) ? 0 : ++curani;
+                        batteryElement.src = batteryani2[curani];
+                    } else if (Math.round(level / 20) * 20 === 20) {
+                        curani = (curani === 4) ? 0 : ++curani;
+                        batteryElement.src = batteryani1[curani];
+                    } else if (Math.round(level / 20) * 20 === 20) {
+                        curani = (curani === 5) ? 0 : ++curani;
+                        batteryElement.src = batteryani0[curani];
+                    }
                 }
-
                 clearInterval(animationInterval);
                 animationInterval = setInterval(anistart, 2000);
-            } else {
+            } else if (!battery.charging) {
+                toast({
+                    message: `Battery is discharging at ${bats}.`,
+                    sound: Battery,
+                });
                 clearInterval(animationInterval);
-                if (level >= 100) {
-                    titleElement.src = './A/System64/Images/Icons/battery-16x16.png';
-                } else if (level >= 80) {
-                    titleElement.src = './A/System64/Images/Icons/battery-1.png';
-                } else if (level >= 60) {
-                    titleElement.src = './A/System64/Images/Icons/battery-2.png';
-                } else if (level >= 40) {
-                    titleElement.src = './A/System64/Images/Icons/battery-3.png';
-                } else if (level >= 20) {
-                    titleElement.src = './A/System64/Images/Icons/battery-4.png';
-                } else if (level >= 10) {
-                    titleElement.src = './A/System64/Images/Icons/battery-5.png';
+                if (Math.round(level / 20) * 20 === 100) {
+                    batteryElement.src = './A/System64/Images/Icons/battery-16x16.png';
+                } else if (Math.round(level / 20) * 20 === 80) {
+                    batteryElement.src = './A/System64/Images/Icons/battery-1.png';
+                } else if (Math.round(level / 20) * 20 === 60) {
+                    batteryElement.src = './A/System64/Images/Icons/battery-2.png';
+                } else if (Math.round(level / 20) * 20 === 40) {
+                    batteryElement.src = './A/System64/Images/Icons/battery-3.png';
+                } else if (Math.round(level / 20) * 20 === 20) {
+                    batteryElement.src = './A/System64/Images/Icons/battery-4.png';
+                } else if (Math.round(level / 20) * 20 === 10) {
+                    batteryElement.src = './A/System64/Images/Icons/battery-5.png';
                 }
             }
-        });
-    }
-
-    if (level === 20) {
-        toast({
-            message: 'Battery is at ' + `${bats}` + '!',
-            sound: Battery,
-        });
-    } else if (level === 10) {
-        toast({
-            message: 'Battery is at ' + `${bats}` + '!',
-            sound: Battery,
         });
     }
 
@@ -304,13 +360,10 @@ try {
     navigator.getBattery().then(function (battery) {
         battery.addEventListener('chargingchange', getBatLevel);
     });
-
     getBatLevel()
 } catch (error) {
-    toast({
-        message: error,
-        sound: Battery,
-    })
+    console.log(error);
+
     function batteryalert() {
         toast({
             message: "Can't get battery info :(",
@@ -349,7 +402,7 @@ function WiFi() {
 //* End Wifi
 
 //* Clippy
-document.addEventListener('DOMContentLoaded', function () { });
+document.addEventListener('DOMContentLoaded', function () {});
 let Tclippy = localStorage.getItem('Tclippy');
 let clappy = localStorage.getItem('clippy');
 if (Tclippy === '1') {

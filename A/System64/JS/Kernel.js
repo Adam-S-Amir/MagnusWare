@@ -1,7 +1,10 @@
 let MagnusWare_V = "4.0";
 let Color_Scheme = "Siamese";
 let Codename = "Nighthawk";
-let Release_Date = "??/??/2024"
+let Release_Date = "??/??/2024";
+let Release_State = "Developer";
+let OS_State = "unstable,dev";
+let Activation_State = "Un-Activated";
 
 console.log("Successfully Initialized Kernel.")
 
@@ -136,10 +139,10 @@ taskbr.id = 'taskbr';
 
 vInfo.setAttribute("onclick", "hideinfo();");
 var lineBreak = document.createElement("br");
-var text = document.createTextNode(`|  Un-Activated | | Developer || MagnusWare v${MagnusWare_V} |`);
+var text = document.createTextNode(`| ${Activation_State} | | ${Release_State} | | MagnusWare v${MagnusWare_V}|`);
 vInfo.appendChild(text);
 vInfo.appendChild(lineBreak);
-text = document.createTextNode(`|${Color_Scheme}| |${Codename}| |${Release_Date}| |unstable,dev|`);
+text = document.createTextNode(`|${Color_Scheme}| |${Codename}| |${Release_Date}| |${OS_State}|`);
 vInfo.appendChild(text);
 vInfo.addEventListener("mouseover", function () {
     vInfo.style.fontSize = "6px";
