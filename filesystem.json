@@ -1,5 +1,11 @@
 {
+  "404.html": null,
   "A": {
+    "da-hood": {
+      "MagnusWare.url": null,
+      "Windows 93.url": null,
+      "Windows 98 (Virtual x86).url": null
+    },
     "desktop": {
       "CREDITS.txt": null,
       "Themes": {
@@ -76,11 +82,6 @@
       "Flickr.url": null,
       "Google Photos.url": null,
       "Instagram.url": null
-    },
-    "da-hood": {
-      "MagnusWare.url": null,
-      "Windows 93.url": null,
-      "Windows 98 (Virtual x86).url": null
     },
     "Program Files": {
       "3D-FlowerBox": {
@@ -3752,8 +3753,8 @@
           "Beach.gif": null,
           "Black.gif": null,
           "Bliss.png": null,
+          "browse-ui-icons - Copy.png": null,
           "browse-ui-icons-grayscale.png": null,
-          "browse-ui-icons-low-color-grayscale.png": null,
           "browse-ui-icons.png": null,
           "Candy.png": null,
           "Clouds.gif": null,
@@ -3778,9 +3779,6 @@
           "Glacier.png": null,
           "Glitch.gif": null,
           "Grass.png": null,
-          "help-icons.png": null,
-          "help-viewer-toolbar-icons-grayscale.png": null,
-          "help-viewer-toolbar-icons.png": null,
           "High.gif": null,
           "Home.png": null,
           "Intel.png": null,
@@ -3871,6 +3869,7 @@
           "battery-4.png": null,
           "battery-5.png": null,
           "battery-512x512.png": null,
+          "battery-6.png": null,
           "battery-err-16x16.png": null,
           "box-128x128.png": null,
           "box-16x16.png": null,
@@ -4112,6 +4111,7 @@
           "notepad-file-16x16.png": null,
           "notepad-file-32x32.png": null,
           "notepad-file-48x48.png": null,
+          "nuke-16x16.png": null,
           "nuke-32x32.png": null,
           "offline-32x32-8bpp.png": null,
           "offline-32x32.png": null,
@@ -4244,6 +4244,7 @@
           "system-16x16.png": null,
           "task-16x16.png": null,
           "task-32x32.png": null,
+          "task-48x48.png": null,
           "task-scheduler-16x16.png": null,
           "tboi-16x16.png": null,
           "tboi-32x32.png": null,
@@ -4415,6 +4416,7 @@
         "Cursor.js": null,
         "Defender.js": null,
         "Desktop.js": null,
+        "Device.js": null,
         "Embed-Windows.js": null,
         "Filesystem-Setup.js": null,
         "FolderView.js": null,
@@ -4431,7 +4433,6 @@
         "Pep.js": null,
         "Programs.js": null,
         "Search.js": null,
-        "Settings.js": null,
         "Start-Menu-1.js": null,
         "Start-Menu-2.js": null,
         "Start-Menu-3.js": null,

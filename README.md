@@ -59,8 +59,8 @@ Any and all icons have been recreated using Photopea, or sourced directly from g
     - [x] https://packard-belle.netlify.app/
   - [x] Rahul.io
     - [x] https://rahul.io/
-  - [ ] windows93
-    - [ ] https://windows93.net/
+  - [x] windows93
+    - [x] https://windows93.net/
   - [x] Windows96
     - [x] https://www.windows93.net/
   - [x] winXP
