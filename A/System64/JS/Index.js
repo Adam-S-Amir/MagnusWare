@@ -18,8 +18,8 @@ var TITLEBAR_ICON_SIZE = 16;
 
 const web_server_root_for_icons =
     location.href.match(/magnusware.vercel.app/) ?
-        location.href.match(/.*magnusware.vercel.app/)[0] + "/" :
-        `${window.location.origin}/`;
+    location.href.match(/.*magnusware.vercel.app/)[0] + "/" :
+    `${window.location.origin}/`;
 
 /*
 const web_server_root_for_icons: This declares a constant variable named web_server_root_for_icons.
@@ -47,8 +47,8 @@ function getIconPath(iconID, size) {
 }
 
 function getDeskIconPath(iconID, size) {
-    iconID = iconID.toLowerCase();
-    return window.location.href.replace("index.html", "") + `A/System64/Images/Icons/${iconID}-${size}x${size}.png`;
+        iconID = iconID.toLowerCase();
+        return web_server_root_for_icons + `./A/System64/Images/Icons/${iconID}-${size}x${size}.png`;
 }
 
 function Canvas(width, height) {

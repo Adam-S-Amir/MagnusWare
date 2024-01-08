@@ -680,7 +680,7 @@ function TNT() {
 		innerHeight: 436
 	}, "TNT-Evilution.MXW");
 	hidemenu();
-	return new Task($win, "TXT.MX7");
+	return new Task($win, "TNT-Evilution.MX7");
 }
 
 function Sixty() {

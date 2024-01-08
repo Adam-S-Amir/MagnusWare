@@ -14,7 +14,7 @@ BrowserFS.configure({
 		writable: {
 			fs: "IndexedDB",
 			options: {
-				storeName: "A:&#92;"
+				storeName: "Indexed Data"
 			}
 		},
 		readable: {

@@ -330,17 +330,17 @@ try {
                     sound: Battery,
                 });
                 clearInterval(animationInterval);
-                if (Math.round(level / 20) * 20 === 100) {
+                if (level >= 100) {
                     batteryElement.src = './A/System64/Images/Icons/battery-16x16.png';
-                } else if (Math.round(level / 20) * 20 === 80) {
+                } else if (level >= 80) {
                     batteryElement.src = './A/System64/Images/Icons/battery-1.png';
-                } else if (Math.round(level / 20) * 20 === 60) {
+                } else if (level >= 60) {
                     batteryElement.src = './A/System64/Images/Icons/battery-2.png';
-                } else if (Math.round(level / 20) * 20 === 40) {
+                } else if (level >= 40) {
                     batteryElement.src = './A/System64/Images/Icons/battery-3.png';
-                } else if (Math.round(level / 20) * 20 === 20) {
+                } else if (level >= 20) {
                     batteryElement.src = './A/System64/Images/Icons/battery-4.png';
-                } else if (Math.round(level / 20) * 20 === 10) {
+                } else if (level >= 10) {
                     batteryElement.src = './A/System64/Images/Icons/battery-5.png';
                 }
             }

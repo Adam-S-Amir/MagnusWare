@@ -8,6 +8,7 @@
     },
     "desktop": {
       "CREDITS.txt": null,
+      "Icon.shortcut": null,
       "Themes": {
         "Ash.themepack": null,
         "Blue.themepack": null,
@@ -4432,6 +4433,7 @@
         "Parse-Theme.js": null,
         "Pep.js": null,
         "Programs.js": null,
+        "RTF.js": null,
         "Search.js": null,
         "Start-Menu-1.js": null,
         "Start-Menu-2.js": null,

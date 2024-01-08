@@ -167,10 +167,10 @@ function install_WadCMD() {
         let installAction = [`
         Create_Icon({
             title: 'WadCMD',
-            icon: 'WadCMD',
+            iconID: 'WadCMD',
             open: WadCMD,
         });
-        $folder_view.arrange_icons();
+        folder_view.arrange_icons();
     `];
         localStorage.setItem("WadCMD", installAction);
         eval(installAction[0]);

@@ -93,6 +93,7 @@ let scriptUrls = [
     "Defender.js",
     "JukeBox.js",
     "MagnusFS.js",
+    "RTF.js",
 ];
 
 function loadScriptsSequentially(index) {
