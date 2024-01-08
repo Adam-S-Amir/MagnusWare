@@ -17,6 +17,19 @@ function About() {
 	return new Task($win, "About.MX7");
 }
 
+function JSCMD() {
+	let $win = new $EmbedWindow2({
+		src: null,
+		icons: Window_icons("msdos"),
+		title: "JS-CMD",
+		innerWidth: 420,
+		innerHeight: 400
+	}, "JS-CMD.MXW");
+	jscmd();
+	hidemenu();
+	return new Task($win, "JS-CMD.MX7");
+}
+
 function TaskMngr() {
 	let $win = new $EmbedWindow2({
 		src: null,
@@ -479,17 +492,17 @@ function UD2() {
 	return new Task($win, "The-Ultimate-Doom-2.MX7");
 }
 
-function MWCMD() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/MS-DOS/CMD.html",
-		icons: Window_icons("msdos"),
-		title: "MW-CMD",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "MW-CMD.MXW");
-	hidemenu();
-	return new Task($win, "MW-CMD.MX7");
-}
+// function MWCMD() {
+// 	let $win = make_embed_window({
+// 		src: "https://magnusware-libs.vercel.app/MS-DOS/CMD.html",
+// 		icons: Window_icons("msdos"),
+// 		title: "MW-CMD",
+// 		innerWidth: 665,
+// 		innerHeight: 436
+// 	}, "MW-CMD.MXW");
+// 	hidemenu();
+// 	return new Task($win, "MW-CMD.MX7");
+// }
 
 function StarDoom() {
 	let $win = make_embed_window({
@@ -2461,12 +2474,6 @@ Create_Icon({
 	title: "VLC Media Player",
 	iconID: "VLC",
 	open: VLC
-});
-
-Create_Icon({
-	title: "MW-CMD",
-	iconID: "msdos",
-	open: MWCMD
 });
 
 Create_Icon({

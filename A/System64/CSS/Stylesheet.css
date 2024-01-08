@@ -1260,6 +1260,32 @@ p {
     -o-transform: translate(-50%, -50%);
 }
 
+.Terminal {
+    display: block;
+    position: relative;
+}
+
+.Terminal>h3 {
+    text-align: center;
+}
+
+.Terminal>input {
+    background-color: var(--ButtonHilight);
+    color: var(--ButtonText);
+    border-style: solid;
+    border-color: var(--ButtonShadow);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.Terminal>p {
+    font-size: 12px;
+    text-wrap: balance;
+}
+
 /* background: repeating-linear-gradient(190deg,
       #1a2980 40px,
       #d53369 80px,

@@ -90,12 +90,13 @@ var file_extension_icons = {
 };
 
 const system_folder_path_to_name = {
-	"/": "This PC", //"My Computer",
+	"/": "This PC",
 	"/my-pictures/": "My Pictures",
 	"/my-documents/": "My Documents",
 	"/da-hood/": "Network Neighborhood",
 	"/desktop/": "Desktop",
-	"/programs/": "Program Files",
+	"/Program Files/": "Program Files",
+	"/Program Files (x86)/": "Program Files (x86)",
 	"/recycle-bin/": "Recycle Bin",
 };
 const system_folder_name_to_path = Object.fromEntries(
@@ -117,7 +118,6 @@ const set_dragging_file_paths = (dragging_file_paths) => {
 
 function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, openFileOrFolder, onConfigure } = {}) {
 	const self = this;
-	// TODO: ensure a trailing slash / use path.join where appropriate
 
 	var $folder_view = $(`<div class="folder-view" tabindex="0">`);
 

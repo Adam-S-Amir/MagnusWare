@@ -1526,6 +1526,34 @@ function about() {
     document.getElementById("div1").innerHTML = about;
 }
 
+function jscmd() {
+    let cmd = [`
+    <div class="Terminal">
+        <h3>JS-CMD</h3>
+        <input placeholder="Type Here..." id="Terminal-Input">
+        <button onclick="Terminal();">Submit</button>
+        <p id="Terminal-Output"></p>
+    </div>
+    `]
+    document.getElementById("div1").innerHTML = cmd;
+    let input = document.getElementById("Terminal-Input");
+    input.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            Terminal();
+        }
+    });
+}
+
+function Terminal() {
+    let input = document.getElementById("Terminal-Input").value;
+    let output = document.getElementById("Terminal-Output");
+    try {
+        eval(input)
+    } catch (error) {
+        output.innerHTML = error;
+    }
+}
+
 const confirm_reinstall = function () {
     showMessageBox({
         title: "Confirm Factory Reset?",
