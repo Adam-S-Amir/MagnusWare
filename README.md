@@ -35,6 +35,7 @@ Any and all icons have been recreated using Photopea, or sourced directly from g
   - [ ] Single wad files
   - [ ] Multiple wad files
   - [ ] Wad and deh files
+- [ ] Make "Task Manager" standalone app
 
 ## Get Better Than The Competition
 
