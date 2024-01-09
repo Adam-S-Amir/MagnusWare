@@ -31,16 +31,13 @@ function JSCMD() {
 }
 
 function TaskMngr() {
-	let $win = new $EmbedWindow2({
-		src: null,
+	let $win = new make_embed_window({
+		src: "./A/Program Files/Task Manager/index.html",
 		icons: Window_icons("Task"),
 		title: "Task Manager",
 		innerWidth: 420,
 		innerHeight: 400
 	}, "Task.MXW");
-	TaskMgr();
-	updateTaskList();
-	setInterval(updateTaskList, 2000);
 	hidemenu();
 	return new Task($win, "Task.MX7");
 }
