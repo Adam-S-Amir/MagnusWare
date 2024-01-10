@@ -170,12 +170,9 @@ window.toast = window.toast || (({
 
 		// Focus the window
 		window.focus();
-		try {
-			sound.play();
-		} catch (error) {
-			console.log(`Failed to play ${sound}: `, error);
-		}
-
+		sound.play().catch(error => {
+			console.warn("Couldn't play " + sound);
+		});
 		// Move progress bar
 		move(bar, resolve, window);
 	});
