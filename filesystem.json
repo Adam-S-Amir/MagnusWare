@@ -8,7 +8,6 @@
     },
     "desktop": {
       "CREDITS.txt": null,
-      "Icon.shortcut": null,
       "Themes": {
         "Ash.themepack": null,
         "Blue.themepack": null,
@@ -3614,6 +3613,14 @@
           "sound-recorder.css": null,
           "WaveDisplay.js": null
         }
+      },
+      "Task Manager": {
+        "Assets": {
+          "JS": {
+            "index.js": null
+          }
+        },
+        "index.html": null
       },
       "winamp": {
         "example.html": null,

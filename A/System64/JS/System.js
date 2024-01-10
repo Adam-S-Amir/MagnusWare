@@ -1530,7 +1530,7 @@ function jscmd() {
     let cmd = [`
     <div class="Terminal">
         <h3>JS-CMD</h3>
-        <input placeholder="Type Here..." id="Terminal-Input">
+        <textarea id="Terminal-Input" placeholder="Type Here..." rows="10"></textarea>
         <button onclick="Terminal();">Submit</button>
         <p id="Terminal-Output"></p>
     </div>
@@ -1538,19 +1538,21 @@ function jscmd() {
     document.getElementById("div1").innerHTML = cmd;
     let input = document.getElementById("Terminal-Input");
     input.addEventListener("keyup", function (event) {
-        if (event.key === "Enter") {
+        if (event.key === "Enter" && !event.shiftKey) {
             Terminal();
         }
     });
 }
 
 function Terminal() {
-    let input = document.getElementById("Terminal-Input").value;
+    let inp = document.getElementById("Terminal-Input").value;
+    let input = inp.toLowerCase();
     let output = document.getElementById("Terminal-Output");
     try {
         eval(input)
+        output.insertAdjacentHTML('afterbegin', "<br><span id='success'>Success</span>");
     } catch (error) {
-        output.innerHTML = error;
+        output.insertAdjacentHTML('afterbegin', `<br><span id='error'>${error}</span>`);
     }
 }
 

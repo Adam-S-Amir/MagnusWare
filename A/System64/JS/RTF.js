@@ -17,5 +17,5 @@ function readShortcutFile(filePath) {
 }
 
 // Replace 'your_shortcut_file_path' with the actual path to your ".shortcut" file
-const shortcutFilePath = './A/desktop/Icon.shortcut';
-readShortcutFile(shortcutFilePath);
+// const shortcutFilePath = './A/desktop/Icon.shortcut';
+// readShortcutFile(shortcutFilePath);

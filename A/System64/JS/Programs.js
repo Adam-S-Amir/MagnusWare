@@ -38,13 +38,16 @@ function TaskMngr() {
 		innerWidth: 420,
 		innerHeight: 400
 	}, "Task.MXW");
+	TaskMgr();
+	updateTaskList();
+	setInterval(updateTaskList, 2000);
 	hidemenu();
 	return new Task($win, "Task.MX7");
 }
 
 function Chat() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files/chat/index.php",
+		src: "./A/Program%20Files/chat/index.php",
 		icons: Window_icons("Chat"),
 		title: "Chat Room",
 		innerWidth: 1000,
@@ -1766,23 +1769,23 @@ function Pinball() {
 function Explorer(address) {
 	var document_title = address;
 	var win_title = document_title;
-	if(document_title === "/A/"){
+	if (document_title === "/A/") {
 		document_title = "Explorer";
 	}
 	var $win = make_embed_window({
-		src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
-		icons: Window_icons("folder-open"),
-		title: win_title,
-		// this is based on one measurement, but it uses different sizes depending on the screen resolution,
-		// and may be different for different Explorer window types (Microsoft Internet Explorer, "Exploring", normal Windows Explorer*),
-		// and may store the window positions, even for different types or folders, so I might have a non-standard default size measurement.
-		// *See different types (resized for posing this screenshot): https://imgur.com/nxAcT9C
-		innerWidth: Math.min(856, innerWidth * 0.9),
-		innerHeight: Math.min(547, innerHeight * 0.7),
+			src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
+			icons: Window_icons("folder-open"),
+			title: win_title,
+			// this is based on one measurement, but it uses different sizes depending on the screen resolution,
+			// and may be different for different Explorer window types (Microsoft Internet Explorer, "Exploring", normal Windows Explorer*),
+			// and may store the window positions, even for different types or folders, so I might have a non-standard default size measurement.
+			// *See different types (resized for posing this screenshot): https://imgur.com/nxAcT9C
+			innerWidth: Math.min(856, innerWidth * 0.9),
+			innerHeight: Math.min(547, innerHeight * 0.7),
 		},
 
 
-	`${document_title.replace("/A/", "")}.MXW`);
+		`${document_title.replace("/A/", "")}.MXW`);
 	hidemenu();
 	return new Task($win, `${document_title.replace("/A/", "")}.MX7`);
 }
