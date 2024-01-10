@@ -31,7 +31,7 @@ function JSCMD() {
 }
 
 function TaskMngr() {
-	let $win = new make_embed_window({
+	let $win = new $EmbedWindow2({
 		src: "./A/Program Files/Task Manager/index.html",
 		icons: Window_icons("Task"),
 		title: "Task Manager",
