@@ -155,7 +155,7 @@ function checkupdate() {
     </div>
 
 `
-];
+    ];
     document.getElementById("right").innerHTML = UpdateMenu;
 }
 
@@ -335,7 +335,8 @@ function changelog() {
             </ul>
         <hr id='hrshrt2'>
     </div>
-`];
+`
+    ];
     document.getElementById("right").innerHTML = changelog;
 }
 

@@ -261,7 +261,7 @@ try {
             } else if (bats === 10) {
                 toast({
                     message: `Battery is critically low at ${bats}!`,
-                    sound: Battery,
+                    sound: CriticalBattery,
                 });
             }
             if (battery.charging) {
