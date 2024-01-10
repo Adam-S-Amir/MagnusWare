@@ -119,12 +119,6 @@ window.toast = window.toast || (({
 	windowOptions = {}, // for controlling width, etc.
 }) => {
 	const toastQueue = document.getElementById('toast-queue') || createToastQueue();
-	const activeToasts = document.querySelectorAll('.toast-window').length;
-
-	if (activeToasts > 0) {
-		console.log(`${activeToasts} active toasts.`);
-	}
-
 	const promise = new Promise((resolve, reject) => {
 		// Create the window
 		const window = document.createElement('div');

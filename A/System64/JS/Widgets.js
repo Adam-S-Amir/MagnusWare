@@ -236,33 +236,34 @@ try {
     let animationInterval;
     function getBatLevel() {
         navigator.getBattery().then(function (battery) {
+            battery.addEventListener('chargingchange', getBatLevel);
             level = battery.level * 100;
             let batteryElement = document.getElementById("battery");
             let bats = Math.round(level) + "%";
             batteryElement.title = `${bats}`;
-            if (level === 100) {
+            if (bats === 100) {
                 toast({
                     message: `Battery is fully charged at ${bats}!`,
                     sound: Battery,
                 });
-            } else if (level === 69) {
+            } else if (bats === 69) {
                 toast({
                     message: `Battery is at ${bats}, nice!`,
                     sound: Battery,
                 })
             }
-            if (level === 20) {
+            if (bats === 20) {
                 toast({
                     message: `Battery is low at ${bats}!`,
                     sound: Battery,
                 });
-            } else if (level === 10) {
+            } else if (bats === 10) {
                 toast({
                     message: `Battery is critically low at ${bats}!`,
                     sound: Battery,
                 });
             }
-            if (battery.charging) {
+                if (battery.charging) {
                 toast({
                     message: `Battery is charging at ${bats}.`,
                     sound: Battery,
@@ -357,9 +358,6 @@ try {
             })
         });
     }
-    navigator.getBattery().then(function (battery) {
-        battery.addEventListener('chargingchange', getBatLevel);
-    });
     getBatLevel()
 } catch (error) {
     console.log(error);

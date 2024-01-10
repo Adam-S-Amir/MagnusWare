@@ -7,27 +7,16 @@ let OS_State = "unstable,dev";
 let Activation_State = "Un-Activated";
 
 console.log("Successfully Initialized Kernel.")
+window.addEventListener("load", function() {
+    console.log("Successfully Initialized BOM.");
+});
+document.addEventListener("DOMContentLoaded", function() {
+	console.log("Successfully Initialized DOM.");
+});
 
 let pElement = document.createElement("p");
 pElement.id = "splash-log";
-let splashScreen = document.querySelector("#splash-screen");
-
-pElement.innerHTML = "Successfully Initialized BOM." + "<br>";
-splashScreen.appendChild(pElement);
-splashScreen.scrollTop = splashScreen.scrollHeight;
-
-pElement.innerHTML = "Initializing DOM..." + "<br>";
-splashScreen.appendChild(pElement);
-splashScreen.scrollTop = splashScreen.scrollHeight;
-
-pElement.innerHTML = "Successfully Initialized DOM." + "<br>";
-splashScreen.appendChild(pElement);
-splashScreen.scrollTop = splashScreen.scrollHeight;
-
-pElement.innerHTML = "Initializing Kernel..." + "<br>";
-splashScreen.appendChild(pElement);
-splashScreen.scrollTop = splashScreen.scrollHeight;
-
+let splashScreen = document.getElementById("splash-screen");
 pElement.innerHTML = "Successfully Initialized Kernel." + "<br>";
 splashScreen.appendChild(pElement);
 splashScreen.scrollTop = splashScreen.scrollHeight;
@@ -49,10 +38,12 @@ function loadCSSSequentially(index) {
             loadCSSSequentially(index + 1);
         };
         document.head.appendChild(CSS);
-        console.log("Successfully Initialized " + CSSLinks[index].replace(".css", "") + ".");
+        let output = CSSLinks[index].replace(".css", "");
+        let logMessage = (`Successfully Initialized ${output}.`);
+        console.log(logMessage);
         let pElement = document.createElement("p");
         pElement.id = "splash-log";
-        pElement.innerHTML = CSSLinks[index] + "<br>";
+        pElement.innerHTML = `${logMessage}<br>`;
         let splashScreen = document.querySelector("#splash-screen");
         splashScreen.appendChild(pElement);
         splashScreen.scrollTop = splashScreen.scrollHeight;
@@ -65,7 +56,7 @@ loadCSSSequentially(0);
 let scriptUrls = [
     "TaskManager.js",
     "Index.js",
-    "Clippy/build/clippy.min.js",
+    "Clippy/build/Clippy.min.js",
     "BrowserFS.js",
     "Parse-Theme.js",
     "MenuBar.js",
@@ -106,10 +97,12 @@ function loadScriptsSequentially(index) {
             loadScriptsSequentially(index + 1);
         };
         document.body.appendChild(script);
-        console.log("Successfully Initialized " + scriptUrls[index].replace(".js", "") + ".");
+        let output = scriptUrls[index].replace("Clippy/build/", "").replace("-", " ").replace(".min.js", "").replace(".js", "");
+        let logMessage = (`Successfully Initialized ${output}.`);
+        console.log(logMessage);
         let pElement = document.createElement("p");
         pElement.id = "splash-log";
-        pElement.innerHTML = scriptUrls[index] + "<br>";
+        pElement.innerHTML = `${logMessage}<br>`;
         let splashScreen = document.querySelector("#splash-screen");
         splashScreen.appendChild(pElement);
         splashScreen.scrollTop = splashScreen.scrollHeight;
@@ -125,7 +118,6 @@ function loadScriptsSequentially(index) {
     }
 }
 
-console.group("[init scripts...]");
 loadScriptsSequentially(0);
 
 const vInfo = document.createElement('span');
