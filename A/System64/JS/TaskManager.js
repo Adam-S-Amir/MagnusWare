@@ -11,7 +11,9 @@ function TaskMgr() {
 function updateTaskList() {
     let windowElements = document.querySelectorAll(".window");
     let taskList = document.getElementById("tasks-list");
-    taskList.innerHTML = "";
+    if (taskList) {
+        taskList.innerHTML = "";
+    }
     windowElements.forEach(windowElement => {
         let taskID = windowElement.id;
         let taskDel = document.getElementById(`${taskID.replace(".MXW", ".MX7")}`);
@@ -32,4 +34,6 @@ function updateTaskList() {
     });
 }
 
-updateTaskList()
+updateTaskList();
+
+//# sourceURL=MagnusWare

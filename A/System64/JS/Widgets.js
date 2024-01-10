@@ -234,6 +234,7 @@ function hidevol() {
 try {
     let level;
     let animationInterval;
+
     function getBatLevel() {
         navigator.getBattery().then(function (battery) {
             battery.addEventListener('chargingchange', getBatLevel);
@@ -263,7 +264,7 @@ try {
                     sound: Battery,
                 });
             }
-                if (battery.charging) {
+            if (battery.charging) {
                 toast({
                     message: `Battery is charging at ${bats}.`,
                     sound: Battery,
@@ -302,6 +303,7 @@ try {
                     './A/System64/Images/Icons/battery-1.png' //100
                 ];
                 let curani = 0;
+
                 function anistart() {
                     if (Math.round(level / 20) * 20 === 100) {
                         curani = (curani === 0) ? 0 : ++curani;
@@ -358,7 +360,6 @@ try {
             })
         });
     }
-    getBatLevel()
 } catch (error) {
     console.log(error);
 
@@ -502,6 +503,9 @@ if (uname !== null && uname !== undefined) {
             message: `Welcome back, ${uname}!`,
             sound: LogOn
         });
+        setTimeout(() => {
+            getBatLevel()
+        }, 3000);
     } catch (error) {
         toast({
             message: "You haven't interacted yet!"
@@ -511,7 +515,7 @@ if (uname !== null && uname !== undefined) {
     detectDeviceType();
     let username = 'User';
     localStorage.setItem('username', username);
-    console.error('Username Unspecified. Loading Default Username...');
+    console.error('Username Unspecified. Using Default Username.');
     console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
     toast({
         message: `Welcome to MagnusWare v${MagnusWare_V}, ${username}!`,
@@ -522,7 +526,10 @@ if (uname !== null && uname !== undefined) {
             message: "Click the start button in the bottom left corner!",
             sound: Asterisk,
         });
-    }, 5000);
+        setTimeout(() => {
+            getBatLevel()
+        }, 2000);
+    }, 3000);
 }
 
 

@@ -22,146 +22,140 @@ function Settingz() {
 
 let right = [
     `
-  <div id='divbg'>
-      <hr id='hrshrt2'>
-      <h3 id='bgs'>Backgrounds</h3>
-      <hr id='hrshrt'>
-      <button id='bg0' onclick='bg0()'>Bliss</button>
-      <button id='bg1' onclick='bg1()'>Candy</button>
-      <button id='bg2' onclick='bg2()'>Clouds</button>
-      <button id='bg18' onclick='bg18()'>Default</button>
-      <button id='bg4' onclick='bg4()'>Glacier</button>
-      <button id='bg5' onclick='bg5()'>Grass</button>
-      <button id='bg6' onclick='bg6()'>Home</button>
-      <button id='bg7' onclick='bg7()'>Intel</button>
-      <button id='bg3' onclick='bg3()'>Interstellar</button>
-      <button id='bg8' onclick='bg8()'>Nebula</button>
-      <button id='bg16' onclick='bg20()'>MagnusWare Orb</button>
-      <button id='bg17' onclick='bg17()'>Moonroof</button>
-      <button id='bg9' onclick='bg9()'>Outrun</button>
-      <button id='bg10' onclick='bg10()'>Verticle</button>
-      <button id='bg19' onclick='bg19()'>Vortex</button>
-      <button id='bg11' onclick='bg11()'>Waves</button>
-      <button id='bg12' onclick='bg12()'>Windows 1.0</button>
-      <button id='bg13' onclick='bg13()'>Windows 10</button>
-      <button id='bg14' onclick='bg14()'>Windows 95</button>
-      <button id='bg15' onclick='bg15()'>Windows 95 Candy Edition</button>
-      <button id='bg16' onclick='bg16()'>Windows 98</button>
-  </div>
-  <div id='livbg'>
-      <hr id='hrshrt2'>
-      <h3 id='liv'>Live Backgrounds</h3>
-      <hr id='hrshrt'>
-      <button id='lv0' onclick='lv0()'>Abstract</button>
-      <button id='lv1' onclick='lv1()'>Beach</button>
-      <button id='lv2' onclick='lv2()'>Clouds</button>
-      <button id='lv3' onclick='lv3()'>Fast-Moving Paint</button>
-      <button id='lv4' onclick='lv4()'>Glitch</button>
-      <button id='lv8' onclick='lv8()'>Matrix</button>
-      <button id='lv5' onclick='lv5()'>Psychedelic #1</button>
-      <button id='lv6' onclick='lv6()'>Psychedelic River</button>
-      <button id='lv7' onclick='lv7()'>Paint in Space</button>
-  </div>
-  <div id='divtc'>
-      <hr id='hrshrt2'>
-      <h3 id='tms'>Themes</h3>
-      <hr id='hrshrt'>
-      <button id='ash' onclick='Ash()'>Ash</button>
-      <button id='Baseball' onclick='Baseball()'>Baseball</button>
-      <button id='blue' onclick='Blue()'>Blue</button>
-      <button id='brick' onclick='Brick()'>Bricks</button>
-      <button id='Cherry' onclick='Cherry()'>Cherry</button>
-      <button id='dangerous' onclick='Dangerous()'>Dangerous Creatures</button>
-      <button id='default' onclick='MagnusWare()'>Default</button>
-      <button id='desert' onclick='Desert()'>Desert</button>
-      <button id='eggplant' onclick='Eggplant()'>Eggplant</button>
-      <button id='fx' onclick='FX()'>FX</button>
-      <button id='gen1' onclick='Gen1()'>Gen Test 1</button>
-      <button id='gen2' onclick='Gen2()'>Gen Test 2</button>
-      <button id='gen3' onclick='Gen3()'>Gen Test 3</button>
-      <button id='honey' onclick='Honey()'>Honey</button>
-      <button id='inside' onclick='Inside()'>Inside Your Computer</button>
-      <button id='jungle' onclick='Jungle()'>Jungle</button>
-      <button id='vinci' onclick='Vinci()'>Leonardo Da Vinci</button>
-      <button id='lilac' onclick='Lilac()'>Lilac</button>
-      <button id='maple' onclick='Maple()'>Maple</button>
-      <button id='marine' onclick='Marine()'>Marine</button>
-      <button id='more' onclick='More()'>More Windows</button>
-      <button id='moonroof' onclick='Moonroof()'>Moonroof</button>
-      <button id='mystery' onclick='Mystery()'>Mystery</button>
-      <button id='nature' onclick='Nature()'>Nature</button>
-      <button id='peggy' onclick='Peggy()'>Peggys Pastels</button>
-      <button id='plum' onclick='Plum()'>Plums</button>
-      <button id='powershell' onclick='Powershell()'>Powershell</button>
-      <button id='Powershell' onclick='powershell()'>Powershell (x86)</button>
-      <button id='precision' onclick='Precision()'>Precision</button>
-      <button id='precision-green' onclick='precisiongreen()'>Precision Green</button>
-      <button id='pumpkin' onclick='Pumpkin()'>Pumpkin</button>
-      <button id='rainyday' onclick='Rainyday()'>Rainday</button>
-      <button id='raspberry' onclick='raspberry()'>Raspberry</button>
-      <button id='redwine' onclick='Redwine()'>Red Wine</button>
-      <button id='rwb' onclick='RWB()'>Red White and Blue</button>
-      <button id='rose' onclick='Rose()'>Roses</button>
-      <button id='science' onclick='Science()'>Science</button>
-      <button id='seawater' onclick='seawater()'>Seawater</button>
-      <button id='slate' onclick='Slate()'>Slate</button>
-      <button id='solar' onclick='Solar()'>Solarized Dark</button>
-      <button id='space' onclick='Space()'>Space</button>
-      <button id='sports' onclick='Sports()'>Sports</button>
-      <button id='spruce' onclick='Spruce()'>Spruce</button>
-      <button id='storm' onclick='Storm()'>Storm</button>
-      <button id='Storm' onclick='storm()'>Storm v2.0</button>
-      <button id='steal' onclick='Steal()'>Teal by Shelby</button>
-      <button id='teal' onclick='Teal()'>Teal</button>
-      <button id='toner' onclick='Toner()'>Toner</button>
-      <button id='t6' onclick='T6()'>The USA in the 60's</button>
-      <button id='golden' onclick='Golden()'>The Golden Era</button>
-      <button id='travel' onclick='Travel()'>Travel</button>
-      <button id='underwater' onclick='Underwater()'>Underwater</button>
-      <button id='vista' onclick='Vista()'>Vista Dark Theme</button>
-      <button id='wheat' onclick='Wheat()'>Wheat</button>
-      <button id='w1' onclick='W1()'>Windows 1</button>
-      <button id='w93' onclick='W93()'>Windows 93</button>
-      <button id='w98' onclick='W98()'>Windows 98</button>
-      <button id='wdefault' onclick='Wdefault()'>Windows Default</button>
-      <button id='whybrid' onclick='Whybrid()'>Windows Hybrid</button>
-      <button id='wxp' onclick='WXP()'>Windows XP</button>
-  </div>
-  <div id='Scrsvrz'>
-      <hr id='hrshrt2'>
-      <h3 id='scz'>ScreenSavers</h3>
-      <hr id='hrshrt'>
-      <button id='pipes' onclick='Pipes()'>Pipes</button>
-      <button id='flowers' onclick='FlowerBox()'>3D FlowerBox</button>
-      <button id='matrix' onclick='Matrix()'>Matrix</button>
-      <button id='dvd' onclick='DVD()'>DVD</button>
-      <button id='dotz' onclick='Dotz()'>Dotz</button>
-      <button id='bubz' onclick='Bubz()'>Bubbles</button>
-  </div>
-  <br>
-  <!--<div id='tcvdiv'>
-      <hr id='hrshrt2'>
-      <h3 id='tcv'>Turn on screen saver on</h3><span id='shmol'>Click one from above</span>
-      <hr id='hrshrt'>
-      <span id='wait'>Wait:</span><input type='number' max='10' id='scvtmr'><span id='scrmns'> minutes to auto start screen saver</span><button id='tmr' onclick='tmr()'>Go!</button>
-  </div>-->
-  <br>
-  `
+    <div id='divbg'>
+        <hr id='hrshrt2'>
+        <h3 id='bgs'>Backgrounds</h3>
+        <button id='bg0' onclick='bg0()'>Bliss</button>
+        <button id='bg1' onclick='bg1()'>Candy</button>
+        <button id='bg2' onclick='bg2()'>Clouds</button>
+        <button id='bg18' onclick='bg18()'>Default</button>
+        <button id='bg4' onclick='bg4()'>Glacier</button>
+        <button id='bg5' onclick='bg5()'>Grass</button>
+        <button id='bg6' onclick='bg6()'>Home</button>
+        <button id='bg7' onclick='bg7()'>Intel</button>
+        <button id='bg3' onclick='bg3()'>Interstellar</button>
+        <button id='bg8' onclick='bg8()'>Nebula</button>
+        <button id='bg16' onclick='bg20()'>MagnusWare Orb</button>
+        <button id='bg17' onclick='bg17()'>Moonroof</button>
+        <button id='bg9' onclick='bg9()'>Outrun</button>
+        <button id='bg10' onclick='bg10()'>Verticle</button>
+        <button id='bg19' onclick='bg19()'>Vortex</button>
+        <button id='bg11' onclick='bg11()'>Waves</button>
+        <button id='bg12' onclick='bg12()'>Windows 1.0</button>
+        <button id='bg13' onclick='bg13()'>Windows 10</button>
+        <button id='bg14' onclick='bg14()'>Windows 95</button>
+        <button id='bg15' onclick='bg15()'>Windows 95 Candy Edition</button>
+        <button id='bg16' onclick='bg16()'>Windows 98</button>
+    </div>
+    <div id='livbg'>
+        <hr id='hrshrt2'>
+        <h3 id='liv'>Live Backgrounds</h3>
+        <button id='lv0' onclick='lv0()'>Abstract</button>
+        <button id='lv1' onclick='lv1()'>Beach</button>
+        <button id='lv2' onclick='lv2()'>Clouds</button>
+        <button id='lv3' onclick='lv3()'>Fast-Moving Paint</button>
+        <button id='lv4' onclick='lv4()'>Glitch</button>
+        <button id='lv8' onclick='lv8()'>Matrix</button>
+        <button id='lv5' onclick='lv5()'>Psychedelic #1</button>
+        <button id='lv6' onclick='lv6()'>Psychedelic River</button>
+        <button id='lv7' onclick='lv7()'>Paint in Space</button>
+    </div>
+    <div id='divtc'>
+        <hr id='hrshrt2'>
+        <h3 id='tms'>Themes</h3>
+        <button id='ash' onclick='Ash()'>Ash</button>
+        <button id='Baseball' onclick='Baseball()'>Baseball</button>
+        <button id='blue' onclick='Blue()'>Blue</button>
+        <button id='brick' onclick='Brick()'>Bricks</button>
+        <button id='Cherry' onclick='Cherry()'>Cherry</button>
+        <button id='dangerous' onclick='Dangerous()'>Dangerous Creatures</button>
+        <button id='default' onclick='MagnusWare()'>Default</button>
+        <button id='desert' onclick='Desert()'>Desert</button>
+        <button id='eggplant' onclick='Eggplant()'>Eggplant</button>
+        <button id='fx' onclick='FX()'>FX</button>
+        <button id='gen1' onclick='Gen1()'>Gen Test 1</button>
+        <button id='gen2' onclick='Gen2()'>Gen Test 2</button>
+        <button id='gen3' onclick='Gen3()'>Gen Test 3</button>
+        <button id='honey' onclick='Honey()'>Honey</button>
+        <button id='inside' onclick='Inside()'>Inside Your Computer</button>
+        <button id='jungle' onclick='Jungle()'>Jungle</button>
+        <button id='vinci' onclick='Vinci()'>Leonardo Da Vinci</button>
+        <button id='lilac' onclick='Lilac()'>Lilac</button>
+        <button id='maple' onclick='Maple()'>Maple</button>
+        <button id='marine' onclick='Marine()'>Marine</button>
+        <button id='more' onclick='More()'>More Windows</button>
+        <button id='moonroof' onclick='Moonroof()'>Moonroof</button>
+        <button id='mystery' onclick='Mystery()'>Mystery</button>
+        <button id='nature' onclick='Nature()'>Nature</button>
+        <button id='peggy' onclick='Peggy()'>Peggys Pastels</button>
+        <button id='plum' onclick='Plum()'>Plums</button>
+        <button id='powershell' onclick='Powershell()'>Powershell</button>
+        <button id='Powershell' onclick='powershell()'>Powershell (x86)</button>
+        <button id='precision' onclick='Precision()'>Precision</button>
+        <button id='precision-green' onclick='precisiongreen()'>Precision Green</button>
+        <button id='pumpkin' onclick='Pumpkin()'>Pumpkin</button>
+        <button id='rainyday' onclick='Rainyday()'>Rainday</button>
+        <button id='raspberry' onclick='raspberry()'>Raspberry</button>
+        <button id='redwine' onclick='Redwine()'>Red Wine</button>
+        <button id='rwb' onclick='RWB()'>Red White and Blue</button>
+        <button id='rose' onclick='Rose()'>Roses</button>
+        <button id='science' onclick='Science()'>Science</button>
+        <button id='seawater' onclick='seawater()'>Seawater</button>
+        <button id='slate' onclick='Slate()'>Slate</button>
+        <button id='solar' onclick='Solar()'>Solarized Dark</button>
+        <button id='space' onclick='Space()'>Space</button>
+        <button id='sports' onclick='Sports()'>Sports</button>
+        <button id='spruce' onclick='Spruce()'>Spruce</button>
+        <button id='storm' onclick='Storm()'>Storm</button>
+        <button id='Storm' onclick='storm()'>Storm v2.0</button>
+        <button id='steal' onclick='Steal()'>Teal by Shelby</button>
+        <button id='teal' onclick='Teal()'>Teal</button>
+        <button id='toner' onclick='Toner()'>Toner</button>
+        <button id='t6' onclick='T6()'>The USA in the 60's</button>
+        <button id='golden' onclick='Golden()'>The Golden Era</button>
+        <button id='travel' onclick='Travel()'>Travel</button>
+        <button id='underwater' onclick='Underwater()'>Underwater</button>
+        <button id='vista' onclick='Vista()'>Vista Dark Theme</button>
+        <button id='wheat' onclick='Wheat()'>Wheat</button>
+        <button id='w1' onclick='W1()'>Windows 1</button>
+        <button id='w93' onclick='W93()'>Windows 93</button>
+        <button id='w98' onclick='W98()'>Windows 98</button>
+        <button id='wdefault' onclick='Wdefault()'>Windows Default</button>
+        <button id='whybrid' onclick='Whybrid()'>Windows Hybrid</button>
+        <button id='wxp' onclick='WXP()'>Windows XP</button>
+    </div>
+    <div id='Scrsvrz'>
+        <hr id='hrshrt2'>
+        <h3 id='scz'>ScreenSavers</h3>
+        <button id='pipes' onclick='Pipes()'>Pipes</button>
+        <button id='flowers' onclick='FlowerBox()'>3D FlowerBox</button>
+        <button id='matrix' onclick='Matrix()'>Matrix</button>
+        <button id='dvd' onclick='DVD()'>DVD</button>
+        <button id='dotz' onclick='Dotz()'>Dotz</button>
+        <button id='bubz' onclick='Bubz()'>Bubbles</button>
+    </div>
+    <br>
+    <!--<div id='tcvdiv'>
+        <hr id='hrshrt2'>
+        <h3 id='tcv'>Turn on screen saver on</h3><span id='shmol'>Click one from above</span>
+        <span id='wait'>Wait:</span><input type='number' max='10' id='scvtmr'><span id='scrmns'> minutes to auto start screen saver</span><button id='tmr' onclick='tmr()'>Go!</button>
+    </div>-->
+    <br>
+`
 ];
 
 function checkupdate() {
     let UpdateMenu = [
         `
-  <div id='updatediv'>
-      <hr id='hrshrt2'>
-      <button id='update-1' onclick='checkUpdate2()'>Check for<br>Updates</button>
-      <p id='update-rs'>May Require a Restart!</p>
-      <div id='update-buttons'></div>
-      <hr id='hrshrt'>
-  </div>
+    <div id='updatediv'>
+        <hr id='hrshrt2'>
+        <button id='update-1' onclick='checkUpdate2()'>Check for<br>Updates</button>
+        <p id='update-rs'>May Require a Restart!</p>
+        <div id='update-buttons'></div>
+    </div>
 
 `
-    ];
+];
     document.getElementById("right").innerHTML = UpdateMenu;
 }
 
@@ -311,57 +305,54 @@ function changelog() {
                 </li>
             </ul>
         <hr id='hrshrt2'>
-              <h3>MagnusWare 2.2<br>(Tabby/Zenith)</h3>
+                <h3>MagnusWare 2.2<br>(Tabby/Zenith)</h3>
             <ul>
-              <li><span>Calender widget</span></li>
-              <li><span>Version watermark animation</span></li>
-              <li><span>MagnusWare Orb glow animation</span></li>
-              <li><span>    Revert MagnusWare Orb Icon to MagnusSoft 1.4 with newer color changes</span></li>
-              <li><span>Taskbar resize</span></li>
-              <li><span>Start Menu padding</span></li>
-              <li><span>Battery Level actually appears in HTML title attribute via JS</span></li>
-              <li><span>Update dialog</span></li>
-              <li><span>Always display icon title</span></li>
-              <li><span>Start Menu error fixing</span></li>
-              <li><span>Taskbar time has dynamically updated fonts on theme change</span></li>
-              <li><span>MineCrap 1.3 coming soon on hover menu</span></li>
-              <li><span>Matrix</span></li>
-              <li><span>Version list restructure</span></li>
-              <li><span>    Re-define versions/service packs</span></li>
-              <li><span>Compress scripts list</span></li>
-              <li><span>Fix cache/update issues</span></li>
-              <li><span>    Factory reset is more efficient</span></li>
-              <li><span>Remove unnecessary cookies/localStorage properties</span></li>
+                <li><span>Calender widget</span></li>
+                <li><span>Version watermark animation</span></li>
+                <li><span>MagnusWare Orb glow animation</span></li>
+                <li><span>    Revert MagnusWare Orb Icon to MagnusSoft 1.4 with newer color changes</span></li>
+                <li><span>Taskbar resize</span></li>
+                <li><span>Start Menu padding</span></li>
+                <li><span>Battery Level actually appears in HTML title attribute via JS</span></li>
+                <li><span>Update dialog</span></li>
+                <li><span>Always display icon title</span></li>
+                <li><span>Start Menu error fixing</span></li>
+                <li><span>Taskbar time has dynamically updated fonts on theme change</span></li>
+                <li><span>MineCrap 1.3 coming soon on hover menu</span></li>
+                <li><span>Matrix</span></li>
+                <li><span>Version list restructure</span></li>
+                <li><span>    Re-define versions/service packs</span></li>
+                <li><span>Compress scripts list</span></li>
+                <li><span>Fix cache/update issues</span></li>
+                <li><span>    Factory reset is more efficient</span></li>
+                <li><span>Remove unnecessary cookies/localStorage properties</span></li>
             </ul>
         <hr id='hrshrt2'>
             <h3>MagnusWare 2.1<br>(Ragamuffin/Interstellar)</h3>
             <ul>
-              <li><span>Cursor effects</span></li>
-              <li><span>VLC Media Player!!</span></li>
+                <li><span>Cursor effects</span></li>
+                <li><span>VLC Media Player!!</span></li>
             </ul>
         <hr id='hrshrt2'>
     </div>
-  `
-    ];
+`];
     document.getElementById("right").innerHTML = changelog;
 }
 
 function Tweaks() {
     let tweaks = [`
-  <div id="tweaks">
+    <div id="tweaks">
     <div class="user">
         <hr id='hrshrt2'>
         <h3>User Settings</h3>
-        <hr id='hrshrt'>
         <p>Username: <span id='username'></span></p>
+        <div><input placeholder="Change Username..." id="changeUname"><button onclick="ChangeUname()" id="submitUname">Submit</button></div>
         <p>User ID: <span id='uid'></span></p>
     </div>
     <div class="clippy-friends">
         <hr id='hrshrt2'>
         <h3>Clippy & Friends</h3>
-        <hr id='hrshrt'>
         <button onclick="toggleclippy()">Toggly Clippy</button>
-        <p>Requires Restart!</p>
         <h3>Change Clippy Agent</h3>
         <button onclick="Bonzi()">Bonzi</button>
         <button onclick="CClippy()">Clippy</button>
@@ -377,7 +368,6 @@ function Tweaks() {
     <div id='fx_div'>
         <hr id='hrshrt2'>
         <h3>Effects</h3>
-        <hr id='hrshrt'>
         <button onclick='fxnone(),location.reload()'>None</button>
         <button onclick='fxrotate()'>Rotate</button>
         <button onclick='fxspin()'>Spin</button>
@@ -392,21 +382,27 @@ function Tweaks() {
         <button onclick='fxgrayscale()'>Grayscale</button>
         <button onclick='fxinvert()'>Invert</button>
         <button onclick='fxinvertlights()'>Inverted Lights</button>
-    </div>  
+    </div>
     <div id='crdiv'>
         <hr id='hrshrt2'>
         <h3 id='cr'>Cursor effects</h3>
-        <hr id='hrshrt'>
         <button id='curoff' onclick='Curoff()'>Off</button>
         <button id='curon' onclick='Curon()'>On</button>
-        <p id='cur-rs'>Requires Restart!</p>
         <hr id='hrshrt2'>
-    </div>  
+    </div>
 </div>
-  `]
+`]
     document.getElementById("right").innerHTML = tweaks;
     document.getElementById("username").innerHTML = uname;
     document.getElementById("uid").innerHTML = uid;
+}
+
+function ChangeUname() {
+    let input = document.getElementById("changeUname").value;
+    localStorage.removeItem('username')
+    localStorage.setItem('username', input);
+    window.confirm(`Username changed to ${input}! Changes will take into effect on next restart.`)
+
 }
 
 function hideinfo() {
@@ -1173,14 +1169,14 @@ function customTheme() {
 
 function Curoff() {
     localStorage.removeItem("cur");
-    location.reload();
+    window.confirm(`Changes will take into effect on next restart.`)
 }
 
 function Curon() {
     cursor();
     localStorage.removeItem("cur");
     localStorage.setItem("cur", "cursor()");
-    location.reload();
+    window.confirm(`Changes will take into effect on next restart.`)
 }
 
 function toggleclippy() {
@@ -1190,7 +1186,7 @@ function toggleclippy() {
     } else if (clippy !== null) {
         localStorage.removeItem("clippy");
         localStorage.setItem("Tclippy", '1');
-        location.reload();
+        window.confirm(`Changes will take into effect on next restart.`)
     }
 }
 
@@ -4220,7 +4216,7 @@ const reinstall = function () {
             scope._everything.removeChild(bootInfo);
         }
         bootSound = null, booted = null;
-        this.load("./A/System64/JS/" + scriptUrls);
+        this.load("./A/System64/JS/" + scriptUrls[0]);
     });
     system42.trigger('boot');
 }
