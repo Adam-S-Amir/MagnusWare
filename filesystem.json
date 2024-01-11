@@ -3687,6 +3687,7 @@
         "Calendar.css": null,
         "ie-6.css": null,
         "MagnusWare-Layout.css": null,
+        "noscript.css": null,
         "Stylesheet.css": null,
         "System.css": null,
         "ThemePacks.css": null
@@ -4416,9 +4417,8 @@
             }
           },
           "build": {
-            "clippy.css": null,
-            "clippy.js": null,
-            "clippy.min.js": null
+            "Clippy.css": null,
+            "Clippy.min.js": null
           }
         },
         "Cursor.js": null,
