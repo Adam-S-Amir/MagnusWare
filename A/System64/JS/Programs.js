@@ -1749,8 +1749,8 @@ function Explorer(address) {
 			src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
 			icons: Window_icons("folder-open"),
 			title: win_title,
-			innerWidth: Math.min(856, innerWidth * 0.9),
-			innerHeight: Math.min(547, innerHeight * 0.7),
+			innerWidth: 765,
+			innerHeight: 500,
 		},
 
 

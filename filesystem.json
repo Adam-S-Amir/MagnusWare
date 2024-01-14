@@ -73,16 +73,6 @@
         }
       }
     },
-    "my-documents": {
-      "Dropbox.url": null,
-      "Google Docs.url": null
-    },
-    "my-pictures": {
-      "Dropbox.url": null,
-      "Flickr.url": null,
-      "Google Photos.url": null,
-      "Instagram.url": null
-    },
     "Program Files": {
       "3D-FlowerBox": {
         "Common": {
@@ -4491,6 +4481,16 @@
       "WVBACK.GIF": null,
       "wvline.gif": null,
       "WVLOGO.GIF": null
+    },
+    "your documents": {
+      "Dropbox.url": null,
+      "Google Docs.url": null
+    },
+    "your pictures": {
+      "Dropbox.url": null,
+      "Flickr.url": null,
+      "Google Photos.url": null,
+      "Instagram.url": null
     }
   },
   "del.py": null,

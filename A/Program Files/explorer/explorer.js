@@ -26,8 +26,6 @@ function set_icon(icon_id) {
 	}
 }
 
-// @TODO: maintain less fake naming abstraction
-// base it more on the actual filesystem
 function get_display_name_for_address(address) {
 	if (system_folder_path_to_name[address]) {
 		return system_folder_path_to_name[address];
@@ -39,17 +37,13 @@ function get_display_name_for_address(address) {
 }
 
 function get_icon_for_address(address) {
-	// TODO: maintain less fake naming abstraction
-	// base it more on the actual filesystem
-	if (address === "/") { // currently / is our C:\ analog (or C:\Windows\)
+	if (address === "/") {
 		return "hard-disk-drive";
-		// }else if(address === "/my-computer/"){ // we don't have an actual My Computer location yet, it just opens (C:)
-		// 	return "my-computer";
-	} else if (address === "/A/my-documents/") {
+	} else if (address === "/A/your documents/") {
 		return "my-documents";
 	} else if (address === "/A/da-hood/") {
 		return "network";
-	} else if (address === "/A/desktop/") { // i.e. C:\Windows\Desktop
+	} else if (address === "/A/desktop/") {
 		return "desktop";
 	} else if (address.match(/^\w+:\/\//) || address.match(/\.html?$/)) {
 		return "html";
@@ -82,17 +76,15 @@ setInterval(() => {
 
 var go_to = async function (address, action_name = "go") {
 
-	// for preventing focus from being lost when navigating
-	// folder_view.element.contains(document.activeElement) is not needed because
-	// the folder view is currently in an iframe (the iframe)
 	const had_focus = $iframe && document.activeElement === $iframe[0];
-
-	// @TODO: split out src and normalized address, and use normalized address for the input, but use src for the iframe
-	// so the address can show the system path, and Up command can return to a folder (rather than an HTTP server's folder listing, or a 404, depending on the server)
 
 	let normalized_address, is_url, zone;
 	try {
-		({ normalized_address, is_url, zone } = await resolve_address(address));
+		({
+			normalized_address,
+			is_url,
+			zone
+		} = await resolve_address(address));
 	} catch (error) {
 		if (error._is_drive_not_found_error) {
 			alert("Drive not found.");
@@ -108,8 +100,8 @@ var go_to = async function (address, action_name = "go") {
 	address = normalized_address;
 
 	if (
-		action_name !== "initially-load" && // load can take time, and thus the sound doesn't work well as an "action sound"
-		(action_name !== "refresh" || zone !== "local") // don't play the sound for refreshing local folders
+		action_name !== "initially-load" &&
+		(action_name !== "refresh" || zone !== "local")
 	) {
 		try {
 			navigate_audio.play();
@@ -121,22 +113,20 @@ var go_to = async function (address, action_name = "go") {
 	if (zone === "internet") {
 		if (offline_mode) {
 			if (await showMessageBox({
-				title: "Web page unavailable while offline",
-				message: "The Web page you requested is not available while offline.\n\n" +
-					"To view this page, click Connect.",
-				buttons: [
-					// @TODO: accelerators &C and &S
-					{
-						label: "Connect",
-						value: "connect",
-						default: true,
-					},
-					{
-						label: "Stay Offline",
-					},
-				],
-				iconID: "offline",
-			}) === "connect") {
+					title: "Web page unavailable while offline",
+					message: "The Web page you requested is not available while offline.\n\n" +
+						"To view this page, click Connect.",
+					buttons: [{
+							label: "Connect",
+							value: "connect",
+							default: true,
+						},
+						{
+							label: "Stay Offline",
+						},
+					],
+					iconID: "offline",
+				}) === "connect") {
 				offline_mode = false;
 			} else {
 				return;
@@ -225,13 +215,19 @@ var go_to = async function (address, action_name = "go") {
 		// (just wanna have multiple listeners, but I gave myself a single-listener API)
 		// (I could just use DOM events on folder_view.element)
 		folder_view = new FolderView(address, {
-			onStatus: ({ items, selectedItems }) => {
+			onStatus: ({
+				items,
+				selectedItems
+			}) => {
 				$("#status-bar-left-text").text(
 					selectedItems.length > 0 ?
-						selectedItems.length + " object(s) selected" :
-						items.length + " object(s)"
+					selectedItems.length + " object(s) selected" :
+					items.length + " object(s)"
 				);
-				eventHandlers.onStatus?.({ items, selectedItems });
+				eventHandlers.onStatus ?.({
+					items,
+					selectedItems
+				});
 			},
 			onConfigure: async (changes) => {
 				if ("view_as_web_page" in changes) {
@@ -272,12 +268,13 @@ var resolve_address = async function (address) {
 	var is_url = !!address.match(/\w+:\/\//);
 	var drive_match = address.match(/^\(?([a-z]):\)?[/\\]?\)?$/i);
 	var zone = "unknown";
+
 	function handle_url_case() {
 		if (!address.match(/^https?:\/\/web.archive.org\//) && !address.startsWith(window.location.origin)) {
 			// special exemption: show archive but later version
 			if (address.match(/^https?:\/\/(www\.)?(windows93.net)/)) {
 				address = "https://web.archive.org/web/2015-05-05/" + address;
-			// complete exemptions:
+				// complete exemptions:
 			} else if (
 				!address.match() &&
 				!address.match(/^(file|data|blob):\/\//)
@@ -288,17 +285,29 @@ var resolve_address = async function (address) {
 		is_url = true;
 		// zone = address.startsWith(window.location.origin) ? "local" : "internet"; // @TODO
 		zone = "internet";
-		return { normalized_address: address, is_url, zone };
+		return {
+			normalized_address: address,
+			is_url,
+			zone
+		};
 	}
 	if (system_folder_lowercase_name_to_path[address.toLowerCase()]) {
 		address = system_folder_lowercase_name_to_path[address.toLowerCase()];
 		zone = "local";
-		return { normalized_address: address, is_url, zone };
+		return {
+			normalized_address: address,
+			is_url,
+			zone
+		};
 	} else if (drive_match) {
 		if (drive_match[1].toUpperCase() === "C") {
 			address = "/";
 			zone = "local";
-			return { normalized_address: address, is_url, zone };
+			return {
+				normalized_address: address,
+				is_url,
+				zone
+			};
 		} else {
 			const error = new Error("Drive not found");
 			error.code = "ENOENT";
@@ -327,7 +336,11 @@ var resolve_address = async function (address) {
 						if (address[address.length - 1] !== "/") {
 							address += "/";
 						}
-						resolve({ normalized_address: address, is_url, zone });
+						resolve({
+							normalized_address: address,
+							is_url,
+							zone
+						});
 					} else {
 						// Don't execute files, just open them in the browser.
 						// HTML/HTM files work, image files work,
@@ -366,9 +379,9 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 		// @TODO: load FOLDER.HTT from the folder we're showing, if it exists
 		const template_file_name =
 			address === "/recycle-bin/" ? "recycle.htt" :
-				address === "/da-hood/" ? "nethood.htt" :
-					// address === "/my-computer/" ? "MYCOMP.HTT" : // I don't have a proper My Computer folder yet
-					"FOLDER.HTT";
+			address === "/da-hood/" ? "nethood.htt" :
+			// address === "/my-computer/" ? "MYCOMP.HTT" : // I don't have a proper My Computer folder yet
+			"FOLDER.HTT";
 		template_url = new URL(`/A/WEB/${template_file_name}`, location.href);
 		// console.log("fetching template", template_url.href);
 		htt = await (await fetch(template_url)).text();
@@ -378,7 +391,6 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 		THISDIRPATH: new URL(address.replace(/\/$/, ""), location.href),
 		THISDIRNAME: get_display_name_for_address(address),
 		TEMPLATEDIR: new URL(".", template_url).toString(),
-		//template_url.href.split("/").slice(0, -1).join("/"),
 	};
 	const percent_var_regexp = /(file:\/\/)?(\\\w*\\?)*%([A-Z_]+)%(\\\w*\\?)*/gi;
 	let html = htt.replaceAll(percent_var_regexp, (match, file_protocol, path_before, var_name, path_after) => {
@@ -427,7 +439,7 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 	};
 	const lowercase_named_color_to_css_var = Object.fromEntries(
 		Object.entries(named_color_to_css_var)
-			.map(([key, value]) => [key.toLowerCase(), value])
+		.map(([key, value]) => [key.toLowerCase(), value])
 	);
 	const named_color_regexp = new RegExp(`\b(${Object.keys(named_color_to_css_var).join("|")})\b(?!\s*[)?.:=\[])`, "gi");
 	html = html.replaceAll(named_color_regexp, (match, color_name) =>
@@ -487,7 +499,9 @@ ${doc.documentElement.outerHTML}`;
 		// relying on the fact that IDs pollute the global namespace.
 		// FileList is a built-in API nowadays, so it conflicts.
 		Object.defineProperty(window, "FileList", {
-			get() { return document.getElementById("FileList"); }
+			get() {
+				return document.getElementById("FileList");
+			}
 		});
 
 		// It uses pixelWidth/pixelHeight/pixelLeft/pixelTop and unitless top/left
@@ -549,8 +563,7 @@ ${doc.documentElement.outerHTML}`;
 		// Based on https://github.com/philipwalton/talks/tree/b0a2b9a3de509dd39368516e7e304a4159b41b08/2016-12-02/demos/src
 		const getPageStyles = () => {
 			// Query the document for any element that could have styles.
-			var styleElements =
-				[...document.querySelectorAll('style, link[rel="stylesheet"]')];
+			var styleElements = [...document.querySelectorAll('style, link[rel="stylesheet"]')];
 
 			// Fetch all styles and ensure the results are in document order.
 			// Resolve with a single string of CSS text.
@@ -564,8 +577,7 @@ ${doc.documentElement.outerHTML}`;
 		};
 		const replacePageStyles = (css) => {
 			// Get a reference to all existing style elements.
-			const existingStyles =
-				[...document.querySelectorAll('style, link[rel="stylesheet"]')];
+			const existingStyles = [...document.querySelectorAll('style, link[rel="stylesheet"]')];
 
 			// Create a new <style> tag with all the polyfilled styles.
 			const polyfillStyles = document.createElement('style');
@@ -591,7 +603,9 @@ ${doc.documentElement.outerHTML}`;
 		// Firefox also surprisingly actually works sometimes, but it's not reliable.
 		// Luckily, onerror seems to work in both browsers.
 		addEventListener("error", (event) => {
-			const { $window } = showMessageBox({
+			const {
+				$window
+			} = showMessageBox({
 				message: "An error occurred.",
 			});
 			// $window.$content.append(`
@@ -635,7 +649,7 @@ ${doc.documentElement.outerHTML}`;
 						width: "1000%", // because ugh highlight doesn't extend to whole line if it scrolls
 					})
 				)
-					.slice(event.lineno - 5, event.lineno + 4)
+				.slice(event.lineno - 5, event.lineno + 4)
 			);
 		});
 
@@ -646,7 +660,9 @@ ${doc.documentElement.outerHTML}`;
 		class ObjectHack extends HTMLElement {
 			constructor() {
 				super();
-				this.attachShadow({ mode: 'open' });
+				this.attachShadow({
+					mode: 'open'
+				});
 				this._params_slot = document.createElement("slot");
 				this.shadowRoot.append(this._params_slot);
 				this._params = {};
@@ -676,20 +692,20 @@ ${doc.documentElement.outerHTML}`;
 						}
 						break;
 					case "clsid:E5DF9D10-3B52-11D1-83E8-00A0C90DC849":
-						// folder icon
-						{
-							const img = document.createElement("img");
-							img.draggable = false;
-							this.shadowRoot.append(img);
-							img.src = frameElement._folder_icon_src;
-						}
-						break;
-					case "clsid:1820FED0-473E-11D0-A96C-00C04FD705A2":
-						// folder view
-						const folder_view = frameElement._folder_view;
-						this.shadowRoot.append(folder_view.element);
-						// jQuery's append does HTML, vs native which does Text
-						$(this.shadowRoot).append(`
+					// folder icon
+					{
+						const img = document.createElement("img");
+						img.draggable = false;
+						this.shadowRoot.append(img);
+						img.src = frameElement._folder_icon_src;
+					}
+					break;
+				case "clsid:1820FED0-473E-11D0-A96C-00C04FD705A2":
+					// folder view
+					const folder_view = frameElement._folder_view;
+					this.shadowRoot.append(folder_view.element);
+					// jQuery's append does HTML, vs native which does Text
+					$(this.shadowRoot).append(`
 							<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 							<style>
 								:host {
@@ -708,106 +724,105 @@ ${doc.documentElement.outerHTML}`;
 							</style>
 						`);
 
-						this.SelectedItems = () => {
-							const selected_items = folder_view.items.filter((item) => item.element.classList.contains("selected"));
-							return {
-								Count: selected_items.length,
-								Item: (index) => {
-									const item = selected_items[index];
-									if (!item) {
-										return {}; // ???
-									}
-									return {
-										Name: item.element.querySelector(".title").textContent,
-										Size: item.resolvedStats?.size,
-										Path: item.file_path,
-										_item: item,
-									};
-								},
-							};
+					this.SelectedItems = () => {
+						const selected_items = folder_view.items.filter((item) => item.element.classList.contains("selected"));
+						return {
+							Count: selected_items.length,
+							Item: (index) => {
+								const item = selected_items[index];
+								if (!item) {
+									return {}; // ???
+								}
+								return {
+									Name: item.element.querySelector(".title").textContent,
+									Size: item.resolvedStats ?.size,
+									Path: item.file_path,
+									_item: item,
+								};
+							},
 						};
-						// These keys may actually be different depending on the system folder.
-						// My Computer (MYCOMP.HTT) seems to use 1 for Type
-						const detail_key = {
-							"-1": "Tip", // description of the item, for control panel items, computers, and printers
-							0: "Name",
-							1: "Size", // file size as a string
-							2: "Type", // file type
-							3: "Modified", // modification date
-						};
-						this.Folder = {
-							GetDetailsOf: (item, detail_id) => {
-								// console.log("GetDetailsOf", item, detail_id);
-								// return `{GetDetailsOf(${JSON.stringify(item)}, ${detail_id})}`; // debugging in the style of a broken template
-								if (item == null) {
-									return detail_key[detail_id];
-								} else if (Object.keys(item).length === 0) {
-									return "";
-								} else {
-									switch (detail_key[detail_id]) {
-										case "Tip":
-											return item._item.description || "";
-										case "Name":
-											return item.Name;
-										case "Size":
-											const bytes = item._item.resolvedStats?.size;
-											if (typeof bytes !== "number") {
-												return "";
-											}
-											// Note: Windows 98 uses 2^10 for KB, and uses KB as the minimum unit,
-											// but the folder templates, wanting to use bytes for small files,
-											// show the size in bytes if it's less than 1000, implying it uses 10^3 for KB.
-											// This may confuse people, but I'm just imitating Windows 98. No skin off my back!
-											const k = 1024;
-											if (bytes === 0) return '0KB';
-											const sizes = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-											const min_unit = 1; // Start at KB (note that the default template works around this to provide "bytes")
-											const i = Math.max(min_unit, Math.floor(Math.log(bytes) / Math.log(k)));
-											return Math.ceil(bytes / Math.pow(k, i)) + sizes[i]; // Round up
-										case "Type":
-											// @TODO: DRY, and move file type code/data to one central place
-											const system_folder_path_to_name = {
-												"/": "Your PC", //"My Computer",
-												"/my-pictures/": "Your Pictures",
-												"/my-documents/": "Your Documents",
-												"/da-hood/": "Network Neighborhood",
-												"/desktop/": "Desktop",
-												"/programs/": "Program Files",
-												"/recycle-bin/": "Recycle Bin",
-											};
-											if (system_folder_path_to_name[item._item.file_path]) {
-												return "System Folder";
-											}
-											if (item._item.resolvedStats?.isDirectory?.()) {
-												return "Folder";
-											}
-											const match = item._item.file_path.match(/\.(\w+)?$/);
-											if (match) {
-												return match[1].toUpperCase() + " File";
-											} else {
-												return "Unknown File";
-											}
+					};
+					// These keys may actually be different depending on the system folder.
+					// My Computer (MYCOMP.HTT) seems to use 1 for Type
+					const detail_key = {
+						"-1": "Tip", // description of the item, for control panel items, computers, and printers
+						0: "Name",
+						1: "Size", // file size as a string
+						2: "Type", // file type
+						3: "Modified", // modification date
+					};
+					this.Folder = {
+						GetDetailsOf: (item, detail_id) => {
+							// console.log("GetDetailsOf", item, detail_id);
+							// return `{GetDetailsOf(${JSON.stringify(item)}, ${detail_id})}`; // debugging in the style of a broken template
+							if (item == null) {
+								return detail_key[detail_id];
+							} else if (Object.keys(item).length === 0) {
+								return "";
+							} else {
+								switch (detail_key[detail_id]) {
+									case "Tip":
+										return item._item.description || "";
+									case "Name":
+										return item.Name;
+									case "Size":
+										const bytes = item._item.resolvedStats ?.size;
+										if (typeof bytes !== "number") {
+											return "";
+										}
+										// Note: Windows 98 uses 2^10 for KB, and uses KB as the minimum unit,
+										// but the folder templates, wanting to use bytes for small files,
+										// show the size in bytes if it's less than 1000, implying it uses 10^3 for KB.
+										// This may confuse people, but I'm just imitating Windows 98. No skin off my back!
+										const k = 1024;
+										if (bytes === 0) return '0KB';
+										const sizes = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+										const min_unit = 1; // Start at KB (note that the default template works around this to provide "bytes")
+										const i = Math.max(min_unit, Math.floor(Math.log(bytes) / Math.log(k)));
+										return Math.ceil(bytes / Math.pow(k, i)) + sizes[i]; // Round up
+									case "Type":
+										// @TODO: DRY, and move file type code/data to one central place
+										const system_folder_path_to_name = {
+											"/": "Your PC", //"My Computer",
+											"/your pictures/": "Your Pictures",
+											"/your documents/": "Your Documents",
+											"/da-hood/": "Network Neighborhood",
+											"/desktop/": "Desktop",
+											"/programs/": "Program Files",
+										};
+										if (system_folder_path_to_name[item._item.file_path]) {
+											return "System Folder";
+										}
+										if (item._item.resolvedStats ?.isDirectory ?.()) {
+											return "Folder";
+										}
+										const match = item._item.file_path.match(/\.(\w+)?$/);
+										if (match) {
+											return match[1].toUpperCase() + " File";
+										} else {
+											return "Unknown File";
+										}
 										case "Modified":
-											return new Date(item._item.resolvedStats?.mtime).toLocaleString()
+											return new Date(item._item.resolvedStats ?.mtime).toLocaleString()
 												.replace(/, (\d+):(\d+):(\d+)/, " $1:$2"); // Remove the comma and seconds place (doing this as one replace to hopefully not affect other locales negatively)
 										default:
 											console.warn("Unknown detail ID", detail_id);
 											return;
-									}
 								}
 							}
-						};
-						break;
-					case "clsid:05589FA1-C356-11CE-BF01-00AA0055595A":
-						// media player
-						const video = document.createElement("video"); // @TODO: or audio
-						video.src = params.FileName;
-						video.controls = true;
-						this.shadowRoot.append(video);
-						break;
-					default:
-						console.warn("Unsupported classid value:", this.getAttribute("classid"), this);
-						break;
+						}
+					};
+					break;
+				case "clsid:05589FA1-C356-11CE-BF01-00AA0055595A":
+					// media player
+					const video = document.createElement("video"); // @TODO: or audio
+					video.src = params.FileName;
+					video.controls = true;
+					this.shadowRoot.append(video);
+					break;
+				default:
+					console.warn("Unsupported classid value:", this.getAttribute("classid"), this);
+					break;
 				}
 			}
 		}
@@ -884,8 +899,13 @@ ${doc.documentElement.outerHTML}`;
 		// 	.find("head")
 		// 	.append(head_inject_html);
 
-		eventHandlers.onStatus = ({ items, selectedItems }) => {
-			doc.dispatchEvent(new CustomEvent("SelectionChanged", { bubbles: true }));
+		eventHandlers.onStatus = ({
+			items,
+			selectedItems
+		}) => {
+			doc.dispatchEvent(new CustomEvent("SelectionChanged", {
+				bubbles: true
+			}));
 			// @TODO: render preview of selected item(s?), and trigger OnThumbnailReady
 		};
 
@@ -916,12 +936,14 @@ function go_back() {
 	history_forward_stack.push(active_address);
 	go_to(history_back_stack.pop(), "back");
 }
+
 function go_forward() {
 	// $iframe[0].contentWindow.history.forward();
 	// console.log({ history_back_stack, history_forward_stack });
 	history_back_stack.push(active_address);
 	go_to(history_forward_stack.pop(), "forward");
 }
+
 function can_go_back() {
 	try {
 		// return $iframe[0].contentWindow.history.length > 1;
@@ -930,6 +952,7 @@ function can_go_back() {
 		return false;
 	}
 }
+
 function can_go_forward() {
 	try {
 		// return $iframe[0].contentWindow.history.length > 1;
@@ -947,6 +970,7 @@ function go_up() {
 	// can't use $iframe[0].contentWindow.location (unless page is on the same domain)
 	go_to(get_up_address(active_address));
 }
+
 function can_go_up() {
 	return get_up_address(active_address) !== active_address;
 }
@@ -1028,6 +1052,7 @@ $(function () {
 		const $main_button = $dropdown_button.closest(".toolbar-compound-button-wrapper").find(".toolbar-button");
 		show_history_dropdown("forward", $main_button, history_forward_stack);
 	});
+
 	function show_history_dropdown(back_or_forward, $main_button, history_stack) {
 		const menu_items = history_stack.map((path, index) => {
 			return {
@@ -1035,16 +1060,19 @@ $(function () {
 				item: path.replace(/&/g, "&&"), // escaping menu hotkey indicator
 				action: () => {
 					// @TODO: instead of creating a new history entry, manage the stacks.
-					go_to(path);//, "go-to-history-item");
+					go_to(path); //, "go-to-history-item");
 				},
 			};
 		}).reverse();
 		show_dropdown($main_button, menu_items);
 	}
+
 	function show_dropdown($main_button, menu_items) {
 		// @TODO: in a future version of OS-GUI, there should be an API for context menus
 		// which we could use here.
-		const dummy_menu_bar = new MenuBar({ "Dummy": menu_items });
+		const dummy_menu_bar = new MenuBar({
+			"Dummy": menu_items
+		});
 		$(dummy_menu_bar.element).css({
 			position: "absolute",
 			left: $main_button.offset().left - 2,
@@ -1073,7 +1101,10 @@ $(function () {
 		.properties-button, .copy-button, .cut-button, .paste-button, .undo-button,
 		.search-button, .favorites-button, .history-button, .print-button
 	`).on("click", function () {
-		showMessageBox({ message: "Not supported.", iconID: "error" });
+		showMessageBox({
+			message: "Not supported.",
+			iconID: "error"
+		});
 	});
 
 	var $up_button = $(".up-button");
@@ -1103,6 +1134,7 @@ $(function () {
 		// console.log("pointerdown", event.currentTarget);
 		const pointer_id = event.pointerId ?? event.originalEvent.pointerId;
 		const toolbar_el = event.currentTarget.closest(".toolbar");
+
 		function release_drag(event) {
 			if ((event.pointerId ?? event.originalEvent.pointerId) === pointer_id) {
 				$(window).off("pointerup", release_drag);
@@ -1111,6 +1143,7 @@ $(function () {
 				toolbar_el.style.cursor = "";
 			}
 		}
+
 		function drag(event) {
 			const el_under_pointer = document.elementFromPoint(event.clientX, event.clientY);
 			if (!el_under_pointer) {
@@ -1175,11 +1208,13 @@ $(function () {
 						// including clicking outside the iframe
 						$(window).on("pointerdown", global_pointerdown);
 						$(window).on("blur", close_menu);
+
 						function close_menu() {
 							$menu.remove();
 							$(window).off("pointerdown", global_pointerdown);
 							$(window).off("blur", close_menu);
 						}
+
 						function global_pointerdown(event) {
 							if (event.target.closest(".toolbar-overflow-menu, .menu-popup")) {
 								return;
@@ -1211,7 +1246,9 @@ $(function () {
 									submenu: menu,
 								};
 							});
-							const dummy_menu_bar = new MenuBar({ "Dummy": menu_items });
+							const dummy_menu_bar = new MenuBar({
+								"Dummy": menu_items
+							});
 							$menu.append(dummy_menu_bar.element);
 							$menu.css({
 								top: $toolbar_el.offset().top,

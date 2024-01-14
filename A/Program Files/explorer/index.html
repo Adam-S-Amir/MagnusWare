@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<title>Explorer</title>
+
+	<link rel="prefetch" href="../../System64/Images/Icons/folder-16x16.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/folder-32x32.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/folder-48x48.png">
+
+	<link rel="prefetch" href="../../System64/Images/Icons/html-16x16.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/html-32x32.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/html-48x48.png">
+
+	<link rel="prefetch" href="../../System64/Images/Icons/python-16x16.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/python-32x32.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/python-48x48.png">
+
+	<link rel="prefetch" href="../../System64/Images/Icons/image-file-16x16.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/image-file-32x32.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/image-file-48x48.png">
+
+	<link rel="prefetch" href="../../System64/Images/Icons/js-file-16x16.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/js-file-32x32.png">
+	<link rel="prefetch" href="../../System64/Images/Icons/js-file-48x48.png">
+
 	<link rel="icon" href="../../System64/Images/Icons/explorer-16x16.png" sizes="16x16" type="image/png">
 	<link rel="icon" href="../../System64/Images/Icons/explorer-32x32.png" sizes="32x32" type="image/png">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta name="viewport" content="width=device-width">
 	<link href="../../System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 	<script src="../../System64/JS/jquery.min.js"></script>
 	<script>
@@ -42,7 +63,7 @@
 					<button class="toolbar-button lightweight back-button" disabled>
 						<span class="label-text">Back</span>
 					</button>
-					<button class="toolbar-dropdown-button lightweight back-dropdown-button" disabled>
+					<button title="button" class="toolbar-dropdown-button lightweight back-dropdown-button" disabled>
 						<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="fill:currentColor;display:inline-block;vertical-align:middle">
 							<path style="transform:rotate(90deg);transform-origin:center" d="m6 4 4 4-4 4z"></path>
 						</svg>
@@ -52,7 +73,7 @@
 					<button class="toolbar-button lightweight forward-button" disabled>
 						<span class="label-text">Forward</span>
 					</button>
-					<button class="toolbar-dropdown-button lightweight forward-dropdown-button" disabled>
+					<button title="button" class="toolbar-dropdown-button lightweight forward-dropdown-button" disabled>
 						<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="fill:currentColor;display:inline-block;vertical-align:middle">
 							<path style="transform:rotate(90deg);transform-origin:center" d="m6 4 4 4-4 4z"></path>
 						</svg>
@@ -87,7 +108,7 @@
 					<button class="toolbar-button lightweight cycle-view-mode-button">
 						<span class="label-text">Views</span>
 					</button>
-					<button class="toolbar-dropdown-button lightweight views-dropdown-button">
+					<button title="button" class="toolbar-dropdown-button lightweight views-dropdown-button">
 						<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="fill:currentColor;display:inline-block;vertical-align:middle">
 							<path style="transform:rotate(90deg);transform-origin:center" d="m6 4 4 4-4 4z"></path>
 						</svg>
@@ -141,7 +162,7 @@
 				<div id="address-compound-input" class="inset-deep">
 					<img id="address-icon" width="16" height="16" src="../../System64/Images/Icons/folder-16x16.png" alt="">
 					<input type="text" id="address" autocomplete="off">
-					<button id="address-dropdown-button" disabled>
+					<button title="button" id="address-dropdown-button" disabled>
 						<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="fill:currentColor;display:inline-block;vertical-align:middle">
 							<path style="transform:rotate(90deg);transform-origin:center" d="m5 6 4 4-4 4z"></path>
 						</svg>
