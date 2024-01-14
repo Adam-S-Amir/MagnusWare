@@ -205,15 +205,6 @@ function Funky() {
 	toast({
 		message: "Funky Karts is deprecated"
 	})
-	// let $win = make_embed_window({
-	// 	src: "./A/System64/Program%20Files%20(x86)/Funky Karts/index.html",
-	// 	icons: Window_icons("Funky"),
-	// 	title: "Funky Karts",
-	// 	innerWidth: 1000,
-	// 	innerHeight: 500
-	// });
-	// hidemenu();
-	// return new Task($win, "");
 }
 
 function Mario2() {
@@ -492,17 +483,6 @@ function UD2() {
 	return new Task($win, "The-Ultimate-Doom-2.MX7");
 }
 
-// function MWCMD() {
-// 	let $win = make_embed_window({
-// 		src: "https://magnusware-libs.vercel.app/MS-DOS/CMD.html",
-// 		icons: Window_icons("msdos"),
-// 		title: "MW-CMD",
-// 		innerWidth: 665,
-// 		innerHeight: 436
-// 	}, "MW-CMD.MXW");
-// 	hidemenu();
-// 	return new Task($win, "MW-CMD.MX7");
-// }
 
 function StarDoom() {
 	let $win = make_embed_window({
@@ -1535,14 +1515,11 @@ function Paint(file_path) {
 	waitUntil(() => contentWindow.systemHooks, 500, () => {
 		Object.assign(contentWindow.systemHooks, systemHooks);
 		if (file_path) {
-			// window.initial_system_file_handle = ...; is too late to set this here
-			// contentWindow.open_from_file_handle(...); doesn't exist
 			systemHooks.readBlobFromHandle(file_path).then(file => {
 				if (file) {
 					contentWindow.open_from_file(file, file_path);
 				}
 			}, (error) => {
-				// this handler may not always called for errors, sometimes error message is shown via readBlobFromHandle
 				contentWindow.show_error_message(`Failed to open file ${file_path}`, error);
 			});
 		}
@@ -1639,8 +1616,6 @@ function showScreensaver(embedSrc) {
 		}, 500);
 	};
 	const keydownHandler = (event) => {
-		// Trying to let you change the display or capture the output
-		// not allowing Ctrl+PrintScreen etc. because no modifiers
 		if (!(["F11", "F12", "ZoomToggle", "PrintScreen", "MediaRecord", "BrightnessDown", "BrightnessUp", "Dimmer"].includes(event.key))) {
 			event.preventDefault();
 			event.stopPropagation();
@@ -1661,8 +1636,6 @@ function showScreensaver(embedSrc) {
 		event.preventDefault();
 		cleanUp();
 	});
-	// useCapture needed for scenario where you hit Enter, with a desktop icon selected
-	// (If it relaunches the screensaver, it's like you can't exit it!)
 	window.addEventListener("keydown", keydownHandler, true);
 }
 
@@ -1776,10 +1749,6 @@ function Explorer(address) {
 			src: "./A/Program Files/explorer/index.html" + (address ? ("?address=" + encodeURIComponent(address)) : ""),
 			icons: Window_icons("folder-open"),
 			title: win_title,
-			// this is based on one measurement, but it uses different sizes depending on the screen resolution,
-			// and may be different for different Explorer window types (Microsoft Internet Explorer, "Exploring", normal Windows Explorer*),
-			// and may store the window positions, even for different types or folders, so I might have a non-standard default size measurement.
-			// *See different types (resized for posing this screenshot): https://imgur.com/nxAcT9C
 			innerWidth: Math.min(856, innerWidth * 0.9),
 			innerHeight: Math.min(547, innerHeight * 0.7),
 		},
@@ -1831,7 +1800,6 @@ let winamp_task;
 let winamp_interface;
 let winamp_loading = false;
 
-// TODO: Phase out from WinAMP to VLC
 
 function openWinamp(file_path) {
 	const filePathToBlob = (file_path) => {
@@ -1974,12 +1942,10 @@ function openWinamp(file_path) {
 		visual_container.style.bottom = "0";
 		visual_container.style.pointerEvents = "none";
 		document.body.appendChild(visual_container);
-		// Render after the skin has loaded.
 		webamp.renderWhenReady(visual_container).then(() => {
 			window.console && console.log("Webamp rendered");
 
 			$webamp = $("#webamp");
-			// Bring window to front, initially and when clicked
 			$webamp.css({
 				position: "absolute",
 				left: 0,
@@ -2018,8 +1984,8 @@ function openWinamp(file_path) {
 					zIndex: $Window.Z_INDEX++
 				});
 			};
-			winamp_interface.element = winamp_interface[0] = $webamp[0]; // for checking z-index in window switcher
-			winamp_interface.hasClass = (className) => { // also for window switcher (@TODO: clean this stuff up)
+			winamp_interface.element = winamp_interface[0] = $webamp[0];
+			winamp_interface.hasClass = (className) => {
 				if (className === "focused") {
 					return $webamp.hasClass("focused");
 				}
@@ -2030,7 +1996,6 @@ function openWinamp(file_path) {
 					$webamp.addClass("focused");
 					winamp_interface.bringToFront();
 					$eventTarget.triggerHandler("focus");
-					// @TODO: focus last focused window/control?
 					$webamp.find("#main-window [tabindex='-1']").focus();
 				}
 			};
@@ -2045,7 +2010,6 @@ function openWinamp(file_path) {
 			};
 			winamp_interface.unminimize = () => {
 				$webamp.show();
-				// $webamp.focus();
 			};
 			winamp_interface.close = () => {
 				webamp.dispose();
@@ -2074,15 +2038,11 @@ function openWinamp(file_path) {
 				}
 				return taskTitle;
 			};
-			winamp_interface.setMinimizeTarget = () => {
-				// dummy function; it won't animate to the minimize target anyway
-			};
+			winamp_interface.setMinimizeTarget = () => {};
 			winamp_interface.on = (event_name, callback) => {
 				if (event_name === "title-change") {
 					webamp.onTrackDidChange(callback);
-				} else if (event_name === "icon-change") {
-					// icon will never change
-				} else {
+				} else if (event_name === "icon-change") {} else {
 					console.warn(`Unsupported event: ${event_name}`);
 				}
 			};
@@ -2106,7 +2066,6 @@ function openWinamp(file_path) {
 				winamp_interface.focus();
 			});
 			$webamp.on("focusout", () => {
-				// could use relatedTarget, no?
 				if (
 					!document.activeElement ||
 					!document.activeElement.closest ||
@@ -2150,18 +2109,6 @@ function openWinamp(file_path) {
 }
 openWinamp.acceptsFilePaths = true;
 
-/*
-function saveAsDialog(){
-	var $win = new $Window();
-	$win.title("Save As");
-	return $win;
-}
-function openFileDialog(){
-	var $win = new $Window();
-	$win.title("Open");
-	return $win;
-}
-*/
 
 function openURLFile(file_path) {
 	withFilesystem(function () {
@@ -2170,7 +2117,6 @@ function openURLFile(file_path) {
 			if (err) {
 				return alert(err);
 			}
-			// it's supposed to be an ini-style file, but lets handle files that are literally just a URL as well, just in case
 			var match = content.match(/URL\s*=\s*([^\n\r]+)/i);
 			var url = match ? match[1] : content;
 			Explorer(url);
@@ -2190,39 +2136,16 @@ function openThemeFile(file_path) {
 			try {
 				localStorage.setItem("desktop-theme", content);
 				localStorage.setItem("desktop-theme-path", file_path);
-			} catch (error) {
-				// no local storage
-			}
+			} catch (error) {}
 		});
 	});
 }
 openThemeFile.acceptsFilePaths = true;
 
-// Note: extensions must be lowercase here. This is used to implement case-insensitive matching.
 var file_extension_associations = {
-	// Fonts:
-	// - eot (Embedded OpenType)
-	// - otf (OpenType)
-	// - ttf (TrueType)
-	// - woff (Web Open Font Format)
-	// - woff2 (Web Open Font Format 2)
-	// - (also svg but that's mainly an image format)
 
-	// Misc binary:
-	// - wasm (WebAssembly)
-	// - o (Object file)
-	// - so (Shared Object)
-	// - dll (Dynamic Link Library)
-	// - exe (Executable file)
-	// - a (static library)
-	// - lib (static library)
-	// - pdb (Program Debug database)
-	// - idb (Intermediate Debug file)
-	// - bcmap (Binary Character Map)
-	// - bin (generic binary file extension)
 
-	// Text:
-	"": Notepad, // bare files such as LICENSE, Makefile, CNAME, etc.
+	"": Notepad,
 	ahk: Notepad,
 	ai: Paint,
 	bat: Notepad,
@@ -2263,7 +2186,6 @@ var file_extension_associations = {
 	xml: Notepad,
 	yml: Notepad,
 
-	// Images:
 	bmp: Paint,
 	cur: Paint,
 	eps: Paint,
@@ -2274,7 +2196,7 @@ var file_extension_associations = {
 	jpg: Paint,
 	kra: Paint,
 	pbm: Paint,
-	pdf: Paint, // yes I added PDF support to JS Paint (not all formats listed here are supported though)
+	pdf: Paint,
 	pdn: Paint,
 	pgm: Paint,
 	png: Paint,
@@ -2293,11 +2215,9 @@ var file_extension_associations = {
 	xcfgz: Paint,
 	xpm: Paint,
 
-	// Winamp Skins:
-	wsz: openWinamp, // winamp skin zip
-	zip: openWinamp, // MIGHT be a winamp skin zip, so might as well for now
+	wsz: openWinamp,
+	zip: openWinamp,
 
-	// Audio:
 	wav: SoundRecorder,
 	mp3: openWinamp,
 	ogg: openWinamp,
@@ -2309,11 +2229,9 @@ var file_extension_associations = {
 	mpc: openWinamp,
 	"mp+": openWinamp,
 
-	// Playlists:
 	m3u: openWinamp,
 	pls: openWinamp,
 
-	// Misc:
 	url: openURLFile,
 	theme: openThemeFile,
 	themepack: openThemeFile,
@@ -2325,10 +2243,7 @@ function accessDenied(file_path) {
 }
 accessDenied.acceptsFilePaths = true;
 
-// Note: global systemExecuteFile called by explorer
 function systemExecuteFile(file_path) {
-	// execute file with default handler
-	// like the START command in CMD.EXE
 
 	withFilesystem(function () {
 		var fs = BrowserFS.BFSRequire("fs");
@@ -2364,21 +2279,21 @@ var Create_Icon = function (options) {
 	}));
 };
 Create_Icon({
-	title: "My Computer",
+	title: "Your PC",
 	iconID: "my-computer",
+	id: "trashyboi.MDX",
 	open: function () {
-		systemExecuteFile("/A/");
+		systemExecuteFile("/");
 	},
-	file_path: "/",
 	is_system_folder: true,
 });
 Create_Icon({
-	title: "My Documents",
+	title: "Your Documents",
 	iconID: "my-documents-folder",
+	id: "trashyguy",
 	open: function () {
 		systemExecuteFile("/A/my-documents");
 	},
-	// file_path: "/my-documents/",
 	is_system_folder: true,
 });
 Create_Icon({
@@ -2387,7 +2302,6 @@ Create_Icon({
 	open: function () {
 		systemExecuteFile("/A/da-hood");
 	},
-	// file_path: "/da-hood/",
 	is_system_folder: true,
 });
 Create_Icon({
@@ -2399,12 +2313,11 @@ Create_Icon({
 	is_system_folder: true,
 });
 Create_Icon({
-	title: "My Pictures",
+	title: "Your Pictures",
 	iconID: "folder",
 	open: function () {
 		systemExecuteFile("/A/my-pictures");
 	},
-	// file_path: "/my-pictures/",
 	is_system_folder: true,
 });
 Create_Icon({
@@ -2525,4 +2438,3 @@ Create_Icon({
 });
 
 folder_view.arrange_icons();
-//# sourceURL=MagnusWare

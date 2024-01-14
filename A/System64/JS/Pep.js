@@ -1,18 +1,18 @@
-/*!
- * PEP v0.3.0 | https://github.com/jquery/PEP
- * Copyright jQuery Foundation and other contributors | http://jquery.org/license
- */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  global.PointerEventsPolyfill = factory()
-}(this, function () { 'use strict';
+    typeof define === 'function' && define.amd ? define(factory) :
+    global.PointerEventsPolyfill = factory()
+}(this, function () {
+  'use strict';
 
   /**
    * This module implements an map of pointer states
    */
   var USE_MAP = window.Map && window.Map.prototype.forEach;
-  var POINTERS_FN = function(){ return this.size; };
+  var POINTERS_FN = function () {
+    return this.size;
+  };
+
   function PointerMap() {
     if (USE_MAP) {
       var m = new Map();
@@ -25,7 +25,7 @@
   }
 
   PointerMap.prototype = {
-    set: function(inId, inEvent) {
+    set: function (inId, inEvent) {
       var i = this.keys.indexOf(inId);
       if (i > -1) {
         this.values[i] = inEvent;
@@ -34,31 +34,30 @@
         this.values.push(inEvent);
       }
     },
-    has: function(inId) {
+    has: function (inId) {
       return this.keys.indexOf(inId) > -1;
     },
-    'delete': function(inId) {
+    'delete': function (inId) {
       var i = this.keys.indexOf(inId);
       if (i > -1) {
         this.keys.splice(i, 1);
         this.values.splice(i, 1);
       }
     },
-    get: function(inId) {
+    get: function (inId) {
       var i = this.keys.indexOf(inId);
       return this.values[i];
     },
-    clear: function() {
+    clear: function () {
       this.keys.length = 0;
       this.values.length = 0;
     },
-    // return value, key, map
-    forEach: function(callback, thisArg) {
-      this.values.forEach(function(v, i) {
+    forEach: function (callback, thisArg) {
+      this.values.forEach(function (v, i) {
         callback.call(thisArg, v, this.keys[i], this);
       }, this);
     },
-    pointers: function() {
+    pointers: function () {
       return this.keys.length;
     }
   };
@@ -66,7 +65,6 @@
   var _pointermap = PointerMap;
 
   var CLONE_PROPS = [
-    // MouseEvent
     'bubbles',
     'cancelable',
     'view',
@@ -81,9 +79,7 @@
     'metaKey',
     'button',
     'relatedTarget',
-    // DOM Level 3
     'buttons',
-    // PointerEvent
     'pointerId',
     'width',
     'height',
@@ -93,7 +89,6 @@
     'pointerType',
     'hwTimestamp',
     'isPrimary',
-    // event instance
     'type',
     'target',
     'currentTarget',
@@ -104,7 +99,6 @@
   ];
 
   var CLONE_DEFAULTS = [
-    // MouseEvent
     false,
     false,
     null,
@@ -119,9 +113,7 @@
     false,
     0,
     null,
-    // DOM Level 3
     0,
-    // PointerEvent
     0,
     0,
     0,
@@ -131,7 +123,6 @@
     '',
     0,
     false,
-    // event instance
     '',
     null,
     null,
@@ -159,8 +150,6 @@
     pointermap: new _pointermap(),
     eventMap: Object.create(null),
     captureInfo: Object.create(null),
-    // Scope objects for native events.
-    // This exists for ease of testing.
     eventSources: Object.create(null),
     eventSourceList: [],
     /**
@@ -171,11 +160,11 @@
      * @param {string} name A name for the event source
      * @param {Object} source A new source of platform events.
      */
-    registerSource: function(name, source) {
+    registerSource: function (name, source) {
       var s = source;
       var newEvents = s.events;
       if (newEvents) {
-        newEvents.forEach(function(e) {
+        newEvents.forEach(function (e) {
           if (s[e]) {
             this.eventMap[e] = s[e].bind(s);
           }
@@ -184,73 +173,68 @@
         this.eventSourceList.push(s);
       }
     },
-    register: function(element) {
+    register: function (element) {
       var l = this.eventSourceList.length;
-      for (var i = 0, es; (i < l) && (es = this.eventSourceList[i]); i++) {
-        // call eventsource register
+      for (var i = 0, es;
+        (i < l) && (es = this.eventSourceList[i]); i++) {
         es.register.call(es, element);
       }
     },
-    unregister: function(element) {
+    unregister: function (element) {
       var l = this.eventSourceList.length;
-      for (var i = 0, es; (i < l) && (es = this.eventSourceList[i]); i++) {
-        // call eventsource register
+      for (var i = 0, es;
+        (i < l) && (es = this.eventSourceList[i]); i++) {
         es.unregister.call(es, element);
       }
     },
-    contains: /*scope.external.contains || */function(container, contained) {
+    contains: function (container, contained) {
       return container.contains(contained);
     },
-    // EVENTS
-    down: function(inEvent) {
+    down: function (inEvent) {
       inEvent.bubbles = true;
       this.fireEvent('pointerdown', inEvent);
     },
-    move: function(inEvent) {
+    move: function (inEvent) {
       inEvent.bubbles = true;
       this.fireEvent('pointermove', inEvent);
     },
-    up: function(inEvent) {
+    up: function (inEvent) {
       inEvent.bubbles = true;
       this.fireEvent('pointerup', inEvent);
     },
-    enter: function(inEvent) {
+    enter: function (inEvent) {
       inEvent.bubbles = false;
       this.fireEvent('pointerenter', inEvent);
     },
-    leave: function(inEvent) {
+    leave: function (inEvent) {
       inEvent.bubbles = false;
       this.fireEvent('pointerleave', inEvent);
     },
-    over: function(inEvent) {
+    over: function (inEvent) {
       inEvent.bubbles = true;
       this.fireEvent('pointerover', inEvent);
     },
-    out: function(inEvent) {
+    out: function (inEvent) {
       inEvent.bubbles = true;
       this.fireEvent('pointerout', inEvent);
     },
-    cancel: function(inEvent) {
+    cancel: function (inEvent) {
       inEvent.bubbles = true;
       this.fireEvent('pointercancel', inEvent);
     },
-    leaveOut: function(event) {
+    leaveOut: function (event) {
       this.out(event);
       if (!this.contains(event.target, event.relatedTarget)) {
         this.leave(event);
       }
     },
-    enterOver: function(event) {
+    enterOver: function (event) {
       this.over(event);
       if (!this.contains(event.target, event.relatedTarget)) {
         this.enter(event);
       }
     },
-    // LISTENER LOGIC
-    eventHandler: function(inEvent) {
-      // This is used to prevent multiple dispatch of pointerevents from
-      // platform events. This can happen when two elements in different scopes
-      // are set up to create pointer events, which is relevant to Shadow DOM.
+    eventHandler: function (inEvent) {
       if (inEvent._handledByPE) {
         return;
       }
@@ -261,25 +245,22 @@
       }
       inEvent._handledByPE = true;
     },
-    // set up event listeners
-    listen: function(target, events) {
-      events.forEach(function(e) {
+    listen: function (target, events) {
+      events.forEach(function (e) {
         this.addEvent(target, e);
       }, this);
     },
-    // remove event listeners
-    unlisten: function(target, events) {
-      events.forEach(function(e) {
+    unlisten: function (target, events) {
+      events.forEach(function (e) {
         this.removeEvent(target, e);
       }, this);
     },
-    addEvent: /*scope.external.addEvent || */function(target, eventName) {
+    addEvent: function (target, eventName) {
       target.addEventListener(eventName, this.boundHandler);
     },
-    removeEvent: /*scope.external.removeEvent || */function(target, eventName) {
+    removeEvent: function (target, eventName) {
       target.removeEventListener(eventName, this.boundHandler);
     },
-    // EVENT CREATION AND TRACKING
     /**
      * Creates a new Event of type `inType`, based on the information in
      * `inEvent`.
@@ -288,8 +269,7 @@
      * @param {Event} inEvent A platform event with a target
      * @return {Event} A PointerEvent of type `inType`
      */
-    makeEvent: function(inType, inEvent) {
-      // relatedTarget must be null if pointer is captured
+    makeEvent: function (inType, inEvent) {
       if (this.captureInfo[inEvent.pointerId]) {
         inEvent.relatedTarget = null;
       }
@@ -300,8 +280,7 @@
       e._target = e._target || inEvent.target;
       return e;
     },
-    // make and dispatch an event in one call
-    fireEvent: function(inType, inEvent) {
+    fireEvent: function (inType, inEvent) {
       var e = this.makeEvent(inType, inEvent);
       return this.dispatchEvent(e);
     },
@@ -312,34 +291,29 @@
      * @return {Object} An object containing shallow copies of `inEvent`'s
      *    properties.
      */
-    cloneEvent: function(inEvent) {
-      var eventCopy = Object.create(null), p;
+    cloneEvent: function (inEvent) {
+      var eventCopy = Object.create(null),
+        p;
       for (var i = 0; i < CLONE_PROPS.length; i++) {
         p = CLONE_PROPS[i];
         eventCopy[p] = inEvent[p] || CLONE_DEFAULTS[i];
-        // Work around SVGInstanceElement shadow tree
-        // Return the <use> element that is represented by the instance for Safari, Chrome, IE.
-        // This is the behavior implemented by Firefox.
         if (HAS_SVG_INSTANCE && (p === 'target' || p === 'relatedTarget')) {
           if (eventCopy[p] instanceof SVGElementInstance) {
             eventCopy[p] = eventCopy[p].correspondingUseElement;
           }
         }
       }
-      // keep the semantics of preventDefault
       if (inEvent.preventDefault) {
-        eventCopy.preventDefault = function() {
+        eventCopy.preventDefault = function () {
           inEvent.preventDefault();
         };
       }
       return eventCopy;
     },
-    getTarget: function(inEvent) {
-      // if pointer capture is set, route all events for the specified pointerId
-      // to the capture target
+    getTarget: function (inEvent) {
       return this.captureInfo[inEvent.pointerId] || inEvent._target;
     },
-    setCapture: function(inPointerId, inTarget) {
+    setCapture: function (inPointerId, inTarget) {
       if (this.captureInfo[inPointerId]) {
         this.releaseCapture(inPointerId);
       }
@@ -353,7 +327,7 @@
       e._target = inTarget;
       this.asyncDispatchEvent(e);
     },
-    releaseCapture: function(inPointerId) {
+    releaseCapture: function (inPointerId) {
       var t = this.captureInfo[inPointerId];
       if (t) {
         var e = document.createEvent('Event');
@@ -372,13 +346,13 @@
      * @param {Event} inEvent The event to be dispatched.
      * @return {Boolean} True if an event handler returns true, false otherwise.
      */
-    dispatchEvent: /*scope.external.dispatchEvent || */function(inEvent) {
+    dispatchEvent: function (inEvent) {
       var t = this.getTarget(inEvent);
       if (t) {
         return t.dispatchEvent(inEvent);
       }
     },
-    asyncDispatchEvent: function(inEvent) {
+    asyncDispatchEvent: function (inEvent) {
       requestAnimationFrame(this.dispatchEvent.bind(this, inEvent));
     }
   };
@@ -387,21 +361,21 @@
   var _dispatcher = dispatcher;
 
   var targeting = {
-    shadow: function(inEl) {
+    shadow: function (inEl) {
       if (inEl) {
         return inEl.shadowRoot || inEl.webkitShadowRoot;
       }
     },
-    canTarget: function(shadow) {
+    canTarget: function (shadow) {
       return shadow && Boolean(shadow.elementFromPoint);
     },
-    targetingShadow: function(inEl) {
+    targetingShadow: function (inEl) {
       var s = this.shadow(inEl);
       if (this.canTarget(s)) {
         return s;
       }
     },
-    olderShadow: function(shadow) {
+    olderShadow: function (shadow) {
       var os = shadow.olderShadowRoot;
       if (!os) {
         var se = shadow.querySelector('shadow');
@@ -411,53 +385,46 @@
       }
       return os;
     },
-    allShadows: function(element) {
-      var shadows = [], s = this.shadow(element);
-      while(s) {
+    allShadows: function (element) {
+      var shadows = [],
+        s = this.shadow(element);
+      while (s) {
         shadows.push(s);
         s = this.olderShadow(s);
       }
       return shadows;
     },
-    searchRoot: function(inRoot, x, y) {
+    searchRoot: function (inRoot, x, y) {
       if (inRoot) {
         var t = inRoot.elementFromPoint(x, y);
         var st, sr, os;
-        // is element a shadow host?
         sr = this.targetingShadow(t);
         while (sr) {
-          // find the the element inside the shadow root
           st = sr.elementFromPoint(x, y);
           if (!st) {
-            // check for older shadows
             sr = this.olderShadow(sr);
           } else {
-            // shadowed element may contain a shadow root
             var ssr = this.targetingShadow(st);
             return this.searchRoot(ssr, x, y) || st;
           }
         }
-        // light dom element is the target
         return t;
       }
     },
-    owner: function(element) {
+    owner: function (element) {
       var s = element;
-      // walk up until you hit the shadow root or document
       while (s.parentNode) {
         s = s.parentNode;
       }
-      // the owner element is expected to be a Document or ShadowRoot
       if (s.nodeType != Node.DOCUMENT_NODE && s.nodeType != Node.DOCUMENT_FRAGMENT_NODE) {
         s = document;
       }
       return s;
     },
-    findTarget: function(inEvent) {
-      var x = inEvent.clientX, y = inEvent.clientY;
-      // if the listener is in the shadow root, it is much faster to start there
+    findTarget: function (inEvent) {
+      var x = inEvent.clientX,
+        y = inEvent.clientY;
       var s = this.owner(inEvent.target);
-      // if x, y is not in this root, fall back to document search
       if (!s.elementFromPoint(x, y)) {
         s = document;
       }
@@ -496,19 +463,12 @@
   }
 
   Installer.prototype = {
-    watchSubtree: function(target) {
-      // Only watch scopes that can target find, as these are top-level.
-      // Otherwise we can see duplicate additions and removals that add noise.
-      //
-      // TODO(dfreedman): For some instances with ShadowDOMPolyfill, we can see
-      // a removal without an insertion when a node is redistributed among
-      // shadows. Since it all ends up correct in the document, watching only
-      // the document will yield the correct mutations to watch.
+    watchSubtree: function (target) {
       if (targeting.canTarget(target)) {
         this.observer.observe(target, OBSERVER_INIT);
       }
     },
-    enableOnSubtree: function(target) {
+    enableOnSubtree: function (target) {
       this.watchSubtree(target);
       if (target === document && document.readyState !== 'complete') {
         this.installOnLoad();
@@ -516,50 +476,46 @@
         this.installNewSubtree(target);
       }
     },
-    installNewSubtree: function(target) {
+    installNewSubtree: function (target) {
       forEach(this.findElements(target), this.addElement, this);
     },
-    findElements: function(target) {
+    findElements: function (target) {
       if (target.querySelectorAll) {
         return target.querySelectorAll(SELECTOR);
       }
       return [];
     },
-    removeElement: function(el) {
+    removeElement: function (el) {
       this.removeCallback(el);
     },
-    addElement: function(el) {
+    addElement: function (el) {
       this.addCallback(el);
     },
-    elementChanged: function(el, oldValue) {
+    elementChanged: function (el, oldValue) {
       this.changedCallback(el, oldValue);
     },
-    concatLists: function(accum, list) {
+    concatLists: function (accum, list) {
       return accum.concat(toArray(list));
     },
-    // register all touch-action = none nodes on document load
-    installOnLoad: function() {
-      document.addEventListener('readystatechange', function() {
+    installOnLoad: function () {
+      document.addEventListener('readystatechange', function () {
         if (document.readyState === 'complete') {
           this.installNewSubtree(document);
         }
       }.bind(this));
     },
-    isElement: function(n) {
+    isElement: function (n) {
       return n.nodeType === Node.ELEMENT_NODE;
     },
-    flattenMutationTree: function(inNodes) {
-      // find children with touch-action
+    flattenMutationTree: function (inNodes) {
       var tree = map(inNodes, this.findElements, this);
-      // make sure the added nodes are accounted for
       tree.push(filter(inNodes, this.isElement));
-      // flatten the list
       return tree.reduce(this.concatLists, []);
     },
-    mutationWatcher: function(mutations) {
+    mutationWatcher: function (mutations) {
       mutations.forEach(this.mutationHandler, this);
     },
-    mutationHandler: function(m) {
+    mutationHandler: function (m) {
       if (m.type === 'childList') {
         var added = this.flattenMutationTree(m.addedNodes);
         added.forEach(this.addElement, this);
@@ -572,7 +528,7 @@
   };
 
   if (!MO) {
-    Installer.prototype.watchSubtree = function(){
+    Installer.prototype.watchSubtree = function () {
       console.warn('PointerEventsPolyfill: MutationObservers not found, touch-action will not be dynamically detected');
     };
   }
@@ -637,16 +593,12 @@
     var e = document.createEvent('Event');
     e.initEvent(inType, inDict.bubbles || false, inDict.cancelable || false);
 
-    // define inherited MouseEvent properties
-    // skip bubbles and cancelable since they're set above in initEvent()
-    for(var i = 2, p; i < MOUSE_PROPS.length; i++) {
+    for (var i = 2, p; i < MOUSE_PROPS.length; i++) {
       p = MOUSE_PROPS[i];
       e[p] = inDict[p] || MOUSE_DEFAULTS[i];
     }
     e.buttons = inDict.buttons || 0;
 
-    // Spec requires that pointers without pressure specified use 0.5 for down
-    // state and 0 for up state.
     var pressure = 0;
     if (inDict.pressure) {
       pressure = inDict.pressure;
@@ -654,11 +606,9 @@
       pressure = e.buttons ? 0.5 : 0;
     }
 
-    // add x/y properties aliased to clientX/Y
     e.x = e.clientX;
     e.y = e.clientY;
 
-    // define the properties of the PointerEvent interface
     e.pointerId = inDict.pointerId || 0;
     e.width = inDict.width || 0;
     e.height = inDict.height || 0;
@@ -676,9 +626,11 @@
   function shadowSelector(v) {
     return 'body /shadow-deep/ ' + selector(v);
   }
+
   function selector(v) {
     return '[touch-action="' + v + '"]';
   }
+
   function rule(v) {
     return '{ -ms-touch-action: ' + v + '; touch-action: ' + v + '; touch-action-delay: none; }';
   }
@@ -696,15 +648,13 @@
     }
   ];
   var styles = '';
-  // only install stylesheet if the browser has touch action support
   var head = document.head;
   var hasNativePE = window.PointerEvent || window.MSPointerEvent;
-  // only add shadow selectors if shadowdom is supported
   var hasShadowRoot = !window.ShadowDOMPolyfill && document.head.createShadowRoot;
 
   function applyAttributeStyles() {
     if (hasNativePE) {
-      attrib2css.forEach(function(r) {
+      attrib2css.forEach(function (r) {
         if (String(r) === r) {
           styles += selector(r) + rule(r) + '\n';
           if (hasShadowRoot) {
@@ -725,17 +675,17 @@
   }
 
   var mouse__pointermap = _dispatcher.pointermap;
-  // radius around touchend that swallows mouse events
   var DEDUP_DIST = 25;
 
   var WHICH_TO_BUTTONS = [0, 1, 4, 2];
 
   var HAS_BUTTONS = false;
   try {
-    HAS_BUTTONS = new MouseEvent('test', {buttons: 1}).buttons === 1;
+    HAS_BUTTONS = new MouseEvent('test', {
+      buttons: 1
+    }).buttons === 1;
   } catch (e) {}
 
-  // handler block for native mouse events
   var mouseEvents = {
     POINTER_ID: 1,
     POINTER_TYPE: 'mouse',
@@ -746,30 +696,29 @@
       'mouseover',
       'mouseout'
     ],
-    register: function(target) {
+    register: function (target) {
       _dispatcher.listen(target, this.events);
     },
-    unregister: function(target) {
+    unregister: function (target) {
       _dispatcher.unlisten(target, this.events);
     },
     lastTouches: [],
-    // collide with the global mouse listener
-    isEventSimulatedFromTouch: function(inEvent) {
+    isEventSimulatedFromTouch: function (inEvent) {
       var lts = this.lastTouches;
-      var x = inEvent.clientX, y = inEvent.clientY;
+      var x = inEvent.clientX,
+        y = inEvent.clientY;
       for (var i = 0, l = lts.length, t; i < l && (t = lts[i]); i++) {
-        // simulated mouse events will be swallowed near a primary touchend
-        var dx = Math.abs(x - t.x), dy = Math.abs(y - t.y);
+        var dx = Math.abs(x - t.x),
+          dy = Math.abs(y - t.y);
         if (dx <= DEDUP_DIST && dy <= DEDUP_DIST) {
           return true;
         }
       }
     },
-    prepareEvent: function(inEvent) {
+    prepareEvent: function (inEvent) {
       var e = _dispatcher.cloneEvent(inEvent);
-      // forward mouse preventDefault
       var pd = e.preventDefault;
-      e.preventDefault = function() {
+      e.preventDefault = function () {
         inEvent.preventDefault();
         pd();
       };
@@ -781,11 +730,9 @@
       }
       return e;
     },
-    mousedown: function(inEvent) {
+    mousedown: function (inEvent) {
       if (!this.isEventSimulatedFromTouch(inEvent)) {
         var p = mouse__pointermap.has(this.POINTER_ID);
-        // TODO(dfreedman) workaround for some elements not sending mouseup
-        // http://crbug/149091
         if (p) {
           this.cancel(inEvent);
         }
@@ -794,13 +741,13 @@
         _dispatcher.down(e);
       }
     },
-    mousemove: function(inEvent) {
+    mousemove: function (inEvent) {
       if (!this.isEventSimulatedFromTouch(inEvent)) {
         var e = this.prepareEvent(inEvent);
         _dispatcher.move(e);
       }
     },
-    mouseup: function(inEvent) {
+    mouseup: function (inEvent) {
       if (!this.isEventSimulatedFromTouch(inEvent)) {
         var p = mouse__pointermap.get(this.POINTER_ID);
         if (p && p.button === inEvent.button) {
@@ -810,24 +757,24 @@
         }
       }
     },
-    mouseover: function(inEvent) {
+    mouseover: function (inEvent) {
       if (!this.isEventSimulatedFromTouch(inEvent)) {
         var e = this.prepareEvent(inEvent);
         _dispatcher.enterOver(e);
       }
     },
-    mouseout: function(inEvent) {
+    mouseout: function (inEvent) {
       if (!this.isEventSimulatedFromTouch(inEvent)) {
         var e = this.prepareEvent(inEvent);
         _dispatcher.leaveOut(e);
       }
     },
-    cancel: function(inEvent) {
+    cancel: function (inEvent) {
       var e = this.prepareEvent(inEvent);
       _dispatcher.cancel(e);
       this.cleanupMouse();
     },
-    cleanupMouse: function() {
+    cleanupMouse: function () {
       mouse__pointermap['delete'](this.POINTER_ID);
     }
   };
@@ -839,19 +786,12 @@
   var allShadows = targeting.allShadows.bind(targeting);
   var touch__pointermap = _dispatcher.pointermap;
   var touchMap = Array.prototype.map.call.bind(Array.prototype.map);
-  // This should be long enough to ignore compat mouse events made by touch
   var DEDUP_TIMEOUT = 2500;
   var CLICK_COUNT_TIMEOUT = 200;
   var ATTRIB = 'touch-action';
   var INSTALLER;
-  // The presence of touch event handlers blocks scrolling, and so we must be careful to
-  // avoid adding handlers unnecessarily.  Chrome plans to add a touch-action-delay property
-  // (crbug.com/329559) to address this, and once we have that we can opt-in to a simpler
-  // handler registration mechanism.  Rather than try to predict how exactly to opt-in to
-  // that we'll just leave this disabled until there is a build of Chrome to test.
   var HAS_TOUCH_ACTION_DELAY = false;
 
-  // handler block for native touch events
   var touchEvents = {
     events: [
       'touchstart',
@@ -859,50 +799,45 @@
       'touchend',
       'touchcancel'
     ],
-    register: function(target) {
+    register: function (target) {
       if (HAS_TOUCH_ACTION_DELAY) {
         _dispatcher.listen(target, this.events);
       } else {
         INSTALLER.enableOnSubtree(target);
       }
     },
-    unregister: function(target) {
+    unregister: function (target) {
       if (HAS_TOUCH_ACTION_DELAY) {
         _dispatcher.unlisten(target, this.events);
-      } else {
-        // TODO(dfreedman): is it worth it to disconnect the MO?
-      }
+      } else {}
     },
-    elementAdded: function(el) {
+    elementAdded: function (el) {
       var a = el.getAttribute(ATTRIB);
       var st = this.touchActionToScrollType(a);
       if (st) {
         el._scrollType = st;
         _dispatcher.listen(el, this.events);
-        // set touch-action on shadows as well
-        allShadows(el).forEach(function(s) {
+        allShadows(el).forEach(function (s) {
           s._scrollType = st;
           _dispatcher.listen(s, this.events);
         }, this);
       }
     },
-    elementRemoved: function(el) {
+    elementRemoved: function (el) {
       el._scrollType = undefined;
       _dispatcher.unlisten(el, this.events);
-      // remove touch-action from shadow
-      allShadows(el).forEach(function(s) {
+      allShadows(el).forEach(function (s) {
         s._scrollType = undefined;
         _dispatcher.unlisten(s, this.events);
       }, this);
     },
-    elementChanged: function(el, oldValue) {
+    elementChanged: function (el, oldValue) {
       var a = el.getAttribute(ATTRIB);
       var st = this.touchActionToScrollType(a);
       var oldSt = this.touchActionToScrollType(oldValue);
-      // simply update scrollType if listeners are already established
       if (st && oldSt) {
         el._scrollType = st;
-        allShadows(el).forEach(function(s) {
+        allShadows(el).forEach(function (s) {
           s._scrollType = st;
         }, this);
       } else if (oldSt) {
@@ -917,7 +852,7 @@
       YSCROLLER: 'pan-y',
       SCROLLER: /^(?:pan-x pan-y)|(?:pan-y pan-x)|auto$/
     },
-    touchActionToScrollType: function(touchAction) {
+    touchActionToScrollType: function (touchAction) {
       var t = touchAction;
       var st = this.scrollTypes;
       if (t === 'none') {
@@ -932,19 +867,21 @@
     },
     POINTER_TYPE: 'touch',
     firstTouch: null,
-    isPrimaryTouch: function(inTouch) {
+    isPrimaryTouch: function (inTouch) {
       return this.firstTouch === inTouch.identifier;
     },
-    setPrimaryTouch: function(inTouch) {
-      // set primary touch if there no pointers, or the only pointer is the mouse
+    setPrimaryTouch: function (inTouch) {
       if (touch__pointermap.pointers() === 0 || (touch__pointermap.pointers() === 1 && touch__pointermap.has(1))) {
         this.firstTouch = inTouch.identifier;
-        this.firstXY = {X: inTouch.clientX, Y: inTouch.clientY};
+        this.firstXY = {
+          X: inTouch.clientX,
+          Y: inTouch.clientY
+        };
         this.scrolling = false;
         this.cancelResetClickCount();
       }
     },
-    removePrimaryPointer: function(inPointer) {
+    removePrimaryPointer: function (inPointer) {
       if (inPointer.isPrimary) {
         this.firstTouch = null;
         this.firstXY = null;
@@ -953,31 +890,28 @@
     },
     clickCount: 0,
     resetId: null,
-    resetClickCount: function() {
-      var fn = function() {
+    resetClickCount: function () {
+      var fn = function () {
         this.clickCount = 0;
         this.resetId = null;
       }.bind(this);
       this.resetId = setTimeout(fn, CLICK_COUNT_TIMEOUT);
     },
-    cancelResetClickCount: function() {
+    cancelResetClickCount: function () {
       if (this.resetId) {
         clearTimeout(this.resetId);
       }
     },
-    typeToButtons: function(type) {
+    typeToButtons: function (type) {
       var ret = 0;
       if (type === 'touchstart' || type === 'touchmove') {
         ret = 1;
       }
       return ret;
     },
-    touchToPointer: function(inTouch) {
+    touchToPointer: function (inTouch) {
       var cte = this.currentTouchEvent;
       var e = _dispatcher.cloneEvent(inTouch);
-      // Spec specifies that pointerId 1 is reserved for Mouse.
-      // Touch identifiers can start at 0.
-      // Add 2 to the touch identifier for compatibility.
       var id = e.pointerId = inTouch.identifier + 2;
       e.target = captureInfo[id] || findTarget(e);
       e.bubbles = true;
@@ -990,16 +924,15 @@
       e.pressure = inTouch.webkitForce || inTouch.force || 0.5;
       e.isPrimary = this.isPrimaryTouch(inTouch);
       e.pointerType = this.POINTER_TYPE;
-      // forward touch preventDefaults
       var self = this;
-      e.preventDefault = function() {
+      e.preventDefault = function () {
         self.scrolling = false;
         self.firstXY = null;
         cte.preventDefault();
       };
       return e;
     },
-    processTouches: function(inEvent, inFunction) {
+    processTouches: function (inEvent, inFunction) {
       var tl = inEvent.changedTouches;
       this.currentTouchEvent = inEvent;
       for (var i = 0, t; i < tl.length; i++) {
@@ -1007,56 +940,38 @@
         inFunction.call(this, this.touchToPointer(t));
       }
     },
-    // For single axis scrollers, determines whether the element should emit
-    // pointer events or behave as a scroller
-    shouldScroll: function(inEvent) {
+    shouldScroll: function (inEvent) {
       if (this.firstXY) {
         var ret;
         var scrollAxis = inEvent.currentTarget._scrollType;
         if (scrollAxis === 'none') {
-          // this element is a touch-action: none, should never scroll
           ret = false;
         } else if (scrollAxis === 'XY') {
-          // this element should always scroll
           ret = true;
         } else {
           var t = inEvent.changedTouches[0];
-          // check the intended scroll axis, and other axis
           var a = scrollAxis;
           var oa = scrollAxis === 'Y' ? 'X' : 'Y';
           var da = Math.abs(t['client' + a] - this.firstXY[a]);
           var doa = Math.abs(t['client' + oa] - this.firstXY[oa]);
-          // if delta in the scroll axis > delta other axis, scroll instead of
-          // making events
           ret = da >= doa;
         }
         this.firstXY = null;
         return ret;
       }
     },
-    findTouch: function(inTL, inId) {
+    findTouch: function (inTL, inId) {
       for (var i = 0, l = inTL.length, t; i < l && (t = inTL[i]); i++) {
         if (t.identifier === inId) {
           return true;
         }
       }
     },
-    // In some instances, a touchstart can happen without a touchend. This
-    // leaves the pointermap in a broken state.
-    // Therefore, on every touchstart, we remove the touches that did not fire a
-    // touchend event.
-    // To keep state globally consistent, we fire a
-    // pointercancel for this "abandoned" touch
-    vacuumTouches: function(inEvent) {
+    vacuumTouches: function (inEvent) {
       var tl = inEvent.touches;
-      // pointermap.pointers() should be < tl.length here, as the touchstart has not
-      // been processed yet.
       if (touch__pointermap.pointers() >= tl.length) {
         var d = [];
-        touch__pointermap.forEach(function(value, key) {
-          // Never remove pointerId == 1, which is mouse.
-          // Touch identifiers are 2 smaller than their pointerId, which is the
-          // index in pointermap.
+        touch__pointermap.forEach(function (value, key) {
           if (key !== 1 && !this.findTouch(tl, key - 2)) {
             var p = value.out;
             d.push(p);
@@ -1065,7 +980,7 @@
         d.forEach(this.cancelOut, this);
       }
     },
-    touchstart: function(inEvent) {
+    touchstart: function (inEvent) {
       this.vacuumTouches(inEvent);
       this.setPrimaryTouch(inEvent.changedTouches[0]);
       this.dedupSynthMouse(inEvent);
@@ -1074,7 +989,7 @@
         this.processTouches(inEvent, this.overDown);
       }
     },
-    overDown: function(inPointer) {
+    overDown: function (inPointer) {
       var p = touch__pointermap.set(inPointer.pointerId, {
         target: inPointer.target,
         out: inPointer,
@@ -1084,7 +999,7 @@
       _dispatcher.enter(inPointer);
       _dispatcher.down(inPointer);
     },
-    touchmove: function(inEvent) {
+    touchmove: function (inEvent) {
       if (!this.scrolling) {
         if (this.shouldScroll(inEvent)) {
           this.scrolling = true;
@@ -1095,10 +1010,9 @@
         }
       }
     },
-    moveOverOut: function(inPointer) {
+    moveOverOut: function (inPointer) {
       var event = inPointer;
       var pointer = touch__pointermap.get(event.pointerId);
-      // a finger drifted off the screen, ignore it
       if (!pointer) {
         return;
       }
@@ -1108,13 +1022,11 @@
       if (outEvent && outTarget !== event.target) {
         outEvent.relatedTarget = event.target;
         event.relatedTarget = outTarget;
-        // recover from retargeting by shadow
         outEvent.target = outTarget;
         if (event.target) {
           _dispatcher.leaveOut(outEvent);
           _dispatcher.enterOver(event);
         } else {
-          // clean up case when finger leaves the screen
           event.target = outTarget;
           event.relatedTarget = null;
           this.cancelOut(event);
@@ -1123,11 +1035,11 @@
       pointer.out = event;
       pointer.outTarget = event.target;
     },
-    touchend: function(inEvent) {
+    touchend: function (inEvent) {
       this.dedupSynthMouse(inEvent);
       this.processTouches(inEvent, this.upOut);
     },
-    upOut: function(inPointer) {
+    upOut: function (inPointer) {
       if (!this.scrolling) {
         _dispatcher.up(inPointer);
         _dispatcher.out(inPointer);
@@ -1135,29 +1047,29 @@
       }
       this.cleanUpPointer(inPointer);
     },
-    touchcancel: function(inEvent) {
+    touchcancel: function (inEvent) {
       this.processTouches(inEvent, this.cancelOut);
     },
-    cancelOut: function(inPointer) {
+    cancelOut: function (inPointer) {
       _dispatcher.cancel(inPointer);
       _dispatcher.out(inPointer);
       _dispatcher.leave(inPointer);
       this.cleanUpPointer(inPointer);
     },
-    cleanUpPointer: function(inPointer) {
+    cleanUpPointer: function (inPointer) {
       touch__pointermap['delete'](inPointer.pointerId);
       this.removePrimaryPointer(inPointer);
     },
-    // prevent synth mouse events from creating pointer events
-    dedupSynthMouse: function(inEvent) {
+    dedupSynthMouse: function (inEvent) {
       var lts = mouse.lastTouches;
       var t = inEvent.changedTouches[0];
-      // only the primary finger will synth mouse events
       if (this.isPrimaryTouch(t)) {
-        // remember x/y of last touch
-        var lt = {x: t.clientX, y: t.clientY};
+        var lt = {
+          x: t.clientX,
+          y: t.clientY
+        };
         lts.push(lt);
-        var fn = (function(lts, lt){
+        var fn = (function (lts, lt) {
           var i = lts.indexOf(lt);
           if (i > -1) {
             lts.splice(i, 1);
@@ -1187,10 +1099,10 @@
       'MSGotPointerCapture',
       'MSLostPointerCapture'
     ],
-    register: function(target) {
+    register: function (target) {
       _dispatcher.listen(target, this.events);
     },
-    unregister: function(target) {
+    unregister: function (target) {
       _dispatcher.unlisten(target, this.events);
     },
     POINTER_TYPES: [
@@ -1200,7 +1112,7 @@
       'pen',
       'mouse'
     ],
-    prepareEvent: function(inEvent) {
+    prepareEvent: function (inEvent) {
       var e = inEvent;
       if (HAS_BITMAP_TYPE) {
         e = _dispatcher.cloneEvent(inEvent);
@@ -1208,41 +1120,41 @@
       }
       return e;
     },
-    cleanup: function(id) {
+    cleanup: function (id) {
       ms__pointermap['delete'](id);
     },
-    MSPointerDown: function(inEvent) {
+    MSPointerDown: function (inEvent) {
       ms__pointermap.set(inEvent.pointerId, inEvent);
       var e = this.prepareEvent(inEvent);
       _dispatcher.down(e);
     },
-    MSPointerMove: function(inEvent) {
+    MSPointerMove: function (inEvent) {
       var e = this.prepareEvent(inEvent);
       _dispatcher.move(e);
     },
-    MSPointerUp: function(inEvent) {
+    MSPointerUp: function (inEvent) {
       var e = this.prepareEvent(inEvent);
       _dispatcher.up(e);
       this.cleanup(inEvent.pointerId);
     },
-    MSPointerOut: function(inEvent) {
+    MSPointerOut: function (inEvent) {
       var e = this.prepareEvent(inEvent);
       _dispatcher.leaveOut(e);
     },
-    MSPointerOver: function(inEvent) {
+    MSPointerOver: function (inEvent) {
       var e = this.prepareEvent(inEvent);
       _dispatcher.enterOver(e);
     },
-    MSPointerCancel: function(inEvent) {
+    MSPointerCancel: function (inEvent) {
       var e = this.prepareEvent(inEvent);
       _dispatcher.cancel(e);
       this.cleanup(inEvent.pointerId);
     },
-    MSLostPointerCapture: function(inEvent) {
+    MSLostPointerCapture: function (inEvent) {
       var e = _dispatcher.makeEvent('lostpointercapture', inEvent);
       _dispatcher.dispatchEvent(e);
     },
-    MSGotPointerCapture: function(inEvent) {
+    MSGotPointerCapture: function (inEvent) {
       var e = _dispatcher.makeEvent('gotpointercapture', inEvent);
       _dispatcher.dispatchEvent(e);
     }
@@ -1251,7 +1163,6 @@
   var ms = msEvents;
 
   function platform_events__applyPolyfill() {
-    // only activate if this platform does not have pointer events
     if (!window.PointerEvent) {
       window.PointerEvent = _PointerEvent;
 
@@ -1275,17 +1186,18 @@
 
   var n = window.navigator;
   var s, r;
+
   function assertDown(id) {
     if (!_dispatcher.pointermap.has(id)) {
       throw new Error('InvalidPointerId');
     }
   }
   if (n.msPointerEnabled) {
-    s = function(pointerId) {
+    s = function (pointerId) {
       assertDown(pointerId);
       this.msSetPointerCapture(pointerId);
     };
-    r = function(pointerId) {
+    r = function (pointerId) {
       assertDown(pointerId);
       this.msReleasePointerCapture(pointerId);
     };
@@ -1328,4 +1240,3 @@
   return pointerevents;
 
 }));
-//# sourceURL=MagnusWare

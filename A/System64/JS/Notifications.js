@@ -22,8 +22,8 @@ window.showMessageBox = window.showMessageBox || (({
 		value: "ok",
 		default: true
 	}],
-	iconID = "warning" || iconID, // "error", "warning", "info", or "nuke" for deleting files/folders
-	windowOptions = {}, // for controlling width, etc.
+	iconID = "warning" || iconID,
+	windowOptions = {},
 }) => {
 	let $window, $message;
 	const promise = new Promise((resolve, reject) => {
@@ -34,7 +34,6 @@ window.showMessageBox = window.showMessageBox || (({
 			maximizeButton: false,
 			minimizeButton: false,
 		}, windowOptions));
-		// $window.addClass("dialog-window horizontal-buttons");
 		$message =
 			$("<div>").css({
 				textAlign: "left",
@@ -42,12 +41,12 @@ window.showMessageBox = window.showMessageBox || (({
 				fontSize: "14px",
 				marginTop: "22px",
 				flex: 1,
-				minWidth: 0, // Fixes hidden overflow, see https://css-tricks.com/flexbox-truncated-text/
-				whiteSpace: "normal", // overriding .window:not(.squish)
+				minWidth: 0,
+				whiteSpace: "normal",
 			});
 		if (messageHTML) {
 			$message.html(messageHTML);
-		} else if (message) { // both are optional because you may populate later with dynamic content
+		} else if (message) {
 			$message.text(message).css({
 				whiteSpace: "pre-wrap",
 				wordWrap: "break-word",
@@ -69,14 +68,14 @@ window.showMessageBox = window.showMessageBox || (({
 		});
 		for (const button of buttons) {
 			const $button = $window.$Button(button.label, () => {
-				button.action?.(); // API may be required for using user gesture requiring APIs
+				button.action ?.();
 				resolve(button.value);
-				$window.close(); // actually happens automatically
+				$window.close();
 			});
 			if (button.default) {
 				$button.addClass("default");
 				$button.focus();
-				setTimeout(() => $button.focus(), 0); // @TODO: why is this needed? does it have to do with the iframe window handling?
+				setTimeout(() => $button.focus(), 0);
 			}
 			$button.css({
 				minWidth: 75,
@@ -91,14 +90,14 @@ window.showMessageBox = window.showMessageBox || (({
 			$(event.currentTarget).removeClass("default");
 		});
 		$window.on("closed", () => {
-			resolve("closed"); // or "cancel"? do you need to distinguish?
+			resolve("closed");
 		});
 		$window.center();
 		$window.focus();
 	});
 	promise.$window = $window;
 	promise.$message = $message;
-	promise.promise = promise; // for easy destructuring
+	promise.promise = promise;
 	try {
 		Asterisk.play();
 	} catch (error) {
@@ -116,11 +115,10 @@ window.alert = (message) => {
 window.toast = window.toast || (({
 	message,
 	sound = SystemHand,
-	windowOptions = {}, // for controlling width, etc.
+	windowOptions = {},
 }) => {
 	const toastQueue = document.getElementById('toast-queue') || createToastQueue();
 	const promise = new Promise((resolve, reject) => {
-		// Create the window
 		const window = document.createElement('div');
 		window.classList.add('toast-window');
 		Object.assign(window.style, {
@@ -134,7 +132,6 @@ window.toast = window.toast || (({
 			"margin-bottom": "5px",
 		});
 
-		// Create the progress bar
 		const bar = document.createElement('div');
 		bar.style.height = '18px';
 		bar.style.width = '0%';
@@ -143,7 +140,6 @@ window.toast = window.toast || (({
 		bar.id = 'progressbar';
 		window.appendChild(bar);
 
-		// Create the message container
 		const messageHTML = document.createElement('div');
 		messageHTML.style.fontFamily = 'Orbitron';
 		messageHTML.style.fontSize = '14px';
@@ -153,21 +149,16 @@ window.toast = window.toast || (({
 
 		messageHTML.innerHTML = message;
 
-		// Append the message container to the window
 		window.appendChild(messageHTML);
 
-		// Set styles for the window and content
 		Object.assign(window.style, windowOptions);
 
-		// Add the window to the queue
 		toastQueue.appendChild(window);
 
-		// Focus the window
 		window.focus();
 		sound.play().catch(error => {
 			console.warn("Couldn't play " + sound);
 		});
-		// Move progress bar
 		move(bar, resolve, window);
 	});
 
@@ -178,7 +169,6 @@ window.toast = window.toast || (({
 		function frame() {
 			if (width >= 100) {
 				clearInterval(id);
-				// Remove the toast after completion
 				window.remove();
 				callback();
 			} else {
@@ -206,5 +196,3 @@ window.confirm = (message) => {
 		message
 	});
 };
-
-//# sourceURL=MagnusWare

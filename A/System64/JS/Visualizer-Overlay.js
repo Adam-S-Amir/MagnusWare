@@ -10,7 +10,10 @@ function getOffset(element, fromElement) {
 		el = el.offsetParent;
 	} while (el && el !== fromElement);
 
-	return { offsetLeft, offsetTop };
+	return {
+		offsetLeft,
+		offsetTop
+	};
 }
 
 window.monkey_patch_render = (obj) => obj.render();
@@ -26,7 +29,6 @@ class VisualizerOverlay {
 		this.animateFns = [];
 
 		window.monkey_patch_render = (obj) => {
-			// check for Butterchurn's Visualizer class
 			if (obj.audio && obj.renderer) {
 				obj.render();
 				this.render(renderOptions);
@@ -44,7 +46,7 @@ class VisualizerOverlay {
 		canvas.style.top = "0";
 		canvas.style.pointerEvents = "none";
 		canvas.style.mixBlendMode = "color-dodge";
-		canvas.style.willChange = "opacity"; // hint fixes flickering in chrome
+		canvas.style.willChange = "opacity";
 		canvas.className = "visualizer-overlay-canvas";
 		windowEl.appendChild(canvas);
 		this.overlayCanvases.push(canvas);
@@ -68,12 +70,27 @@ class VisualizerOverlay {
 					const width = el.clientWidth;
 					const height = el.clientHeight;
 					const area = width * height;
-					return { element: el, width, height, area };
+					return {
+						element: el,
+						width,
+						height,
+						area
+					};
 				})
-				.filter(({ area }) => area > 0)
+				.filter(({
+					area
+				}) => area > 0)
 				.sort((a, b) => b.area - a.area)
-				.forEach(({ element, width, height, area }) => {
-					const { offsetLeft, offsetTop } = getOffset(element, windowEl);
+				.forEach(({
+					element,
+					width,
+					height,
+					area
+				}) => {
+					const {
+						offsetLeft,
+						offsetTop
+					} = getOffset(element, windowEl);
 					ctx.save();
 					ctx.scale(scale, scale);
 					ctx.translate(offsetLeft, offsetTop);
@@ -104,8 +121,16 @@ class VisualizerOverlay {
 	}
 
 	render(options) {
-		const { visualizerCanvas, wrappyCanvas, wrappyCtx, animateFns } = this;
-		const { width, height } = visualizerCanvas;
+		const {
+			visualizerCanvas,
+			wrappyCanvas,
+			wrappyCtx,
+			animateFns
+		} = this;
+		const {
+			width,
+			height
+		} = visualizerCanvas;
 		if (options.mirror) {
 			const drawImage = () => {
 				wrappyCtx.drawImage(
@@ -119,12 +144,6 @@ class VisualizerOverlay {
 					width,
 					height
 				);
-				// zoom in the source area:
-				// wrappyCtx.drawImage(visualizerCanvas, width/4, height/4, width/2, height/2, 0, 0, width, height);
-				// wrappyCtx.drawImage(visualizerCanvas, width/4, height/4, width/4, height/4, 0, 0, width, height);
-				// for testing:
-				// wrappyCtx.fillStyle = "aqua";
-				// wrappyCtx.fillRect(0, 0, width, height);
 			};
 			wrappyCanvas.width = width * 2;
 			wrappyCanvas.height = height * 2;
@@ -195,5 +214,3 @@ class VisualizerOverlay {
 		});
 	}
 }
-
-//# sourceURL=MagnusWare

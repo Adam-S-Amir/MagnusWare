@@ -1,7 +1,5 @@
 function $Window2(options, id) {
     options = options || {};
-    // @TODO: handle all option defaults here
-    // and validate options.
 
     var $w = $(E("div")).addClass("window os-window window2").appendTo("body");
     $w[0].$window = $w;
@@ -28,14 +26,14 @@ function $Window2(options, id) {
     }
     if (options.minimizeButton !== false) {
         $w.$minimize = $(E("button")).addClass("window-minimize-button window-action-minimize window-button").appendTo($w.$titlebar);
-        $w.$minimize.attr("aria-label", "Minimize window"); // @TODO: for taskbarless minimized windows, "restore"
+        $w.$minimize.attr("aria-label", "Minimize window");
         $w.$minimize.append("<span class='window-button-icon'></span>");
     }
     if (options.maximizeButton !== false) {
         $w.$maximize = $(E("button"))
             .addClass("window-maximize-button window-action-maximize window-button")
             .appendTo($w.$titlebar);
-        $w.$maximize.attr("aria-label", "Maximize or restore window"); // @TODO: specific text for the state
+        $w.$maximize.attr("aria-label", "Maximize or restore window");
         if (!options.resizable) {
             $w.$maximize.attr("disabled", true);
             $w.$minimize.attr("disabled", true);
@@ -57,9 +55,6 @@ function $Window2(options, id) {
     }
     if (options.parentWindow) {
         options.parentWindow.addChildWindow($w);
-        // semantic parent logic is currently only suited for tool windows
-        // for dialog windows, it would make the dialog window not show as focused
-        // (alternatively, I could simply, when following the semantic parent chain, look for windows that are not tool windows)
         if (options.toolWindow) {
             $w[0].dataset.semanticParent = options.parentWindow[0].id;
         }
@@ -67,9 +62,10 @@ function $Window2(options, id) {
 
     var $component = options.$component;
     if (typeof options.icon === "object" && "tagName" in options.icon) {
-        options.icons = { any: options.icon };
+        options.icons = {
+            any: options.icon
+        };
     } else if (options.icon) {
-        // old terrible API using globals that you have to define
         if (
             typeof $Icon !== "undefined" &&
             typeof TITLEBAR_ICON_SIZE !== "undefined"
@@ -88,7 +84,7 @@ function $Window2(options, id) {
     let iconSize = 16;
     $w.setTitlebarIconSize = function (target_icon_size) {
         if ($w.icons) {
-            $w.$icon?.remove();
+            $w.$icon ?.remove();
             $w.$icon = $($w.getIconAtSize(target_icon_size));
             $w.$icon.prependTo($w.$titlebar);
         }
@@ -98,7 +94,6 @@ function $Window2(options, id) {
     $w.getTitlebarIconSize = function () {
         return iconSize;
     };
-    // @TODO: this could be a static method, like OSGUI.getIconAtSize(icons, targetSize)
     $w.getIconAtSize = function (target_icon_size) {
         let icon_size;
         if ($w.icons[target_icon_size]) {
@@ -111,7 +106,7 @@ function $Window2(options, id) {
             );
             sizes.sort(
                 (a, b) =>
-                    Math.abs(a - target_icon_size) - Math.abs(b - target_icon_size)
+                Math.abs(a - target_icon_size) - Math.abs(b - target_icon_size)
             );
             icon_size = sizes[0];
         }
@@ -142,7 +137,6 @@ function $Window2(options, id) {
         }
         return null;
     };
-    // @TODO: automatically update icon size based on theme (with a CSS variable)
     $w.setTitlebarIconSize(iconSize);
 
     $w.getIconName = () => {
@@ -153,15 +147,14 @@ function $Window2(options, id) {
         $w.$icon = $Icon(icon_name, TITLEBAR_ICON_SIZE);
         old_$icon.replaceWith($w.$icon);
         $w.icon_name = icon_name;
-        $w.task?.updateIcon();
+        $w.task ?.updateIcon();
         $w.trigger("icon-change");
         return $w;
     };
     $w.setIcons = (icons) => {
         $w.icons = icons;
         $w.setTitlebarIconSize(iconSize);
-        $w.task?.updateIcon();
-        // icon-change already sent by setTitlebarIconSize
+        $w.task ?.updateIcon();
     };
 
     if ($component) {
@@ -170,19 +163,16 @@ function $Window2(options, id) {
 
     setTimeout(() => {
         if (get_direction() == "rtl") {
-            $w.addClass("rtl"); // for reversing the titlebar gradient
+            $w.addClass("rtl");
         }
     }, 0);
 
-    // returns writing/layout direction, "ltr" or "rtl"
     function get_direction() {
-        return window.get_direction
-            ? window.get_direction()
-            : getComputedStyle($w[0]).direction;
+        return window.get_direction ?
+            window.get_direction() :
+            getComputedStyle($w[0]).direction;
     }
 
-    // This is very silly, using jQuery's event handling to implement simpler event handling.
-    // But I'll implement it in a non-silly way at least when I remove jQuery. Maybe sooner.
     const $event_target = $({});
     const make_simple_listenable = (name) => {
         return (callback) => {
@@ -207,16 +197,13 @@ function $Window2(options, id) {
         outerHeight
     }) => {
         let width_from_frame, height_from_frame;
-        // It's good practice to make all measurements first, then update the DOM.
-        // Once you update the DOM, the browser has to recalculate layout, which can be slow.
         if (innerWidth) {
             width_from_frame = $w.outerWidth() - $w.$content.outerWidth();
         }
         if (innerHeight) {
             height_from_frame = $w.outerHeight() - $w.$content.outerHeight();
-            const $menu_bar = $w.$content.find(".menus"); // only if inside .content; might move to a slot outside .content later
+            const $menu_bar = $w.$content.find(".menus");
             if ($menu_bar.length) {
-                // maybe this isn't technically part of the frame, per se? but it's part of the non-client area, which is what I technically mean.
                 height_from_frame += $menu_bar.outerHeight();
             }
         }
@@ -254,7 +241,6 @@ function $Window2(options, id) {
         $event_target.triggerHandler("blur");
     };
     $w.focus = () => {
-        // showAsFocused();
         $w.bringToFront();
         refocus();
     };
@@ -272,10 +258,7 @@ function $Window2(options, id) {
         if (options.parentWindow) {
             options.parentWindow.onFocus(showAsFocused);
             options.parentWindow.onBlur(stopShowingAsFocused);
-            // TODO: also show as focused if focus is within the window
 
-            // initial state
-            // might need a setTimeout, idk...
             if (
                 document.activeElement &&
                 document.activeElement.closest(".window") == options.parentWindow[0]
@@ -283,35 +266,18 @@ function $Window2(options, id) {
                 showAsFocused();
             }
         } else {
-            // the browser window is the parent window
-            // show focus whenever the browser window is focused
             $(window).on("focus", showAsFocused);
             $(window).on("blur", stopShowingAsFocused);
-            // initial state
             if (document.hasFocus()) {
                 showAsFocused();
             }
         }
     } else {
-        // global focusout is needed, to continue showing as focused while child windows or menu popups are focused (@TODO: Is this redundant with focusin?)
-        // global focusin is needed, to show as focused when a child window becomes focused (when perhaps nothing was focused before, so no focusout event)
-        // global blur is needed, to show as focused when an embed gets focus, because focusin/out doesn't fire at all in that case
-        // global focus is needed, to stop showing as focused when an embed loses focus
-        // pretty ridiculous!!
-        // but it still doesn't handle the case where the browser window is not focused, and the user clicks an embed directly.
-        // for that, we need to listen inside the embed, because no events are fired at all outside in that case,
-        // and :focus/:focus-within doesn't work with embeds so we can't even do a hack with transitionstart.
-        // @TODO: simplify the strategy; I ended up piling a few strategies on top of each other, and the earlier ones may be redundant.
-        // In particular, 1. I ended up making it proactively inject into embeds, rather than when focused since there's a case where focus can't be detected otherwise.
-        // 2. I ended up simulating focusin events for embeds.
-        // I may want to rely on that, or, I may want to remove that and set up a refocus chain directly instead,
-        // avoiding refocus() which may interfere with drag operations in an embed when focusing the embed (e.g. clicking into Paint to draw or drag a sub-window).
 
-        // console.log("adding global focusin/focusout/blur/focus for window", $w[0].id);
         const global_focus_update_handler = make_focus_in_out_handler(
             $w[0],
             true
-        ); // must be $w and not $content so semantic parent chain works, with [data-semantic-parent] pointing to the window not the content
+        );
         window.addEventListener("focusin", global_focus_update_handler);
         window.addEventListener("focusout", global_focus_update_handler);
         window.addEventListener("blur", global_focus_update_handler);
@@ -320,32 +286,20 @@ function $Window2(options, id) {
         function setupEmbed(embed) {
             if (!focus_update_handlers_by_container.has(embed)) {
                 const embed_update_focus = make_focus_in_out_handler(embed, false);
-                // this also operates as a flag to prevent multiple handlers from being added, or waiting for the embed to load duplicately
                 focus_update_handlers_by_container.set(embed, embed_update_focus);
 
-                // @TODO: try removing setTimeout(s)
                 setTimeout(() => {
-                    // for embed src to be set? I forget.
-                    // Note: try must be INSIDE setTimeout, not outside, to work.
                     try {
                         const wait_for_embed_load = (callback) => {
-                            // Note: error may occur accessing embed.contentDocument; this must be handled by the caller.
-                            // To that end, this function must access it synchronously, to allow the caller to handle the error.
                             if (embed.contentDocument.readyState == "complete") {
                                 callback();
                             } else {
-                                // embed.contentDocument.addEventListener("readystatechange", () => {
-                                // 	if (embed.contentDocument.readyState == "complete") {
-                                // 		callback();
-                                // 	}
-                                // });
                                 setTimeout(() => {
                                     wait_for_embed_load(callback);
                                 }, 100);
                             }
                         };
                         wait_for_embed_load(() => {
-                            // console.log("adding focusin/focusout/blur/focus for embed", embed);
                             embed.contentWindow.addEventListener(
                                 "focusin",
                                 embed_update_focus
@@ -381,9 +335,10 @@ function $Window2(options, id) {
                     }
                 }
             });
-            observer.observe(container_node, { childList: true, subtree: true });
-            // needed in recursive calls (for embeds inside embeds)
-            // (for the window, it shouldn't be able to have embeds yet)
+            observer.observe(container_node, {
+                childList: true,
+                subtree: true
+            });
             for (const embed of container_node.querySelectorAll("embed")) {
                 setupEmbed(embed);
             }
@@ -392,51 +347,39 @@ function $Window2(options, id) {
         observeEmbeds($w.$content[0]);
 
         function make_focus_in_out_handler(logical_container_el, is_root) {
-            // In case of embeds, logical_container_el is the embed, and container_node is the embed's contentDocument.
-            // container_node is not a parameter here because it can change over time, may be an empty document before the embed is loaded.
 
             return function handle_focus_in_out(event) {
                 const container_node =
-                    logical_container_el.tagName == "EMBED"
-                        ? logical_container_el.contentDocument
-                        : logical_container_el;
+                    logical_container_el.tagName == "EMBED" ?
+                    logical_container_el.contentDocument :
+                    logical_container_el;
                 const document = container_node.ownerDocument ?? container_node;
-                // is this equivalent?
-                // const document = logical_container_el.tagName == "IFRAME" ? logical_container_el.contentDocument : logical_container_el.ownerDocument;
 
-                // console.log(`handling ${event.type} for container`, container_el);
-                let newly_focused = event
-                    ? event.type === "focusout" || event.type === "blur"
-                        ? event.relatedTarget
-                        : event.target
-                    : document.activeElement;
-                if (event?.type === "blur") {
-                    newly_focused = null; // only handle embed
+                let newly_focused = event ?
+                    event.type === "focusout" || event.type === "blur" ?
+                    event.relatedTarget :
+                    event.target :
+                    document.activeElement;
+                if (event ?.type === "blur") {
+                    newly_focused = null;
                 }
 
-                // console.log(`[${$w.title()}] (is_root=${is_root})`, `newly_focused is (preliminarily)`, element_to_string(newly_focused), `\nlogical_container_el`, logical_container_el, `\ncontainer_node`, container_node, `\ndocument.activeElement`, document.activeElement, `\ndocument.hasFocus()`, document.hasFocus(), `\ndocument`, document);
 
-                // Embeds are stingy about focus events, so we need to check if focus is actually within an embed.
                 if (
                     document.activeElement &&
                     document.activeElement.tagName === "EMBED" &&
-                    (event?.type === "focusout" || event?.type === "blur") &&
-                    !newly_focused // doesn't exist for security reasons in this case
+                    (event ?.type === "focusout" || event ?.type === "blur") &&
+                    !newly_focused
                 ) {
                     newly_focused = document.activeElement;
-                    // console.log(`[${$w.title()}] (is_root=${is_root})`, `newly_focused is (actually)`, element_to_string(newly_focused));
                 }
 
-                const outside_or_at_exactly =
-                    !newly_focused ||
-                    // contains() only works with DOM nodes (elements and documents), not window objects.
-                    // Since container_node is a DOM node, it will never have a Window inside of it (ignoring embeds).
-                    newly_focused.window === newly_focused || // is a Window object (cross-frame test)
-                    !container_node.contains(newly_focused); // Note: node.contains(node) === true
+                const outside_or_at_exactly = !newly_focused ||
+                    newly_focused.window === newly_focused ||
+                    !container_node.contains(newly_focused);
                 const firmly_outside =
                     outside_or_at_exactly && container_node !== newly_focused;
 
-                // console.log(`[${$w.title()}] (is_root=${is_root})`, `outside_or_at_exactly=${outside_or_at_exactly}`, `firmly_outside=${firmly_outside}`);
                 if (firmly_outside && is_root) {
                     stopShowingAsFocused();
                 }
@@ -449,7 +392,7 @@ function $Window2(options, id) {
                     !newly_focused.closest(".menus") &&
                     !newly_focused.closest(".window-titlebar")
                 ) {
-                    last_focus_by_container.set(logical_container_el, newly_focused); // overwritten for embeds below
+                    last_focus_by_container.set(logical_container_el, newly_focused);
                     debug_focus_tracking(
                         document,
                         container_node,
@@ -460,7 +403,6 @@ function $Window2(options, id) {
 
                 if (!outside_or_at_exactly && newly_focused.tagName === "EMBED") {
                     const embed = newly_focused;
-                    // console.log("embed", embed, onfocusin_by_container.has(embed));
                     try {
                         const focus_in_embed = embed.contentDocument.activeElement;
                         if (
@@ -469,7 +411,6 @@ function $Window2(options, id) {
                             focus_in_embed.tagName !== "BODY" &&
                             !focus_in_embed.closest(".menus")
                         ) {
-                            // last_focus_by_container.set(logical_container_el, embed); // done above
                             last_focus_by_container.set(embed, focus_in_embed);
                             debug_focus_tracking(
                                 embed.contentDocument,
@@ -483,28 +424,14 @@ function $Window2(options, id) {
                     }
                 }
 
-                // For child windows and menu popups, follow "semantic parent" chain.
-                // Menu popups and child windows aren't descendants of the window they belong to,
-                // but should keep the window shown as focused.
-                // (In principle this sort of feature could be useful for focus tracking*,
-                // but right now it's only for child windows and menu popups, which should not be tracked for refocus,
-                // so I'm doing this after last_focus_by_container.set, for now anyway.)
-                // ((*: and it may even be surprising if it doesn't work, if one sees the attribute on menus and attempts to use it.
-                // But who's going to see that? The menus close so it's a pain to see the DOM structure! :P **))
-                // (((**: without window.debugKeepMenusOpen)))
                 if (is_root) {
                     do {
-                        // if (!newly_focused?.closest) {
-                        // 	console.warn("what is this?", newly_focused);
-                        // 	break;
-                        // }
-                        const waypoint = newly_focused?.closest?.(
+                        const waypoint = newly_focused ?.closest ?.(
                             "[data-semantic-parent]"
                         );
                         if (waypoint) {
                             const id = waypoint.dataset.semanticParent;
                             const parent = waypoint.ownerDocument.getElementById(id);
-                            // console.log("following semantic parent, from", newly_focused, "\nto", parent, "\nvia", waypoint);
                             newly_focused = parent;
                             if (!parent) {
                                 console.warn("semantic parent not found with id", id);
@@ -516,22 +443,16 @@ function $Window2(options, id) {
                     } while (true);
                 }
 
-                // Note: allowing showing window as focused from listeners inside embed (non-root) too,
-                // in order to handle clicking an embed when the browser window was not previously focused (e.g. after reload)
                 if (
                     newly_focused &&
-                    newly_focused.window !== newly_focused && // cross-frame test for Window object
+                    newly_focused.window !== newly_focused &&
                     container_node.contains(newly_focused)
                 ) {
                     showAsFocused();
                     $w.bringToFront();
                     if (!is_root) {
-                        // trigger focusin events for embeds
-                        // @TODO: probably don't need showAsFocused() here since it'll be handled externally (on this simulated focusin),
-                        // and might not need a lot of other logic frankly if I'm simulating focusin events
                         let el = logical_container_el;
                         while (el) {
-                            // console.log("dispatching focusin event for", el);
                             el.dispatchEvent(
                                 new Event("focusin", {
                                     bubbles: true,
@@ -539,7 +460,7 @@ function $Window2(options, id) {
                                     view: el.ownerDocument.defaultView
                                 })
                             );
-                            el = el.currentView?.frameElement;
+                            el = el.currentView ?.frameElement;
                         }
                     }
                 } else if (is_root) {
@@ -547,12 +468,11 @@ function $Window2(options, id) {
                 }
             };
         }
-        // initial state is unfocused
     }
 
     $w.css("touch-action", "none");
 
-    let minimize_target_el = null; // taskbar button (optional)
+    let minimize_target_el = null;
     $w.setMinimizeTarget = function (new_taskbar_button_el) {
         minimize_target_el = new_taskbar_button_el;
     };
@@ -569,7 +489,7 @@ function $Window2(options, id) {
 
     let before_minimize;
     $w.minimize = () => {
-        minimize_target_el = minimize_target_el || task?.$task[0];
+        minimize_target_el = minimize_target_el || task ?.$task[0];
         if (animating_titlebar) {
             when_done_animating_titlebar.push($w.minimize);
             return;
@@ -583,20 +503,13 @@ function $Window2(options, id) {
                     $w.blur();
                 });
             } else {
-                // no taskbar
 
-                // @TODO: make this metrically similar to what Windows 98 does
-                // @TODO: DRY! This is copied heavily from maximize()
-                // @TODO: after minimize (without taskbar) and maximize, restore should restore original position before minimize
-                // OR should it not maximize but restore the unmaximized state? I think I tested it but I forget.
 
                 const to_width = 150;
                 const spacing = 10;
                 if ($w.hasClass("minimized-without-taskbar")) {
-                    // unminimizing
                     minimize_slots[$w._minimize_slot_index] = null;
                 } else {
-                    // minimizing
                     let i = 0;
                     while (minimize_slots[i]) {
                         i++;
@@ -661,7 +574,10 @@ function $Window2(options, id) {
                     }
                     $w.$minimize.removeClass("window-action-restore");
                     $w.$minimize.addClass("window-action-minimize");
-                    $w.css({ width: "", height: "" });
+                    $w.css({
+                        width: "",
+                        height: ""
+                    });
                     if (before_minimize) {
                         $w.css({
                             position: before_minimize.position,
@@ -756,7 +672,10 @@ function $Window2(options, id) {
         };
         const instantly_unmaximize = () => {
             $w.removeClass("maximized");
-            $w.css({ width: "", height: "" });
+            $w.css({
+                width: "",
+                height: ""
+            });
             if (before_maximize) {
                 $w.css({
                     position: before_maximize.position,
@@ -783,11 +702,11 @@ function $Window2(options, id) {
         }
         $w.animateTitlebar(before_rect, after_rect, () => {
             if (restoring) {
-                instantly_unmaximize(); // finalize in some way
+                instantly_unmaximize();
                 $w.$maximize.removeClass("window-action-restore");
                 $w.$maximize.addClass("window-action-maximize");
             } else {
-                instantly_maximize(); // finalize in some way
+                instantly_maximize();
                 $w.$maximize.removeClass("window-action-maximize");
                 $w.$maximize.addClass("window-action-restore");
             }
@@ -800,14 +719,13 @@ function $Window2(options, id) {
             $w.maximize();
         }
     };
-    // must not pass event to functions by accident; also methods may not be defined yet
-    $w.$minimize?.on("click", (e) => {
+    $w.$minimize ?.on("click", (e) => {
         $w.minimize();
     });
-    $w.$maximize?.on("click", (e) => {
+    $w.$maximize ?.on("click", (e) => {
         $w.maximize();
     });
-    $w.$x?.on("click", (e) => {
+    $w.$x ?.on("click", (e) => {
         $w.close();
     });
     $w.$title_area.on("dblclick", (e) => {
@@ -827,18 +745,11 @@ function $Window2(options, id) {
         }
     };
 
-    // Keep track of last focused elements per container,
-    // where containers include:
-    // - window (global focus tracking)
-    // - $w[0] (window-local, for restoring focus when refocusing window)
-    // - any embeds that are same-origin (for restoring focus when refocusing window)
-    // @TODO: should these be WeakMaps? probably.
-    // @TODO: share this Map between all windows? but clean it up when destroying windows? or would a WeakMap take care of that?
-    var last_focus_by_container = new Map(); // element to restore focus to, by container
-    var focus_update_handlers_by_container = new Map(); // event handlers by container; note use as a flag to avoid adding multiple handlers
-    var debug_svg_by_container = new Map(); // visualization
-    var debug_svgs_in_window = []; // visualization
-    var warned_embeds = new WeakSet(); // prevent spamming console
+    var last_focus_by_container = new Map();
+    var focus_update_handlers_by_container = new Map();
+    var debug_svg_by_container = new Map();
+    var debug_svgs_in_window = [];
+    var warned_embeds = new WeakSet();
 
     const warn_embed_access = (embed, error) => {
         const log_template = (message) => [];
@@ -849,14 +760,14 @@ function $Window2(options, id) {
         } else {
             try {
                 const url = new URL(embed.src);
-                cross_origin = url.origin !== window.location.origin; // shouldn't need to use embed.ownerDocument.location.origin because intermediate embeds must be same-origin
+                cross_origin = url.origin !== window.location.origin;
             } catch (parse_error) {
                 console.error(...log_template());
                 return;
             }
         }
         if (cross_origin) {
-            if (options.embeds?.ignoreCrossOrigin && !warned_embeds.has(embed)) {
+            if (options.embeds ?.ignoreCrossOrigin && !warned_embeds.has(embed)) {
                 console.warn(...log_template());
                 warned_embeds.add(embed);
             }
@@ -884,7 +795,7 @@ function $Window2(options, id) {
             svg.style.height = "100%";
             svg.style.pointerEvents = "none";
             svg.style.zIndex = "100000000";
-            svg.style.direction = "ltr"; // position labels correctly
+            svg.style.direction = "ltr";
             debug_svg_by_container.set(container_el, svg);
             debug_svgs_in_window.push(svg);
             document.body.appendChild(svg);
@@ -902,7 +813,7 @@ function $Window2(options, id) {
         while (svg.lastChild) {
             svg.removeChild(svg.lastChild);
         }
-        const descendant_rect = descendant_el.getBoundingClientRect?.() ?? {
+        const descendant_rect = descendant_el.getBoundingClientRect ?.() ?? {
             left: 0,
             top: 0,
             width: innerWidth,
@@ -910,7 +821,7 @@ function $Window2(options, id) {
             right: innerWidth,
             bottom: innerHeight
         };
-        const container_rect = container_el.getBoundingClientRect?.() ?? {
+        const container_rect = container_el.getBoundingClientRect ?.() ?? {
             left: 0,
             top: 0,
             width: innerWidth,
@@ -918,7 +829,6 @@ function $Window2(options, id) {
             right: innerWidth,
             bottom: innerHeight
         };
-        // draw rectangles with labels
         for (const rect of [descendant_rect, container_rect]) {
             const rect_el = document.createElementNS(
                 "http://www.w3.org/2000/svg",
@@ -946,7 +856,7 @@ function $Window2(options, id) {
             text_el.setAttribute(
                 "y",
                 rect.top + (rect === descendant_rect ? 20 : 0)
-            ); // align container text on outside, descendant text on inside
+            );
             text_el.setAttribute(
                 "fill",
                 rect === descendant_rect ? "#f44" : "aqua"
@@ -958,7 +868,6 @@ function $Window2(options, id) {
             );
             svg.appendChild(text_el);
         }
-        // draw lines connecting the two rects
         const lines = [
             [
                 descendant_rect.left,
@@ -1023,12 +932,14 @@ function $Window2(options, id) {
     };
 
     const refocus = (container_el = $w.$content[0]) => {
-        const logical_container_el = container_el.matches(".window-content")
-            ? $w[0]
-            : container_el;
+        const logical_container_el = container_el.matches(".window-content") ?
+            $w[0] :
+            container_el;
         const last_focus = last_focus_by_container.get(logical_container_el);
         if (last_focus) {
-            last_focus.focus({ preventScroll: true });
+            last_focus.focus({
+                preventScroll: true
+            });
             if (last_focus.tagName === "EMBED") {
                 try {
                     refocus(last_focus);
@@ -1042,7 +953,9 @@ function $Window2(options, id) {
             options.parentWindow.triggerHandler("refocus-window");
             return;
         }
-        container_el.focus({ preventScroll: true });
+        container_el.focus({
+            preventScroll: true
+        });
         if (container_el.tagName === "EMBED") {
             try {
                 refocus(container_el.contentDocument.body);
@@ -1056,56 +969,18 @@ function $Window2(options, id) {
         refocus();
     });
 
-    // redundant events are for handling synthetic events,
-    // which may be sent individually, rather than in tandem
     $w.on("pointerdown mousedown", handle_pointer_activation);
-    // Note that jQuery treats some events differently, and can't listen for some synthetic events
-    // but pointerdown and mousedown seem to be supported. That said, if you trigger() either,
-    // addEventListener() handlers will not be called. So if I remove the dependency on jQuery,
-    // it will not be possible to listen for some .trigger() events.
-    // https://jsfiddle.net/1j01/ndvwts9y/1/
 
-    // Assumption: focusin comes after pointerdown/mousedown
-    // This is probably guaranteed, because you can prevent the default of focusing from pointerdown/mousedown
     $G.on("focusin", (e) => {
         last_focus_by_container.set(window, e.target);
-        // debug_focus_tracking(document, window, e.target);
     });
 
     function handle_pointer_activation(event) {
-        // console.log("handle_pointer_activation", event.type, event.target);
         $w.bringToFront();
-        // Test cases where it should refocus the last focused control in the window:
-        // - Click in the blank space of the window
-        //   - Click in blank space again now that something's focused
-        // - Click on the window title bar
-        //   - Click on title bar buttons
-        // - Closing a second window should focus the first window
-        //   - Open a dialog window from an app window that has a tool window, then close the dialog window
-        //     - @TODO: Even if the tool window has controls, it should focus the parent window, I think
-        // - Clicking on a control in the window should focus said control
-        // - Clicking on a disabled control in the window should focus the window
-        //   - Make sure to test this with another window previously focused
-        // - Simulated clicks (important for JS Paint's eye gaze and speech recognition modes)
-        // - (@TODO: Should clicking a child window focus the parent window?)
-        // - After potentially selecting text but not selecting anything
-        // It should NOT refocus when:
-        // - Clicking on a control in a different window
-        // - When other event handlers set focus
-        //   - Using the keyboard to focus something outside the window, such as a menu popup
-        //   - Clicking a control that focuses something outside the window
-        //     - Button that opens another window (e.g. Recursive Dialog button in tests)
-        //     - Button that focuses a control in another window (e.g. Focus Other button in tests)
-        // - Trying to select text
 
-        // Wait for other pointerdown handlers and default behavior, and focusin events.
         requestAnimationFrame(() => {
             const last_focus_global = last_focus_by_container.get(window);
-            // const last_focus_in_window = last_focus_by_container.get($w.$content[0]);
-            // console.log("a tick after", event.type, { last_focus_in_window, last_focus_global, activeElement: document.activeElement, win_elem: $w[0] });
-            // console.log("did focus change?", document.activeElement !== last_focus_global);
 
-            // If something programmatically got focus, don't refocus.
             if (
                 document.activeElement &&
                 document.activeElement !== document &&
@@ -1115,22 +990,16 @@ function $Window2(options, id) {
             ) {
                 return;
             }
-            // If menus got focus, don't refocus.
-            if (document.activeElement?.closest?.(".menus, .menu-popup")) {
-                // console.log("click in menus");
+            if (document.activeElement ?.closest ?.(".menus, .menu-popup")) {
                 return;
             }
 
-            // If the element is selectable, wait until the click is done and see if anything was selected first.
-            // This is a bit of a weird compromise, for now.
             const target_style = getComputedStyle(event.target);
             if (target_style.userSelect !== "none") {
-                // Immediately show the window as focused, just don't refocus a specific control.
                 $w.$content.focus();
 
                 $w.one("pointerup pointercancel", () => {
                     requestAnimationFrame(() => {
-                        // this seems to make it more reliable in regards to double clicking
                         if (!getSelection().toString().trim()) {
                             refocus();
                         }
@@ -1138,7 +1007,6 @@ function $Window2(options, id) {
                 });
                 return;
             }
-            // Set focus to the last focused control, which should be updated if a click just occurred.
             refocus();
         });
     }
@@ -1150,17 +1018,15 @@ function $Window2(options, id) {
         if (e.ctrlKey || e.altKey || e.metaKey) {
             return;
         }
-        // console.log("keydown", e.key, e.target);
         if (e.target.closest(".menus")) {
-            // console.log("keydown in menus");
             return;
         }
         const $buttons = $w.$content.find("button");
         const $focused = $(document.activeElement);
         const focused_index = $buttons.index($focused);
         switch (e.keyCode) {
-            case 40: // Down
-            case 39: // Right
+            case 40:
+            case 39:
                 if ($focused.is("button") && !e.shiftKey) {
                     if (focused_index < $buttons.length - 1) {
                         $buttons[focused_index + 1].focus();
@@ -1168,8 +1034,8 @@ function $Window2(options, id) {
                     }
                 }
                 break;
-            case 38: // Up
-            case 37: // Left
+            case 38:
+            case 37:
                 if ($focused.is("button") && !e.shiftKey) {
                     if (focused_index > 0) {
                         $buttons[focused_index - 1].focus();
@@ -1177,8 +1043,8 @@ function $Window2(options, id) {
                     }
                 }
                 break;
-            case 32: // Space
-            case 13: // Enter (doesn't actually work in chrome because the button gets clicked immediately)
+            case 32:
+            case 13:
                 if ($focused.is("button") && !e.shiftKey) {
                     $focused.addClass("pressed");
                     const release = () => {
@@ -1196,8 +1062,6 @@ function $Window2(options, id) {
                 }
                 break;
             case 9: {
-                // Tab
-                // wrap around when tabbing through controls in a window
                 const $controls = find_tabstops($w.$content[0]);
                 if ($controls.length > 0) {
                     const focused_control_index = $controls.index($focused);
@@ -1215,15 +1079,13 @@ function $Window2(options, id) {
                 }
                 break;
             }
-            case 27: // Escape
-                // @TODO: make this optional, and probably default false
+            case 27:
                 $w.close();
                 break;
         }
     });
 
     $w.applyBounds = () => {
-        // TODO: outerWidth vs width? not sure
         const bound_width = Math.max(document.body.scrollWidth, innerWidth);
         const bound_height = Math.max(document.body.scrollHeight, innerHeight);
         $w.css({
@@ -1239,10 +1101,9 @@ function $Window2(options, id) {
     };
 
     $w.bringTitleBarInBounds = () => {
-        // Try to make the titlebar always accessible
         const bound_width = Math.max(document.body.scrollWidth, innerWidth);
         const bound_height = Math.max(document.body.scrollHeight, innerHeight);
-        const min_horizontal_pixels_on_screen = 40; // enough for space past a close button
+        const min_horizontal_pixels_on_screen = 40;
         $w.css({
             left: Math.max(
                 min_horizontal_pixels_on_screen - $w.outerWidth(),
@@ -1288,27 +1149,19 @@ function $Window2(options, id) {
     };
     $w.$titlebar.css("touch-action", "none");
     $w.$titlebar.on("selectstart", (e) => {
-        // preventing mousedown would break :active state, I'm not sure if just selectstart is enough...
         e.preventDefault();
     });
     $w.$titlebar.on("mousedown", "button", (e) => {
-        // Prevent focus on titlebar buttons.
-        // This can break the :active state. In Firefox, a setTimeout before any focus() was enough,
-        // but now in Chrome 95, focus() breaks the :active state too, and setTimeout only delays the brokenness,
-        // so I have to use a CSS class now for the pressed state.
         refocus();
-        // Emulate :enabled:active:hover state with .pressing class
         const button = e.currentTarget;
         if (!$(button).is(":enabled")) {
             return;
         }
         button.classList.add("pressing");
         const release = (event) => {
-            // blur is just to handle the edge case of alt+tabbing/ctrl+tabbing away
             if (event && event.type === "blur") {
-                // if (document.activeElement?.tagName === "IFRAME") {
                 if (document.hasFocus()) {
-                    return; // the window isn't really blurred; an embed got focus
+                    return;
                 }
             }
             button.classList.remove("pressing");
@@ -1336,7 +1189,7 @@ function $Window2(options, id) {
         const customEvent = $.Event("window-drag-start");
         $w.trigger(customEvent);
         if (customEvent.isDefaultPrevented()) {
-            return; // allow custom drag behavior of component windows in jspaint (Tools / Colors)
+            return;
         }
         drag_offset_x = e.clientX + scrollX - $w.position().left;
         drag_offset_y = e.clientY + scrollY - $w.position().top;
@@ -1345,7 +1198,7 @@ function $Window2(options, id) {
         drag_pointer_id = e.pointerId ?? e.originalEvent.pointerId;
         $G.on("pointermove", update_drag);
         $G.on("scroll", update_drag);
-        $("body").addClass("dragging"); // for when mouse goes over an embed
+        $("body").addClass("dragging");
     });
     $G.on("pointerup pointercancel", (e) => {
         if ((e.pointerId ?? e.originalEvent.pointerId) !== drag_pointer_id) {
@@ -1354,10 +1207,8 @@ function $Window2(options, id) {
         $G.off("pointermove", update_drag);
         $G.off("scroll", update_drag);
         $("body").removeClass("dragging");
-        // $w.applyBounds(); // Windows doesn't really try to keep windows on screen
-        // but you also can't really drag off of the desktop, whereas here you can drag to way outside the web page.
         $w.bringTitleBarInBounds();
-        drag_pointer_id = -1; // prevent bringTitleBarInBounds from making the window go to top left when unminimizing window from taskbar after previously dragging it
+        drag_pointer_id = -1;
     });
     $w.$titlebar.on("dblclick", (e) => {
         if ($component) {
@@ -1375,17 +1226,15 @@ function $Window2(options, id) {
         const HANDLE_BOTTOM = HANDLE_END;
 
         [
-            [HANDLE_TOP, HANDLE_RIGHT], // ↗
-            [HANDLE_TOP, HANDLE_MIDDLE], // ↑
-            [HANDLE_TOP, HANDLE_LEFT], // ↖
-            [HANDLE_MIDDLE, HANDLE_LEFT], // ←
-            [HANDLE_BOTTOM, HANDLE_LEFT], // ↙
-            [HANDLE_BOTTOM, HANDLE_MIDDLE], // ↓
-            [HANDLE_BOTTOM, HANDLE_RIGHT], // ↘
-            [HANDLE_MIDDLE, HANDLE_RIGHT] // →
+            [HANDLE_TOP, HANDLE_RIGHT],
+            [HANDLE_TOP, HANDLE_MIDDLE],
+            [HANDLE_TOP, HANDLE_LEFT],
+            [HANDLE_MIDDLE, HANDLE_LEFT],
+            [HANDLE_BOTTOM, HANDLE_LEFT],
+            [HANDLE_BOTTOM, HANDLE_MIDDLE],
+            [HANDLE_BOTTOM, HANDLE_RIGHT],
+            [HANDLE_MIDDLE, HANDLE_RIGHT]
         ].forEach(([y_axis, x_axis]) => {
-            // const resizes_height = y_axis !== HANDLE_MIDDLE;
-            // const resizes_width = x_axis !== HANDLE_MIDDLE;
             const $handle = $("<div>").addClass("handle").appendTo($w);
 
             let cursor = "";
@@ -1403,39 +1252,31 @@ function $Window2(options, id) {
             }
             cursor += "-resize";
 
-            // Note: MISNOMER: innerWidth() is less "inner" than width(), because it includes padding!
-            // Here's a little diagram of sorts:
-            // outerWidth(true): margin, [ outerWidth(): border, [ innerWidth(): padding, [ width(): content ] ] ]
-            const handle_thickness = ($w.outerWidth() - $w.width()) / 2; // padding + border
-            const border_width = ($w.outerWidth() - $w.innerWidth()) / 2; // border; need to outset the handles by this amount so they overlap the border + padding, and not the content
+            const handle_thickness = ($w.outerWidth() - $w.width()) / 2;
+            const border_width = ($w.outerWidth() - $w.innerWidth()) / 2;
             const window_frame_height =
-                $w.outerHeight() - $w.$content.outerHeight(); // includes titlebar and borders, padding, but not content
-            const window_frame_width = $w.outerWidth() - $w.$content.outerWidth(); // includes borders, padding, but not content
+                $w.outerHeight() - $w.$content.outerHeight();
+            const window_frame_width = $w.outerWidth() - $w.$content.outerWidth();
             $handle.css({
                 position: "absolute",
-                top:
-                    y_axis === HANDLE_TOP
-                        ? -border_width
-                        : y_axis === HANDLE_MIDDLE
-                            ? `calc(${handle_thickness}px - ${border_width}px)`
-                            : "",
+                top: y_axis === HANDLE_TOP ?
+                    -border_width :
+                    y_axis === HANDLE_MIDDLE ?
+                    `calc(${handle_thickness}px - ${border_width}px)` :
+                    "",
                 bottom: y_axis === HANDLE_BOTTOM ? -border_width : "",
-                left:
-                    x_axis === HANDLE_LEFT
-                        ? -border_width
-                        : x_axis === HANDLE_MIDDLE
-                            ? `calc(${handle_thickness}px - ${border_width}px)`
-                            : "",
+                left: x_axis === HANDLE_LEFT ?
+                    -border_width :
+                    x_axis === HANDLE_MIDDLE ?
+                    `calc(${handle_thickness}px - ${border_width}px)` :
+                    "",
                 right: x_axis === HANDLE_RIGHT ? -border_width : "",
-                width:
-                    x_axis === HANDLE_MIDDLE
-                        ? `calc(100% - ${handle_thickness}px * 2 + ${border_width * 2}px)`
-                        : `${handle_thickness}px`,
-                height:
-                    y_axis === HANDLE_MIDDLE
-                        ? `calc(100% - ${handle_thickness}px * 2 + ${border_width * 2}px)`
-                        : `${handle_thickness}px`,
-                // background: x_axis === HANDLE_MIDDLE || y_axis === HANDLE_MIDDLE ? "rgba(255,0,0,0.4)" : "rgba(0,255,0,0.8)",
+                width: x_axis === HANDLE_MIDDLE ?
+                    `calc(100% - ${handle_thickness}px * 2 + ${border_width * 2}px)` :
+                    `${handle_thickness}px`,
+                height: y_axis === HANDLE_MIDDLE ?
+                    `calc(100% - ${handle_thickness}px * 2 + ${border_width * 2}px)` :
+                    `${handle_thickness}px`,
                 touchAction: "none",
                 cursor
             });
@@ -1450,8 +1291,8 @@ function $Window2(options, id) {
                 e.preventDefault();
 
                 $G.on("pointermove", handle_pointermove);
-                $G.on("scroll", update_resize); // scroll doesn't have clientX/Y, so we have to remember it
-                $("body").addClass("dragging"); // for when mouse goes over an embed
+                $G.on("scroll", update_resize);
+                $("body").addClass("dragging");
                 $G.on("pointerup pointercancel", end_resize);
 
                 rect = {
@@ -1475,10 +1316,10 @@ function $Window2(options, id) {
                 resize_pointer_y = e.clientY;
                 resize_pointer_id = e.pointerId ?? e.originalEvent.pointerId;
 
-                $handle[0].setPointerCapture(resize_pointer_id); // keeps cursor consistent when mouse moves over other elements
+                $handle[0].setPointerCapture(resize_pointer_id);
 
-                // handle_pointermove(e); // was useful for checking that the offset is correct (should not do anything, if it's correct!)
             });
+
             function handle_pointermove(e) {
                 if (
                     (e.pointerId ?? e.originalEvent.pointerId) !== resize_pointer_id
@@ -1489,6 +1330,7 @@ function $Window2(options, id) {
                 resize_pointer_y = e.clientY;
                 update_resize();
             }
+
             function end_resize(e) {
                 if (
                     (e.pointerId ?? e.originalEvent.pointerId) !== resize_pointer_id
@@ -1501,6 +1343,7 @@ function $Window2(options, id) {
                 $G.off("pointerup pointercancel", end_resize);
                 $w.bringTitleBarInBounds();
             }
+
             function update_resize() {
                 const mouse_x = resize_pointer_x + scrollX - resize_offset_x;
                 const mouse_y = resize_pointer_y + scrollY - resize_offset_y;
@@ -1535,7 +1378,6 @@ function $Window2(options, id) {
                 new_rect.width = Math.max(1, new_rect.width);
                 new_rect.height = Math.max(1, new_rect.height);
 
-                // Constraints
                 if (options.constrainRect) {
                     new_rect = options.constrainRect(new_rect, x_axis, y_axis);
                 }
@@ -1555,7 +1397,6 @@ function $Window2(options, id) {
                     new_rect.height,
                     (options.minInnerHeight ?? 0) + window_frame_height
                 );
-                // prevent free movement via resize past minimum size
                 if (x_axis === HANDLE_LEFT) {
                     new_rect.x = Math.min(
                         new_rect.x,
@@ -1607,15 +1448,13 @@ function $Window2(options, id) {
         return $w.title();
     };
     let animating_titlebar = false;
-    let when_done_animating_titlebar = []; // queue of functions to call when done animating,
-    // so maximize() / minimize() / restore() eventually gives the same result as if there was no animation
-    $w.animateTitlebar = (from, to, callback = () => { }) => {
-        // flying titlebar animation
+    let when_done_animating_titlebar = [];
+    $w.animateTitlebar = (from, to, callback = () => {}) => {
         animating_titlebar = true;
         const $eye_leader = $w.$titlebar.clone(true);
         $eye_leader.find("button").remove();
         $eye_leader.appendTo("body");
-        const duration_ms = $Window.OVERRIDE_TRANSITION_DURATION ?? 200; // TODO: how long?
+        const duration_ms = $Window.OVERRIDE_TRANSITION_DURATION ?? 200;
         const duration_str = `${duration_ms}ms`;
         $eye_leader.css({
             transition: `left ${duration_str} linear, top ${duration_str} linear, width ${duration_str} linear, height ${duration_str} linear`,
@@ -1638,14 +1477,14 @@ function $Window2(options, id) {
         let handled_transition_completion = false;
         const handle_transition_completion = () => {
             if (handled_transition_completion) {
-                return; // ignore multiple calls (an idempotency pattern)
+                return;
             } else {
                 handled_transition_completion = true;
             }
             animating_titlebar = false;
             $eye_leader.remove();
             callback();
-            when_done_animating_titlebar.shift()?.(); // relies on animating_titlebar = false;
+            when_done_animating_titlebar.shift() ?.();
         };
         $eye_leader.on(
             "transitionend transitioncancel",
@@ -1673,35 +1512,23 @@ function $Window2(options, id) {
         $w.closed = true;
         $event_target.triggerHandler("closed");
         $w.trigger("closed");
-        // TODO: change usages of "close" to "closed" where appropriate
-        // and probably rename the "close" event ("before[-]close"? "may-close"? "close-request"?)
 
-        // MUST be after any events are triggered!
         $w.remove();
 
-        // TODO: support modals, which should focus what was focused before the modal was opened.
-        // (Note: must consider the element being removed from the DOM, or hidden, or made un-focusable)
-        // (Also: modals should steal focus / be brought to the front when focusing the parent window, and the parent window's content should be inert/uninteractive)
 
-        // Focus next-topmost window
         var $next_topmost = $(
             $(".window:visible")
-                .toArray()
-                .sort((a, b) => b.style.zIndex - a.style.zIndex)[0]
+            .toArray()
+            .sort((a, b) => b.style.zIndex - a.style.zIndex)[0]
         );
         $next_topmost.triggerHandler("refocus-window");
 
-        // Cleanup
         clean_up_debug_focus_tracking();
     };
     $w.closed = false;
 
     let current_menu_bar;
-    // @TODO: should this be like setMenus(menu_definitions)?
-    // It seems like setMenuBar(menu_bar) might be prone to bugs
-    // trying to set the same menu bar on multiple windows.
     $w.setMenuBar = (menu_bar) => {
-        // $w.find(".menus").remove(); // ugly, if only because of the class name haha
         if (current_menu_bar) {
             current_menu_bar.element.remove();
         }
@@ -1720,7 +1547,6 @@ function $Window2(options, id) {
         $w.center();
     }
 
-    // mustHaveMethods($w, windowInterfaceMethods);
 
     return $w;
 }
@@ -1747,7 +1573,6 @@ function $embed2(options) {
         });
     };
 
-    // Let the embed2 to handle mouseup events outside itself
     var delegate_pointerup = function () {
         if (disable_delegate_pointerup) {
             return;
@@ -1771,7 +1596,6 @@ function $embed2(options) {
         $G.off("mouseup blur", delegate_pointerup);
     };
 
-    // @TODO: delegate pointermove events too?
 
     programs_being_loaded += 1;
 
@@ -1784,12 +1608,9 @@ function $embed2(options) {
         $contentWindow.on("pointerdown click", function (e) {
             embed2.$window && embed2.$window.focus();
 
-            // from close_menus in $MenuBar
             $(".menu-button").trigger("release");
-            // Close any rogue floating submenus
             $(".menu-popup").hide();
         });
-        // We want to disable pointer events for other embed2s, but not this one
         $contentWindow.on("pointerdown", function (e) {
             $embed2.css("pointer-events", "all");
             $("body").addClass("drag");
@@ -1798,21 +1619,21 @@ function $embed2(options) {
             $("body").removeClass("drag");
             $embed2.css("pointer-events", "");
         });
-        // $("embed2").css("pointer-events", ""); is called elsewhere.
-        // Otherwise embed2s would get stuck in this interaction mode
 
         embed2.contentWindow.close = function () {
             embed2.$window && embed2.$window.close();
         };
     });
     if (options.src) {
-        $embed2.attr({ src: options.src });
+        $embed2.attr({
+            src: options.src
+        });
     }
     $embed2.css({
         minWidth: 0,
-        minHeight: 0, // overrides user agent styling apparently, fixes Sound Recorder
+        minHeight: 0,
         flex: 1,
-        border: 0 // overrides user agent styling
+        border: 0
     });
 
     return $embed2;
@@ -1835,7 +1656,10 @@ function $EmbedWindow2(options, id) {
         $win.focus();
     });
 
-    $win.setInnerDimensions = ({ width, height }) => {
+    $win.setInnerDimensions = ({
+        width,
+        height
+    }) => {
         const width_from_frame = $win.width() - $win.$content.width();
         const height_from_frame = $win.height() - $win.$content.height();
         $win.css({
@@ -1859,124 +1683,104 @@ function $EmbedWindow2(options, id) {
 }
 
 function enhance_embed2(embed) {
-  var $embed = $(embed);
+    var $embed = $(embed);
 
-  programs_being_loaded += 1;
+    programs_being_loaded += 1;
 
-  $embed.on("load", function () {
+    $embed.on("load", function () {
 
-    try {
-      console.assert(embed.contentWindow.document === embed.contentDocument); // just something that won't get optimized away if we were to ever use a minifier (or by the JIT compiler??)
-    } catch (e) {
-      return;
-    }
-
-    if (window.themeCSSProperties) {
-      applyTheme(themeCSSProperties, embed.contentDocument.documentElement);
-    }
-
-    // Let the embed to handle mouseup events outside itself
-    // (without using setPointerCapture)
-    embed.contentDocument.addEventListener("mousedown", (event) => {
-      var delegate_pointerup = function () {
-        if (embed.contentWindow && embed.contentWindow.jQuery) {
-          embed.contentWindow.jQuery("body").trigger("pointerup");
+        try {
+            console.assert(embed.contentWindow.document === embed.contentDocument);
+        } catch (e) {
+            return;
         }
-        if (embed.contentWindow) {
-          const event = new embed.contentWindow.MouseEvent("mouseup", {
-            button: 0
-          });
-          embed.contentWindow.dispatchEvent(event);
-          const event2 = new embed.contentWindow.MouseEvent("mouseup", {
-            button: 2
-          });
-          embed.contentWindow.dispatchEvent(event2);
+
+        if (window.themeCSSProperties) {
+            applyTheme(themeCSSProperties, embed.contentDocument.documentElement);
         }
-        clean_up_delegation();
-      };
-      // @TODO: delegate pointermove events too?
-      // @TODO: do delegation in os-gui.js library instead
-      // is it delegation? I think I mean proxying (but I'm really tired and don't have internet right now so I can't say for sure haha)
 
-      $G.on("mouseup blur", delegate_pointerup);
-      embed.contentDocument.addEventListener("mouseup", clean_up_delegation);
-      function clean_up_delegation() {
-        $G.off("mouseup blur", delegate_pointerup);
-        embed.contentDocument.removeEventListener(
-          "mouseup",
-          clean_up_delegation
-        );
-      }
+        embed.contentDocument.addEventListener("mousedown", (event) => {
+            var delegate_pointerup = function () {
+                if (embed.contentWindow && embed.contentWindow.jQuery) {
+                    embed.contentWindow.jQuery("body").trigger("pointerup");
+                }
+                if (embed.contentWindow) {
+                    const event = new embed.contentWindow.MouseEvent("mouseup", {
+                        button: 0
+                    });
+                    embed.contentWindow.dispatchEvent(event);
+                    const event2 = new embed.contentWindow.MouseEvent("mouseup", {
+                        button: 2
+                    });
+                    embed.contentWindow.dispatchEvent(event2);
+                }
+                clean_up_delegation();
+            };
+
+            $G.on("mouseup blur", delegate_pointerup);
+            embed.contentDocument.addEventListener("mouseup", clean_up_delegation);
+
+            function clean_up_delegation() {
+                $G.off("mouseup blur", delegate_pointerup);
+                embed.contentDocument.removeEventListener(
+                    "mouseup",
+                    clean_up_delegation
+                );
+            }
+        });
+
+        proxy_keyboard_events(embed);
+
+        if (embed.contentDocument.querySelector("#error #livewebInfo.available")) {
+            var message = document.createElement("div");
+            message.style.position = "absolute";
+            message.style.left = "0";
+            message.style.right = "0";
+            message.style.top = "0";
+            message.style.bottom = "0";
+            message.style.background = "#c0c0c0";
+            message.style.color = "#000";
+            message.style.padding = "50px";
+            embed.contentDocument.body.appendChild(message);
+            message.innerHTML = `<a target="_blank">Save this url in the Wayback Machine</a>`;
+            message.querySelector("a").href =
+                "https://web.archive.org/save/https://magnusware.vercel.app/" +
+                embed.src.replace(/.*https:\/\/magnusware.vercel.app\/?/, "");
+            message.querySelector("a").style.color = "blue";
+        }
+
+        var $contentWindow = $(embed.contentWindow);
+        $contentWindow.on("pointerdown click", function (e) {
+            embed.$window && embed.$window.focus();
+
+            $(".menu-button").trigger("release");
+            $(".menu-popup").hide();
+        });
+        $contentWindow.on("pointerdown", function (e) {
+            $embed.css("pointer-events", "all");
+            $("body").addClass("drag");
+        });
+        $contentWindow.on("pointerup", function (e) {
+            $("body").removeClass("drag");
+            $embed.css("pointer-events", "");
+        });
+
+        embed.contentWindow.close = function () {
+            embed.$window && embed.$window.close();
+        };
+
+        embed.contentWindow.showMessageBox = (options) => {
+            return showMessageBox({
+                title: options.title ?? embed.contentWindow.defaultMessageBoxTitle,
+                ...options
+            });
+        };
     });
-
-    // Let the containing page handle keyboard events, with an opportunity to cancel them
-    proxy_keyboard_events(embed);
-
-    // on Wayback Machine, and embed's url not saved yet
-    if (embed.contentDocument.querySelector("#error #livewebInfo.available")) {
-      var message = document.createElement("div");
-      message.style.position = "absolute";
-      message.style.left = "0";
-      message.style.right = "0";
-      message.style.top = "0";
-      message.style.bottom = "0";
-      message.style.background = "#c0c0c0";
-      message.style.color = "#000";
-      message.style.padding = "50px";
-      embed.contentDocument.body.appendChild(message);
-      message.innerHTML = `<a target="_blank">Save this url in the Wayback Machine</a>`;
-      message.querySelector("a").href =
-        "https://web.archive.org/save/https://magnusware.vercel.app/" +
-        embed.src.replace(/.*https:\/\/magnusware.vercel.app\/?/, "");
-      message.querySelector("a").style.color = "blue";
-    }
-
-    var $contentWindow = $(embed.contentWindow);
-    $contentWindow.on("pointerdown click", function (e) {
-      embed.$window && embed.$window.focus();
-
-      // from close_menus in $MenuBar
-      $(".menu-button").trigger("release");
-      // Close any rogue floating submenus
-      $(".menu-popup").hide();
+    $embed.css({
+        minWidth: 0,
+        minHeight: 0,
+        flex: 1,
+        border: 0,
+        "overflow-x": "hidden"
     });
-    // We want to disable pointer events for other embeds, but not this one
-    $contentWindow.on("pointerdown", function (e) {
-      $embed.css("pointer-events", "all");
-      $("body").addClass("drag");
-    });
-    $contentWindow.on("pointerup", function (e) {
-      $("body").removeClass("drag");
-      $embed.css("pointer-events", "");
-    });
-    // $("embed").css("pointer-events", ""); is called elsewhere.
-    // Otherwise embeds would get stuck in this interaction mode
-
-    embed.contentWindow.close = function () {
-      embed.$window && embed.$window.close();
-    };
-    // TODO: hook into saveAs (a la FileSaver.js) and another function for opening files
-    // embed.contentWindow.saveAs = function(){
-    // 	saveAsDialog();
-    // };
-
-    // Don't override alert (except within the specific pages)
-    // but override the underlying message box function that
-    // the alert override uses, so that the message boxes can
-    // go outside the window.
-    embed.contentWindow.showMessageBox = (options) => {
-      return showMessageBox({
-        title: options.title ?? embed.contentWindow.defaultMessageBoxTitle,
-        ...options
-      });
-    };
-  });
-  $embed.css({
-    minWidth: 0,
-    minHeight: 0, // overrides user agent styling apparently, fixes Sound Recorder
-    flex: 1,
-    border: 0,
-    "overflow-x": "hidden" // overrides user agent styling
-  });
 }
-//# sourceURL=VM

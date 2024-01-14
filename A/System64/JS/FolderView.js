@@ -1,6 +1,5 @@
 const grid_size_x_for_large_icons = 75;
 const grid_size_y_for_large_icons = 75;
-// @TODO: this is supposed to be dynamic based on length of names
 const grid_size_x_for_small_icons = 150;
 const grid_size_y_for_small_icons = 17;
 
@@ -22,13 +21,13 @@ const icon_size_by_view_mode = {
 };
 
 FolderView.VIEW_MODES = {
-	THUMBNAILS: "THUMBNAILS", // hidden until you right click in a folder, go to Properties, and enable thumbnails
-	LARGE_ICONS: "LARGE_ICONS", // left to right, then top to bottom
+	THUMBNAILS: "THUMBNAILS",
+	LARGE_ICONS: "LARGE_ICONS",
 	MEDIUM_ICONS: "MEDIUM_ICONS",
-	SMALL_ICONS: "SMALL_ICONS", // left to right, then top to bottom
-	DETAILS: "DETAILS", // table view
-	LIST: "LIST", // top to bottom, then left to right
-	DESKTOP: "DESKTOP", // like Large Icons, but arranged top to bottom before left to right; does not apply to the Desktop folder, only the Desktop itself
+	SMALL_ICONS: "SMALL_ICONS",
+	DETAILS: "DETAILS",
+	LIST: "LIST",
+	DESKTOP: "DESKTOP",
 };
 
 FolderView.SORT_MODES = {
@@ -36,15 +35,9 @@ FolderView.SORT_MODES = {
 	TYPE: "TYPE",
 	SIZE: "SIZE",
 	DATE: "DATE",
-	// there are many other attributes, some for specific types of files/objects
 };
 
-// TODO: what's the "right" way to do file type / program associations for icons?
 
-// TODO: get more icons; can extract from shell32.dll, moricons.dll, and other files from a VM
-// also get more file extensions; can find a mime types listing data dump
-// https://github.com/1j01/retrores
-// Note: extensions must be lowercase here. This is used to implement case-insensitive matching.
 var file_extension_icons = {
 	"txt": "notepad-file",
 	"py": "python",
@@ -53,7 +46,7 @@ var file_extension_icons = {
 	"js": "notepad-file",
 	"css": "notepad-file",
 	"html": "notepad-file",
-	"png": "image-file", // "image-png"? nope... (but should it be image-gif or image-wmf?)
+	"png": "image-file",
 	"jpg": "image-file",
 	"jpeg": "image-file",
 	"gif": "image-file",
@@ -72,15 +65,10 @@ var file_extension_icons = {
 	"rar": "Archive",
 	"7z": "Archive",
 	"tar": "Archive",
-	// wmf: "image-wmf"? nope (https://en.wikipedia.org/wiki/Windows_Metafile)
-	// emf: "image-wmf"? nope
-	// wmz: "image-wmf"? nope
-	// emz: "image-wmf"? nope
 	"wav": "sound",
 	"mp3": "sound",
 	"ogg": "sound",
 	"wma": "sound",
-	// "doc": "doc"?
 	"exe": "task",
 	"htm": "html",
 	"html": "html",
@@ -116,7 +104,13 @@ const set_dragging_file_paths = (dragging_file_paths) => {
 	}
 };
 
-function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, openFileOrFolder, onConfigure } = {}) {
+function FolderView(folder_path, {
+	asDesktop = false,
+	onStatus,
+	openFolder,
+	openFileOrFolder,
+	onConfigure
+} = {}) {
 	const self = this;
 
 	var $folder_view = $(`<div class="folder-view" tabindex="0">`);
@@ -128,18 +122,8 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 	this.add_item = (folder_view_item) => {
 		$folder_view.append(folder_view_item.element);
 		this.items.push(folder_view_item);
-		// if (this.items.length === 1) {
-		// 	// this.items[0].element.focus();
-		// 	this.items[0].element.classList.add("focused");
-		// }
 	};
 
-	// config:
-	// - [x] view_mode
-	// - [x] sort_mode
-	// - [ ] auto_arrange
-	// - [ ] icon_positions
-	// - [x] view_as_web_page
 
 	this.config = {};
 	var storage_key = `folder-config:${asDesktop ? "desktop" : folder_path}`;
@@ -152,7 +136,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 	} catch (e) {
 		console.error("Failed to read folder config:", e);
 	}
-	// Handling defaults and invalid values at the same time
 	if (!FolderView.VIEW_MODES[this.config.view_mode]) {
 		this.config.view_mode = asDesktop ?
 			FolderView.VIEW_MODES.DESKTOP :
@@ -175,21 +158,20 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		} catch (e) {
 			console.error("Can't write to localStorage:", e);
 		}
-		onConfigure?.(config_props);
+		onConfigure ?.(config_props);
 	};
 
 	this.cycle_view_mode = () => {
-		// const view_modes = Object.values(FolderView.VIEW_MODES);
 		const view_modes = [
-			// FolderView.VIEW_MODES.THUMBNAILS, conditionally?
 			FolderView.VIEW_MODES.LARGE_ICONS,
 			FolderView.VIEW_MODES.SMALL_ICONS,
 			FolderView.VIEW_MODES.LIST,
-			// FolderView.VIEW_MODES.DETAILS, // same as list for now
 		];
 		const current_view_mode_index = view_modes.indexOf(this.config.view_mode);
 		const next_view_mode_index = (current_view_mode_index + 1) % view_modes.length;
-		this.configure({ view_mode: view_modes[next_view_mode_index] });
+		this.configure({
+			view_mode: view_modes[next_view_mode_index]
+		});
 	};
 
 	let waiting_on_stats = false;
@@ -197,16 +179,13 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		if (waiting_on_stats) {
 			return;
 		}
-		if (!self.element.isConnected) { // checking parentElement doesn't work if under a shadowRoot
-			// console.trace("not in DOM");
-			return; // prevent errors computing layout if folder view removed before stats resolve
+		if (!self.element.isConnected) {
+			return;
 		}
 		const pending_promises = this.items.map((item) => item.pendingStatPromise).filter(Boolean);
 		const any_pending = pending_promises.length > 0;
 		if (any_pending) {
 			if (!waiting_on_stats) {
-				// should I choose a batch size? or is waiting on all stats fine?
-				// batches mean that it would update multiple times, which could be jarring.
 				Promise.allSettled(pending_promises).then(() => {
 					waiting_on_stats = false;
 					self.arrange_icons();
@@ -227,13 +206,8 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		var x = 0;
 		var y = 0;
 		const dir_ness = (item) =>
-			// system folders always go first
-			// not all system folder shortcuts on the desktop have real paths (currently)
-			// so we can't check system_folder_path_to_name, need a separate attribute.
-			// system_folder_path_to_name[item.file_path] ? 2 :
 			item.is_system_folder ? 2 :
-				// then folders, then everything else
-				item.resolvedStats?.isDirectory() ? 1 : 0;
+			item.resolvedStats ?.isDirectory() ? 1 : 0;
 		const get_ext = (item) => (item.file_path ?? "").split(".").pop();
 		if (this.config.sort_mode === FolderView.SORT_MODES.NAME) {
 			this.items.sort((a, b) =>
@@ -248,12 +222,12 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		} else if (this.config.sort_mode === FolderView.SORT_MODES.SIZE) {
 			this.items.sort((a, b) =>
 				dir_ness(b) - dir_ness(a) ||
-				(a.resolvedStats?.size ?? 0) - (b.resolvedStats?.size ?? 0)
+				(a.resolvedStats ?.size ?? 0) - (b.resolvedStats ?.size ?? 0)
 			);
 		} else if (this.config.sort_mode === FolderView.SORT_MODES.DATE) {
 			this.items.sort((a, b) =>
 				dir_ness(b) - dir_ness(a) ||
-				(a.resolvedStats?.mtime ?? 0) - (b.resolvedStats?.mtime ?? 0)
+				(a.resolvedStats ?.mtime ?? 0) - (b.resolvedStats ?.mtime ?? 0)
 			);
 		}
 		for (const item of this.items) {
@@ -266,42 +240,22 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				y += grid_size_y;
 				x = 0;
 			}
-			// if (horizontal_first) {
-			// 	x += grid_size_x;
-			// 	if (x + grid_size_x > $folder_view[0].clientWidth) {
-			// 		y += grid_size_y;
-			// 		x = 0;
-			// 	}
-			// } else {
-			// 	y += grid_size_y;
-			// 	if (y + grid_size_y > $folder_view[0].clientHeight) {
-			// 		x += grid_size_x;
-			// 		y = 0;
-			// 	}
-			// }
 
 			item.setIconSize(icon_size);
 
-			// apply sort - well, I'm positioning things absolutely, so I don't need to do this (AS LONG AS I DON'T ASSUME THE DOM ORDER, and use self.items instead)
-			// and this is very slow for large folders.
-			// this.element.appendChild(item.element);
 		}
 
 		if (!any_pending) {
-			// this.items[0].element.classList.add("focused");
 			this.items.forEach((item, index) => {
 				item.element.classList.toggle("focused", index === 0);
 			});
-			// console.log("this.element.ownerDocument.activeElement", this.element.ownerDocument.activeElement);
-			// if (this.element.ownerDocument.activeElement === this.element) {
-			this.items[0]?.element.focus();
-			// }
+			this.items[0] ?.element.focus();
 			updateStatus();
 		}
 	};
 
 	function updateStatus() {
-		onStatus?.({
+		onStatus ?.({
 			items: self.items,
 			selectedItems: self.items.filter((item) => item.element.classList.contains("selected")),
 		});
@@ -320,14 +274,12 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 
 	self.focus = function () {
 		if ($folder_view.is(":focus-within")) {
-			return; // don't mess with renaming inputs, for instance, if you click on the input
+			return;
 		}
 		$folder_view.focus();
-		// This doesn't do much if it's yet to be populated:
 		if ($folder_view.find(".desktop-icon.focused").length === 0) {
-			this.items[0]?.element.focus();
+			this.items[0] ?.element.focus();
 		}
-		// Initial focus is handled in arrange_icons currently.
 	};
 
 	self.select_all = function () {
@@ -350,15 +302,12 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		if (selected_file_paths.length === 0) {
 			return;
 		}
-		// @NOTE: if system setting for displaying file extensions was implemented, this should be changed...
 		const name_of_first = $folder_view.find(".desktop-icon.selected .title").text().replace(/\.([^.]+)$/, "");
 		showMessageBox({
 			title: selected_file_paths.length === 1 ? "Confirm File Delete" : "Confirm Multiple File Delete",
 			message: selected_file_paths.length === 1 ?
-				`Are you sure you want to delete '${name_of_first}'?` :
-				`Are you sure you want to delete these ${selected_file_paths.length} items?`,
-			buttons: [
-				{
+				`Are you sure you want to delete '${name_of_first}'?` : `Are you sure you want to delete these ${selected_file_paths.length} items?`,
+			buttons: [{
 					label: "Yes",
 					value: "yes",
 					default: true,
@@ -376,8 +325,8 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 			withFilesystem(function () {
 				const fs = BrowserFS.BFSRequire('fs');
 				let num_deleted = 0;
+				let single_delete_success = false;
 				for (const file_path of selected_file_paths) {
-					let single_delete_success = false;
 					try {
 						deleteRecursiveSync(fs, file_path);
 						single_delete_success = true;
@@ -385,7 +334,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 						folder_view.arrange_icons();
 					} catch (error) {
 						toast({
-							message:`failed to delete ${file_path} ${error}`
+							message: `failed to delete ${file_path} ${error}`
 						});
 					}
 					if (single_delete_success) {
@@ -398,13 +347,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 						});
 					}
 				}
-				// TODO: pluralization, and be more specific about folders vs files vs selected items, and total
-				if (num_deleted < selected_file_paths.length) {
-					toast({
-						message: `Failed to delete ${selected_file_paths.length - num_deleted} items.`
-					});
-				}
-				// self.refresh();
 			});
 		});
 	};
@@ -418,7 +360,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		}
 	};
 
-	// Read the folder and create icon items
 	withFilesystem(function () {
 		var fs = BrowserFS.BFSRequire('fs');
 		fs.readdir(folder_path, function (error, contents) {
@@ -435,18 +376,21 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		});
 	});
 
-	// NOTE: in Windows, icons by default only get moved if they go offscreen (by maybe half the grid size)
-	// we're handling it as if Auto Arrange is on (@TODO: support Auto Arrange off)
 	const resizeObserver = new ResizeObserver(entries => {
 		self.arrange_icons();
 	});
 	resizeObserver.observe(self.element);
 
-	// Handle selecting icons
 	(function () {
 		var $marquee = $("<div class='marquee'/>").appendTo($folder_view).hide();
-		var start = { x: 0, y: 0 };
-		var current = { x: 0, y: 0 };
+		var start = {
+			x: 0,
+			y: 0
+		};
+		var current = {
+			x: 0,
+			y: 0
+		};
 		var dragging = false;
 		var drag_update = function () {
 			var min_x = Math.min(start.x, current.x);
@@ -461,8 +405,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				height: max_y - min_y,
 			});
 			$folder_view.find(".desktop-icon").each(function (i, folder_view_icon) {
-				// Note: this is apparently considerably more complex in Windows 98
-				// like things are not considered the same heights and/or positions based on the size of their names
 				var icon_offset = $(folder_view_icon).offset();
 				var icon_left = parseFloat($(folder_view_icon).css("left"));
 				var icon_top = parseFloat($(folder_view_icon).css("top"));
@@ -483,15 +425,19 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 			select_item(item_el, e, true);
 		});
 		$folder_view.on("pointerdown", function (e) {
-			// TODO: allow a margin of mouse movement before starting selecting
 			var view_was_focused = $folder_view.is(":focus-within");
 			self.focus();
 			var $icon = $(e.target).closest(".desktop-icon");
 			$marquee.hide();
-			// var folder_view_offset = $folder_view.offset();
 			var folder_view_offset = self.element.getBoundingClientRect();
-			start = { x: e.pageX - folder_view_offset.left + $folder_view[0].scrollLeft, y: e.pageY - folder_view_offset.top + $folder_view[0].scrollTop };
-			current = { x: e.pageX - folder_view_offset.left + $folder_view[0].scrollLeft, y: e.pageY - folder_view_offset.top + $folder_view[0].scrollTop };
+			start = {
+				x: e.pageX - folder_view_offset.left + $folder_view[0].scrollLeft,
+				y: e.pageY - folder_view_offset.top + $folder_view[0].scrollTop
+			};
+			current = {
+				x: e.pageX - folder_view_offset.left + $folder_view[0].scrollLeft,
+				y: e.pageY - folder_view_offset.top + $folder_view[0].scrollTop
+			};
 			if ($icon.length > 0) {
 				$marquee.hide();
 				set_dragging_file_paths($(".desktop-icon.selected").get().map((icon) =>
@@ -499,18 +445,13 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				).filter((file_path) => file_path));
 			} else {
 				set_dragging_file_paths([]);
-				// start dragging marquee unless over scrollbar
 				let scrollbar_width = $folder_view[0].offsetWidth - $folder_view[0].clientWidth;
 				let scrollbar_height = $folder_view[0].offsetHeight - $folder_view[0].clientHeight;
-				scrollbar_width += 2; // for marquee border (@TODO: make marquee unable to cause scrollbar, by putting it in an overflow: hidden container)
-				scrollbar_height += 2; // for marquee border
+				scrollbar_width += 2;
+				scrollbar_height += 2;
 				const rect = $folder_view[0].getBoundingClientRect();
 				const over_scrollbar = e.clientX > rect.right - scrollbar_width || e.clientY > rect.bottom - scrollbar_height;
-				// console.log(`over_scrollbar: ${over_scrollbar}, e.clientX: ${e.clientX}, rect.right - scrollbar_width: ${rect.right - scrollbar_width}`);
 				dragging = !over_scrollbar;
-				// don't deselect right away unless the 
-				// TODO: deselect on pointerUP, if the desktop was focused
-				// or when starting selecting (re: TODO: allow a margin of movement before starting selecting)
 				if (dragging && view_was_focused) {
 					drag_update();
 				}
@@ -518,15 +459,13 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 			$($folder_view[0].ownerDocument).on("pointermove", handle_pointermove);
 			$($folder_view[0].ownerDocument).on("pointerup blur", handle_pointerup_blur);
 		});
-		function handle_pointermove (e) {
-			// var folder_view_offset = $folder_view.offset();
+
+		function handle_pointermove(e) {
 			var folder_view_offset = self.element.getBoundingClientRect();
-			current = { x: e.pageX - folder_view_offset.left + $folder_view[0].scrollLeft, y: e.pageY - folder_view_offset.top + $folder_view[0].scrollTop };
-			// clamp coordinates to within folder view
-			// This accomplishes three things:
-			// 1. it improves the visual coherence of the marquee as an object
-			// 2. it makes the marquee not cause a scrollbar
-			// 3. it prevents selecting things you can't see
+			current = {
+				x: e.pageX - folder_view_offset.left + $folder_view[0].scrollLeft,
+				y: e.pageY - folder_view_offset.top + $folder_view[0].scrollTop
+			};
 			const scrollbar_width = $folder_view.width() - $folder_view[0].clientWidth;
 			const scrollbar_height = $folder_view.height() - $folder_view[0].clientHeight;
 			const clamp_left = $folder_view[0].scrollLeft;
@@ -537,7 +476,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 			current.y = Math.max(clamp_top, Math.min(clamp_bottom, current.y));
 			if (dragging) {
 				drag_update();
-				// scroll the view by dragging the mouse at/past the edge
 				const scroll_speed = 10;
 				if (current.x === clamp_left) {
 					$folder_view[0].scrollLeft -= scroll_speed;
@@ -551,6 +489,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				}
 			}
 		};
+
 		function handle_pointerup_blur() {
 			$marquee.hide();
 			dragging = false;
@@ -564,7 +503,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 	let search_timeout;
 
 	$folder_view.on("keydown", function (e) {
-		// console.log("keydown", e.isDefaultPrevented());
 
 		if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
 			return;
@@ -587,7 +525,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 			const move_x = e.key == "ArrowLeft" ? -1 : e.key == "ArrowRight" ? 1 : 0;
 			const move_y = e.key == "ArrowUp" ? -1 : e.key == "ArrowDown" ? 1 : 0;
 			navigate_grid(move_x, move_y, e);
-			// @TODO: wrap around columns in list view
 		} else if (
 			e.key == "PageUp" ||
 			e.key == "PageDown"
@@ -599,7 +536,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				const item_width = $folder_view.find(".desktop-icon").outerWidth();
 				const page_increment = full_page_size - item_width;
 				for (let increment = page_increment; increment > 0; increment -= item_width) {
-					if (navigate_grid(x_dir * increment / item_width, 0, e)) { // grid units
+					if (navigate_grid(x_dir * increment / item_width, 0, e)) {
 						break;
 					}
 				}
@@ -609,7 +546,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				const item_height = $folder_view.find(".desktop-icon").outerHeight();
 				const page_increment = full_page_size - item_height;
 				for (let increment = page_increment; increment > 0; increment -= item_height) {
-					if (navigate_grid(0, y_dir * increment / item_height, e)) { // grid units
+					if (navigate_grid(0, y_dir * increment / item_height, e)) {
 						break;
 					}
 				}
@@ -621,14 +558,11 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 			e.preventDefault();
 			select_item(self.items[self.items.length - 1], e);
 		} else if (e.key == " " && search_string.length === 0) {
-			// Usually there's something focused,
-			// so this is pretty "niche", but space bar selects the focused item.
-			// Ctrl+Space toggles selection of the focused item.
 			e.preventDefault();
 			if ((e.ctrlKey || e.metaKey) && $folder_view.find(".desktop-icon.selected").length > 0) {
 				$folder_view.find(".desktop-icon.focused").toggleClass("selected");
 			} else {
-				$folder_view.find(".desktop-icon.focused").addClass("selected"); // don't use select_item() as it shouldn't unselect anything
+				$folder_view.find(".desktop-icon.focused").addClass("selected");
 			}
 			updateStatus();
 		} else if (e.key === "F2") {
@@ -642,11 +576,8 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				clearTimeout(search_timeout);
 			}
 			if (search_string === e.key) {
-				// cycle through items starting with the same letter
-				// Note: not adding to search_string here, so it stays as e.key
-				// @TODO: what if you have an item like "Llama Photos", can you not search for "Llama" to go to it, in the presence of other 'L' items?
 				const candidates = self.items.filter((item) => {
-					const title = item.element.querySelector(".title").textContent; // @TODO: proper access
+					const title = item.element.querySelector(".title").textContent;
 					return title.toLocaleLowerCase().startsWith(search_string.toLocaleLowerCase());
 				});
 				if (candidates.length > 0) {
@@ -658,21 +589,18 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 					}
 				}
 			} else {
-				// focus item matching search string
-				if (e.key !== "Shift" && e.key !== "Compose") { // Note: composition doesn't actually work; I'd need an input element to do this properly
+				if (e.key !== "Shift" && e.key !== "Compose") {
 					search_string += e.key;
 				}
-				// console.log("search_string: " + search_string);
 				search_timeout = setTimeout(function () {
 					search_string = "";
-					// console.log("reset search_string");
 				}, 1000);
 
 				if (search_string.length > 0) {
 					for (const item of self.items) {
-						const title = item.element.querySelector(".title").textContent; // @TODO: proper access
+						const title = item.element.querySelector(".title").textContent;
 						if (title.toLocaleLowerCase().startsWith(search_string.toLocaleLowerCase())) {
-							select_item(item, {}); // passing fake event so it doesn't use shiftKey to determine multi-select
+							select_item(item, {});
 							break;
 						}
 					}
@@ -687,17 +615,13 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		const item_el_to_select = item_or_item_el instanceof Element ? item_or_item_el : item_or_item_el.element;
 		const extend_selection = event.shiftKey;
 		if (selection_anchor_item_el && !self.items.some(item => item.element === selection_anchor_item_el)) {
-			selection_anchor_item_el = null; // item was removed somehow
+			selection_anchor_item_el = null;
 		}
 		if (extend_selection && !selection_anchor_item_el) {
-			// select_item() hasn't been called yet (e.g. hitting Shift+Down without first hitting an arrow key without Shift, in a newly loaded folder view)
-			// use the focused item as the anchor
-			selection_anchor_item_el = self.items.find((item) => item.element.classList.contains("focused"))?.element ?? item_el_to_select;
+			selection_anchor_item_el = self.items.find((item) => item.element.classList.contains("focused")) ?.element ?? item_el_to_select;
 		}
-		// console.log("select_item", item_or_item_el, event, "extend_selection", extend_selection);
 		$folder_view.find(".desktop-icon").each(function (i, item_el) {
 			if (extend_selection) {
-				// select items in a rectangle between the anchor and the new item
 				const anchor_rect = selection_anchor_item_el.getBoundingClientRect();
 				const item_el_to_select_rect = item_el_to_select.getBoundingClientRect();
 				const item_el_rect = item_el.getBoundingClientRect();
@@ -715,13 +639,10 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 				));
 			} else {
 				if (event.type === "pointerdown" && (event.ctrlKey || event.metaKey)) {
-					// toggle with Ctrl+click
 					if (item_el === item_el_to_select) {
 						$(item_el).toggleClass("selected");
 					}
 				} else {
-					// select with click or arrow keys,
-					// but if holding Ctrl it should only move focus, not select.
 					if (!event.ctrlKey && !event.metaKey) {
 						item_el.classList.toggle("selected", item_el === item_el_to_select);
 					}
@@ -730,14 +651,15 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 			item_el.classList.toggle("focused", item_el === item_el_to_select);
 		});
 		if (delay_scroll) {
-			// Windows 98 does this for clicks.
-			// I'm not sure if it's to make it less jarring (I feel like there's a case for that),
-			// or if it's to avoid some problems with drag and drop perhaps.
 			setTimeout(() => {
-				item_el_to_select.scrollIntoView({ block: "nearest" });
+				item_el_to_select.scrollIntoView({
+					block: "nearest"
+				});
 			}, 500);
 		} else {
-			item_el_to_select.scrollIntoView({ block: "nearest" });
+			item_el_to_select.scrollIntoView({
+				block: "nearest"
+			});
 		}
 		updateStatus();
 
@@ -747,33 +669,22 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 	}
 
 	function navigate_grid(move_x, move_y, event) {
-		// @TODO: how this is supposed to work for icons not aligned to the grid?
-		// I can imagine a few ways of doing it, like scanning for the nearest icon with a sweeping line or perhaps a "cone" (triangle) (changing width line)
-		// but it'd be nice to know for sure
 
 		let $starting_icon = $folder_view.find(".desktop-icon.focused");
-		// ideally we'd keep a focused icon always,
-		// use the nearest icon upwards after a delete etc.
-		// but I can't guarantee that
 		if ($starting_icon.length == 0) {
 			$starting_icon = $folder_view.find(".desktop-icon");
 		}
 		if ($starting_icon.length == 0) {
 			return false;
 		}
-		// @TODO: use the actual grid size, not a calculated item size
-		// or make it more grid-agnostic (Windows 98 allowed freely moving icons around)
 		const item_width = $starting_icon.outerWidth();
 		const item_height = $starting_icon.outerHeight();
-		// const item_pos = $starting_icon.position();
 		const item_pos = $starting_icon[0].getBoundingClientRect();
-		let x = item_pos.left;// + item_width / 2;
-		let y = item_pos.top;// + item_height / 2;
+		let x = item_pos.left;
+		let y = item_pos.top;
 		x += move_x * item_width;
 		y += move_y * item_height;
 		const candidates = $folder_view.find(".desktop-icon").toArray().sort(function (a, b) {
-			// const a_pos = $(a).position();
-			// const b_pos = $(b).position();
 			const a_pos = a.getBoundingClientRect();
 			const b_pos = b.getBoundingClientRect();
 			const a_dist = Math.abs(a_pos.left - x) + Math.abs(a_pos.top - y);
@@ -789,8 +700,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 	}
 
 	var stat = function (file_path) {
-		// fs should be guaranteed available at this point
-		// as this function is currently used
 		var fs = BrowserFS.BFSRequire('fs');
 		return new Promise(function (resolve, reject) {
 			fs.stat(file_path, function (err, stats) {
@@ -803,12 +712,9 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 	};
 	var icon_id_from_stats_and_path = function (stats, file_path) {
 		if (stats.isDirectory()) {
-			// if extending this to different folder icons,
-			// note that "folder" is relied on (for sorting)
 			return "folder";
 		}
 		var file_extension = file_extension_from_path(file_path);
-		// TODO: look inside exe for icons
 		var icon_name = file_extension_icons[file_extension.toLowerCase()];
 		return icon_name || "document";
 	};
@@ -820,7 +726,6 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		};
 	};
 
-	// var add_fs_item = function(file_path, x, y){
 	var add_fs_item = function (initial_file_name, x, y) {
 		var initial_file_path = folder_path + initial_file_name;
 		var item = new FolderViewItem({
@@ -867,7 +772,7 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 						if (item.resolvedStats) {
 							const icon_id = icon_id_from_stats_and_path(item.resolvedStats, new_file_path);
 							item.setIcons(icons_from_icon_id(icon_id));
-						} // else the icon will be updated when the stats are resolved
+						}
 					});
 				});
 			},
@@ -878,14 +783,10 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		item.pendingStatPromise = stat(initial_file_path);
 		item.pendingStatPromise.then((stats) => {
 			item.pendingStatPromise = null;
-			item.resolvedStats = stats; // trying to indicate in the name the async nature
-			// @TODO: know which sizes are available
+			item.resolvedStats = stats;
 			const icon_id = icon_id_from_stats_and_path(stats, item.file_path);
 			item.setIcons(icons_from_icon_id(icon_id));
 		}, (error) => {
-			// Without this, the folder view infinitely recursed arranging items because
-			// it was waiting for the promise to be settled (resolved or rejected),
-			// but checking for item.pendingStatPromise to see if it's still pending.
 			item.pendingStatPromise = null;
 		});
 		self.add_item(item);
@@ -907,15 +808,15 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		};
 		reader.onload = function (e) {
 			var buffer = Buffer.from(reader.result);
-			fs.writeFile(file_path, buffer, { flag: "wx" }, function (error) {
+			fs.writeFile(file_path, buffer, {
+				flag: "wx"
+			}, function (error) {
 				if (error) {
 					if (error.code === "EEXIST") {
-						// TODO: options to replace or keep both files with numbers like "file (1).txt"
 						alert("File already exists!");
 					}
 					throw error;
 				}
-				// TODO: could do utimes as well with file.lastModified or file.lastModifiedDate
 
 				add_fs_item(file.name, x, y);
 			});
@@ -934,16 +835,11 @@ function FolderView(folder_path, { asDesktop = false, onStatus, openFolder, open
 		e.preventDefault();
 		var x = e.originalEvent.pageX || dragover_pageX;
 		var y = e.originalEvent.pageY || e.dragover_pageY
-		// TODO: handle dragging icons onto other icons
 		withFilesystem(function () {
 			var files = e.originalEvent.dataTransfer.files;
 			$.map(files, function (file) {
-				// TODO: stagger positions, don't just put everything on top of each other
-				// also center on the mouse position; currently it's placed via the top left
 				drop_file(file, x, y);
 			});
 		});
 	});
 }
-
-//# sourceURL=MagnusWare

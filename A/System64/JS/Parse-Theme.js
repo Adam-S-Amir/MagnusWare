@@ -28,7 +28,6 @@ function parseINIString(data) {
 	return value;
 }
 
-// takes a CSSStyleDeclaration or simple object of CSS properties
 function renderThemeGraphics(cssProperties) {
 	var getProp = (propName) => cssProperties.getPropertyValue ? cssProperties.getPropertyValue(propName) : cssProperties[propName];
 
@@ -49,8 +48,6 @@ function renderThemeGraphics(cssProperties) {
 	}
 	var scrollbar_button_inner_size = scrollbar_size - 4;
 
-	// I don't know the exact formula, so approximate and special-case it for now
-	// (It may very well *be* special cased, tho)
 	var arrow_size = Math.floor(0.3 * scrollbar_size);
 	if (scrollbar_size < 16 && scrollbar_size > 13) arrow_size -= 1;
 
@@ -75,7 +72,6 @@ function renderThemeGraphics(cssProperties) {
 			ctx.save();
 			ctx.translate(i * scrollbar_button_inner_size, 0);
 			ctx.translate(scrollbar_button_inner_size / 2, scrollbar_button_inner_size / 2);
-			// ctx.rotate(i * Math.PI / 2);
 			if (horizontal) {
 				ctx.rotate(-Math.PI / 2);
 			}
@@ -100,10 +96,6 @@ function renderThemeGraphics(cssProperties) {
 	ctx.fillStyle = getProp("--ButtonHilight");
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	var scrollbar_arrows_ButtonHilight = `url("${canvas.toDataURL()}")`;
-	// ctx.fillStyle = "red";
-	// ctx.fillRect(0, 0, canvas.width, canvas.height);
-	// canvas.style.background = "rgba(0, 0, 0, 0.2)";
-	// $("h1").append(arrow_canvas).append(canvas);
 	ctx.restore();
 
 	function border_image(border_size, svg_contents) {
@@ -112,12 +104,6 @@ function renderThemeGraphics(cssProperties) {
 		var scale = 32;
 		var slice_size = border_size * scale;
 		var view_size = base_size * scale;
-		// transform causes janky buggy garbage
-		// var svg = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="${view_size}px" height="${view_size}px" viewBox="0 0 ${view_size} ${view_size}">
-		// 	<g transform="scale(${scale})">
-		// 		${svg_contents}
-		// 	</g>
-		// </svg>`;
 		var svg = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="${view_size}px" height="${view_size}px" viewBox="0 0 ${view_size} ${view_size}">
 			${svg_contents.replace(/(d|x|y|width|height|stroke-width)="[^"]*"/g, (attr) => attr.replace(/\d+/g, (n) => n * scale))}
 		</svg>`;
@@ -136,7 +122,6 @@ function renderThemeGraphics(cssProperties) {
 		<path d="M2 2h4v4h-4v-4z" fill="${getProp("--ButtonFace")}"/>
 		<rect x="0" y="0" width="8" height="8" stroke-width="2" stroke="${getProp("--WindowFrame")}" fill="none"/>
 	`);
-	// TODO: rename
 	var button_normal_border_image = border_image(2, `
 		<path d="M0 0h7v1h-6v6h-1v-7z" fill="${getProp("--ButtonHilight")}"/>
 		<path d="M7 0h1v8h-8v-1h7v-7z" fill="${getProp("--ButtonDkShadow")}"/>
@@ -175,40 +160,12 @@ function renderThemeGraphics(cssProperties) {
 	};
 }
 
-// Parse NonClientMetrics
-// https://docs.microsoft.com/en-us/windows/win32/controls/themesfileformat-overview?redirectedfrom=MSDN#metrics-section
-// https://docs.microsoft.com/en-us/windows/win32/winprog/windows-data-types
 
-// using https://github.com/toji/js-struct
 
-// var NonClientMetricsStruct = Struct.create(
-//     Struct.uint32("cbSize"),
-//     Struct.int32("iBorderWidth"),
-//     Struct.int32("iScrollWidth"),
-//     Struct.int32("iScrollHeight"),
-//     Struct.int32("iCaptionWidth"),
-//     Struct.int32("iCaptionHeight"),
-// 	// after that, it may be W or A
-// //   LOGFONTW lfCaptionFont;
-// //   int      iSmCaptionWidth;
-// //   int      iSmCaptionHeight;
-// //   LOGFONTW lfSmCaptionFont;
-// //   int      iMenuWidth;
-// //   int      iMenuHeight;
-// //   LOGFONTW lfMenuFont;
-// //   LOGFONTW lfStatusFont;
-// //   LOGFONTW lfMessageFont;
-// //   int      iPaddedBorderWidth;
-// );
 
-// var NonClientMetrics_buffer = new Uint8Array(NonClientMetrics_string.split(" ").map((str)=> parseInt(str))).buffer;
 
-// NonClientMetricsStruct.readStructs(NonClientMetrics_buffer, 0, 1)[0];
 
 function parseThemeFileString(themeIni) {
-	// .theme is a renamed .ini text file
-	// .themepack is a renamed .cab file, and parsing it as .ini seems to work well enough for the most part, as the .ini data appears in plain,
-	// but it may not if compression is enabled for the .cab file
 	var theme = parseINIString(themeIni);
 	var colors = theme["Control Panel\\Colors"];
 	if (!colors) {
@@ -217,7 +174,6 @@ function parseThemeFileString(themeIni) {
 		return;
 	}
 	for (var k in colors) {
-		// for .themepack file support, just ignore bad keys that were parsed
 		if (k.match(/\W/)) {
 			delete colors[k];
 		} else {
@@ -236,30 +192,31 @@ function parseThemeFileString(themeIni) {
 }
 
 function applyCSSProperties(cssProperties, options = {}) {
-	// @TODO: clean up deprecated argument handling
 	let element, recurseIntoIframes;
 	if ("tagName" in options) {
 		console.warn("deprecated: use options argument to applyCSSProperties, e.g. applyCSSProperties(cssProperties, { element: document.documentElement, recurseIntoIframes: true })");
 		element = options;
 		recurseIntoIframes = false;
 	} else {
-		({ element = document.documentElement, recurseIntoIframes = false } = options);
+		({
+			element = document.documentElement,
+			recurseIntoIframes = false
+		} = options);
 	}
 
 	var getProp = (propName) => cssProperties.getPropertyValue ? cssProperties.getPropertyValue(propName) : cssProperties[propName];
 	for (var k in cssProperties) {
 		element.style.setProperty(k, getProp(k));
 	}
-	// iframe theme propagation
 	if (recurseIntoIframes) {
 		var iframes = element.querySelectorAll("iframe");
 		for (var i = 0; i < iframes.length; i++) {
 			try {
-				applyCSSProperties(cssProperties, { element: iframes[i].contentDocument.documentElement, recurseIntoIframes: true });
-			} catch (error) {
-				// ignore
-				// @TODO: share warning with $Window's iframe handling
-			}
+				applyCSSProperties(cssProperties, {
+					element: iframes[i].contentDocument.documentElement,
+					recurseIntoIframes: true
+				});
+			} catch (error) {}
 		}
 	}
 }
@@ -277,9 +234,6 @@ function makeThemeCSSFile(cssProperties) {
 	return css;
 }
 
-// @TODO: should this be part of theme graphics generation?
-// I want to figure out a better way to do dynamic theme features,
-// where it works with the CSS cascade as much as possible
 function makeBlackToInsetFilter() {
 	if (document.getElementById("os-gui-black-to-inset-filter")) {
 		return;
@@ -315,5 +269,3 @@ function makeBlackToInsetFilter() {
 	const $svg = $(svg_xml);
 	$svg.appendTo("body");
 }
-
-//# sourceURL=MagnusWare

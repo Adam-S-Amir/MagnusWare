@@ -5,8 +5,8 @@ var __fs_waiting_callbacks = [];
 const desktop_folder_path = "/A/desktop/";
 const web_server_root_for_browserfs =
 	location.href.match(/magnusware.vercel.app/) ?
-		location.href.match(/.*magnusware.vercel.app/)[0] + "/" :
-		`${window.location.origin}/`;
+	location.href.match(/.*magnusware.vercel.app/)[0] + "/" :
+	`${window.location.origin}/`;
 
 BrowserFS.configure({
 	fs: "OverlayFS",
@@ -21,9 +21,8 @@ BrowserFS.configure({
 			fs: "XmlHttpRequest",
 			options: {
 				index: web_server_root_for_browserfs + "filesystem.json",
-				action: function() {
+				action: function () {
 					console.log('JSON file loaded successfully.');
-					// You can perform further actions here after the JSON file is loaded.
 				}
 			}
 		}
@@ -70,4 +69,3 @@ function file_name_from_path(file_path) {
 function file_extension_from_path(file_path) {
 	return (file_path.match(/\.(\w+)$/) || [, ""])[1];
 }
-//# sourceURL=MagnusWare

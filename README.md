@@ -45,6 +45,8 @@ Any and all icons have been recreated using Photopea, or sourced directly from g
     - [x] https://98.js.org
   - [ ] AaronOS
     - [ ] https://aaronos.dev/AaronOS/aosBeta.php
+  - [ ] CloudDesk
+    - [ ] https://altaica.altervista.org/
   - [ ] daedalOS
     - [ ] https://dustinbrett.com/
   - [x] Emupedia

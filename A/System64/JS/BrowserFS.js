@@ -8,53 +8,52 @@
 	else
 		root["BrowserFS"] = factory();
 })(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
+return /******/ (function(modules) {
+/******/
 /******/ 	var installedModules = {};
 /******/
-/******/ 	// The require function
+/******/
 /******/ 	function __webpack_require__(moduleId) {
 /******/
-/******/ 		// Check if module is in cache
+/******/
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
 /******/
-/******/ 		// Create a new module (and put it into the cache)
+/******/
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
 /******/
-/******/ 		// Execute the module function
+/******/
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/
-/******/ 		// Flag the module as loaded
+/******/
 /******/ 		module.loaded = true;
 /******/
-/******/ 		// Return the exports of the module
+/******/
 /******/ 		return module.exports;
 /******/ 	}
 /******/
 /******/
-/******/ 	// expose the modules object (__webpack_modules__)
+/******/
 /******/ 	__webpack_require__.m = modules;
 /******/
-/******/ 	// expose the module cache
+/******/
 /******/ 	__webpack_require__.c = installedModules;
 /******/
-/******/ 	// __webpack_public_path__
+/******/
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// Load entry module and return exports
+/******/
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer, global, module, process) {'use strict';
+(function(Buffer, global, module, process) {'use strict';
 	
 	Object.defineProperty(exports, '__esModule', { value: true });
 	
@@ -88,7 +87,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ErrorCode[ErrorCode["ENOTEMPTY"] = 39] = "ENOTEMPTY";
 	    ErrorCode[ErrorCode["ENOTSUP"] = 95] = "ENOTSUP";
 	})(ErrorCode || (ErrorCode = {}));
-	/* tslint:disable:variable-name */
 	/**
 	 * Strings associated with each error code.
 	 * @hidden
@@ -109,7 +107,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	ErrorStrings[ErrorCode.EROFS] = 'Cannot modify a read-only file system.';
 	ErrorStrings[ErrorCode.ENOTEMPTY] = 'Directory is not empty.';
 	ErrorStrings[ErrorCode.ENOTSUP] = 'Operation is not supported.';
-	/* tslint:enable:variable-name */
 	/**
 	 * Represents a BrowserFS error. Passed back to applications after a failed
 	 * call to the BrowserFS API.
@@ -119,7 +116,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if ( message === void 0 ) message = ErrorStrings[type];
 	
 	        Error.call(this, message);
-	        // Unsupported.
 	        this.syscall = "";
 	        this.errno = type;
 	        this.code = ErrorCode[type];
@@ -199,7 +195,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * The size of the API error in buffer-form in bytes.
 	     */
 	    ApiError.prototype.bufferSize = function bufferSize () {
-	        // 4 bytes for string length.
 	        return 4 + Buffer.byteLength(JSON.stringify(this.toJSON()));
 	    };
 	
@@ -215,13 +210,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var ActionType;
 	(function (ActionType) {
-	    // Indicates that the code should not do anything.
 	    ActionType[ActionType["NOP"] = 0] = "NOP";
-	    // Indicates that the code should throw an exception.
 	    ActionType[ActionType["THROW_EXCEPTION"] = 1] = "THROW_EXCEPTION";
-	    // Indicates that the code should truncate the file, but only if it is a file.
 	    ActionType[ActionType["TRUNCATE_FILE"] = 2] = "TRUNCATE_FILE";
-	    // Indicates that the code should create the file.
 	    ActionType[ActionType["CREATE_FILE"] = 3] = "CREATE_FILE";
 	})(ActionType || (ActionType = {}));
 	/**
@@ -255,7 +246,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @throw when the flag string is invalid
 	 */
 	FileFlag.getFileFlag = function getFileFlag (flagStr) {
-	    // Check cache first.
 	    if (FileFlag.flagCache.hasOwnProperty(flagStr)) {
 	        return FileFlag.flagCache[flagStr];
 	    }
@@ -330,9 +320,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return ActionType.THROW_EXCEPTION;
 	    }
 	};
-	// Contains cached FileMode instances.
 	FileFlag.flagCache = {};
-	// Array of valid mode strings.
 	FileFlag.validFlagStrs = ['r', 'r+', 'rs', 'rs+', 'w', 'wx', 'w+', 'wx+', 'a', 'ax', 'a+', 'ax+'];
 	
 	/**
@@ -365,24 +353,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * I assume no one is going to need these details, although we could fake
 	     * appropriate values if need be.
 	     */
-	    // ID of device containing file
 	    this.dev = 0;
-	    // inode number
 	    this.ino = 0;
-	    // device ID (if special file)
 	    this.rdev = 0;
-	    // number of hard links
 	    this.nlink = 1;
-	    // blocksize for file system I/O
 	    this.blksize = 4096;
-	    // @todo Maybe support these? atm, it's a one-user filesystem.
-	    // user ID of owner
 	    this.uid = 0;
-	    // group ID of owner
 	    this.gid = 0;
-	    // time file was created (currently unsupported)
 	    this.birthtime = new Date(0);
-	    // XXX: Some file systems stash data on stats objects.
 	    this.fileData = null;
 	    if (!mode) {
 	        switch (itemType) {
@@ -397,10 +375,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    else {
 	        this.mode = mode;
 	    }
-	    // number of 512B blocks allocated
 	    this.blocks = Math.ceil(size / 512);
-	    // Check if mode also includes top-most bits, which indicate the file's
-	    // type.
 	    if (this.mode < 0x1000) {
 	        this.mode |= itemType;
 	    }
@@ -450,7 +425,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Stats.prototype.chmod = function chmod (mode) {
 	    this.mode = (this.mode & 0xF000) | mode;
 	};
-	// We don't support the following types of files.
 	Stats.prototype.isSocket = function isSocket () {
 	    return false;
 	};
@@ -486,15 +460,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	function normalizeMode(mode, def) {
 	    switch (typeof mode) {
 	        case 'number':
-	            // (path, flag, mode, cb?)
 	            return mode;
 	        case 'string':
-	            // (path, flag, modeString, cb?)
 	            var trueMode = parseInt(mode, 8);
 	            if (!isNaN(trueMode)) {
 	                return trueMode;
 	            }
-	            // Invalid string.
 	            return def;
 	        default:
 	            return def;
@@ -518,7 +489,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @hidden
 	 */
 	function normalizePath(p) {
-	    // Node doesn't allow null characters in paths.
 	    if (p.indexOf('\u0000') >= 0) {
 	        throw new ApiError(ErrorCode.EINVAL, 'Path must be a string without null bytes.');
 	    }
@@ -558,7 +528,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @private
 	 */
 	function nopCb() {
-	    // NOP.
 	}
 	/**
 	 * The node frontend to all filesystems.
@@ -574,7 +543,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @see http://nodejs.org/api/fs.html
 	 */
 	var FS = function FS() {
-	    /* tslint:enable:variable-name */
 	    this.F_OK = 0;
 	    this.R_OK = 4;
 	    this.W_OK = 2;
@@ -615,7 +583,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return null;
 	    }
 	};
-	// FILE OR DIRECTORY METHODS
 	/**
 	 * Asynchronous rename. No arguments other than a possible exception are given
 	 * to the completion callback.
@@ -660,8 +627,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return assertRoot(this.root).exists(normalizePath(path$$1), newCb);
 	    }
 	    catch (e) {
-	        // Doesn't return an error. If something bad happens, we assume it just
-	        // doesn't exist.
 	        return newCb(false);
 	    }
 	};
@@ -675,8 +640,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return assertRoot(this.root).existsSync(normalizePath(path$$1));
 	    }
 	    catch (e) {
-	        // Doesn't return an error. If something bad happens, we assume it just
-	        // doesn't exist.
 	        return false;
 	    }
 	};
@@ -903,7 +866,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    return assertRoot(this.root).appendFileSync(normalizePath(filename), data, options.encoding, flag, options.mode);
 	};
-	// FILE DESCRIPTOR METHODS
 	/**
 	 * Asynchronous `fstat`.
 	 * `fstat()` is identical to `stat()`, except that the file to be stat-ed is
@@ -1045,21 +1007,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    var buffer$$1, offset, length, position = null;
 	    if (typeof arg2 === 'string') {
-	        // Signature 1: (fd, string, [position?, [encoding?]], cb?)
 	        var encoding = 'utf8';
 	        switch (typeof arg3) {
 	            case 'function':
-	                // (fd, string, cb)
 	                cb = arg3;
 	                break;
 	            case 'number':
-	                // (fd, string, position, encoding?, cb?)
 	                position = arg3;
 	                encoding = typeof arg4 === 'string' ? arg4 : 'utf8';
 	                cb = typeof arg5 === 'function' ? arg5 : cb;
 	                break;
 	            default:
-	                // ...try to find the callback and get out of here!
 	                cb = typeof arg4 === 'function' ? arg4 : typeof arg5 === 'function' ? arg5 : cb;
 	                return cb(new ApiError(ErrorCode.EINVAL, 'Invalid arguments.'));
 	        }
@@ -1068,7 +1026,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        length = buffer$$1.length;
 	    }
 	    else {
-	        // Signature 2: (fd, buffer, offset, length, position?, cb?)
 	        buffer$$1 = arg2;
 	        offset = arg3;
 	        length = arg4;
@@ -1090,7 +1047,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	FS.prototype.writeSync = function writeSync (fd, arg2, arg3, arg4, arg5) {
 	    var buffer$$1, offset = 0, length, position;
 	    if (typeof arg2 === 'string') {
-	        // Signature 1: (fd, string, [position?, [encoding?]])
 	        position = typeof arg3 === 'number' ? arg3 : null;
 	        var encoding = typeof arg4 === 'string' ? arg4 : 'utf8';
 	        offset = 0;
@@ -1098,7 +1054,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        length = buffer$$1.length;
 	    }
 	    else {
-	        // Signature 2: (fd, buffer, offset, length, position?)
 	        buffer$$1 = arg2;
 	        offset = arg3;
 	        length = arg4;
@@ -1115,17 +1070,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    var position, offset, length, buffer$$1, newCb;
 	    if (typeof arg2 === 'number') {
-	        // legacy interface
-	        // (fd, length, position, encoding, callback)
 	        length = arg2;
 	        position = arg3;
 	        var encoding = arg4;
 	        cb = typeof arg5 === 'function' ? arg5 : cb;
 	        offset = 0;
 	        buffer$$1 = Buffer.alloc(length);
-	        // XXX: Inefficient.
-	        // Wrap the cb so we shelter upper layers of the API from these
-	        // shenanigans.
 	        newCb = wrapCb(function (err, bytesRead, buf) {
 	            if (err) {
 	                return cb(err);
@@ -1268,7 +1218,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	FS.prototype.futimesSync = function futimesSync (fd, atime, mtime) {
 	    this.fd2file(fd).utimesSync(normalizeTime(atime), normalizeTime(mtime));
 	};
-	// DIRECTORY-ONLY METHODS
 	/**
 	 * Asynchronous `rmdir`.
 	 * @param path
@@ -1352,7 +1301,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    path$$1 = normalizePath(path$$1);
 	    return assertRoot(this.root).readdirSync(path$$1);
 	};
-	// SYMLINK METHODS
 	/**
 	 * Asynchronous `link`.
 	 * @param srcpath
@@ -1443,7 +1391,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    path$$1 = normalizePath(path$$1);
 	    return assertRoot(this.root).readlinkSync(path$$1);
 	};
-	// PROPERTY OPERATIONS
 	/**
 	 * Asynchronous `chown`.
 	 * @param path
@@ -1677,15 +1624,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    delete this.fdMap[fd];
 	};
 	
-	/* tslint:disable:variable-name */
-	// Exported fs.Stats.
 	FS.Stats = Stats;
 	
-	// Manually export the individual public functions of fs.
-	// Required because some code will invoke functions off of the module.
-	// e.g.:
-	// let writeFile = fs.writeFile;
-	// writeFile(...)
 	/**
 	 * @hidden
 	 */
@@ -1716,10 +1656,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	_fsMock['FS'] = FS;
 	
-	/*
-	 * Levenshtein distance, from the `js-levenshtein` NPM module.
-	 * Copied here to avoid complexity of adding another CommonJS module dependency.
-	 */
 	function _min(d0, d1, d2, bx, ay) {
 	    return d0 < d1 || d2 < d1
 	        ? d0 > d2
@@ -1859,12 +1795,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	function buffer2Uint8array(buff) {
 	    if (buff instanceof Uint8Array) {
-	        // BFS & Node v4.0 buffers *are* Uint8Arrays.
 	        return buff;
 	    }
 	    else {
-	        // Uint8Arrays can be constructed from arrayish numbers.
-	        // At this point, we assume this isn't a BFS array.
 	        return new Uint8Array(buff);
 	    }
 	}
@@ -1919,19 +1852,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        throw new TypeError(("Invalid slice bounds on buffer of length " + (buff.length) + ": [" + start + ", " + end + "]"));
 	    }
 	    if (buff.length === 0) {
-	        // Avoid s0 corner case in ArrayBuffer case.
 	        return emptyBuffer();
 	    }
 	    else {
 	        var u8 = buffer2Uint8array(buff), s0 = buff[0], newS0 = (s0 + 1) % 0xFF;
 	        buff[0] = newS0;
 	        if (u8[0] === newS0) {
-	            // Same memory. Revert & copy.
 	            u8[0] = s0;
 	            return uint8Array2Buffer(u8.slice(start, end));
 	        }
 	        else {
-	            // Revert.
 	            buff[0] = s0;
 	            return uint8Array2Buffer(u8.subarray(start, end));
 	        }
@@ -1985,30 +1915,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	    }
-	    // Check for required options.
 	    var loop = function ( optName ) {
 	        if (optsInfo.hasOwnProperty(optName)) {
 	            var opt = optsInfo[optName];
 	            var providedValue = opts[optName];
 	            if (providedValue === undefined || providedValue === null) {
 	                if (!opt.optional) {
-	                    // Required option, not provided.
-	                    // Any incorrect options provided? Which ones are close to the provided one?
-	                    // (edit distance 5 === close)
 	                    var incorrectOptions = Object.keys(opts).filter(function (o) { return !(o in optsInfo); }).map(function (a) {
 	                        return { str: a, distance: levenshtein(optName, a) };
 	                    }).filter(function (o) { return o.distance < 5; }).sort(function (a, b) { return a.distance - b.distance; });
-	                    // Validators may be synchronous.
 	                    if (callbackCalled) {
 	                        return {};
 	                    }
 	                    callbackCalled = true;
 	                    return { v: cb(new ApiError(ErrorCode.EINVAL, ("[" + fsName + "] Required option '" + optName + "' not provided." + (incorrectOptions.length > 0 ? (" You provided unrecognized option '" + (incorrectOptions[0].str) + "'; perhaps you meant to type '" + optName + "'.") : '') + "\nOption description: " + (opt.description)))) };
 	                }
-	                // Else: Optional option, not provided. That is OK.
 	            }
 	            else {
-	                // Option provided! Check type.
 	                var typeMatches = false;
 	                if (Array.isArray(opt.type)) {
 	                    typeMatches = opt.type.indexOf(typeof (providedValue)) !== -1;
@@ -2017,7 +1940,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    typeMatches = typeof (providedValue) === opt.type;
 	                }
 	                if (!typeMatches) {
-	                    // Validators may be synchronous.
 	                    if (callbackCalled) {
 	                        return {};
 	                    }
@@ -2028,7 +1950,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    pendingValidators++;
 	                    opt.validator(providedValue, validatorCallback);
 	                }
-	                // Otherwise: All good!
 	            }
 	        }
 	    };
@@ -2099,7 +2020,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 	BFSEmscriptenStreamOps.prototype.read = function read (stream, buffer$$1, offset, length, position) {
-	    // Avoid copying overhead by reading directly into buffer.
 	    try {
 	        return this.nodefs.readSync(stream.nfd, uint8Array2Buffer(buffer$$1), offset, length, position);
 	    }
@@ -2108,7 +2028,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 	BFSEmscriptenStreamOps.prototype.write = function write (stream, buffer$$1, offset, length, position) {
-	    // Avoid copying overhead.
 	    try {
 	        return this.nodefs.writeSync(stream.nfd, uint8Array2Buffer(buffer$$1), offset, length, position);
 	    }
@@ -2178,7 +2097,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    try {
 	        if (attr.mode !== undefined) {
 	            this.nodefs.chmodSync(path$$1, attr.mode);
-	            // update the common node structure mode as well
 	            node.mode = attr.mode;
 	        }
 	        if (attr.timestamp !== undefined) {
@@ -2190,8 +2108,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!e.code) {
 	            throw e;
 	        }
-	        // Ignore not supported errors. Emscripten does utimesSync when it
-	        // writes files, but never really requires the value to be set.
 	        if (e.code !== "ENOTSUP") {
 	            throw new this.FS.ErrnoError(this.ERRNO_CODES[e.code]);
 	        }
@@ -2215,7 +2131,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	BFSEmscriptenNodeOps.prototype.mknod = function mknod (parent, name, mode, dev) {
 	    var node = this.fs.createNode(parent, name, mode, dev);
-	    // create the backing node for this in the fs root as well
 	    var path$$1 = this.fs.realPath(node);
 	    try {
 	        if (this.FS.isDir(node.mode)) {
@@ -2238,8 +2153,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var newPath = this.PATH.join2(this.fs.realPath(newDir), newName);
 	    try {
 	        this.nodefs.renameSync(oldPath, newPath);
-	        // This logic is missing from the original NodeFS,
-	        // causing Emscripten's filesystem to think that the old file still exists.
 	        oldNode.name = newName;
 	        oldNode.parent = newDir;
 	    }
@@ -2277,8 +2190,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	BFSEmscriptenNodeOps.prototype.readdir = function readdir (node) {
 	    var path$$1 = this.fs.realPath(node);
 	    try {
-	        // Node does not list . and .. in directory listings,
-	        // but Emscripten expects it.
 	        var contents = this.nodefs.readdirSync(path$$1);
 	        contents.push('.', '..');
 	        return contents;
@@ -2320,33 +2231,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if ( _ERRNO_CODES === void 0 ) _ERRNO_CODES = self['ERRNO_CODES'];
 	    if ( nodefs === void 0 ) nodefs = _fsMock;
 	
-	    // This maps the integer permission modes from http://linux.die.net/man/3/open
-	    // to node.js-specific file open permission strings at http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback
 	    this.flagsToPermissionStringMap = {
-	        0 /*O_RDONLY*/: 'r',
-	        1 /*O_WRONLY*/: 'r+',
-	        2 /*O_RDWR*/: 'r+',
-	        64 /*O_CREAT*/: 'r',
-	        65 /*O_WRONLY|O_CREAT*/: 'r+',
-	        66 /*O_RDWR|O_CREAT*/: 'r+',
-	        129 /*O_WRONLY|O_EXCL*/: 'rx+',
-	        193 /*O_WRONLY|O_CREAT|O_EXCL*/: 'rx+',
-	        514 /*O_RDWR|O_TRUNC*/: 'w+',
-	        577 /*O_WRONLY|O_CREAT|O_TRUNC*/: 'w',
-	        578 /*O_CREAT|O_RDWR|O_TRUNC*/: 'w+',
-	        705 /*O_WRONLY|O_CREAT|O_EXCL|O_TRUNC*/: 'wx',
-	        706 /*O_RDWR|O_CREAT|O_EXCL|O_TRUNC*/: 'wx+',
-	        1024 /*O_APPEND*/: 'a',
-	        1025 /*O_WRONLY|O_APPEND*/: 'a',
-	        1026 /*O_RDWR|O_APPEND*/: 'a+',
-	        1089 /*O_WRONLY|O_CREAT|O_APPEND*/: 'a',
-	        1090 /*O_RDWR|O_CREAT|O_APPEND*/: 'a+',
-	        1153 /*O_WRONLY|O_EXCL|O_APPEND*/: 'ax',
-	        1154 /*O_RDWR|O_EXCL|O_APPEND*/: 'ax+',
-	        1217 /*O_WRONLY|O_CREAT|O_EXCL|O_APPEND*/: 'ax',
-	        1218 /*O_RDWR|O_CREAT|O_EXCL|O_APPEND*/: 'ax+',
-	        4096 /*O_RDONLY|O_DSYNC*/: 'rs',
-	        4098 /*O_RDWR|O_DSYNC*/: 'rs+'
+	        0: 'r',
+	        1: 'r+',
+	        2: 'r+',
+	        64: 'r',
+	        65: 'r+',
+	        66: 'r+',
+	        129: 'rx+',
+	        193: 'rx+',
+	        514: 'w+',
+	        577: 'w',
+	        578: 'w+',
+	        705: 'wx',
+	        706: 'wx+',
+	        1024: 'a',
+	        1025: 'a',
+	        1026: 'a+',
+	        1089: 'a',
+	        1090: 'a+',
+	        1153: 'ax',
+	        1154: 'ax+',
+	        1217: 'ax',
+	        1218: 'ax+',
+	        4096: 'rs',
+	        4098: 'rs+'
 	    };
 	    this.nodefs = nodefs;
 	    this.FS = _FS;
@@ -2446,10 +2355,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    var mustBeFile = function (e, stats) {
 	        if (e) {
-	            // File does not exist.
 	            switch (flag.pathNotExistsAction()) {
 	                case ActionType.CREATE_FILE:
-	                    // Ensure parent exists.
 	                    return this$1.stat(path.dirname(p), false, function (e, parentStats) {
 	                        if (e) {
 	                            cb(e);
@@ -2468,7 +2375,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	        else {
-	            // File exists.
 	            if (stats && stats.isDirectory()) {
 	                return cb(ApiError.EISDIR(p));
 	            }
@@ -2476,10 +2382,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                case ActionType.THROW_EXCEPTION:
 	                    return cb(ApiError.EEXIST(p));
 	                case ActionType.TRUNCATE_FILE:
-	                    // NOTE: In a previous implementation, we deleted the file and
-	                    // re-created it. However, this created a race condition if another
-	                    // asynchronous request was trying to read the file, as the file
-	                    // would not exist for a small period of time.
 	                    return this$1.openFile(p, flag, function (e, fd) {
 	                        if (e) {
 	                            cb(e);
@@ -2533,16 +2435,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    throw new ApiError(ErrorCode.ENOTSUP);
 	};
 	BaseFileSystem.prototype.openSync = function openSync (p, flag, mode) {
-	    // Check if the path exists, and is a file.
 	    var stats;
 	    try {
 	        stats = this.statSync(p, false);
 	    }
 	    catch (e) {
-	        // File does not exist.
 	        switch (flag.pathNotExistsAction()) {
 	            case ActionType.CREATE_FILE:
-	                // Ensure parent exists.
 	                var parentStats = this.statSync(path.dirname(p), false);
 	                if (!parentStats.isDirectory()) {
 	                    throw ApiError.ENOTDIR(path.dirname(p));
@@ -2554,7 +2453,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                throw new ApiError(ErrorCode.EINVAL, 'Invalid FileFlag object.');
 	        }
 	    }
-	    // File exists.
 	    if (stats.isDirectory()) {
 	        throw ApiError.EISDIR(p);
 	    }
@@ -2562,12 +2460,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        case ActionType.THROW_EXCEPTION:
 	            throw ApiError.EEXIST(p);
 	        case ActionType.TRUNCATE_FILE:
-	            // Delete file.
 	            this.unlinkSync(p);
-	            // Create file. Use the same mode as the old file.
-	            // Node itself modifies the ctime when this occurs, so this action
-	            // will preserve that behavior if the underlying file system
-	            // supports those properties.
 	            return this.createFileSync(p, flag, stats.mode);
 	        case ActionType.NOP:
 	            return this.openFileSync(p, flag, mode);
@@ -2615,17 +2508,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	BaseFileSystem.prototype.realpath = function realpath (p, cache, cb) {
 	    if (this.supportsLinks()) {
-	        // The path could contain symlinks. Split up the path,
-	        // resolve any symlinks, return the resolved string.
 	        var splitPath = p.split(path.sep);
-	        // TODO: Simpler to just pass through file, find sep and such.
 	        for (var i = 0; i < splitPath.length; i++) {
 	            var addPaths = splitPath.slice(0, i + 1);
 	            splitPath[i] = path.join.apply(null, addPaths);
 	        }
 	    }
 	    else {
-	        // No symlinks. We just need to verify that it exists.
 	        this.exists(p, function (doesExist) {
 	            if (doesExist) {
 	                cb(null, p);
@@ -2638,10 +2527,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	BaseFileSystem.prototype.realpathSync = function realpathSync (p, cache) {
 	    if (this.supportsLinks()) {
-	        // The path could contain symlinks. Split up the path,
-	        // resolve any symlinks, return the resolved string.
 	        var splitPath = p.split(path.sep);
-	        // TODO: Simpler to just pass through file, find sep and such.
 	        for (var i = 0; i < splitPath.length; i++) {
 	            var addPaths = splitPath.slice(0, i + 1);
 	            splitPath[i] = path.join.apply(path, addPaths);
@@ -2649,7 +2535,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return splitPath.join(path.sep);
 	    }
 	    else {
-	        // No symlinks. We just need to verify that it exists.
 	        if (this.existsSync(p)) {
 	            return p;
 	        }
@@ -2672,7 +2557,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	BaseFileSystem.prototype.truncateSync = function truncateSync (p, len) {
 	    var fd = this.openSync(p, FileFlag.getFileFlag('r+'), 0x1a4);
-	    // Need to safely close FD, regardless of whether or not truncate succeeds.
 	    try {
 	        fd.truncateSync(len);
 	    }
@@ -2684,9 +2568,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 	BaseFileSystem.prototype.readFile = function readFile (fname, encoding, flag, cb) {
-	    // Wrap cb in file closing code.
 	    var oldCb = cb;
-	    // Get file.
 	    this.open(fname, flag, 0x1a4, function (err, fd) {
 	        if (err) {
 	            return cb(err);
@@ -2703,7 +2585,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (err) {
 	                return cb(err);
 	            }
-	            // Allocate buffer.
 	            var buf = Buffer.alloc(stat.size);
 	            fd.read(buf, 0, stat.size, 0, function (err) {
 	                if (err) {
@@ -2723,11 +2604,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	};
 	BaseFileSystem.prototype.readFileSync = function readFileSync (fname, encoding, flag) {
-	    // Get file.
 	    var fd = this.openSync(fname, flag, 0x1a4);
 	    try {
 	        var stat = fd.statSync();
-	        // Allocate buffer.
 	        var buf = Buffer.alloc(stat.size);
 	        fd.readSync(buf, 0, stat.size, 0);
 	        fd.closeSync();
@@ -2741,9 +2620,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 	BaseFileSystem.prototype.writeFile = function writeFile (fname, data, encoding, flag, mode, cb) {
-	    // Wrap cb in file closing code.
 	    var oldCb = cb;
-	    // Get file.
 	    this.open(fname, flag, 0x1a4, function (err, fd) {
 	        if (err) {
 	            return cb(err);
@@ -2761,18 +2638,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        catch (e) {
 	            return cb(e);
 	        }
-	        // Write into file.
 	        fd.write(data, 0, data.length, 0, cb);
 	    });
 	};
 	BaseFileSystem.prototype.writeFileSync = function writeFileSync (fname, data, encoding, flag, mode) {
-	    // Get file.
 	    var fd = this.openSync(fname, flag, mode);
 	    try {
 	        if (typeof data === 'string') {
 	            data = Buffer.from(data, encoding);
 	        }
-	        // Write into file.
 	        fd.writeSync(data, 0, data.length, 0);
 	    }
 	    finally {
@@ -2780,7 +2654,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 	BaseFileSystem.prototype.appendFile = function appendFile (fname, data, encoding, flag, mode, cb) {
-	    // Wrap cb in file closing code.
 	    var oldCb = cb;
 	    this.open(fname, flag, mode, function (err, fd) {
 	        if (err) {
@@ -3037,13 +2910,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this._buffer = contents;
 	        }
 	        else {
-	            // Empty buffer. It'll expand once we write stuff to it.
 	            this._buffer = emptyBuffer();
 	        }
-	        // Note: This invariant is *not* maintained once the file starts getting
-	        // modified.
-	        // Note: Only actually matters if file is readable, as writeable modes may
-	        // truncate/append to file.
 	        if (this._stat.size !== this._buffer.length && this._flag.isReadable()) {
 	            throw new Error(("Invalid buffer: Buffer is " + (this._buffer.length) + " long, yet Stats object specifies that file is " + (this._stat.size) + " long."));
 	        }
@@ -3190,7 +3058,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this._stat.mtime = new Date();
 	        if (len > this._buffer.length) {
 	            var buf = Buffer.alloc(len - this._buffer.length, 0);
-	            // Write will set @_stat.size for us.
 	            this.writeSync(buf, 0, buf.length, this._buffer.length);
 	            if (this._flag.isSynchronous() && _fsMock.getRootFS().supportsSynch()) {
 	                this.syncSync();
@@ -3198,7 +3065,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 	        }
 	        this._stat.size = len;
-	        // Truncate buffer to 'len'.
 	        var newBuff = Buffer.alloc(len);
 	        this._buffer.copy(newBuff, 0, 0, len);
 	        this._buffer = newBuff;
@@ -3253,7 +3119,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (endFp > this._stat.size) {
 	            this._stat.size = endFp;
 	            if (endFp > this._buffer.length) {
-	                // Extend the buffer!
 	                var newBuff = Buffer.alloc(endFp);
 	                this._buffer.copy(newBuff);
 	                this._buffer = newBuff;
@@ -3379,7 +3244,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Synchronous sync. Doesn't do anything.
 	     */
 	    NoSyncFile.prototype.syncSync = function syncSync () {
-	        // NOP.
 	    };
 	    /**
 	     * Asynchronous close. Doesn't do anything, simply calls the cb.
@@ -3392,7 +3256,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Synchronous close. Doesn't do anything.
 	     */
 	    NoSyncFile.prototype.closeSync = function closeSync () {
-	        // NOP.
 	    };
 	
 	    return NoSyncFile;
@@ -3534,7 +3397,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            callbacks.forEach(function (cb) { return cb(e); });
 	        };
 	        if (!this._isInitialized) {
-	            // First call triggers initialization, the rest wait.
 	            if (callbacks.push(userCb) === 1) {
 	                var copyDirectory = function (p, mode, cb) {
 	                    if (p !== '/') {
@@ -3542,9 +3404,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                    this$1._async.readdir(p, function (err, files) {
 	                        var i = 0;
-	                        // NOTE: This function must not be in a lexically nested statement,
-	                        // such as an if or while statement. Safari refuses to run the
-	                        // script since it is undefined behavior.
 	                        function copyNextFile(err) {
 	                            if (err) {
 	                                cb(err);
@@ -3619,7 +3478,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	    AsyncMirror.prototype.openSync = function openSync (p, flag, mode) {
 	        this.checkInitialized();
-	        // Sanity check: Is this open/close permitted?
 	        var fd = this._sync.openSync(p, flag, mode);
 	        fd.closeSync();
 	        return new MirrorFile(this, p, flag, this._sync.statSync(p, false), this._sync.readFileSync(p, null, FileFlag.getFileFlag('r')));
@@ -3743,7 +3601,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return func.apply(thisArg, args);
 	}
 	
-	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
 	
 	/**
@@ -3796,14 +3653,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return value;
 	}
 	
-	// Lodash rest function without function.toString()
-	// remappings
 	function rest(func, start) {
 	    return overRest$1(func, start, identity);
 	}
 	
 	var initialParams = function (fn) {
-	    return rest(function (args/*..., callback*/) {
+	    return rest(function (args) {
 	        var callback = args.pop();
 	        fn.call(this, args, callback);
 	    });
@@ -3982,8 +3837,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!isObject(value)) {
 	    return false;
 	  }
-	  // The use of `Object#toString` avoids issues with the `typeof` operator
-	  // in Safari 9 which returns 'object' for typed arrays and other constructors.
 	  var tag = baseGetTag(value);
 	  return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
 	}
@@ -4051,8 +3904,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return value != null && isLength(value.length) && !isFunction(value);
 	}
 	
-	// A temporary value used to identify if the loop should be broken.
-	// See #1064, #1293
 	var breakLoop = {};
 	
 	/**
@@ -4068,7 +3919,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * // => [undefined, undefined]
 	 */
 	function noop() {
-	  // No operation performed.
 	}
 	
 	function once(fn) {
@@ -4233,7 +4083,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	/** Built-in value references. */
 	var Buffer$1 = moduleExports ? root.Buffer : undefined;
 	
-	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeIsBuffer = Buffer$1 ? Buffer$1.isBuffer : undefined;
 	
 	/**
@@ -4363,7 +4212,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  } catch (e) {}
 	}());
 	
-	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
 	
 	/**
@@ -4411,13 +4259,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (var key in value) {
 	    if ((inherited || hasOwnProperty$1.call(value, key)) &&
 	        !(skipIndexes && (
-	           // Safari 9 has enumerable `arguments.length` in strict mode.
 	           key == 'length' ||
-	           // Node.js 0.10 has enumerable non-index properties on buffers.
 	           (isBuff && (key == 'offset' || key == 'parent')) ||
-	           // PhantomJS 2 has enumerable non-index properties on typed arrays.
 	           (isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset')) ||
-	           // Skip index properties.
 	           isIndex(key, length)
 	        ))) {
 	      result.push(key);
@@ -4457,7 +4301,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}
 	
-	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeKeys = overArg(Object.keys, Object);
 	
 	/** Used for built-in method references. */
@@ -4641,7 +4484,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	}
 	
-	// eachOf implementation optimized for array-likes
 	function eachOfArrayLike(coll, iteratee, callback) {
 	    callback = once(callback || noop);
 	    var index = 0,
@@ -4664,7 +4506,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	}
 	
-	// a generic version of eachOf which can handle array, object, and iterator cases.
 	var eachOfGeneric = doLimit(eachOfLimit, Infinity);
 	
 	/**
@@ -5230,10 +5071,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	wrap(_defer);
 	
-	// Simple doubly linked list (https://en.wikipedia.org/wiki/Doubly_linked_list) implementation
-	// used for queues. This implementation assumes that the node provided by the user can be modified
-	// to adjust the next and last properties. We implement only the minimal functionality
-	// for queue support.
 	
 	/**
 	 * The same as [`eachOf`]{@link module:Collections.eachOf} but runs only a single async operation at a time.
@@ -6344,7 +6181,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * tests. Invoked with (err, result).
 	 */
 	
-	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeCeil = Math.ceil;
 	var nativeMax$1 = Math.max;
 	
@@ -6505,30 +6341,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return;
 	    }
 	    errorCodeLookup = {};
-	    // This indicates a network transmission error on modern browsers. Internet Explorer might cause this code to be reported on some API server errors.
 	    errorCodeLookup[Dropbox.ApiError.NETWORK_ERROR] = ErrorCode.EIO;
-	    // This happens when the contentHash parameter passed to a Dropbox.Client#readdir or Dropbox.Client#stat matches the most recent content, so the API call response is omitted, to save bandwidth.
-	    // errorCodeLookup[Dropbox.ApiError.NO_CONTENT];
-	    // The error property on {Dropbox.ApiError#response} should indicate which input parameter is invalid and why.
 	    errorCodeLookup[Dropbox.ApiError.INVALID_PARAM] = ErrorCode.EINVAL;
-	    // The OAuth token used for the request will never become valid again, so the user should be re-authenticated.
 	    errorCodeLookup[Dropbox.ApiError.INVALID_TOKEN] = ErrorCode.EPERM;
-	    // This indicates a bug in dropbox.js and should never occur under normal circumstances.
-	    // ^ Actually, that's false. This occurs when you try to move folders to themselves, or move a file over another file.
 	    errorCodeLookup[Dropbox.ApiError.OAUTH_ERROR] = ErrorCode.EPERM;
-	    // This happens when trying to read from a non-existing file, readdir a non-existing directory, write a file into a non-existing directory, etc.
 	    errorCodeLookup[Dropbox.ApiError.NOT_FOUND] = ErrorCode.ENOENT;
-	    // This indicates a bug in dropbox.js and should never occur under normal circumstances.
 	    errorCodeLookup[Dropbox.ApiError.INVALID_METHOD] = ErrorCode.EINVAL;
-	    // This happens when a Dropbox.Client#readdir or Dropbox.Client#stat call would return more than a maximum amount of directory entries.
 	    errorCodeLookup[Dropbox.ApiError.NOT_ACCEPTABLE] = ErrorCode.EINVAL;
-	    // This is used by some backend methods to indicate that the client needs to download server-side changes and perform conflict resolution. Under normal usage, errors with this code should never surface to the code using dropbox.js.
 	    errorCodeLookup[Dropbox.ApiError.CONFLICT] = ErrorCode.EINVAL;
-	    // Status value indicating that the application is making too many requests.
 	    errorCodeLookup[Dropbox.ApiError.RATE_LIMITED] = ErrorCode.EBUSY;
-	    // The request should be retried after some time.
 	    errorCodeLookup[Dropbox.ApiError.SERVER_ERROR] = ErrorCode.EBUSY;
-	    // Status value indicating that the user's Dropbox is over its storage quota.
 	    errorCodeLookup[Dropbox.ApiError.OVER_QUOTA] = ErrorCode.ENOSPC;
 	}
 	/**
@@ -6547,7 +6369,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @hidden
 	 */
 	function isArrayBuffer(ab) {
-	    // Accept null / undefined, too.
 	    return ab === null || ab === undefined || (typeof (ab) === 'object' && typeof (ab['byteLength']) === 'number');
 	}
 	/**
@@ -6631,17 +6452,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    var cacheInfo = this.getCachedFileInfo(p);
 	    if (cacheInfo !== null && cacheInfo.contents !== null) {
-	        // Try to use cached info; issue a stat to see if contents are up-to-date.
 	        this.stat(p, function (error, stat) {
 	            if (error) {
 	                cb(error);
 	            }
 	            else if (stat.contentHash === cacheInfo.stat.contentHash) {
-	                // No file changes.
 	                cb(error, cacheInfo.contents.slice(0), cacheInfo.stat);
 	            }
 	            else {
-	                // File changes; rerun to trigger actual readFile.
 	                this$1.readFile(p, cb);
 	            }
 	        });
@@ -6691,7 +6509,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	CachedDropboxClient.prototype._wrap = function _wrap (performOp, cb) {
 	    var numRun = 0;
 	    var interceptCb = function (error) {
-	        // Timeout duration, in seconds.
 	        var timeoutDuration = 2;
 	        if (error && 3 > (++numRun)) {
 	            switch (error.status) {
@@ -6744,9 +6561,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if ( contents === void 0 ) contents = null;
 	
 	    var cachedInfo = this.getCachedInfo(p);
-	    // Dropbox uses the *contentHash* property for directories.
-	    // Ignore stat objects w/o a contentHash defined; those actually exist!!!
-	    // (Example: readdir returns an array of stat objs; stat objs for dirs in that context have no contentHash)
 	    if (stat.contentHash !== null && (cachedInfo === undefined || cachedInfo.stat.contentHash !== stat.contentHash)) {
 	        this.putCachedInfo(p, {
 	            stat: stat,
@@ -6758,8 +6572,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if ( contents === void 0 ) contents = null;
 	
 	    var cachedInfo = this.getCachedInfo(p);
-	    // Dropbox uses the *versionTag* property for files.
-	    // Ignore stat objects w/o a versionTag defined.
 	    if (stat.versionTag !== null && (cachedInfo === undefined || cachedInfo.stat.versionTag !== stat.versionTag)) {
 	        this.putCachedInfo(p, {
 	            stat: stat,
@@ -6835,7 +6647,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        cb(null, new DropboxFileSystem(opts.client, false));
 	    };
 	    DropboxFileSystem.isAvailable = function isAvailable () {
-	        // Checks if the Dropbox library is loaded.
 	        return typeof Dropbox !== 'undefined';
 	    };
 	    DropboxFileSystem.prototype.getName = function getName () {
@@ -6844,7 +6655,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DropboxFileSystem.prototype.isReadOnly = function isReadOnly () {
 	        return false;
 	    };
-	    // Dropbox doesn't support symlinks, properties, or synchronous calls
 	    DropboxFileSystem.prototype.supportsSymlinks = function supportsSymlinks () {
 	        return false;
 	    };
@@ -6876,7 +6686,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        mainCb();
 	                    }
 	                };
-	                // XXX: <any> typing is to get around overly-restrictive ErrorCallback typing.
 	                eachLimit(files, deleteFile, finished);
 	            }
 	        });
@@ -6886,15 +6695,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        this._client.move(oldPath, newPath, function (error) {
 	            if (error) {
-	                // the move is permitted if newPath is a file.
-	                // Check if this is the case, and remove if so.
 	                this$1._client.stat(newPath, function (error2, stat) {
 	                    if (error2 || stat.isFolder) {
 	                        var missingPath = error.response.error.indexOf(oldPath) > -1 ? oldPath : newPath;
 	                        cb(this$1.convert(error, missingPath));
 	                    }
 	                    else {
-	                        // Delete file, repeat rename.
 	                        this$1._client.remove(newPath, function (error2) {
 	                            if (error2) {
 	                                cb(this$1.convert(error2, newPath));
@@ -6914,15 +6720,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DropboxFileSystem.prototype.stat = function stat (path$$1, isLstat, cb) {
 	        var this$1 = this;
 	
-	        // Ignore lstat case -- Dropbox doesn't support symlinks
-	        // Stat the file
 	        this._client.stat(path$$1, function (error, stat) {
 	            if (error) {
 	                cb(this$1.convert(error, path$$1));
 	            }
 	            else if (stat && stat.isRemoved) {
-	                // Dropbox keeps track of deleted files, so if a file has existed in the
-	                // past but doesn't any longer, you wont get an error
 	                cb(ApiError.FileError(ErrorCode.ENOENT, path$$1));
 	            }
 	            else {
@@ -6934,18 +6736,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DropboxFileSystem.prototype.open = function open (path$$1, flags, mode, cb) {
 	        var this$1 = this;
 	
-	        // Try and get the file's contents
 	        this._client.readFile(path$$1, function (error, content, dbStat) {
 	            if (error) {
-	                // If the file's being opened for reading and doesn't exist, return an
-	                // error
 	                if (flags.isReadable()) {
 	                    cb(this$1.convert(error, path$$1));
 	                }
 	                else {
 	                    switch (error.status) {
-	                        // If it's being opened for writing or appending, create it so that
-	                        // it can be written to
 	                        case Dropbox.ApiError.NOT_FOUND:
 	                            var ab = new ArrayBuffer(0);
 	                            return this$1._writeFileStrict(path$$1, ab, function (error2, stat) {
@@ -6963,10 +6760,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	            }
 	            else {
-	                // No error
 	                var buffer$$1;
-	                // Dropbox.js seems to set `content` to `null` rather than to an empty
-	                // buffer when reading an empty file. Not sure why this is.
 	                if (content === null) {
 	                    buffer$$1 = emptyBuffer();
 	                }
@@ -7067,13 +6861,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DropboxFileSystem.prototype.mkdir = function mkdir (p, mode, cb) {
 	        var this$1 = this;
 	
-	        // Dropbox.js' client.mkdir() behaves like `mkdir -p`, i.e. it creates a
-	        // directory and all its ancestors if they don't exist.
-	        // Node's fs.mkdir() behaves like `mkdir`, i.e. it throws an error if an attempt
-	        // is made to create a directory without a parent.
-	        // To handle this inconsistency, a check for the existence of `path`'s parent
-	        // must be performed before it is created, and an error thrown if it does
-	        // not exist
 	        var parent = path.dirname(p);
 	        this._client.stat(parent, function (error, stat) {
 	            if (error) {
@@ -7243,7 +7030,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    EmscriptenFile.prototype.writeSync = function writeSync (buffer$$1, offset, length, position) {
 	        try {
 	            var u8 = buffer2Uint8array(buffer$$1);
-	            // Emscripten is particular about what position is set to.
 	            var emPosition = position === null ? undefined : position;
 	            return this._FS.write(this._stream, u8, offset, length, emPosition);
 	        }
@@ -7262,7 +7048,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    EmscriptenFile.prototype.readSync = function readSync (buffer$$1, offset, length, position) {
 	        try {
 	            var u8 = buffer2Uint8array(buffer$$1);
-	            // Emscripten is particular about what position is set to.
 	            var emPosition = position === null ? undefined : position;
 	            return this._FS.read(this._stream, u8, offset, length, emPosition);
 	        }
@@ -7271,11 +7056,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    EmscriptenFile.prototype.sync = function sync (cb) {
-	        // NOP.
 	        cb();
 	    };
 	    EmscriptenFile.prototype.syncSync = function syncSync () {
-	        // NOP.
 	    };
 	    EmscriptenFile.prototype.chown = function chown (uid, gid, cb) {
 	        var err = null;
@@ -7421,7 +7204,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	    EmscriptenFileSystem.prototype.readdirSync = function readdirSync (p) {
 	        try {
-	            // Emscripten returns items for '.' and '..'. Node does not.
 	            return this._FS.readdir(p).filter(function (p) { return p !== '.' && p !== '..'; });
 	        }
 	        catch (e) {
@@ -7642,7 +7424,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	function wrapFunction(name, wrapFirst, wrapSecond) {
 	    if (name.slice(name.length - 4) !== 'Sync') {
-	        // Async function. Translate error in callback.
 	        return function () {
 	            if (arguments.length > 0) {
 	                if (wrapFirst) {
@@ -7657,7 +7438,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 	    else {
-	        // Sync function. Translate error in catch.
 	        return function () {
 	            try {
 	                if (wrapFirst) {
@@ -7674,7 +7454,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 	}
-	// First argument is a path.
 	['diskSpace', 'stat', 'statSync', 'open', 'openSync', 'unlink', 'unlinkSync',
 	    'rmdir', 'rmdirSync', 'mkdir', 'mkdirSync', 'readdir', 'readdirSync', 'exists',
 	    'existsSync', 'realpath', 'realpathSync', 'truncate', 'truncateSync', 'readFile',
@@ -7683,7 +7462,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    'readlinkSync'].forEach(function (name) {
 	    FolderAdapter.prototype[name] = wrapFunction(name, true, false);
 	});
-	// First and second arguments are paths.
 	['rename', 'renameSync', 'link', 'linkSync', 'symlink', 'symlinkSync'].forEach(function (name) {
 	    FolderAdapter.prototype[name] = wrapFunction(name, true, true);
 	});
@@ -7717,11 +7495,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @hidden
 	 */
 	function _requestQuota(type, size, success, errorCallback) {
-	    // We cast navigator and window to '<any>' because everything here is
-	    // nonstandard functionality, despite the fact that Chrome has the only
-	    // implementation of the HTML5FS and is likely driving the standardization
-	    // process. Thus, these objects defined off of navigator and window are not
-	    // present in the DefinitelyTyped TypeScript typings for FileSystem.
 	    if (typeof navigator['webkitPersistentStorage'] !== 'undefined') {
 	        switch (type) {
 	            case global$1.PERSISTENT:
@@ -7752,49 +7525,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	function convertError$1(err, p, expectedDir) {
 	    switch (err.name) {
-	        /* The user agent failed to create a file or directory due to the existence of a file or
-	            directory with the same path.  */
 	        case "PathExistsError":
 	            return ApiError.EEXIST(p);
-	        /* The operation failed because it would cause the application to exceed its storage quota.  */
 	        case 'QuotaExceededError':
 	            return ApiError.FileError(ErrorCode.ENOSPC, p);
-	        /*  A required file or directory could not be found at the time an operation was processed.   */
 	        case 'NotFoundError':
 	            return ApiError.ENOENT(p);
-	        /* This is a security error code to be used in situations not covered by any other error codes.
-	            - A required file was unsafe for access within a Web application
-	            - Too many calls are being made on filesystem resources */
 	        case 'SecurityError':
 	            return ApiError.FileError(ErrorCode.EACCES, p);
-	        /* The modification requested was illegal. Examples of invalid modifications include moving a
-	            directory into its own child, moving a file into its parent directory without changing its name,
-	            or copying a directory to a path occupied by a file.  */
 	        case 'InvalidModificationError':
 	            return ApiError.FileError(ErrorCode.EPERM, p);
-	        /* The user has attempted to look up a file or directory, but the Entry found is of the wrong type
-	            [e.g. is a DirectoryEntry when the user requested a FileEntry].  */
 	        case 'TypeMismatchError':
 	            return ApiError.FileError(expectedDir ? ErrorCode.ENOTDIR : ErrorCode.EISDIR, p);
-	        /* A path or URL supplied to the API was malformed.  */
 	        case "EncodingError":
-	        /* An operation depended on state cached in an interface object, but that state that has changed
-	            since it was read from disk.  */
 	        case "InvalidStateError":
-	        /* The user attempted to write to a file or directory which could not be modified due to the state
-	            of the underlying filesystem.  */
 	        case "NoModificationAllowedError":
 	        default:
 	            return ApiError.FileError(ErrorCode.EINVAL, p);
 	    }
 	}
-	// A note about getFile and getDirectory options:
-	// These methods are called at numerous places in this file, and are passed
-	// some combination of these two options:
-	//   - create: If true, the entry will be created if it doesn't exist.
-	//             If false, an error will be thrown if it doesn't exist.
-	//   - exclusive: If true, only create the entry if it doesn't already exist,
-	//                and throw an error if it does.
 	var HTML5FSFile = (function (PreloadFile$$1) {
 	    function HTML5FSFile(fs, entry, path$$1, flag, stat, contents) {
 	        PreloadFile$$1.call(this, fs, path$$1, flag, stat, contents);
@@ -7846,7 +7595,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if ( deprecateMsg === void 0 ) deprecateMsg = true;
 	
 	        BaseFileSystem$$1.call(this);
-	        // Convert MB to bytes.
 	        this.size = 1024 * 1024 * size;
 	        this.type = type;
 	        deprecationMessage(deprecateMsg, HTML5FS.Name, { size: size, type: type });
@@ -7916,14 +7664,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * suite, and the tests expect an empty FS every time.
 	     */
 	    HTML5FS.prototype.empty = function empty (mainCb) {
-	        // Get a list of all entries in the root directory to delete them
 	        this._readdir('/', function (err, entries) {
 	            if (err) {
 	                console.error('Failed to empty FS');
 	                mainCb(err);
 	            }
 	            else {
-	                // Called when every entry has been operated on
 	                var finished = function (er) {
 	                    if (err) {
 	                        console.error("Failed to empty FS");
@@ -7933,7 +7679,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        mainCb();
 	                    }
 	                };
-	                // Removes files and recursively removes directories
 	                var deleteEntry = function (entry, cb) {
 	                    var succ = function () {
 	                        cb();
@@ -7948,8 +7693,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        entry.remove(succ, error);
 	                    }
 	                };
-	                // Loop through the entries and remove them, then call the callback
-	                // when they're all finished.
 	                eachLimit(entries, deleteEntry, finished);
 	            }
 	        });
@@ -7970,28 +7713,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (++successCount === 2) {
 	                return cb(new ApiError(ErrorCode.EINVAL, "Something was identified as both a file and a directory. This should never happen."));
 	            }
-	            // SPECIAL CASE: If newPath === oldPath, and the path exists, then
-	            // this operation trivially succeeds.
 	            if (oldPath === newPath) {
 	                return cb();
 	            }
-	            // Get the new parent directory.
 	            currentPath = path.dirname(newPath);
 	            root.getDirectory(currentPath, {}, function (parentDir) {
 	                currentPath = path.basename(newPath);
 	                file.moveTo(parentDir, currentPath, function (entry) { cb(); }, function (err) {
-	                    // SPECIAL CASE: If oldPath is a directory, and newPath is a
-	                    // file, rename should delete the file and perform the move.
 	                    if (file.isDirectory) {
 	                        currentPath = newPath;
-	                        // Unlink only works on files. Try to delete newPath.
 	                        this$1.unlink(newPath, function (e) {
 	                            if (e) {
-	                                // newPath is probably a directory.
 	                                error(err);
 	                            }
 	                            else {
-	                                // Recur, now that newPath doesn't exist.
 	                                this$1.rename(oldPath, newPath, cb);
 	                            }
 	                        });
@@ -8002,20 +7737,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	                });
 	            }, error);
 	        };
-	        // We don't know if oldPath is a *file* or a *directory*, and there's no
-	        // way to stat items. So launch both requests, see which one succeeds.
 	        root.getFile(oldPath, {}, success, error);
 	        root.getDirectory(oldPath, {}, success, error);
 	    };
 	    HTML5FS.prototype.stat = function stat (path$$1, isLstat, cb) {
 	        var this$1 = this;
 	
-	        // Throw an error if the entry doesn't exist, because then there's nothing
-	        // to stat.
 	        var opts = {
 	            create: false
 	        };
-	        // Called when the path has been successfully loaded as a file.
 	        var loadAsFile = function (entry) {
 	            var fileFromEntry = function (file) {
 	                var stat = new Stats(FileType.FILE, file.size);
@@ -8023,32 +7753,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	            };
 	            entry.file(fileFromEntry, failedToLoad);
 	        };
-	        // Called when the path has been successfully loaded as a directory.
 	        var loadAsDir = function (dir$$1) {
-	            // Directory entry size can't be determined from the HTML5 FS API, and is
-	            // implementation-dependant anyway, so a dummy value is used.
 	            var size = 4096;
 	            var stat = new Stats(FileType.DIRECTORY, size);
 	            cb(null, stat);
 	        };
-	        // Called when the path couldn't be opened as a directory or a file.
 	        var failedToLoad = function (err) {
-	            cb(convertError$1(err, path$$1, false /* Unknown / irrelevant */));
+	            cb(convertError$1(err, path$$1, false));
 	        };
-	        // Called when the path couldn't be opened as a file, but might still be a
-	        // directory.
 	        var failedToLoadAsFile = function () {
 	            this$1.fs.root.getDirectory(path$$1, opts, loadAsDir, failedToLoad);
 	        };
-	        // No method currently exists to determine whether a path refers to a
-	        // directory or a file, so this implementation tries both and uses the first
-	        // one that succeeds.
 	        this.fs.root.getFile(path$$1, opts, loadAsFile, failedToLoadAsFile);
 	    };
 	    HTML5FS.prototype.open = function open (p, flags, mode, cb) {
 	        var this$1 = this;
 	
-	        // XXX: err is a DOMError
 	        var error = function (err) {
 	            if (err.name === 'InvalidModificationError' && flags.isExclusive()) {
 	                cb(ApiError.EEXIST(p));
@@ -8061,7 +7781,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            create: flags.pathNotExistsAction() === ActionType.CREATE_FILE,
 	            exclusive: flags.isExclusive()
 	        }, function (entry) {
-	            // Try to fetch corresponding file.
 	            entry.file(function (file) {
 	                var reader = new FileReader();
 	                reader.onloadend = function (event) {
@@ -8081,7 +7800,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    HTML5FS.prototype.rmdir = function rmdir (path$$1, cb) {
 	        var this$1 = this;
 	
-	        // Check if directory is non-empty, first.
 	        this.readdir(path$$1, function (e, files) {
 	            if (e) {
 	                cb(e);
@@ -8095,8 +7813,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 	    HTML5FS.prototype.mkdir = function mkdir (path$$1, mode, cb) {
-	        // Create the directory, but throw an error if it already exists, as per
-	        // mkdir(1)
 	        var opts = {
 	            create: true,
 	            exclusive: true
@@ -8145,11 +7861,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var error = function (err) {
 	            cb(convertError$1(err, path$$1, true));
 	        };
-	        // Grab the requested directory.
 	        this.fs.root.getDirectory(path$$1, { create: false }, function (dirEntry) {
 	            var reader = dirEntry.createReader();
 	            var entries = [];
-	            // Call the reader.readEntries() until no more results are returned.
 	            var readEntries = function () {
 	                reader.readEntries((function (results) {
 	                    if (results.length) {
@@ -8183,7 +7897,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var error = function (err) {
 	            cb(convertError$1(err, path$$1, !isFile));
 	        };
-	        // Deleting the entry, so don't create it
 	        var opts = {
 	            create: false
 	        };
@@ -8242,7 +7955,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Get the size of this Inode, in bytes.
 	 */
 	Inode.prototype.getSize = function getSize () {
-	    // ASSUMPTION: ID is ASCII (1 byte per char).
 	    return 30 + this.id.length;
 	};
 	/**
@@ -8296,8 +8008,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    return hasChanged;
 	};
-	// XXX: Copied from Stats. Should reconcile these two into something more
-	//  compact.
 	/**
 	 * @return [Boolean] True if this item is a file.
 	 */
@@ -8334,7 +8044,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @hidden
 	 */
 	function GenerateRandomID() {
-	    // From http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
 	    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
 	        var r = Math.random() * 16 | 0;
 	        var v = c === 'x' ? r : (r & 0x3 | 0x8);
@@ -8399,17 +8108,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	SimpleSyncRWTransaction.prototype.abort = function abort () {
 	        var this$1 = this;
 	
-	    // Rollback old values.
 	    for (var i = 0, list = this$1.modifiedKeys; i < list.length; i += 1) {
 	        var key = list[i];
 	
 	            var value = this$1.originalData[key];
 	        if (!value) {
-	            // Key didn't exist.
 	            this$1.store.del(key);
 	        }
 	        else {
-	            // Key existed. Store old value.
 	            this$1.store.put(key, value, true);
 	        }
 	    }
@@ -8421,7 +8127,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * on during the transaction.
 	 */
 	SimpleSyncRWTransaction.prototype.stashOldValue = function stashOldValue (key, value) {
-	    // Keep only the earliest value in the transaction.
 	    if (!this.originalData.hasOwnProperty(key)) {
 	        this.originalData[key] = value;
 	    }
@@ -8471,7 +8176,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function SyncKeyValueFileSystem(options) {
 	        SynchronousFileSystem$$1.call(this);
 	        this.store = options.store;
-	        // INVARIANT: Ensure that the root exists.
 	        this.makeRootDirectory();
 	    }
 	
@@ -8490,30 +8194,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    SyncKeyValueFileSystem.prototype.empty = function empty () {
 	        this.store.clear();
-	        // INVARIANT: Root always exists.
 	        this.makeRootDirectory();
 	    };
 	    SyncKeyValueFileSystem.prototype.renameSync = function renameSync (oldPath, newPath) {
 	        var tx = this.store.beginTransaction('readwrite'), oldParent = path.dirname(oldPath), oldName = path.basename(oldPath), newParent = path.dirname(newPath), newName = path.basename(newPath), 
-	        // Remove oldPath from parent's directory listing.
 	        oldDirNode = this.findINode(tx, oldParent), oldDirList = this.getDirListing(tx, oldParent, oldDirNode);
 	        if (!oldDirList[oldName]) {
 	            throw ApiError.ENOENT(oldPath);
 	        }
 	        var nodeId = oldDirList[oldName];
 	        delete oldDirList[oldName];
-	        // Invariant: Can't move a folder inside itself.
-	        // This funny little hack ensures that the check passes only if oldPath
-	        // is a subpath of newParent. We append '/' to avoid matching folders that
-	        // are a substring of the bottom-most folder in the path.
 	        if ((newParent + '/').indexOf(oldPath + '/') === 0) {
 	            throw new ApiError(ErrorCode.EBUSY, oldParent);
 	        }
-	        // Add newPath to parent's directory listing.
 	        var newDirNode, newDirList;
 	        if (newParent === oldParent) {
-	            // Prevent us from re-grabbing the same directory listing, which still
-	            // contains oldName.
 	            newDirNode = oldDirNode;
 	            newDirList = oldDirList;
 	        }
@@ -8522,7 +8217,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            newDirList = this.getDirListing(tx, newParent, newDirNode);
 	        }
 	        if (newDirList[newName]) {
-	            // If it's a file, delete it.
 	            var newNameNode = this.getINode(tx, newPath, newDirList[newName]);
 	            if (newNameNode.isFile()) {
 	                try {
@@ -8535,12 +8229,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	            }
 	            else {
-	                // If it's a directory, throw a permissions error.
 	                throw ApiError.EPERM(newPath);
 	            }
 	        }
 	        newDirList[newName] = nodeId;
-	        // Commit the two changed directory listings.
 	        try {
 	            tx.put(oldDirNode.id, Buffer.from(JSON.stringify(oldDirList)), true);
 	            tx.put(newDirNode.id, Buffer.from(JSON.stringify(newDirList)), true);
@@ -8552,12 +8244,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        tx.commit();
 	    };
 	    SyncKeyValueFileSystem.prototype.statSync = function statSync (p, isLstat) {
-	        // Get the inode to the item, convert it into a Stats object.
 	        return this.findINode(this.store.beginTransaction('readonly'), p).toStats();
 	    };
 	    SyncKeyValueFileSystem.prototype.createFileSync = function createFileSync (p, flag, mode) {
 	        var tx = this.store.beginTransaction('readwrite'), data = emptyBuffer(), newFile = this.commitNewFile(tx, p, FileType.FILE, mode, data);
-	        // Open the file.
 	        return new SyncKeyValueFile(this, p, flag, newFile.toStats(), data);
 	    };
 	    SyncKeyValueFileSystem.prototype.openFileSync = function openFileSync (p, flag) {
@@ -8571,7 +8261,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.removeEntry(p, false);
 	    };
 	    SyncKeyValueFileSystem.prototype.rmdirSync = function rmdirSync (p) {
-	        // Check first if directory is empty.
 	        if (this.readdirSync(p).length > 0) {
 	            throw ApiError.ENOTEMPTY(p);
 	        }
@@ -8588,15 +8277,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return Object.keys(this.getDirListing(tx, p, this.findINode(tx, p)));
 	    };
 	    SyncKeyValueFileSystem.prototype._syncSync = function _syncSync (p, data, stats) {
-	        // @todo Ensure mtime updates properly, and use that to determine if a data
-	        //       update is required.
 	        var tx = this.store.beginTransaction('readwrite'), 
-	        // We use the _findInode helper because we actually need the INode id.
 	        fileInodeId = this._findINode(tx, path.dirname(p), path.basename(p)), fileInode = this.getINode(tx, p, fileInodeId), inodeChanged = fileInode.update(stats);
 	        try {
-	            // Sync data.
 	            tx.put(fileInode.id, data, true);
-	            // Sync metadata.
 	            if (inodeChanged) {
 	                tx.put(fileInodeId, fileInode.toBuffer(), true);
 	            }
@@ -8613,12 +8297,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    SyncKeyValueFileSystem.prototype.makeRootDirectory = function makeRootDirectory () {
 	        var tx = this.store.beginTransaction('readwrite');
 	        if (tx.get(ROOT_NODE_ID) === undefined) {
-	            // Create new inode.
 	            var currTime = (new Date()).getTime(), 
-	            // Mode 0666
 	            dirInode = new Inode(GenerateRandomID(), 4096, 511 | FileType.DIRECTORY, currTime, currTime, currTime);
-	            // If the root doesn't exist, the first random ID shouldn't exist,
-	            // either.
 	            tx.put(dirInode.id, getEmptyDirNode(), false);
 	            tx.put(ROOT_NODE_ID, dirInode.toBuffer(), false);
 	            tx.commit();
@@ -8635,9 +8315,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var this$1 = this;
 	
 	        var readDirectory = function (inode) {
-	            // Get the root's directory listing.
 	            var dirList = this$1.getDirListing(tx, parent, inode);
-	            // Get the file's ID.
 	            if (dirList[filename]) {
 	                return dirList[filename];
 	            }
@@ -8647,11 +8325,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	        if (parent === '/') {
 	            if (filename === '') {
-	                // BASE CASE #1: Return the root's ID.
 	                return ROOT_NODE_ID;
 	            }
 	            else {
-	                // BASE CASE #2: Find the item in the root ndoe.
 	                return readDirectory(this.getINode(tx, parent, ROOT_NODE_ID));
 	            }
 	        }
@@ -8710,7 +8386,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return currId;
 	            }
 	            catch (e) {
-	                // Ignore and reroll.
 	            }
 	        }
 	        throw new ApiError(ErrorCode.EIO, 'Unable to commit data to key-value store.');
@@ -8727,24 +8402,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    SyncKeyValueFileSystem.prototype.commitNewFile = function commitNewFile (tx, p, type, mode, data) {
 	        var parentDir = path.dirname(p), fname = path.basename(p), parentNode = this.findINode(tx, parentDir), dirListing = this.getDirListing(tx, parentDir, parentNode), currTime = (new Date()).getTime();
-	        // Invariant: The root always exists.
-	        // If we don't check this prior to taking steps below, we will create a
-	        // file with name '' in root should p == '/'.
 	        if (p === '/') {
 	            throw ApiError.EEXIST(p);
 	        }
-	        // Check if file already exists.
 	        if (dirListing[fname]) {
 	            throw ApiError.EEXIST(p);
 	        }
 	        var fileNode;
 	        try {
-	            // Commit data.
 	            var dataId = this.addNewNode(tx, data);
 	            fileNode = new Inode(dataId, data.length, mode | type, currTime, currTime, currTime);
-	            // Commit file node.
 	            var fileNodeId = this.addNewNode(tx, fileNode.toBuffer());
-	            // Update and commit parent directory listing.
 	            dirListing[fname] = fileNodeId;
 	            tx.put(parentNode.id, Buffer.from(JSON.stringify(dirListing)), true);
 	        }
@@ -8766,10 +8434,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!parentListing[fileName]) {
 	            throw ApiError.ENOENT(p);
 	        }
-	        // Remove from directory listing of parent.
 	        var fileNodeId = parentListing[fileName];
 	        delete parentListing[fileName];
-	        // Get file inode.
 	        var fileNode = this.getINode(tx, p, fileNodeId);
 	        if (!isDir && fileNode.isDirectory()) {
 	            throw ApiError.EISDIR(p);
@@ -8778,18 +8444,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            throw ApiError.ENOTDIR(p);
 	        }
 	        try {
-	            // Delete data.
 	            tx.del(fileNode.id);
-	            // Delete node.
 	            tx.del(fileNodeId);
-	            // Update directory listing.
 	            tx.put(parentNode.id, Buffer.from(JSON.stringify(parentListing)), true);
 	        }
 	        catch (e) {
 	            tx.abort();
 	            throw e;
 	        }
-	        // Success.
 	        tx.commit();
 	    };
 	
@@ -8844,7 +8506,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    AsyncKeyValueFileSystem.prototype.init = function init (store, cb) {
 	        this.store = store;
-	        // INVARIANT: Ensure that the root exists.
 	        this.makeRootDirectory(cb);
 	    };
 	    AsyncKeyValueFileSystem.prototype.getName = function getName () { return this.store.name(); };
@@ -8860,7 +8521,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        this.store.clear(function (e) {
 	            if (noError(e, cb)) {
-	                // INVARIANT: Root always exists.
 	                this$1.makeRootDirectory(cb);
 	            }
 	        });
@@ -8874,10 +8534,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var inodes = {};
 	        var lists = {};
 	        var errorOccurred = false;
-	        // Invariant: Can't move a folder inside itself.
-	        // This funny little hack ensures that the check passes only if oldPath
-	        // is a subpath of newParent. We append '/' to avoid matching folders that
-	        // are a substring of the bottom-most folder in the path.
 	        if ((newParent + '/').indexOf(oldPath + '/') === 0) {
 	            return cb(new ApiError(ErrorCode.EBUSY, oldParent));
 	        }
@@ -8887,31 +8543,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * retrieved both the old and new parent's inodes and listings.
 	         */
 	        var theOleSwitcharoo = function () {
-	            // Sanity check: Ensure both paths are present, and no error has occurred.
 	            if (errorOccurred || !lists.hasOwnProperty(oldParent) || !lists.hasOwnProperty(newParent)) {
 	                return;
 	            }
 	            var oldParentList = lists[oldParent], oldParentINode = inodes[oldParent], newParentList = lists[newParent], newParentINode = inodes[newParent];
-	            // Delete file from old parent.
 	            if (!oldParentList[oldName]) {
 	                cb(ApiError.ENOENT(oldPath));
 	            }
 	            else {
 	                var fileId = oldParentList[oldName];
 	                delete oldParentList[oldName];
-	                // Finishes off the renaming process by adding the file to the new
-	                // parent.
 	                var completeRename = function () {
 	                    newParentList[newName] = fileId;
-	                    // Commit old parent's list.
 	                    tx.put(oldParentINode.id, Buffer.from(JSON.stringify(oldParentList)), true, function (e) {
 	                        if (noErrorTx(e, tx, cb)) {
 	                            if (oldParent === newParent) {
-	                                // DONE!
 	                                tx.commit(cb);
 	                            }
 	                            else {
-	                                // Commit new parent's list.
 	                                tx.put(newParentINode.id, Buffer.from(JSON.stringify(newParentList)), true, function (e) {
 	                                    if (noErrorTx(e, tx, cb)) {
 	                                        tx.commit(cb);
@@ -8922,12 +8571,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    });
 	                };
 	                if (newParentList[newName]) {
-	                    // 'newPath' already exists. Check if it's a file or a directory, and
-	                    // act accordingly.
 	                    this$1.getINode(tx, newPath, newParentList[newName], function (e, inode) {
 	                        if (noErrorTx(e, tx, cb)) {
 	                            if (inode.isFile()) {
-	                                // Delete the file and continue.
 	                                tx.del(inode.id, function (e) {
 	                                    if (noErrorTx(e, tx, cb)) {
 	                                        tx.del(newParentList[newName], function (e) {
@@ -8939,7 +8585,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                });
 	                            }
 	                            else {
-	                                // Can't overwrite a directory using rename.
 	                                tx.abort(function (e) {
 	                                    cb(ApiError.EPERM(newPath));
 	                                });
@@ -8965,7 +8610,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            cb(e);
 	                        });
 	                    }
-	                    // If error has occurred already, just stop here.
 	                }
 	                else {
 	                    inodes[p] = node;
@@ -9001,10 +8645,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var this$1 = this;
 	
 	        var tx = this.store.beginTransaction('readonly');
-	        // Step 1: Grab the file's inode.
 	        this.findINode(tx, p, function (e, inode) {
 	            if (noError(e, cb)) {
-	                // Step 2: Grab the file's data.
 	                tx.get(inode.id, function (e, data) {
 	                    if (noError(e, cb)) {
 	                        if (data === undefined) {
@@ -9024,7 +8666,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    AsyncKeyValueFileSystem.prototype.rmdir = function rmdir (p, cb) {
 	        var this$1 = this;
 	
-	        // Check first if directory is empty.
 	        this.readdir(p, function (err, files) {
 	            if (err) {
 	                cb(err);
@@ -9058,20 +8699,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    AsyncKeyValueFileSystem.prototype._sync = function _sync (p, data, stats, cb) {
 	        var this$1 = this;
 	
-	        // @todo Ensure mtime updates properly, and use that to determine if a data
-	        //       update is required.
 	        var tx = this.store.beginTransaction('readwrite');
-	        // Step 1: Get the file node's ID.
 	        this._findINode(tx, path.dirname(p), path.basename(p), function (e, fileInodeId) {
 	            if (noErrorTx(e, tx, cb)) {
-	                // Step 2: Get the file inode.
 	                this$1.getINode(tx, p, fileInodeId, function (e, fileInode) {
 	                    if (noErrorTx(e, tx, cb)) {
 	                        var inodeChanged = fileInode.update(stats);
-	                        // Step 3: Sync the data.
 	                        tx.put(fileInode.id, data, true, function (e) {
 	                            if (noErrorTx(e, tx, cb)) {
-	                                // Step 4: Sync the metadata (if it changed)!
 	                                if (inodeChanged) {
 	                                    tx.put(fileInodeId, fileInode.toBuffer(), true, function (e) {
 	                                        if (noErrorTx(e, tx, cb)) {
@@ -9080,7 +8715,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                    });
 	                                }
 	                                else {
-	                                    // No need to sync metadata; return.
 	                                    tx.commit(cb);
 	                                }
 	                            }
@@ -9097,12 +8731,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var tx = this.store.beginTransaction('readwrite');
 	        tx.get(ROOT_NODE_ID, function (e, data) {
 	            if (e || data === undefined) {
-	                // Create new inode.
 	                var currTime = (new Date()).getTime(), 
-	                // Mode 0666
 	                dirInode = new Inode(GenerateRandomID(), 4096, 511 | FileType.DIRECTORY, currTime, currTime, currTime);
-	                // If the root doesn't exist, the first random ID shouldn't exist,
-	                // either.
 	                tx.put(dirInode.id, getEmptyDirNode(), false, function (e) {
 	                    if (noErrorTx(e, tx, cb)) {
 	                        tx.put(ROOT_NODE_ID, dirInode.toBuffer(), false, function (e) {
@@ -9117,7 +8747,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                });
 	            }
 	            else {
-	                // We're good.
 	                tx.commit(cb);
 	            }
 	        });
@@ -9145,15 +8774,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	        if (parent === '/') {
 	            if (filename === '') {
-	                // BASE CASE #1: Return the root's ID.
 	                cb(null, ROOT_NODE_ID);
 	            }
 	            else {
-	                // BASE CASE #2: Find the item in the root node.
 	                this.getINode(tx, parent, ROOT_NODE_ID, function (e, inode) {
 	                    if (noError(e, cb)) {
 	                        this$1.getDirListing(tx, parent, inode, function (e, dirList) {
-	                            // handle_directory_listings will handle e for us.
 	                            handleDirectoryListings(e, inode, dirList);
 	                        });
 	                    }
@@ -9161,8 +8787,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	        else {
-	            // Get the parent directory's INode, and find the file in its directory
-	            // listing.
 	            this.findINodeAndDirListing(tx, parent, handleDirectoryListings);
 	        }
 	    };
@@ -9215,9 +8839,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        cb(null, JSON.parse(data.toString()));
 	                    }
 	                    catch (e) {
-	                        // Occurs when data is undefined, or corresponds to something other
-	                        // than a directory listing. The latter should never occur unless
-	                        // the file system is corrupted.
 	                        cb(ApiError.ENOENT(p));
 	                    }
 	                }
@@ -9250,18 +8871,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var retries = 0, currId;
 	        var reroll = function () {
 	            if (++retries === 5) {
-	                // Max retries hit. Return with an error.
 	                cb(new ApiError(ErrorCode.EIO, 'Unable to commit data to key-value store.'));
 	            }
 	            else {
-	                // Try again.
 	                currId = GenerateRandomID();
 	                tx.put(currId, data, false, function (e, committed) {
 	                    if (e || !committed) {
 	                        reroll();
 	                    }
 	                    else {
-	                        // Successfully stored under 'currId'.
 	                        cb(null, currId);
 	                    }
 	                });
@@ -9283,35 +8901,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var this$1 = this;
 	
 	        var parentDir = path.dirname(p), fname = path.basename(p), currTime = (new Date()).getTime();
-	        // Invariant: The root always exists.
-	        // If we don't check this prior to taking steps below, we will create a
-	        // file with name '' in root should p == '/'.
 	        if (p === '/') {
 	            return cb(ApiError.EEXIST(p));
 	        }
-	        // Let's build a pyramid of code!
-	        // Step 1: Get the parent directory's inode and directory listing
 	        this.findINodeAndDirListing(tx, parentDir, function (e, parentNode, dirListing) {
 	            if (noErrorTx(e, tx, cb)) {
 	                if (dirListing[fname]) {
-	                    // File already exists.
 	                    tx.abort(function () {
 	                        cb(ApiError.EEXIST(p));
 	                    });
 	                }
 	                else {
-	                    // Step 2: Commit data to store.
 	                    this$1.addNewNode(tx, data, function (e, dataId) {
 	                        if (noErrorTx(e, tx, cb)) {
-	                            // Step 3: Commit the file's inode to the store.
 	                            var fileInode = new Inode(dataId, data.length, mode | type, currTime, currTime, currTime);
 	                            this$1.addNewNode(tx, fileInode.toBuffer(), function (e, fileInodeId) {
 	                                if (noErrorTx(e, tx, cb)) {
-	                                    // Step 4: Update parent directory's listing.
 	                                    dirListing[fname] = fileInodeId;
 	                                    tx.put(parentNode.id, Buffer.from(JSON.stringify(dirListing)), true, function (e) {
 	                                        if (noErrorTx(e, tx, cb)) {
-	                                            // Step 5: Commit and return the new inode.
 	                                            tx.commit(function (e) {
 	                                                if (noErrorTx(e, tx, cb)) {
 	                                                    cb(null, fileInode);
@@ -9337,7 +8945,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var this$1 = this;
 	
 	        var tx = this.store.beginTransaction('readwrite'), parent = path.dirname(p), fileName = path.basename(p);
-	        // Step 1: Get parent directory's node and directory listing.
 	        this.findINodeAndDirListing(tx, parent, function (e, parentNode, parentListing) {
 	            if (noErrorTx(e, tx, cb)) {
 	                if (!parentListing[fileName]) {
@@ -9346,10 +8953,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    });
 	                }
 	                else {
-	                    // Remove from directory listing of parent.
 	                    var fileNodeId = parentListing[fileName];
 	                    delete parentListing[fileName];
-	                    // Step 2: Get file inode.
 	                    this$1.getINode(tx, p, fileNodeId, function (e, fileNode) {
 	                        if (noErrorTx(e, tx, cb)) {
 	                            if (!isDir && fileNode.isDirectory()) {
@@ -9363,13 +8968,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                });
 	                            }
 	                            else {
-	                                // Step 3: Delete data.
 	                                tx.del(fileNode.id, function (e) {
 	                                    if (noErrorTx(e, tx, cb)) {
-	                                        // Step 4: Delete node.
 	                                        tx.del(fileNodeId, function (e) {
 	                                            if (noErrorTx(e, tx, cb)) {
-	                                                // Step 5: Update directory listing.
 	                                                tx.put(parentNode.id, Buffer.from(JSON.stringify(parentListing)), true, function (e) {
 	                                                    if (noErrorTx(e, tx, cb)) {
 	                                                        tx.commit(cb);
@@ -9461,7 +9063,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        case "QuotaExceededError":
 	            return new ApiError(ErrorCode.ENOSPC, message);
 	        default:
-	            // The rest do not seem to map cleanly to standard error codes.
 	            return new ApiError(ErrorCode.EIO, message);
 	    }
 	}
@@ -9476,7 +9077,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if ( message === void 0 ) message = null;
 	
 	    return function (e) {
-	        // Prevent the error from canceling the transaction.
 	        e.preventDefault();
 	        cb(new ApiError(code, message !== null ? message : undefined));
 	    };
@@ -9493,14 +9093,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var r = this.store.get(key);
 	        r.onerror = onErrorHandler(cb);
 	        r.onsuccess = function (event) {
-	            // IDB returns the value 'undefined' when you try to get keys that
-	            // don't exist. The caller expects this behavior.
 	            var result = event.target.result;
 	            if (result === undefined) {
 	                cb(null, result);
 	            }
 	            else {
-	                // IDB data is stored as an ArrayBuffer
 	                cb(null, arrayBuffer2Buffer(result));
 	            }
 	        };
@@ -9528,10 +9125,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                r = this.store.put(arraybuffer, key);
 	            }
 	            else {
-	                // 'add' will never overwrite an existing key.
 	                r = this.store.add(arraybuffer, key);
 	            }
-	            // XXX: NEED TO RETURN FALSE WHEN ADD HAS A KEY CONFLICT. NO ERROR.
 	            r.onerror = onErrorHandler(cb);
 	            r.onsuccess = function (event) {
 	                cb(null, true);
@@ -9543,9 +9138,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	    IndexedDBRWTransaction.prototype.del = function del (key, cb) {
 	        try {
-	            // NOTE: IE8 has a bug with identifiers named 'delete' unless used as a string
-	            // like this.
-	            // http://stackoverflow.com/a/26479152
 	            var r = this.store['delete'](key);
 	            r.onerror = onErrorHandler(cb);
 	            r.onsuccess = function (event) {
@@ -9557,7 +9149,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    IndexedDBRWTransaction.prototype.commit = function commit (cb) {
-	        // Return to the event loop to commit the transaction.
 	        setTimeout(cb, 0);
 	    };
 	    IndexedDBRWTransaction.prototype.abort = function abort (cb) {
@@ -9583,8 +9174,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var openReq = indexedDB.open(this.storeName, 1);
 	    openReq.onupgradeneeded = function (event) {
 	        var db = event.target.result;
-	        // Huh. This should never happen; we're at version 1. Why does another
-	        // database exist?
 	        if (db.objectStoreNames.contains(this$1.storeName)) {
 	            db.deleteObjectStore(this$1.storeName);
 	        }
@@ -9603,7 +9192,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    try {
 	        var tx = this.db.transaction(this.storeName, 'readwrite'), objectStore = tx.objectStore(this.storeName), r = objectStore.clear();
 	        r.onsuccess = function (event) {
-	            // Use setTimeout to commit transaction.
 	            setTimeout(cb, 0);
 	        };
 	        r.onerror = onErrorHandler(cb);
@@ -9655,15 +9243,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Constructs an IndexedDB file system with the given options.
 	     */
 	    IndexedDBFileSystem.Create = function Create (opts, cb) {
-	        // tslint:disable-next-line:no-unused-new
 	        new IndexedDBFileSystem(cb, opts.storeName, false);
-	        // tslint:enable-next-line:no-unused-new
 	    };
 	    IndexedDBFileSystem.isAvailable = function isAvailable () {
-	        // In Safari's private browsing mode, indexedDB.open returns NULL.
-	        // In Firefox, it throws an exception.
-	        // In Chrome, it "just works", and clears the database when you leave the page.
-	        // Untested: Opera, IE.
 	        try {
 	            return typeof indexedDB !== 'undefined' && null !== indexedDB.open("__browserfs_test__");
 	        }
@@ -9697,13 +9279,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    supportsBinaryString = global$1.localStorage.getItem("__test__") === String.fromCharCode(0xD800);
 	}
 	catch (e) {
-	    // IE throws an exception.
 	    supportsBinaryString = false;
 	}
 	binaryEncoding = supportsBinaryString ? 'binary_string' : 'binary_string_ie';
 	if (!Buffer.isEncoding(binaryEncoding)) {
-	    // Fallback for non BrowserFS implementations of buffer that lack a
-	    // binary_string format.
 	    binaryEncoding = "base64";
 	}
 	/**
@@ -9718,7 +9297,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    global$1.localStorage.clear();
 	};
 	LocalStorageStore.prototype.beginTransaction = function beginTransaction (type) {
-	    // No need to differentiate.
 	    return new SimpleSyncRWTransaction(this);
 	};
 	LocalStorageStore.prototype.get = function get (key) {
@@ -9729,15 +9307,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }
 	    catch (e) {
-	        // Do nothing.
 	    }
-	    // Key doesn't exist, or a failure occurred.
 	    return undefined;
 	};
 	LocalStorageStore.prototype.put = function put (key, data, overwrite) {
 	    try {
 	        if (!overwrite && global$1.localStorage.getItem(key) !== null) {
-	            // Don't want to overwrite the key!
 	            return false;
 	        }
 	        global$1.localStorage.setItem(key, data.toString(binaryEncoding));
@@ -9828,13 +9403,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var MountableFileSystem = (function (BaseFileSystem$$1) {
 	    function MountableFileSystem() {
 	        BaseFileSystem$$1.call(this);
-	        // Contains the list of mount points in mntMap, sorted by string length in decreasing order.
-	        // Ensures that we scan the most specific mount points for a match first, which lets us
-	        // nest mount points.
 	        this.mountList = [];
 	        this.mntMap = {};
-	        // The InMemory file system serves purely to provide directory listings for
-	        // mounted file systems.
 	        this.rootFs = new InMemoryFileSystem();
 	    }
 	
@@ -9901,7 +9471,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var mountList = this.mountList, len = mountList.length;
 	        for (var i = 0; i < len; i++) {
 	            var mountPoint = mountList[i];
-	            // We know path is normalized, so it is a substring of the mount point.
 	            if (mountPoint.length <= path$$1.length && path$$1.indexOf(mountPoint) === 0) {
 	                path$$1 = path$$1.substr(mountPoint.length > 1 ? mountPoint.length : 0);
 	                if (path$$1 === '') {
@@ -9910,10 +9479,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return { fs: this$1.mntMap[mountPoint], path: path$$1 };
 	            }
 	        }
-	        // Query our root file system.
 	        return { fs: this.rootFs, path: path$$1 };
 	    };
-	    // Global information methods
 	    MountableFileSystem.prototype.getName = function getName () {
 	        return MountableFileSystem.Name;
 	    };
@@ -9924,7 +9491,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return false;
 	    };
 	    MountableFileSystem.prototype.supportsLinks = function supportsLinks () {
-	        // I'm not ready for cross-FS links yet.
 	        return false;
 	    };
 	    MountableFileSystem.prototype.supportsProps = function supportsProps () {
@@ -9946,14 +9512,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        return err;
 	    };
-	    // The following methods involve multiple file systems, and thus have custom
-	    // logic.
-	    // Note that we go through the Node API to use its robust default argument
-	    // processing.
 	    MountableFileSystem.prototype.rename = function rename (oldPath, newPath, cb) {
 	        var this$1 = this;
 	
-	        // Scenario 1: old and new are on same FS.
 	        var fs1rv = this._getFs(oldPath);
 	        var fs2rv = this._getFs(newPath);
 	        if (fs1rv.fs === fs2rv.fs) {
@@ -9964,8 +9525,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                cb(e);
 	            });
 	        }
-	        // Scenario 2: Different file systems.
-	        // Read old file, write new file, delete old file.
 	        return _fsMock.readFile(oldPath, function (err, data) {
 	            if (err) {
 	                return cb(err);
@@ -9979,7 +9538,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 	    MountableFileSystem.prototype.renameSync = function renameSync (oldPath, newPath) {
-	        // Scenario 1: old and new are on same FS.
 	        var fs1rv = this._getFs(oldPath);
 	        var fs2rv = this._getFs(newPath);
 	        if (fs1rv.fs === fs2rv.fs) {
@@ -9991,24 +9549,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	                throw e;
 	            }
 	        }
-	        // Scenario 2: Different file systems.
 	        var data = _fsMock.readFileSync(oldPath);
 	        _fsMock.writeFileSync(newPath, data);
 	        return _fsMock.unlinkSync(oldPath);
 	    };
 	    MountableFileSystem.prototype.readdirSync = function readdirSync (p) {
 	        var fsInfo = this._getFs(p);
-	        // If null, rootfs did not have the directory
-	        // (or the target FS is the root fs).
 	        var rv = null;
-	        // Mount points are all defined in the root FS.
-	        // Ensure that we list those, too.
 	        if (fsInfo.fs !== this.rootFs) {
 	            try {
 	                rv = this.rootFs.readdirSync(p);
 	            }
 	            catch (e) {
-	                // Ignore.
 	            }
 	        }
 	        try {
@@ -10017,7 +9569,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return rv2;
 	            }
 	            else {
-	                // Filter out duplicates.
 	                return rv2.concat(rv.filter(function (val) { return rv2.indexOf(val) === -1; }));
 	            }
 	        }
@@ -10026,7 +9577,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                throw this.standardizeError(e, fsInfo.path, p);
 	            }
 	            else {
-	                // The root FS had something.
 	                return rv;
 	            }
 	        }
@@ -10040,7 +9590,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                try {
 	                    var rv = this$1.rootFs.readdirSync(p);
 	                    if (files) {
-	                        // Filter out duplicates.
 	                        files = files.concat(rv.filter(function (val) { return files.indexOf(val) === -1; }));
 	                    }
 	                    else {
@@ -10048,14 +9597,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                }
 	                catch (e) {
-	                    // Root FS and target FS did not have directory.
 	                    if (err) {
 	                        return cb(this$1.standardizeError(err, fsInfo.path, p));
 	                    }
 	                }
 	            }
 	            else if (err) {
-	                // Root FS and target FS are the same, and did not have directory.
 	                return cb(this$1.standardizeError(err, fsInfo.path, p));
 	            }
 	            cb(null, files);
@@ -10162,15 +9709,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @hidden
 	 */
 	var fsCmdMap = [
-	    // 1 arg functions
 	    ['exists', 'unlink', 'readlink'],
-	    // 2 arg functions
 	    ['stat', 'mkdir', 'realpath', 'truncate'],
-	    // 3 arg functions
 	    ['open', 'readFile', 'chmod', 'utimes'],
-	    // 4 arg functions
 	    ['chown'],
-	    // 5 arg functions
 	    ['writeFile', 'appendFile']
 	];
 	for (var i = 0; i < fsCmdMap.length; i++) {
@@ -10234,7 +9776,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }
 	    else if (gScope.MessageChannel) {
-	        // WebWorker MessageChannel
 	        var channel = new gScope.MessageChannel();
 	        channel.port1.onmessage = function (event) {
 	            if (timeouts.length > 0) {
@@ -10275,12 +9816,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        throw new Error('unlock of a non-locked mutex');
 	    }
 	    var next = this._waiters.shift();
-	    // don't unlock - we want to queue up next for the
-	    // _end_ of the current task execution, but we don't
-	    // want it to be called inline with whatever the
-	    // current stack is.  This way we still get the nice
-	    // behavior that an unlock immediately followed by a
-	    // lock won't cause starvation.
 	    if (next) {
 	        setImmediate$3(next);
 	        return;
@@ -10318,11 +9853,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return this._fs;
 	};
 	LockedFS.prototype.initialize = function initialize (cb) {
-	    // FIXME: check to see if FS supports initialization
 	    this._fs.initialize(cb);
 	};
 	LockedFS.prototype.diskSpace = function diskSpace (p, cb) {
-	    // FIXME: should this lock?
 	    this._fs.diskSpace(p, cb);
 	};
 	LockedFS.prototype.isReadOnly = function isReadOnly () {
@@ -10710,12 +10243,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this._initializeCallbacks = [];
 	        this._deletedFiles = {};
 	        this._deleteLog = '';
-	        // If 'true', we have scheduled a delete log update.
 	        this._deleteLogUpdatePending = false;
-	        // If 'true', a delete log update is needed after the scheduled delete log
-	        // update finishes.
 	        this._deleteLogUpdateNeeded = false;
-	        // If there was an error updating the delete log...
 	        this._deleteLogError = null;
 	        this._writable = writable;
 	        this._readable = readable;
@@ -10765,19 +10294,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this$1._initializeCallbacks = [];
 	            callbackArray.forEach((function (cb) { return cb(e); }));
 	        };
-	        // if we're already initialized, immediately invoke the callback
 	        if (this._isInitialized) {
 	            return cb();
 	        }
 	        callbackArray.push(cb);
-	        // The first call to initialize initializes, the rest wait for it to complete.
 	        if (callbackArray.length !== 1) {
 	            return;
 	        }
-	        // Read deletion log, process into metadata.
 	        this._writable.readFile(deletionLogPath, 'utf8', getFlag('r'), function (err, data) {
 	            if (err) {
-	                // ENOENT === Newly-instantiated file system, and thus empty log.
 	                if (err.errno !== ErrorCode.ENOENT) {
 	                    return end(err);
 	                }
@@ -10810,7 +10335,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (oldPath === deletionLogPath || newPath === deletionLogPath) {
 	            return cb(ApiError.EPERM('Cannot rename deletion log.'));
 	        }
-	        // nothing to do if paths match
 	        if (oldPath === newPath) {
 	            return cb();
 	        }
@@ -10820,10 +10344,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            return this$1.stat(newPath, false, function (newErr, newStats) {
 	                var self = this$1;
-	                // precondition: both oldPath and newPath exist and are dirs.
-	                // decreases: |files|
-	                // Need to move *every file/folder* currently stored on
-	                // readable to its new location on writable.
 	                function copyDirContents(files) {
 	                    var file = files.shift();
 	                    if (!file) {
@@ -10831,7 +10351,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                    var oldFile = path.resolve(oldPath, file);
 	                    var newFile = path.resolve(newPath, file);
-	                    // Recursion! Should work for any nested files / folders.
 	                    self.rename(oldFile, newFile, function (err) {
 	                        if (err) {
 	                            return cb(err);
@@ -10840,16 +10359,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    });
 	                }
 	                var mode = 511;
-	                // from linux's rename(2) manpage: oldpath can specify a
-	                // directory.  In this case, newpath must either not exist, or
-	                // it must specify an empty directory.
 	                if (oldStats.isDirectory()) {
 	                    if (newErr) {
 	                        if (newErr.errno !== ErrorCode.ENOENT) {
 	                            return cb(newErr);
 	                        }
 	                        return this$1._writable.exists(oldPath, function (exists) {
-	                            // simple case - both old and new are on the writable layer
 	                            if (exists) {
 	                                return this$1._writable.rename(oldPath, newPath, cb);
 	                            }
@@ -10908,10 +10423,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (oldPath === deletionLogPath || newPath === deletionLogPath) {
 	            throw ApiError.EPERM('Cannot rename deletion log.');
 	        }
-	        // Write newPath using oldPath's contents, delete oldPath.
 	        var oldStats = this.statSync(oldPath, false);
 	        if (oldStats.isDirectory()) {
-	            // Optimization: Don't bother moving if old === new.
 	            if (oldPath === newPath) {
 	                return;
 	            }
@@ -10928,19 +10441,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    throw ApiError.ENOTDIR(newPath);
 	                }
 	            }
-	            // Take care of writable first. Move any files there, or create an empty directory
-	            // if it doesn't exist.
 	            if (this._writable.existsSync(oldPath)) {
 	                this._writable.renameSync(oldPath, newPath);
 	            }
 	            else if (!this._writable.existsSync(newPath)) {
 	                this._writable.mkdirSync(newPath, mode);
 	            }
-	            // Need to move *every file/folder* currently stored on readable to its new location
-	            // on writable.
 	            if (this._readable.existsSync(oldPath)) {
 	                this._readable.readdirSync(oldPath).forEach(function (name) {
-	                    // Recursion! Should work for any nested files / folders.
 	                    this$1.renameSync(path.resolve(oldPath, name), path.resolve(newPath, name));
 	                });
 	            }
@@ -10968,9 +10476,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	                this$1._readable.stat(p, isLstat, function (err, stat) {
 	                    if (stat) {
-	                        // Make the oldStat's mode writable. Preserve the topmost
-	                        // part of the mode, which specifies if it is a file or a
-	                        // directory.
 	                        stat = stat.clone();
 	                        stat.mode = makeModeWritable(stat.mode);
 	                    }
@@ -10992,8 +10497,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                throw ApiError.ENOENT(p);
 	            }
 	            var oldStat = this._readable.statSync(p, isLstat).clone();
-	            // Make the oldStat's mode writable. Preserve the topmost part of the
-	            // mode, which specifies if it is a file or a directory.
 	            oldStat.mode = makeModeWritable(oldStat.mode);
 	            return oldStat;
 	        }
@@ -11020,8 +10523,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                this$1._writable.open(p, flag, mode, cb);
 	                            }
 	                            else {
-	                                // at this point we know the stats object we got is from
-	                                // the readable FS.
 	                                stats = stats.clone();
 	                                stats.mode = mode;
 	                                this$1._readable.readFile(p, null, getFlag('r'), function (readFileErr, data) {
@@ -11071,7 +10572,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        return this._writable.openSync(p, flag, mode);
 	                    }
 	                    else {
-	                        // Create an OverlayFile.
 	                        var buf = this._readable.readFileSync(p, null, getFlag('r'));
 	                        var stats = this._readable.statSync(p, false).clone();
 	                        stats.mode = mode;
@@ -11116,8 +10616,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    });
 	                }
 	                else {
-	                    // if this only exists on the readable FS, add it to the
-	                    // delete map.
 	                    this$1.deletePath(p);
 	                    cb(null);
 	                }
@@ -11131,7 +10629,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (this._writable.existsSync(p)) {
 	                this._writable.unlinkSync(p);
 	            }
-	            // if it still exists add to the delete log
 	            if (this.existsSync(p)) {
 	                this.deletePath(p);
 	            }
@@ -11191,7 +10688,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this._writable.rmdirSync(p);
 	            }
 	            if (this.existsSync(p)) {
-	                // Check if directory is empty.
 	                if (this.readdirSync(p).length > 0) {
 	                    throw ApiError.ENOTEMPTY(p);
 	                }
@@ -11214,8 +10710,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (exists) {
 	                return cb(ApiError.EEXIST(p));
 	            }
-	            // The below will throw should any of the parent directories
-	            // fail to exist on _writable.
 	            this$1.createParentDirectoriesAsync(p, function (err) {
 	                if (err) {
 	                    return cb(err);
@@ -11230,8 +10724,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            throw ApiError.EEXIST(p);
 	        }
 	        else {
-	            // The below will throw should any of the parent directories fail to exist
-	            // on _writable.
 	            this.createParentDirectories(p);
 	            this._writable.mkdirSync(p, mode);
 	        }
@@ -11257,15 +10749,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    wFiles = [];
 	                }
 	                this$1._readable.readdir(p, function (err, rFiles) {
-	                    // if the directory doesn't exist on the lower FS set rFiles
-	                    // here to simplify the following code.
 	                    if (err || !rFiles) {
 	                        rFiles = [];
 	                    }
-	                    // Readdir in both, check delete log on read-only file system's files, merge, return.
 	                    var seenMap = {};
 	                    var filtered = wFiles.concat(rFiles.filter(function (fPath) { return !this$1._deletedFiles[(p + "/" + fPath)]; })).filter(function (fPath) {
-	                        // Remove duplicates.
 	                        var result = !seenMap[fPath];
 	                        seenMap[fPath] = true;
 	                        return result;
@@ -11283,19 +10771,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!dirStats.isDirectory()) {
 	            throw ApiError.ENOTDIR(p);
 	        }
-	        // Readdir in both, check delete log on RO file system's listing, merge, return.
 	        var contents = [];
 	        try {
 	            contents = contents.concat(this._writable.readdirSync(p));
 	        }
 	        catch (e) {
-	            // NOP.
 	        }
 	        try {
 	            contents = contents.concat(this._readable.readdirSync(p).filter(function (fPath) { return !this$1._deletedFiles[(p + "/" + fPath)]; }));
 	        }
 	        catch (e) {
-	            // NOP.
 	        }
 	        var seenMap = {};
 	        return contents.filter(function (fileP) {
@@ -11307,8 +10792,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    UnlockedOverlayFS.prototype.exists = function exists (p, cb) {
 	        var this$1 = this;
 	
-	        // Cannot pass an error back to callback, so throw an exception instead
-	        // if not initialized.
 	        this.checkInitialized();
 	        this._writable.exists(p, function (existsWritable) {
 	            if (existsWritable) {
@@ -11422,7 +10905,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	        this._deletedFiles = {};
 	        this._deleteLog.split('\n').forEach(function (path$$1) {
-	            // If the log entry begins w/ 'd', it's a deletion.
 	            this$1._deletedFiles[path$$1.slice(1)] = path$$1.slice(0, 1) === 'd';
 	        });
 	    };
@@ -11482,7 +10964,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            var dir = toCreate.pop();
 	            self._readable.stat(dir, false, function (err, stats) {
-	                // stop if we couldn't read the dir
 	                if (!stats) {
 	                    return cb();
 	                }
@@ -11520,8 +11001,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    UnlockedOverlayFS.prototype.operateOnWritable = function operateOnWritable (p, f) {
 	        if (this.existsSync(p)) {
 	            if (!this._writable.existsSync(p)) {
-	                // File is on readable storage. Copy to writable storage before
-	                // changing its mode.
 	                this.copyToWritable(p);
 	            }
 	            f();
@@ -11570,7 +11049,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (pStats.isDirectory()) {
 	                return this$1._writable.mkdir(p, pStats.mode, cb);
 	            }
-	            // need to copy file.
 	            this$1._readable.readFile(p, null, getFlag('r'), function (err, data) {
 	                if (err) {
 	                    return cb(err);
@@ -11653,21 +11131,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	var SpecialArgType;
 	(function (SpecialArgType) {
-	    // Callback
 	    SpecialArgType[SpecialArgType["CB"] = 0] = "CB";
-	    // File descriptor
 	    SpecialArgType[SpecialArgType["FD"] = 1] = "FD";
-	    // API error
 	    SpecialArgType[SpecialArgType["API_ERROR"] = 2] = "API_ERROR";
-	    // Stats object
 	    SpecialArgType[SpecialArgType["STATS"] = 3] = "STATS";
-	    // Initial probe for file system information.
 	    SpecialArgType[SpecialArgType["PROBE"] = 4] = "PROBE";
-	    // FileFlag object.
 	    SpecialArgType[SpecialArgType["FILEFLAG"] = 5] = "FILEFLAG";
-	    // Buffer object.
 	    SpecialArgType[SpecialArgType["BUFFER"] = 6] = "BUFFER";
-	    // Generic Error object.
 	    SpecialArgType[SpecialArgType["ERROR"] = 7] = "ERROR";
 	})(SpecialArgType || (SpecialArgType = {}));
 	/**
@@ -11704,14 +11174,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var data;
 	    var stat;
 	    this._fileDescriptors[id] = fd;
-	    // Extract needed information asynchronously.
 	    fd.stat(function (err, stats) {
 	        if (err) {
 	            cb(err);
 	        }
 	        else {
 	            stat = bufferToTransferrableObject(stats.toBuffer());
-	            // If it's a readable flag, we need to grab contents.
 	            if (flag.isReadable()) {
 	                fd.read(Buffer.alloc(stats.size), 0, stats.size, 0, function (err, bytesRead, buff) {
 	                    if (err) {
@@ -11731,8 +11199,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                });
 	            }
 	            else {
-	                // File is not readable, which means writing to it will append or
-	                // truncate/replace existing contents. Return an empty arraybuffer.
 	                cb(null, {
 	                    type: SpecialArgType.FD,
 	                    id: id,
@@ -11754,7 +11220,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            cb(err);
 	        }
 	        else {
-	            // Apply method on now-changed file descriptor.
 	            fd[request.method](function (e) {
 	                if (request.method === 'close') {
 	                    delete this$1._fileDescriptors[fdArg.id];
@@ -11766,14 +11231,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	FileDescriptorArgumentConverter.prototype._applyFdChanges = function _applyFdChanges (remoteFd, cb) {
 	    var fd = this._fileDescriptors[remoteFd.id], data = transferrableObjectToBuffer(remoteFd.data), remoteStats = Stats.fromBuffer(transferrableObjectToBuffer(remoteFd.stat));
-	    // Write data if the file is writable.
 	    var flag = FileFlag.getFileFlag(remoteFd.flag);
 	    if (flag.isWriteable()) {
-	        // Appendable: Write to end of file.
-	        // Writeable: Replace entire contents of file.
 	        fd.write(data, 0, data.length, flag.isAppendable() ? fd.getPos() : 0, function (e) {
 	            function applyStatChanges() {
-	                // Check if mode changed.
 	                fd.stat(function (e, stats) {
 	                    if (e) {
 	                        cb(e);
@@ -11794,9 +11255,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                cb(e);
 	            }
 	            else {
-	                // If writeable & not appendable, we need to ensure file contents are
-	                // identical to those from the remote FD. Thus, we truncate to the
-	                // length of the remote file.
 	                if (!flag.isAppendable()) {
 	                    fd.truncate(data.length, function () {
 	                        applyStatChanges();
@@ -12017,7 +11475,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                var i;
 	                var args = resp.args;
 	                var fixedArgs = new Array(args.length);
-	                // Dispatch event to correct id.
 	                for (i = 0; i < fixedArgs.length; i++) {
 	                    fixedArgs[i] = this$1._argRemote2Local(args[i]);
 	                }
@@ -12053,7 +11510,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        cb(null, apiErrorLocal2Remote(arg));
 	                    }
 	                    else if (arg instanceof BaseFile) {
-	                        // Pass in p and flags from original request.
 	                        cb(null, fdConverter.toRemoteArg(arg, requestArgs[0], requestArgs[1], cb));
 	                    }
 	                    else if (arg instanceof FileFlag) {
@@ -12103,7 +11559,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                        }
 	                                    }
 	                                    for (i = 0; i < arguments.length; i++) {
-	                                        // Capture i and argument.
 	                                        (function (i, arg) {
 	                                            argLocal2Remote(arg, fixedRequestArgs, function (err, fixedArg) {
 	                                                fixedArgs[i] = fixedArg;
@@ -12141,7 +11596,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            case SpecialArgType.ERROR:
 	                                return errorRemote2Local(specialArg);
 	                            default:
-	                                // No idea what this is.
 	                                return arg;
 	                        }
 	                    }
@@ -12160,10 +11614,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    case 'close':
 	                    case 'sync':
 	                        (function () {
-	                            // File descriptor-relative methods.
 	                            var remoteCb = args[1];
 	                            fdConverter.applyFdAPIRequest(request, function (err) {
-	                                // Send response.
 	                                var response = {
 	                                    browserfsMessage: true,
 	                                    cbId: remoteCb.id,
@@ -12189,7 +11641,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        })();
 	                        break;
 	                    default:
-	                        // File system methods.
 	                        for (var i = 0; i < args.length; i++) {
 	                            fixedArgs[i] = argRemote2Local(args[i], fixedArgs);
 	                        }
@@ -12390,7 +11841,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        type: "object",
 	        description: "The target worker that you want to connect to, or the current worker if in a worker context.",
 	        validator: function (v, cb) {
-	            // Check for a `postMessage` function.
 	            if (v['postMessage']) {
 	                cb();
 	            }
@@ -12414,9 +11864,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            req.responseType = 'arraybuffer';
 	            break;
 	        case 'json':
-	            // Some browsers don't support the JSON response type.
-	            // They either reset responseType, or throw an exception.
-	            // @see https://github.com/Modernizr/Modernizr/blob/master/src/testXhrType.js
 	            try {
 	                req.responseType = 'json';
 	                jsonSupported = req.responseType === 'json';
@@ -12433,7 +11880,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (req.status === 200) {
 	                switch (type) {
 	                    case 'buffer':
-	                        // XXX: WebKit-based browsers return *null* when XHRing an empty file.
 	                        return cb(null, req.response ? Buffer.from(req.response) : emptyBuffer());
 	                    case 'json':
 	                        if (jsonSupported) {
@@ -12454,24 +11900,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	function syncDownloadFileModern(p, type) {
 	    var req = new XMLHttpRequest();
 	    req.open('GET', p, false);
-	    // On most platforms, we cannot set the responseType of synchronous downloads.
-	    // @todo Test for this; IE10 allows this, as do older versions of Chrome/FF.
 	    var data = null;
 	    var err = null;
-	    // Classic hack to download binary data as a string.
 	    req.overrideMimeType('text/plain; charset=x-user-defined');
 	    req.onreadystatechange = function (e) {
 	        if (req.readyState === 4) {
 	            if (req.status === 200) {
 	                switch (type) {
 	                    case 'buffer':
-	                        // Convert the text into a buffer.
 	                        var text = req.responseText;
 	                        data = Buffer.alloc(text.length);
-	                        // Throw away the upper bits of each character.
 	                        for (var i = 0; i < text.length; i++) {
-	                            // This will automatically throw away the upper bit of each
-	                            // character for us.
 	                            data[i] = text.charCodeAt(i);
 	                        }
 	                        return;
@@ -12500,7 +11939,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            req.responseType = 'arraybuffer';
 	            break;
 	        case 'json':
-	            // IE10 does not support the JSON type.
 	            break;
 	        default:
 	            throw new ApiError(ErrorCode.EINVAL, "Invalid download type: " + type);
@@ -12543,7 +11981,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return cb(null, parseInt(req.getResponseHeader('Content-Length') || '-1', 10));
 	                }
 	                catch (e) {
-	                    // In the event that the header isn't present or there is an error...
 	                    return cb(new ApiError(ErrorCode.EIO, "XHR HEAD error: Could not read content-length."));
 	                }
 	            }
@@ -12600,10 +12037,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * for the former purpose, especially when directories are concerned.
 	 */
 	var FileIndex = function FileIndex() {
-	    // _index is a single-level key,value store that maps *directory* paths to
-	    // DirInodes. File information is only contained in DirInodes themselves.
 	    this._index = {};
-	    // Create the root directory.
 	    this.addPath('/', new DirInode());
 	};
 	/**
@@ -12613,7 +12047,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	FileIndex.fromListing = function fromListing (listing) {
 	    var idx = new FileIndex();
-	    // Add a root DirNode.
 	    var rootInode = new DirInode();
 	    idx._index['/'] = rootInode;
 	    var queue = [['', listing, rootInode]];
@@ -12632,7 +12065,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    queue.push([name, children, inode]);
 	                }
 	                else {
-	                    // This inode doesn't have correct size information, noted with -1.
 	                    inode = new FileInode(new Stats(FileType.FILE, -1, 0x16D));
 	                }
 	                if (parent) {
@@ -12683,29 +12115,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (path$$1[0] !== '/') {
 	        throw new Error('Path must be absolute, got: ' + path$$1);
 	    }
-	    // Check if it already exists.
 	    if (this._index.hasOwnProperty(path$$1)) {
 	        return this._index[path$$1] === inode;
 	    }
 	    var splitPath = this._split_path(path$$1);
 	    var dirpath = splitPath[0];
 	    var itemname = splitPath[1];
-	    // Try to add to its parent directory first.
 	    var parent = this._index[dirpath];
 	    if (parent === undefined && path$$1 !== '/') {
-	        // Create parent.
 	        parent = new DirInode();
 	        if (!this.addPath(dirpath, parent)) {
 	            return false;
 	        }
 	    }
-	    // Add myself to my parent.
 	    if (path$$1 !== '/') {
 	        if (!parent.addItem(itemname, inode)) {
 	            return false;
 	        }
 	    }
-	    // If I'm a directory, add myself to the index.
 	    if (isDirInode(inode)) {
 	        this._index[path$$1] = inode;
 	    }
@@ -12728,17 +12155,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var itemNameMark = path$$1.lastIndexOf('/');
 	    var parentPath = itemNameMark === 0 ? "/" : path$$1.substring(0, itemNameMark);
 	    var itemName = path$$1.substring(itemNameMark + 1);
-	    // Try to add to its parent directory first.
 	    var parent = this._index[parentPath];
 	    if (parent === undefined) {
-	        // Create parent.
 	        parent = new DirInode();
 	        this.addPathFast(parentPath, parent);
 	    }
 	    if (!parent.addItem(itemName, inode)) {
 	        return false;
 	    }
-	    // If adding a directory, add to the index as well.
 	    if (inode.isDir()) {
 	        this._index[path$$1] = inode;
 	    }
@@ -12755,17 +12179,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var splitPath = this._split_path(path$$1);
 	    var dirpath = splitPath[0];
 	    var itemname = splitPath[1];
-	    // Try to remove it from its parent directory first.
 	    var parent = this._index[dirpath];
 	    if (parent === undefined) {
 	        return null;
 	    }
-	    // Remove myself from my parent.
 	    var inode = parent.remItem(itemname);
 	    if (inode === null) {
 	        return null;
 	    }
-	    // If I'm a directory, remove myself from the index, and remove my children.
 	    if (isDirInode(inode)) {
 	        var children = inode.getListing();
 	        for (var i = 0, list = children; i < list.length; i += 1) {
@@ -12773,7 +12194,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	                this$1.removePath(path$$1 + '/' + child);
 	        }
-	        // Remove the directory from the index, unless it's the root.
 	        if (path$$1 !== '/') {
 	            delete this._index[path$$1];
 	        }
@@ -12799,12 +12219,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var splitPath = this._split_path(path$$1);
 	    var dirpath = splitPath[0];
 	    var itemname = splitPath[1];
-	    // Retrieve from its parent directory.
 	    var parent = this._index[dirpath];
 	    if (parent === undefined) {
 	        return null;
 	    }
-	    // Root case
 	    if (dirpath === path$$1) {
 	        return parent;
 	    }
@@ -12961,7 +12379,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!listingUrlOrObj) {
 	            listingUrlOrObj = 'index.json';
 	        }
-	        // prefix_url must end in a directory separator.
 	        if (prefixUrl.length > 0 && prefixUrl.charAt(prefixUrl.length - 1) !== '/') {
 	            prefixUrl = prefixUrl + '/';
 	        }
@@ -13032,8 +12449,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return XmlHttpRequest.Name;
 	    };
 	    XmlHttpRequest.prototype.diskSpace = function diskSpace (path$$1, cb) {
-	        // Read-only file system. We could calculate the total space, but that's not
-	        // important right now.
 	        cb(0, 0);
 	    };
 	    XmlHttpRequest.prototype.isReadOnly = function isReadOnly () {
@@ -13075,7 +12490,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var stats;
 	        if (isFileInode(inode)) {
 	            stats = inode.getData();
-	            // At this point, a non-opened file will still have default stats from the listing.
 	            if (stats.size < 0) {
 	                this._requestFileSizeAsync(path$$1, function (e, size) {
 	                    if (e) {
@@ -13105,7 +12519,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var stats;
 	        if (isFileInode(inode)) {
 	            stats = inode.getData();
-	            // At this point, a non-opened file will still have default stats from the listing.
 	            if (stats.size < 0) {
 	                stats.size = this._requestFileSizeSync(path$$1);
 	            }
@@ -13119,12 +12532,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return stats;
 	    };
 	    XmlHttpRequest.prototype.open = function open (path$$1, flags, mode, cb) {
-	        // INVARIANT: You can't write to files on this file system.
 	        if (flags.isWriteable()) {
 	            return cb(new ApiError(ErrorCode.EPERM, path$$1));
 	        }
 	        var self = this;
-	        // Check if the path exists, and is a file.
 	        var inode = this._index.getInode(path$$1);
 	        if (inode === null) {
 	            return cb(ApiError.ENOENT(path$$1));
@@ -13136,17 +12547,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                case ActionType.TRUNCATE_FILE:
 	                    return cb(ApiError.EEXIST(path$$1));
 	                case ActionType.NOP:
-	                    // Use existing file contents.
-	                    // XXX: Uh, this maintains the previously-used flag.
 	                    if (stats.fileData) {
 	                        return cb(null, new NoSyncFile(self, path$$1, flags, stats.clone(), stats.fileData));
 	                    }
-	                    // @todo be lazier about actually requesting the file
 	                    this._requestFileAsync(path$$1, 'buffer', function (err, buffer$$1) {
 	                        if (err) {
 	                            return cb(err);
 	                        }
-	                        // we don't initially have file sizes
 	                        stats.size = buffer$$1.length;
 	                        stats.fileData = buffer$$1;
 	                        return cb(null, new NoSyncFile(self, path$$1, flags, stats.clone(), buffer$$1));
@@ -13161,11 +12568,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    XmlHttpRequest.prototype.openSync = function openSync (path$$1, flags, mode) {
-	        // INVARIANT: You can't write to files on this file system.
 	        if (flags.isWriteable()) {
 	            throw new ApiError(ErrorCode.EPERM, path$$1);
 	        }
-	        // Check if the path exists, and is a file.
 	        var inode = this._index.getInode(path$$1);
 	        if (inode === null) {
 	            throw ApiError.ENOENT(path$$1);
@@ -13177,14 +12582,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                case ActionType.TRUNCATE_FILE:
 	                    throw ApiError.EEXIST(path$$1);
 	                case ActionType.NOP:
-	                    // Use existing file contents.
-	                    // XXX: Uh, this maintains the previously-used flag.
 	                    if (stats.fileData) {
 	                        return new NoSyncFile(this, path$$1, flags, stats.clone(), stats.fileData);
 	                    }
-	                    // @todo be lazier about actually requesting the file
 	                    var buffer$$1 = this._requestFileSync(path$$1, 'buffer');
-	                    // we don't initially have file sizes
 	                    stats.size = buffer$$1.length;
 	                    stats.fileData = buffer$$1;
 	                    return new NoSyncFile(this, path$$1, flags, stats.clone(), buffer$$1);
@@ -13205,7 +12606,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    XmlHttpRequest.prototype.readdirSync = function readdirSync (path$$1) {
-	        // Check if it exists.
 	        var inode = this._index.getInode(path$$1);
 	        if (inode === null) {
 	            throw ApiError.ENOENT(path$$1);
@@ -13221,9 +12621,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * We have the entire file as a buffer; optimize readFile.
 	     */
 	    XmlHttpRequest.prototype.readFile = function readFile (fname, encoding, flag, cb) {
-	        // Wrap cb in file closing code.
 	        var oldCb = cb;
-	        // Get file.
 	        this.open(fname, flag, 0x1a4, function (err, fd) {
 	            if (err) {
 	                return cb(err);
@@ -13250,7 +12648,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Specially-optimized readfile.
 	     */
 	    XmlHttpRequest.prototype.readFileSync = function readFileSync (fname, encoding, flag) {
-	        // Get file.
 	        var fd = this.openSync(fname, flag, 0x1a4);
 	        try {
 	            var fdCast = fd;
@@ -13323,12 +12720,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    for (var i = 0; i < length; i++) {
 	        var charCode = str.charCodeAt(i);
 	        if (charCode > 0x7F) {
-	            // Check if extended ASCII.
 	            var charIdx = ExtendedASCII.extendedChars.indexOf(str.charAt(i));
 	            if (charIdx > -1) {
 	                charCode = charIdx + 0x80;
 	            }
-	            // Otherwise, keep it as-is.
 	        }
 	        buf[charCode] = i;
 	    }
@@ -13422,7 +12817,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    CompressionMethod[CompressionMethod["TERSE_NEW"] = 18] = "TERSE_NEW";
 	    CompressionMethod[CompressionMethod["LZ77"] = 19] = "LZ77";
 	    CompressionMethod[CompressionMethod["WAVPACK"] = 97] = "WAVPACK";
-	    CompressionMethod[CompressionMethod["PPMD"] = 98] = "PPMD"; // PPMd version I, Rev 1
+	    CompressionMethod[CompressionMethod["PPMD"] = 98] = "PPMD";
 	})(CompressionMethod || (CompressionMethod = {}));
 	/**
 	 * Converts the input time and date in MS-DOS format into a JavaScript Date
@@ -13430,16 +12825,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @hidden
 	 */
 	function msdos2date(time, date) {
-	    // MS-DOS Date
-	    // |0 0 0 0  0|0 0 0  0|0 0 0  0 0 0 0
-	    //   D (1-31)  M (1-23)  Y (from 1980)
 	    var day = date & 0x1F;
-	    // JS date is 0-indexed, DOS is 1-indexed.
 	    var month = ((date >> 5) & 0xF) - 1;
 	    var year = (date >> 9) + 1980;
-	    // MS DOS Time
-	    // |0 0 0 0  0|0 0 0  0 0 0|0  0 0 0 0
-	    //    Second      Minute       Hour
 	    var second = time & 0x1F;
 	    var minute = (time >> 5) & 0x3F;
 	    var hour = time >> 11;
@@ -13462,31 +12850,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return ExtendedASCII.byte2str(buff.slice(start, start + length));
 	    }
 	}
-	/*
-	   4.3.6 Overall .ZIP file format:
-	
-	      [local file header 1]
-	      [encryption header 1]
-	      [file data 1]
-	      [data descriptor 1]
-	      .
-	      .
-	      .
-	      [local file header n]
-	      [encryption header n]
-	      [file data n]
-	      [data descriptor n]
-	      [archive decryption header]
-	      [archive extra data record]
-	      [central directory header 1]
-	      .
-	      .
-	      .
-	      [central directory header n]
-	      [zip64 end of central directory record]
-	      [zip64 end of central directory locator]
-	      [end of central directory record]
-	*/
 	/**
 	 * 4.3.7  Local file header:
 	 *
@@ -13515,7 +12878,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 FileHeader.prototype.flags = function flags () { return this.data.readUInt16LE(6); };
 	 FileHeader.prototype.compressionMethod = function compressionMethod () { return this.data.readUInt16LE(8); };
 	 FileHeader.prototype.lastModFileTime = function lastModFileTime () {
-	     // Time and date is in MS-DOS format.
 	     return msdos2date(this.data.readUInt16LE(10), this.data.readUInt16LE(12));
 	 };
 	 FileHeader.prototype.rawLastModFileTime = function rawLastModFileTime () {
@@ -13533,8 +12895,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  *
 	  * So we'll just use the central directory's values.
 	  */
-	 // public compressedSize(): number { return this.data.readUInt32LE(18); }
-	 // public uncompressedSize(): number { return this.data.readUInt32LE(22); }
 	 FileHeader.prototype.fileNameLength = function fileNameLength () { return this.data.readUInt16LE(26); };
 	 FileHeader.prototype.extraFieldLength = function extraFieldLength () { return this.data.readUInt16LE(28); };
 	 FileHeader.prototype.fileName = function fileName () {
@@ -13566,7 +12926,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     this.data = data;
 	 };
 	 FileData.prototype.decompress = function decompress () {
-	     // Check the compression
 	     var compressionMethod = this.header.compressionMethod();
 	     var fcn = decompressionMethods[compressionMethod];
 	     if (fcn) {
@@ -13602,16 +12961,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 DataDescriptor.prototype.crc32 = function crc32 () { return this.data.readUInt32LE(0); };
 	 DataDescriptor.prototype.compressedSize = function compressedSize () { return this.data.readUInt32LE(4); };
 	 DataDescriptor.prototype.uncompressedSize = function uncompressedSize () { return this.data.readUInt32LE(8); };
-	/*
-	` 4.3.10  Archive decryption header:
-	
-	      4.3.10.1 The Archive Decryption Header is introduced in version 6.2
-	      of the ZIP format specification.  This record exists in support
-	      of the Central Directory Encryption Feature implemented as part of
-	      the Strong Encryption Specification as described in this document.
-	      When the Central Directory Structure is encrypted, this decryption
-	      header MUST precede the encrypted data segment.
-	 */
 	/**
 	 * 4.3.11  Archive extra data record:
 	 *
@@ -13687,7 +13036,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var CentralDirectory = function CentralDirectory(zipData, data) {
 	     this.zipData = zipData;
 	     this.data = data;
-	     // Sanity check.
 	     if (this.data.readUInt32LE(0) !== 0x02014b50) {
 	         throw new ApiError(ErrorCode.EINVAL, ("Invalid Zip file: Central directory record has invalid signature: " + (this.data.readUInt32LE(0))));
 	     }
@@ -13698,7 +13046,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 CentralDirectory.prototype.flag = function flag () { return this.data.readUInt16LE(8); };
 	 CentralDirectory.prototype.compressionMethod = function compressionMethod () { return this.data.readUInt16LE(10); };
 	 CentralDirectory.prototype.lastModFileTime = function lastModFileTime () {
-	     // Time and date is in MS-DOS format.
 	     return msdos2date(this.data.readUInt16LE(12), this.data.readUInt16LE(14));
 	 };
 	 CentralDirectory.prototype.rawLastModFileTime = function rawLastModFileTime () {
@@ -13715,19 +13062,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 CentralDirectory.prototype.externalAttributes = function externalAttributes () { return this.data.readUInt32LE(38); };
 	 CentralDirectory.prototype.headerRelativeOffset = function headerRelativeOffset () { return this.data.readUInt32LE(42); };
 	 CentralDirectory.prototype.produceFilename = function produceFilename () {
-	     /*
-	       4.4.17.1 claims:
-	       * All slashes are forward ('/') slashes.
-	       * Filename doesn't begin with a slash.
-	       * No drive letters or any nonsense like that.
-	       * If filename is missing, the input came from standard input.
-	    
-	       Unfortunately, this isn't true in practice. Some Windows zip utilities use
-	       a backslash here, but the correct Unix-style path in file headers.
-	    
-	       To avoid seeking all over the file to recover the known-good filenames
-	       from file headers, we simply convert '/' to '\' here.
-	     */
 	     var fileName = safeToString(this.data, this.useUTF8(), 46, this.fileNameLength());
 	     return fileName.replace(/\\/g, "/");
 	 };
@@ -13753,14 +13087,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     return 46 + this.fileNameLength() + this.extraFieldLength() + this.fileCommentLength();
 	 };
 	 CentralDirectory.prototype.isDirectory = function isDirectory () {
-	     // NOTE: This assumes that the zip file implementation uses the lower byte
-	     //    of external attributes for DOS attributes for
-	     //    backwards-compatibility. This is not mandated, but appears to be
-	     //    commonplace.
-	     //    According to the spec, the layout of external attributes is
-	     //    platform-dependent.
-	     //    If that fails, we also check if the name of the file ends in '/',
-	     //    which is what Java's ZipFile implementation does.
 	     var fileName = this.fileName();
 	     return (this.externalAttributes() & 0x10 ? true : false) || (fileName.charAt(fileName.length - 1) === '/');
 	 };
@@ -13768,8 +13094,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 CentralDirectory.prototype.useUTF8 = function useUTF8 () { return (this.flag() & 0x800) === 0x800; };
 	 CentralDirectory.prototype.isEncrypted = function isEncrypted () { return (this.flag() & 0x1) === 0x1; };
 	 CentralDirectory.prototype.getFileData = function getFileData () {
-	     // Need to grab the header before we can figure out where the actual
-	     // compressed data starts.
 	     var start = this.headerRelativeOffset();
 	     var header = new FileHeader(this.zipData.slice(start));
 	     return new FileData(header, this, this.zipData.slice(start + header.totalSize()));
@@ -13814,7 +13138,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 EndOfCentralDirectory.prototype.cdOffset = function cdOffset () { return this.data.readUInt32LE(16); };
 	 EndOfCentralDirectory.prototype.cdZipCommentLength = function cdZipCommentLength () { return this.data.readUInt16LE(20); };
 	 EndOfCentralDirectory.prototype.cdZipComment = function cdZipComment () {
-	     // Assuming UTF-8. The specification doesn't specify.
 	     return safeToString(this.data, true, 22, this.cdZipCommentLength());
 	 };
 	 EndOfCentralDirectory.prototype.rawCdZipComment = function rawCdZipComment () {
@@ -13921,7 +13244,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ZipFS.computeIndex = function computeIndex (data, cb, deprecateMsg) {
 	        if ( deprecateMsg === void 0 ) deprecateMsg = true;
 	
-	        // TODO: Refactor to plumb errors through. Right now, they throw.
 	        if (deprecateMsg) {
 	            console.warn("[ZipFS] ZipFS.computeIndex is now deprecated, and will be removed in the next major release. Please update your code to use 'ZipFS.Create({ zipData: zip file as a Buffer}, cb)' instead.");
 	        }
@@ -13942,18 +13264,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Throws an exception if it cannot be found.
 	     */
 	    ZipFS.getEOCD = function getEOCD (data) {
-	        // Unfortunately, the comment is variable size and up to 64K in size.
-	        // We assume that the magic signature does not appear in the comment, and
-	        // in the bytes between the comment and the signature. Other ZIP
-	        // implementations make this same assumption, since the alternative is to
-	        // read thread every entry in the file to get to it. :(
-	        // These are *negative* offsets from the end of the file.
 	        var startOffset = 22;
 	        var endOffset = Math.min(startOffset + 0xFFFF, data.length - 1);
-	        // There's not even a byte alignment guarantee on the comment so we need to
-	        // search byte by byte. *grumble grumble*
 	        for (var i = startOffset; i < endOffset; i++) {
-	            // Magic number: EOCD Signature
 	            if (data.readUInt32LE(data.length - i) === 0x06054b50) {
 	                return new EndOfCentralDirectory(data.slice(data.length - i));
 	            }
@@ -13961,13 +13274,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        throw new ApiError(ErrorCode.EINVAL, "Invalid ZIP file: Could not locate End of Central Directory signature.");
 	    };
 	    ZipFS.addToIndex = function addToIndex (cd, index) {
-	        // Paths must be absolute, yet zip file paths are always relative to the
-	        // zip root. So we append '/' and call it a day.
 	        var filename = cd.fileName();
 	        if (filename.charAt(0) === '/') {
 	            throw new Error("WHY IS THIS ABSOLUTE");
 	        }
-	        // XXX: For the file index, strip the trailing '/'.
 	        if (filename.charAt(filename.length - 1) === '/') {
 	            filename = filename.substr(0, filename.length - 1);
 	        }
@@ -14013,7 +13323,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return inode.getData();
 	        }
 	        else {
-	            // Should never occur.
 	            throw ApiError.EPERM(("Invalid inode: " + inode));
 	        }
 	    };
@@ -14031,7 +13340,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this._eocd;
 	    };
 	    ZipFS.prototype.diskSpace = function diskSpace (path$$1, cb) {
-	        // Read-only file system.
 	        cb(this.data.length, 0);
 	    };
 	    ZipFS.prototype.isReadOnly = function isReadOnly () {
@@ -14064,11 +13372,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return stats;
 	    };
 	    ZipFS.prototype.openSync = function openSync (path$$1, flags, mode) {
-	        // INVARIANT: Cannot write to RO file systems.
 	        if (flags.isWriteable()) {
 	            throw new ApiError(ErrorCode.EPERM, path$$1);
 	        }
-	        // Check if the path exists, and is a file.
 	        var inode = this._index.getInode(path$$1);
 	        if (!inode) {
 	            throw ApiError.ENOENT(path$$1);
@@ -14091,7 +13397,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    ZipFS.prototype.readdirSync = function readdirSync (path$$1) {
-	        // Check if it exists.
 	        var inode = this._index.getInode(path$$1);
 	        if (!inode) {
 	            throw ApiError.ENOENT(path$$1);
@@ -14107,7 +13412,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Specially-optimized readfile.
 	     */
 	    ZipFS.prototype.readFileSync = function readFileSync (fname, encoding, flag) {
-	        // Get file.
 	        var fd = this.openSync(fname, flag, 0x1a4);
 	        try {
 	            var fdCast = fd;
@@ -14180,11 +13484,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	function getJolietString(data, startIndex, length) {
 	    if (length === 1) {
-	        // Special: Root, parent, current directory are still a single byte.
 	        return String.fromCharCode(data[startIndex]);
 	    }
-	    // UTF16-BE, which isn't natively supported by NodeJS Buffers.
-	    // Length should be even, but pessimistically floor just in case.
 	    var pairs = Math.floor(length / 2);
 	    var chars = new Array(pairs);
 	    for (var i = 0; i < pairs; i++) {
@@ -14204,7 +13505,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var min = parseInt(getASCIIString(data, startIndex + 10, 2), 10);
 	    var sec = parseInt(getASCIIString(data, startIndex + 12, 2), 10);
 	    var hundrethsSec = parseInt(getASCIIString(data, startIndex + 14, 2), 10);
-	    // Last is a time-zone offset, but JavaScript dates don't support time zones well.
 	    return new Date(year, mon, day, hour, min, sec, hundrethsSec * 100);
 	}
 	/**
@@ -14217,8 +13517,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var hour = data[startIndex + 3];
 	    var minute = data[startIndex + 4];
 	    var second = data[startIndex + 5];
-	    // JavaScript's Date support isn't so great; ignore timezone.
-	    // const offsetFromGMT = this._data[24];
 	    return new Date(yearsSince1900, month - 1, day, hour, minute, second);
 	}
 	/**
@@ -14228,37 +13526,37 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var data = bigData.slice(i);
 	    var sue = new SystemUseEntry(data);
 	    switch (sue.signatureWord()) {
-	        case 17221 /* CE */:
+	        case 17221:
 	            return new CEEntry(data);
-	        case 20548 /* PD */:
+	        case 20548:
 	            return new PDEntry(data);
-	        case 21328 /* SP */:
+	        case 21328:
 	            return new SPEntry(data);
-	        case 21332 /* ST */:
+	        case 21332:
 	            return new STEntry(data);
-	        case 17746 /* ER */:
+	        case 17746:
 	            return new EREntry(data);
-	        case 17747 /* ES */:
+	        case 17747:
 	            return new ESEntry(data);
-	        case 20568 /* PX */:
+	        case 20568:
 	            return new PXEntry(data);
-	        case 20558 /* PN */:
+	        case 20558:
 	            return new PNEntry(data);
-	        case 21324 /* SL */:
+	        case 21324:
 	            return new SLEntry(data);
-	        case 20045 /* NM */:
+	        case 20045:
 	            return new NMEntry(data);
-	        case 17228 /* CL */:
+	        case 17228:
 	            return new CLEntry(data);
-	        case 20556 /* PL */:
+	        case 20556:
 	            return new PLEntry(data);
-	        case 21061 /* RE */:
+	        case 21061:
 	            return new REEntry(data);
-	        case 21574 /* TF */:
+	        case 21574:
 	            return new TFEntry(data);
-	        case 21318 /* SF */:
+	        case 21318:
 	            return new SFEntry(data);
-	        case 21074 /* RR */:
+	        case 21074:
 	            return new RREntry(data);
 	        default:
 	            return sue;
@@ -14268,21 +13566,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @hidden
 	 */
 	function constructSystemUseEntries(data, i, len, isoData) {
-	    // If the remaining allocated space following the last recorded System Use Entry in a System
-	    // Use field or Continuation Area is less than four bytes long, it cannot contain a System
-	    // Use Entry and shall be ignored
 	    len = len - 4;
 	    var entries = new Array();
 	    while (i < len) {
 	        var entry = constructSystemUseEntry(data, i);
 	        var length = entry.length();
 	        if (length === 0) {
-	            // Invalid SU section; prevent infinite loop.
 	            return entries;
 	        }
 	        i += length;
 	        if (entry instanceof STEntry) {
-	            // ST indicates the end of entries.
 	            break;
 	        }
 	        if (entry instanceof CEEntry) {
@@ -14418,7 +13711,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var PrimaryVolumeDescriptor = (function (PrimaryOrSupplementaryVolumeDescriptor) {
 	    function PrimaryVolumeDescriptor(data) {
 	        PrimaryOrSupplementaryVolumeDescriptor.call(this, data);
-	        if (this.type() !== 1 /* PrimaryVolumeDescriptor */) {
+	        if (this.type() !== 1) {
 	            throw new ApiError(ErrorCode.EIO, "Invalid primary volume descriptor.");
 	        }
 	    }
@@ -14444,13 +13737,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SupplementaryVolumeDescriptor = (function (PrimaryOrSupplementaryVolumeDescriptor) {
 	    function SupplementaryVolumeDescriptor(data) {
 	        PrimaryOrSupplementaryVolumeDescriptor.call(this, data);
-	        if (this.type() !== 2 /* SupplementaryVolumeDescriptor */) {
+	        if (this.type() !== 2) {
 	            throw new ApiError(ErrorCode.EIO, "Invalid supplementary volume descriptor.");
 	        }
 	        var escapeSequence = this.escapeSequence();
 	        var third = escapeSequence[2];
-	        // Third character identifies what 'level' of the UCS specification to follow.
-	        // We ignore it.
 	        if (escapeSequence[0] !== 0x25 || escapeSequence[1] !== 0x2F ||
 	            (third !== 0x40 && third !== 0x43 && third !== 0x45)) {
 	            throw new ApiError(ErrorCode.EIO, ("Unrecognized escape sequence for SupplementaryVolumeDescriptor: " + (escapeSequence.toString())));
@@ -14498,7 +13789,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var dir = this.getDirectory(isoData);
 	    this._rockRidgeOffset = dir.getDotEntry(isoData)._getRockRidgeOffset(isoData);
 	    if (this._rockRidgeOffset > -1) {
-	        // Wipe out directory. Start over with RR knowledge.
 	        this._fileOrDir = null;
 	    }
 	};
@@ -14543,29 +13833,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (this.isDirectory(isoData)) {
 	        return ident;
 	    }
-	    // Files:
-	    // - MUST have 0x2E (.) separating the name from the extension
-	    // - MUST have 0x3B (;) separating the file name and extension from the version
-	    // Gets expanded to two-byte char in Unicode directory records.
 	    var versionSeparator = ident.indexOf(';');
 	    if (versionSeparator === -1) {
-	        // Some Joliet filenames lack the version separator, despite the standard
-	        // specifying that it should be there.
 	        return ident;
 	    }
 	    else if (ident[versionSeparator - 1] === '.') {
-	        // Empty extension. Do not include '.' in the filename.
 	        return ident.slice(0, versionSeparator - 1);
 	    }
 	    else {
-	        // Include up to version separator.
 	        return ident.slice(0, versionSeparator);
 	    }
 	};
 	DirectoryRecord.prototype.isDirectory = function isDirectory (isoData) {
-	    var rv = !!(this.fileFlags() & 2 /* Directory */);
-	    // If it lacks the Directory flag, it may still be a directory if we've exceeded the directory
-	    // depth limit. Rock Ridge marks these as files and adds a special attribute.
+	    var rv = !!(this.fileFlags() & 2);
 	    if (!rv && this.hasRockRidge()) {
 	        rv = this.getSUEntries(isoData).filter(function (e) { return e instanceof CLEntry; }).length > 0;
 	    }
@@ -14587,30 +13867,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	                var component = list$1[i$1];
 	
 	                    var flags = component.flags();
-	                if (flags & 2 /* CURRENT */) {
+	                if (flags & 2) {
 	                    p += "./";
 	                }
-	                else if (flags & 4 /* PARENT */) {
+	                else if (flags & 4) {
 	                    p += "../";
 	                }
-	                else if (flags & 8 /* ROOT */) {
+	                else if (flags & 8) {
 	                    p += "/";
 	                }
 	                else {
 	                    p += component.content(getStr);
-	                    if (!(flags & 1 /* CONTINUE */)) {
+	                    if (!(flags & 1)) {
 	                        p += '/';
 	                    }
 	                }
 	            }
 	            if (!entry.continueFlag()) {
-	                // We are done with this link.
 	                break;
 	            }
 	        }
 	    }
 	    if (p.length > 1 && p[p.length - 1] === '/') {
-	        // Trim trailing '/'.
 	        return p.slice(0, p.length - 1);
 	    }
 	    else {
@@ -14643,7 +13921,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	DirectoryRecord.prototype._rockRidgeFilename = function _rockRidgeFilename (isoData) {
 	    var nmEntries = this.getSUEntries(isoData).filter(function (e) { return e instanceof NMEntry; });
-	    if (nmEntries.length === 0 || nmEntries[0].flags() & (2 /* CURRENT */ | 4 /* PARENT */)) {
+	    if (nmEntries.length === 0 || nmEntries[0].flags() & (2 | 4)) {
 	        return null;
 	    }
 	    var str = '';
@@ -14652,7 +13930,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var e = list[i];
 	
 	            str += e.name(getString);
-	        if (!(e.flags() & 1 /* CONTINUE */)) {
+	        if (!(e.flags() & 1)) {
 	            break;
 	        }
 	    }
@@ -14661,7 +13939,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	DirectoryRecord.prototype._constructSUEntries = function _constructSUEntries (isoData) {
 	    var i = 33 + this._data[32];
 	    if (i % 2 === 1) {
-	        // Skip padding field.
 	        i++;
 	    }
 	    i += this._rockRidgeOffset;
@@ -14673,24 +13950,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * at which system use fields begin.
 	 */
 	DirectoryRecord.prototype._getRockRidgeOffset = function _getRockRidgeOffset (isoData) {
-	    // In the worst case, we get some garbage SU entries.
-	    // Fudge offset to 0 before proceeding.
 	    this._rockRidgeOffset = 0;
 	    var suEntries = this.getSUEntries(isoData);
 	    if (suEntries.length > 0) {
 	        var spEntry = suEntries[0];
 	        if (spEntry instanceof SPEntry && spEntry.checkBytesPass()) {
-	            // SUSP is in use.
 	            for (var i = 1; i < suEntries.length; i++) {
 	                var entry = suEntries[i];
 	                if (entry instanceof RREntry || (entry instanceof EREntry && entry.extensionIdentifier() === rockRidgeIdentifier)) {
-	                    // Rock Ridge is in use!
 	                    return spEntry.bytesSkipped();
 	                }
 	            }
 	        }
 	    }
-	    // Failed.
 	    this._rockRidgeOffset = -1;
 	    return -1;
 	};
@@ -15108,7 +14380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this._data[4];
 	    };
 	    TFEntry.prototype.creation = function creation () {
-	        if (this.flags() & 1 /* CREATION */) {
+	        if (this.flags() & 1) {
 	            if (this._longFormDates()) {
 	                return getDate(this._data, 5);
 	            }
@@ -15121,8 +14393,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    TFEntry.prototype.modify = function modify () {
-	        if (this.flags() & 2 /* MODIFY */) {
-	            var previousDates = (this.flags() & 1 /* CREATION */) ? 1 : 0;
+	        if (this.flags() & 2) {
+	            var previousDates = (this.flags() & 1) ? 1 : 0;
 	            if (this._longFormDates) {
 	                return getDate(this._data, 5 + (previousDates * 17));
 	            }
@@ -15135,9 +14407,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    TFEntry.prototype.access = function access () {
-	        if (this.flags() & 4 /* ACCESS */) {
-	            var previousDates = (this.flags() & 1 /* CREATION */) ? 1 : 0;
-	            previousDates += (this.flags() & 2 /* MODIFY */) ? 1 : 0;
+	        if (this.flags() & 4) {
+	            var previousDates = (this.flags() & 1) ? 1 : 0;
+	            previousDates += (this.flags() & 2) ? 1 : 0;
 	            if (this._longFormDates) {
 	                return getDate(this._data, 5 + (previousDates * 17));
 	            }
@@ -15150,10 +14422,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    TFEntry.prototype.backup = function backup () {
-	        if (this.flags() & 16 /* BACKUP */) {
-	            var previousDates = (this.flags() & 1 /* CREATION */) ? 1 : 0;
-	            previousDates += (this.flags() & 2 /* MODIFY */) ? 1 : 0;
-	            previousDates += (this.flags() & 4 /* ACCESS */) ? 1 : 0;
+	        if (this.flags() & 16) {
+	            var previousDates = (this.flags() & 1) ? 1 : 0;
+	            previousDates += (this.flags() & 2) ? 1 : 0;
+	            previousDates += (this.flags() & 4) ? 1 : 0;
 	            if (this._longFormDates) {
 	                return getDate(this._data, 5 + (previousDates * 17));
 	            }
@@ -15166,11 +14438,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    TFEntry.prototype.expiration = function expiration () {
-	        if (this.flags() & 32 /* EXPIRATION */) {
-	            var previousDates = (this.flags() & 1 /* CREATION */) ? 1 : 0;
-	            previousDates += (this.flags() & 2 /* MODIFY */) ? 1 : 0;
-	            previousDates += (this.flags() & 4 /* ACCESS */) ? 1 : 0;
-	            previousDates += (this.flags() & 16 /* BACKUP */) ? 1 : 0;
+	        if (this.flags() & 32) {
+	            var previousDates = (this.flags() & 1) ? 1 : 0;
+	            previousDates += (this.flags() & 2) ? 1 : 0;
+	            previousDates += (this.flags() & 4) ? 1 : 0;
+	            previousDates += (this.flags() & 16) ? 1 : 0;
 	            if (this._longFormDates) {
 	                return getDate(this._data, 5 + (previousDates * 17));
 	            }
@@ -15183,12 +14455,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    TFEntry.prototype.effective = function effective () {
-	        if (this.flags() & 64 /* EFFECTIVE */) {
-	            var previousDates = (this.flags() & 1 /* CREATION */) ? 1 : 0;
-	            previousDates += (this.flags() & 2 /* MODIFY */) ? 1 : 0;
-	            previousDates += (this.flags() & 4 /* ACCESS */) ? 1 : 0;
-	            previousDates += (this.flags() & 16 /* BACKUP */) ? 1 : 0;
-	            previousDates += (this.flags() & 32 /* EXPIRATION */) ? 1 : 0;
+	        if (this.flags() & 64) {
+	            var previousDates = (this.flags() & 1) ? 1 : 0;
+	            previousDates += (this.flags() & 2) ? 1 : 0;
+	            previousDates += (this.flags() & 4) ? 1 : 0;
+	            previousDates += (this.flags() & 16) ? 1 : 0;
+	            previousDates += (this.flags() & 32) ? 1 : 0;
 	            if (this._longFormDates) {
 	                return getDate(this._data, 5 + (previousDates * 17));
 	            }
@@ -15201,7 +14473,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    TFEntry.prototype._longFormDates = function _longFormDates () {
-	        return !!(this.flags() && 128 /* LONG_FORM */);
+	        return !!(this.flags() && 128);
 	    };
 	
 	    return TFEntry;
@@ -15241,33 +14513,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this._record = record;
 	    var i = record.lba();
 	    var iLimit = i + record.dataLength();
-	    if (!(record.fileFlags() & 2 /* Directory */)) {
-	        // Must have a CL entry.
+	    if (!(record.fileFlags() & 2)) {
 	        var cl = record.getSUEntries(isoData).filter(function (e) { return e instanceof CLEntry; })[0];
 	        i = cl.childDirectoryLba() * 2048;
 	        iLimit = Infinity;
 	    }
 	    while (i < iLimit) {
 	        var len = isoData[i];
-	        // Zero-padding between sectors.
-	        // TODO: Could optimize this to seek to nearest-sector upon
-	        // seeing a 0.
 	        if (len === 0) {
 	            i++;
 	            continue;
 	        }
 	        var r = this$1._constructDirectoryRecord(isoData.slice(i));
 	        var fname = r.fileName(isoData);
-	        // Skip '.' and '..' entries.
 	        if (fname !== '\u0000' && fname !== '\u0001') {
-	            // Skip relocated entries.
 	            if (!r.hasRockRidge() || r.getSUEntries(isoData).filter(function (e) { return e instanceof REEntry; }).length === 0) {
 	                this$1._fileMap[fname] = r;
 	                this$1._fileList.push(fname);
 	            }
 	        }
 	        else if (iLimit === Infinity) {
-	            // First entry contains needed data.
 	            iLimit = i + r.dataLength();
 	        }
 	        i += r.length();
@@ -15336,7 +14601,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        SynchronousFileSystem$$1.call(this);
 	        this._data = data;
 	        deprecationMessage(deprecateMsg, IsoFS.Name, { data: "ISO data as a Buffer", name: name });
-	        // Skip first 16 sectors.
 	        var vdTerminatorFound = false;
 	        var i = 16 * 2048;
 	        var candidateVDs = new Array();
@@ -15344,13 +14608,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var slice = data.slice(i);
 	            var vd = new VolumeDescriptor(slice);
 	            switch (vd.type()) {
-	                case 1 /* PrimaryVolumeDescriptor */:
+	                case 1:
 	                    candidateVDs.push(new PrimaryVolumeDescriptor(slice));
 	                    break;
-	                case 2 /* SupplementaryVolumeDescriptor */:
+	                case 2:
 	                    candidateVDs.push(new SupplementaryVolumeDescriptor(slice));
 	                    break;
-	                case 255 /* VolumeDescriptorSetTerminator */:
+	                case 255:
 	                    vdTerminatorFound = true;
 	                    break;
 	            }
@@ -15360,8 +14624,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            throw new ApiError(ErrorCode.EIO, "Unable to find a suitable volume descriptor.");
 	        }
 	        candidateVDs.forEach(function (v) {
-	            // Take an SVD over a PVD.
-	            if (!this$1._pvd || this$1._pvd.type() !== 2 /* SupplementaryVolumeDescriptor */) {
+	            if (!this$1._pvd || this$1._pvd.type() !== 2) {
 	                this$1._pvd = v;
 	            }
 	        });
@@ -15399,7 +14662,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return name;
 	    };
 	    IsoFS.prototype.diskSpace = function diskSpace (path$$1, cb) {
-	        // Read-only file system.
 	        cb(this._data.length, 0);
 	    };
 	    IsoFS.prototype.isReadOnly = function isReadOnly () {
@@ -15422,11 +14684,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this._getStats(p, record);
 	    };
 	    IsoFS.prototype.openSync = function openSync (p, flags, mode) {
-	        // INVARIANT: Cannot write to RO file systems.
 	        if (flags.isWriteable()) {
 	            throw new ApiError(ErrorCode.EPERM, p);
 	        }
-	        // Check if the path exists, and is a file.
 	        var record = this._getDirectoryRecord(p);
 	        if (!record) {
 	            throw ApiError.ENOENT(p);
@@ -15452,7 +14712,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    IsoFS.prototype.readdirSync = function readdirSync (path$$1) {
-	        // Check if it exists.
 	        var record = this._getDirectoryRecord(path$$1);
 	        if (!record) {
 	            throw ApiError.ENOENT(path$$1);
@@ -15468,7 +14727,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Specially-optimized readfile.
 	     */
 	    IsoFS.prototype.readFileSync = function readFileSync (fname, encoding, flag) {
-	        // Get file.
 	        var fd = this.openSync(fname, flag, 0x1a4);
 	        try {
 	            var fdCast = fd;
@@ -15485,7 +14743,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    IsoFS.prototype._getDirectoryRecord = function _getDirectoryRecord (path$$1) {
 	        var this$1 = this;
 	
-	        // Special case.
 	        if (path$$1 === '/') {
 	            return this._root;
 	        }
@@ -15532,19 +14789,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                    else if (entry instanceof TFEntry) {
 	                        var flags = entry.flags();
-	                        if (flags & 4 /* ACCESS */) {
+	                        if (flags & 4) {
 	                            atime = entry.access();
 	                        }
-	                        if (flags & 2 /* MODIFY */) {
+	                        if (flags & 2) {
 	                            mtime = entry.modify();
 	                        }
-	                        if (flags & 1 /* CREATION */) {
+	                        if (flags & 1) {
 	                            ctime = entry.creation();
 	                        }
 	                    }
 	                }
 	            }
-	            // Mask out writeable flags. This is a RO file system.
 	            mode = mode & 0x16D;
 	            return new Stats(record.isDirectory(this._data) ? FileType.DIRECTORY : FileType.FILE, len, mode, atime, mtime, ctime);
 	        }
@@ -15562,7 +14818,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 	
-	// Monkey-patch `Create` functions to check options before file system initialization.
 	[AsyncMirror, DropboxFileSystem, EmscriptenFileSystem, FolderAdapter, HTML5FS, InMemoryFileSystem, IndexedDBFileSystem, IsoFS, LocalStorageFileSystem, MountableFileSystem, OverlayFS, WorkerFS, XmlHttpRequest, ZipFS].forEach(function (fsType) {
 	    var create = fsType.Create;
 	    fsType.Create = function (opts, cb) {
@@ -15600,7 +14855,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    obj.Buffer = Buffer;
 	    obj.process = process;
 	    var oldRequire = obj.require ? obj.require : null;
-	    // Monkey-patch require for Node-style code.
 	    obj.require = function (arg) {
 	        var rv = BFSRequire(arg);
 	        if (!rv) {
@@ -15624,7 +14878,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        case 'path':
 	            return path;
 	        case 'buffer':
-	            // The 'buffer' module has 'Buffer' as a property.
 	            return buffer;
 	        case 'process':
 	            return process;
@@ -15683,7 +14936,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (options !== null && typeof (options) === "object") {
 	        var finishedIterating = false;
 	        var props = Object.keys(options).filter(function (k) { return k !== 'fs'; });
-	        // Check recursively if other fields have 'fs' properties.
 	        props.forEach(function (p) {
 	            var d = options[p];
 	            if (d !== null && typeof (d) === "object" && d['fs']) {
@@ -15717,22 +14969,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * BrowserFS's main entry point.
 	 * It installs all of the needed polyfills, and requires() the main module.
 	 */
-	// IE substr does not support negative indices
 	if ('ab'.substr(-1) !== 'b') {
 	    String.prototype.substr = function (substr) {
 	        return function (start, length) {
-	            // did we get a negative start, calculate how much it is from the
-	            // beginning of the string
 	            if (start < 0) {
 	                start = this.length + start;
 	            }
-	            // call the original function
 	            return substr.call(this, start, length);
 	        };
 	    }(String.prototype.substr);
 	}
-	// Polyfill for Uint8Array.prototype.slice.
-	// Safari and some other browsers do not define it.
 	if (typeof (ArrayBuffer) !== 'undefined' && typeof (Uint8Array) !== 'undefined') {
 	    if (!Uint8Array.prototype['slice']) {
 	        Uint8Array.prototype.slice = function (start, end) {
@@ -15771,26 +15017,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Errors = api_error;
 	exports.setImmediate = setImmediate$3;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), (function() { return this; }()), __webpack_require__(5)(module), __webpack_require__(6)))
+}.call(exports, __webpack_require__(1), (function() { return this; }()), __webpack_require__(5)(module), __webpack_require__(6)))
 
 /***/ },
-/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(2).Buffer;
 
 
 /***/ },
-/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer) {/*!
-	 * The buffer module from node.js, for the browser.
-	 *
-	 * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
-	 * @license  MIT
-	 */
-	/* eslint-disable no-proto */
+(function(Buffer) {
 	
 	'use strict'
 	
@@ -15829,7 +15067,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	function typedArraySupport () {
-	  // Can typed array instances can be augmented?
 	  try {
 	    var arr = new Uint8Array(1)
 	    arr.__proto__ = {__proto__: Uint8Array.prototype, foo: function () { return 42 }}
@@ -15843,7 +15080,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (length > K_MAX_LENGTH) {
 	    throw new RangeError('Invalid typed array length')
 	  }
-	  // Return an augmented `Uint8Array` instance
 	  var buf = new Uint8Array(length)
 	  buf.__proto__ = Buffer.prototype
 	  return buf
@@ -15860,7 +15096,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	
 	function Buffer (arg, encodingOrOffset, length) {
-	  // Common case.
 	  if (typeof arg === 'number') {
 	    if (typeof encodingOrOffset === 'string') {
 	      throw new Error(
@@ -15872,7 +15107,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return from(arg, encodingOrOffset, length)
 	}
 	
-	// Fix subarray() in ES2016. See: https://github.com/feross/buffer/pull/97
 	if (typeof Symbol !== 'undefined' && Symbol.species &&
 	    Buffer[Symbol.species] === Buffer) {
 	  Object.defineProperty(Buffer, Symbol.species, {
@@ -15883,7 +15117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  })
 	}
 	
-	Buffer.poolSize = 8192 // not used by this implementation
+	Buffer.poolSize = 8192
 	
 	function from (value, encodingOrOffset, length) {
 	  if (typeof value === 'number') {
@@ -15913,8 +15147,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return from(value, encodingOrOffset, length)
 	}
 	
-	// Note: Change prototype *after* Buffer.from is defined to workaround Chrome bug:
-	// https://github.com/feross/buffer/pull/148
 	Buffer.prototype.__proto__ = Uint8Array.prototype
 	Buffer.__proto__ = Uint8Array
 	
@@ -15932,9 +15164,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return createBuffer(size)
 	  }
 	  if (fill !== undefined) {
-	    // Only pay attention to encoding if it's a string. This
-	    // prevents accidentally sending in a number that would
-	    // be interpretted as a start offset.
 	    return typeof encoding === 'string'
 	      ? createBuffer(size).fill(fill, encoding)
 	      : createBuffer(size).fill(fill)
@@ -15983,9 +15212,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var actual = buf.write(string, encoding)
 	
 	  if (actual !== length) {
-	    // Writing a hex string, for example, that contains invalid characters will
-	    // cause everything after the first invalid character to be ignored. (e.g.
-	    // 'abxxcd' will be treated as 'ab')
 	    buf = buf.slice(0, actual)
 	  }
 	
@@ -16019,7 +15245,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    buf = new Uint8Array(array, byteOffset, length)
 	  }
 	
-	  // Return an augmented `Uint8Array` instance
 	  buf.__proto__ = Buffer.prototype
 	  return buf
 	}
@@ -16054,8 +15279,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	function checked (length) {
-	  // Note: cannot use `length < K_MAX_LENGTH` here because that fails when
-	  // length is NaN (which is otherwise coerced to zero.)
 	  if (length >= K_MAX_LENGTH) {
 	    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
 	                         'size: 0x' + K_MAX_LENGTH.toString(16) + ' bytes')
@@ -16064,7 +15287,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	function SlowBuffer (length) {
-	  if (+length != length) { // eslint-disable-line eqeqeq
+	  if (+length != length) {
 	    length = 0
 	  }
 	  return Buffer.alloc(+length)
@@ -16160,7 +15383,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var len = string.length
 	  if (len === 0) return 0
 	
-	  // Use a for loop to avoid recursion
 	  var loweredCase = false
 	  for (;;) {
 	    switch (encoding) {
@@ -16182,7 +15404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      case 'base64':
 	        return base64ToBytes(string).length
 	      default:
-	        if (loweredCase) return utf8ToBytes(string).length // assume utf8
+	        if (loweredCase) return utf8ToBytes(string).length
 	        encoding = ('' + encoding).toLowerCase()
 	        loweredCase = true
 	    }
@@ -16193,18 +15415,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	function slowToString (encoding, start, end) {
 	  var loweredCase = false
 	
-	  // No need to verify that "this.length <= MAX_UINT32" since it's a read-only
-	  // property of a typed array.
 	
-	  // This behaves neither like String nor Uint8Array in that we set start/end
-	  // to their upper/lower bounds if the value passed is out of range.
-	  // undefined is handled specially as per ECMA-262 6th Edition,
-	  // Section 13.3.3.7 Runtime Semantics: KeyedBindingInitialization.
 	  if (start === undefined || start < 0) {
 	    start = 0
 	  }
-	  // Return early if start > this.length. Done here to prevent potential uint32
-	  // coercion fail below.
 	  if (start > this.length) {
 	    return ''
 	  }
@@ -16217,7 +15431,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return ''
 	  }
 	
-	  // Force coersion to uint32. This will also coerce falsey/NaN values to 0.
 	  end >>>= 0
 	  start >>>= 0
 	
@@ -16260,12 +15473,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 	
-	// This property is used by `Buffer.isBuffer` (and the `is-buffer` npm package)
-	// to detect a Buffer instance. It's not possible to use `instanceof Buffer`
-	// reliably in a browserify context because there could be multiple different
-	// copies of the 'buffer' package in use. This method works even for Buffer
-	// instances that were created from another copy of the `buffer` package.
-	// See: https://github.com/feross/buffer/issues/154
 	Buffer.prototype._isBuffer = true
 	
 	function swap (b, n, m) {
@@ -16393,20 +15600,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return 0
 	}
 	
-	// Finds either the first index of `val` in `buffer` at offset >= `byteOffset`,
-	// OR the last index of `val` in `buffer` at offset <= `byteOffset`.
-	//
-	// Arguments:
-	// - buffer - a Buffer to search
-	// - val - a string, Buffer, or number
-	// - byteOffset - an index into `buffer`; will be clamped to an int32
-	// - encoding - an optional encoding, relevant is val is a string
-	// - dir - true for indexOf, false for lastIndexOf
 	function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
-	  // Empty buffer means no match
 	  if (buffer.length === 0) return -1
 	
-	  // Normalize byteOffset
 	  if (typeof byteOffset === 'string') {
 	    encoding = byteOffset
 	    byteOffset = 0
@@ -16415,13 +15611,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  } else if (byteOffset < -0x80000000) {
 	    byteOffset = -0x80000000
 	  }
-	  byteOffset = +byteOffset  // Coerce to Number.
+	  byteOffset = +byteOffset
 	  if (numberIsNaN(byteOffset)) {
-	    // byteOffset: it it's undefined, null, NaN, "foo", etc, search whole buffer
 	    byteOffset = dir ? 0 : (buffer.length - 1)
 	  }
 	
-	  // Normalize byteOffset: negative offsets start from the end of the buffer
 	  if (byteOffset < 0) byteOffset = buffer.length + byteOffset
 	  if (byteOffset >= buffer.length) {
 	    if (dir) return -1
@@ -16431,20 +15625,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    else return -1
 	  }
 	
-	  // Normalize val
 	  if (typeof val === 'string') {
 	    val = Buffer.from(val, encoding)
 	  }
 	
-	  // Finally, search either indexOf (if dir is true) or lastIndexOf
 	  if (Buffer.isBuffer(val)) {
-	    // Special case: looking for empty string/buffer always fails
 	    if (val.length === 0) {
 	      return -1
 	    }
 	    return arrayIndexOf(buffer, val, byteOffset, encoding, dir)
 	  } else if (typeof val === 'number') {
-	    val = val & 0xFF // Search for a byte value [0-255]
+	    val = val & 0xFF
 	    if (typeof Uint8Array.prototype.indexOf === 'function') {
 	      if (dir) {
 	        return Uint8Array.prototype.indexOf.call(buffer, val, byteOffset)
@@ -16538,7 +15729,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	
-	  // must be an even number of digits
 	  var strLen = string.length
 	  if (strLen % 2 !== 0) throw new TypeError('Invalid hex string')
 	
@@ -16574,17 +15764,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	Buffer.prototype.write = function write (string, offset, length, encoding) {
-	  // Buffer#write(string)
 	  if (offset === undefined) {
 	    encoding = 'utf8'
 	    length = this.length
 	    offset = 0
-	  // Buffer#write(string, encoding)
 	  } else if (length === undefined && typeof offset === 'string') {
 	    encoding = offset
 	    length = this.length
 	    offset = 0
-	  // Buffer#write(string, offset[, length][, encoding])
 	  } else if (isFinite(offset)) {
 	    offset = offset >>> 0
 	    if (isFinite(length)) {
@@ -16627,7 +15814,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return latin1Write(this, string, offset, length)
 	
 	      case 'base64':
-	        // Warning: maxLength not taken into account in base64Write
 	        return base64Write(this, string, offset, length)
 	
 	      case 'ucs2':
@@ -16714,12 +15900,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	
 	    if (codePoint === null) {
-	      // we did not generate a valid codePoint so insert a
-	      // replacement char (U+FFFD) and advance only 1 byte
 	      codePoint = 0xFFFD
 	      bytesPerSequence = 1
 	    } else if (codePoint > 0xFFFF) {
-	      // encode to utf16 (surrogate pair dance)
 	      codePoint -= 0x10000
 	      res.push(codePoint >>> 10 & 0x3FF | 0xD800)
 	      codePoint = 0xDC00 | codePoint & 0x3FF
@@ -16732,18 +15915,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return decodeCodePointsArray(res)
 	}
 	
-	// Based on http://stackoverflow.com/a/22747272/680742, the browser with
-	// the lowest limit is Chrome, with 0x10000 args.
-	// We go 1 magnitude less, for safety
 	var MAX_ARGUMENTS_LENGTH = 0x1000
 	
 	function decodeCodePointsArray (codePoints) {
 	  var len = codePoints.length
 	  if (len <= MAX_ARGUMENTS_LENGTH) {
-	    return String.fromCharCode.apply(String, codePoints) // avoid extra slice()
+	    return String.fromCharCode.apply(String, codePoints)
 	  }
 	
-	  // Decode in chunks to avoid "call stack size exceeded".
 	  var res = ''
 	  var i = 0
 	  while (i < len) {
@@ -16819,14 +15998,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (end < start) end = start
 	
 	  var newBuf = this.subarray(start, end)
-	  // Return an augmented `Uint8Array` instance
 	  newBuf.__proto__ = Buffer.prototype
 	  return newBuf
 	}
 	
-	/*
-	 * Need to make sure that buffer isn't trying to write out of bounds.
-	 */
 	function checkOffset (offset, ext, length) {
 	  if ((offset % 1) !== 0 || offset < 0) throw new RangeError('offset is not uint')
 	  if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length')
@@ -17231,7 +16406,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return writeDouble(this, value, offset, false, noAssert)
 	}
 	
-	// copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
 	Buffer.prototype.copy = function copy (target, targetStart, start, end) {
 	  if (!start) start = 0
 	  if (!end && end !== 0) end = this.length
@@ -17239,18 +16413,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!targetStart) targetStart = 0
 	  if (end > 0 && end < start) end = start
 	
-	  // Copy 0 bytes; we're done
 	  if (end === start) return 0
 	  if (target.length === 0 || this.length === 0) return 0
 	
-	  // Fatal error conditions
 	  if (targetStart < 0) {
 	    throw new RangeError('targetStart out of bounds')
 	  }
 	  if (start < 0 || start >= this.length) throw new RangeError('sourceStart out of bounds')
 	  if (end < 0) throw new RangeError('sourceEnd out of bounds')
 	
-	  // Are we oob?
 	  if (end > this.length) end = this.length
 	  if (target.length - targetStart < end - start) {
 	    end = target.length - targetStart + start
@@ -17260,12 +16431,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var i
 	
 	  if (this === target && start < targetStart && targetStart < end) {
-	    // descending copy from end
 	    for (i = len - 1; i >= 0; --i) {
 	      target[i + targetStart] = this[i + start]
 	    }
 	  } else if (len < 1000) {
-	    // ascending copy from start
 	    for (i = 0; i < len; ++i) {
 	      target[i + targetStart] = this[i + start]
 	    }
@@ -17280,12 +16449,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return len
 	}
 	
-	// Usage:
-	//    buffer.fill(number[, offset[, end]])
-	//    buffer.fill(buffer[, offset[, end]])
-	//    buffer.fill(string[, offset[, end]][, encoding])
 	Buffer.prototype.fill = function fill (val, start, end, encoding) {
-	  // Handle string cases:
 	  if (typeof val === 'string') {
 	    if (typeof start === 'string') {
 	      encoding = start
@@ -17311,7 +16475,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    val = val & 255
 	  }
 	
-	  // Invalid ranges are not set to a default, so can range check early.
 	  if (start < 0 || this.length < start || this.length < end) {
 	    throw new RangeError('Out of range index')
 	  }
@@ -17343,17 +16506,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return this
 	}
 	
-	// HELPER FUNCTIONS
-	// ================
 	
 	var INVALID_BASE64_RE = /[^+/0-9A-Za-z-_]/g
 	
 	function base64clean (str) {
-	  // Node strips out invalid characters like \n and \t from the string, base64-js does not
 	  str = str.trim().replace(INVALID_BASE64_RE, '')
-	  // Node converts strings with length < 2 to ''
 	  if (str.length < 2) return ''
-	  // Node allows for non-padded base64 strings (missing trailing ===), base64-js does not
 	  while (str.length % 4 !== 0) {
 	    str = str + '='
 	  }
@@ -17375,44 +16533,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (var i = 0; i < length; ++i) {
 	    codePoint = string.charCodeAt(i)
 	
-	    // is surrogate component
 	    if (codePoint > 0xD7FF && codePoint < 0xE000) {
-	      // last char was a lead
 	      if (!leadSurrogate) {
-	        // no lead yet
 	        if (codePoint > 0xDBFF) {
-	          // unexpected trail
 	          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
 	          continue
 	        } else if (i + 1 === length) {
-	          // unpaired lead
 	          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
 	          continue
 	        }
 	
-	        // valid lead
 	        leadSurrogate = codePoint
 	
 	        continue
 	      }
 	
-	      // 2 leads in a row
 	      if (codePoint < 0xDC00) {
 	        if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
 	        leadSurrogate = codePoint
 	        continue
 	      }
 	
-	      // valid surrogate pair
 	      codePoint = (leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00) + 0x10000
 	    } else if (leadSurrogate) {
-	      // valid bmp char, but last char was a lead
 	      if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
 	    }
 	
 	    leadSurrogate = null
 	
-	    // encode utf8
 	    if (codePoint < 0x80) {
 	      if ((units -= 1) < 0) break
 	      bytes.push(codePoint)
@@ -17448,7 +16596,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	function asciiToBytes (str) {
 	  var byteArray = []
 	  for (var i = 0; i < str.length; ++i) {
-	    // Node's code seems to be doing this and not & 0x7F..
 	    byteArray.push(str.charCodeAt(i) & 0xFF)
 	  }
 	  return byteArray
@@ -17482,27 +16629,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return i
 	}
 	
-	// ArrayBuffers from another context (i.e. an iframe) do not pass the `instanceof` check
-	// but they should be treated as valid. See: https://github.com/feross/buffer/issues/166
 	function isArrayBuffer (obj) {
 	  return obj instanceof ArrayBuffer ||
 	    (obj != null && obj.constructor != null && obj.constructor.name === 'ArrayBuffer' &&
 	      typeof obj.byteLength === 'number')
 	}
 	
-	// Node 0.10 supports `ArrayBuffer` but lacks `ArrayBuffer.isView`
 	function isArrayBufferView (obj) {
 	  return (typeof ArrayBuffer.isView === 'function') && ArrayBuffer.isView(obj)
 	}
 	
 	function numberIsNaN (obj) {
-	  return obj !== obj // eslint-disable-line no-self-compare
+	  return obj !== obj
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 3 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -17530,16 +16673,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    throw new Error('Invalid string. Length must be a multiple of 4')
 	  }
 	
-	  // the number of equal signs (place holders)
-	  // if there are two placeholders, than the two characters before it
-	  // represent one byte
-	  // if there is only one, then the three characters before it represent 2 bytes
-	  // this is just a cheap hack to not do indexOf twice
 	  return b64[len - 2] === '=' ? 2 : b64[len - 1] === '=' ? 1 : 0
 	}
 	
 	function byteLength (b64) {
-	  // base64 is 4/3 + up to two characters of the original data
 	  return b64.length * 3 / 4 - placeHoldersCount(b64)
 	}
 	
@@ -17550,7 +16687,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  arr = new Arr(len * 3 / 4 - placeHolders)
 	
-	  // if there are placeholders, only get up to the last complete 4 chars
 	  l = placeHolders > 0 ? len - 4 : len
 	
 	  var L = 0
@@ -17591,17 +16727,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	function fromByteArray (uint8) {
 	  var tmp
 	  var len = uint8.length
-	  var extraBytes = len % 3 // if we have 1 byte left, pad 2 bytes
+	  var extraBytes = len % 3
 	  var output = ''
 	  var parts = []
-	  var maxChunkLength = 16383 // must be multiple of 3
+	  var maxChunkLength = 16383
 	
-	  // go through the array every three bytes, we'll deal with trailing stuff later
 	  for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
 	    parts.push(encodeChunk(uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)))
 	  }
 	
-	  // pad the end with zeros, but make sure to not forget the extra bytes
 	  if (extraBytes === 1) {
 	    tmp = uint8[len - 1]
 	    output += lookup[tmp >> 2]
@@ -17622,7 +16756,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 4 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -17712,14 +16845,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 5 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
 		if(!module.webpackPolyfill) {
 			module.deprecate = function() {};
 			module.paths = [];
-			// module.parent = undefined by default
 			module.children = [];
 			module.webpackPolyfill = 1;
 		}
@@ -17728,7 +16859,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17736,7 +16866,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var process = new Process(), processProxy = {};
 	function defineKey(key) {
 	    if (processProxy[key]) {
-	        // Probably a builtin Object property we don't care about.
 	        return;
 	    }
 	    if (typeof process[key] === 'function') {
@@ -17749,11 +16878,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	}
 	for (var key in process) {
-	    // Don't check if process.hasOwnProperty; we want to also expose objects
-	    // up the prototype hierarchy.
 	    defineKey(key);
 	}
-	// Special key: Ensure we update public-facing values of stdin/stdout/stderr.
 	processProxy.initializeTTYs = function () {
 	    if (process.stdin === null) {
 	        process.initializeTTYs();
@@ -17769,17 +16895,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__dirname) {"use strict";
+(function(__dirname) {"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var events = __webpack_require__(8);
-	// Path depends on process. Avoid a circular reference by dynamically including path when we need it.
 	var path = null;
 	var Item = (function () {
 	    function Item(fun, array) {
@@ -17799,7 +16923,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function NextTickQueue() {
 	        this._queue = [];
 	        this._draining = false;
-	        // Used/assigned by the drainQueue function.
 	        this._currentQueue = null;
 	        this._queueIndex = -1;
 	    }
@@ -17826,7 +16949,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (this._draining) {
 	            return;
 	        }
-	        // If an Item throws an unhandled exception, this function will clean things up.
 	        var timeout = setTimeout(function () { return _this._cleanUpNextTick(); });
 	        this._draining = true;
 	        var len = this._queue.length;
@@ -17917,7 +17039,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.title = 'node';
 	        this.arch = 'x32';
 	        this._mask = 18;
-	        // Undefined in main thread. Worker-only.
 	        this.connected = undefined;
 	    }
 	    /**
@@ -17932,7 +17053,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param [String] dir The directory to change to.
 	     */
 	    Process.prototype.chdir = function (dir) {
-	        // XXX: Circular dependency hack.
 	        if (path === null) {
 	            path = __webpack_require__(9);
 	        }
@@ -18023,7 +17143,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * [BFS only] Initialize the TTY devices.
 	     */
 	    Process.prototype.initializeTTYs = function () {
-	        // Guard against multiple invocations.
 	        if (this.stdout === null) {
 	            var TTY = __webpack_require__(10);
 	            this.stdout = new TTY();
@@ -18040,32 +17159,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(events.EventEmitter));
 	module.exports = Process;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+}.call(exports, "/"))
 
 /***/ },
-/* 8 */
 /***/ function(module, exports) {
 
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 	function EventEmitter() {
 	  this._events = this._events || {};
@@ -18073,18 +17171,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	module.exports = EventEmitter;
 	
-	// Backwards-compat with node 0.10.x
 	EventEmitter.EventEmitter = EventEmitter;
 	
 	EventEmitter.prototype._events = undefined;
 	EventEmitter.prototype._maxListeners = undefined;
 	
-	// By default EventEmitters will print a warning if more than 10 listeners are
-	// added to it. This is a useful default which helps finding memory leaks.
 	EventEmitter.defaultMaxListeners = 10;
 	
-	// Obviously not all Emitters should be limited to 10. This function allows
-	// that to be increased. Set to zero for unlimited.
 	EventEmitter.prototype.setMaxListeners = function(n) {
 	  if (!isNumber(n) || n < 0 || isNaN(n))
 	    throw TypeError('n must be a positive number');
@@ -18098,15 +17191,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!this._events)
 	    this._events = {};
 	
-	  // If there is no 'error' event listener then throw.
 	  if (type === 'error') {
 	    if (!this._events.error ||
 	        (isObject(this._events.error) && !this._events.error.length)) {
 	      er = arguments[1];
 	      if (er instanceof Error) {
-	        throw er; // Unhandled 'error' event
+	        throw er;
 	      } else {
-	        // At least give some kind of context to the user
 	        var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
 	        err.context = er;
 	        throw err;
@@ -18121,7 +17212,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  if (isFunction(handler)) {
 	    switch (arguments.length) {
-	      // fast cases
 	      case 1:
 	        handler.call(this);
 	        break;
@@ -18131,7 +17221,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      case 3:
 	        handler.call(this, arguments[1], arguments[2]);
 	        break;
-	      // slower
 	      default:
 	        args = Array.prototype.slice.call(arguments, 1);
 	        handler.apply(this, args);
@@ -18156,24 +17245,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!this._events)
 	    this._events = {};
 	
-	  // To avoid recursion in the case that type === "newListener"! Before
-	  // adding it to the listeners, first emit "newListener".
 	  if (this._events.newListener)
 	    this.emit('newListener', type,
 	              isFunction(listener.listener) ?
 	              listener.listener : listener);
 	
 	  if (!this._events[type])
-	    // Optimize the case of one listener. Don't need the extra array object.
 	    this._events[type] = listener;
 	  else if (isObject(this._events[type]))
-	    // If we've already got an array, just append.
 	    this._events[type].push(listener);
 	  else
-	    // Adding the second element, need to change to array.
 	    this._events[type] = [this._events[type], listener];
 	
-	  // Check for listener leak
 	  if (isObject(this._events[type]) && !this._events[type].warned) {
 	    if (!isUndefined(this._maxListeners)) {
 	      m = this._maxListeners;
@@ -18188,7 +17271,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    'Use emitter.setMaxListeners() to increase limit.',
 	                    this._events[type].length);
 	      if (typeof console.trace === 'function') {
-	        // not supported in IE 10
 	        console.trace();
 	      }
 	    }
@@ -18220,7 +17302,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return this;
 	};
 	
-	// emits a 'removeListener' event iff the listener was removed
 	EventEmitter.prototype.removeListener = function(type, listener) {
 	  var list, position, length, i;
 	
@@ -18272,7 +17353,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!this._events)
 	    return this;
 	
-	  // not listening for removeListener, no need to emit
 	  if (!this._events.removeListener) {
 	    if (arguments.length === 0)
 	      this._events = {};
@@ -18281,7 +17361,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return this;
 	  }
 	
-	  // emit removeListener for all listeners on all events
 	  if (arguments.length === 0) {
 	    for (key in this._events) {
 	      if (key === 'removeListener') continue;
@@ -18297,7 +17376,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (isFunction(listeners)) {
 	    this.removeListener(type, listeners);
 	  } else if (listeners) {
-	    // LIFO order
 	    while (listeners.length)
 	      this.removeListener(type, listeners[listeners.length - 1]);
 	  }
@@ -18351,12 +17429,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
-	// Split a filename into [root, dir, basename, ext], unix version
-	// 'root' is just a slash, or nothing.
+(function(process) {"use strict";
 	var splitPathRe = /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
 	function posixSplitPath(filename) {
 	    var out = splitPathRe.exec(filename);
@@ -18386,16 +17461,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return [String]
 	     */
 	    path.normalize = function (p) {
-	        // Special case: '' -> '.'
 	        if (p === '') {
 	            p = '.';
 	        }
-	        // It's very important to know if the path is relative or not, since it
-	        // changes how we process .. and reconstruct the split string.
 	        var absolute = p.charAt(0) === path.sep;
-	        // Remove repeated //s
 	        p = path._removeDuplicateSeps(p);
-	        // Try to remove as many '../' as possible, and remove '.' completely.
 	        var components = p.split(path.sep);
 	        var goodComponents = [];
 	        for (var idx = 0; idx < components.length; idx++) {
@@ -18404,19 +17474,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                continue;
 	            }
 	            else if (c === '..' && (absolute || (!absolute && goodComponents.length > 0 && goodComponents[0] !== '..'))) {
-	                // In the absolute case: Path is relative to root, so we may pop even if
-	                // goodComponents is empty (e.g. /../ => /)
-	                // In the relative case: We're getting rid of a directory that preceded
-	                // it (e.g. /foo/../bar -> /bar)
 	                goodComponents.pop();
 	            }
 	            else {
 	                goodComponents.push(c);
 	            }
 	        }
-	        // Add in '.' when it's a relative path with no other nonempty components.
-	        // Possible results: '.' and './' (input: [''] or [])
-	        // @todo Can probably simplify this logic.
 	        if (!absolute && goodComponents.length < 2) {
 	            switch (goodComponents.length) {
 	                case 1:
@@ -18454,8 +17517,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        for (var _i = 0; _i < arguments.length; _i++) {
 	            paths[_i - 0] = arguments[_i];
 	        }
-	        // Required: Prune any non-strings from the path. I also prune empty segments
-	        // so we can do a simple join of the array.
 	        var processed = [];
 	        for (var i = 0; i < paths.length; i++) {
 	            var segment = paths[i];
@@ -18512,8 +17573,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        for (var _i = 0; _i < arguments.length; _i++) {
 	            paths[_i - 0] = arguments[_i];
 	        }
-	        // Monitor for invalid paths, throw out empty paths, and look for the *last*
-	        // absolute path that we see.
 	        var processed = [];
 	        for (var i = 0; i < paths.length; i++) {
 	            var p = paths[i];
@@ -18521,30 +17580,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	                throw new TypeError("Invalid argument type to path.join: " + (typeof p));
 	            }
 	            else if (p !== '') {
-	                // Remove anything that has occurred before this absolute path, as it
-	                // doesn't matter.
 	                if (p.charAt(0) === path.sep) {
 	                    processed = [];
 	                }
 	                processed.push(p);
 	            }
 	        }
-	        // Special: Remove trailing slash unless it's the root
 	        var resolved = path.normalize(processed.join(path.sep));
 	        if (resolved.length > 1 && resolved.charAt(resolved.length - 1) === path.sep) {
 	            return resolved.substr(0, resolved.length - 1);
 	        }
-	        // Special: If it doesn't start with '/', it's relative and we need to append
-	        // the current directory.
 	        if (resolved.charAt(0) !== path.sep) {
-	            // Remove ./, since we're going to append the current directory.
 	            if (resolved.charAt(0) === '.' && (resolved.length === 1 || resolved.charAt(1) === path.sep)) {
 	                resolved = resolved.length === 1 ? '' : resolved.substr(2);
 	            }
-	            // Append the current directory, which *must* be an absolute path.
 	            var cwd = process.cwd();
 	            if (resolved !== '') {
-	                // cwd will never end in a /... unless it's the root.
 	                resolved = this.normalize(cwd + (cwd !== '/' ? path.sep : '') + resolved);
 	            }
 	            else {
@@ -18576,50 +17627,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    path.relative = function (from, to) {
 	        var i;
-	        // Alright. Let's resolve these two to absolute paths and remove any
-	        // weirdness.
 	        from = path.resolve(from);
 	        to = path.resolve(to);
 	        var fromSegs = from.split(path.sep);
 	        var toSegs = to.split(path.sep);
-	        // Remove the first segment on both, as it's '' (both are absolute paths)
 	        toSegs.shift();
 	        fromSegs.shift();
-	        // There are two segments to this path:
-	        // * Going *up* the directory hierarchy with '..'
-	        // * Going *down* the directory hierarchy with foo/baz/bat.
 	        var upCount = 0;
 	        var downSegs = [];
-	        // Figure out how many things in 'from' are shared with 'to'.
 	        for (i = 0; i < fromSegs.length; i++) {
 	            var seg = fromSegs[i];
 	            if (seg === toSegs[i]) {
 	                continue;
 	            }
-	            // The rest of 'from', including the current element, indicates how many
-	            // directories we need to go up.
 	            upCount = fromSegs.length - i;
 	            break;
 	        }
-	        // The rest of 'to' indicates where we need to change to. We place this
-	        // outside of the loop, as toSegs.length may be greater than fromSegs.length.
 	        downSegs = toSegs.slice(i);
-	        // Special case: If 'from' is '/'
 	        if (fromSegs.length === 1 && fromSegs[0] === '') {
 	            upCount = 0;
 	        }
-	        // upCount can't be greater than the number of fromSegs
-	        // (cd .. from / is still /)
 	        if (upCount > fromSegs.length) {
 	            upCount = fromSegs.length;
 	        }
-	        // Create the final string!
 	        var rv = '';
 	        for (i = 0; i < upCount; i++) {
 	            rv += '../';
 	        }
 	        rv += downSegs.join(path.sep);
-	        // Special case: Remove trailing '/'. Happens if it's all up and no down.
 	        if (rv.length > 1 && rv.charAt(rv.length - 1) === path.sep) {
 	            rv = rv.substr(0, rv.length - 1);
 	        }
@@ -18638,18 +17673,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return [String]
 	     */
 	    path.dirname = function (p) {
-	        // We get rid of //, but we don't modify anything else (e.g. any extraneous .
-	        // and ../ are kept intact)
 	        p = path._removeDuplicateSeps(p);
 	        var absolute = p.charAt(0) === path.sep;
 	        var sections = p.split(path.sep);
-	        // Do 1 if it's /foo/bar, 2 if it's /foo/bar/
 	        if (sections.pop() === '' && sections.length > 0) {
 	            sections.pop();
 	        }
-	        // # of sections needs to be > 1 if absolute, since the first section is '' for '/'.
-	        // If not absolute, the first section is the first part of the path, and is OK
-	        // to return.
 	        if (sections.length > 1 || (sections.length === 1 && !absolute)) {
 	            return sections.join(path.sep);
 	        }
@@ -18676,21 +17705,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    path.basename = function (p, ext) {
 	        if (ext === void 0) { ext = ""; }
-	        // Special case: Normalize will modify this to '.'
 	        if (p === '') {
 	            return p;
 	        }
-	        // Normalize the string first to remove any weirdness.
 	        p = path.normalize(p);
-	        // Get the last part of the string.
 	        var sections = p.split(path.sep);
 	        var lastPart = sections[sections.length - 1];
-	        // Special case: If it's empty, then we have a string like so: foo/
-	        // Meaning, 'foo' is guaranteed to be a directory.
 	        if (lastPart === '' && sections.length > 1) {
 	            return sections[sections.length - 2];
 	        }
-	        // Remove the extension, if need be.
 	        if (ext.length > 0) {
 	            var lastPartExt = lastPart.substr(lastPart.length - ext.length);
 	            if (lastPartExt === ext) {
@@ -18722,7 +17745,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        p = path.normalize(p);
 	        var sections = p.split(path.sep);
 	        p = sections.pop();
-	        // Special case: foo/file.ext/ should return '.ext'
 	        if (p === '' && sections.length > 0) {
 	            p = sections.pop();
 	        }
@@ -18781,26 +17803,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	        p = p.replace(this._replaceRegex, this.sep);
 	        return p;
 	    };
-	    // The platform-specific file separator. BrowserFS uses `/`.
 	    path.sep = '/';
 	    path._replaceRegex = new RegExp("//+", 'g');
-	    // The platform-specific path delimiter. BrowserFS uses `:`.
 	    path.delimiter = ':';
 	    path.posix = path;
-	    // XXX: Typing hack. We don't actually support win32.
 	    path.win32 = path;
 	    return path;
 	}());
 	var _ = path;
 	module.exports = path;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer) {"use strict";
+(function(Buffer) {"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -18824,8 +17842,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    TTY.prototype.setRawMode = function (mode) {
 	        if (this.isRaw !== mode) {
 	            this.isRaw = mode;
-	            // [BFS] TTY implementations can use this to change their event emitting
-	            //       patterns.
 	            this.emit('modeChange');
 	        }
 	    };
@@ -18835,7 +17851,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    TTY.prototype.changeColumns = function (columns) {
 	        if (columns !== this.columns) {
 	            this.columns = columns;
-	            // Resize event.
 	            this.emit('resize');
 	        }
 	    };
@@ -18845,7 +17860,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    TTY.prototype.changeRows = function (rows) {
 	        if (rows !== this.rows) {
 	            this.rows = rows;
-	            // Resize event.
 	            this.emit('resize');
 	        }
 	    };
@@ -18878,7 +17892,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	    TTY.prototype._read = function (size) {
-	        // Size is advisory -- we can ignore it.
 	        if (this._bufferedWrites.length === 0) {
 	            this._waitingForWrites = true;
 	        }
@@ -18895,32 +17908,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(stream.Duplex));
 	module.exports = TTY;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 	module.exports = Stream;
 	
@@ -18934,13 +17926,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	Stream.Transform = __webpack_require__(29);
 	Stream.PassThrough = __webpack_require__(30);
 	
-	// Backwards-compat with node 0.4.x
 	Stream.Stream = Stream;
 	
 	
 	
-	// old-style streams.  Note that the pipe method (the only relevant
-	// part of this class) is overridden in the Readable class.
 	
 	function Stream() {
 	  EE.call(this);
@@ -18967,8 +17956,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  dest.on('drain', ondrain);
 	
-	  // If the 'end' option is not supplied, dest.end() will be called when
-	  // source gets the 'end' or 'close' events.  Only dest.end() once.
 	  if (!dest._isStdio && (!options || options.end !== false)) {
 	    source.on('end', onend);
 	    source.on('close', onclose);
@@ -18990,18 +17977,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (typeof dest.destroy === 'function') dest.destroy();
 	  }
 	
-	  // don't leave dangling pipes when there are errors.
 	  function onerror(er) {
 	    cleanup();
 	    if (EE.listenerCount(this, 'error') === 0) {
-	      throw er; // Unhandled stream error in pipe.
+	      throw er;
 	    }
 	  }
 	
 	  source.on('error', onerror);
 	  dest.on('error', onerror);
 	
-	  // remove all the event listeners that were added.
 	  function cleanup() {
 	    source.removeListener('data', ondata);
 	    dest.removeListener('drain', ondrain);
@@ -19025,17 +18010,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  dest.emit('pipe', source);
 	
-	  // Allow for unix-like usage: A.pipe(B).pipe(C)
 	  return dest;
 	};
 
 
 /***/ },
-/* 12 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
-	  // implementation from standard node.js 'util' module
 	  module.exports = function inherits(ctor, superCtor) {
 	    ctor.super_ = superCtor
 	    ctor.prototype = Object.create(superCtor.prototype, {
@@ -19048,7 +18030,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  };
 	} else {
-	  // old school shim for old browsers
 	  module.exports = function inherits(ctor, superCtor) {
 	    ctor.super_ = superCtor
 	    var TempCtor = function () {}
@@ -19060,12 +18041,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {var Stream = (function (){
+(function(process) {var Stream = (function (){
 	  try {
-	    return __webpack_require__(11); // hack to fix a circular dependency issue when used with browserify
+	    return __webpack_require__(11);
 	  } catch(_){}
 	}());
 	exports = module.exports = __webpack_require__(14);
@@ -19080,39 +18060,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	  module.exports = Stream;
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+(function(process) {'use strict';
 	
 	module.exports = Readable;
 	
-	/*<replacement>*/
 	var processNextTick = __webpack_require__(15);
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var isArray = __webpack_require__(16);
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var Duplex;
-	/*</replacement>*/
 	
 	Readable.ReadableState = ReadableState;
 	
-	/*<replacement>*/
 	var EE = __webpack_require__(8).EventEmitter;
 	
 	var EElistenerCount = function (emitter, type) {
 	  return emitter.listeners(type).length;
 	};
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var Stream;
 	(function () {
 	  try {
@@ -19121,19 +18091,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!Stream) Stream = __webpack_require__(8).EventEmitter;
 	  }
 	})();
-	/*</replacement>*/
 	
 	var Buffer = __webpack_require__(2).Buffer;
-	/*<replacement>*/
 	var bufferShim = __webpack_require__(17);
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var util = __webpack_require__(18);
 	util.inherits = __webpack_require__(12);
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var debugUtil = __webpack_require__(19);
 	var debug = void 0;
 	if (debugUtil && debugUtil.debuglog) {
@@ -19141,7 +18105,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	} else {
 	  debug = function () {};
 	}
-	/*</replacement>*/
 	
 	var BufferList = __webpack_require__(20);
 	var StringDecoder;
@@ -19149,15 +18112,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	util.inherits(Readable, Stream);
 	
 	function prependListener(emitter, event, fn) {
-	  // Sadly this is not cacheable as some libraries bundle their own
-	  // event emitter implementation with them.
 	  if (typeof emitter.prependListener === 'function') {
 	    return emitter.prependListener(event, fn);
 	  } else {
-	    // This is a hack to make sure that our error handler is attached before any
-	    // userland ones.  NEVER DO THIS. This is here only because this code needs
-	    // to continue to work with older versions of Node.js that do not include
-	    // the prependListener() method. The goal is to eventually remove this hack.
 	    if (!emitter._events || !emitter._events[event]) emitter.on(event, fn);else if (isArray(emitter._events[event])) emitter._events[event].unshift(fn);else emitter._events[event] = [fn, emitter._events[event]];
 	  }
 	}
@@ -19167,24 +18124,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  options = options || {};
 	
-	  // object stream flag. Used to make read(n) ignore n and to
-	  // make all the buffer merging and length checks go away
 	  this.objectMode = !!options.objectMode;
 	
 	  if (stream instanceof Duplex) this.objectMode = this.objectMode || !!options.readableObjectMode;
 	
-	  // the point at which it stops calling _read() to fill the buffer
-	  // Note: 0 is a valid value, means "don't call _read preemptively ever"
 	  var hwm = options.highWaterMark;
 	  var defaultHwm = this.objectMode ? 16 : 16 * 1024;
 	  this.highWaterMark = hwm || hwm === 0 ? hwm : defaultHwm;
 	
-	  // cast to ints.
 	  this.highWaterMark = ~~this.highWaterMark;
 	
-	  // A linked list is used to store data chunks instead of an array because the
-	  // linked list can remove elements from the beginning faster than
-	  // array.shift()
 	  this.buffer = new BufferList();
 	  this.length = 0;
 	  this.pipes = null;
@@ -19194,32 +18143,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.endEmitted = false;
 	  this.reading = false;
 	
-	  // a flag to be able to tell if the onwrite cb is called immediately,
-	  // or on a later tick.  We set this to true at first, because any
-	  // actions that shouldn't happen until "later" should generally also
-	  // not happen before the first write call.
 	  this.sync = true;
 	
-	  // whenever we return null, then we set a flag to say
-	  // that we're awaiting a 'readable' event emission.
 	  this.needReadable = false;
 	  this.emittedReadable = false;
 	  this.readableListening = false;
 	  this.resumeScheduled = false;
 	
-	  // Crypto is kind of old and crusty.  Historically, its default string
-	  // encoding is 'binary' so we have to make this configurable.
-	  // Everything else in the universe uses 'utf8', though.
 	  this.defaultEncoding = options.defaultEncoding || 'utf8';
 	
-	  // when piping, we only care about 'readable' events that happen
-	  // after read()ing all the bytes and not getting any pushback.
 	  this.ranOut = false;
 	
-	  // the number of writers that are awaiting a drain event in .pipe()s
 	  this.awaitDrain = 0;
 	
-	  // if true, a maybeReadMore has been scheduled
 	  this.readingMore = false;
 	
 	  this.decoder = null;
@@ -19238,7 +18174,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  this._readableState = new ReadableState(options, this);
 	
-	  // legacy
 	  this.readable = true;
 	
 	  if (options && typeof options.read === 'function') this._read = options.read;
@@ -19246,10 +18181,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Stream.call(this);
 	}
 	
-	// Manually shove something into the read() buffer.
-	// This returns true if the highWaterMark has not been hit yet,
-	// similar to how Writable.write() returns true if you should
-	// write() some more.
 	Readable.prototype.push = function (chunk, encoding) {
 	  var state = this._readableState;
 	
@@ -19264,7 +18195,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return readableAddChunk(this, state, chunk, encoding, false);
 	};
 	
-	// Unshift should *always* be something directly out of read()
 	Readable.prototype.unshift = function (chunk) {
 	  var state = this._readableState;
 	  return readableAddChunk(this, state, chunk, '', true);
@@ -19297,15 +18227,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      if (!addToFront) state.reading = false;
 	
-	      // Don't add to the buffer if we've decoded to an empty string chunk and
-	      // we're not in object mode
 	      if (!skipAdd) {
-	        // if we want the data now, just emit it.
 	        if (state.flowing && state.length === 0 && !state.sync) {
 	          stream.emit('data', chunk);
 	          stream.read(0);
 	        } else {
-	          // update the buffer info.
 	          state.length += state.objectMode ? 1 : chunk.length;
 	          if (addToFront) state.buffer.unshift(chunk);else state.buffer.push(chunk);
 	
@@ -19322,18 +18248,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return needMoreData(state);
 	}
 	
-	// if it's past the high water mark, we can push in some more.
-	// Also, if we have no data yet, we can stand some
-	// more bytes.  This is to work around cases where hwm=0,
-	// such as the repl.  Also, if the push() triggered a
-	// readable event, and the user called read(largeNumber) such that
-	// needReadable was set, then we ought to push more, so that another
-	// 'readable' event will be triggered.
 	function needMoreData(state) {
 	  return !state.ended && (state.needReadable || state.length < state.highWaterMark || state.length === 0);
 	}
 	
-	// backwards compatibility.
 	Readable.prototype.setEncoding = function (enc) {
 	  if (!StringDecoder) StringDecoder = __webpack_require__(24).StringDecoder;
 	  this._readableState.decoder = new StringDecoder(enc);
@@ -19341,14 +18259,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return this;
 	};
 	
-	// Don't raise the hwm > 8MB
 	var MAX_HWM = 0x800000;
 	function computeNewHighWaterMark(n) {
 	  if (n >= MAX_HWM) {
 	    n = MAX_HWM;
 	  } else {
-	    // Get the next highest power of 2 to prevent increasing hwm excessively in
-	    // tiny amounts
 	    n--;
 	    n |= n >>> 1;
 	    n |= n >>> 2;
@@ -19360,19 +18275,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return n;
 	}
 	
-	// This function is designed to be inlinable, so please take care when making
-	// changes to the function body.
 	function howMuchToRead(n, state) {
 	  if (n <= 0 || state.length === 0 && state.ended) return 0;
 	  if (state.objectMode) return 1;
 	  if (n !== n) {
-	    // Only flow one buffer at a time
 	    if (state.flowing && state.length) return state.buffer.head.data.length;else return state.length;
 	  }
-	  // If we're asking for more than the current hwm, then raise the hwm.
 	  if (n > state.highWaterMark) state.highWaterMark = computeNewHighWaterMark(n);
 	  if (n <= state.length) return n;
-	  // Don't have enough
 	  if (!state.ended) {
 	    state.needReadable = true;
 	    return 0;
@@ -19380,7 +18290,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return state.length;
 	}
 	
-	// you can override either this method, or the async _read(n) below.
 	Readable.prototype.read = function (n) {
 	  debug('read', n);
 	  n = parseInt(n, 10);
@@ -19389,9 +18298,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  if (n !== 0) state.emittedReadable = false;
 	
-	  // if we're doing read(0) to trigger a readable event, but we
-	  // already have a bunch of data in the buffer, then just trigger
-	  // the 'readable' event and move on.
 	  if (n === 0 && state.needReadable && (state.length >= state.highWaterMark || state.ended)) {
 	    debug('read: emitReadable', state.length, state.ended);
 	    if (state.length === 0 && state.ended) endReadable(this);else emitReadable(this);
@@ -19400,46 +18306,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  n = howMuchToRead(n, state);
 	
-	  // if we've ended, and we're now clear, then finish it up.
 	  if (n === 0 && state.ended) {
 	    if (state.length === 0) endReadable(this);
 	    return null;
 	  }
 	
-	  // All the actual chunk generation logic needs to be
-	  // *below* the call to _read.  The reason is that in certain
-	  // synthetic stream cases, such as passthrough streams, _read
-	  // may be a completely synchronous operation which may change
-	  // the state of the read buffer, providing enough data when
-	  // before there was *not* enough.
-	  //
-	  // So, the steps are:
-	  // 1. Figure out what the state of things will be after we do
-	  // a read from the buffer.
-	  //
-	  // 2. If that resulting state will trigger a _read, then call _read.
-	  // Note that this may be asynchronous, or synchronous.  Yes, it is
-	  // deeply ugly to write APIs this way, but that still doesn't mean
-	  // that the Readable class should behave improperly, as streams are
-	  // designed to be sync/async agnostic.
-	  // Take note if the _read call is sync or async (ie, if the read call
-	  // has returned yet), so that we know whether or not it's safe to emit
-	  // 'readable' etc.
-	  //
-	  // 3. Actually pull the requested chunks out of the buffer and return.
 	
-	  // if we need a readable event, then we need to do some reading.
 	  var doRead = state.needReadable;
 	  debug('need readable', doRead);
 	
-	  // if we currently have less than the highWaterMark, then also read some
 	  if (state.length === 0 || state.length - n < state.highWaterMark) {
 	    doRead = true;
 	    debug('length less than watermark', doRead);
 	  }
 	
-	  // however, if we've ended, then there's no point, and if we're already
-	  // reading, then it's unnecessary.
 	  if (state.ended || state.reading) {
 	    doRead = false;
 	    debug('reading or ended', doRead);
@@ -19447,13 +18327,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    debug('do read');
 	    state.reading = true;
 	    state.sync = true;
-	    // if the length is currently zero, then we *need* a readable event.
 	    if (state.length === 0) state.needReadable = true;
-	    // call internal read method
 	    this._read(state.highWaterMark);
 	    state.sync = false;
-	    // If _read pushed data synchronously, then `reading` will be false,
-	    // and we need to re-evaluate how much data we can return to the user.
 	    if (!state.reading) n = howMuchToRead(nOrig, state);
 	  }
 	
@@ -19468,11 +18344,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  if (state.length === 0) {
-	    // If we have nothing in the buffer, then we want to know
-	    // as soon as we *do* get something into the buffer.
 	    if (!state.ended) state.needReadable = true;
 	
-	    // If we tried to read() past the EOF, then emit end on the next tick.
 	    if (nOrig !== n && state.ended) endReadable(this);
 	  }
 	
@@ -19500,13 +18373,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  state.ended = true;
 	
-	  // emit 'readable' now to make sure it gets picked up.
 	  emitReadable(stream);
 	}
 	
-	// Don't emit readable right away in sync mode, because this can trigger
-	// another read() call => stack overflow.  This way, it might trigger
-	// a nextTick recursion warning, but that's not so bad.
 	function emitReadable(stream) {
 	  var state = stream._readableState;
 	  state.needReadable = false;
@@ -19523,12 +18392,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  flow(stream);
 	}
 	
-	// at this point, the user has presumably seen the 'readable' event,
-	// and called read() to consume some data.  that may have triggered
-	// in turn another _read(n) call, in which case reading = true if
-	// it's in progress.
-	// However, if we're not ended, or reading, and the length < hwm,
-	// then go ahead and try to read some more preemptively.
 	function maybeReadMore(stream, state) {
 	  if (!state.readingMore) {
 	    state.readingMore = true;
@@ -19542,16 +18405,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    debug('maybeReadMore read 0');
 	    stream.read(0);
 	    if (len === state.length)
-	      // didn't get any data, stop spinning.
 	      break;else len = state.length;
 	  }
 	  state.readingMore = false;
 	}
 	
-	// abstract method.  to be overridden in specific implementation classes.
-	// call cb(er, data) where data is <= n in length.
-	// for virtual (non-string, non-buffer) streams, "length" is somewhat
-	// arbitrary, and perhaps not very meaningful.
 	Readable.prototype._read = function (n) {
 	  this.emit('error', new Error('_read() is not implemented'));
 	};
@@ -19592,17 +18450,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    dest.end();
 	  }
 	
-	  // when the dest drains, it reduces the awaitDrain counter
-	  // on the source.  This would be more elegant with a .once()
-	  // handler in flow(), but adding and removing repeatedly is
-	  // too slow.
 	  var ondrain = pipeOnDrain(src);
 	  dest.on('drain', ondrain);
 	
 	  var cleanedUp = false;
 	  function cleanup() {
 	    debug('cleanup');
-	    // cleanup event handlers once the pipe is broken
 	    dest.removeListener('close', onclose);
 	    dest.removeListener('finish', onfinish);
 	    dest.removeListener('drain', ondrain);
@@ -19614,18 +18467,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    cleanedUp = true;
 	
-	    // if the reader is waiting for a drain event from this
-	    // specific writer, then it would cause it to never start
-	    // flowing again.
-	    // So, if this is awaiting a drain, then we just call it now.
-	    // If we don't know, then assume that we are waiting for one.
 	    if (state.awaitDrain && (!dest._writableState || dest._writableState.needDrain)) ondrain();
 	  }
 	
-	  // If the user pushes more data while we're writing to dest then we'll end up
-	  // in ondata again. However, we only want to increase awaitDrain once because
-	  // dest will only emit one 'drain' event for the multiple writes.
-	  // => Introduce a guard on increasing awaitDrain.
 	  var increasedAwaitDrain = false;
 	  src.on('data', ondata);
 	  function ondata(chunk) {
@@ -19633,10 +18477,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    increasedAwaitDrain = false;
 	    var ret = dest.write(chunk);
 	    if (false === ret && !increasedAwaitDrain) {
-	      // If the user unpiped during `dest.write()`, it is possible
-	      // to get stuck in a permanently paused state if that write
-	      // also returned false.
-	      // => Check whether `dest` is still a piping destination.
 	      if ((state.pipesCount === 1 && state.pipes === dest || state.pipesCount > 1 && indexOf(state.pipes, dest) !== -1) && !cleanedUp) {
 	        debug('false write response, pause', src._readableState.awaitDrain);
 	        src._readableState.awaitDrain++;
@@ -19646,8 +18486,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	
-	  // if the dest has an error, then stop piping into it.
-	  // however, don't suppress the throwing behavior for this.
 	  function onerror(er) {
 	    debug('onerror', er);
 	    unpipe();
@@ -19655,10 +18493,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (EElistenerCount(dest, 'error') === 0) dest.emit('error', er);
 	  }
 	
-	  // Make sure our error handler is attached before userland ones.
 	  prependListener(dest, 'error', onerror);
 	
-	  // Both close and finish should trigger unpipe, but only once.
 	  function onclose() {
 	    dest.removeListener('finish', onfinish);
 	    unpipe();
@@ -19676,10 +18512,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    src.unpipe(dest);
 	  }
 	
-	  // tell the dest that it's being piped to
 	  dest.emit('pipe', src);
 	
-	  // start the flow if it hasn't been started already.
 	  if (!state.flowing) {
 	    debug('pipe resume');
 	    src.resume();
@@ -19703,17 +18537,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	Readable.prototype.unpipe = function (dest) {
 	  var state = this._readableState;
 	
-	  // if we're not piping anywhere, then do nothing.
 	  if (state.pipesCount === 0) return this;
 	
-	  // just one destination.  most common case.
 	  if (state.pipesCount === 1) {
-	    // passed in one, but it's not the right one.
 	    if (dest && dest !== state.pipes) return this;
 	
 	    if (!dest) dest = state.pipes;
 	
-	    // got a match.
 	    state.pipes = null;
 	    state.pipesCount = 0;
 	    state.flowing = false;
@@ -19721,10 +18551,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return this;
 	  }
 	
-	  // slow case. multiple pipe destinations.
 	
 	  if (!dest) {
-	    // remove all.
 	    var dests = state.pipes;
 	    var len = state.pipesCount;
 	    state.pipes = null;
@@ -19736,7 +18564,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }return this;
 	  }
 	
-	  // try to find the right one.
 	  var index = indexOf(state.pipes, dest);
 	  if (index === -1) return this;
 	
@@ -19749,13 +18576,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return this;
 	};
 	
-	// set up data events if they are asked for
-	// Ensure readable listeners eventually get something
 	Readable.prototype.on = function (ev, fn) {
 	  var res = Stream.prototype.on.call(this, ev, fn);
 	
 	  if (ev === 'data') {
-	    // Start flowing on next tick if stream isn't explicitly paused
 	    if (this._readableState.flowing !== false) this.resume();
 	  } else if (ev === 'readable') {
 	    var state = this._readableState;
@@ -19779,8 +18603,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  self.read(0);
 	}
 	
-	// pause() and resume() are remnants of the legacy readable stream API
-	// If the user uses them, then switch into old mode.
 	Readable.prototype.resume = function () {
 	  var state = this._readableState;
 	  if (!state.flowing) {
@@ -19827,9 +18649,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  while (state.flowing && stream.read() !== null) {}
 	}
 	
-	// wrap an old-style stream as the async data source.
-	// This is *not* part of the readable stream interface.
-	// It is an ugly unfortunate mess of history.
 	Readable.prototype.wrap = function (stream) {
 	  var state = this._readableState;
 	  var paused = false;
@@ -19849,7 +18668,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    debug('wrapped data');
 	    if (state.decoder) chunk = state.decoder.write(chunk);
 	
-	    // don't skip over falsy values in objectMode
 	    if (state.objectMode && (chunk === null || chunk === undefined)) return;else if (!state.objectMode && (!chunk || !chunk.length)) return;
 	
 	    var ret = self.push(chunk);
@@ -19859,8 +18677,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  });
 	
-	  // proxy all the other methods.
-	  // important when wrapping filters and duplexes.
 	  for (var i in stream) {
 	    if (this[i] === undefined && typeof stream[i] === 'function') {
 	      this[i] = function (method) {
@@ -19871,14 +18687,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	
-	  // proxy certain important events.
 	  var events = ['error', 'close', 'destroy', 'pause', 'resume'];
 	  forEach(events, function (ev) {
 	    stream.on(ev, self.emit.bind(self, ev));
 	  });
 	
-	  // when we try to consume some more bytes, simply unpause the
-	  // underlying stream.
 	  self._read = function (n) {
 	    debug('wrapped _read', n);
 	    if (paused) {
@@ -19890,53 +18703,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return self;
 	};
 	
-	// exposed for testing purposes only.
 	Readable._fromList = fromList;
 	
-	// Pluck off n bytes from an array of buffers.
-	// Length is the combined lengths of all the buffers in the list.
-	// This function is designed to be inlinable, so please take care when making
-	// changes to the function body.
 	function fromList(n, state) {
-	  // nothing buffered
 	  if (state.length === 0) return null;
 	
 	  var ret;
 	  if (state.objectMode) ret = state.buffer.shift();else if (!n || n >= state.length) {
-	    // read it all, truncate the list
 	    if (state.decoder) ret = state.buffer.join('');else if (state.buffer.length === 1) ret = state.buffer.head.data;else ret = state.buffer.concat(state.length);
 	    state.buffer.clear();
 	  } else {
-	    // read part of list
 	    ret = fromListPartial(n, state.buffer, state.decoder);
 	  }
 	
 	  return ret;
 	}
 	
-	// Extracts only enough buffered data to satisfy the amount requested.
-	// This function is designed to be inlinable, so please take care when making
-	// changes to the function body.
 	function fromListPartial(n, list, hasStrings) {
 	  var ret;
 	  if (n < list.head.data.length) {
-	    // slice is the same for buffers and strings
 	    ret = list.head.data.slice(0, n);
 	    list.head.data = list.head.data.slice(n);
 	  } else if (n === list.head.data.length) {
-	    // first chunk is a perfect match
 	    ret = list.shift();
 	  } else {
-	    // result spans more than one buffer
 	    ret = hasStrings ? copyFromBufferString(n, list) : copyFromBuffer(n, list);
 	  }
 	  return ret;
 	}
 	
-	// Copies a specified amount of characters from the list of buffered data
-	// chunks.
-	// This function is designed to be inlinable, so please take care when making
-	// changes to the function body.
 	function copyFromBufferString(n, list) {
 	  var p = list.head;
 	  var c = 1;
@@ -19963,9 +18758,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return ret;
 	}
 	
-	// Copies a specified amount of bytes from the list of buffered data chunks.
-	// This function is designed to be inlinable, so please take care when making
-	// changes to the function body.
 	function copyFromBuffer(n, list) {
 	  var ret = bufferShim.allocUnsafe(n);
 	  var p = list.head;
@@ -19996,8 +18788,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	function endReadable(stream) {
 	  var state = stream._readableState;
 	
-	  // If we get here before consuming all the bytes, then that is a
-	  // bug in node.  Should never happen.
 	  if (state.length > 0) throw new Error('"endReadable()" called on non-empty stream');
 	
 	  if (!state.endEmitted) {
@@ -20007,7 +18797,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	function endReadableNT(state, stream) {
-	  // Check that we didn't get one last unshift.
 	  if (!state.endEmitted && state.length === 0) {
 	    state.endEmitted = true;
 	    stream.readable = false;
@@ -20027,13 +18816,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  return -1;
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+(function(process) {'use strict';
 	
 	if (!process.version ||
 	    process.version.indexOf('v0.') === 0 ||
@@ -20077,10 +18865,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 16 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -20091,10 +18878,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+(function(global) {'use strict';
 	
 	var buffer = __webpack_require__(2);
 	var Buffer = buffer.Buffer;
@@ -20203,35 +18989,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return new SlowBuffer(size);
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+(function(Buffer) {
 	
-	// NOTE: These type checking functions intentionally don't use `instanceof`
-	// because it is fragile and can be easily faked with `Object.create()`.
 	
 	function isArray(arg) {
 	  if (Array.isArray) {
@@ -20306,7 +19070,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         typeof arg === 'boolean' ||
 	         typeof arg === 'number' ||
 	         typeof arg === 'string' ||
-	         typeof arg === 'symbol' ||  // ES6 symbol
+	         typeof arg === 'symbol' ||
 	         typeof arg === 'undefined';
 	}
 	exports.isPrimitive = isPrimitive;
@@ -20317,24 +19081,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return Object.prototype.toString.call(o);
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 19 */
 /***/ function(module, exports) {
 
-	/* (ignored) */
 
 /***/ },
-/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var Buffer = __webpack_require__(2).Buffer;
-	/*<replacement>*/
 	var bufferShim = __webpack_require__(17);
-	/*</replacement>*/
 	
 	module.exports = BufferList;
 	
@@ -20395,17 +19154,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// a duplex stream is just a stream that is both readable and writable.
-	// Since JS doesn't have multiple prototypal inheritance, this class
-	// prototypally inherits from Readable, and then parasitically from
-	// Writable.
 	
 	'use strict';
 	
-	/*<replacement>*/
 	
 	var objectKeys = Object.keys || function (obj) {
 	  var keys = [];
@@ -20413,18 +19166,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    keys.push(key);
 	  }return keys;
 	};
-	/*</replacement>*/
 	
 	module.exports = Duplex;
 	
-	/*<replacement>*/
 	var processNextTick = __webpack_require__(15);
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var util = __webpack_require__(18);
 	util.inherits = __webpack_require__(12);
-	/*</replacement>*/
 	
 	var Readable = __webpack_require__(14);
 	var Writable = __webpack_require__(22);
@@ -20453,14 +19201,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.once('end', onend);
 	}
 	
-	// the no-half-open enforcer
 	function onend() {
-	  // if we allow half-open state, or if the writable side ended,
-	  // then we're ok.
 	  if (this.allowHalfOpen || this._writableState.ended) return;
 	
-	  // no more data can be written.
-	  // But allow more writes to happen in this tick.
 	  processNextTick(onEndNT, this);
 	}
 	
@@ -20475,43 +19218,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {// A bit simpler than readable streams.
-	// Implement an async ._write(chunk, encoding, cb), and it'll handle all
-	// the drain event emission and buffering.
+(function(process) {
 	
 	'use strict';
 	
 	module.exports = Writable;
 	
-	/*<replacement>*/
 	var processNextTick = __webpack_require__(15);
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var asyncWrite = !process.browser && ['v0.10', 'v0.9.'].indexOf(process.version.slice(0, 5)) > -1 ? setImmediate : processNextTick;
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var Duplex;
-	/*</replacement>*/
 	
 	Writable.WritableState = WritableState;
 	
-	/*<replacement>*/
 	var util = __webpack_require__(18);
 	util.inherits = __webpack_require__(12);
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var internalUtil = {
 	  deprecate: __webpack_require__(23)
 	};
-	/*</replacement>*/
 	
-	/*<replacement>*/
 	var Stream;
 	(function () {
 	  try {
@@ -20520,12 +19249,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!Stream) Stream = __webpack_require__(8).EventEmitter;
 	  }
 	})();
-	/*</replacement>*/
 	
 	var Buffer = __webpack_require__(2).Buffer;
-	/*<replacement>*/
 	var bufferShim = __webpack_require__(17);
-	/*</replacement>*/
 	
 	util.inherits(Writable, Stream);
 	
@@ -20543,94 +19269,55 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  options = options || {};
 	
-	  // object stream flag to indicate whether or not this stream
-	  // contains buffers or objects.
 	  this.objectMode = !!options.objectMode;
 	
 	  if (stream instanceof Duplex) this.objectMode = this.objectMode || !!options.writableObjectMode;
 	
-	  // the point at which write() starts returning false
-	  // Note: 0 is a valid value, means that we always return false if
-	  // the entire buffer is not flushed immediately on write()
 	  var hwm = options.highWaterMark;
 	  var defaultHwm = this.objectMode ? 16 : 16 * 1024;
 	  this.highWaterMark = hwm || hwm === 0 ? hwm : defaultHwm;
 	
-	  // cast to ints.
 	  this.highWaterMark = ~~this.highWaterMark;
 	
-	  // drain event flag.
 	  this.needDrain = false;
-	  // at the start of calling end()
 	  this.ending = false;
-	  // when end() has been called, and returned
 	  this.ended = false;
-	  // when 'finish' is emitted
 	  this.finished = false;
 	
-	  // should we decode strings into buffers before passing to _write?
-	  // this is here so that some node-core streams can optimize string
-	  // handling at a lower level.
 	  var noDecode = options.decodeStrings === false;
 	  this.decodeStrings = !noDecode;
 	
-	  // Crypto is kind of old and crusty.  Historically, its default string
-	  // encoding is 'binary' so we have to make this configurable.
-	  // Everything else in the universe uses 'utf8', though.
 	  this.defaultEncoding = options.defaultEncoding || 'utf8';
 	
-	  // not an actual buffer we keep track of, but a measurement
-	  // of how much we're waiting to get pushed to some underlying
-	  // socket or file.
 	  this.length = 0;
 	
-	  // a flag to see when we're in the middle of a write.
 	  this.writing = false;
 	
-	  // when true all writes will be buffered until .uncork() call
 	  this.corked = 0;
 	
-	  // a flag to be able to tell if the onwrite cb is called immediately,
-	  // or on a later tick.  We set this to true at first, because any
-	  // actions that shouldn't happen until "later" should generally also
-	  // not happen before the first write call.
 	  this.sync = true;
 	
-	  // a flag to know if we're processing previously buffered items, which
-	  // may call the _write() callback in the same tick, so that we don't
-	  // end up in an overlapped onwrite situation.
 	  this.bufferProcessing = false;
 	
-	  // the callback that's passed to _write(chunk,cb)
 	  this.onwrite = function (er) {
 	    onwrite(stream, er);
 	  };
 	
-	  // the callback that the user supplies to write(chunk,encoding,cb)
 	  this.writecb = null;
 	
-	  // the amount that is being written when _write is called.
 	  this.writelen = 0;
 	
 	  this.bufferedRequest = null;
 	  this.lastBufferedRequest = null;
 	
-	  // number of pending user-supplied write callbacks
-	  // this must be 0 before 'finish' can be emitted
 	  this.pendingcb = 0;
 	
-	  // emit prefinish if the only thing we're waiting for is _write cbs
-	  // This is relevant for synchronous Transform streams
 	  this.prefinished = false;
 	
-	  // True if the error was already emitted and should not be thrown again
 	  this.errorEmitted = false;
 	
-	  // count buffered requests
 	  this.bufferedRequestCount = 0;
 	
-	  // allocate the first CorkedRequest, there is always
-	  // one allocated and free to use, and we maintain at most two
 	  this.corkedRequestsFree = new CorkedRequest(this);
 	}
 	
@@ -20654,8 +19341,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  } catch (_) {}
 	})();
 	
-	// Test _writableState for inheritance to account for Duplex streams,
-	// whose prototype chain only points to Readable.
 	var realHasInstance;
 	if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.prototype[Symbol.hasInstance] === 'function') {
 	  realHasInstance = Function.prototype[Symbol.hasInstance];
@@ -20675,20 +19360,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	function Writable(options) {
 	  Duplex = Duplex || __webpack_require__(21);
 	
-	  // Writable ctor is applied to Duplexes, too.
-	  // `realHasInstance` is necessary because using plain `instanceof`
-	  // would return false, as no `_writableState` property is attached.
 	
-	  // Trying to use the custom `instanceof` for Writable here will also break the
-	  // Node.js LazyTransform implementation, which has a non-trivial getter for
-	  // `_writableState` that would lead to infinite recursion.
 	  if (!realHasInstance.call(Writable, this) && !(this instanceof Duplex)) {
 	    return new Writable(options);
 	  }
 	
 	  this._writableState = new WritableState(options, this);
 	
-	  // legacy.
 	  this.writable = true;
 	
 	  if (options) {
@@ -20700,21 +19378,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Stream.call(this);
 	}
 	
-	// Otherwise people can pipe Writable streams, which is just wrong.
 	Writable.prototype.pipe = function () {
 	  this.emit('error', new Error('Cannot pipe, not readable'));
 	};
 	
 	function writeAfterEnd(stream, cb) {
 	  var er = new Error('write after end');
-	  // TODO: defer error events consistently everywhere, not just the cb
 	  stream.emit('error', er);
 	  processNextTick(cb, er);
 	}
 	
-	// Checks that a user-supplied chunk is valid, especially for the particular
-	// mode the stream is in. Currently this means that `null` is never accepted
-	// and undefined/non-string values are only allowed in object mode.
 	function validChunk(stream, state, chunk, cb) {
 	  var valid = true;
 	  var er = false;
@@ -20771,7 +19444,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	Writable.prototype.setDefaultEncoding = function setDefaultEncoding(encoding) {
-	  // node::ParseEncoding() requires lower case.
 	  if (typeof encoding === 'string') encoding = encoding.toLowerCase();
 	  if (!(['hex', 'utf8', 'utf-8', 'ascii', 'binary', 'base64', 'ucs2', 'ucs-2', 'utf16le', 'utf-16le', 'raw'].indexOf((encoding + '').toLowerCase()) > -1)) throw new TypeError('Unknown encoding: ' + encoding);
 	  this._writableState.defaultEncoding = encoding;
@@ -20785,9 +19457,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return chunk;
 	}
 	
-	// if we're already writing something, then just put this
-	// in the queue, and wait our turn.  Otherwise, call _write
-	// If we return false, then we need a drain event, so set that flag.
 	function writeOrBuffer(stream, state, isBuf, chunk, encoding, cb) {
 	  if (!isBuf) {
 	    chunk = decodeChunk(state, chunk, encoding);
@@ -20798,7 +19467,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  state.length += len;
 	
 	  var ret = state.length < state.highWaterMark;
-	  // we must ensure that previous needDrain will not be reset to false.
 	  if (!ret) state.needDrain = true;
 	
 	  if (state.writing || state.corked) {
@@ -20849,7 +19517,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  onwriteStateUpdate(state);
 	
 	  if (er) onwriteError(stream, state, sync, er, cb);else {
-	    // Check if we're actually ready to finish, but don't emit yet
 	    var finished = needFinish(state);
 	
 	    if (!finished && !state.corked && !state.bufferProcessing && state.bufferedRequest) {
@@ -20857,9 +19524,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	
 	    if (sync) {
-	      /*<replacement>*/
 	      asyncWrite(afterWrite, stream, state, finished, cb);
-	      /*</replacement>*/
 	    } else {
 	      afterWrite(stream, state, finished, cb);
 	    }
@@ -20873,9 +19538,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  finishMaybe(stream, state);
 	}
 	
-	// Must force callback to be called on nextTick, so that we don't
-	// emit 'drain' before the write() consumer gets the 'false' return
-	// value, and has a chance to attach a 'drain' listener.
 	function onwriteDrain(stream, state) {
 	  if (state.length === 0 && state.needDrain) {
 	    state.needDrain = false;
@@ -20883,13 +19545,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 	
-	// if there's something in the buffer waiting, then process it
 	function clearBuffer(stream, state) {
 	  state.bufferProcessing = true;
 	  var entry = state.bufferedRequest;
 	
 	  if (stream._writev && entry && entry.next) {
-	    // Fast case, write everything using _writev()
 	    var l = state.bufferedRequestCount;
 	    var buffer = new Array(l);
 	    var holder = state.corkedRequestsFree;
@@ -20904,8 +19564,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    doWrite(stream, state, true, state.length, buffer, '', holder.finish);
 	
-	    // doWrite is almost always async, defer these to save a bit of time
-	    // as the hot path ends with doWrite
 	    state.pendingcb++;
 	    state.lastBufferedRequest = null;
 	    if (holder.next) {
@@ -20915,7 +19573,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      state.corkedRequestsFree = new CorkedRequest(state);
 	    }
 	  } else {
-	    // Slow case, write chunks one-by-one
 	    while (entry) {
 	      var chunk = entry.chunk;
 	      var encoding = entry.encoding;
@@ -20924,10 +19581,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      doWrite(stream, state, false, len, chunk, encoding, cb);
 	      entry = entry.next;
-	      // if we didn't call the onwrite immediately, then
-	      // it means that we need to wait until it does.
-	      // also, that means that the chunk and cb are currently
-	      // being processed, so move the buffer counter past them.
 	      if (state.writing) {
 	        break;
 	      }
@@ -20961,13 +19614,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  if (chunk !== null && chunk !== undefined) this.write(chunk, encoding);
 	
-	  // .end() fully uncorks
 	  if (state.corked) {
 	    state.corked = 1;
 	    this.uncork();
 	  }
 	
-	  // ignore unnecessary end() calls.
 	  if (!state.ending && !state.finished) endWritable(this, state, cb);
 	};
 	
@@ -21006,8 +19657,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  stream.writable = false;
 	}
 	
-	// It seems a linked list but it is not
-	// there will be only 2 of these for each stream
 	function CorkedRequest(state) {
 	  var _this = this;
 	
@@ -21029,13 +19678,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 23 */
 /***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {
+(function(global) {
 	/**
 	 * Module exports.
 	 */
@@ -21092,7 +19740,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	
 	function config (name) {
-	  // accessing global.localStorage can trigger a DOMException in sandboxed iframes
 	  try {
 	    if (!global.localStorage) return false;
 	  } catch (_) {
@@ -21103,32 +19750,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return String(val).toLowerCase() === 'true';
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 	var Buffer = __webpack_require__(2).Buffer;
 	
@@ -21147,30 +19773,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 	
-	// StringDecoder provides an interface for efficiently splitting a series of
-	// buffers into a series of JS strings without breaking apart multi-byte
-	// characters. CESU-8 is handled as part of the UTF-8 encoding.
-	//
-	// @TODO Handling all encodings inside a single object makes it very difficult
-	// to reason about this code, so it should be split up in the future.
-	// @TODO There should be a utf8-strict encoding that rejects invalid UTF-8 code
-	// points as used by CESU-8.
 	var StringDecoder = exports.StringDecoder = function(encoding) {
 	  this.encoding = (encoding || 'utf8').toLowerCase().replace(/[-_]/, '');
 	  assertEncoding(encoding);
 	  switch (this.encoding) {
 	    case 'utf8':
-	      // CESU-8 represents each of Surrogate Pair by 3-bytes
 	      this.surrogateSize = 3;
 	      break;
 	    case 'ucs2':
 	    case 'utf16le':
-	      // UTF-16 represents each of Surrogate Pair by 2-bytes
 	      this.surrogateSize = 2;
 	      this.detectIncompleteChar = utf16DetectIncompleteChar;
 	      break;
 	    case 'base64':
-	      // Base-64 stores 3 bytes in 4 chars, and pads the remainder.
 	      this.surrogateSize = 3;
 	      this.detectIncompleteChar = base64DetectIncompleteChar;
 	      break;
@@ -21179,50 +19794,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return;
 	  }
 	
-	  // Enough space to store all bytes of a single character. UTF-8 needs 4
-	  // bytes, but CESU-8 may require up to 6 (3 bytes per surrogate).
 	  this.charBuffer = new Buffer(6);
-	  // Number of bytes received for the current incomplete multi-byte character.
 	  this.charReceived = 0;
-	  // Number of bytes expected for the current incomplete multi-byte character.
 	  this.charLength = 0;
 	};
 	
 	
-	// write decodes the given buffer and returns it as JS string that is
-	// guaranteed to not contain any partial multi-byte characters. Any partial
-	// character found at the end of the buffer is buffered up, and will be
-	// returned when calling write again with the remaining bytes.
-	//
-	// Note: Converting a Buffer containing an orphan surrogate to a String
-	// currently works, but converting a String to a Buffer (via `new Buffer`, or
-	// Buffer#write) will replace incomplete surrogates with the unicode
-	// replacement character. See https://codereview.chromium.org/121173009/ .
 	StringDecoder.prototype.write = function(buffer) {
 	  var charStr = '';
-	  // if our last write ended with an incomplete multibyte character
 	  while (this.charLength) {
-	    // determine how many remaining bytes this buffer has to offer for this char
 	    var available = (buffer.length >= this.charLength - this.charReceived) ?
 	        this.charLength - this.charReceived :
 	        buffer.length;
 	
-	    // add the new bytes to the char buffer
 	    buffer.copy(this.charBuffer, this.charReceived, 0, available);
 	    this.charReceived += available;
 	
 	    if (this.charReceived < this.charLength) {
-	      // still not enough chars in this buffer? wait for more ...
 	      return '';
 	    }
 	
-	    // remove bytes belonging to the current character from the buffer
 	    buffer = buffer.slice(available, buffer.length);
 	
-	    // get the character that was split
 	    charStr = this.charBuffer.slice(0, this.charLength).toString(this.encoding);
 	
-	    // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
 	    var charCode = charStr.charCodeAt(charStr.length - 1);
 	    if (charCode >= 0xD800 && charCode <= 0xDBFF) {
 	      this.charLength += this.surrogateSize;
@@ -21231,19 +19826,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    this.charReceived = this.charLength = 0;
 	
-	    // if there are no more bytes in this buffer, just emit our char
 	    if (buffer.length === 0) {
 	      return charStr;
 	    }
 	    break;
 	  }
 	
-	  // determine and set charLength / charReceived
 	  this.detectIncompleteChar(buffer);
 	
 	  var end = buffer.length;
 	  if (this.charLength) {
-	    // buffer the incomplete character bytes we got
 	    buffer.copy(this.charBuffer, 0, buffer.length - this.charReceived, end);
 	    end -= this.charReceived;
 	  }
@@ -21252,7 +19844,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  var end = charStr.length - 1;
 	  var charCode = charStr.charCodeAt(end);
-	  // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
 	  if (charCode >= 0xD800 && charCode <= 0xDBFF) {
 	    var size = this.surrogateSize;
 	    this.charLength += size;
@@ -21262,38 +19853,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return charStr.substring(0, end);
 	  }
 	
-	  // or just emit the charStr
 	  return charStr;
 	};
 	
-	// detectIncompleteChar determines if there is an incomplete UTF-8 character at
-	// the end of the given buffer. If so, it sets this.charLength to the byte
-	// length that character, and sets this.charReceived to the number of bytes
-	// that are available for this character.
 	StringDecoder.prototype.detectIncompleteChar = function(buffer) {
-	  // determine how many bytes we have to check at the end of this buffer
 	  var i = (buffer.length >= 3) ? 3 : buffer.length;
 	
-	  // Figure out if one of the last i bytes of our buffer announces an
-	  // incomplete char.
 	  for (; i > 0; i--) {
 	    var c = buffer[buffer.length - i];
 	
-	    // See http://en.wikipedia.org/wiki/UTF-8#Description
 	
-	    // 110XXXXX
 	    if (i == 1 && c >> 5 == 0x06) {
 	      this.charLength = 2;
 	      break;
 	    }
 	
-	    // 1110XXXX
 	    if (i <= 2 && c >> 4 == 0x0E) {
 	      this.charLength = 3;
 	      break;
 	    }
 	
-	    // 11110XXX
 	    if (i <= 3 && c >> 3 == 0x1E) {
 	      this.charLength = 4;
 	      break;
@@ -21333,50 +19912,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// a transform stream is a readable/writable stream where you do
-	// something with the data.  Sometimes it's called a "filter",
-	// but that's not a great name for it, since that implies a thing where
-	// some bits pass through, and others are simply ignored.  (That would
-	// be a valid example of a transform, of course.)
-	//
-	// While the output is causally related to the input, it's not a
-	// necessarily symmetric or synchronous transformation.  For example,
-	// a zlib stream might take multiple plain-text writes(), and then
-	// emit a single compressed chunk some time in the future.
-	//
-	// Here's how this works:
-	//
-	// The Transform stream has all the aspects of the readable and writable
-	// stream classes.  When you write(chunk), that calls _write(chunk,cb)
-	// internally, and returns false if there's a lot of pending writes
-	// buffered up.  When you call read(), that calls _read(n) until
-	// there's enough pending readable data buffered up.
-	//
-	// In a transform stream, the written data is placed in a buffer.  When
-	// _read(n) is called, it transforms the queued up data, calling the
-	// buffered _write cb's as it consumes chunks.  If consuming a single
-	// written chunk would result in multiple output chunks, then the first
-	// outputted bit calls the readcb, and subsequent chunks just go into
-	// the read buffer, and will cause it to emit 'readable' if necessary.
-	//
-	// This way, back-pressure is actually determined by the reading side,
-	// since _read has to be called to start processing a new chunk.  However,
-	// a pathological inflate type of transform can cause excessive buffering
-	// here.  For example, imagine a stream where every byte of input is
-	// interpreted as an integer from 0-255, and then results in that many
-	// bytes of output.  Writing the 4 bytes {ff,ff,ff,ff} would result in
-	// 1kb of data being output.  In this case, you could write a very small
-	// amount of input, and end up with a very large amount of output.  In
-	// such a pathological inflating mechanism, there'd be no way to tell
-	// the system to stop doing the transform.  A single 4MB write could
-	// cause the system to run out of memory.
-	//
-	// However, even in such a pathological case, only a single written chunk
-	// would be consumed, and then the rest would wait (un-transformed) until
-	// the results of the previous transformed chunk were consumed.
 	
 	'use strict';
 	
@@ -21384,10 +19921,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var Duplex = __webpack_require__(21);
 	
-	/*<replacement>*/
 	var util = __webpack_require__(18);
 	util.inherits = __webpack_require__(12);
-	/*</replacement>*/
 	
 	util.inherits(Transform, Duplex);
 	
@@ -21434,12 +19969,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  var stream = this;
 	
-	  // start out asking for a readable event once data is transformed.
 	  this._readableState.needReadable = true;
 	
-	  // we have implemented the _read method, and done the other things
-	  // that Readable wants before the first _read call, so unset the
-	  // sync guard flag.
 	  this._readableState.sync = false;
 	
 	  if (options) {
@@ -21448,7 +19979,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (typeof options.flush === 'function') this._flush = options.flush;
 	  }
 	
-	  // When the writable side finishes, then flush out anything remaining.
 	  this.once('prefinish', function () {
 	    if (typeof this._flush === 'function') this._flush(function (er, data) {
 	      done(stream, er, data);
@@ -21461,16 +19991,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return Duplex.prototype.push.call(this, chunk, encoding);
 	};
 	
-	// This is the part where you do stuff!
-	// override this function in implementation classes.
-	// 'chunk' is an input chunk.
-	//
-	// Call `push(newChunk)` to pass along transformed output
-	// to the readable side.  You may call 'push' zero or more times.
-	//
-	// Call `cb(err)` when you are done with this chunk.  If you pass
-	// an error, then that'll put the hurt on the whole operation.  If you
-	// never call cb(), then you'll never get another chunk.
 	Transform.prototype._transform = function (chunk, encoding, cb) {
 	  throw new Error('_transform() is not implemented');
 	};
@@ -21486,9 +20006,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 	
-	// Doesn't matter what the args are here.
-	// _transform does all the work.
-	// That we got here means that the readable side wants more data.
 	Transform.prototype._read = function (n) {
 	  var ts = this._transformState;
 	
@@ -21496,8 +20013,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ts.transforming = true;
 	    this._transform(ts.writechunk, ts.writeencoding, ts.afterTransform);
 	  } else {
-	    // mark that we need a transform, so that any data that comes in
-	    // will get processed, now that we've asked for it.
 	    ts.needTransform = true;
 	  }
 	};
@@ -21507,8 +20022,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  if (data !== null && data !== undefined) stream.push(data);
 	
-	  // if there's nothing in the write buffer, then that means
-	  // that nothing more will ever be provided
 	  var ws = stream._writableState;
 	  var ts = stream._transformState;
 	
@@ -21520,12 +20033,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// a passthrough stream.
-	// basically just the most minimal sort of Transform stream.
-	// Every written chunk gets output as-is.
 	
 	'use strict';
 	
@@ -21533,10 +20042,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var Transform = __webpack_require__(25);
 	
-	/*<replacement>*/
 	var util = __webpack_require__(18);
 	util.inherits = __webpack_require__(12);
-	/*</replacement>*/
 	
 	util.inherits(PassThrough, Transform);
 	
@@ -21551,35 +20058,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(22)
 
 
 /***/ },
-/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(21)
 
 
 /***/ },
-/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(25)
 
 
 /***/ },
-/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(26)
 
 
 /***/ },
-/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21603,11 +20105,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * and [[inflateRaw]].
 	 **/
 	
-	/* internal
-	 * inflate.chunks -> Array
-	 *
-	 * Chunks of output data, if [[Inflate#onData]] not overriden.
-	 **/
 	
 	/**
 	 * Inflate.result -> Uint8Array|Array|String
@@ -21685,33 +20182,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  var opt = this.options;
 	
-	  // Force window size for `raw` data, if not set directly,
-	  // because we have no header for autodetect.
 	  if (opt.raw && (opt.windowBits >= 0) && (opt.windowBits < 16)) {
 	    opt.windowBits = -opt.windowBits;
 	    if (opt.windowBits === 0) { opt.windowBits = -15; }
 	  }
 	
-	  // If `windowBits` not defined (and mode not raw) - set autodetect flag for gzip/deflate
 	  if ((opt.windowBits >= 0) && (opt.windowBits < 16) &&
 	      !(options && options.windowBits)) {
 	    opt.windowBits += 32;
 	  }
 	
-	  // Gzip header has no info about windows size, we can do autodetect only
-	  // for deflate. So, if window size not set, force it to max when gzip possible
 	  if ((opt.windowBits > 15) && (opt.windowBits < 48)) {
-	    // bit 3 (16) -> gzipped data
-	    // bit 4 (32) -> autodetect gzip/deflate
 	    if ((opt.windowBits & 15) === 0) {
 	      opt.windowBits |= 15;
 	    }
 	  }
 	
-	  this.err    = 0;      // error code, if happens (0 = Z_OK)
-	  this.msg    = '';     // error message
-	  this.ended  = false;  // used to avoid multiple onEnd() calls
-	  this.chunks = [];     // chunks of compressed data
+	  this.err    = 0;
+	  this.msg    = '';
+	  this.ended  = false;
+	  this.chunks = [];
 	
 	  this.strm   = new ZStream();
 	  this.strm.avail_out = 0;
@@ -21766,16 +20256,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var next_out_utf8, tail, utf8str;
 	  var dict;
 	
-	  // Flag to properly process Z_BUF_ERROR on testing inflate call
-	  // when we check that all output data was flushed.
 	  var allowBufError = false;
 	
 	  if (this.ended) { return false; }
 	  _mode = (mode === ~~mode) ? mode : ((mode === true) ? c.Z_FINISH : c.Z_NO_FLUSH);
 	
-	  // Convert data if needed
 	  if (typeof data === 'string') {
-	    // Only binary strings can be decompressed on practice
 	    strm.input = strings.binstring2buf(data);
 	  } else if (toString.call(data) === '[object ArrayBuffer]') {
 	    strm.input = new Uint8Array(data);
@@ -21793,10 +20279,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      strm.avail_out = chunkSize;
 	    }
 	
-	    status = zlib_inflate.inflate(strm, c.Z_NO_FLUSH);    /* no bad return value */
+	    status = zlib_inflate.inflate(strm, c.Z_NO_FLUSH);
 	
 	    if (status === c.Z_NEED_DICT && dictionary) {
-	      // Convert data if needed
 	      if (typeof dictionary === 'string') {
 	        dict = strings.string2buf(dictionary);
 	      } else if (toString.call(dictionary) === '[object ArrayBuffer]') {
@@ -21830,7 +20315,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          tail = strm.next_out - next_out_utf8;
 	          utf8str = strings.buf2string(strm.output, next_out_utf8);
 	
-	          // move tail
 	          strm.next_out = tail;
 	          strm.avail_out = chunkSize - tail;
 	          if (tail) { utils.arraySet(strm.output, strm.output, next_out_utf8, tail, 0); }
@@ -21843,13 +20327,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	
-	    // When no more input data, we should check that internal inflate buffers
-	    // are flushed. The only way to do it when avail_out = 0 - run one more
-	    // inflate pass. But if output data not exists, inflate return Z_BUF_ERROR.
-	    // Here we set flag to process this error properly.
-	    //
-	    // NOTE. Deflate does not return error in this case and does not needs such
-	    // logic.
 	    if (strm.avail_in === 0 && strm.avail_out === 0) {
 	      allowBufError = true;
 	    }
@@ -21860,7 +20337,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _mode = c.Z_FINISH;
 	  }
 	
-	  // Finalize on the last chunk.
 	  if (_mode === c.Z_FINISH) {
 	    status = zlib_inflate.inflateEnd(this.strm);
 	    this.onEnd(status);
@@ -21868,7 +20344,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return status === c.Z_OK;
 	  }
 	
-	  // callback interim results if Z_SYNC_FLUSH.
 	  if (_mode === c.Z_SYNC_FLUSH) {
 	    this.onEnd(c.Z_OK);
 	    strm.avail_out = 0;
@@ -21904,11 +20379,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * free memory and fill `results` / `err` properties.
 	 **/
 	Inflate.prototype.onEnd = function (status) {
-	  // On success - join
 	  if (status === c.Z_OK) {
 	    if (this.options.to === 'string') {
-	      // Glue & convert here, until we teach pako to send
-	      // utf8 alligned strings to onData
 	      this.result = this.chunks.join('');
 	    } else {
 	      this.result = utils.flattenChunks(this.chunks);
@@ -21964,7 +20436,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  inflator.push(input, true);
 	
-	  // That will never happens, if you don't cheat with options :)
 	  if (inflator.err) { throw inflator.msg || msg[inflator.err]; }
 	
 	  return inflator.result;
@@ -22003,7 +20474,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22019,84 +20489,66 @@ return /******/ (function(modules) { // webpackBootstrap
 	var LENS = 1;
 	var DISTS = 2;
 	
-	/* Public constants ==========================================================*/
-	/* ===========================================================================*/
 	
 	
-	/* Allowed flush values; see deflate() and inflate() below for details */
-	//var Z_NO_FLUSH      = 0;
-	//var Z_PARTIAL_FLUSH = 1;
-	//var Z_SYNC_FLUSH    = 2;
-	//var Z_FULL_FLUSH    = 3;
 	var Z_FINISH        = 4;
 	var Z_BLOCK         = 5;
 	var Z_TREES         = 6;
 	
 	
-	/* Return codes for the compression/decompression functions. Negative values
-	 * are errors, positive values are used for special but normal events.
-	 */
 	var Z_OK            = 0;
 	var Z_STREAM_END    = 1;
 	var Z_NEED_DICT     = 2;
-	//var Z_ERRNO         = -1;
 	var Z_STREAM_ERROR  = -2;
 	var Z_DATA_ERROR    = -3;
 	var Z_MEM_ERROR     = -4;
 	var Z_BUF_ERROR     = -5;
-	//var Z_VERSION_ERROR = -6;
 	
-	/* The deflate compression method */
 	var Z_DEFLATED  = 8;
 	
 	
-	/* STATES ====================================================================*/
-	/* ===========================================================================*/
 	
 	
-	var    HEAD = 1;       /* i: waiting for magic header */
-	var    FLAGS = 2;      /* i: waiting for method and flags (gzip) */
-	var    TIME = 3;       /* i: waiting for modification time (gzip) */
-	var    OS = 4;         /* i: waiting for extra flags and operating system (gzip) */
-	var    EXLEN = 5;      /* i: waiting for extra length (gzip) */
-	var    EXTRA = 6;      /* i: waiting for extra bytes (gzip) */
-	var    NAME = 7;       /* i: waiting for end of file name (gzip) */
-	var    COMMENT = 8;    /* i: waiting for end of comment (gzip) */
-	var    HCRC = 9;       /* i: waiting for header crc (gzip) */
-	var    DICTID = 10;    /* i: waiting for dictionary check value */
-	var    DICT = 11;      /* waiting for inflateSetDictionary() call */
-	var        TYPE = 12;      /* i: waiting for type bits, including last-flag bit */
-	var        TYPEDO = 13;    /* i: same, but skip check to exit inflate on new block */
-	var        STORED = 14;    /* i: waiting for stored size (length and complement) */
-	var        COPY_ = 15;     /* i/o: same as COPY below, but only first time in */
-	var        COPY = 16;      /* i/o: waiting for input or output to copy stored block */
-	var        TABLE = 17;     /* i: waiting for dynamic block table lengths */
-	var        LENLENS = 18;   /* i: waiting for code length code lengths */
-	var        CODELENS = 19;  /* i: waiting for length/lit and distance code lengths */
-	var            LEN_ = 20;      /* i: same as LEN below, but only first time in */
-	var            LEN = 21;       /* i: waiting for length/lit/eob code */
-	var            LENEXT = 22;    /* i: waiting for length extra bits */
-	var            DIST = 23;      /* i: waiting for distance code */
-	var            DISTEXT = 24;   /* i: waiting for distance extra bits */
-	var            MATCH = 25;     /* o: waiting for output space to copy string */
-	var            LIT = 26;       /* o: waiting for output space to write literal */
-	var    CHECK = 27;     /* i: waiting for 32-bit check value */
-	var    LENGTH = 28;    /* i: waiting for 32-bit length (gzip) */
-	var    DONE = 29;      /* finished check, done -- remain here until reset */
-	var    BAD = 30;       /* got a data error -- remain here until reset */
-	var    MEM = 31;       /* got an inflate() memory error -- remain here until reset */
-	var    SYNC = 32;      /* looking for synchronization bytes to restart inflate() */
+	var    HEAD = 1;
+	var    FLAGS = 2;
+	var    TIME = 3;
+	var    OS = 4;
+	var    EXLEN = 5;
+	var    EXTRA = 6;
+	var    NAME = 7;
+	var    COMMENT = 8;
+	var    HCRC = 9;
+	var    DICTID = 10;
+	var    DICT = 11;
+	var        TYPE = 12;
+	var        TYPEDO = 13;
+	var        STORED = 14;
+	var        COPY_ = 15;
+	var        COPY = 16;
+	var        TABLE = 17;
+	var        LENLENS = 18;
+	var        CODELENS = 19;
+	var            LEN_ = 20;
+	var            LEN = 21;
+	var            LENEXT = 22;
+	var            DIST = 23;
+	var            DISTEXT = 24;
+	var            MATCH = 25;
+	var            LIT = 26;
+	var    CHECK = 27;
+	var    LENGTH = 28;
+	var    DONE = 29;
+	var    BAD = 30;
+	var    MEM = 31;
+	var    SYNC = 32;
 	
-	/* ===========================================================================*/
 	
 	
 	
 	var ENOUGH_LENS = 852;
 	var ENOUGH_DISTS = 592;
-	//var ENOUGH =  (ENOUGH_LENS+ENOUGH_DISTS);
 	
 	var MAX_WBITS = 15;
-	/* 32K LZ77 window */
 	var DEF_WBITS = MAX_WBITS;
 	
 	
@@ -22109,61 +20561,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	function InflateState() {
-	  this.mode = 0;             /* current inflate mode */
-	  this.last = false;          /* true if processing last block */
-	  this.wrap = 0;              /* bit 0 true for zlib, bit 1 true for gzip */
-	  this.havedict = false;      /* true if dictionary provided */
-	  this.flags = 0;             /* gzip header method and flags (0 if zlib) */
-	  this.dmax = 0;              /* zlib header max distance (INFLATE_STRICT) */
-	  this.check = 0;             /* protected copy of check value */
-	  this.total = 0;             /* protected copy of output count */
-	  // TODO: may be {}
-	  this.head = null;           /* where to save gzip header information */
+	  this.mode = 0;
+	  this.last = false;
+	  this.wrap = 0;
+	  this.havedict = false;
+	  this.flags = 0;
+	  this.dmax = 0;
+	  this.check = 0;
+	  this.total = 0;
+	  this.head = null;
 	
-	  /* sliding window */
-	  this.wbits = 0;             /* log base 2 of requested window size */
-	  this.wsize = 0;             /* window size or zero if not using window */
-	  this.whave = 0;             /* valid bytes in the window */
-	  this.wnext = 0;             /* window write index */
-	  this.window = null;         /* allocated sliding window, if needed */
+	  this.wbits = 0;
+	  this.wsize = 0;
+	  this.whave = 0;
+	  this.wnext = 0;
+	  this.window = null;
 	
-	  /* bit accumulator */
-	  this.hold = 0;              /* input bit accumulator */
-	  this.bits = 0;              /* number of bits in "in" */
+	  this.hold = 0;
+	  this.bits = 0;
 	
-	  /* for string and stored block copying */
-	  this.length = 0;            /* literal or length of data to copy */
-	  this.offset = 0;            /* distance back to copy string from */
+	  this.length = 0;
+	  this.offset = 0;
 	
-	  /* for table and code decoding */
-	  this.extra = 0;             /* extra bits needed */
+	  this.extra = 0;
 	
-	  /* fixed and dynamic code tables */
-	  this.lencode = null;          /* starting table for length/literal codes */
-	  this.distcode = null;         /* starting table for distance codes */
-	  this.lenbits = 0;           /* index bits for lencode */
-	  this.distbits = 0;          /* index bits for distcode */
+	  this.lencode = null;
+	  this.distcode = null;
+	  this.lenbits = 0;
+	  this.distbits = 0;
 	
-	  /* dynamic table building */
-	  this.ncode = 0;             /* number of code length code lengths */
-	  this.nlen = 0;              /* number of length code lengths */
-	  this.ndist = 0;             /* number of distance code lengths */
-	  this.have = 0;              /* number of code lengths in lens[] */
-	  this.next = null;              /* next available space in codes[] */
+	  this.ncode = 0;
+	  this.nlen = 0;
+	  this.ndist = 0;
+	  this.have = 0;
+	  this.next = null;
 	
-	  this.lens = new utils.Buf16(320); /* temporary storage for code lengths */
-	  this.work = new utils.Buf16(288); /* work area for code table building */
+	  this.lens = new utils.Buf16(320);
+	  this.work = new utils.Buf16(288);
 	
-	  /*
-	   because we don't have pointers in js, we use lencode and distcode directly
-	   as buffers so we don't need codes
-	  */
-	  //this.codes = new utils.Buf32(ENOUGH);       /* space for code tables */
-	  this.lendyn = null;              /* dynamic table for length/literal codes (JS specific) */
-	  this.distdyn = null;             /* dynamic table for distance codes (JS specific) */
-	  this.sane = 0;                   /* if false, allow invalid distance too far */
-	  this.back = 0;                   /* bits back of last unprocessed length/lit */
-	  this.was = 0;                    /* initial length of match */
+	  this.lendyn = null;
+	  this.distdyn = null;
+	  this.sane = 0;
+	  this.back = 0;
+	  this.was = 0;
 	}
 	
 	function inflateResetKeep(strm) {
@@ -22172,24 +20612,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!strm || !strm.state) { return Z_STREAM_ERROR; }
 	  state = strm.state;
 	  strm.total_in = strm.total_out = state.total = 0;
-	  strm.msg = ''; /*Z_NULL*/
-	  if (state.wrap) {       /* to support ill-conceived Java test suite */
+	  strm.msg = '';
+	  if (state.wrap) {
 	    strm.adler = state.wrap & 1;
 	  }
 	  state.mode = HEAD;
 	  state.last = 0;
 	  state.havedict = 0;
 	  state.dmax = 32768;
-	  state.head = null/*Z_NULL*/;
+	  state.head = null;
 	  state.hold = 0;
 	  state.bits = 0;
-	  //state.lencode = state.distcode = state.next = state.codes;
 	  state.lencode = state.lendyn = new utils.Buf32(ENOUGH_LENS);
 	  state.distcode = state.distdyn = new utils.Buf32(ENOUGH_DISTS);
 	
 	  state.sane = 1;
 	  state.back = -1;
-	  //Tracev((stderr, "inflate: reset\n"));
 	  return Z_OK;
 	}
 	
@@ -22209,11 +20647,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var wrap;
 	  var state;
 	
-	  /* get the state */
 	  if (!strm || !strm.state) { return Z_STREAM_ERROR; }
 	  state = strm.state;
 	
-	  /* extract wrap request from windowBits parameter */
 	  if (windowBits < 0) {
 	    wrap = 0;
 	    windowBits = -windowBits;
@@ -22225,7 +20661,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	
-	  /* set number of window bits, free window if different */
 	  if (windowBits && (windowBits < 8 || windowBits > 15)) {
 	    return Z_STREAM_ERROR;
 	  }
@@ -22233,7 +20668,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    state.window = null;
 	  }
 	
-	  /* update state and reset the rest of it */
 	  state.wrap = wrap;
 	  state.wbits = windowBits;
 	  return inflateReset(strm);
@@ -22244,17 +20678,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var state;
 	
 	  if (!strm) { return Z_STREAM_ERROR; }
-	  //strm.msg = Z_NULL;                 /* in case we return an error */
 	
 	  state = new InflateState();
 	
-	  //if (state === Z_NULL) return Z_MEM_ERROR;
-	  //Tracev((stderr, "inflate: allocated\n"));
 	  strm.state = state;
-	  state.window = null/*Z_NULL*/;
+	  state.window = null;
 	  ret = inflateReset2(strm, windowBits);
 	  if (ret !== Z_OK) {
-	    strm.state = null/*Z_NULL*/;
+	    strm.state = null;
 	  }
 	  return ret;
 	}
@@ -22264,29 +20695,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	
-	/*
-	 Return state with length and distance decoding tables and index sizes set to
-	 fixed code decoding.  Normally this returns fixed tables from inffixed.h.
-	 If BUILDFIXED is defined, then instead this routine builds the tables the
-	 first time it's called, and returns those tables the first time and
-	 thereafter.  This reduces the size of the code by about 2K bytes, in
-	 exchange for a little execution time.  However, BUILDFIXED should not be
-	 used for threaded applications, since the rewriting of the tables and virgin
-	 may not be thread-safe.
-	 */
 	var virgin = true;
 	
-	var lenfix, distfix; // We have no pointers in JS, so keep tables separate
+	var lenfix, distfix;
 	
 	function fixedtables(state) {
-	  /* build fixed huffman tables if first call (may not be thread safe) */
 	  if (virgin) {
 	    var sym;
 	
 	    lenfix = new utils.Buf32(512);
 	    distfix = new utils.Buf32(32);
 	
-	    /* literal/length table */
 	    sym = 0;
 	    while (sym < 144) { state.lens[sym++] = 8; }
 	    while (sym < 256) { state.lens[sym++] = 9; }
@@ -22295,13 +20714,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    inflate_table(LENS,  state.lens, 0, 288, lenfix,   0, state.work, { bits: 9 });
 	
-	    /* distance table */
 	    sym = 0;
 	    while (sym < 32) { state.lens[sym++] = 5; }
 	
 	    inflate_table(DISTS, state.lens, 0, 32,   distfix, 0, state.work, { bits: 5 });
 	
-	    /* do this just once */
 	    virgin = false;
 	  }
 	
@@ -22312,25 +20729,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	
-	/*
-	 Update the window with the last wsize (normally 32K) bytes written before
-	 returning.  If window does not exist yet, create it.  This is only called
-	 when a window is already in use, or when output has been written during this
-	 inflate call, but the end of the deflate stream has not been reached yet.
-	 It is also called to create a window for dictionary data when a dictionary
-	 is loaded.
-	
-	 Providing output buffers larger than 32K to inflate() should provide a speed
-	 advantage, since only the last 32K of output is copied to the sliding window
-	 upon return from inflate(), and since all distances after the first 32K of
-	 output will fall in the output data, making match copies simpler and faster.
-	 The advantage may be dependent on the size of the processor's data caches.
-	 */
 	function updatewindow(strm, src, end, copy) {
 	  var dist;
 	  var state = strm.state;
 	
-	  /* if it hasn't been done already, allocate space for the window */
 	  if (state.window === null) {
 	    state.wsize = 1 << state.wbits;
 	    state.wnext = 0;
@@ -22339,7 +20741,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    state.window = new utils.Buf8(state.wsize);
 	  }
 	
-	  /* copy state->wsize or less output bytes into the circular window */
 	  if (copy >= state.wsize) {
 	    utils.arraySet(state.window, src, end - state.wsize, state.wsize, 0);
 	    state.wnext = 0;
@@ -22350,11 +20751,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (dist > copy) {
 	      dist = copy;
 	    }
-	    //zmemcpy(state->window + state->wnext, end - copy, dist);
 	    utils.arraySet(state.window, src, end - copy, dist, state.wnext);
 	    copy -= dist;
 	    if (copy) {
-	      //zmemcpy(state->window, end - copy, copy);
 	      utils.arraySet(state.window, src, end - copy, copy, 0);
 	      state.wnext = copy;
 	      state.whave = state.wsize;
@@ -22370,28 +20769,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function inflate(strm, flush) {
 	  var state;
-	  var input, output;          // input/output buffers
-	  var next;                   /* next input INDEX */
-	  var put;                    /* next output INDEX */
-	  var have, left;             /* available input and output */
-	  var hold;                   /* bit buffer */
-	  var bits;                   /* bits in bit buffer */
-	  var _in, _out;              /* save starting available input and output */
-	  var copy;                   /* number of stored or match bytes to copy */
-	  var from;                   /* where to copy match bytes from */
+	  var input, output;
+	  var next;
+	  var put;
+	  var have, left;
+	  var hold;
+	  var bits;
+	  var _in, _out;
+	  var copy;
+	  var from;
 	  var from_source;
-	  var here = 0;               /* current decoding table entry */
-	  var here_bits, here_op, here_val; // paked "here" denormalized (JS specific)
-	  //var last;                   /* parent table entry */
-	  var last_bits, last_op, last_val; // paked "last" denormalized (JS specific)
-	  var len;                    /* length to copy for repeats, bits to drop */
-	  var ret;                    /* return code */
-	  var hbuf = new utils.Buf8(4);    /* buffer for gzip header crc calculation */
+	  var here = 0;
+	  var here_bits, here_op, here_val;
+	  var last_bits, last_op, last_val;
+	  var len;
+	  var ret;
+	  var hbuf = new utils.Buf8(4);
 	  var opts;
 	
-	  var n; // temporary var for NEED_BITS
+	  var n;
 	
-	  var order = /* permutation of code lengths */
+	  var order =
 	    [ 16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15 ];
 	
 	
@@ -22401,10 +20799,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  state = strm.state;
-	  if (state.mode === TYPE) { state.mode = TYPEDO; }    /* skip check */
+	  if (state.mode === TYPE) { state.mode = TYPEDO; }
 	
 	
-	  //--- LOAD() ---
 	  put = strm.next_out;
 	  output = strm.output;
 	  left = strm.avail_out;
@@ -22413,13 +20810,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  have = strm.avail_in;
 	  hold = state.hold;
 	  bits = state.bits;
-	  //---
 	
 	  _in = have;
 	  _out = left;
 	  ret = Z_OK;
 	
-	  inf_leave: // goto emulation
+	  inf_leave:
 	  for (;;) {
 	    switch (state.mode) {
 	    case HEAD:
@@ -22427,49 +20823,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	        state.mode = TYPEDO;
 	        break;
 	      }
-	      //=== NEEDBITS(16);
 	      while (bits < 16) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
-	      if ((state.wrap & 2) && hold === 0x8b1f) {  /* gzip header */
-	        state.check = 0/*crc32(0L, Z_NULL, 0)*/;
-	        //=== CRC2(state.check, hold);
+	      if ((state.wrap & 2) && hold === 0x8b1f) {
+	        state.check = 0;
 	        hbuf[0] = hold & 0xff;
 	        hbuf[1] = (hold >>> 8) & 0xff;
 	        state.check = crc32(state.check, hbuf, 2, 0);
-	        //===//
 	
-	        //=== INITBITS();
 	        hold = 0;
 	        bits = 0;
-	        //===//
 	        state.mode = FLAGS;
 	        break;
 	      }
-	      state.flags = 0;           /* expect zlib header */
+	      state.flags = 0;
 	      if (state.head) {
 	        state.head.done = false;
 	      }
-	      if (!(state.wrap & 1) ||   /* check if zlib header allowed */
-	        (((hold & 0xff)/*BITS(8)*/ << 8) + (hold >> 8)) % 31) {
+	      if (!(state.wrap & 1) ||
+	        (((hold & 0xff) << 8) + (hold >> 8)) % 31) {
 	        strm.msg = 'incorrect header check';
 	        state.mode = BAD;
 	        break;
 	      }
-	      if ((hold & 0x0f)/*BITS(4)*/ !== Z_DEFLATED) {
+	      if ((hold & 0x0f) !== Z_DEFLATED) {
 	        strm.msg = 'unknown compression method';
 	        state.mode = BAD;
 	        break;
 	      }
-	      //--- DROPBITS(4) ---//
 	      hold >>>= 4;
 	      bits -= 4;
-	      //---//
-	      len = (hold & 0x0f)/*BITS(4)*/ + 8;
+	      len = (hold & 0x0f) + 8;
 	      if (state.wbits === 0) {
 	        state.wbits = len;
 	      }
@@ -22479,23 +20867,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        break;
 	      }
 	      state.dmax = 1 << len;
-	      //Tracev((stderr, "inflate:   zlib header ok\n"));
-	      strm.adler = state.check = 1/*adler32(0L, Z_NULL, 0)*/;
+	      strm.adler = state.check = 1;
 	      state.mode = hold & 0x200 ? DICTID : TYPE;
-	      //=== INITBITS();
 	      hold = 0;
 	      bits = 0;
-	      //===//
 	      break;
 	    case FLAGS:
-	      //=== NEEDBITS(16); */
 	      while (bits < 16) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
 	      state.flags = hold;
 	      if ((state.flags & 0xff) !== Z_DEFLATED) {
 	        strm.msg = 'unknown compression method';
@@ -22511,102 +20894,76 @@ return /******/ (function(modules) { // webpackBootstrap
 	        state.head.text = ((hold >> 8) & 1);
 	      }
 	      if (state.flags & 0x0200) {
-	        //=== CRC2(state.check, hold);
 	        hbuf[0] = hold & 0xff;
 	        hbuf[1] = (hold >>> 8) & 0xff;
 	        state.check = crc32(state.check, hbuf, 2, 0);
-	        //===//
 	      }
-	      //=== INITBITS();
 	      hold = 0;
 	      bits = 0;
-	      //===//
 	      state.mode = TIME;
-	      /* falls through */
 	    case TIME:
-	      //=== NEEDBITS(32); */
 	      while (bits < 32) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
 	      if (state.head) {
 	        state.head.time = hold;
 	      }
 	      if (state.flags & 0x0200) {
-	        //=== CRC4(state.check, hold)
 	        hbuf[0] = hold & 0xff;
 	        hbuf[1] = (hold >>> 8) & 0xff;
 	        hbuf[2] = (hold >>> 16) & 0xff;
 	        hbuf[3] = (hold >>> 24) & 0xff;
 	        state.check = crc32(state.check, hbuf, 4, 0);
-	        //===
 	      }
-	      //=== INITBITS();
 	      hold = 0;
 	      bits = 0;
-	      //===//
 	      state.mode = OS;
-	      /* falls through */
 	    case OS:
-	      //=== NEEDBITS(16); */
 	      while (bits < 16) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
 	      if (state.head) {
 	        state.head.xflags = (hold & 0xff);
 	        state.head.os = (hold >> 8);
 	      }
 	      if (state.flags & 0x0200) {
-	        //=== CRC2(state.check, hold);
 	        hbuf[0] = hold & 0xff;
 	        hbuf[1] = (hold >>> 8) & 0xff;
 	        state.check = crc32(state.check, hbuf, 2, 0);
-	        //===//
 	      }
-	      //=== INITBITS();
 	      hold = 0;
 	      bits = 0;
-	      //===//
 	      state.mode = EXLEN;
-	      /* falls through */
 	    case EXLEN:
 	      if (state.flags & 0x0400) {
-	        //=== NEEDBITS(16); */
 	        while (bits < 16) {
 	          if (have === 0) { break inf_leave; }
 	          have--;
 	          hold += input[next++] << bits;
 	          bits += 8;
 	        }
-	        //===//
 	        state.length = hold;
 	        if (state.head) {
 	          state.head.extra_len = hold;
 	        }
 	        if (state.flags & 0x0200) {
-	          //=== CRC2(state.check, hold);
 	          hbuf[0] = hold & 0xff;
 	          hbuf[1] = (hold >>> 8) & 0xff;
 	          state.check = crc32(state.check, hbuf, 2, 0);
-	          //===//
 	        }
-	        //=== INITBITS();
 	        hold = 0;
 	        bits = 0;
-	        //===//
 	      }
 	      else if (state.head) {
-	        state.head.extra = null/*Z_NULL*/;
+	        state.head.extra = null;
 	      }
 	      state.mode = EXTRA;
-	      /* falls through */
 	    case EXTRA:
 	      if (state.flags & 0x0400) {
 	        copy = state.length;
@@ -22615,22 +20972,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	          if (state.head) {
 	            len = state.head.extra_len - state.length;
 	            if (!state.head.extra) {
-	              // Use untyped array for more conveniend processing later
 	              state.head.extra = new Array(state.head.extra_len);
 	            }
 	            utils.arraySet(
 	              state.head.extra,
 	              input,
 	              next,
-	              // extra field is limited to 65536 bytes
-	              // - no need for additional size check
 	              copy,
-	              /*len + copy > state.head.extra_max - len ? state.head.extra_max : copy,*/
 	              len
 	            );
-	            //zmemcpy(state.head.extra + len, next,
-	            //        len + copy > state.head.extra_max ?
-	            //        state.head.extra_max - len : copy);
 	          }
 	          if (state.flags & 0x0200) {
 	            state.check = crc32(state.check, input, copy, next);
@@ -22643,17 +20993,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      state.length = 0;
 	      state.mode = NAME;
-	      /* falls through */
 	    case NAME:
 	      if (state.flags & 0x0800) {
 	        if (have === 0) { break inf_leave; }
 	        copy = 0;
 	        do {
-	          // TODO: 2 or 1 bytes?
 	          len = input[next + copy++];
-	          /* use constant limit because in js we should not preallocate memory */
 	          if (state.head && len &&
-	              (state.length < 65536 /*state.head.name_max*/)) {
+	              (state.length < 65536)) {
 	            state.head.name += String.fromCharCode(len);
 	          }
 	        } while (len && copy < have);
@@ -22670,16 +21017,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      state.length = 0;
 	      state.mode = COMMENT;
-	      /* falls through */
 	    case COMMENT:
 	      if (state.flags & 0x1000) {
 	        if (have === 0) { break inf_leave; }
 	        copy = 0;
 	        do {
 	          len = input[next + copy++];
-	          /* use constant limit because in js we should not preallocate memory */
 	          if (state.head && len &&
-	              (state.length < 65536 /*state.head.comm_max*/)) {
+	              (state.length < 65536)) {
 	            state.head.comment += String.fromCharCode(len);
 	          }
 	        } while (len && copy < have);
@@ -22694,26 +21039,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        state.head.comment = null;
 	      }
 	      state.mode = HCRC;
-	      /* falls through */
 	    case HCRC:
 	      if (state.flags & 0x0200) {
-	        //=== NEEDBITS(16); */
 	        while (bits < 16) {
 	          if (have === 0) { break inf_leave; }
 	          have--;
 	          hold += input[next++] << bits;
 	          bits += 8;
 	        }
-	        //===//
 	        if (hold !== (state.check & 0xffff)) {
 	          strm.msg = 'header crc mismatch';
 	          state.mode = BAD;
 	          break;
 	        }
-	        //=== INITBITS();
 	        hold = 0;
 	        bits = 0;
-	        //===//
 	      }
 	      if (state.head) {
 	        state.head.hcrc = ((state.flags >> 9) & 1);
@@ -22723,135 +21063,98 @@ return /******/ (function(modules) { // webpackBootstrap
 	      state.mode = TYPE;
 	      break;
 	    case DICTID:
-	      //=== NEEDBITS(32); */
 	      while (bits < 32) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
 	      strm.adler = state.check = zswap32(hold);
-	      //=== INITBITS();
 	      hold = 0;
 	      bits = 0;
-	      //===//
 	      state.mode = DICT;
-	      /* falls through */
 	    case DICT:
 	      if (state.havedict === 0) {
-	        //--- RESTORE() ---
 	        strm.next_out = put;
 	        strm.avail_out = left;
 	        strm.next_in = next;
 	        strm.avail_in = have;
 	        state.hold = hold;
 	        state.bits = bits;
-	        //---
 	        return Z_NEED_DICT;
 	      }
-	      strm.adler = state.check = 1/*adler32(0L, Z_NULL, 0)*/;
+	      strm.adler = state.check = 1;
 	      state.mode = TYPE;
-	      /* falls through */
 	    case TYPE:
 	      if (flush === Z_BLOCK || flush === Z_TREES) { break inf_leave; }
-	      /* falls through */
 	    case TYPEDO:
 	      if (state.last) {
-	        //--- BYTEBITS() ---//
 	        hold >>>= bits & 7;
 	        bits -= bits & 7;
-	        //---//
 	        state.mode = CHECK;
 	        break;
 	      }
-	      //=== NEEDBITS(3); */
 	      while (bits < 3) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
-	      state.last = (hold & 0x01)/*BITS(1)*/;
-	      //--- DROPBITS(1) ---//
+	      state.last = (hold & 0x01);
 	      hold >>>= 1;
 	      bits -= 1;
-	      //---//
 	
-	      switch ((hold & 0x03)/*BITS(2)*/) {
-	      case 0:                             /* stored block */
-	        //Tracev((stderr, "inflate:     stored block%s\n",
-	        //        state.last ? " (last)" : ""));
+	      switch ((hold & 0x03)) {
+	      case 0:
 	        state.mode = STORED;
 	        break;
-	      case 1:                             /* fixed block */
+	      case 1:
 	        fixedtables(state);
-	        //Tracev((stderr, "inflate:     fixed codes block%s\n",
-	        //        state.last ? " (last)" : ""));
-	        state.mode = LEN_;             /* decode codes */
+	        state.mode = LEN_;
 	        if (flush === Z_TREES) {
-	          //--- DROPBITS(2) ---//
 	          hold >>>= 2;
 	          bits -= 2;
-	          //---//
 	          break inf_leave;
 	        }
 	        break;
-	      case 2:                             /* dynamic block */
-	        //Tracev((stderr, "inflate:     dynamic codes block%s\n",
-	        //        state.last ? " (last)" : ""));
+	      case 2:
 	        state.mode = TABLE;
 	        break;
 	      case 3:
 	        strm.msg = 'invalid block type';
 	        state.mode = BAD;
 	      }
-	      //--- DROPBITS(2) ---//
 	      hold >>>= 2;
 	      bits -= 2;
-	      //---//
 	      break;
 	    case STORED:
-	      //--- BYTEBITS() ---// /* go to byte boundary */
 	      hold >>>= bits & 7;
 	      bits -= bits & 7;
-	      //---//
-	      //=== NEEDBITS(32); */
 	      while (bits < 32) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
 	      if ((hold & 0xffff) !== ((hold >>> 16) ^ 0xffff)) {
 	        strm.msg = 'invalid stored block lengths';
 	        state.mode = BAD;
 	        break;
 	      }
 	      state.length = hold & 0xffff;
-	      //Tracev((stderr, "inflate:       stored length %u\n",
-	      //        state.length));
-	      //=== INITBITS();
 	      hold = 0;
 	      bits = 0;
-	      //===//
 	      state.mode = COPY_;
 	      if (flush === Z_TREES) { break inf_leave; }
-	      /* falls through */
 	    case COPY_:
 	      state.mode = COPY;
-	      /* falls through */
 	    case COPY:
 	      copy = state.length;
 	      if (copy) {
 	        if (copy > have) { copy = have; }
 	        if (copy > left) { copy = left; }
 	        if (copy === 0) { break inf_leave; }
-	        //--- zmemcpy(put, next, copy); ---
 	        utils.arraySet(output, input, next, copy, put);
-	        //---//
 	        have -= copy;
 	        next += copy;
 	        left -= copy;
@@ -22859,67 +21162,46 @@ return /******/ (function(modules) { // webpackBootstrap
 	        state.length -= copy;
 	        break;
 	      }
-	      //Tracev((stderr, "inflate:       stored end\n"));
 	      state.mode = TYPE;
 	      break;
 	    case TABLE:
-	      //=== NEEDBITS(14); */
 	      while (bits < 14) {
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
 	      }
-	      //===//
-	      state.nlen = (hold & 0x1f)/*BITS(5)*/ + 257;
-	      //--- DROPBITS(5) ---//
+	      state.nlen = (hold & 0x1f) + 257;
 	      hold >>>= 5;
 	      bits -= 5;
-	      //---//
-	      state.ndist = (hold & 0x1f)/*BITS(5)*/ + 1;
-	      //--- DROPBITS(5) ---//
+	      state.ndist = (hold & 0x1f) + 1;
 	      hold >>>= 5;
 	      bits -= 5;
-	      //---//
-	      state.ncode = (hold & 0x0f)/*BITS(4)*/ + 4;
-	      //--- DROPBITS(4) ---//
+	      state.ncode = (hold & 0x0f) + 4;
 	      hold >>>= 4;
 	      bits -= 4;
-	      //---//
-	//#ifndef PKZIP_BUG_WORKAROUND
 	      if (state.nlen > 286 || state.ndist > 30) {
 	        strm.msg = 'too many length or distance symbols';
 	        state.mode = BAD;
 	        break;
 	      }
-	//#endif
-	      //Tracev((stderr, "inflate:       table sizes ok\n"));
 	      state.have = 0;
 	      state.mode = LENLENS;
-	      /* falls through */
 	    case LENLENS:
 	      while (state.have < state.ncode) {
-	        //=== NEEDBITS(3);
 	        while (bits < 3) {
 	          if (have === 0) { break inf_leave; }
 	          have--;
 	          hold += input[next++] << bits;
 	          bits += 8;
 	        }
-	        //===//
-	        state.lens[order[state.have++]] = (hold & 0x07);//BITS(3);
-	        //--- DROPBITS(3) ---//
+	        state.lens[order[state.have++]] = (hold & 0x07);
 	        hold >>>= 3;
 	        bits -= 3;
-	        //---//
 	      }
 	      while (state.have < 19) {
 	        state.lens[order[state.have++]] = 0;
 	      }
-	      // We have separate tables & no pointers. 2 commented lines below not needed.
-	      //state.next = state.codes;
-	      //state.lencode = state.next;
-	      // Switch to use dynamic table
 	      state.lencode = state.lendyn;
 	      state.lenbits = 7;
 	
@@ -22932,36 +21214,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        state.mode = BAD;
 	        break;
 	      }
-	      //Tracev((stderr, "inflate:       code lengths ok\n"));
 	      state.have = 0;
 	      state.mode = CODELENS;
-	      /* falls through */
 	    case CODELENS:
 	      while (state.have < state.nlen + state.ndist) {
 	        for (;;) {
-	          here = state.lencode[hold & ((1 << state.lenbits) - 1)];/*BITS(state.lenbits)*/
+	          here = state.lencode[hold & ((1 << state.lenbits) - 1)];
 	          here_bits = here >>> 24;
 	          here_op = (here >>> 16) & 0xff;
 	          here_val = here & 0xffff;
 	
 	          if ((here_bits) <= bits) { break; }
-	          //--- PULLBYTE() ---//
 	          if (have === 0) { break inf_leave; }
 	          have--;
 	          hold += input[next++] << bits;
 	          bits += 8;
-	          //---//
 	        }
 	        if (here_val < 16) {
-	          //--- DROPBITS(here.bits) ---//
 	          hold >>>= here_bits;
 	          bits -= here_bits;
-	          //---//
 	          state.lens[state.have++] = here_val;
 	        }
 	        else {
 	          if (here_val === 16) {
-	            //=== NEEDBITS(here.bits + 2);
 	            n = here_bits + 2;
 	            while (bits < n) {
 	              if (have === 0) { break inf_leave; }
@@ -22969,25 +21244,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	              hold += input[next++] << bits;
 	              bits += 8;
 	            }
-	            //===//
-	            //--- DROPBITS(here.bits) ---//
 	            hold >>>= here_bits;
 	            bits -= here_bits;
-	            //---//
 	            if (state.have === 0) {
 	              strm.msg = 'invalid bit length repeat';
 	              state.mode = BAD;
 	              break;
 	            }
 	            len = state.lens[state.have - 1];
-	            copy = 3 + (hold & 0x03);//BITS(2);
-	            //--- DROPBITS(2) ---//
+	            copy = 3 + (hold & 0x03);
 	            hold >>>= 2;
 	            bits -= 2;
-	            //---//
 	          }
 	          else if (here_val === 17) {
-	            //=== NEEDBITS(here.bits + 3);
 	            n = here_bits + 3;
 	            while (bits < n) {
 	              if (have === 0) { break inf_leave; }
@@ -22995,20 +21264,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	              hold += input[next++] << bits;
 	              bits += 8;
 	            }
-	            //===//
-	            //--- DROPBITS(here.bits) ---//
 	            hold >>>= here_bits;
 	            bits -= here_bits;
-	            //---//
 	            len = 0;
-	            copy = 3 + (hold & 0x07);//BITS(3);
-	            //--- DROPBITS(3) ---//
+	            copy = 3 + (hold & 0x07);
 	            hold >>>= 3;
 	            bits -= 3;
-	            //---//
 	          }
 	          else {
-	            //=== NEEDBITS(here.bits + 7);
 	            n = here_bits + 7;
 	            while (bits < n) {
 	              if (have === 0) { break inf_leave; }
@@ -23016,17 +21279,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	              hold += input[next++] << bits;
 	              bits += 8;
 	            }
-	            //===//
-	            //--- DROPBITS(here.bits) ---//
 	            hold >>>= here_bits;
 	            bits -= here_bits;
-	            //---//
 	            len = 0;
-	            copy = 11 + (hold & 0x7f);//BITS(7);
-	            //--- DROPBITS(7) ---//
+	            copy = 11 + (hold & 0x7f);
 	            hold >>>= 7;
 	            bits -= 7;
-	            //---//
 	          }
 	          if (state.have + copy > state.nlen + state.ndist) {
 	            strm.msg = 'invalid bit length repeat';
@@ -23039,27 +21297,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	
-	      /* handle error breaks in while */
 	      if (state.mode === BAD) { break; }
 	
-	      /* check for end-of-block code (better have one) */
 	      if (state.lens[256] === 0) {
 	        strm.msg = 'invalid code -- missing end-of-block';
 	        state.mode = BAD;
 	        break;
 	      }
 	
-	      /* build code tables -- note: do not change the lenbits or distbits
-	         values here (9 and 6) without reading the comments in inftrees.h
-	         concerning the ENOUGH constants, which depend on those values */
 	      state.lenbits = 9;
 	
 	      opts = { bits: state.lenbits };
 	      ret = inflate_table(LENS, state.lens, 0, state.nlen, state.lencode, 0, state.work, opts);
-	      // We have separate tables & no pointers. 2 commented lines below not needed.
-	      // state.next_index = opts.table_index;
 	      state.lenbits = opts.bits;
-	      // state.lencode = state.next;
 	
 	      if (ret) {
 	        strm.msg = 'invalid literal/lengths set';
@@ -23068,40 +21318,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	
 	      state.distbits = 6;
-	      //state.distcode.copy(state.codes);
-	      // Switch to use dynamic table
 	      state.distcode = state.distdyn;
 	      opts = { bits: state.distbits };
 	      ret = inflate_table(DISTS, state.lens, state.nlen, state.ndist, state.distcode, 0, state.work, opts);
-	      // We have separate tables & no pointers. 2 commented lines below not needed.
-	      // state.next_index = opts.table_index;
 	      state.distbits = opts.bits;
-	      // state.distcode = state.next;
 	
 	      if (ret) {
 	        strm.msg = 'invalid distances set';
 	        state.mode = BAD;
 	        break;
 	      }
-	      //Tracev((stderr, 'inflate:       codes ok\n'));
 	      state.mode = LEN_;
 	      if (flush === Z_TREES) { break inf_leave; }
-	      /* falls through */
 	    case LEN_:
 	      state.mode = LEN;
-	      /* falls through */
 	    case LEN:
 	      if (have >= 6 && left >= 258) {
-	        //--- RESTORE() ---
 	        strm.next_out = put;
 	        strm.avail_out = left;
 	        strm.next_in = next;
 	        strm.avail_in = have;
 	        state.hold = hold;
 	        state.bits = bits;
-	        //---
 	        inflate_fast(strm, _out);
-	        //--- LOAD() ---
 	        put = strm.next_out;
 	        output = strm.output;
 	        left = strm.avail_out;
@@ -23110,7 +21349,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        have = strm.avail_in;
 	        hold = state.hold;
 	        bits = state.bits;
-	        //---
 	
 	        if (state.mode === TYPE) {
 	          state.back = -1;
@@ -23119,18 +21357,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      state.back = 0;
 	      for (;;) {
-	        here = state.lencode[hold & ((1 << state.lenbits) - 1)];  /*BITS(state.lenbits)*/
+	        here = state.lencode[hold & ((1 << state.lenbits) - 1)];
 	        here_bits = here >>> 24;
 	        here_op = (here >>> 16) & 0xff;
 	        here_val = here & 0xffff;
 	
 	        if (here_bits <= bits) { break; }
-	        //--- PULLBYTE() ---//
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
-	        //---//
 	      }
 	      if (here_op && (here_op & 0xf0) === 0) {
 	        last_bits = here_bits;
@@ -23138,40 +21374,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	        last_val = here_val;
 	        for (;;) {
 	          here = state.lencode[last_val +
-	                  ((hold & ((1 << (last_bits + last_op)) - 1))/*BITS(last.bits + last.op)*/ >> last_bits)];
+	                  ((hold & ((1 << (last_bits + last_op)) - 1)) >> last_bits)];
 	          here_bits = here >>> 24;
 	          here_op = (here >>> 16) & 0xff;
 	          here_val = here & 0xffff;
 	
 	          if ((last_bits + here_bits) <= bits) { break; }
-	          //--- PULLBYTE() ---//
 	          if (have === 0) { break inf_leave; }
 	          have--;
 	          hold += input[next++] << bits;
 	          bits += 8;
-	          //---//
 	        }
-	        //--- DROPBITS(last.bits) ---//
 	        hold >>>= last_bits;
 	        bits -= last_bits;
-	        //---//
 	        state.back += last_bits;
 	      }
-	      //--- DROPBITS(here.bits) ---//
 	      hold >>>= here_bits;
 	      bits -= here_bits;
-	      //---//
 	      state.back += here_bits;
 	      state.length = here_val;
 	      if (here_op === 0) {
-	        //Tracevv((stderr, here.val >= 0x20 && here.val < 0x7f ?
-	        //        "inflate:         literal '%c'\n" :
-	        //        "inflate:         literal 0x%02x\n", here.val));
 	        state.mode = LIT;
 	        break;
 	      }
 	      if (here_op & 32) {
-	        //Tracevv((stderr, "inflate:         end of block\n"));
 	        state.back = -1;
 	        state.mode = TYPE;
 	        break;
@@ -23183,10 +21409,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      state.extra = here_op & 15;
 	      state.mode = LENEXT;
-	      /* falls through */
 	    case LENEXT:
 	      if (state.extra) {
-	        //=== NEEDBITS(state.extra);
 	        n = state.extra;
 	        while (bits < n) {
 	          if (have === 0) { break inf_leave; }
@@ -23194,32 +21418,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	          hold += input[next++] << bits;
 	          bits += 8;
 	        }
-	        //===//
-	        state.length += hold & ((1 << state.extra) - 1)/*BITS(state.extra)*/;
-	        //--- DROPBITS(state.extra) ---//
+	        state.length += hold & ((1 << state.extra) - 1);
 	        hold >>>= state.extra;
 	        bits -= state.extra;
-	        //---//
 	        state.back += state.extra;
 	      }
-	      //Tracevv((stderr, "inflate:         length %u\n", state.length));
 	      state.was = state.length;
 	      state.mode = DIST;
-	      /* falls through */
 	    case DIST:
 	      for (;;) {
-	        here = state.distcode[hold & ((1 << state.distbits) - 1)];/*BITS(state.distbits)*/
+	        here = state.distcode[hold & ((1 << state.distbits) - 1)];
 	        here_bits = here >>> 24;
 	        here_op = (here >>> 16) & 0xff;
 	        here_val = here & 0xffff;
 	
 	        if ((here_bits) <= bits) { break; }
-	        //--- PULLBYTE() ---//
 	        if (have === 0) { break inf_leave; }
 	        have--;
 	        hold += input[next++] << bits;
 	        bits += 8;
-	        //---//
 	      }
 	      if ((here_op & 0xf0) === 0) {
 	        last_bits = here_bits;
@@ -23227,29 +21444,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	        last_val = here_val;
 	        for (;;) {
 	          here = state.distcode[last_val +
-	                  ((hold & ((1 << (last_bits + last_op)) - 1))/*BITS(last.bits + last.op)*/ >> last_bits)];
+	                  ((hold & ((1 << (last_bits + last_op)) - 1)) >> last_bits)];
 	          here_bits = here >>> 24;
 	          here_op = (here >>> 16) & 0xff;
 	          here_val = here & 0xffff;
 	
 	          if ((last_bits + here_bits) <= bits) { break; }
-	          //--- PULLBYTE() ---//
 	          if (have === 0) { break inf_leave; }
 	          have--;
 	          hold += input[next++] << bits;
 	          bits += 8;
-	          //---//
 	        }
-	        //--- DROPBITS(last.bits) ---//
 	        hold >>>= last_bits;
 	        bits -= last_bits;
-	        //---//
 	        state.back += last_bits;
 	      }
-	      //--- DROPBITS(here.bits) ---//
 	      hold >>>= here_bits;
 	      bits -= here_bits;
-	      //---//
 	      state.back += here_bits;
 	      if (here_op & 64) {
 	        strm.msg = 'invalid distance code';
@@ -23259,10 +21470,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      state.offset = here_val;
 	      state.extra = (here_op) & 15;
 	      state.mode = DISTEXT;
-	      /* falls through */
 	    case DISTEXT:
 	      if (state.extra) {
-	        //=== NEEDBITS(state.extra);
 	        n = state.extra;
 	        while (bits < n) {
 	          if (have === 0) { break inf_leave; }
@@ -23270,28 +21479,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	          hold += input[next++] << bits;
 	          bits += 8;
 	        }
-	        //===//
-	        state.offset += hold & ((1 << state.extra) - 1)/*BITS(state.extra)*/;
-	        //--- DROPBITS(state.extra) ---//
+	        state.offset += hold & ((1 << state.extra) - 1);
 	        hold >>>= state.extra;
 	        bits -= state.extra;
-	        //---//
 	        state.back += state.extra;
 	      }
-	//#ifdef INFLATE_STRICT
 	      if (state.offset > state.dmax) {
 	        strm.msg = 'invalid distance too far back';
 	        state.mode = BAD;
 	        break;
 	      }
-	//#endif
-	      //Tracevv((stderr, "inflate:         distance %u\n", state.offset));
 	      state.mode = MATCH;
-	      /* falls through */
 	    case MATCH:
 	      if (left === 0) { break inf_leave; }
 	      copy = _out - left;
-	      if (state.offset > copy) {         /* copy from window */
+	      if (state.offset > copy) {
 	        copy = state.offset - copy;
 	        if (copy > state.whave) {
 	          if (state.sane) {
@@ -23299,21 +21501,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            state.mode = BAD;
 	            break;
 	          }
-	// (!) This block is disabled in zlib defailts,
-	// don't enable it for binary compatibility
-	//#ifdef INFLATE_ALLOW_INVALID_DISTANCE_TOOFAR_ARRR
-	//          Trace((stderr, "inflate.c too far\n"));
-	//          copy -= state.whave;
-	//          if (copy > state.length) { copy = state.length; }
-	//          if (copy > left) { copy = left; }
-	//          left -= copy;
-	//          state.length -= copy;
-	//          do {
-	//            output[put++] = 0;
-	//          } while (--copy);
-	//          if (state.length === 0) { state.mode = LEN; }
-	//          break;
-	//#endif
 	        }
 	        if (copy > state.wnext) {
 	          copy -= state.wnext;
@@ -23325,7 +21512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (copy > state.length) { copy = state.length; }
 	        from_source = state.window;
 	      }
-	      else {                              /* copy from output */
+	      else {
 	        from_source = output;
 	        from = put - state.offset;
 	        copy = state.length;
@@ -23346,62 +21533,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	      break;
 	    case CHECK:
 	      if (state.wrap) {
-	        //=== NEEDBITS(32);
 	        while (bits < 32) {
 	          if (have === 0) { break inf_leave; }
 	          have--;
-	          // Use '|' insdead of '+' to make sure that result is signed
 	          hold |= input[next++] << bits;
 	          bits += 8;
 	        }
-	        //===//
 	        _out -= left;
 	        strm.total_out += _out;
 	        state.total += _out;
 	        if (_out) {
 	          strm.adler = state.check =
-	              /*UPDATE(state.check, put - _out, _out);*/
 	              (state.flags ? crc32(state.check, output, _out, put - _out) : adler32(state.check, output, _out, put - _out));
 	
 	        }
 	        _out = left;
-	        // NB: crc32 stored as signed 32-bit int, zswap32 returns signed too
 	        if ((state.flags ? hold : zswap32(hold)) !== state.check) {
 	          strm.msg = 'incorrect data check';
 	          state.mode = BAD;
 	          break;
 	        }
-	        //=== INITBITS();
 	        hold = 0;
 	        bits = 0;
-	        //===//
-	        //Tracev((stderr, "inflate:   check matches trailer\n"));
 	      }
 	      state.mode = LENGTH;
-	      /* falls through */
 	    case LENGTH:
 	      if (state.wrap && state.flags) {
-	        //=== NEEDBITS(32);
 	        while (bits < 32) {
 	          if (have === 0) { break inf_leave; }
 	          have--;
 	          hold += input[next++] << bits;
 	          bits += 8;
 	        }
-	        //===//
 	        if (hold !== (state.total & 0xffffffff)) {
 	          strm.msg = 'incorrect length check';
 	          state.mode = BAD;
 	          break;
 	        }
-	        //=== INITBITS();
 	        hold = 0;
 	        bits = 0;
-	        //===//
-	        //Tracev((stderr, "inflate:   length matches trailer\n"));
 	      }
 	      state.mode = DONE;
-	      /* falls through */
 	    case DONE:
 	      ret = Z_STREAM_END;
 	      break inf_leave;
@@ -23411,29 +21583,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    case MEM:
 	      return Z_MEM_ERROR;
 	    case SYNC:
-	      /* falls through */
 	    default:
 	      return Z_STREAM_ERROR;
 	    }
 	  }
 	
-	  // inf_leave <- here is real place for "goto inf_leave", emulated via "break inf_leave"
 	
-	  /*
-	     Return from inflate(), updating the total counts and the check value.
-	     If there was no progress during the inflate() call, return a buffer
-	     error.  Call updatewindow() to create and/or update the window state.
-	     Note: a memory error from inflate() is non-recoverable.
-	   */
 	
-	  //--- RESTORE() ---
 	  strm.next_out = put;
 	  strm.avail_out = left;
 	  strm.next_in = next;
 	  strm.avail_in = have;
 	  state.hold = hold;
 	  state.bits = bits;
-	  //---
 	
 	  if (state.wsize || (_out !== strm.avail_out && state.mode < BAD &&
 	                      (state.mode < CHECK || flush !== Z_FINISH))) {
@@ -23448,7 +21610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  strm.total_out += _out;
 	  state.total += _out;
 	  if (state.wrap && _out) {
-	    strm.adler = state.check = /*UPDATE(state.check, strm.next_out - _out, _out);*/
+	    strm.adler = state.check =
 	      (state.flags ? crc32(state.check, output, _out, strm.next_out - _out) : adler32(state.check, output, _out, strm.next_out - _out));
 	  }
 	  strm.data_type = state.bits + (state.last ? 64 : 0) +
@@ -23462,7 +21624,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function inflateEnd(strm) {
 	
-	  if (!strm || !strm.state /*|| strm->zfree == (free_func)0*/) {
+	  if (!strm || !strm.state) {
 	    return Z_STREAM_ERROR;
 	  }
 	
@@ -23477,12 +21639,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	function inflateGetHeader(strm, head) {
 	  var state;
 	
-	  /* check state */
 	  if (!strm || !strm.state) { return Z_STREAM_ERROR; }
 	  state = strm.state;
 	  if ((state.wrap & 2) === 0) { return Z_STREAM_ERROR; }
 	
-	  /* save header structure */
 	  state.head = head;
 	  head.done = false;
 	  return Z_OK;
@@ -23495,32 +21655,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var dictid;
 	  var ret;
 	
-	  /* check state */
-	  if (!strm /* == Z_NULL */ || !strm.state /* == Z_NULL */) { return Z_STREAM_ERROR; }
+	  if (!strm || !strm.state) { return Z_STREAM_ERROR; }
 	  state = strm.state;
 	
 	  if (state.wrap !== 0 && state.mode !== DICT) {
 	    return Z_STREAM_ERROR;
 	  }
 	
-	  /* check for correct dictionary identifier */
 	  if (state.mode === DICT) {
-	    dictid = 1; /* adler32(0, null, 0)*/
-	    /* dictid = adler32(dictid, dictionary, dictLength); */
+	    dictid = 1;
 	    dictid = adler32(dictid, dictionary, dictLength, 0);
 	    if (dictid !== state.check) {
 	      return Z_DATA_ERROR;
 	    }
 	  }
-	  /* copy dictionary to window using updatewindow(), which will amend the
-	   existing dictionary if appropriate */
 	  ret = updatewindow(strm, dictionary, dictLength, dictLength);
 	  if (ret) {
 	    state.mode = MEM;
 	    return Z_MEM_ERROR;
 	  }
 	  state.havedict = 1;
-	  // Tracev((stderr, "inflate:   dictionary set\n"));
 	  return Z_OK;
 	}
 	
@@ -23535,19 +21689,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.inflateSetDictionary = inflateSetDictionary;
 	exports.inflateInfo = 'pako inflate (from Nodeca project)';
 	
-	/* Not implemented
-	exports.inflateCopy = inflateCopy;
-	exports.inflateGetDictionary = inflateGetDictionary;
-	exports.inflateMark = inflateMark;
-	exports.inflatePrime = inflatePrime;
-	exports.inflateSync = inflateSync;
-	exports.inflateSyncPoint = inflateSyncPoint;
-	exports.inflateUndermine = inflateUndermine;
-	*/
 
 
 /***/ },
-/* 33 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23558,7 +21702,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                (typeof Int32Array !== 'undefined');
 	
 	
-	exports.assign = function (obj /*from1, from2, from3, ...*/) {
+	exports.assign = function (obj) {
 	  var sources = Array.prototype.slice.call(arguments, 1);
 	  while (sources.length) {
 	    var source = sources.shift();
@@ -23579,7 +21723,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	
-	// reduce buffer size, avoiding mem copy
 	exports.shrinkBuf = function (buf, size) {
 	  if (buf.length === size) { return buf; }
 	  if (buf.subarray) { return buf.subarray(0, size); }
@@ -23594,22 +21737,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      dest.set(src.subarray(src_offs, src_offs + len), dest_offs);
 	      return;
 	    }
-	    // Fallback to ordinary array
 	    for (var i = 0; i < len; i++) {
 	      dest[dest_offs + i] = src[src_offs + i];
 	    }
 	  },
-	  // Join array of chunks to single array.
 	  flattenChunks: function (chunks) {
 	    var i, l, len, pos, chunk, result;
 	
-	    // calculate data length
 	    len = 0;
 	    for (i = 0, l = chunks.length; i < l; i++) {
 	      len += chunks[i].length;
 	    }
 	
-	    // join chunks
 	    result = new Uint8Array(len);
 	    pos = 0;
 	    for (i = 0, l = chunks.length; i < l; i++) {
@@ -23628,15 +21767,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      dest[dest_offs + i] = src[src_offs + i];
 	    }
 	  },
-	  // Join array of chunks to single array.
 	  flattenChunks: function (chunks) {
 	    return [].concat.apply([], chunks);
 	  }
 	};
 	
 	
-	// Enable/Disable typed arrays use, for testing
-	//
 	exports.setTyped = function (on) {
 	  if (on) {
 	    exports.Buf8  = Uint8Array;
@@ -23655,14 +21791,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 34 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
-	// Note: adler32 takes 12% for level 0 and 2% for level 6.
-	// It doesn't worth to make additional optimizationa as in original.
-	// Small size is preferable.
 	
 	function adler32(adler, buf, len, pos) {
 	  var s1 = (adler & 0xffff) |0,
@@ -23670,9 +21802,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      n = 0;
 	
 	  while (len !== 0) {
-	    // Set limit ~ twice less than 5552, to keep
-	    // s2 in 31-bits, because we force signed ints.
-	    // in other case %= will fail.
 	    n = len > 2000 ? 2000 : len;
 	    len -= n;
 	
@@ -23693,17 +21822,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 35 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
-	// Note: we can't get significant speed boost here.
-	// So write code to minimize size - no pregenerated tables
-	// and array tools dependencies.
 	
 	
-	// Use ordinary array, since untyped makes no boost here
 	function makeTable() {
 	  var c, table = [];
 	
@@ -23718,7 +21842,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return table;
 	}
 	
-	// Create table on load. Just 255 signed longs. Not a problem.
 	var crcTable = makeTable();
 	
 	
@@ -23732,7 +21855,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    crc = (crc >>> 8) ^ t[(crc ^ buf[i]) & 0xFF];
 	  }
 	
-	  return (crc ^ (-1)); // >>> 0;
+	  return (crc ^ (-1));
 	}
 	
 	
@@ -23740,85 +21863,42 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
-	// See state defs from inflate.js
-	var BAD = 30;       /* got a data error -- remain here until reset */
-	var TYPE = 12;      /* i: waiting for type bits, including last-flag bit */
+	var BAD = 30;
+	var TYPE = 12;
 	
-	/*
-	   Decode literal, length, and distance codes and write out the resulting
-	   literal and match bytes until either not enough input or output is
-	   available, an end-of-block is encountered, or a data error is encountered.
-	   When large enough input and output buffers are supplied to inflate(), for
-	   example, a 16K input buffer and a 64K output buffer, more than 95% of the
-	   inflate execution time is spent in this routine.
-	
-	   Entry assumptions:
-	
-	        state.mode === LEN
-	        strm.avail_in >= 6
-	        strm.avail_out >= 258
-	        start >= strm.avail_out
-	        state.bits < 8
-	
-	   On return, state.mode is one of:
-	
-	        LEN -- ran out of enough output space or enough available input
-	        TYPE -- reached end of block code, inflate() to interpret next block
-	        BAD -- error in block data
-	
-	   Notes:
-	
-	    - The maximum input bits used by a length/distance pair is 15 bits for the
-	      length code, 5 bits for the length extra, 15 bits for the distance code,
-	      and 13 bits for the distance extra.  This totals 48 bits, or six bytes.
-	      Therefore if strm.avail_in >= 6, then there is enough input to avoid
-	      checking for available input while decoding.
-	
-	    - The maximum bytes that a single length/distance pair can output is 258
-	      bytes, which is the maximum length that can be coded.  inflate_fast()
-	      requires strm.avail_out >= 258 for each loop to avoid checking for
-	      output space.
-	 */
 	module.exports = function inflate_fast(strm, start) {
 	  var state;
-	  var _in;                    /* local strm.input */
-	  var last;                   /* have enough input while in < last */
-	  var _out;                   /* local strm.output */
-	  var beg;                    /* inflate()'s initial strm.output */
-	  var end;                    /* while out < end, enough space available */
-	//#ifdef INFLATE_STRICT
-	  var dmax;                   /* maximum distance from zlib header */
-	//#endif
-	  var wsize;                  /* window size or zero if not using window */
-	  var whave;                  /* valid bytes in the window */
-	  var wnext;                  /* window write index */
-	  // Use `s_window` instead `window`, avoid conflict with instrumentation tools
-	  var s_window;               /* allocated sliding window, if wsize != 0 */
-	  var hold;                   /* local strm.hold */
-	  var bits;                   /* local strm.bits */
-	  var lcode;                  /* local strm.lencode */
-	  var dcode;                  /* local strm.distcode */
-	  var lmask;                  /* mask for first level of length codes */
-	  var dmask;                  /* mask for first level of distance codes */
-	  var here;                   /* retrieved table entry */
-	  var op;                     /* code bits, operation, extra bits, or */
-	                              /*  window position, window bytes to copy */
-	  var len;                    /* match length, unused bytes */
-	  var dist;                   /* match distance */
-	  var from;                   /* where to copy match from */
+	  var _in;
+	  var last;
+	  var _out;
+	  var beg;
+	  var end;
+	  var dmax;
+	  var wsize;
+	  var whave;
+	  var wnext;
+	  var s_window;
+	  var hold;
+	  var bits;
+	  var lcode;
+	  var dcode;
+	  var lmask;
+	  var dmask;
+	  var here;
+	  var op;
+	  var len;
+	  var dist;
+	  var from;
 	  var from_source;
 	
 	
-	  var input, output; // JS specific, because we have no pointers
+	  var input, output;
 	
-	  /* copy state to local variables */
 	  state = strm.state;
-	  //here = state.here;
 	  _in = strm.next_in;
 	  input = strm.input;
 	  last = _in + (strm.avail_in - 5);
@@ -23826,9 +21906,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  output = strm.output;
 	  beg = _out - (start - strm.avail_out);
 	  end = _out + (strm.avail_out - 257);
-	//#ifdef INFLATE_STRICT
 	  dmax = state.dmax;
-	//#endif
 	  wsize = state.wsize;
 	  whave = state.whave;
 	  wnext = state.wnext;
@@ -23841,8 +21919,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  dmask = (1 << state.distbits) - 1;
 	
 	
-	  /* decode literals and length/distances until end-of-block or not enough
-	     input data or output space */
 	
 	  top:
 	  do {
@@ -23856,20 +21932,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    here = lcode[hold & lmask];
 	
 	    dolen:
-	    for (;;) { // Goto emulation
-	      op = here >>> 24/*here.bits*/;
+	    for (;;) {
+	      op = here >>> 24;
 	      hold >>>= op;
 	      bits -= op;
-	      op = (here >>> 16) & 0xff/*here.op*/;
-	      if (op === 0) {                          /* literal */
-	        //Tracevv((stderr, here.val >= 0x20 && here.val < 0x7f ?
-	        //        "inflate:         literal '%c'\n" :
-	        //        "inflate:         literal 0x%02x\n", here.val));
-	        output[_out++] = here & 0xffff/*here.val*/;
+	      op = (here >>> 16) & 0xff;
+	      if (op === 0) {
+	        output[_out++] = here & 0xffff;
 	      }
-	      else if (op & 16) {                     /* length base */
-	        len = here & 0xffff/*here.val*/;
-	        op &= 15;                           /* number of extra bits */
+	      else if (op & 16) {
+	        len = here & 0xffff;
+	        op &= 15;
 	        if (op) {
 	          if (bits < op) {
 	            hold += input[_in++] << bits;
@@ -23879,7 +21952,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          hold >>>= op;
 	          bits -= op;
 	        }
-	        //Tracevv((stderr, "inflate:         length %u\n", len));
 	        if (bits < 15) {
 	          hold += input[_in++] << bits;
 	          bits += 8;
@@ -23889,15 +21961,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        here = dcode[hold & dmask];
 	
 	        dodist:
-	        for (;;) { // goto emulation
-	          op = here >>> 24/*here.bits*/;
+	        for (;;) {
+	          op = here >>> 24;
 	          hold >>>= op;
 	          bits -= op;
-	          op = (here >>> 16) & 0xff/*here.op*/;
+	          op = (here >>> 16) & 0xff;
 	
-	          if (op & 16) {                      /* distance base */
-	            dist = here & 0xffff/*here.val*/;
-	            op &= 15;                       /* number of extra bits */
+	          if (op & 16) {
+	            dist = here & 0xffff;
+	            op &= 15;
 	            if (bits < op) {
 	              hold += input[_in++] << bits;
 	              bits += 8;
@@ -23907,19 +21979,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	              }
 	            }
 	            dist += hold & ((1 << op) - 1);
-	//#ifdef INFLATE_STRICT
 	            if (dist > dmax) {
 	              strm.msg = 'invalid distance too far back';
 	              state.mode = BAD;
 	              break top;
 	            }
-	//#endif
 	            hold >>>= op;
 	            bits -= op;
-	            //Tracevv((stderr, "inflate:         distance %u\n", dist));
-	            op = _out - beg;                /* max distance in output */
-	            if (dist > op) {                /* see if copy from window */
-	              op = dist - op;               /* distance back in window */
+	            op = _out - beg;
+	            if (dist > op) {
+	              op = dist - op;
 	              if (op > whave) {
 	                if (state.sane) {
 	                  strm.msg = 'invalid distance too far back';
@@ -23927,69 +21996,48 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  break top;
 	                }
 	
-	// (!) This block is disabled in zlib defailts,
-	// don't enable it for binary compatibility
-	//#ifdef INFLATE_ALLOW_INVALID_DISTANCE_TOOFAR_ARRR
-	//                if (len <= op - whave) {
-	//                  do {
-	//                    output[_out++] = 0;
-	//                  } while (--len);
-	//                  continue top;
-	//                }
-	//                len -= op - whave;
-	//                do {
-	//                  output[_out++] = 0;
-	//                } while (--op > whave);
-	//                if (op === 0) {
-	//                  from = _out - dist;
-	//                  do {
-	//                    output[_out++] = output[from++];
-	//                  } while (--len);
-	//                  continue top;
-	//                }
-	//#endif
 	              }
-	              from = 0; // window index
+	              from = 0;
 	              from_source = s_window;
-	              if (wnext === 0) {           /* very common case */
+	              if (wnext === 0) {
 	                from += wsize - op;
-	                if (op < len) {         /* some from window */
+	                if (op < len) {
 	                  len -= op;
 	                  do {
 	                    output[_out++] = s_window[from++];
 	                  } while (--op);
-	                  from = _out - dist;  /* rest from output */
+	                  from = _out - dist;
 	                  from_source = output;
 	                }
 	              }
-	              else if (wnext < op) {      /* wrap around window */
+	              else if (wnext < op) {
 	                from += wsize + wnext - op;
 	                op -= wnext;
-	                if (op < len) {         /* some from end of window */
+	                if (op < len) {
 	                  len -= op;
 	                  do {
 	                    output[_out++] = s_window[from++];
 	                  } while (--op);
 	                  from = 0;
-	                  if (wnext < len) {  /* some from start of window */
+	                  if (wnext < len) {
 	                    op = wnext;
 	                    len -= op;
 	                    do {
 	                      output[_out++] = s_window[from++];
 	                    } while (--op);
-	                    from = _out - dist;      /* rest from output */
+	                    from = _out - dist;
 	                    from_source = output;
 	                  }
 	                }
 	              }
-	              else {                      /* contiguous in window */
+	              else {
 	                from += wnext - op;
-	                if (op < len) {         /* some from window */
+	                if (op < len) {
 	                  len -= op;
 	                  do {
 	                    output[_out++] = s_window[from++];
 	                  } while (--op);
-	                  from = _out - dist;  /* rest from output */
+	                  from = _out - dist;
 	                  from_source = output;
 	                }
 	              }
@@ -24007,8 +22055,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	              }
 	            }
 	            else {
-	              from = _out - dist;          /* copy direct from output */
-	              do {                        /* minimum length is three */
+	              from = _out - dist;
+	              do {
 	                output[_out++] = output[from++];
 	                output[_out++] = output[from++];
 	                output[_out++] = output[from++];
@@ -24022,8 +22070,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	              }
 	            }
 	          }
-	          else if ((op & 64) === 0) {          /* 2nd level distance code */
-	            here = dcode[(here & 0xffff)/*here.val*/ + (hold & ((1 << op) - 1))];
+	          else if ((op & 64) === 0) {
+	            here = dcode[(here & 0xffff) + (hold & ((1 << op) - 1))];
 	            continue dodist;
 	          }
 	          else {
@@ -24032,15 +22080,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            break top;
 	          }
 	
-	          break; // need to emulate goto via "continue"
+	          break;
 	        }
 	      }
-	      else if ((op & 64) === 0) {              /* 2nd level length code */
-	        here = lcode[(here & 0xffff)/*here.val*/ + (hold & ((1 << op) - 1))];
+	      else if ((op & 64) === 0) {
+	        here = lcode[(here & 0xffff) + (hold & ((1 << op) - 1))];
 	        continue dolen;
 	      }
-	      else if (op & 32) {                     /* end-of-block */
-	        //Tracevv((stderr, "inflate:         end of block\n"));
+	      else if (op & 32) {
 	        state.mode = TYPE;
 	        break top;
 	      }
@@ -24050,17 +22097,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        break top;
 	      }
 	
-	      break; // need to emulate goto via "continue"
+	      break;
 	    }
 	  } while (_in < last && _out < end);
 	
-	  /* return unused bytes (on entry, bits < 8, so in won't go too far back) */
 	  len = bits >> 3;
 	  _in -= len;
 	  bits -= len << 3;
 	  hold &= (1 << bits) - 1;
 	
-	  /* update state and return */
 	  strm.next_in = _in;
 	  strm.next_out = _out;
 	  strm.avail_in = (_in < last ? 5 + (last - _in) : 5 - (_in - last));
@@ -24072,7 +22117,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24083,29 +22127,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	var MAXBITS = 15;
 	var ENOUGH_LENS = 852;
 	var ENOUGH_DISTS = 592;
-	//var ENOUGH = (ENOUGH_LENS+ENOUGH_DISTS);
 	
 	var CODES = 0;
 	var LENS = 1;
 	var DISTS = 2;
 	
-	var lbase = [ /* Length codes 257..285 base */
+	var lbase = [
 	  3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31,
 	  35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0
 	];
 	
-	var lext = [ /* Length codes 257..285 extra */
+	var lext = [
 	  16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18,
 	  19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78
 	];
 	
-	var dbase = [ /* Distance codes 0..29 base */
+	var dbase = [
 	  1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193,
 	  257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145,
 	  8193, 12289, 16385, 24577, 0, 0
 	];
 	
-	var dext = [ /* Distance codes 0..29 extra */
+	var dext = [
 	  16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22,
 	  23, 23, 24, 24, 25, 25, 26, 26, 27, 27,
 	  28, 28, 29, 29, 64, 64
@@ -24114,65 +22157,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = function inflate_table(type, lens, lens_index, codes, table, table_index, work, opts)
 	{
 	  var bits = opts.bits;
-	      //here = opts.here; /* table entry for duplication */
 	
-	  var len = 0;               /* a code's length in bits */
-	  var sym = 0;               /* index of code symbols */
-	  var min = 0, max = 0;          /* minimum and maximum code lengths */
-	  var root = 0;              /* number of index bits for root table */
-	  var curr = 0;              /* number of index bits for current table */
-	  var drop = 0;              /* code bits to drop for sub-table */
-	  var left = 0;                   /* number of prefix codes available */
-	  var used = 0;              /* code entries in table used */
-	  var huff = 0;              /* Huffman code */
-	  var incr;              /* for incrementing code, index */
-	  var fill;              /* index for replicating entries */
-	  var low;               /* low bits for current root entry */
-	  var mask;              /* mask for low root bits */
-	  var next;             /* next available space in table */
-	  var base = null;     /* base value table to use */
+	  var len = 0;
+	  var sym = 0;
+	  var min = 0, max = 0;
+	  var root = 0;
+	  var curr = 0;
+	  var drop = 0;
+	  var left = 0;
+	  var used = 0;
+	  var huff = 0;
+	  var incr;
+	  var fill;
+	  var low;
+	  var mask;
+	  var next;
+	  var base = null;
 	  var base_index = 0;
-	//  var shoextra;    /* extra bits table to use */
-	  var end;                    /* use base and extra for symbol > end */
-	  var count = new utils.Buf16(MAXBITS + 1); //[MAXBITS+1];    /* number of codes of each length */
-	  var offs = new utils.Buf16(MAXBITS + 1); //[MAXBITS+1];     /* offsets in table for each length */
+	  var end;
+	  var count = new utils.Buf16(MAXBITS + 1);
+	  var offs = new utils.Buf16(MAXBITS + 1);
 	  var extra = null;
 	  var extra_index = 0;
 	
 	  var here_bits, here_op, here_val;
 	
-	  /*
-	   Process a set of code lengths to create a canonical Huffman code.  The
-	   code lengths are lens[0..codes-1].  Each length corresponds to the
-	   symbols 0..codes-1.  The Huffman code is generated by first sorting the
-	   symbols by length from short to long, and retaining the symbol order
-	   for codes with equal lengths.  Then the code starts with all zero bits
-	   for the first code of the shortest length, and the codes are integer
-	   increments for the same length, and zeros are appended as the length
-	   increases.  For the deflate format, these bits are stored backwards
-	   from their more natural integer increment ordering, and so when the
-	   decoding tables are built in the large loop below, the integer codes
-	   are incremented backwards.
 	
-	   This routine assumes, but does not check, that all of the entries in
-	   lens[] are in the range 0..MAXBITS.  The caller must assure this.
-	   1..MAXBITS is interpreted as that code length.  zero means that that
-	   symbol does not occur in this code.
-	
-	   The codes are sorted by computing a count of codes for each length,
-	   creating from that a table of starting indices for each length in the
-	   sorted table, and then entering the symbols in order in the sorted
-	   table.  The sorted table is work[], with that space being provided by
-	   the caller.
-	
-	   The length counts are used for other purposes as well, i.e. finding
-	   the minimum and maximum length codes, determining if there are any
-	   codes at all, checking for a valid set of lengths, and looking ahead
-	   at length counts to determine sub-table sizes when building the
-	   decoding tables.
-	   */
-	
-	  /* accumulate lengths for codes (assumes lens[] all in 0..MAXBITS) */
 	  for (len = 0; len <= MAXBITS; len++) {
 	    count[len] = 0;
 	  }
@@ -24180,7 +22190,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    count[lens[lens_index + sym]]++;
 	  }
 	
-	  /* bound code lengths, force root to be within code lengths */
 	  root = bits;
 	  for (max = MAXBITS; max >= 1; max--) {
 	    if (count[max] !== 0) { break; }
@@ -24188,20 +22197,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (root > max) {
 	    root = max;
 	  }
-	  if (max === 0) {                     /* no symbols to code at all */
-	    //table.op[opts.table_index] = 64;  //here.op = (var char)64;    /* invalid code marker */
-	    //table.bits[opts.table_index] = 1;   //here.bits = (var char)1;
-	    //table.val[opts.table_index++] = 0;   //here.val = (var short)0;
+	  if (max === 0) {
 	    table[table_index++] = (1 << 24) | (64 << 16) | 0;
 	
 	
-	    //table.op[opts.table_index] = 64;
-	    //table.bits[opts.table_index] = 1;
-	    //table.val[opts.table_index++] = 0;
 	    table[table_index++] = (1 << 24) | (64 << 16) | 0;
 	
 	    opts.bits = 1;
-	    return 0;     /* no symbols, but wait for decoding to report error */
+	    return 0;
 	  }
 	  for (min = 1; min < max; min++) {
 	    if (count[min] !== 0) { break; }
@@ -24210,68 +22213,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	    root = min;
 	  }
 	
-	  /* check for an over-subscribed or incomplete set of lengths */
 	  left = 1;
 	  for (len = 1; len <= MAXBITS; len++) {
 	    left <<= 1;
 	    left -= count[len];
 	    if (left < 0) {
 	      return -1;
-	    }        /* over-subscribed */
+	    }
 	  }
 	  if (left > 0 && (type === CODES || max !== 1)) {
-	    return -1;                      /* incomplete set */
+	    return -1;
 	  }
 	
-	  /* generate offsets into symbol table for each length for sorting */
 	  offs[1] = 0;
 	  for (len = 1; len < MAXBITS; len++) {
 	    offs[len + 1] = offs[len] + count[len];
 	  }
 	
-	  /* sort symbols by length, by symbol order within each length */
 	  for (sym = 0; sym < codes; sym++) {
 	    if (lens[lens_index + sym] !== 0) {
 	      work[offs[lens[lens_index + sym]]++] = sym;
 	    }
 	  }
 	
-	  /*
-	   Create and fill in decoding tables.  In this loop, the table being
-	   filled is at next and has curr index bits.  The code being used is huff
-	   with length len.  That code is converted to an index by dropping drop
-	   bits off of the bottom.  For codes where len is less than drop + curr,
-	   those top drop + curr - len bits are incremented through all values to
-	   fill the table with replicated entries.
 	
-	   root is the number of index bits for the root table.  When len exceeds
-	   root, sub-tables are created pointed to by the root entry with an index
-	   of the low root bits of huff.  This is saved in low to check for when a
-	   new sub-table should be started.  drop is zero when the root table is
-	   being filled, and drop is root when sub-tables are being filled.
-	
-	   When a new sub-table is needed, it is necessary to look ahead in the
-	   code lengths to determine what size sub-table is needed.  The length
-	   counts are used for this, and so count[] is decremented as codes are
-	   entered in the tables.
-	
-	   used keeps track of how many table entries have been allocated from the
-	   provided *table space.  It is checked for LENS and DIST tables against
-	   the constants ENOUGH_LENS and ENOUGH_DISTS to guard against changes in
-	   the initial root table size constants.  See the comments in inftrees.h
-	   for more information.
-	
-	   sym increments through all symbols, and the loop terminates when
-	   all codes of length max, i.e. all codes, have been processed.  This
-	   routine permits incomplete codes, so another loop after this one fills
-	   in the rest of the decoding tables with invalid code markers.
-	   */
-	
-	  /* set up for code type */
-	  // poor man optimization - use if-else instead of switch,
-	  // to avoid deopts in old v8
 	  if (type === CODES) {
-	    base = extra = work;    /* dummy value--not used */
+	    base = extra = work;
 	    end = 19;
 	
 	  } else if (type === LENS) {
@@ -24281,32 +22248,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	    extra_index -= 257;
 	    end = 256;
 	
-	  } else {                    /* DISTS */
+	  } else {
 	    base = dbase;
 	    extra = dext;
 	    end = -1;
 	  }
 	
-	  /* initialize opts for loop */
-	  huff = 0;                   /* starting code */
-	  sym = 0;                    /* starting code symbol */
-	  len = min;                  /* starting code length */
-	  next = table_index;              /* current table to fill in */
-	  curr = root;                /* current table index bits */
-	  drop = 0;                   /* current bits to drop from code for index */
-	  low = -1;                   /* trigger new sub-table when len > root */
-	  used = 1 << root;          /* use root table entries */
-	  mask = used - 1;            /* mask for comparing low */
+	  huff = 0;
+	  sym = 0;
+	  len = min;
+	  next = table_index;
+	  curr = root;
+	  drop = 0;
+	  low = -1;
+	  used = 1 << root;
+	  mask = used - 1;
 	
-	  /* check available table space */
 	  if ((type === LENS && used > ENOUGH_LENS) ||
 	    (type === DISTS && used > ENOUGH_DISTS)) {
 	    return 1;
 	  }
 	
-	  /* process all codes and make table entries */
 	  for (;;) {
-	    /* create table entry */
 	    here_bits = len - drop;
 	    if (work[sym] < end) {
 	      here_op = 0;
@@ -24317,20 +22280,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      here_val = base[base_index + work[sym]];
 	    }
 	    else {
-	      here_op = 32 + 64;         /* end of block */
+	      here_op = 32 + 64;
 	      here_val = 0;
 	    }
 	
-	    /* replicate for those indices with low len bits equal to huff */
 	    incr = 1 << (len - drop);
 	    fill = 1 << curr;
-	    min = fill;                 /* save offset to next table */
+	    min = fill;
 	    do {
 	      fill -= incr;
 	      table[next + (huff >> drop) + fill] = (here_bits << 24) | (here_op << 16) | here_val |0;
 	    } while (fill !== 0);
 	
-	    /* backwards increment the len-bit code huff */
 	    incr = 1 << (len - 1);
 	    while (huff & incr) {
 	      incr >>= 1;
@@ -24342,24 +22303,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	      huff = 0;
 	    }
 	
-	    /* go to next symbol, update count, len */
 	    sym++;
 	    if (--count[len] === 0) {
 	      if (len === max) { break; }
 	      len = lens[lens_index + work[sym]];
 	    }
 	
-	    /* create new sub-table if needed */
 	    if (len > root && (huff & mask) !== low) {
-	      /* if first time, transition to sub-tables */
 	      if (drop === 0) {
 	        drop = root;
 	      }
 	
-	      /* increment past last table */
-	      next += min;            /* here min is 1 << curr */
+	      next += min;
 	
-	      /* determine length of next table */
 	      curr = len - drop;
 	      left = 1 << curr;
 	      while (curr + drop < max) {
@@ -24369,55 +22325,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	        left <<= 1;
 	      }
 	
-	      /* check for enough space */
 	      used += 1 << curr;
 	      if ((type === LENS && used > ENOUGH_LENS) ||
 	        (type === DISTS && used > ENOUGH_DISTS)) {
 	        return 1;
 	      }
 	
-	      /* point entry in root table to sub-table */
 	      low = huff & mask;
-	      /*table.op[low] = curr;
-	      table.bits[low] = root;
-	      table.val[low] = next - opts.table_index;*/
 	      table[low] = (root << 24) | (curr << 16) | (next - table_index) |0;
 	    }
 	  }
 	
-	  /* fill in remaining table entry if code is incomplete (guaranteed to have
-	   at most one remaining entry, since if the code is incomplete, the
-	   maximum code length that was allowed to get this far is one bit) */
 	  if (huff !== 0) {
-	    //table.op[next + huff] = 64;            /* invalid code marker */
-	    //table.bits[next + huff] = len - drop;
-	    //table.val[next + huff] = 0;
 	    table[next + huff] = ((len - drop) << 24) | (64 << 16) |0;
 	  }
 	
-	  /* set return parameters */
-	  //opts.table_index += used;
 	  opts.bits = root;
 	  return 0;
 	};
 
 
 /***/ },
-/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// String encode/decode helpers
 	'use strict';
 	
 	
 	var utils = __webpack_require__(33);
 	
 	
-	// Quick check if we can use fast array to bin string conversion
-	//
-	// - apply(Array) can fail on Android 2.2
-	// - apply(Uint8Array) can fail on iOS 5.1 Safary
-	//
 	var STR_APPLY_OK = true;
 	var STR_APPLY_UIA_OK = true;
 	
@@ -24425,21 +22361,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	try { String.fromCharCode.apply(null, new Uint8Array(1)); } catch (__) { STR_APPLY_UIA_OK = false; }
 	
 	
-	// Table with utf8 lengths (calculated by first byte of sequence)
-	// Note, that 5 & 6-byte values and some 4-byte values can not be represented in JS,
-	// because max possible codepoint is 0x10ffff
 	var _utf8len = new utils.Buf8(256);
 	for (var q = 0; q < 256; q++) {
 	  _utf8len[q] = (q >= 252 ? 6 : q >= 248 ? 5 : q >= 240 ? 4 : q >= 224 ? 3 : q >= 192 ? 2 : 1);
 	}
-	_utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
+	_utf8len[254] = _utf8len[254] = 1;
 	
 	
-	// convert string to array (typed, when possible)
 	exports.string2buf = function (str) {
 	  var buf, c, c2, m_pos, i, str_len = str.length, buf_len = 0;
 	
-	  // count binary size
 	  for (m_pos = 0; m_pos < str_len; m_pos++) {
 	    c = str.charCodeAt(m_pos);
 	    if ((c & 0xfc00) === 0xd800 && (m_pos + 1 < str_len)) {
@@ -24452,10 +22383,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    buf_len += c < 0x80 ? 1 : c < 0x800 ? 2 : c < 0x10000 ? 3 : 4;
 	  }
 	
-	  // allocate buffer
 	  buf = new utils.Buf8(buf_len);
 	
-	  // convert
 	  for (i = 0, m_pos = 0; i < buf_len; m_pos++) {
 	    c = str.charCodeAt(m_pos);
 	    if ((c & 0xfc00) === 0xd800 && (m_pos + 1 < str_len)) {
@@ -24466,19 +22395,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	    if (c < 0x80) {
-	      /* one byte */
 	      buf[i++] = c;
 	    } else if (c < 0x800) {
-	      /* two bytes */
 	      buf[i++] = 0xC0 | (c >>> 6);
 	      buf[i++] = 0x80 | (c & 0x3f);
 	    } else if (c < 0x10000) {
-	      /* three bytes */
 	      buf[i++] = 0xE0 | (c >>> 12);
 	      buf[i++] = 0x80 | (c >>> 6 & 0x3f);
 	      buf[i++] = 0x80 | (c & 0x3f);
 	    } else {
-	      /* four bytes */
 	      buf[i++] = 0xf0 | (c >>> 18);
 	      buf[i++] = 0x80 | (c >>> 12 & 0x3f);
 	      buf[i++] = 0x80 | (c >>> 6 & 0x3f);
@@ -24489,9 +22414,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return buf;
 	};
 	
-	// Helper (used in 2 places)
 	function buf2binstring(buf, len) {
-	  // use fallback for big arrays to avoid stack overflow
 	  if (len < 65537) {
 	    if ((buf.subarray && STR_APPLY_UIA_OK) || (!buf.subarray && STR_APPLY_OK)) {
 	      return String.fromCharCode.apply(null, utils.shrinkBuf(buf, len));
@@ -24506,13 +22429,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	
-	// Convert byte array to binary string
 	exports.buf2binstring = function (buf) {
 	  return buf2binstring(buf, buf.length);
 	};
 	
 	
-	// Convert binary string (typed, when possible)
 	exports.binstring2buf = function (str) {
 	  var buf = new utils.Buf8(str.length);
 	  for (var i = 0, len = buf.length; i < len; i++) {
@@ -24522,34 +22443,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	
-	// convert array to string
 	exports.buf2string = function (buf, max) {
 	  var i, out, c, c_len;
 	  var len = max || buf.length;
 	
-	  // Reserve max possible length (2 words per char)
-	  // NB: by unknown reasons, Array is significantly faster for
-	  //     String.fromCharCode.apply than Uint16Array.
 	  var utf16buf = new Array(len * 2);
 	
 	  for (out = 0, i = 0; i < len;) {
 	    c = buf[i++];
-	    // quick process ascii
 	    if (c < 0x80) { utf16buf[out++] = c; continue; }
 	
 	    c_len = _utf8len[c];
-	    // skip 5 & 6 byte codes
 	    if (c_len > 4) { utf16buf[out++] = 0xfffd; i += c_len - 1; continue; }
 	
-	    // apply mask on first byte
 	    c &= c_len === 2 ? 0x1f : c_len === 3 ? 0x0f : 0x07;
-	    // join the rest
 	    while (c_len > 1 && i < len) {
 	      c = (c << 6) | (buf[i++] & 0x3f);
 	      c_len--;
 	    }
 	
-	    // terminated by end of string?
 	    if (c_len > 1) { utf16buf[out++] = 0xfffd; continue; }
 	
 	    if (c < 0x10000) {
@@ -24565,28 +22477,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	
-	// Calculate max possible position in utf8 buffer,
-	// that will not break sequence. If that's not possible
-	// - (very small limits) return max size as is.
-	//
-	// buf[] - utf8 bytes array
-	// max   - length limit (mandatory);
 	exports.utf8border = function (buf, max) {
 	  var pos;
 	
 	  max = max || buf.length;
 	  if (max > buf.length) { max = buf.length; }
 	
-	  // go back from last position, until start of sequence found
 	  pos = max - 1;
 	  while (pos >= 0 && (buf[pos] & 0xC0) === 0x80) { pos--; }
 	
-	  // Fuckup - very small and broken sequence,
-	  // return max, because we should return something anyway.
 	  if (pos < 0) { return max; }
 	
-	  // If we came to start of buffer - that means vuffer is too small,
-	  // return max too.
 	  if (pos === 0) { return max; }
 	
 	  return (pos + _utf8len[buf[pos]] > max) ? pos : max;
@@ -24594,7 +22495,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 39 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24602,7 +22502,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	module.exports = {
 	
-	  /* Allowed flush values; see deflate() and inflate() below for details */
 	  Z_NO_FLUSH:         0,
 	  Z_PARTIAL_FLUSH:    1,
 	  Z_SYNC_FLUSH:       2,
@@ -24611,20 +22510,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Z_BLOCK:            5,
 	  Z_TREES:            6,
 	
-	  /* Return codes for the compression/decompression functions. Negative values
-	  * are errors, positive values are used for special but normal events.
-	  */
 	  Z_OK:               0,
 	  Z_STREAM_END:       1,
 	  Z_NEED_DICT:        2,
 	  Z_ERRNO:           -1,
 	  Z_STREAM_ERROR:    -2,
 	  Z_DATA_ERROR:      -3,
-	  //Z_MEM_ERROR:     -4,
 	  Z_BUF_ERROR:       -5,
-	  //Z_VERSION_ERROR: -6,
 	
-	  /* compression levels */
 	  Z_NO_COMPRESSION:         0,
 	  Z_BEST_SPEED:             1,
 	  Z_BEST_COMPRESSION:       9,
@@ -24637,66 +22530,50 @@ return /******/ (function(modules) { // webpackBootstrap
 	  Z_FIXED:                  4,
 	  Z_DEFAULT_STRATEGY:       0,
 	
-	  /* Possible values of the data_type field (though see inflate()) */
 	  Z_BINARY:                 0,
 	  Z_TEXT:                   1,
-	  //Z_ASCII:                1, // = Z_TEXT (deprecated)
 	  Z_UNKNOWN:                2,
 	
-	  /* The deflate compression method */
 	  Z_DEFLATED:               8
-	  //Z_NULL:                 null // Use -1 or null inline, depending on var type
 	};
 
 
 /***/ },
-/* 40 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
 	module.exports = {
-	  2:      'need dictionary',     /* Z_NEED_DICT       2  */
-	  1:      'stream end',          /* Z_STREAM_END      1  */
-	  0:      '',                    /* Z_OK              0  */
-	  '-1':   'file error',          /* Z_ERRNO         (-1) */
-	  '-2':   'stream error',        /* Z_STREAM_ERROR  (-2) */
-	  '-3':   'data error',          /* Z_DATA_ERROR    (-3) */
-	  '-4':   'insufficient memory', /* Z_MEM_ERROR     (-4) */
-	  '-5':   'buffer error',        /* Z_BUF_ERROR     (-5) */
-	  '-6':   'incompatible version' /* Z_VERSION_ERROR (-6) */
+	  2:      'need dictionary',
+	  1:      'stream end',
+	  0:      '',
+	  '-1':   'file error',
+	  '-2':   'stream error',
+	  '-3':   'data error',
+	  '-4':   'insufficient memory',
+	  '-5':   'buffer error',
+	  '-6':   'incompatible version'
 	};
 
 
 /***/ },
-/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
 	
 	function ZStream() {
-	  /* next input byte */
-	  this.input = null; // JS specific, because we have no pointers
+	  this.input = null;
 	  this.next_in = 0;
-	  /* number of bytes available at input */
 	  this.avail_in = 0;
-	  /* total number of input bytes read so far */
 	  this.total_in = 0;
-	  /* next output byte should be put there */
-	  this.output = null; // JS specific, because we have no pointers
+	  this.output = null;
 	  this.next_out = 0;
-	  /* remaining free space at output */
 	  this.avail_out = 0;
-	  /* total number of bytes output so far */
 	  this.total_out = 0;
-	  /* last error message, NULL if no error */
-	  this.msg = ''/*Z_NULL*/;
-	  /* not visible by applications */
+	  this.msg = '';
 	  this.state = null;
-	  /* best guess about the data type: binary or text */
-	  this.data_type = 2/*Z_UNKNOWN*/;
-	  /* adler32 value of the uncompressed data */
+	  this.data_type = 2;
 	  this.adler = 0;
 	}
 	
@@ -24704,45 +22581,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
 	
 	
 	function GZheader() {
-	  /* true if compressed data believed to be text */
 	  this.text       = 0;
-	  /* modification time */
 	  this.time       = 0;
-	  /* extra flags (not used when writing a gzip file) */
 	  this.xflags     = 0;
-	  /* operating system */
 	  this.os         = 0;
-	  /* pointer to extra field or Z_NULL if none */
 	  this.extra      = null;
-	  /* extra field length (valid if extra != Z_NULL) */
-	  this.extra_len  = 0; // Actually, we don't need it in JS,
-	                       // but leave for few code modifications
+	  this.extra_len  = 0;
 	
-	  //
-	  // Setup limits is not necessary because in js we should not preallocate memory
-	  // for inflate use constant limit in 65536 bytes
-	  //
 	
-	  /* space at extra (only when reading header) */
-	  // this.extra_max  = 0;
-	  /* pointer to zero-terminated file name or Z_NULL */
 	  this.name       = '';
-	  /* space at name (only when reading header) */
-	  // this.name_max   = 0;
-	  /* pointer to zero-terminated comment or Z_NULL */
 	  this.comment    = '';
-	  /* space at comment (only when reading header) */
-	  // this.comm_max   = 0;
-	  /* true if there was or will be a header crc */
 	  this.hcrc       = 0;
-	  /* true when done reading gzip header (not used when writing a gzip file) */
 	  this.done       = false;
 	}
 	
@@ -24753,5 +22608,3 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-//# sourceMappingURL=Browserfs.js.map
-//# sourceURL=MagnusWare

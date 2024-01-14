@@ -767,9 +767,9 @@ ${doc.documentElement.outerHTML}`;
 										case "Type":
 											// @TODO: DRY, and move file type code/data to one central place
 											const system_folder_path_to_name = {
-												"/": "This PC", //"My Computer",
-												"/my-pictures/": "My Pictures",
-												"/my-documents/": "My Documents",
+												"/": "Your PC", //"My Computer",
+												"/my-pictures/": "Your Pictures",
+												"/my-documents/": "Your Documents",
 												"/da-hood/": "Network Neighborhood",
 												"/desktop/": "Desktop",
 												"/programs/": "Program Files",

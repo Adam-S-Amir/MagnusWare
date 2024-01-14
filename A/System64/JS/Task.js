@@ -1,4 +1,5 @@
 Task.all_tasks = [];
+
 function Task(win, id) {
 	Task.all_tasks.push(this);
 
@@ -16,8 +17,7 @@ function Task(win, id) {
 		const old_$icon = $icon;
 		$icon = win.getIconAtSize(16);
 		if (!$icon) {
-			// $icon = $("<img src='images/icons/task-16x16.png'/>");
-			old_$icon?.remove();
+			old_$icon ?.remove();
 			return;
 		}
 		if (old_$icon) {
@@ -37,8 +37,7 @@ function Task(win, id) {
 
 	$task.append($icon, $title);
 	$task.on("pointerdown", function (e) {
-		e.preventDefault(); // prevent focus, so that the window keeps focus and we can know for minimization if it it should be focused or minimized
-		// @TODO: do it on whole taskbar
+		e.preventDefault();
 	});
 	$task.on("click", function () {
 		if ($task.hasClass("selected")) {
@@ -69,5 +68,3 @@ function Task(win, id) {
 		win.focus();
 	}
 }
-
-//# sourceURL=MagnusWare
