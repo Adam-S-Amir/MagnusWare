@@ -4,43 +4,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>JS Paint</title>
-
-	<link href="styles/normalize.css" rel="stylesheet" type="text/css">
-	<link href="styles/layout.css" class="flippable-layout-stylesheet" rel="stylesheet" type="text/css">
-	<link href="styles/print.css" rel="stylesheet" type="text/css" media="print">
-	<link href="lib/os-gui/layout.css" class="flippable-layout-stylesheet" rel="stylesheet" type="text/css">
-	<!-- <link href="lib/os-gui/windows-98.css" rel="stylesheet" type="text/css"> -->
-	<!-- <link href="lib/os-gui/windows-default.css" rel="stylesheet" type="text/css" title="Windows Default"> -->
-	<!-- <link href="lib/os-gui/peggys-pastels.css" rel="alternate stylesheet" type="text/css" title="Peggy's Pastels"> -->
-	<!-- <link href="lib/tracky-mouse/tracky-mouse.css" rel="stylesheet" type="text/css"> -->
-	<!--
-@TODO: bring these styles into OS-GUI.
-This is a custom build of 98.css https://github.com/jdan/98.css
-for checkboxes, radio buttons, sliders, and fieldsets,
-excluding e.g. scrollbars, buttons, and windows (already in OS-GUI),
-and integrating with the theme CSS vars used by OS-GUI,
-and with some RTLCSS tweaks.
-Text inputs and dropdowns are styled in classic.css, but should also be included in OS-GUI at some point.
-This is not an @import in classic.css because it needs RTLCSS and I'm not applying RTLCSS to themes yet.
-So I added .not-for-modern logic to theme.js to exclude these styles depending on the theme.
--->
-	<link href="lib/98.css/98.custom-build.css" class="flippable-layout-stylesheet not-for-modern" rel="stylesheet" type="text/css">
-
-	<link rel="apple-touch-icon" href="images/icons/apple-icon-180x180.png">
-	<!-- Chrome will pick the largest image for some reason, instead of the most appropriate one. -->
-	<!-- <link rel="icon" type="image/png" sizes="192x192" href="images/icons/192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/icons/32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="images/icons/96x96.png"> -->
-	<!-- <link rel="icon" type="image/png" sizes="16x16" href="images/icons/16x16.png"> -->
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="red">
-	<link rel="manifest" href="manifest.webmanifest">
+	<link href="./styles/normalize.css" rel="stylesheet" type="text/css">
+	<link href="./styles/layout.css" class="flippable-layout-stylesheet" rel="stylesheet" type="text/css">
+	<link href="./styles/print.css" rel="stylesheet" type="text/css" media="print">
+	<link href="./lib/os-gui/layout.css" class="flippable-layout-stylesheet" rel="stylesheet" type="text/css">
+	<link href="./lib/98.css/98.custom-build.css" class="flippable-layout-stylesheet not-for-modern" rel="stylesheet"
+		type="text/css">
+	<link rel="apple-touch-icon" href="./images/icons/apple-icon-180x180.png">
+	<link rel="shortcut icon" href="./favicon.ico">
+	<link rel="mask-icon" href="./images/icons/safari-pinned-tab.svg" color="red">
+	<link rel="manifest" href="./manifest.webmanifest">
 	<meta name="msapplication-TileColor" content="#008080">
 	<meta name="msapplication-TileImage" content="images/icons/ms-icon-144x144.png">
-	<meta name="theme-color" content="#000080">
-
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-
+	<meta name="viewport" content="width=device-width">
 	<meta name="description" content="Classic MS Paint in the browser, with extra features" />
 	<meta property="og:image:width" content="279">
 	<meta property="og:image:height" content="279">
@@ -52,8 +28,6 @@ So I added .not-for-modern logic to theme.js to exclude these styles depending o
 	<meta name="twitter:description" content="Classic MS Paint in the browser, with extra features">
 	<meta name="twitter:image" content="https://jspaint.app/images/meta/twitter-card-plz-no-crop.png">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@isaiahodhner">
-	<meta name="twitter:creator" content="@isaiahodhner">
 	<script>
 		// use only ES5 syntax for this script
 		// set up basic global error handling, which we can override later
@@ -67,7 +41,8 @@ So I added .not-for-modern logic to theme.js to exclude these styles depending o
 				// 	// try-catch in case of circular references or old browsers without JSON.stringify
 				// 	error = JSON.stringify(error);
 				// } catch (e) {}
-				alert('Internal application error: ' + msg + '\n\n' + 'URL: ' + url + '\n' + 'Line: ' + lineNo + '\n' + 'Column: ' + columnNo);
+				alert('Internal application error: ' + msg + '\n\n' + 'URL: ' + url + '\n' + 'Line: ' + lineNo + '\n' +
+					'Column: ' + columnNo);
 			}
 			return false;
 		};
@@ -80,7 +55,6 @@ So I added .not-for-modern logic to theme.js to exclude these styles depending o
 		<h1 id="about-paint-header">
 			<img src="images/icons/32x32.png" width="32" height="32" id="paint-32x32" alt="" />
 			<span id="jspaint-project-name">JS Paint</span>
-			<!-- <small id="jspaint-version" title="expect bugs!">Alpha</small> -->
 			<button id="view-project-news">What's New?</button>
 		</h1>
 
@@ -91,10 +65,12 @@ So I added .not-for-modern logic to theme.js to exclude these styles depending o
 						There's a new version of JS Paint. <a id="refresh-to-update" href=".">Refresh</a> to get it.
 					</div>
 					<div class="on-third-party-host">
-						This instance of JS Paint is outdated compared to <a href="https://jspaint.app" target="_blank">jspaint.app</a>.
+						This instance of JS Paint is outdated compared to <a href="https://jspaint.app"
+							target="_blank">jspaint.app</a>.
 					</div>
 					<div class="on-dev-host">
-						This version of JS Paint is outdated compared to <a href="https://jspaint.app" target="_blank">jspaint.app</a>.
+						This version of JS Paint is outdated compared to <a href="https://jspaint.app"
+							target="_blank">jspaint.app</a>.
 					</div>
 				</div>
 				<div id="checking-for-updates" hidden>
@@ -109,60 +85,19 @@ So I added .not-for-modern logic to theme.js to exclude these styles depending o
 
 		</div>
 		<p>JS Paint is a web-based remake of MS Paint by <a href="https://isaiahodhner.io/">Isaiah Odhner</a>.</p>
-		<p>Read about the project and extra features on <a href="https://github.com/1j01/jspaint#readme">the readme</a>.</p>
+		<p>Read about the project and extra features on <a href="https://github.com/1j01/jspaint#readme">the readme</a>.
+		</p>
 		<p>Request features and report bugs <a href="https://github.com/1j01/jspaint/issues">on GitHub</a>
 			or <a href="mailto:isaiahodhner@gmail.com?subject=JS%20Paint">by email</a>.</p>
-		<p>Support the project at <a href="https://www.paypal.me/IsaiahOdhner" target="_blank">paypal.me/IsaiahOdhner</a>.</p>
+		<p>Support the project at <a href="https://www.paypal.me/IsaiahOdhner"
+				target="_blank">paypal.me/IsaiahOdhner</a>.</p>
 	</div>
 	<div id="news" hidden>
-		<!-- <article class="news-entry" id="news-2021-saving">
-<h1>The Savior Update</h1>
-<time datetime=""></time>
-<img width="" height="" style="max-width: 100%; height: auto; image-rendering: auto;" alt="" src=""/>
-<p>
-<b>Save</b> (<kbd>Ctrl+S</kbd>) can now save over the open file, in Chrome, Edge, and Opera browsers.
-This works using new <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API">File System Access API</a>.
-Always use <b>Save As</b> (<kbd>Ctrl+Shift+S</kbd>) if you want to save a new file.
-</p>
-<p>
-<b>Save As</b> now asks for a file name and format.
-PNG, GIF, and BMP are supported, including indexed color BMPs.
-</p>
-<p>
-Tip: Use PNG if you don't have a specific reason to use another format,
-as it has the best quality when saving.
-</p>
-<p>
-If you open a BMP file with a palette, the palette is loaded into the Colors box.
-If you load a monochrome BMP file, it loads a gradient of dither patterns into the Colors box.
-</p>
-<p>
-<b>Black and White</b> mode in <b>Image > Attributes</b> is generalized to a monochrome mode
-(although it's still called "Black and White" in the Attributes window.)
-If an image has only two colors, when switching to "Black and White" mode,
-it automatically adapts to these colors and gives you a gradient of dither patterns in the Colors box.
-</p>
-<p>
-If you use <b>Image > Invert</b>, in monochrome mode, it flips the two colors in the image,
-instead of changing colors to their RGB opposites.
-(If the image is pure black and white, these two operations are equivalent.)
-</p>
-<p>
-<b>Colors > Save Colors</b> also now asks for a file name and format.
-An absurd number of file formats are supported.
-You can even export CSS variables for use in a web design project.
-RIFF Palette (*.pal) is compatible with MS Paint, and GIMP Palette (*.gpl) is compatible with many open source graphics programs such as Inkscape and Krita.
-</p>
-<p>
-You can find lots of palettes to use on <a target="_blank" href="https://lospec.com/palette-list">Lospec</a>.
-Download a palette as GIMP GPL (or several other formats) and use <b>Colors > Get Colors</b> and select the file,
-or simply drag and drop the file onto JS Paint to load the palette.
-</p>
-</article> -->
 		<article class="news-entry" id="news-2021-saving">
 			<h1>The GUIcci Update</h1>
 			<time datetime="2021-12-08">2021-12-08</time>
-			<img width="640" height="360" style="max-width: 100%; height: auto; image-rendering: auto;" alt="" src="https://i.postimg.cc/tgBncKfJ/guicii-update.png" />
+			<img width="640" height="360" style="max-width: 100%; height: auto; image-rendering: auto;" alt=""
+				src="https://i.postimg.cc/tgBncKfJ/guicii-update.png" />
 			<h2>New Features</h2>
 			<p>
 				<b>View > Zoom > Show Thumbnail</b> to show a preview of the image at a small size, great for pixel art.
@@ -173,7 +108,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 			</p>
 			<p>
 				<b>Alt+Mousewheel</b> to zoom in and out quickly on desktop.
-				Unlike the Magnifier tool, this allows you to zoom while making (or moving) a selection, for added precision.
+				Unlike the Magnifier tool, this allows you to zoom while making (or moving) a selection, for added
+				precision.
 			</p>
 			<p>
 				Added <b>View > Fullscreen</b> to toggle fullscreen mode. This is nice for using JS Paint on your phone.
@@ -188,19 +124,24 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				you can now dock it back when dragging the titlebar.
 				Previously to dock it you had to double click the titlebar, or drag it by the edge of the window.
 			</p>
-			<img alt="Area that you have to click to drag a toolbar out into a window (in green)" src="https://i.postimg.cc/7LB18Gcg/toolbar-drag-out-area.png" width="480" height="380" style="max-width: 100%; height: auto; image-rendering: auto;" />
+			<img alt="Area that you have to click to drag a toolbar out into a window (in green)"
+				src="https://i.postimg.cc/7LB18Gcg/toolbar-drag-out-area.png" width="480" height="380"
+				style="max-width: 100%; height: auto; image-rendering: auto;" />
 			<p>
 				<b>Menus</b> are now fully keyboard (and screen reader) accessible.
 				In particular, you can hold <kbd>Alt</kbd> and press the access key of a menu button to open the menu,
 				and then (without <kbd>Alt</kbd>) press the access key of a menu item to select it.
-				The access key of an item is the underlined letter, or the first letter of the item's text if there's no underline.
+				The access key of an item is the underlined letter, or the first letter of the item's text if there's no
+				underline.
 			</p>
 			<p>
 				<b>Error details</b> are now hidden by default in error dialogs.
 				The details may be more overwhelming than useful in a lot of cases,
 				but if you need them, you can expand the details.
 			</p>
-			<img alt="Example error message box saying 'File not found', with details collapsed." src="https://i.postimg.cc/ZR1qpVGw/file-not-found.png" width="408" height="145" style="max-width: 100%; height: auto; image-rendering: auto;">
+			<img alt="Example error message box saying 'File not found', with details collapsed."
+				src="https://i.postimg.cc/ZR1qpVGw/file-not-found.png" width="408" height="145"
+				style="max-width: 100%; height: auto; image-rendering: auto;">
 			<p>
 				<b>File > Exit</b> now exits to the official web desktop,
 				<a target="_blank" href="https://98.js.org"><img
@@ -208,7 +149,9 @@ or simply drag and drop the file onto JS Paint to load the palette.
 						width="16" height="16" alt=""> 98.js.org</a>,
 				a re-creation of Windows 98, full of games and applications.
 			</p>
-			<img class="inset-deep" src="https://i.postimg.cc/SKHrYpx3/98-js-org-screenshot.png" alt="The 98.js desktop featuring desktop icons, a taskbar, and various application windows." style="max-width: 100%; height: auto; image-rendering: auto;">
+			<img class="inset-deep" src="https://i.postimg.cc/SKHrYpx3/98-js-org-screenshot.png"
+				alt="The 98.js desktop featuring desktop icons, a taskbar, and various application windows."
+				style="max-width: 100%; height: auto; image-rendering: auto;">
 			<p>
 				This project spun out of JS Paint, and I have implemented now
 				Sound Recorder, Notepad, Calculator, and even Windows Explorer,
@@ -253,17 +196,20 @@ or simply drag and drop the file onto JS Paint to load the palette.
 			</p>
 			<h2>Fixes</h2>
 			<p>
-				<b>Menu buttons</b> are easier to open on a touch screen. Sometimes you had to tap twice before the menu opened.
+				<b>Menu buttons</b> are easier to open on a touch screen. Sometimes you had to tap twice before the menu
+				opened.
 			</p>
 			<p>
-				Fixed <b>large square brush</b> continuity (it left gaps before, due to a half-implemented optimization).
+				Fixed <b>large square brush</b> continuity (it left gaps before, due to a half-implemented
+				optimization).
 			</p>
 			<p>
 				The <b>selection and textboxes</b> no longer "blow up" if you resize them to a minimal size.
 				They are now limited when you drag an edge past the opposite edge.
 			</p>
 			<p>
-				Fixed a bug where vertically thin selections were difficult or impossible to drag (despite showing a drag cursor).
+				Fixed a bug where vertically thin selections were difficult or impossible to drag (despite showing a
+				drag cursor).
 				(The draggable region was offset outside of the selection box.)
 				Fixed a similar bug where tool previews would get offset if the canvas's height was very small.
 			</p>
@@ -273,7 +219,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				It's now considerably smarter than Windows 10 about where it lets you drag handles from.
 			</p>
 			<p>
-				In <b>Image > Flip/Rotate</b>, you can now click the custom degrees input field before selecting the "Rotate by angle" option.
+				In <b>Image > Flip/Rotate</b>, you can now click the custom degrees input field before selecting the
+				"Rotate by angle" option.
 			</p>
 			<p>
 				The magnifier preview and other tool previews are now hidden while dragging the Colors box or Tools box.
@@ -281,8 +228,10 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				the preview outline for dragging/docking a tool window.
 			</p>
 			<p>
-				For languages that read <b>right-to-left</b>, the History view (<b>Edit > History</b>) now uses a right-to-left layout,
-				and the color box and tool box no longer flip their layout when dragging them into a window or docking them back to a side of the application.
+				For languages that read <b>right-to-left</b>, the History view (<b>Edit > History</b>) now uses a
+				right-to-left layout,
+				and the color box and tool box no longer flip their layout when dragging them into a window or docking
+				them back to a side of the application.
 			</p>
 			<p>
 				The history view and error messages use <b>more localized text</b>.
@@ -291,7 +240,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				Fixed <b>cut off icons</b> in buttons in the help window toolbar in the Modern theme.
 			</p>
 			<p>
-				All windows now have a default-focused control, and the last focused control in the window is remembered for when you refocus the window.
+				All windows now have a default-focused control, and the last focused control in the window is remembered
+				for when you refocus the window.
 			</p>
 			<p>
 				<b>File > New</b> and <b>File > Open</b> now create a new autosave session,
@@ -322,20 +272,26 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				who will then smile a nasty smile and steal Christmas from you.
 				You can get it back with <b>Extras > Theme > Winter</b>.
 			</p>
-			<img class="inset-deep" alt="Winter theme screenshot with candy canes and a text box saying Enjoy!" src="https://i.postimg.cc/SxFtjy8z/winter-theme-enjoy.png" width="440" height="380" style="max-width: 100%; height: auto; image-rendering: auto;" />
+			<img class="inset-deep" alt="Winter theme screenshot with candy canes and a text box saying Enjoy!"
+				src="https://i.postimg.cc/SxFtjy8z/winter-theme-enjoy.png" width="440" height="380"
+				style="max-width: 100%; height: auto; image-rendering: auto;" />
 		</article>
 		<article class="news-entry" id="news-2020-accessibility-update">
 			<h1>The Accessibility Update</h1>
 			<time datetime="2020-12-20">2020-12-20</time>
-			<img width="965" height="399" style="max-width: 100%; height: auto; image-rendering: auto;" alt="Hello in several languages, eye gaze guiding a cursor, and a sea lion barking into a microphone." src="https://i.postimg.cc/j29yrZbm/untitled-23.png" />
+			<img width="965" height="399" style="max-width: 100%; height: auto; image-rendering: auto;"
+				alt="Hello in several languages, eye gaze guiding a cursor, and a sea lion barking into a microphone."
+				src="https://i.postimg.cc/j29yrZbm/untitled-23.png" />
 			<h2>Multi-Lingual Support</h2>
 			<p>JS Paint is now largely localized into 26 languages.</p>
 			<p>
 				How am I releasing so many languages at the initial release of multi-lingual support, you may ask?
-				Well, this project has the somewhat unique opportunity to reuse localizations from an existing program, since it's primarily a remake of MS Paint.
+				Well, this project has the somewhat unique opportunity to reuse localizations from an existing program,
+				since it's primarily a remake of MS Paint.
 			</p>
 			<p>
-				I downloaded and installed <a target="_blank" href="https://postimg.cc/4Y1V24wN">26 versions of Windows 98 in virtual machines</a>,
+				I downloaded and installed <a target="_blank" href="https://postimg.cc/4Y1V24wN">26 versions of Windows
+					98 in virtual machines</a>,
 				and extracted text from mspaint.exe in each one of them,
 				using a set of scripts that I wrote to to help me automate the process.
 			</p>
@@ -343,24 +299,34 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				To change the language, go to <b>Extras > Language</b>.
 				Your preferred language may already be detected, if specified in system or browser settings.
 			</p>
-			<img width="1280" height="720" style="max-width: 100%; height: auto; image-rendering: auto;" alt="26 languages, right off the bat!" src="https://i.postimg.cc/G2bH92fp/language-menu.png" />
+			<img width="1280" height="720" style="max-width: 100%; height: auto; image-rendering: auto;"
+				alt="26 languages, right off the bat!" src="https://i.postimg.cc/G2bH92fp/language-menu.png" />
 			<p>For Arabic and Hebrew, right-to-left layout is supported!</p>
 			<p>I tried my hand at some Arabic calligraphy...</p>
-			<img width="1141" height="800" style="max-width: 100%; height: auto; image-rendering: auto;" alt="Calligraphy where the shapes of the tools in Paint make up Arabic words for them." src="https://i.postimg.cc/NFX2TTp1/untitled-45.png" />
+			<img width="1141" height="800" style="max-width: 100%; height: auto; image-rendering: auto;"
+				alt="Calligraphy where the shapes of the tools in Paint make up Arabic words for them."
+				src="https://i.postimg.cc/NFX2TTp1/untitled-45.png" />
 			<p>
-				If you want to contribute translations, <a target="_blank" href="https://github.com/1j01/jspaint/issues/80">get in touch!</a>
+				If you want to contribute translations, <a target="_blank"
+					href="https://github.com/1j01/jspaint/issues/80">get in touch!</a>
 				I need to do some technical work to set up for community translations on a public platform,
 				but I'm glad people have already expressed interest in helping translate!
-				(I also want to simplify the language in various parts of the UI before asking people to translate them.)
+				(I also want to simplify the language in various parts of the UI before asking people to translate
+				them.)
 			</p>
 			<h2>Eye Gaze Mode</h2>
-			<img width="511" height="360" style="max-width: 100%; height: auto; image-rendering: auto;" alt="You can use eye gaze or head movements to control the cursor." src="https://i.postimg.cc/2yC137gc/20.png" />
+			<img width="511" height="360" style="max-width: 100%; height: auto; image-rendering: auto;"
+				alt="You can use eye gaze or head movements to control the cursor."
+				src="https://i.postimg.cc/2yC137gc/20.png" />
 			<p>Eye Gaze Mode lets you control JS Paint without using your hands.</p>
 			<p>It's intended for use with an eye tracker, head tracker, or other coarse input scenario.</p>
-			<p>You don't need a thousand-dollar eye tracker device to play around with this, just a webcam and some free software.</p>
+			<p>You don't need a thousand-dollar eye tracker device to play around with this, just a webcam and some free
+				software.</p>
 			<p>
-				I recommend <a target="_blank" href="https://eviacam.crea-si.com/">Enable Viacam</a>, which is <em>not</em> an eye gaze tracker,
-				but rather a general video movement tracker that you can set up to track your head movement (or your torso or hand or anything else).
+				I recommend <a target="_blank" href="https://eviacam.crea-si.com/">Enable Viacam</a>, which is
+				<em>not</em> an eye gaze tracker,
+				but rather a general video movement tracker that you can set up to track your head movement (or your
+				torso or hand or anything else).
 			</p>
 			<p>
 				Eye tracking via a webcam has a ways to go, but it's also pretty amazing in its own right.
@@ -379,19 +345,24 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				It can also be frustrating, and takes some practice to master.
 			</p>
 			<p>
-				A good place to start is coloring line art using just the Fill tool (<img src="help/p_paint.gif" width="15" height="11" alt="">):
+				A good place to start is coloring line art using just the Fill tool (<img src="help/p_paint.gif"
+					width="15" height="11" alt="">):
 			</p>
 			<ul>
 				<li>
-					<a target="_blank" href="https://duckduckgo.com/?t=canonical&q=coloring+pages&atb=v232-1&iax=images&ia=images">Find coloring pages online</a>,
+					<a target="_blank"
+						href="https://duckduckgo.com/?t=canonical&q=coloring+pages&atb=v232-1&iax=images&ia=images">Find
+						coloring pages online</a>,
 					and copy and paste them into JS Paint.
 				</li>
 				<li>
-					You can convert them to black and white in <b>Image > Attributes</b>, and then switch back to Colors.
+					You can convert them to black and white in <b>Image > Attributes</b>, and then switch back to
+					Colors.
 					(This makes it work better with the Fill tool.)
 				</li>
 				<li>
-					Enable Eye Gaze Mode with <b>Extras > Eye Gaze Mode</b> and note that it will start clicking where you hover.
+					Enable Eye Gaze Mode with <b>Extras > Eye Gaze Mode</b> and note that it will start clicking where
+					you hover.
 					You can disable this dwell clicking with the eye icon in the bottom of the screen.
 				</li>
 				<li>
@@ -403,9 +374,12 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				I decided to make this available as a separate option. Access with <b>Extras > Vertical Color Box</b>.
 			</p>
 			<h2>Speech Recognition</h2>
-			<img width="549" height="275" style="max-width: 100%; height: auto; image-rendering: auto;" alt="The sea lion says &quot;Art! Art! Art!&quot; into a microphone." src="https://i.postimg.cc/BnQ8cpY2/Art-Art-Art.png" />
+			<img width="549" height="275" style="max-width: 100%; height: auto; image-rendering: auto;"
+				alt="The sea lion says &quot;Art! Art! Art!&quot; into a microphone."
+				src="https://i.postimg.cc/BnQ8cpY2/Art-Art-Art.png" />
 			<p>
-				Using only your voice, you can switch tools and colors, pan the view, click on buttons on the screen by name, and use most menu items.
+				Using only your voice, you can switch tools and colors, pan the view, click on buttons on the screen by
+				name, and use most menu items.
 				You can even say "draw a cat in a party hat" to have JS Paint try to sketch a cat in a party hat.
 			</p>
 			<p>This feature pairs well with Eye Gaze Mode for a more complete hands free experience.</p>
@@ -413,33 +387,43 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				The feature is only available on Chrome, and only understands English.
 				Note that Chrome sends your voice to Google servers.
 			</p>
-			<p>Access with <b>Extras > Speech Recognition</b>. If this option is grayed out, your browser is not supported.</p>
+			<p>Access with <b>Extras > Speech Recognition</b>. If this option is grayed out, your browser is not
+				supported.</p>
 			<p>JS Paint will show what it thinks you said in the status bar at the bottom of the screen.</p>
 			<p>
-				There are many synonyms for commands, and often you can do things with very short phrases like "Curve" to switch to the Curve tool.
-				If it's not recognizing your voice for short commands like "Curve" or "Cut", you may want to try longer phrases like "Curve tool" or "Cut selection",
+				There are many synonyms for commands, and often you can do things with very short phrases like "Curve"
+				to switch to the Curve tool.
+				If it's not recognizing your voice for short commands like "Curve" or "Cut", you may want to try longer
+				phrases like "Curve tool" or "Cut selection",
 				as this helps it distinguish the sound as speech, rather than a cough for instance.
 			</p>
 			<h2>Edit Colors Dialog</h2>
-			<p>I also implemented the Edit Colors dialog. Previously this used the native system color picker, and didn't work for some people.</p>
+			<p>I also implemented the Edit Colors dialog. Previously this used the native system color picker, and
+				didn't work for some people.</p>
 			<p>Access with <b>Colors > Edit Colors</b> or double click a color in the palette to edit.</p>
 			<figure>
-				<img width="496" height="350" style="max-width: 100%; height: auto; image-rendering: auto;" src="https://i.postimg.cc/cLNgWH0r/Peek-2020-12-04-00-31.gif" />
-				<figcaption>An animation morphing between JS Paint and MS Paint's color picking dialog. It's pretty close, other than the font.</figcaption>
+				<img width="496" height="350" style="max-width: 100%; height: auto; image-rendering: auto;"
+					src="https://i.postimg.cc/cLNgWH0r/Peek-2020-12-04-00-31.gif" />
+				<figcaption>An animation morphing between JS Paint and MS Paint's color picking dialog. It's pretty
+					close, other than the font.</figcaption>
 			</figure>
-			<p>Keyboard shortcuts are supported in this dialog, and for mobile devices with small screens, I made it treat adding custom colors as a separate screen.</p>
+			<p>Keyboard shortcuts are supported in this dialog, and for mobile devices with small screens, I made it
+				treat adding custom colors as a separate screen.</p>
 			<h2>Conclusion</h2>
 			<p>
 				JS Paint should be way more accessible now. And futuristic.
 				<p>
 					<p>
 						Of course there's always more that could be done.
-						Eye Gaze Mode could use brush stroke smoothing, and Speech Recognition could use Artificial General Intelligence.
+						Eye Gaze Mode could use brush stroke smoothing, and Speech Recognition could use Artificial
+						General Intelligence.
 					</p>
 					<p>
 						I'd love to see people using JS Paint, especially the Eye Gaze Mode and Speech Recognition,
 						so if you record a video of using JS Paint, please
-						<a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdGgS6TS4wBV89v8NoYHenh1eI8jYBfgwYBdPx-OaCEG5EW7g/viewform?usp=sf_link">send it to me through this form.</a>
+						<a target="_blank"
+							href="https://docs.google.com/forms/d/e/1FAIpQLSdGgS6TS4wBV89v8NoYHenh1eI8jYBfgwYBdPx-OaCEG5EW7g/viewform?usp=sf_link">send
+							it to me through this form.</a>
 						This lets me know what's actually important to people, and what's confusing,
 						and it gives me motivation to work on new features.
 					</p>
@@ -447,17 +431,20 @@ or simply drag and drop the file onto JS Paint to load the palette.
 		<article class="news-entry" id="news-2019-winter-update">
 			<h1>Winter Update</h1>
 			<time datetime="2019-12-20">2019-12-20</time>
-			<img width="563" height="334" style="max-width: 100%; height: auto; image-rendering: auto;" alt="" src="https://i.postimg.cc/63Wc6vpG/2019-winter-update-candy-cane.gif" />
+			<img width="563" height="334" style="max-width: 100%; height: auto; image-rendering: auto;" alt=""
+				src="https://i.postimg.cc/63Wc6vpG/2019-winter-update-candy-cane.gif" />
 			<h2>Winter Theme</h2>
 			<p>
-				A new UI skin is available, under <b>Extras &gt; Themes &gt; Winter</b>, featuring winter and holiday icons, festive fonts, and a palette with seasonal colors and peppermint patterns.
+				A new UI skin is available, under <b>Extras &gt; Themes &gt; Winter</b>, featuring winter and holiday
+				icons, festive fonts, and a palette with seasonal colors and peppermint patterns.
 			</p>
 			<img width="256" height="16" alt="" src="images/winter/tools.png" />
 			<p>
 				Merry Christmas and happy Hanukkah!
 			</p>
 			<h2>Better History</h2>
-			<b class="new">New:</b> Jump to any point in the document's history, forwards or backwards, with <b>Edit &gt; History</b> or <kbd>Ctrl+Shift+Y</kbd>.
+			<b class="new">New:</b> Jump to any point in the document's history, forwards or backwards, with <b>Edit
+				&gt; History</b> or <kbd>Ctrl+Shift+Y</kbd>.
 			<ul>
 				<li>
 					Click on Text in the history view to go back to text editing.
@@ -466,14 +453,17 @@ or simply drag and drop the file onto JS Paint to load the palette.
 					You can return to when a selection existed.
 				</li>
 				<li>
-					Note: these states are skipped over with normal Undo and Redo, so you need to use the History window.
+					Note: these states are skipped over with normal Undo and Redo, so you need to use the History
+					window.
 				</li>
 				<li>
 					Branching history: if you undo, and then make changes, you can get back to everything.
 					Future states are preserved.
 				</li>
 			</ul>
-			<b class="bad">Warning:</b> History is not saved with the autosave. Document history will be lost if you refresh the page, or close the tab, or if the tab crashes, or if you close or restart your browser, or likely if you're just on a phone and the mobile browser loses focus.
+			<b class="bad">Warning:</b> History is not saved with the autosave. Document history will be lost if you
+			refresh the page, or close the tab, or if the tab crashes, or if you close or restart your browser, or
+			likely if you're just on a phone and the mobile browser loses focus.
 			<h2>Improved Mobile Support</h2>
 			<p>
 				<b class="new">New:</b> Use two fingers to pan the view.
@@ -483,7 +473,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				With that, combined with multitouch panning,
 				JS Paint is much more useable on a phone.
 			</p>
-			<p><b class="bad">Caveat:</b> It's slow on some devices, and parts of the interface are still too small for touch.</p>
+			<p><b class="bad">Caveat:</b> It's slow on some devices, and parts of the interface are still too small for
+				touch.</p>
 		</article>
 		<article class="news-entry" id="news-2019-polygon-text-and-select">
 			<h1>Polygon, Text, and Select</h1>
@@ -494,7 +485,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				This applies to selections, textboxes, and the main canvas handles.
 			</p>
 			<p>
-				Resizing things while zoomed in is <a target="_blank" href="https://github.com/1j01/jspaint/issues/13#issuecomment-562247085">finally fixed</a>!
+				Resizing things while zoomed in is <a target="_blank"
+					href="https://github.com/1j01/jspaint/issues/13#issuecomment-562247085">finally fixed</a>!
 			</p>
 			<p>
 				The Text tool now perfectly previews the pixels that will be placed on the canvas.
@@ -505,7 +497,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				and <a target="_blank" href="https://jsfiddle.net/1j01/qkvfjn1r/">here</a> if you're interested.)
 			</p>
 			<p>
-				With the fill-only option selected, the Polygon tool now previews with inverted lines, like MS Paint does.
+				With the fill-only option selected, the Polygon tool now previews with inverted lines, like MS Paint
+				does.
 				(When you finish the polygon, the boundary of the shape matches the preview exactly,
 				because it actually <em>does</em> draw a stroke, just the same color as the fill.)
 			</p>
@@ -531,7 +524,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 			<h1>The Grid, Custom Zoom, and Dynamic Cursors</h1>
 			<time datetime="2019-10-09">2019-10-09</time>
 			<p>
-				<b class="new">New:</b> The Grid. Zoom to 4x+ and use <b>View &gt; Zoom &gt; Show Grid</b> or <kbd>Ctrl+G</kbd> to enable.
+				<b class="new">New:</b> The Grid. Zoom to 4x+ and use <b>View &gt; Zoom &gt; Show Grid</b> or
+				<kbd>Ctrl+G</kbd> to enable.
 				This works with browser zoom as well to provide crisp gridlines even if you zoom in with your browser.
 			</p>
 			<p>
@@ -551,7 +545,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 			<h1>Full Clipboard Support</h1>
 			<time datetime="2019-09-21">2019-09-21</time>
 			<p>
-				JS Paint now lets you copy real image data to the Clipboard, both with keyboard shortcuts and from the Edit menu.
+				JS Paint now lets you copy real image data to the Clipboard, both with keyboard shortcuts and from the
+				Edit menu.
 				This feature is available in Chrome 76+. Other browsers don't support it yet, as of Sep 2019.
 			</p>
 			<p>
@@ -599,13 +594,14 @@ or simply drag and drop the file onto JS Paint to load the palette.
 		</style>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script>
 		window.jQuery || document.write('<script src="lib/jquery-3.4.1.min.js"><\/script>');
 	</script>
 
 	<script src="lib/gif.js/gif.js"></script>
-	<script src="lib/pako-2.0.3.min.js"></script> <!-- for UPNG.js and UTIF.js -->
+	<script src="lib/pako-2.0.3.min.js"></script>
 	<script src="lib/UPNG.js"></script>
 	<script src="lib/UTIF.js"></script>
 	<script src="lib/bmp.js"></script>
@@ -614,13 +610,12 @@ or simply drag and drop the file onto JS Paint to load the palette.
 	<script src="lib/FileSaver.js"></script>
 	<script src="lib/font-detective.js"></script>
 	<script src="lib/libtess.min.js"></script>
-	<!-- <script src="lib/tracky-mouse/tracky-mouse.js"></script> -->
 	<script src="lib/os-gui/parse-theme.js"></script>
 	<script src="lib/os-gui/$Window.js"></script>
 	<script src="lib/os-gui/MenuBar.js"></script>
 	<script src="lib/imagetracer_v1.2.5.js"></script>
 
-	<script src="src/app-localization.js"></script> <!-- must not be async/deferred, as it uses document.write(); and must come before other app code which uses localization functions -->
+	<script src="src/app-localization.js"></script>
 	<script src="src/msgbox.js"></script>
 	<script src="src/functions.js"></script>
 	<script src="src/helpers.js"></script>
@@ -655,7 +650,6 @@ or simply drag and drop the file onto JS Paint to load the palette.
 	<script src="src/image-manipulation.js"></script>
 	<script src="src/tool-options.js"></script>
 	<script src="src/tools.js"></script>
-	<!--<script src="src/extra-tools.js"></script>-->
 	<script src="src/edit-colors.js"></script>
 	<script src="src/manage-storage.js"></script>
 	<script src="src/imgur.js"></script>
@@ -723,7 +717,8 @@ or simply drag and drop the file onto JS Paint to load the palette.
 				<feFlood result="hilight-color" flood-color="var(--ButtonHilight)" />
 				<feOffset in="black-and-blue-parts-isolated" dx="1" dy="1" result="offset" />
 				<feComposite in="hilight-color" in2="offset" operator="in" result="hilight-colored-offset" />
-				<feComposite in="shadow-color" in2="black-and-blue-parts-isolated" operator="in" result="shadow-colored" />
+				<feComposite in="shadow-color" in2="black-and-blue-parts-isolated" operator="in"
+					result="shadow-colored" />
 				<feMerge>
 					<feMergeNode in="hilight-colored-offset" />
 					<feMergeNode in="shadow-colored" />
