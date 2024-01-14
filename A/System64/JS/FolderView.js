@@ -1,6 +1,6 @@
 const grid_size_x_for_large_icons = 75;
 const grid_size_y_for_large_icons = 75;
-const grid_size_x_for_small_icons = 150;
+const grid_size_x_for_small_icons = 17;
 const grid_size_y_for_small_icons = 17;
 
 window.resetAllFolderCustomizations = () => {
@@ -78,9 +78,9 @@ var file_extension_icons = {
 };
 
 const system_folder_path_to_name = {
-	"/": "This PC",
-	"/my-pictures/": "My Pictures",
-	"/my-documents/": "My Documents",
+	"/": "Your PC",
+	"/my-pictures/": "Your Pictures",
+	"/my-documents/": "Your Documents",
 	"/da-hood/": "Network Neighborhood",
 	"/desktop/": "Desktop",
 	"/Program Files/": "Program Files",
@@ -236,13 +236,11 @@ function FolderView(folder_path, {
 				left: x,
 			});
 			x += grid_size_x;
-			if (x + grid_size_x > innerWidth) {
-				y += grid_size_y;
-				x = 0;
-			}
-
+				if (x + grid_size_x > $folder_view[0].clientWidth) {
+					y += grid_size_y;
+					x = 0;
+				}
 			item.setIconSize(icon_size);
-
 		}
 
 		if (!any_pending) {
