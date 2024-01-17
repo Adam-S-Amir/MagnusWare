@@ -1448,18 +1448,125 @@ function Notepad(file_path) {
 }
 Notepad.acceptsFilePaths = true;
 
+// function Paint(file_path) {
+// 	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
+// 	var win_title = document_title + " - Paint";
+// 	var $win = make_embed_window({
+// 		src: "./A/Program Files/jspaint/index.html" + (file_path ? ("?path=" + file_path) : ""),
+// 		icons: Window_icons("paint"),
+// 		title: win_title,
+// 		innerWidth: 500,
+// 		innerHeight: 500
+// 	}, "Paint.MXW");
+// 	hidemenu();
+// 	return new Task($win, "Paint.MX7");
+// }
+// Paint.acceptsFilePaths = true;
+
 function Paint(file_path) {
-	var document_title = file_path ? file_name_from_path(file_path) : "Untitled";
-	var win_title = document_title + " - Paint";
-	var $win = make_embed_window({
-		src: "./A/Program Files/jspaint/index.html" + (file_path ? ("?path=" + file_path) : ""),
-		icons: Window_icons("paint"),
-		title: win_title,
-		innerWidth: 500,
-		innerHeight: 500
-	}, "Paint.MXW");
-	hidemenu();
-	return new Task($win, "Paint.MX7");
+	var $win = make_iframe_window({
+		src: "./A/Program Files/jspaint/index.html",
+		icons: iconsAtTwoSizes("paint"),
+		title: "untitled - Paint",
+		outerWidth: 275,
+		outerHeight: 400,
+		minOuterWidth: 275,
+		minOuterHeight: 400,
+	});
+
+	var contentWindow = $win.$iframe[0].contentWindow;
+
+	var waitUntil = function (test, interval, callback) {
+		if (test()) {
+			callback();
+		} else {
+			setTimeout(waitUntil, interval, test, interval, callback);
+		}
+	};
+
+	const systemHooks = {
+		readBlobFromHandle: (file_path) => {
+			return new Promise((resolve, reject) => {
+				withFilesystem(() => {
+					var fs = BrowserFS.BFSRequire("fs");
+					fs.readFile(file_path, (err, buffer) => {
+						if (err) {
+							return reject(err);
+						}
+						const byte_array = new Uint8Array(buffer);
+						const blob = new Blob([byte_array]);
+						const file_name = file_path.replace(/.*\//g, "");
+						const file = new File([blob], file_name);
+						resolve(file);
+					});
+				});
+			});
+		},
+		writeBlobToHandle: async (file_path, blob) => {
+			const arrayBuffer = await blob.arrayBuffer();
+			return new Promise((resolve, reject) => {
+				withFilesystem(()=> {
+					const fs = BrowserFS.BFSRequire("fs");
+					const { Buffer } = BrowserFS.BFSRequire("buffer");
+					const buffer = Buffer.from(arrayBuffer);
+					fs.writeFile(file_path, buffer, (err)=> {
+						if (err) {
+							return reject(err);
+						}
+						resolve();
+					});
+				});
+			});
+		},
+		setWallpaperCentered: (canvas) => {
+			canvas.toBlob((blob) => {
+				setDesktopWallpaper(blob, "no-repeat", true);
+			});
+		},
+		setWallpaperTiled: (canvas) => {
+			canvas.toBlob((blob) => {
+				setDesktopWallpaper(blob, "repeat", true);
+			});
+		},
+	};
+
+	waitUntil(()=> contentWindow.systemHooks, 500, ()=> {
+		Object.assign(contentWindow.systemHooks, systemHooks);
+
+		let $help_window;
+		contentWindow.show_help = () => {
+			if ($help_window) {
+				$help_window.focus();
+				return;
+			}
+			$help_window = show_help({
+				title: "Paint Help",
+				contentsFile: "programs/jspaint/help/mspaint.hhc",
+				root: "programs/jspaint/help",
+			}).$help_window;
+			$help_window.on("close", () => {
+				$help_window = null;
+			});
+		};
+
+		if (file_path) {
+			systemHooks.readBlobFromHandle(file_path).then(file => {
+				if (file) {
+					contentWindow.open_from_file(file, file_path);
+				}
+			}, (error) => {
+				contentWindow.show_error_message(`Failed to open file ${file_path}`, error);
+			});
+		}
+
+		var old_update_title = contentWindow.update_title;
+		contentWindow.update_title = () => {
+			old_update_title();
+			$win.title(contentWindow.document.title);
+		};
+	});
+
+	return new Task($win);
 }
 Paint.acceptsFilePaths = true;
 
@@ -2220,7 +2327,7 @@ Create_Icon({
 	iconID: "my-documents-folder",
 	id: "trashyguy",
 	open: function () {
-		systemExecuteFile("/A/your-documents");
+		systemExecuteFile("/A/Documents");
 	},
 	is_system_folder: true,
 });
@@ -2244,7 +2351,7 @@ Create_Icon({
 	title: "Your Pictures",
 	iconID: "folder",
 	open: function () {
-		systemExecuteFile("/A/your-pictures");
+		systemExecuteFile("/A/Pictures");
 	},
 	is_system_folder: true,
 });
