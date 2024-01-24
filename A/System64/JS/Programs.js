@@ -353,7 +353,7 @@ function Soda() {
 
 function Prometheus() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Prometheus/index.html",
+		src: "https://prometheuz.vercel.app/index.html",
 		icons: Window_icons("Emu"),
 		title: "Prometheus",
 		innerWidth: 1000,
