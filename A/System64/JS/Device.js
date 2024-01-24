@@ -27,7 +27,12 @@ function detectDeviceType() {
 }
 
 function SupportedPlatform() {
-  let x = document.getElementById("splash-screen").remove;
+  let x = document.getElementById("splash-screen");
+  if (x) {
+    x.remove;
+  } else {
+    return;
+  }
 }
 
 function UnsupportedPlatform() {
