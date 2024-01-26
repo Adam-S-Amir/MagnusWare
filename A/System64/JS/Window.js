@@ -33,7 +33,7 @@
 		details summary,
 		embed,
 		object,
-		embed,
+		iframe,
 		video[controls],
 		audio[controls],
 		[contenteditable]:not([contenteditable='false'])
@@ -75,7 +75,10 @@
 		$w.$titlebar = $(E("div")).addClass("window-titlebar").appendTo($w);
 		$w.$title_area = $(E("div")).addClass("window-title-area").appendTo($w.$titlebar);
 		$w.$title = $(E("span")).addClass("window-title").appendTo($w.$title_area);
-		if (options.toolWindow) {
+		$w.$refresh = $(E("button")).addClass("window-refresh-button window-action-refresh window-button").appendTo($w.$titlebar);
+		$w.$refresh.attr("aria-label", "Refresh window");
+		$w.$refresh.append("<span class='window-button-icon'></span>");
+	if (options.toolWindow) {
 			options.minimizeButton = false;
 			options.maximizeButton = false;
 		}
@@ -501,7 +504,6 @@
 					});
 				} else {
 
-
 					const to_width = 150;
 					const spacing = 10;
 					if ($w.hasClass("minimized-without-taskbar")) {
@@ -722,6 +724,9 @@
 		});
 		$w.$maximize ?.on("click", (e) => {
 			$w.maximize();
+		});
+		$w.$refresh ?.on("click", (e) => {
+			$w.contentWindow.location.reload(true);
 		});
 		$w.$x ?.on("click", (e) => {
 			$w.close();
