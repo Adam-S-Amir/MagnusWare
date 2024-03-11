@@ -783,12 +783,12 @@ ${doc.documentElement.outerHTML}`;
 									case "Type":
 										// @TODO: DRY, and move file type code/data to one central place
 										const system_folder_path_to_name = {
-											"/": "Your PC", //"My Computer",
-											"/your pictures/": "Your Pictures",
-											"/your documents/": "Your Documents",
+											"/": "This PC", //"My Computer",
+											"/Photos/": "Photos",
+											"/Documents/": "Documents",
 											"/da-hood/": "Network Neighborhood",
-											"/desktop/": "Desktop",
-											"/programs/": "Program Files",
+											"/Desktop/": "Desktop",
+											"/Programs Files/": "Program Files",
 										};
 										if (system_folder_path_to_name[item._item.file_path]) {
 											return "System Folder";

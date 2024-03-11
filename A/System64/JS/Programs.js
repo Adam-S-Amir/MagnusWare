@@ -2314,7 +2314,7 @@ var Create_Icon = function (options) {
 	}));
 };
 Create_Icon({
-	title: "Your PC",
+	title: "This PC",
 	iconID: "my-computer",
 	id: "trashyboi.MDX",
 	open: function () {
@@ -2323,7 +2323,7 @@ Create_Icon({
 	is_system_folder: true,
 });
 Create_Icon({
-	title: "Your Documents",
+	title: "Documents",
 	iconID: "my-documents-folder",
 	id: "trashyguy",
 	open: function () {
@@ -2348,10 +2348,10 @@ Create_Icon({
 	is_system_folder: true,
 });
 Create_Icon({
-	title: "Your Pictures",
+	title: "Photos",
 	iconID: "folder",
 	open: function () {
-		systemExecuteFile("/A/Pictures");
+		systemExecuteFile("/A/Photos");
 	},
 	is_system_folder: true,
 });

@@ -6,7 +6,7 @@
       "Windows 93.url": null,
       "Windows 98 (Virtual x86).url": null
     },
-    "desktop": {
+    "Desktop": {
       "CREDITS.txt": null,
       "Themes": {
         "Ash.themepack": null,
@@ -77,7 +77,7 @@
       "Dropbox.url": null,
       "Google Docs.url": null
     },
-    "Pictures": {
+    "Photos": {
       "Dropbox.url": null,
       "Flickr.url": null,
       "Google Photos.url": null,

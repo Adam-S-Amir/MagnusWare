@@ -2,7 +2,7 @@ var __fs_initialized;
 var __fs_errored;
 var __fs_timed_out;
 var __fs_waiting_callbacks = [];
-const desktop_folder_path = "/A/desktop/";
+const desktop_folder_path = "/A/Desktop/";
 const web_server_root_for_browserfs =
 	location.href.match(/magnusware.vercel.app/) ?
 	location.href.match(/.*magnusware.vercel.app/)[0] + "/" :

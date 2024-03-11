@@ -47,6 +47,7 @@ var file_extension_icons = {
 	"css": "notepad-file",
 	"html": "notepad-file",
 	"png": "image-file",
+	"svg": "image-file",
 	"jpg": "image-file",
 	"jpeg": "image-file",
 	"gif": "image-file",
