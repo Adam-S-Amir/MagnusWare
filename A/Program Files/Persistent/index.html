@@ -146,6 +146,18 @@
                             head.appendChild(scriptElement);
                         }
                     }
+
+                    // Include Image files
+                    const imgSrcs = htmlDoc.querySelectorAll('img[src]');
+                    for (const img of imgSrcs) {
+                        const src = img.getAttribute('src');
+                        const imgContent = await getFileFromDB(db, `MagnusSoft/${src}`);
+                        if (imgContent) {
+                            const imgElement = document.createElement('img');
+                            imgElement.textContent = imgContent;
+                            head.appendChild(imgElement);
+                        }
+                    }
                 };
             } catch (error) {
                 console.error('Error:', error);
