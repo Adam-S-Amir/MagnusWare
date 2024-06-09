@@ -33,59 +33,126 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
     <script>
+        async function openIndexedDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open("zipFilesDB", 1);
+
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    db.createObjectStore("files", { keyPath: "name" });
+                };
+
+                request.onsuccess = (event) => {
+                    resolve(event.target.result);
+                };
+
+                request.onerror = (event) => {
+                    reject("IndexedDB error: " + event.target.errorCode);
+                };
+            });
+        }
+
+        async function storeFilesInDB(db, files) {
+            const transaction = db.transaction(["files"], "readwrite");
+            const store = transaction.objectStore("files");
+
+            for (const [name, content] of Object.entries(files)) {
+                store.put({ name, content });
+            }
+
+            return new Promise((resolve, reject) => {
+                transaction.oncomplete = () => resolve();
+                transaction.onerror = () => reject("Transaction error");
+            });
+        }
+
+        async function getFileFromDB(db, name) {
+            const transaction = db.transaction(["files"], "readonly");
+            const store = transaction.objectStore("files");
+
+            return new Promise((resolve, reject) => {
+                const request = store.get(name);
+
+                request.onsuccess = (event) => {
+                    resolve(event.target.result ? event.target.result.content : null);
+                };
+
+                request.onerror = () => reject("Request error");
+            });
+        }
+
         async function downloadAndDisplay() {
             try {
-                // Step 2: Download and Extract ZIP
-                const response = await fetch('./MagnusSoft.zip');
-                const zipData = await response.arrayBuffer();
-                const jszip = new JSZip();
-                const zip = await jszip.loadAsync(zipData);
+                const db = await openIndexedDB();
+                const indexHtmlName = 'MagnusSoft/index.html';
+                
+                let indexHtml = await getFileFromDB(db, indexHtmlName);
 
-                // Create a virtual file system in memory
-                const virtualFileSystem = {};
+                if (!indexHtml) {
+                    // Step 2: Download and Extract ZIP
+                    const response = await fetch('./MagnusSoft.zip');
+                    const zipData = await response.arrayBuffer();
+                    const jszip = new JSZip();
+                    const zip = await jszip.loadAsync(zipData);
 
-                // Iterate through the files and store them in the virtual file system
-                for (const [name, file] of Object.entries(zip.files)) {
-                    const content = await file.async('text');
-                    virtualFileSystem[name] = content;
+                    // Create a virtual file system in memory
+                    const virtualFileSystem = {};
+
+                    // Iterate through the files and store them in the virtual file system
+                    for (const [name, file] of Object.entries(zip.files)) {
+                        const content = await file.async('text');
+                        virtualFileSystem[name] = content;
+                    }
+
+                    // Store the files in IndexedDB
+                    await storeFilesInDB(db, virtualFileSystem);
+
+                    // Retrieve index.html content
+                    indexHtml = virtualFileSystem[indexHtmlName];
                 }
 
                 // Step 4: Display "index.html" in an Iframe
                 const iframe = document.getElementById('myIframe');
-                iframe.srcdoc = virtualFileSystem['MagnusSoft/index.html'];
+                iframe.srcdoc = indexHtml;
 
-                // Include additional dependencies referenced by index.html
-                const head = iframe.contentDocument.head;
+                iframe.onload = async () => {
+                    const doc = iframe.contentDocument;
+                    const head = doc.head;
 
-                // Parse the HTML content to extract dependencies
-                const parser = new DOMParser();
-                const htmlDoc = parser.parseFromString(virtualFileSystem['MagnusSoft/index.html'], 'text/html');
+                    // Parse the HTML content to extract dependencies
+                    const parser = new DOMParser();
+                    const htmlDoc = parser.parseFromString(indexHtml, 'text/html');
 
-                // Include CSS files
-                const cssLinks = htmlDoc.querySelectorAll('link[rel="stylesheet"]');
-                cssLinks.forEach((link) => {
-                    const href = link.getAttribute('href');
-                    const cssContent = virtualFileSystem[href];
-                    const style = document.createElement('style');
-                    style.textContent = cssContent;
-                    head.appendChild(style);
-                });
+                    // Include CSS files
+                    const cssLinks = htmlDoc.querySelectorAll('link[rel="stylesheet"]');
+                    for (const link of cssLinks) {
+                        const href = link.getAttribute('href');
+                        const cssContent = await getFileFromDB(db, `MagnusSoft/${href}`);
+                        if (cssContent) {
+                            const style = document.createElement('style');
+                            style.textContent = cssContent;
+                            head.appendChild(style);
+                        }
+                    }
 
-                // Include JavaScript files
-                const scriptSrcs = htmlDoc.querySelectorAll('script[src]');
-                scriptSrcs.forEach((script) => {
-                    const src = script.getAttribute('src');
-                    const scriptContent = virtualFileSystem[src];
-                    const scriptElement = document.createElement('script');
-                    scriptElement.textContent = scriptContent;
-                    head.appendChild(scriptElement);
-                });
+                    // Include JavaScript files
+                    const scriptSrcs = htmlDoc.querySelectorAll('script[src]');
+                    for (const script of scriptSrcs) {
+                        const src = script.getAttribute('src');
+                        const scriptContent = await getFileFromDB(db, `MagnusSoft/${src}`);
+                        if (scriptContent) {
+                            const scriptElement = document.createElement('script');
+                            scriptElement.textContent = scriptContent;
+                            head.appendChild(scriptElement);
+                        }
+                    }
+                };
             } catch (error) {
                 console.error('Error:', error);
             }
         }
 
-        downloadAndDisplay()
+        downloadAndDisplay();
     </script>
 </body>
 
