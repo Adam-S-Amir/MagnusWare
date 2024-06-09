@@ -5,39 +5,39 @@ function StoreFront() {
     </div>
     <div class='store-buttons'>
         <button class="Store-button" onclick="showAll()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>All</span>
         </button>
         <button class="Store-button" onclick="showAccess()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>Accessories</span>
         </button>
         <button class="Store-button" onclick="showDev()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>Developer</span>
         </button>
         <button class="Store-button" onclick="showEntertain()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>Entertainment</span>
         </button>
         <button class="Store-button" onclick="showProduct()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>Productivity</span>
         </button>
         <button class="Store-button" onclick="showSocial()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>Social</span>
         </button>
         <button class="Store-button" onclick="showSystem()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>System</span>
         </button>
         <button class="Store-button" onclick="showUtility()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>Utilities</span>
         </button>
         <button class="Store-button" onclick="showOther()">
-            <img src="./A/System64/Images/Icons/Store-48x48.png">
+            <img src="./A/System64/Images/Icons/store-48x48.png">
             <span>Other</span>
         </button>
     </div>
@@ -65,7 +65,7 @@ function showAll() {
     let Div = [`
     <div id="storefront-right-all">
         <button onclick='install_WadCMD()'>
-            <img src='./A/System64/Images/Icons/WadCMD-32x32.png'>
+            <img src='./A/System64/Images/Icons/wadcmd-32x32.png'>
             WadCMD
         </button>
     </div>
@@ -99,7 +99,7 @@ function showEntertain() {
     let Div = [`
     <div id="storefront-right-entertain">
         <button onclick='install_WadCMD()'>
-            <img src='./A/System64/Images/Icons/WadCMD-32x32.png'>
+            <img src='./A/System64/Images/Icons/wadcmd-32x32.png'>
             WadCMD
         </button>
     </div>

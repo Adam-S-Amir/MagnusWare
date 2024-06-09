@@ -280,7 +280,7 @@ body>.window-titlebar {
 
 .taskbar-time {
 	font-family: "Arcade_R";
-	font-size: 7px;
+	font-size: 40%;
 	color: var(--ActiveTitle);
 	display: inline-table;
 	margin-top: 2px;
@@ -1226,13 +1226,6 @@ body>.window-titlebar {
 	position: relative;
 	pointer-events: none;
 }
-
-.os-window .window-button:enabled:hover:active .window-button-icon,
-.os-window .window-button.pressing .window-button-icon {
-	top: 1px;
-	left: 1px;
-}
-
 
 span.window-button-icon::before {
 	border-radius: 5px;
