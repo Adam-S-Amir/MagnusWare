@@ -164,6 +164,8 @@ function changelog() {
         `
     <div class='changelog'>
         <hr id='hrshrt2'>
+            <h3>MagnusWare 4.0<br>(Siamese/Nighthawk)</h3>
+        <hr id='hrshrt2'>
             <h3>MagnusWare 3.1<br>(Sphynx/Vortex)</h3>
             <ul>
                 <li>Start Button Width is Shorter</li>

@@ -1,12 +1,12 @@
 let MagnusWare_V = "4.0";
 let Color_Scheme = "Siamese";
 let Codename = "Nighthawk";
-let Release_Date = "??/??/2024";
-let Release_State = "Developer";
-let OS_State = "unstable,dev";
-let Activation_State = "Un-Activated";
+let Release_Date = "07/05/2024";
+let Release_State = "Commercial";
+let OS_State = "stable,commercial";
+let Activation_State = "Activated";
 
-console.log("Successfully Initialized Kernel.")
+console.log("Successfully Initialized Kernel.");
 window.addEventListener("load", function() {
     console.log("Successfully Initialized BOM.");
 });
@@ -132,7 +132,7 @@ taskbr.id = 'taskbr';
 
 vInfo.setAttribute("onclick", "hideinfo();");
 var lineBreak = document.createElement("br");
-var text = document.createTextNode(`| ${Activation_State} | | ${Release_State} | | MagnusWare v${MagnusWare_V}|`);
+var text = document.createTextNode(`| ${Activation_State} | | ${Release_State} | | MagnusWare v${MagnusWare_V} |`);
 vInfo.appendChild(text);
 vInfo.appendChild(lineBreak);
 text = document.createTextNode(`|${Color_Scheme}| |${Codename}| |${Release_Date}| |${OS_State}|`);

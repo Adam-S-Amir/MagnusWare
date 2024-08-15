@@ -4,10 +4,11 @@ MagnusWare 4.0 was completely rebuilt from scratch
 - [ ] Updated and optimized filesystem
   - [ ] A:/
   - [ ] Added a Kernel
+- [ ] Added File explorer
+  - [ ] File explorer grid is now horizontal only, never vertical.
 - [ ] Corners are rounded
   - [ ] ESPECIALLY in file explorer
-- [ ] File explorer grid is now horizontal only, never vertical.
-- [ ] New color scheme
+- [ ] New theme
 - [ ] New default background
 - [ ] Font issues resolved
 - [ ] New icons
