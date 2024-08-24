@@ -6,16 +6,16 @@ function Task(win, id) {
 	this.$window = win;
 
 	const $task = this.$task = $(`<button class='task toggle' id="${id}"/>`).appendTo($(".tasks"));
-	const $title = $("<span class='title'/>");
+	// const $title = $("<span class='title'/>");
 
-	this.updateTitle = () => {
-		$title.text(win.getTitle());
-	};
+	// this.updateTitle = () => {
+	// 	$title.text(win.getTitle());
+	// };
 
 	let $icon;
 	this.updateIcon = () => {
 		const old_$icon = $icon;
-		$icon = win.getIconAtSize(16);
+		$icon = win.getIconAtSize(32);
 		if (!$icon) {
 			old_$icon ?.remove();
 			return;
@@ -27,15 +27,15 @@ function Task(win, id) {
 		}
 	};
 
-	this.updateTitle();
+	// this.updateTitle();
 	this.updateIcon();
 
-	win.on("title-change", this.updateTitle);
+	// win.on("title-change", this.updateTitle);
 	win.on("icon-change", this.updateIcon);
 
 	win.setMinimizeTarget($task[0]);
 
-	$task.append($icon, $title);
+	$task.append($icon);
 	$task.on("pointerdown", function (e) {
 		e.preventDefault();
 	});

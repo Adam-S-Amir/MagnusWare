@@ -280,11 +280,12 @@ body>.window-titlebar {
 
 .taskbar-time {
 	font-family: "Arcade_R";
-	font-size: 40%;
+	font-size: 50%;
 	color: var(--ActiveTitle);
 	display: inline-table;
 	margin-top: 2px;
 	margin-right: 5px;
+	margin-left: 5px;
 	width: 60px;
 	text-align: center;
 }
@@ -409,7 +410,7 @@ body>.window-titlebar {
 	top: 0;
 	bottom: 0;
 	right: 0;
-	border: 1px dotted #ffffff;
+	/* border: 1px dotted #ffffff; */
 	mix-blend-mode: exclusion;
 }
 
@@ -648,7 +649,7 @@ body {
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	height: 27px;
+	height: 40px;
 	display: flex;
 	text-align: -webkit-center;
 	z-index: 1;
@@ -717,6 +718,11 @@ body {
 	margin-left: 2px;
 }
 
+.tray-icons>img {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
 .tray-icon {
 	margin-left: 1px;
 }
@@ -733,7 +739,7 @@ body {
 }
 
 .task img {
-	padding-right: 4px;
+	/* padding-right: 4px; */
 	flex: 0 0 auto;
 }
 
@@ -769,7 +775,7 @@ body {
 	flex: 1;
 }
 
-.desktop-icon {
+.desktop>.folder-view>.desktop-icon {
 	margin: 5px;
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
@@ -778,7 +784,7 @@ body {
 	-o-transition: all 0.2s ease-in-out;
 }
 
-.desktop-icon:hover {
+.desktop>.folder-view>.desktop-icon:hover {
 	transform: translateY(15px);
 	-webkit-transform: translateY(15px);
 	-moz-transform: translateY(15px);
@@ -1082,6 +1088,12 @@ button.lightweight.pressed {
 	border-color: var(--ButtonShadow) var(--ButtonHilight) var(--ButtonHilight) var(--ButtonShadow);
 	background-color: var(--ButtonFace);
 	color: var(--ButtonText);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
 
 button:disabled {
@@ -1120,23 +1132,25 @@ button:not(.lightweight).pressed {
 	border-image: var(--inset-deep-border-image);
 }
 
-button:not(.lightweight).toggle.selected,
+/* button:not(.lightweight).toggle.selected,
 button:not(.lightweight).pressed {
 	border-color: var(--ButtonShadow);
 	border-style: solid;
 	border-width: 2px 2px;
-}
+} */
 
 button:not(.lightweight).toggle.selected,
 button:not(.lightweight).pressed {
-	background: var(--checker) repeat;
-	-ms-interpolation-mode: nearest-neighbor;
+	border-color: var(--ButtonDkShadow);
+	border-style: solid;
+	border-width: 2px 2px;
 }
 
+
 input {
-    background-color: var(--ButtonHilight);
-    border: solid;
-    border-color: var(--ButtonShadow);
+	background-color: var(--ButtonHilight);
+	border: solid;
+	border-color: var(--ButtonShadow);
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;

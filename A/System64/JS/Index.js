@@ -13,7 +13,7 @@ function E(t) {
 }
 
 var DESKTOP_ICON_SIZE = 48;
-var TASKBAR_ICON_SIZE = 16;
+var TASKBAR_ICON_SIZE = 32;
 var TITLEBAR_ICON_SIZE = 16;
 
 const web_server_root_for_icons =
@@ -36,7 +36,7 @@ If the check in step 2 returns a falsy value (meaning "magnusware.vercel.app" is
 function Window_icons(iconID) {
     iconID = iconID.toLowerCase();
     return {
-        16: `A/System64/Images/Icons/${iconID}-16x16.png`,
+        32: `A/System64/Images/Icons/${iconID}-32x32.png`,
         48: `A/System64/Images/Icons/${iconID}-48x48.png`,
     };
 }

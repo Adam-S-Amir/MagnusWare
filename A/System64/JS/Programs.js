@@ -1,4 +1,4 @@
-size = 16;
+size = 32;
 
 function hidemenu() {
 	document.getElementById('-start-menu-').style.display = 'none';
