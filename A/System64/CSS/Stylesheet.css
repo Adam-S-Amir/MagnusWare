@@ -188,11 +188,11 @@ span {
 #start-img {
     height: 20px;
     width: 20px;
-    transform: translate(3%, 15%);
-    -webkit-transform: translate(3%, 15%);
-    -moz-transform: translate(3%, 15%);
-    -ms-transform: translate(3%, 15%);
-    -o-transform: translate(3%, 15%);
+    transform: translate(1%, 15%);
+    -webkit-transform: translate(1%, 15%);
+    -moz-transform: translate(1%, 15%);
+    -ms-transform: translate(1%, 15%);
+    -o-transform: translate(1%, 15%);
 }
 
 .start-menu {
