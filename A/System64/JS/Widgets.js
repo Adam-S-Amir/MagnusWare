@@ -533,7 +533,7 @@ if (uname !== null && uname !== undefined) {
 }
 
 
-document.title = `MagnusWare | v${MagnusWare_V} ${BN}`
+document.title = `MagnusWare | v${MagnusWare_V}`
 
 //* End User
 //# sourceURL=MagnusWare
