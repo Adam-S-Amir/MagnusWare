@@ -6,3 +6,6 @@ MagnusWare 5.0 was completely rebuilt from scratch
   - [ ] Bigger start button icon
 - [ ] Taskbar tasks have no title
 - [ ] Removed text border on unfocused icon titles
+- [ ] Refresh button works
+- [ ] Titlebar button spacing is more efficient
+  - [ ] Titlebar button color width is automatic

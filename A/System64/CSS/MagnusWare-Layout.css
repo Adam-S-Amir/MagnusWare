@@ -17,6 +17,7 @@
 	--scrollbar-arrows-ButtonHilight: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg46eObmf3sTdaLMRlcL1wSSQA8tXIYSshBmFiFHYVOH4gtkR+FzDMzhtFCDEaz4fE9sKFIthKiVwAlFKbI9ONMQtRxDqTlE5QRKLSFFPwBQ1UAKPuXIywAAAABJRU5ErkJggg==);
 	--scrollbar-size: 13px;
 	--scrollbar-button-inner-size: 9px;
+	--White: #FFFFFF;
 	--ButtonAlternateFace: rgb(192 192 192);
 	--ButtonDkShadow: rgb(0 0 0);
 	--ButtonFace: rgb(6 39 39);
@@ -1235,7 +1236,7 @@ body>.window-titlebar {
 	--sprite-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAKCAYAAADo3z3CAAAAoUlEQVRIS9VVWw7AIAib9z/0FpZgCOFRgpluf9MClhYdV++7gfDhYLxYDw+UyiHd5F8S5lr6zNa6Xpv/KwhHOahQpLB1+CwfycgYrwmE0WK8MTsIR1aOGsR+NYkkYzN5/pGwVA9xA/diq8LeHCKuQxQ+aoYt2yJWtpSNZth0edRpGVC5eGQcSg4hXLml3fdpBeHs8evWyPKX9ruXVqnYCeAHA8IyC9K2kmkAAAAASUVORK5CYII=");
 	--sprite-y: 0;
 	-ms-interpolation-mode: nearest-neighbor;
-	width: 12px;
+	/* width: 12px; */
 	height: 10px;
 	position: relative;
 	pointer-events: none;
@@ -1263,6 +1264,10 @@ button.window-maximize-button.window-button.window-action-restore>span.window-bu
 
 button.window-minimize-button.window-action-minimize.window-button>span.window-button-icon::before {
 	background-color: orange;
+}
+
+button.window-refresh-button.window-action-refresh.window-button>span.window-button-icon::before {
+	background-color: cyan;
 }
 
 .window-button .window-button-icon::before,
@@ -1316,6 +1321,9 @@ button.window-minimize-button.window-action-minimize.window-button>span.window-b
 	--sprite-x: calc(-0 * 13px - 1px);
 } */
 
+.window-minimize-button {
+	margin-left: 2px;
+}
 .window-maximize-button {
 	margin-left: 2px;
 }

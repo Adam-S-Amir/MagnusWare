@@ -1105,7 +1105,7 @@ p {
     position: absolute;
     color: rgb(183, 202, 202);
     opacity: 0.2;
-    bottom: 30px;
+    bottom: 45px;
     right: 2px;
     transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
     -webkit-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;

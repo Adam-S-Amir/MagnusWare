@@ -75,12 +75,14 @@
 		$w.$titlebar = $(E("div")).addClass("window-titlebar").appendTo($w);
 		$w.$title_area = $(E("div")).addClass("window-title-area").appendTo($w.$titlebar);
 		$w.$title = $(E("span")).addClass("window-title").appendTo($w.$title_area);
-		$w.$refresh = $(E("button")).addClass("window-refresh-button window-action-refresh window-button").appendTo($w.$titlebar);
-		$w.$refresh.attr("aria-label", "Refresh window");
-		$w.$refresh.append("<span class='window-button-icon'></span>");
 	if (options.toolWindow) {
 			options.minimizeButton = false;
 			options.maximizeButton = false;
+		}
+		if (options.refreshButton !== false){
+			$w.$refresh = $(E("button")).addClass("window-refresh-button window-action-refresh window-button").appendTo($w.$titlebar);
+			$w.$refresh.attr("aria-label", "Refresh window");
+			$w.$refresh.append("<span class='window-button-icon'></span>");
 		}
 		if (options.minimizeButton !== false) {
 			$w.$minimize = $(E("button")).addClass("window-minimize-button window-action-minimize window-button").appendTo($w.$titlebar);
@@ -719,6 +721,12 @@
 				$w.maximize();
 			}
 		};
+		$w.refresh = () => {
+			var embed = $w.find("embed");
+			if (embed.length) {
+				embed.attr("src", embed.attr("src"));
+			}
+		};
 		$w.$minimize ?.on("click", (e) => {
 			$w.minimize();
 		});
@@ -726,7 +734,8 @@
 			$w.maximize();
 		});
 		$w.$refresh ?.on("click", (e) => {
-			$w.contentWindow.location.reload(true);
+			$w.refresh();
+			$w.refresh();
 		});
 		$w.$x ?.on("click", (e) => {
 			$w.close();
