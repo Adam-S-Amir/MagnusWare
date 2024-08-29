@@ -19,33 +19,33 @@
 	--scrollbar-button-inner-size: 9px;
 	--ButtonAlternateFace: rgb(192 192 192);
 	--ButtonDkShadow: rgb(0 0 0);
-	--ButtonFace: rgb(131 153 177);
-	--ButtonHilight: rgb(193 204 217);
-	--ButtonLight: rgb(131 153 177);
-	--ButtonShadow: rgb(79 101 125);
-	--ButtonText: rgb(7 217 249);
-	--ActiveBorder: rgb(131 153 177);
-	--AppWorkspace: rgb(79 102 126);
-	--Background: rgb(79 101 125);
-	--InactiveBorder: rgb(131 153 177);
-	--Scrollbar: rgb(226 231 236);
-	--Window: rgb(255 255 255);
+	--ButtonFace: rgb(6 39 39);
+	--ButtonHilight: rgb(9 58 59);
+	--ButtonLight: rgb(107 221 99);
+	--ButtonShadow: rgb(107 221 99);
+	--ButtonText: rgb(107 221 99);
+	--ActiveBorder: rgb(6 39 39);
+	--AppWorkspace: rgb(4 26 26);
+	--Background: rgb(6 39 39);
+	--InactiveBorder: rgb(6 39 39);
+	--Scrollbar: rgb(9 58 59);
+	--Window: rgb(6 39 39);
 	--WindowFrame: rgb(0 0 0);
-	--WindowText: rgb(0 0 0);
-	--ActiveTitle: rgb(9 235 235);
-	--GradientActiveTitle: rgb(216 204 208);
-	--GradientInactiveTitle: rgb(208 212 208);
-	--InactiveTitle: rgb(79 102 126);
-	--InactiveTitleText: rgb(193 204 217);
+	--WindowText: rgb(107 221 99);
+	--ActiveTitle: rgb(2 69 49);
+	--GradientActiveTitle: rgb(96 235 170);
+	--GradientInactiveTitle: rgb(0 0 0);
+	--InactiveTitle: rgb(0 225 0);
+	--InactiveTitleText: rgb(0 0 0);
 	--TitleText: rgb(255 255 255);
-	--Menu: rgb(131 153 177);
+	--Menu: rgb(6 39 39);
 	--MenuBar: rgb(207 175 183);
 	--MenuHilight: rgb(0 0 0);
 	--MenuText: rgb(0 0 0);
-	--GrayText: rgb(79 101 125);
-	--Hilight: rgb(0 198 255);
-	--HilightText: rgb(255 255 255);
-	--HotTrackingColor: rgb(159 96 112);
+	--GrayText: rgb(255 0 0);
+	--Hilight: rgb(96 235 170);
+	--HilightText: rgb(0 0 0);
+	--HotTrackingColor: rgb(0 0 0);
 	--InfoText: rgb(0 0 0);
 	--InfoWindow: rgb(193 204 217);
 }
@@ -1029,7 +1029,7 @@ button {
 
 button:not(.lightweight) {
 	outline: transparent;
-	border-color: var(--ButtonShadow);
+	border-color: var(--ButtonDkShadow);
 	background-color: var(--ButtonFace);
 	color: var(--ButtonText);
 	position: relative;
@@ -1141,7 +1141,7 @@ button:not(.lightweight).pressed {
 
 button:not(.lightweight).toggle.selected,
 button:not(.lightweight).pressed {
-	border-color: var(--ButtonDkShadow);
+	border-color: var(--ButtonShadow);
 	border-style: solid;
 	border-width: 2px 2px;
 }

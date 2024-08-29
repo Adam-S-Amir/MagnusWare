@@ -1,10 +1,10 @@
-let MagnusWare_V = "4.0";
-let Color_Scheme = "Siamese";
-let Codename = "Nighthawk";
-let Release_Date = "07/05/2024";
-let Release_State = "Commercial";
-let OS_State = "stable,commercial";
-let Activation_State = "Activated";
+let MagnusWare_V = "5.0";
+let Color_Scheme = "Turkish Angora";
+let Codename = "Kryptonite";
+let Release_Date = "??/??/????";
+let Release_State = "Developer";
+let OS_State = "unstable,dev,beta";
+let Activation_State = "Unactivated";
 
 console.log("Successfully Initialized Kernel.");
 window.addEventListener("load", function() {
