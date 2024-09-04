@@ -181,11 +181,16 @@ function hideGadgets() {
 //* Calendar
 function hidecal() {
     let x = document.getElementById("picker");
+    let y = document.getElementById("time");
+
     if (x.style.display === "none") {
         x.style.display = "block";
+        y.classList.add("glass");
+        console.log(y);
         toggle_dp();
     } else {
         x.style.display = "none";
+        y.classList.remove("glass");
     }
 }
 
@@ -221,10 +226,13 @@ rangeInput.addEventListener('input', function () {
 
 function hidevol() {
     let x = document.getElementById("jukebox");
+    let y = document.getElementById("Volume");
     if (x.style.display === "none") {
         x.style.display = "block";
+        y.classList.add("glass");
     } else {
         x.style.display = "none";
+        y.classList.remove("glass");
     }
 }
 
@@ -392,10 +400,13 @@ wifieffectivetype.innerHTML = 'Effective Type: ' + navigator.connection.effectiv
 
 function WiFi() {
     let x = document.getElementById("Wifi");
+    let y = document.getElementById("WiFi");
     if (x.style.display === "none") {
         x.style.display = "block";
+        y.classList.add("glass");
     } else {
         x.style.display = "none";
+        y.classList.remove("glass");
     }
 }
 //* End Wifi

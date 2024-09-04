@@ -136,15 +136,16 @@ window.toast = window.toast || (({
 		bar.style.height = '18px';
 		bar.style.width = '0%';
 		bar.style.background = 'linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)';
-		bar.style.borderRadius = '5px';
+		// bar.style.borderRadius = '5px';
 		bar.id = 'progressbar';
 		window.appendChild(bar);
 
 		const messageHTML = document.createElement('div');
-		messageHTML.style.fontFamily = 'Orbitron';
+		messageHTML.style.fontFamily = 'Exo-Medium';
 		messageHTML.style.fontSize = '14px';
 		messageHTML.style.marginTop = '5px';
 		messageHTML.style.padding = '5px';
+		messageHTML.style.color = "var(--ButtonLight)";
 		messageHTML.style.wordWrap = 'break-word';
 
 		messageHTML.innerHTML = message;

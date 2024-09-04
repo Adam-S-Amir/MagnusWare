@@ -36,7 +36,7 @@ var subMenuVAlign = "top";
 
 //--- Font
 var fontStyle = [""];
-var fontColor = ["#000000", "#ffffff"];
+var fontColor = ["var(--ButtonLight)", "var(--White)"];
 var fontDecoration = ["none", "none"];
 var fontColorDisabled = "#AAAAAA";
 
@@ -44,7 +44,7 @@ var fontColorDisabled = "#AAAAAA";
 var menuBackColor = "var(--ButtonFace)";
 var menuBackImage = "";
 var menuBackRepeat = "repeat";
-var menuBorderColor = "var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight)";
+var menuBorderColor = "rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1)";
 var menuBorderWidth = null;
 var menuBorderStyle = "solid";
 var menuBorderRadius = "5px";

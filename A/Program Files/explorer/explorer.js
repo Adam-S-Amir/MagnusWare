@@ -841,11 +841,16 @@ ${doc.documentElement.outerHTML}`;
 		p {margin: 0;}
 
 		#Panel {
+			overflow: visible;
 			scrollbar-gutter: stable;
 			background-color: var(--Background);
+			border-radius: 5px;
+			border: 10px solid transparent;
 		}
 
 		body {
+			height: auto;
+			width: auto
 			user-select: none;
 		}
 		</style>

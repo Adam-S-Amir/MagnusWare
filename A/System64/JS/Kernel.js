@@ -23,6 +23,7 @@ splashScreen.scrollTop = splashScreen.scrollHeight;
 
 let CSSLinks = [
     "MagnusWare-Layout.css",
+    "Fonts.css",
     "Stylesheet.css",
     "System.css",
     "Calendar.css",
@@ -125,7 +126,7 @@ const taskbr = document.createElement('div');
 
 taskbr.classList.add('taskbar');
 vInfo.id = 'version-info';
-vInfo.style.fontSize = "5px";
+vInfo.style.fontSize = "8px";
 vInfo.style.opacity = 0.2;
 vInfo.style.color = "rgb(183, 202, 202)";
 taskbr.id = 'taskbr';
@@ -138,12 +139,12 @@ vInfo.appendChild(lineBreak);
 text = document.createTextNode(`|${Color_Scheme}| |${Codename}| |${Release_Date}| |${OS_State}|`);
 vInfo.appendChild(text);
 vInfo.addEventListener("mouseover", function () {
-    vInfo.style.fontSize = "6px";
+    vInfo.style.fontSize = "10px";
     vInfo.style.opacity = 1;
     vInfo.style.color = "azure";
 });
 vInfo.addEventListener("mouseout", function () {
-    vInfo.style.fontSize = "5px";
+    vInfo.style.fontSize = "8px";
     vInfo.style.opacity = 0.2;
     vInfo.style.color = "rgb(183, 202, 202)";
 });
@@ -154,9 +155,9 @@ let start = [`
         <img id="start-img" src="./A/System64/Images/Common/Favicon.png">
     </div>
     <div class="tasks"></div>
-    <div id="tray" class="tray inset-shallow">
+    <div id="tray" class="tray">
         <div class="tray-icons">
-            <img class="tray-icon" src="./A/System64/Images/Icons/audio-okay-16x16.png" title="Volume" onclick="hidevol()">
+            <img class="tray-icon" src="./A/System64/Images/Icons/audio-okay-16x16.png" title="Volume" id="Volume" onclick="hidevol()">
             <img class="tray-icon" src="./A/System64/Images/Icons/battery-err-16x16.png" id="battery" title="Battery" onclick="batteryalert()">
             <img class="tray-icon" src="./A/System64/Images/Common/Wifi.png" id="WiFi" title="WiFi Status" onclick="WiFi()">
             <div class="taskbar-time" id="time" onclick="hidecal()"></div>
@@ -174,26 +175,18 @@ let StartButton = document.getElementById("start-button");
 StartButton.addEventListener('mouseover', function () {
     StartButton.classList.remove('start-button-out');
     StartButton.classList.add('start-button-in');
-    StartButton.addEventListener('animationend', function handleAnimationEnd() {
-        StartButton.classList.add('start-in');
-        StartButton.removeEventListener('animationend', handleAnimationEnd);
+    StartButton.addEventListener('animationend', function handleAnimationEndIn() {
+        StartButton.classList.add("start-in");
+        StartButton.removeEventListener('animationend', handleAnimationEndIn);
     });
 });
 
 StartButton.addEventListener('mouseout', function () {
-    if (StartButton.classList.contains("start-in")) {
-        StartButton.classList.remove('start-in');
-    } else if (!StartButton.classList.contains("start-in")) {
-        StartButton.classList.add('start-button-out');
-        StartButton.classList.remove('start-button-in');
-        StartButton.classList.remove('start-in');
-    } else {
-        StartButton.classList.add('start-button-out');
-        StartButton.classList.remove('start-button-in');
-        StartButton.classList.remove('start-in');
-    }
+    StartButton.classList.remove("start-in");
+    StartButton.classList.remove('start-button-in');
+    StartButton.classList.add('start-button-out');
+    StartButton.classList.remove('start-button-out');
 });
-
 
 let wifi = `
 <div class="wifi-body">

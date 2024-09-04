@@ -10,12 +10,13 @@
 		#FileList	{position: absolute; left: 30%; width: 70%; height: 100%}
 		#Media		{margin-left: 15px}
 		#Panel		{position: absolute; width: 30%; height: 100%; overflow: auto}
+		#Info {color:var(--ButtonLight);}
 		#PieChart	{width: 100px; height: 50px; margin-top: 10px}
 		#Thumbnail	{width: 160px; height: 160px; margin-top: 0px}
 		#Status		{margin-left: 15px}
 		#Brand		{position: absolute; left: 30%; width: 70%; height: 100%; overflow: auto}
 		p		{margin-left: 15px; margin-top: 15px; margin-right: 15px}
-		p.Title		{font: 16pt; font-weight: bold; margin-top: 5px}
+		p.Title		{font: 16pt; font-weight: bold; margin-top: 5px; color:var(--ButtonLight);}
 		p.LogoLine	{margin-left: 0; margin-top: -5px; margin-right: 0; margin-bottom: 20px}
 		p.Warning	{font-weight: bold; color: red}
 		p.Links		{margin-top: 5px}
@@ -246,7 +247,7 @@
 			if (wantMedia && size) {
 				// show media preview or thumbnail based on file extension
 				ext = name.substring(name.lastIndexOf(".") + 1, name.length);
-				ext = ext.toLowerCase();		
+				ext = ext.toLowerCase
 				if (ext == 'avi' || ext == 'mov' || ext == 'qt' || ext == 'mpe' || ext == 'mpeg' || ext == 'mpg') {
 					// show a movie player
 					document.all.Media.innerHTML = '<object ID="Player" style="width: 160px; height: 148px" classid=clsid:05589FA1-C356-11CE-BF01-00AA0055595A><param name="FileName" value="' + items.Path + '"><param name=ShowDisplay value=0><param name=BorderStyle value=0></object>';
