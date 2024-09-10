@@ -1,5 +1,8 @@
 :root {
 	--tray: url("../Images/Common/Tray.png");
+	--White: #FFFFFF;
+	--Black: #000000;
+	--Gray: rgb(192 192 192);
 
 	--checker: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAABtJREFUGFdjPHjm5v9DZ28wMDbP3PjfzliDAQBkbgk09F7oYQAAAABJRU5ErkJggg==);
 	--button-active-border-image: url(data:image/svg + xml,
@@ -17,8 +20,6 @@
 	--scrollbar-arrows-ButtonHilight: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg46eObmf3sTdaLMRlcL1wSSQA8tXIYSshBmFiFHYVOH4gtkR+FzDMzhtFCDEaz4fE9sKFIthKiVwAlFKbI9ONMQtRxDqTlE5QRKLSFFPwBQ1UAKPuXIywAAAABJRU5ErkJggg==);
 	--scrollbar-size: 13px;
 	--scrollbar-button-inner-size: 9px;
-	--White: #FFFFFF;
-	--Black: #000000;
 	--ButtonAlternateFace: rgb(192 192 192);
 	--ButtonDkShadow: rgb(0 0 0);
 	--ButtonFace: rgb(6 39 39);
@@ -268,7 +269,7 @@ body>.window-titlebar {
 
 .folder-view:focus-within .desktop-icon.selected:not(.renaming) .title {
 	background: var(--Hilight);
-	color: var(--White);
+	color: var(--Black);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -970,7 +971,7 @@ button.lightweight.pressed {
 }
 
 button:disabled {
-	color: var(--GrayText);
+	color: var(--Gray);
 	text-shadow: 1px 1px 0px var(--ButtonHilight);
 }
 
@@ -1169,7 +1170,7 @@ button.window-refresh-button.window-action-refresh.window-button>span.window-but
 }
 
 .window-button:disabled .window-button-icon::after {
-	background-color: var(--GrayText);
+	background-color: var(--Gray);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1515,18 +1516,16 @@ div.window.os-window>div.window-titlebar>button {
 }
 
 ::-webkit-scrollbar {
-	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC") repeat;
-	background: var(--checker) repeat;
-	image-rendering: pixelated;
+	/* background: var(--checker) repeat;
+	image-rendering: pixelated; */
 }
 
 ::-webkit-scrollbar-thumb {
 	background-color: var(--ButtonFace);
-	border-top: 1px solid var(--ButtonFace);
-	border-left: 1px solid var(--ButtonFace);
-	border-right: 1px solid var(--ButtonDkShadow);
-	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
+	border-top: 1px solid var(--ButtonLight);
+	border-left: 1px solid var(--ButtonLight);
+	border-right: 1px solid var(--ButtonLight);
+	border-bottom: 1px solid var(--ButtonLight);
 }
 
 ::-webkit-scrollbar-corner {
@@ -1535,13 +1534,10 @@ div.window.os-window>div.window-titlebar>button {
 
 ::-webkit-scrollbar-button {
 	background-color: var(--ButtonFace);
-	border-top: 1px solid var(--ButtonFace);
-	border-left: 1px solid var(--ButtonFace);
-	border-right: 1px solid var(--ButtonDkShadow);
-	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset,
-		-1px -1px 0 var(--ButtonShadow) inset;
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAW0lEQVQ4T2NkGGSAcZC5h4FWDvrPwEC02ShqkR0EkkAHuBxMyEKYWYQ8jKEOXQOyo/A5BuZwqqvBZiA+3xMbilQLIWqlcUJRimwPzjRELcdQZA6hREeR4eRoBgBoXhAK6oiMhwAAAABJRU5ErkJggg==");
+	border-top: 1px solid var(--ButtonLight);
+	border-left: 1px solid var(--ButtonLight);
+	border-right: 1px solid var(--ButtonLight);
+	border-bottom: 1px solid var(--ButtonLight);
 	background-image: var(--scrollbar-arrows-ButtonText);
 	image-rendering: pixelated;
 	width: 13px;
@@ -1551,14 +1547,23 @@ div.window.os-window>div.window-titlebar>button {
 	box-sizing: border-box;
 }
 
+::-webkit-scrollbar-button::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--ButtonLight); /* Adjust the color and opacity as needed */
+	pointer-events: none;
+  }
+
 ::-webkit-scrollbar-button:not(.disabled):hover:active {
 	border: 1px solid var(--ButtonShadow);
 	box-shadow: none;
 }
 
 ::-webkit-scrollbar-button.disabled {
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"),
-		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
 	background-image: var(--scrollbar-arrows-GrayText),
 		var(--scrollbar-arrows-ButtonHilight);
 }

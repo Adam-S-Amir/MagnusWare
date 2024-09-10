@@ -727,15 +727,15 @@
 				embed.attr("src", embed.attr("src"));
 			}
 		};
+		$w.$refresh ?.on("click", (e) => {
+			$w.refresh();
+			$w.refresh();
+		});
 		$w.$minimize ?.on("click", (e) => {
 			$w.minimize();
 		});
 		$w.$maximize ?.on("click", (e) => {
 			$w.maximize();
-		});
-		$w.$refresh ?.on("click", (e) => {
-			$w.refresh();
-			$w.refresh();
 		});
 		$w.$x ?.on("click", (e) => {
 			$w.close();
