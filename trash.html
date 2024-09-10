@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu with Submenus</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .menu-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+        }
+
+        .menu {
+            border: 1px solid #ccc;
+            width: auto;
+            padding: 0;
+        }
+
+        .menu-item {
+            position: relative;
+            padding: 10px;
+            background-color: #f4f4f4;
+            cursor: pointer;
+        }
+
+        .menu-item:hover,
+        .submenu-item:hover,
+        .sub-submenu-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .submenu,
+        .sub-submenu {
+            position: absolute;
+            display: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            min-width: 150px;
+            padding: 0;
+            z-index: 100;
+            top: -1px;
+            left: 100%;
+        }
+
+        .submenu-item,
+        .sub-submenu-item {
+            padding: 10px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .scrollable-div {
+            max-height: 150px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        .item {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="menu-container">
+        <div class="menu" id="menu"></div>
+    </div>
+
+    <script>
+        var menuItems = [
+            ["Games", "", "Game-Folder", "", "", "", "", "", "", "", "", ],
+            ["|2048", "", "2048", "", "", "", "", "", "", "", "", ],
+            ["||4", "javascript:Four();", "2048", "", "", "", "", "", "", "", "", ],
+            ["||2048", "javascript:Twenty();", "2048", "", "", "", "", "", "", "", "", ],
+            ["||2048 3D", "javascript:Three();", "2048", "", "", "", "", "", "", "", "", ],
+            ["||2048 AI", "javascript:AI();", "2048", "", "", "", "", "", "", "", "", ],
+            ["|FPS Games", "", "FPS", "", "", "", "", "", "", "", "", ],
+            ["||Ultimate<br>Doom", "javascript:Doom();", "Doom", "", "", "", "", "", "", "", "", ],
+            ["||Doom 2", "javascript:Doom2();", "Doom2", "", "", "", "", "", "", "", "", ],
+            ["||Ultimate<br>Doom 2", "javascript:UD2();", "UD2", "", "", "", "", "", "", "", "", ],
+            ["|Brain Games", "", "Brain", "", "", "", "", "", "", "", "", ],
+            ["||Contranoid", "javascript:Contranoid();", "Contranoid", "", "", "", "", "", "", "", "", ],
+            ["||Hextris", "javascript:Hextris();", "Hextris", "", "", "", "", "", "", "", "", ],
+            ["||Oh Hi", "javascript:Hi();", "0HH1", "", "", "", "", "", "", "", "", ],
+            ["||Oh No", "javascript:No();", "0HN0", "", "", "", "", "", "", "", "", ],
+            ["||Quento", "javascript:Quento();", "Quento", "", "", "", "", "", "", "", "", ],
+            ["|Arcade Games", "", "Arcade", "", "", "", "", "", "", "", "", ],
+            ["Garbage", "", "Game-Folder", "", "", "", "", "", "", "", "", ],
+        ];
+
+        const menuElement = document.getElementById('menu');
+
+        let currentSubmenu = null;
+        let currentSubSubmenu = null;
+
+        for (let i = 0; i < menuItems.length; i++) {
+            let itemName = menuItems[i][0];
+            let itemNameClean = itemName.replace(/\|\||\|/g, '').replace(/<br>/g, ' ');
+
+            const hasSinglePipe = itemName.includes('|') && !itemName.includes('||');
+            const hasDoublePipe = itemName.includes('||');
+            const hasNoPipe = !itemName.includes('|');
+
+            if (hasNoPipe) {
+                // Create a new menu item
+                const menuItem = document.createElement('div');
+                menuItem.classList.add('menu-item');
+                menuItem.innerHTML = `<span>${itemNameClean}</span>`;
+                menuElement.appendChild(menuItem);
+
+                // Create a submenu container and assign it to currentSubmenu
+                currentSubmenu = document.createElement('div');
+                currentSubmenu.classList.add('submenu');
+                menuItem.appendChild(currentSubmenu);
+            } else if (hasSinglePipe) {
+                // Create a new submenu item
+                const submenuItem = document.createElement('div');
+                submenuItem.classList.add('submenu-item');
+                submenuItem.innerHTML = `<span>${itemNameClean}</span>`;
+                currentSubmenu.appendChild(submenuItem);
+
+                // Create a sub-submenu container and assign it to currentSubSubmenu
+                currentSubSubmenu = document.createElement('div');
+                currentSubSubmenu.classList.add('sub-submenu', 'scrollable-div');
+                submenuItem.appendChild(currentSubSubmenu);
+            } else if (hasDoublePipe) {
+                // Create a new sub-submenu item
+                const subSubmenuItem = document.createElement('div');
+                subSubmenuItem.classList.add('sub-submenu-item');
+                subSubmenuItem.textContent = itemNameClean;
+                currentSubSubmenu.appendChild(subSubmenuItem);
+            }
+        }
+
+        // Function to check and adjust submenu position
+        function adjustSubmenuPosition(submenu) {
+            const rect = submenu.getBoundingClientRect();
+            if (rect.bottom > window.innerHeight) {
+                submenu.style.top = `-${rect.height - 78}px`; // Push up
+            } else {
+                submenu.style.top = '-1px'; // Reset position
+            }
+        }
+
+        // Function to handle submenu visibility
+        function handleSubmenuVisibility(menuItem) {
+            const submenu = menuItem.querySelector('.submenu');
+
+            menuItem.addEventListener('mouseenter', function () {
+                submenu.style.display = 'block';
+                adjustSubmenuPosition(submenu); // Adjust position on hover
+            });
+
+            menuItem.addEventListener('mouseleave', function () {
+                submenu.style.display = 'none';
+                const subsubmenus = submenu.querySelectorAll('.sub-submenu');
+                subsubmenus.forEach(subsubmenu => {
+                    subsubmenu.style.display = 'none'; // Hide all sub-submenus on menu item leave
+                });
+            });
+        }
+
+        // Function to handle sub-submenu visibility
+        function handleSubSubmenuVisibility(submenuItem) {
+            const subsubmenu = submenuItem.querySelector('.sub-submenu');
+
+            submenuItem.addEventListener('mouseenter', function () {
+                subsubmenu.style.display = 'block';
+                adjustSubmenuPosition(subsubmenu); // Adjust position on hover
+            });
+
+            submenuItem.addEventListener('mouseleave', function () {
+                subsubmenu.style.display = 'none'; // Hide on leave
+            });
+        }
+
+        // Initialize submenu and sub-submenu visibility
+        document.querySelectorAll('.menu-item').forEach(function (menuItem) {
+            handleSubmenuVisibility(menuItem);
+        });
+
+        // Initialize sub-submenu visibility
+        document.querySelectorAll('.submenu-item').forEach(function (submenuItem) {
+            handleSubSubmenuVisibility(submenuItem);
+        });
+
+        // Smooth scrolling functionality for sub-submenus
+        document.querySelectorAll('.scrollable-div').forEach(function (scrollableDiv) {
+            let scrollDirection = 0; // 1 for down, -1 for up
+            const maxScrollSpeed = 10; // Maximum speed of scrolling
+            const scrollZone = 50; // Area to trigger scrolling
+            let currentScrollSpeed = 0; // Current scroll speed
+            const acceleration = 0.5; // Acceleration rate
+            const deceleration = 0.2; // Deceleration rate
+
+            scrollableDiv.addEventListener('mousemove', (event) => {
+                const rect = scrollableDiv.getBoundingClientRect();
+                const mouseY = event.clientY - rect.top;
+
+                if (mouseY > rect.height - scrollZone) {
+                    scrollDirection = 1; // Scroll down
+                    currentScrollSpeed = Math.min(currentScrollSpeed + acceleration, maxScrollSpeed);
+                } else if (mouseY < scrollZone) {
+                    scrollDirection = -1; // Scroll up
+                    currentScrollSpeed = Math.min(currentScrollSpeed + acceleration, maxScrollSpeed);
+                } else {
+                    scrollDirection = 0; // Stop scrolling
+                    currentScrollSpeed = Math.max(0, currentScrollSpeed - deceleration); // Decelerate
+                }
+            });
+
+            function smoothScroll() {
+                if (scrollDirection === 1) {
+                    scrollableDiv.scrollTop += currentScrollSpeed; // Scroll down
+                } else if (scrollDirection === -1) {
+                    scrollableDiv.scrollTop -= currentScrollSpeed; // Scroll up
+                }
+
+                // Ensure scrollTop is within bounds
+                scrollableDiv.scrollTop = Math.max(0, Math.min(scrollableDiv.scrollTop, scrollableDiv
+                    .scrollHeight - scrollableDiv.clientHeight));
+
+                requestAnimationFrame(smoothScroll); // Call the next frame
+            }
+
+            // Start smooth scrolling
+            requestAnimationFrame(smoothScroll);
+        });
+    </script>
+
+</body>
+
+</html>
