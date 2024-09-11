@@ -3641,7 +3641,6 @@
         }
       }
     },
-    "Program Files (x86)": {},
     "System64": {
       "Audio": {
         "MagnusWare": {
@@ -3685,6 +3684,7 @@
       },
       "CSS": {
         "Calendar.css": null,
+        "Fonts.css": null,
         "ie-6.css": null,
         "MagnusWare-Layout.css": null,
         "noscript.css": null,
@@ -3727,6 +3727,28 @@
         "doomzday": {
           "doOmzday.ttf": null
         },
+        "Exo": {
+          "Exo2-Black.ttf": null,
+          "Exo2-BlackItalic.ttf": null,
+          "Exo2-Bold.ttf": null,
+          "Exo2-BoldItalic.ttf": null,
+          "Exo2-ExtraBold.ttf": null,
+          "Exo2-ExtraBoldItalic.ttf": null,
+          "Exo2-ExtraLight.ttf": null,
+          "Exo2-ExtraLightItalic.ttf": null,
+          "Exo2-Italic-VariableFont_wght.ttf": null,
+          "Exo2-Italic.ttf": null,
+          "Exo2-Light.ttf": null,
+          "Exo2-LightItalic.ttf": null,
+          "Exo2-Medium.ttf": null,
+          "Exo2-MediumItalic.ttf": null,
+          "Exo2-Regular.ttf": null,
+          "Exo2-SemiBold.ttf": null,
+          "Exo2-SemiBoldItalic.ttf": null,
+          "Exo2-Thin.ttf": null,
+          "Exo2-ThinItalic.ttf": null,
+          "Exo2-VariableFont_wght.ttf": null
+        },
         "Fixedsys Excelsior": {
           "fsex300-webfont.eot": null,
           "fsex300-webfont.ttf": null,
@@ -3756,9 +3778,6 @@
           "95.png": null,
           "95C.png": null,
           "Abstract.gif": null,
-          "android-chrome-192x192.png": null,
-          "android-chrome-256x256.png": null,
-          "apple-touch-icon.png": null,
           "Beach.gif": null,
           "Black.gif": null,
           "Bliss.png": null,
@@ -3781,8 +3800,6 @@
           },
           "Dynamic.png": null,
           "Fast-Paint.gif": null,
-          "favicon-16x16.png": null,
-          "favicon-32x32.png": null,
           "Favicon.ico": null,
           "Favicon.png": null,
           "Glacier.png": null,
@@ -3799,16 +3816,11 @@
           "pinball-overlay.png": null,
           "pinball-splash.png": null,
           "River.gif": null,
-          "safari-pinned-tab.svg": null,
           "SMS.png": null,
           "Space-Paint.gif": null,
           "Splash.png": null,
+          "Start-.png": null,
           "start-logo.png": null,
-          "start-menu-side-98-js-alt.png": null,
-          "start-menu-side-98-js.gif": null,
-          "start-menu-side-98-js.png": null,
-          "start-menu-side-98.png": null,
-          "start-menu-side.png": null,
           "Start.png": null,
           "Sync.png": null,
           "Tray.png": null,
@@ -4493,10 +4505,14 @@
       "WVLOGO.GIF": null
     }
   },
-  "del.py": null,
+  "CHANGELOG.log": null,
   "dir.py": null,
   "filesystem.json": null,
   "images.py": null,
   "index.html": null,
-  "README.md": null
+  "README.md": null,
+  "shit.html": null,
+  "trash.html": null,
+  "vercel.json": null,
+  "Version.html": null
 }
