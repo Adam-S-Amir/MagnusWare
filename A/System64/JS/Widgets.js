@@ -186,7 +186,6 @@ function hidecal() {
     if (x.style.display === "none") {
         x.style.display = "block";
         y.classList.add("glass");
-        console.log(y);
         toggle_dp();
     } else {
         x.style.display = "none";
@@ -441,7 +440,7 @@ function CClippy() {
         try {
             div.remove();
             div2.remove();
-            clippy.load('Clippy', function (agent) {
+            clippy.load('Lynx', function (agent) {
                 agent.show();
                 agent.animate();
             });
@@ -455,7 +454,7 @@ function CClippy() {
         }
     } else {
         try {
-            clippy.load('Clippy', function (agent) {
+            clippy.load('Lynx', function (agent) {
                 agent.show();
                 agent.animate();
             });

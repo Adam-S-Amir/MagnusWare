@@ -27,6 +27,7 @@ let CSSLinks = [
     "Stylesheet.css",
     "System.css",
     "Calendar.css",
+    "ThemePacks.css",
 ]
 
 function loadCSSSequentially(index) {
@@ -148,7 +149,6 @@ vInfo.addEventListener("mouseout", function () {
     vInfo.style.opacity = 0.2;
     vInfo.style.color = "rgb(183, 202, 202)";
 });
-vInfo.title = 'Click to hide';
 
 let start = [`
     <div id="start-button" class="start-button toggle" title="Start">
@@ -163,7 +163,7 @@ let start = [`
             <div class="taskbar-time" id="time" onclick="hidecal()"></div>
         </div>
     </div>
-    <button id="hideAllWindows" onclick="hideAllWindows()" title="Click to hide windows"></button>
+    <button id="hideAllWindows" onclick="hideAllWindows()" title="Show Desktop"></button>
 `]
 
 taskbr.innerHTML = start;

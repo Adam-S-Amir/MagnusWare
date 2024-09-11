@@ -136,7 +136,7 @@ window.toast = window.toast || (({
 		bar.style.height = '18px';
 		bar.style.width = '0%';
 		bar.style.background = 'linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)';
-		// bar.style.borderRadius = '5px';
+		bar.style.borderTopLeftRadius = "5px";
 		bar.id = 'progressbar';
 		window.appendChild(bar);
 
@@ -197,3 +197,4 @@ window.confirm = (message) => {
 		message
 	});
 };
+//# sourceURL=MagnusWare

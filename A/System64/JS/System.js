@@ -7,7 +7,7 @@ function Settingz() {
             <p>Welcome to System Settings!</p>
         </div>
         <div class='sys-buttons'>
-            <button id='US' onclick='Settingz()'>Main<br>Menu</button>
+            <button id='US' onclick='Settingz()'>Personalization</button>
             <button id='US' onclick='checkupdate()'>Update<br>Settings</button>
             <button id='CL' onclick='changelog()'>ChangeLog</button>
             <button id='TW' onclick='Tweaks()'>System Tweaks</button>
@@ -25,27 +25,29 @@ let right = [
     <div id='divbg'>
         <hr id='hrshrt2'>
         <h3 id='bgs'>Backgrounds</h3>
-        <button id='bg0' onclick='bg0()'>Bliss</button>
-        <button id='bg1' onclick='bg1()'>Candy</button>
-        <button id='bg2' onclick='bg2()'>Clouds</button>
-        <button id='bg18' onclick='bg18()'>Default</button>
-        <button id='bg4' onclick='bg4()'>Glacier</button>
-        <button id='bg5' onclick='bg5()'>Grass</button>
-        <button id='bg6' onclick='bg6()'>Home</button>
-        <button id='bg7' onclick='bg7()'>Intel</button>
-        <button id='bg3' onclick='bg3()'>Interstellar</button>
-        <button id='bg8' onclick='bg8()'>Nebula</button>
-        <button id='bg16' onclick='bg20()'>MagnusWare Orb</button>
-        <button id='bg17' onclick='bg17()'>Moonroof</button>
-        <button id='bg9' onclick='bg9()'>Outrun</button>
-        <button id='bg10' onclick='bg10()'>Verticle</button>
-        <button id='bg19' onclick='bg19()'>Vortex</button>
-        <button id='bg11' onclick='bg11()'>Waves</button>
-        <button id='bg12' onclick='bg12()'>Windows 1.0</button>
-        <button id='bg13' onclick='bg13()'>Windows 10</button>
-        <button id='bg14' onclick='bg14()'>Windows 95</button>
-        <button id='bg15' onclick='bg15()'>Windows 95 Candy Edition</button>
-        <button id='bg16' onclick='bg16()'>Windows 98</button>
+        <button id='bgDEFAULT' onclick='bgDEFAULT()'>Default</button>
+        <button id='bgBliss' onclick='bgBliss()'>Bliss</button>
+        <button id='bgCandy' onclick='bgCandy()'>Candy</button>
+        <button id='bgClouds' onclick='bgClouds()'>Clouds</button>
+        <button id='bgGlacier' onclick='bgGlacier()'>Glacier</button>
+        <button id='bgGrass' onclick='bgGrass()'>Grass</button>
+        <button id='bgHome' onclick='bgHome()'>Home</button>
+        <button id='bgIntel' onclick='bgIntel()'>Intel</button>
+        <button id='bgInterstellar' onclick='bgInterstellar()'>Interstellar</button>
+        <button id='bgOrb' onclick='bgOrb()'>MagnusWare Orb</button>
+        <button id='bgMoonroof' onclick='bgMoonroof()'>Moonroof</button>
+        <button id='bgNebula' onclick='bgNebula()'>Nebula</button>
+        <button id='bgNerdsRope' onclick='bgNerdsRope()'>Nerds Rope</button>
+        <button id='bgNightHawk' onclick='bgNightHawk()'>NightHawk</button>
+        <button id='bgOutrun' onclick='bgOutrun()'>Outrun</button>
+        <button id='bgVerticle' onclick='bgVerticle()'>Verticle</button>
+        <button id='bgWaves' onclick='bgWaves()'>Waves</button>
+        <button id='bgWindows1' onclick='bgWindows1()'>Windows 1.0</button>
+        <button id='bgWindows10' onclick='bgWindows10()'>Windows 10</button>
+        <button id='bgWindows95' onclick='bgWindows95()'>Windows 95</button>
+        <button id='bgWindows95C' onclick='bgWindows95C()'>Windows 95 Candy Edition</button>
+        <button id='bgWindows98' onclick='bgWindows98()'>Windows 98</button>
+        <button id='bgXenon' onclick='bgXenon()'>Xenon</button>
     </div>
     <div id='livbg'>
         <hr id='hrshrt2'>
@@ -69,7 +71,7 @@ let right = [
         <button id='brick' onclick='Brick()'>Bricks</button>
         <button id='Cherry' onclick='Cherry()'>Cherry</button>
         <button id='dangerous' onclick='Dangerous()'>Dangerous Creatures</button>
-        <button id='default' onclick='MagnusWare()'>Default</button>
+        <button id='default' onclick='Default()'>Default</button>
         <button id='desert' onclick='Desert()'>Desert</button>
         <button id='eggplant' onclick='Eggplant()'>Eggplant</button>
         <button id='fx' onclick='FX()'>FX</button>
@@ -123,6 +125,7 @@ let right = [
         <button id='wdefault' onclick='Wdefault()'>Windows Default</button>
         <button id='whybrid' onclick='Whybrid()'>Windows Hybrid</button>
         <button id='wxp' onclick='WXP()'>Windows XP</button>
+        <button id='default' onclick='Xenon()'>Xenon</button>
     </div>
     <div id='Scrsvrz'>
         <hr id='hrshrt2'>
@@ -216,15 +219,15 @@ function changelog() {
                 <li>Fixed Factory Reset
                     <ol>
                         <li>Changed Icon</li>
-                            <li>Created Confirm Dialog</li>
-                                <li>Removed BS JS From Original
-                                Function</li>
+                        <li>Created Confirm Dialog</li>
+                        <li>Removed BS JS From Original
+                        Function</li>
                     </ol>
                 </li>
                 <li>Fixed Q1M2
                     <ol>
                         <li>Fixed Taskbar Icon</li>
-                            <li>Fixed Calling Wrong File</li>
+                        <li>Fixed Calling Wrong File</li>
                     </ol>
                 </li>
                 <li>Added Gadgets</li>
@@ -246,15 +249,15 @@ function changelog() {
                 <li>Added defer To All Script Tags
                     <ol>
                         <li>Faster Loading</li>
-                            <li>index.js Is Now In The Head Tag</li>
+                        <li>index.js Is Now In The Head Tag</li>
                     </ol>
                 </li>
                 <li>Added Version List
                     <ol>
                         <li>Added Changelog</li>
-                            <li>Added Check Update Button</li>
-                                <li>Added Random Build Number</li>
-                                    <li>Added Random User ID</li>
+                        <li>Added Check Update Button</li>
+                        <li>Added Random Build Number</li>
+                        <li>Added Random User ID</li>
                     </ol>
                 </li>
                 <li>Added Back the Calculator</li>
@@ -265,18 +268,17 @@ function changelog() {
                 </li>
                 <li>New System sounds
                     <ol>
-                        <li>On program Launch a Sound</li>
-                        will play
+                        <li>On program Launch a Sound<br>will play</li>
                         <li>Different System Alert Types</li>
-                            <li>Alerts are Now Customized with
-                            Personalized Sounds</li>
+                        <li>Alerts are Now Customized with
+                        Personalized Sounds</li>
                     </ol>
                 </li>
                 <li>New Battery Icon
                     <ol>
                         <li>Battery Icon onclick Brings up Alert with Battery Percent</li>
-                            <li>Battery Icon Will Update with Battery Percent</li>
-                                <li>Added Low Battery Alerts</li>
+                        <li>Battery Icon Will Update with Battery Percent</li>
+                        <li>Added Low Battery Alerts</li>
                     </ol>
                 </li>
                 <li>New Taskbar Style & Position</li>
@@ -296,11 +298,11 @@ function changelog() {
                 <li>Most HTML Tags are Written and Initialized Through JS
                     <ol>
                         <li>Made File-Structuring and Page Layout Easier to Read/Use</li>
-                            <li>Sort of De-Cluttered the Index.html File</li>
+                        <li>Sort of De-Cluttered the Index.html File</li>
                     </ol>
                 </li>
                 <li>(mostly) Resolve JS Console errors</li>
-                <li>Consolidated Cloud Storage</li>
+                <li>Consolidated Cloud Storage
                     <ol>
                         <li>Move Some Apps/Games to GitHub Pages</li>
                     </ol>
@@ -309,31 +311,31 @@ function changelog() {
         <hr id='hrshrt2'>
                 <h3>MagnusWare 2.2<br>(Tabby/Zenith)</h3>
             <ul>
-                <li><span>Calender widget</span></li>
-                <li><span>Version watermark animation</span></li>
-                <li><span>MagnusWare Orb glow animation</span></li>
-                <li><span>    Revert MagnusWare Orb Icon to MagnusSoft 1.4 with newer color changes</span></li>
-                <li><span>Taskbar resize</span></li>
-                <li><span>Start Menu padding</span></li>
-                <li><span>Battery Level actually appears in HTML title attribute via JS</span></li>
-                <li><span>Update dialog</span></li>
-                <li><span>Always display icon title</span></li>
-                <li><span>Start Menu error fixing</span></li>
-                <li><span>Taskbar time has dynamically updated fonts on theme change</span></li>
-                <li><span>MineCrap 1.3 coming soon on hover menu</span></li>
-                <li><span>Matrix</span></li>
-                <li><span>Version list restructure</span></li>
-                <li><span>    Re-define versions/service packs</span></li>
-                <li><span>Compress scripts list</span></li>
-                <li><span>Fix cache/update issues</span></li>
-                <li><span>    Factory reset is more efficient</span></li>
-                <li><span>Remove unnecessary cookies/localStorage properties</span></li>
+                <li>Calender widget</li>
+                <li>Version watermark animation</li>
+                <li>MagnusWare Orb glow animation</li>
+                <li>Revert MagnusWare Orb Icon to MagnusSoft 1.4 with newer color changes</li>
+                <li>Taskbar resize</li>
+                <li>Start Menu padding</li>
+                <li>Battery Level actually appears in HTML title attribute via JS</li>
+                <li>Update dialog</li>
+                <li>Always display icon title</li>
+                <li>Start Menu error fixing</li>
+                <li>Taskbar time has dynamically updated fonts on theme change</li>
+                <li>MineCrap 1.3 coming soon on hover menu</li>
+                <li>Matrix</li>
+                <li>Version list restructure</li>
+                <li>Re-define versions/service packs</li>
+                <li>Compress scripts list</li>
+                <li>Fix cache/update issues</li>
+                <li>Factory reset is more efficient</li>
+                <li>Remove unnecessary cookies/localStorage properties</li>
             </ul>
         <hr id='hrshrt2'>
             <h3>MagnusWare 2.1<br>(Ragamuffin/Interstellar)</h3>
             <ul>
-                <li><span>Cursor effects</span></li>
-                <li><span>VLC Media Player!!</span></li>
+                <li>Cursor effects</li>
+                <li>VLC Media Player!!</li>
             </ul>
         <hr id='hrshrt2'>
     </div>
@@ -414,172 +416,197 @@ function hideinfo() {
     localStorage.setItem("hif", "hideinfo()");
 }
 
-function bg0() {
+function bgBliss() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/Bliss.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg0()");
+    localStorage.setItem("bgz", "bgBliss()");
 }
 
-function bg1() {
+function bgCandy() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/Candy.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg1()");
+    localStorage.setItem("bgz", "bgCandy()");
 }
 
-function bg2() {
+function bgClouds() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/clouds.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg2()");
+    localStorage.setItem("bgz", "bgClouds()");
 }
 
-function bg3() {
-    document.getElementById("Image").style =
-        `
-    background: conic-gradient(from 222deg at 30% 50%,
-      #00c6ff,
-      #1fa2ff,
-      #0072ff,
-      #1a2980,
-      #000080,
-      #021b79,
-      #061161,
-      #061161,
-      #6B069F,
-      #780206,
-      #c21500,
-      #fc354c,
-      #d53369,
-      #f857a6
-  );  
-  `
-    canvas.remove();
-    localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg3()");
-}
-
-function bg4() {
+function bgGlacier() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/glacier.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg4()");
+    localStorage.setItem("bgz", "bgGlacier()");
 }
 
-function bg5() {
+function bgGrass() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/grass.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg5()");
+    localStorage.setItem("bgz", "bgGrass()");
 }
 
-function bg6() {
+function bgHome() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/home.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg6()");
+    localStorage.setItem("bgz", "bgHome()");
 }
 
-function bg7() {
+function bgIntel() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/intel.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg7()");
+    localStorage.setItem("bgz", "bgIntel()");
 }
 
-function bg8() {
+function bgInterstellar() {
+    document.getElementById("Image").style =
+        `
+    background: repeating-linear-gradient(190deg,
+      #1a2980 40px,
+      #d53369 80px,
+      #000080 120px,
+      #00c6ff 160px,
+      rgba(0, 0, 255, 0.5) 200px,
+      rgba(75, 0, 130, 0.5) 240px,
+      rgba(238, 130, 238, 0.5) 280px,
+      #021b79 300px),
+    repeating-linear-gradient(-190deg,
+      #0072ff 30px,
+      #f857a6 60px,
+      #061161 90px,
+      #6B069F 120px,
+      rgba(0, 0, 255, 0.5) 150px,
+      rgba(75, 0, 130, 0.5) 180px,
+      #fc354c 210px, #d53369 230px),
+    repeating-linear-gradient(23deg,
+      red 50px,
+      #780206 100px,
+      #c21500 150px,
+      #061161 200px,
+      blue 250px,
+      indigo 300px,
+      #1fa2ff 350px,
+      red 370px);
+    min-inline-size: -webkit-fill-available;
+    `
+    canvas.remove();
+    localStorage.removeItem("bgz");
+    localStorage.setItem("bgz", "bgInterstellar()");
+}
+
+function bgNebula() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/nebula.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg8()");
+    localStorage.setItem("bgz", "bgNebula()");
 }
 
-function bg9() {
+function bgOutrun() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/outrun.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg9()");
+    localStorage.setItem("bgz", "bgOutrun()");
 }
 
-function bg10() {
+function bgVerticle() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/verticle.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg10()");
+    localStorage.setItem("bgz", "bgVerticle()");
 }
 
-function bg11() {
+function bgWaves() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/Waves.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg11()");
+    localStorage.setItem("bgz", "bgWaves()");
 }
 
-function bg12() {
+function bgWindows1() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/1.0.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg12()");
+    localStorage.setItem("bgz", "bgWindows1()");
 }
 
-function bg13() {
+function bgWindows10() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/10.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg13()");
+    localStorage.setItem("bgz", "bgWindows10()");
 }
 
-function bg14() {
+function bgWindows95() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/95.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg14()");
+    localStorage.setItem("bgz", "bgWindows95()");
 }
 
-function bg15() {
+function bgWindows95C() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/95C.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg15()");
+    localStorage.setItem("bgz", "bgWindows95C()");
 }
 
-function bg16() {
+function bgWindows98() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/9.8.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg16()");
+    localStorage.setItem("bgz", "bgWindows98()");
 }
 
-function bg17() {
+function bgMoonroof() {
     document.getElementById("Image").style =
         "background-image: url(./A/System64/Images/common/Moonroof.png);";
     // background-image: linear-gradient(red, yellow);
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg17()");
+    localStorage.setItem("bgz", "bgMoonroof()");
 }
 
-function bg18() {
+function bgNightHawk() {
     document.getElementById("Image").style =
         `
-  background: conic-gradient(from 222deg at 30% 50%,
+    background: linear-gradient(217deg,
+    rgba(255, 0, 0, 0.8),
+    rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(0, 0, 255, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, #00c6ff, #f857a6 70.71%);
+    `
+    canvas.remove();
+    localStorage.removeItem("bgz");
+    localStorage.setItem("bgz", "bgNightHawk()");
+}
+
+function bgXenon() {
+    document.getElementById("Image").style =
+        `
+    background: conic-gradient(from 222deg at 30% 50%,
     #00c6ff,
     #1fa2ff,
     #0072ff,
@@ -594,26 +621,35 @@ function bg18() {
     #fc354c,
     #d53369,
     #f857a6);
-  `
+    `
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg19()");
+    localStorage.setItem("bgz", "bgXenon()");
 }
 
-function bg19() {
+function bgNerdsRope() {
     document.getElementById("Image").style =
         "background: repeating-linear-gradient(190deg,#1a2980 40px,#d53369 80px,#43ceaf  120px,#00c6ff 160px,rgba(0, 0, 255, 0.5) 200px,rgba(75, 0, 130, 0.5) 240px,rgba(238, 130, 238, 0.5) 280px,#021b79 300px), repeating-linear-gradient(-190deg,#0072ff 30px,#f857a6 60px,#061161 90px,#43ceaf 120px,rgba(0, 0, 255, 0.5) 150px,rgba(75, 0, 130, 0.5) 180px,#fc354c 210px,#d53369 230px), repeating-linear-gradient(23deg, red 50px, #780206 100px, #c21500 150px, #061161 200px, blue 250px, indigo 300px, #1fa2ff 350px, red 370px);";
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg19()");
+    localStorage.setItem("bgz", "bgNerdsRope()");
 }
 
-function bg20() {
+function bgOrb() {
     document.getElementById("Image").style =
         "background: -webkit-radial-gradient(50% 90%, circle closest-corner, #07d9f9, #03456f 100%, #fff 300%);"
     canvas.remove();
     localStorage.removeItem("bgz");
-    localStorage.setItem("bgz", "bg20()");
+    localStorage.setItem("bgz", "bgOrb()");
+}
+
+function bgDEFAULT() {
+    document.getElementById("Image").style =
+        "background-image: url(./A/System64/Images/common/Kryptonite.png);";
+    // background-image: linear-gradient(red, yellow);
+    canvas.remove();
+    localStorage.removeItem("bgz");
+    localStorage.setItem("bgz", "bgDEFAULT()");
 }
 
 function lv0() {
@@ -741,37 +777,38 @@ function lv8() {
 
 function Ash() {
     document.getElementById("Style").className = "ash1";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Ash()");
 }
 
 function Baseball() {
     document.getElementById("Style").className = "baseball";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Baseball()");
 }
 
 function Blue() {
     document.getElementById("Style").className = "blue";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Blue()");
 }
 
 function Brick() {
     document.getElementById("Style").className = "brick";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Brick()");
 }
 
 function Dangerous() {
     document.getElementById("Style").className = "dangerous-creatures";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Dangerous()");
+}
+
+function Default() {
+    document.getElementById("Style").className = "default-theme";
+    localStorage.removeItem("tmz");
+    localStorage.setItem("tmz", "Default()");
 }
 
 function Moonroof() {
@@ -783,378 +820,330 @@ function Moonroof() {
 
 function Desert() {
     document.getElementById("Style").className = "desert";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Desert()");
 }
 
 function Eggplant() {
     document.getElementById("Style").className = "eggplant";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Eggplant()");
 }
 
 function FX() {
     document.getElementById("Style").className = "fx";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "FX()");
 }
 
 function Gen1() {
     document.getElementById("Style").className = "gen-test1";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Gen1()");
 }
 
 function Gen2() {
     document.getElementById("Style").className = "gen-test2";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Gen2()");
 }
 
 function Gen3() {
     document.getElementById("Style").className = "gen-test3";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Gen3()");
 }
 
 function Honey() {
     document.getElementById("Style").className = "honey";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Honey()");
 }
 
 function Inside() {
     document.getElementById("Style").className = "inside-ur-computer";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Inside()");
 }
 
 function Jungle() {
     document.getElementById("Style").className = "jungle";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Jungle()");
 }
 
 function Vinci() {
     document.getElementById("Style").className = "da-vinci";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Vinci()");
 }
 
 function Lilac() {
     document.getElementById("Style").className = "lilac";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Lilac()");
 }
 
 function Maple() {
     document.getElementById("Style").className = "maple";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Maple()");
 }
 
 function Marine() {
     document.getElementById("Style").className = "marine";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Marine()");
 }
 
 function More() {
     document.getElementById("Style").className = "more-windows";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "More()");
 }
 
 function Mystery() {
     document.getElementById("Style").className = "mystery";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Mystery()");
 }
 
 function Nature() {
     document.getElementById("Style").className = "nature";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Nature()");
 }
 
+function Nighthawk() {
+    document.getElementById("Style").className = "nighthawk";
+    localStorage.removeItem("tmz");
+    localStorage.setItem("tmz", "Nighthawk()");
+}
+
 function Peggy() {
     document.getElementById("Style").className = "peggy";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Peggy()");
 }
 
 function Plum() {
     document.getElementById("Style").className = "plum";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Plum()");
 }
 
 function Powershell() {
     document.getElementById("Style").className = "powershell";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Powershell()");
 }
 
 function Precision() {
     document.getElementById("Style").className = "precision";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Precision()");
 }
 
 function Pumpkin() {
     document.getElementById("Style").className = "pumpkin";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Pumpkin()");
 }
 
 function Rainyday() {
     document.getElementById("Style").className = "rainyday";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Rainyday()");
 }
 
 function Redwine() {
     document.getElementById("Style").className = "red-wine";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Redwine()");
 }
 
 function RWB() {
     document.getElementById("Style").className = "red-white-blue";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "RWB()");
 }
 
 function Rose() {
     document.getElementById("Style").className = "rose";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Rose()");
 }
 
 function Science() {
     document.getElementById("Style").className = "science";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Science()");
 }
 
 function Slate() {
     document.getElementById("Style").className = "slate";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Slate()");
 }
 
 function Solar() {
     document.getElementById("Style").className = "solarized";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Solar()");
 }
 
 function Space() {
     document.getElementById("Style").className = "space";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Space()");
 }
 
 function Sports() {
     document.getElementById("Style").className = "sports";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Sports()");
 }
 
 function Spruce() {
     document.getElementById("Style").className = "spruce";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Spruce()");
 }
 
 function Storm() {
     document.getElementById("Style").className = "storm";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Storm()");
 }
 
 function Steal() {
     document.getElementById("Style").className = "teal-shelby";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Steal()");
 }
 
 function Teal() {
     document.getElementById("Style").className = "teal";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Teal()");
 }
 
 function T6() {
     document.getElementById("Style").className = "the-60s";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "T6()");
 }
 
 function Golden() {
     document.getElementById("Style").className = "the-golden-era";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Golden()");
 }
 
 function Travel() {
     document.getElementById("Style").className = "travel";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Travel()");
 }
 
 function Underwater() {
     document.getElementById("Style").className = "underwater";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Underwater()");
 }
 
 function Vista() {
     document.getElementById("Style").className = "vista-dark";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Vista()");
 }
 
 function Wheat() {
     document.getElementById("Style").className = "wheat";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Wheat()");
 }
 
 function W1() {
     document.getElementById("Style").className = "windows-1";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "W1()");
 }
 
 function W98() {
     document.getElementById("Style").className = "w98";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "W98()");
 }
 
 function Wdefault() {
     document.getElementById("Style").className = "wdefault";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Wdefault()");
 }
 
 function Whybrid() {
     document.getElementById("Style").className = "whybrid";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Whybrid()");
 }
 
 function WXP() {
     document.getElementById("Style").className = "wxp";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "WXP()");
 }
 
 function W93() {
     document.getElementById("Style").className = "w93";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "W93()");
 }
 
 function Toner() {
     document.getElementById("Style").className = "Toner";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Toner()");
 }
 
 function Cherry() {
     document.getElementById("Style").className = "Cherry";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Cherry()");
 }
 
 function precisiongreen() {
     document.getElementById("Style").className = "precision-green";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "precisiongreen()");
 }
 
 function powershell() {
     document.getElementById("Style").className = "Powershell";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "powershell()");
 }
 
 function storm() {
     document.getElementById("Style").className = "Storm";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "storm()");
 }
 
 function raspberry() {
     document.getElementById("Style").className = "Raspberry";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "raspberry()");
 }
 
 function seawater() {
     document.getElementById("Style").className = "Seawater";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Seawater()");
 }
 
-function MagnusWare() {
+function Xenon() {
     document.getElementById("Style").className = "MagnusWare";
-    document.getElementById("CSS").href = "./assets/css/tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "MagnusWare()");
 }

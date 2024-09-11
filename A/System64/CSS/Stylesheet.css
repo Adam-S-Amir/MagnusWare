@@ -33,7 +33,7 @@ body,
 
 #splash-log {
     font-family: Orbitron;
-    color: #00c6ff;
+    color: var(--Hilight);
     top: 5px;
     left: 5px;
     position: relative;
@@ -64,27 +64,7 @@ embed {
 }
 
 #Image {
-    background: linear-gradient(217deg,
-            rgba(255, 0, 0, 0.8),
-            rgba(255, 0, 0, 0) 70.71%),
-        linear-gradient(127deg, rgba(0, 0, 255, 0.8), rgba(0, 255, 0, 0) 70.71%),
-        linear-gradient(336deg, #00c6ff, #f857a6 70.71%);
-
-    /* background: conic-gradient(from 222deg at 30% 50%,
-            #00c6ff,
-            #1fa2ff,
-            #0072ff,
-            #1a2980,
-            #000080,
-            #021b79,
-            #061161,
-            #061161,
-            #6B069F,
-            #780206,
-            #c21500,
-            #fc354c,
-            #d53369,
-            #f857a6); */
+    background-image: url("../Images/Common/Kryptonite.png");
     background-size: cover;
     background-position: center;
 }
@@ -289,6 +269,14 @@ div.about-body>a:visited {
     overflow-y: auto;
 }
 
+#div1 > div > * {
+    font-family: "Exo-Medium";
+}
+
+#div1 > div > div > * {
+    font-family: "Exo-Medium";
+}
+
 #sidebar {
     position: fixed;
     margin-top: 5px;
@@ -296,7 +284,7 @@ div.about-body>a:visited {
     border: solid var(--Background);
     display: flex;
     text-align: -webkit-center;
-    font-size: 8px;
+    font-size: 15px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -312,6 +300,7 @@ div.about-body>a:visited {
 #right-1 {
     margin-left: 270px;
     height: 93%;
+    padding-right: 5px;
 }
 
 #right>div>h3 {
@@ -319,7 +308,7 @@ div.about-body>a:visited {
 }
 
 #right>div>* {
-    margin-left: -12px;
+    margin-top: 5px;
 }
 
 #right>div>ul {
@@ -330,7 +319,12 @@ div.about-body>a:visited {
 #right>div>ul>li {
     list-style-type: upper-roman;
     margin-bottom: 10px;
-    color: var(--Background);
+    color: var(--ButtonLight);
+    font-family: "Exo-Medium";
+}
+
+#right>div>ul>li>ol>li {
+    font-family: "Exo-Medium";
 }
 
 .changelog {
@@ -343,7 +337,7 @@ div.about-body>a:visited {
 
 #right>div>ul>li::marker,
 #right>div>ul>li>ol>li::marker {
-    color: var(--MenuHilight);
+    color: var(--Hilight);
 }
 
 #hrshrt2 {
@@ -400,10 +394,15 @@ div#storefront-right-other>button>img {
 
 .sys-buttons {
     display: inline-grid;
-    left: 5px;
+    left: 10px;
     position: absolute;
     margin-bottom: 5px;
-    margin-top: 45px;
+    margin-top: 65px;
+}
+
+.sys-buttons > button {
+    margin-bottom: 5px;
+    width: 200px;
 }
 
 .store-buttons {
@@ -1144,7 +1143,7 @@ p {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: rgba(79, 101, 125, 0.8);
+    /* background-color: rgba(79, 101, 125, 0.8); */
     /*opacity: 0.8; Makes all the child elements gay*/
     z-index: 200;
     top: 0;
@@ -1255,7 +1254,12 @@ p {
 
 #hideAllWindows {
     background-color: var(--ActiveTitle);
-    width: 0;
+    border: 1px solid var(--Hilight);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
 .Unsupported-Platform {
@@ -1374,32 +1378,4 @@ p {
     position: relative;
 }
 
-/* background: repeating-linear-gradient(190deg,
-      #1a2980 40px,
-      #d53369 80px,
-      #000080 120px,
-      #00c6ff 160px,
-      rgba(0, 0, 255, 0.5) 200px,
-      rgba(75, 0, 130, 0.5) 240px,
-      rgba(238, 130, 238, 0.5) 280px,
-      #021b79 300px),
-    repeating-linear-gradient(-190deg,
-      #0072ff 30px,
-      #f857a6 60px,
-      #061161 90px,
-      #6B069F 120px,
-      rgba(0, 0, 255, 0.5) 150px,
-      rgba(75, 0, 130, 0.5) 180px,
-      #fc354c 210px, #d53369 230px),
-    repeating-linear-gradient(23deg,
-      red 50px,
-      #780206 100px,
-      #c21500 150px,
-      #061161 200px,
-      blue 250px,
-      indigo 300px,
-      #1fa2ff 350px,
-      red 370px); */
-
-/* min-inline-size: -webkit-fill-available; */
 /* # sourceURL=MagnusWare */
