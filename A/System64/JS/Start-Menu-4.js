@@ -6,10 +6,10 @@ var menuStylesNames = [];
 
 //--- Common
 var isHorizontal = 0;
-var smColumns = 1;
+var smColumns = 0;
 var smOrientation = 0;
 var dmRTL = 0;
-var pressedItem = -2;
+var pressedItem = 0;
 var itemCursor = "default";
 var itemTarget = "_self";
 var statusString = "";
@@ -18,7 +18,7 @@ var pathPrefix_img = "";
 var pathPrefix_link = "";
 
 //--- Dimensions
-var menuWidth = "fit-content";
+var menuWidth = "auto";
 var menuHeight = "-webkit-fill-available";
 var smWidth = "fit-content";
 var smHeight = "-webkit-fill-available";
@@ -89,7 +89,7 @@ var separatorHeight = "4px";
 var separatorColor = "black";
 var separatorAlignment = "right";
 var separatorVImage = "";
-var separatorVWidth = "5px";
+var separatorVWidth = "50px";
 var separatorVHeight = "100%";
 var separatorPadding = "0px";
 
@@ -101,7 +101,7 @@ var floatable = 1;
 var floatIterations = 5;
 var floatableX = 1;
 var floatableY = 1;
-var floatableDX = 15;
+var floatableDX = 20;
 var floatableDY = 15;
 
 //--- Movable Menu

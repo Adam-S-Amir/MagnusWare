@@ -376,7 +376,6 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 		`;
 		template_url = "https://github.com/Adam-S-Amir/"; // valid URL, but nonsense (I'm a little bit tired so doing things stupidly)
 	} else {
-		// @TODO: load FOLDER.HTT from the folder we're showing, if it exists
 		const template_file_name =
 			address === "/recycle-bin/" ? "recycle.htt" :
 			address === "/da-hood/" ? "nethood.htt" :
@@ -706,6 +705,7 @@ ${doc.documentElement.outerHTML}`;
 					this.shadowRoot.append(folder_view.element);
 					// jQuery's append does HTML, vs native which does Text
 					$(this.shadowRoot).append(`
+							<link href="/A/System64/CSS/Root.css" rel="stylesheet" type="text/css">
 							<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 							<style>
 								:host {
@@ -857,6 +857,7 @@ ${doc.documentElement.outerHTML}`;
 	`;
 
 	const head_end_injected_html = `
+		<link href="/A/System64/CSS/Root.css" rel="stylesheet" type="text/css">
 		<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<script src="/A/System64/JS/jquery.min.js"></script>

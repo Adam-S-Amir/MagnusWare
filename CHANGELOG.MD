@@ -11,6 +11,7 @@
 - [ ] Titlebar button spacing is more efficient
   - [ ] Titlebar button color width is automatic
 - [ ] Tray items have an on-click effect
+- [ ] About is a standalone app
 
 - [ ] New UI Fonts
 - [ ] New UI theme
@@ -18,6 +19,7 @@
 - [ ] New explorer theme
 - [ ] New default desktop helper
 - [ ] New taskbar style
+- [ ] New calendar style
 
 - [ ] Fixed theme change function
 - [ ] Fixed start button animation
@@ -31,6 +33,9 @@
 - [ ] Removed Build ID from tab title
 - [ ] Removed old Explorer border styling
 - [ ] Removed CREDITS.txt
+- [ ] Removed Recycle Bin
+- [ ] Removed Internet Explorer
+- [ ] Removed start menu titlebar
 
 # MagnusWare 4.0 (Siamese/NightHawk)
 

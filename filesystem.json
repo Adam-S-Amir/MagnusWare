@@ -7,7 +7,6 @@
       "Windows 98 (Virtual x86).url": null
     },
     "Desktop": {
-      "CHANGELOG.MD": null,
       "Themes": {
         "Ash.themepack": null,
         "Blue.themepack": null,
@@ -95,6 +94,9 @@
         "img": {
           "FlowerBox.PNG": null
         },
+        "index.html": null
+      },
+      "About": {
         "index.html": null
       },
       "calculator": {
@@ -3688,6 +3690,7 @@
         "ie-6.css": null,
         "MagnusWare-Layout.css": null,
         "noscript.css": null,
+        "Root.css": null,
         "Stylesheet.css": null,
         "System.css": null,
         "ThemePacks.css": null
@@ -3811,7 +3814,6 @@
           "Kryptonite.png": null,
           "MagnusWare.png": null,
           "Moonroof.png": null,
-          "mstile-150x150.png": null,
           "Nebula.png": null,
           "Outrun.png": null,
           "pinball-overlay.png": null,
@@ -3821,7 +3823,6 @@
           "Space-Paint.gif": null,
           "Splash.png": null,
           "Start-.png": null,
-          "start-logo.png": null,
           "Start.png": null,
           "Sync.png": null,
           "Tray.png": null,
@@ -4474,38 +4475,18 @@
       }
     },
     "WEB": {
-      "CONTROLP.HTT": null,
-      "default.htt": null,
-      "DESKMOVR.HTT": null,
-      "dialup.htt": null,
       "FOLDER.HTM": null,
       "FOLDER.HTT": null,
-      "ftp.htt": null,
-      "IEJIT.HTM": null,
       "JITALERT.GIF": null,
       "MYCOMP.HTT": null,
-      "nethood.htt": null,
-      "OFFLINE.HTM": null,
-      "PRINTERS.HTT": null,
-      "recycle.htt": null,
-      "RELATED.HTM": null,
-      "SAFEMODE.HTT": null,
-      "schedule.htt": null,
-      "TIP.HTM": null,
       "TIPS.GIF": null,
-      "Wallpaper": {
-        "Windows98.htm": null
-      },
       "webview.css": null,
       "WUICON1.GIF": null,
       "WUICON2.GIF": null,
-      "WULOGO.GIF": null,
-      "WUM.HTM": null,
-      "WVBACK.GIF": null,
-      "wvline.gif": null,
-      "WVLOGO.GIF": null
+      "wvline.gif": null
     }
   },
+  "CHANGELOG.MD": null,
   "dir.py": null,
   "filesystem.json": null,
   "images.py": null,

@@ -1,0 +1,53 @@
+:root {
+	--tray: url("../Images/Common/Tray.png");
+	--White: #FFFFFF;
+	--Black: #000000;
+	--Gray: rgb(192 192 192);
+	--checker: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAABtJREFUGFdjPHjm5v9DZ28wMDbP3PjfzliDAQBkbgk09F7oYQAAAABJRU5ErkJggg==);
+	--button-active-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--button-normal-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--inset-deep-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--button-default-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h96v32h-64v64h-32v-96z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M160%2064h32v128h-128v-32h96v-96z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M96%2096h64v64h-64v-64z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 96 / 3px;
+	--button-default-active-border-image: url(data:image/svg + xml,
+ %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
+	--scrollbar-arrows-ButtonText: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAFtJREFUOE9jZBhkgHGQuYeBVg76z8BAtNkoapEdBJJAB7gcTMhCmFmEPIyhDl0DsqPwOQbmcKqrwWYgPt8TG4pUCyFqpXFCUYpsD840RC3HUGQOoURHkeHkaAYAaF4QCuqIjIcAAAAASUVORK5CYII=);
+	--scrollbar-arrows-GrayText: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg7yT639v3F2M1Fmo6uFawJJoIcWLkMJWQgzi5CjsKlD8QWyo/A5BuZwWqjBCFZ8vic2FKkWQtRK4ISiFNkenGmIWo6h1ByicgKllpCiHwCi9kAK+UQY+QAAAABJRU5ErkJggg==);
+	--scrollbar-arrows-ButtonHilight: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg46eObmf3sTdaLMRlcL1wSSQA8tXIYSshBmFiFHYVOH4gtkR+FzDMzhtFCDEaz4fE9sKFIthKiVwAlFKbI9ONMQtRxDqTlE5QRKLSFFPwBQ1UAKPuXIywAAAABJRU5ErkJggg==);
+	--scrollbar-size: 13px;
+	--scrollbar-button-inner-size: 9px;
+	--ButtonAlternateFace: rgb(192 192 192);
+	--ButtonDkShadow: rgb(0 0 0);
+	--ButtonFace: rgb(6 39 39);
+	--ButtonHilight: rgb(9 58 59);
+	--ButtonLight: rgb(107 221 99);
+	--ButtonShadow: rgb(107 221 99);
+	--ButtonText: rgb(107 221 99);
+	--ActiveBorder: rgb(6 39 39);
+	--AppWorkspace: rgb(4 26 26);
+	--Background: rgb(6 39 39);
+	--InactiveBorder: rgb(6 39 39);
+	--Scrollbar: rgb(9 58 59);
+	--Window: rgb(6 39 39);
+	--WindowFrame: rgb(0 0 0);
+	--WindowText: rgb(107 221 99);
+	--ActiveTitle: rgb(2 69 49);
+	--GradientActiveTitle: rgb(96 235 170);
+	--GradientInactiveTitle: rgb(0 0 0);
+	--InactiveTitle: rgb(0 225 0);
+	--InactiveTitleText: rgb(0 0 0);
+	--TitleText: rgb(255 255 255);
+	--Menu: rgb(6 39 39);
+	--MenuBar: rgb(207 175 183);
+	--MenuHilight: rgb(0 0 0);
+	--MenuText: rgb(0 0 0);
+	--GrayText: rgb(255 0 0);
+	--Hilight: rgb(96 235 170);
+	--HilightText: rgb(0 0 0);
+	--HotTrackingColor: rgb(0 0 0);
+	--InfoText: rgb(0 0 0);
+	--InfoWindow: rgb(193 204 217);
+}

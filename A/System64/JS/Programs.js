@@ -5,16 +5,27 @@ function hidemenu() {
 }
 
 function About() {
-	let $win = new $EmbedWindow2({
-		src: null,
+	let $win = make_embed_window({
+		src: "./A/Program Files/About/index.html",
 		icons: Window_icons("About"),
 		title: "About",
 		innerWidth: 420,
 		innerHeight: 400
 	}, "About.MXW");
-	about();
 	hidemenu();
 	return new Task($win, "About.MX7");
+}
+
+function Changelog() {
+	let $win = make_embed_window({
+		src: "./CHANGELOG.md",
+		icons: Window_icons("HTML"),
+		title: "Changelog",
+		innerWidth: 420,
+		innerHeight: 400
+	}, "Changelog.MXW");
+	hidemenu();
+	return new Task($win, "Changelog.MX7");
 }
 
 function JSCMD() {
@@ -2313,24 +2324,25 @@ var Create_Icon = function (options) {
 		...options,
 	}));
 };
+
 Create_Icon({
 	title: "This PC",
 	iconID: "my-computer",
-	id: "trashyboi.MDX",
 	open: function () {
 		systemExecuteFile("/");
 	},
 	is_system_folder: true,
 });
+
 Create_Icon({
 	title: "Documents",
 	iconID: "my-documents-folder",
-	id: "trashyguy",
 	open: function () {
 		systemExecuteFile("/A/Documents");
 	},
 	is_system_folder: true,
 });
+
 Create_Icon({
 	title: "Da Hood",
 	iconID: "network",
@@ -2339,14 +2351,7 @@ Create_Icon({
 	},
 	is_system_folder: true,
 });
-Create_Icon({
-	title: "Recycle Bin",
-	iconID: "recycle-bin",
-	open: function () {
-		Explorer("https://www.epa.gov/recycle/");
-	},
-	is_system_folder: true,
-});
+
 Create_Icon({
 	title: "Photos",
 	iconID: "folder",
@@ -2355,66 +2360,31 @@ Create_Icon({
 	},
 	is_system_folder: true,
 });
+
 Create_Icon({
-	title: "Internet Explorer",
-	iconID: "internet-explorer",
-	open: function () {
-		Explorer("https://www.google.com/");
-	}
+	title: "Changelog",
+	iconID: "HTML",
+	open: Changelog
 });
+
 Create_Icon({
 	title: "Paint",
 	iconID: "paint",
 	open: Paint,
 	shortcut: false
 });
-Create_Icon({
-	title: "Minesweeper",
-	iconID: "minesweeper",
-	open: Minesweeper,
-	shortcut: false
-});
-Create_Icon({
-	title: "Sound Recorder",
-	iconID: "speaker",
-	open: SoundRecorder,
-	shortcut: false
-});
+
 Create_Icon({
 	title: "Solitaire",
 	iconID: "Solitaire",
 	open: Solitaire,
 	shortcut: false
 });
+
 Create_Icon({
 	title: "Notepad",
 	iconID: "notepad",
 	open: Notepad,
-	shortcut: false
-});
-Create_Icon({
-	title: "Winamp",
-	iconID: "winamp2",
-	open: openWinamp,
-	shortcut: false
-});
-Create_Icon({
-	title: "3D Pipes",
-	iconID: "pipes",
-	open: Pipes,
-	shortcut: false
-});
-Create_Icon({
-	title: "3D Flower Box",
-	iconID: "pipes",
-	open: FlowerBox,
-	shortcut: false
-});
-
-Create_Icon({
-	title: "Calculator",
-	iconID: "calculator",
-	open: Calculator,
 	shortcut: false
 });
 
@@ -2428,12 +2398,6 @@ Create_Icon({
 	title: "Duke Nukem 3D",
 	iconID: "Duke",
 	open: Duke
-});
-
-Create_Icon({
-	title: "Grand Theft Auto",
-	iconID: "GTA",
-	open: GTA
 });
 
 Create_Icon({

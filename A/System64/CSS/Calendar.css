@@ -269,13 +269,12 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker .ui-datepicker-next {
   position: absolute;
   top: 2px;
-  width: 1.8em;
+  width: 30px;
   height: 1.8em;
 }
 
 .ui-datepicker .ui-datepicker-prev {
   left: 2px;
-  background-color: var(--MenuHilight);
   height: 25px;
   top: 0;
   border: 2px solid var(--ButtonText);
@@ -283,7 +282,6 @@ button.ui-button::-moz-focus-inner {
 
 .ui-datepicker .ui-datepicker-next {
   right: 2px;
-  background-color: var(--MenuHilight);
   height: 25px;
   top: 0;
   border: 2px solid var(--ButtonText);
@@ -294,9 +292,9 @@ button.ui-button::-moz-focus-inner {
   display: inline;
   position: relative;
   bottom: 4px;
-  font-size: 8px;
-  color: var(--ButtonLight);
-  right: 7px;
+  font-size: 14px;
+  color: var(--White);
+  text-align: center;
 }
 
 .ui-datepicker .ui-datepicker-title {
@@ -1025,6 +1023,7 @@ body .ui-tooltip {
   background: var(--ButtonFace);
   font-weight: normal;
   color: var(--White);
+  text-align: center;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
