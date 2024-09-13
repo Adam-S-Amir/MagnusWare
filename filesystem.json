@@ -7,7 +7,7 @@
       "Windows 98 (Virtual x86).url": null
     },
     "Desktop": {
-      "CHANGELOG.log": null,
+      "CHANGELOG.MD": null,
       "Themes": {
         "Ash.themepack": null,
         "Blue.themepack": null,
@@ -4512,6 +4512,7 @@
   "index.html": null,
   "README.md": null,
   "shit.html": null,
+  "TODO.MD": null,
   "trash.html": null,
   "vercel.json": null,
   "Version.html": null
