@@ -7,7 +7,7 @@
       "Windows 98 (Virtual x86).url": null
     },
     "Desktop": {
-      "CREDITS.txt": null,
+      "CHANGELOG.log": null,
       "Themes": {
         "Ash.themepack": null,
         "Blue.themepack": null,
@@ -3808,6 +3808,7 @@
           "High.gif": null,
           "Home.png": null,
           "Intel.png": null,
+          "Kryptonite.png": null,
           "MagnusWare.png": null,
           "Moonroof.png": null,
           "mstile-150x150.png": null,
@@ -4397,7 +4398,7 @@
               "sounds-mp3.js": null,
               "sounds-ogg.js": null
             },
-            "Links": {
+            "Lynx": {
               "agent.js": null,
               "map.png": null,
               "sounds-mp3.js": null,
@@ -4505,7 +4506,6 @@
       "WVLOGO.GIF": null
     }
   },
-  "CHANGELOG.log": null,
   "dir.py": null,
   "filesystem.json": null,
   "images.py": null,

@@ -1,15 +1,12 @@
-
-MagnusWare 5.0 was completely rebuilt from scratch
-
 - [ ] Bigger taskbar
 - [ ] Bigger start button
   - [ ] Bigger start button icon
 - [ ] Taskbar tasks have no title
+  - [ ] Taskbar tasks are now just icons
 - [ ] Refresh button finally works
 - [ ] Titlebar button spacing is more efficient
   - [ ] Titlebar button color width is automatic
 - [ ] Tray items have an on-click effect
-- [ ] Taskbar tasks are now just icons
 
 - [ ] New UI Fonts
 - [ ] New UI theme
@@ -22,8 +19,11 @@ MagnusWare 5.0 was completely rebuilt from scratch
 - [ ] Fixed start button animation
 - [ ] Fixed cursor effect
 
+- [ ] Added CHANGELOG.log to desktop
+
 - [ ] Refined settings page
 
 - [ ] Removed text border on unfocused icon titles
 - [ ] Removed Build ID from tab title
 - [ ] Removed old Explorer border styling
+- [ ] Removed CREDITS.txt

@@ -40,6 +40,7 @@ FolderView.SORT_MODES = {
 
 var file_extension_icons = {
 	"txt": "notepad-file",
+	"log": "notepad-file",
 	"py": "python",
 	"md": "html",
 	"json": "notepad-file",
