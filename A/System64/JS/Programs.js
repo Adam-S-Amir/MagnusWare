@@ -689,9 +689,9 @@ function TNT() {
 
 function Sixty() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom64/64.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom 64/index.html",
 		icons: Window_icons("64"),
-		title: "Doom64",
+		title: "Doom 64",
 		innerWidth: 665,
 		innerHeight: 436
 	}, "Doom-64.MXW");
