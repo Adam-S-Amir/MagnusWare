@@ -687,7 +687,7 @@ function TNT() {
 	return new Task($win, "TNT-Evilution.MX7");
 }
 
-function Sixty() {
+function Doom64() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%2064/index.html",
 		icons: Window_icons("Doom 64"),
@@ -699,7 +699,7 @@ function Sixty() {
 	return new Task($win, "Doom-64.MX7");
 }
 
-function Zero() {
+function DoomZero() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20Zero/index.html",
 		icons: Window_icons("Doom Zero"),
@@ -747,7 +747,7 @@ function QuakeM2() {
 	return new Task($win, "Quake-Mission-Pack-II.MX7");
 }
 
-function Quake2() {
+function QuakeII() {
 	let $win = make_embed_window({
 		src: "https://adam-s-amir.github.io/Quake2-PlayN-MagnusPort/index.html",
 		icons: Window_icons("Quake II"),
@@ -759,7 +759,7 @@ function Quake2() {
 	return new Task($win, "Quake-II.MX7");
 }
 
-function Shool() {
+function DoomSchoolShooterEdition() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20II%20School%20Shooter%20Edition/index.html",
 		icons: Window_icons("School"),
@@ -771,7 +771,7 @@ function Shool() {
 	return new Task($win, "Doom-School-Shooter-Edition.MX7");
 }
 
-function Spear() {
+function WolfensteinSpearOfDestiny() {
 	let $win = make_embed_window({
 		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Wolfenstein%20Spear%20of%20Destiny/index.html",
 		icons: Window_icons("Spear"),
