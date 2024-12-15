@@ -2277,26 +2277,26 @@ Create_Icon({
 
 Create_Icon({
 	title: "Duke Nukem 3D",
-	iconID: "Duke",
-	open: Duke
+	iconID: "Duke Nukem 3D",
+	open: DukeNukem3D
 });
 
 Create_Icon({
 	title: "Oregon Trail",
-	iconID: "Trail",
-	open: Trail
+	iconID: "Oregon Trail",
+	open: OregonTrail
 });
 
 Create_Icon({
-	title: "Doom64",
-	iconID: "64",
-	open: Sixty
+	title: "Doom 64",
+	iconID: "Doom 64",
+	open: Doom64
 });
 
 Create_Icon({
 	title: "Doom Zero",
-	iconID: "Zero",
-	open: Zero
+	iconID: "Doom Zero",
+	open: DoomZero
 });
 
 Create_Icon({
@@ -2306,15 +2306,15 @@ Create_Icon({
 });
 
 Create_Icon({
-	title: "Quake 2",
-	iconID: "Quake2",
-	open: Quake2
+	title: "Quake II",
+	iconID: "Quake II",
+	open: QuakeII
 });
 
 Create_Icon({
-	title: "Wolf 3D",
-	iconID: "Wolf",
-	open: Wolf3D
+	title: "Wolfenstein 3D",
+	iconID: "Wolfenstein 3D",
+	open: Wolfenstein3D
 });
 
 folder_view.arrange_icons();
