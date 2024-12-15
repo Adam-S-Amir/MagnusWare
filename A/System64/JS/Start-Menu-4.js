@@ -189,7 +189,7 @@ var menuItems = [
     ["||Flappy<br>2048 2.0", "javascript:Two();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
     ["|FPS Games", "", `${iconsAtTwoSizes("FPS", size)}`, "", "", "", "", "", "", "", "",],
     ["||Ultimate<br>Doom", "javascript:Doom();", `${iconsAtTwoSizes("Doom", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Doom 2", "javascript:Doom2();", `${iconsAtTwoSizes("Doom2", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Doom 2", "javascript:DoomII();", `${iconsAtTwoSizes("Doom II", size)}`, "", "", "", "", "", "", "", "",],
     ["||Ultimate<br>Doom 2", "javascript:UD2();", `${iconsAtTwoSizes("UD2", size)}`, "", "", "", "", "", "", "", "",],
     ["||Master Levels<br>for Doom 2", "javascript:Master();", `${iconsAtTwoSizes("Master", size)}`, "", "", "", "", "", "", "", "",],
     ["||Brutal Doom 2", "javascript:BDoom2();", `${iconsAtTwoSizes("Brutal", size)}`, "", "", "", "", "", "", "", "",],

@@ -458,47 +458,47 @@ function Box() {
 	return new Task($win, "Boxel-Rebound.MX7");
 }
 
-function Doom2() {
+function DoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom2/Doom2.exe.html",
-		icons: Window_icons("Doom2"),
-		title: "Doom 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20II/index.html",
+		icons: Window_icons("Doom II"),
+		title: "Doom II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Doom-2.MXW");
+	}, "Doom-II.MXW");
 	hidemenu();
-	return new Task($win, "Doom-2.MX7");
+	return new Task($win, "Doom-II.MX7");
 }
 
-function Master() {
+function MasterLevelsForDoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Master/Master.exe.html",
-		icons: Window_icons("Master"),
-		title: "The Master Levels for Doom 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Master%20Levels%20for%20Doom%20II/index.html",
+		icons: Window_icons("Master Levels for Doom II"),
+		title: "The Master Levels for Doom II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "The-Master-Levels-for-Doom-2.MXW");
+	}, "The-Master-Levels-for-Doom-II.MXW");
 	hidemenu();
-	return new Task($win, "The-Master-Levels-for-Doom-2.MX7");
+	return new Task($win, "The-Master-Levels-for-Doom-II.MX7");
 }
 
-function UD2() {
+function UltimateDoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/UD2/UD2.exe.html",
-		icons: Window_icons("UD2"),
-		title: "The Ultimate Doom 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Ultimate%20Doom%20II/index.html",
+		icons: Window_icons("Ultimate Doom II"),
+		title: "The Ultimate Doom II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "The-Ultimate-Doom-2.MXW");
+	}, "The-Ultimate-Doom-II.MXW");
 	hidemenu();
-	return new Task($win, "The-Ultimate-Doom-2.MX7");
+	return new Task($win, "The-Ultimate-Doom-II.MX7");
 }
 
 
-function StarDoom() {
+function StarWarsDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/StarWars/StarWars.exe.html",
-		icons: Window_icons("SDoom"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/StarWars%20Doom/index.html",
+		icons: Window_icons("StarWars Doom"),
 		title: "Star Wars Doom",
 		innerWidth: 665,
 		innerHeight: 436
@@ -507,10 +507,10 @@ function StarDoom() {
 	return new Task($win, "Star-Wars-Doom.MX7");
 }
 
-function BatDoom() {
+function BatmanDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Batman/Batman.exe.html",
-		icons: Window_icons("Batman"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Batman%20Doom/index.html",
+		icons: Window_icons("Batman Doom"),
 		title: "Batman Doom",
 		innerWidth: 665,
 		innerHeight: 436
@@ -519,22 +519,22 @@ function BatDoom() {
 	return new Task($win, "Batman-Doom.MX7");
 }
 
-function BDoom2() {
+function BrutalDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Brutal/Brutal.exe.html",
-		icons: Window_icons("BDoom"),
-		title: "Brutal Doom 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Brutal%20Doom/index.html",
+		icons: Window_icons("Brutal Doom"),
+		title: "Brutal Doom",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Brutal-Doom-2.MXW");
+	}, "Brutal-Doom.MXW");
 	hidemenu();
-	return new Task($win, "Brutal-Doom-2.MX7");
+	return new Task($win, "Brutal-Doom.MX7");
 }
 
-function Nine() {
+function Windows95() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/95/95.exe.html",
-		icons: Window_icons("95"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Windows%2095/index.html",
+		icons: Window_icons("Windows 95"),
 		title: "Windows 95",
 		innerWidth: 665,
 		innerHeight: 436
@@ -543,10 +543,10 @@ function Nine() {
 	return new Task($win, "Windows-95.MX7");
 }
 
-function Duke() {
+function DukeNukem3D() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Duke/Duke.exe.html",
-		icons: Window_icons("Duke"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Duke%20Nukem%3D/index.html",
+		icons: Window_icons("Duke Nukem 3D"),
 		title: "Duke Nukem 3D",
 		innerWidth: 665,
 		innerHeight: 436
@@ -557,7 +557,7 @@ function Duke() {
 
 function GTA() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/GTA/GTA.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/GTA/index.html",
 		icons: Window_icons("GTA"),
 		title: "Grand Theft Auto",
 		innerWidth: 665,
@@ -567,22 +567,22 @@ function GTA() {
 	return new Task($win, "Grand-Theft-Auto.MX7");
 }
 
-function DTrail() {
+function OregonTrailDeluxe() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Trail/Oregon.exe.html",
-		icons: Window_icons("Oregon"),
-		title: "Deluxe Oregon Trail",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Oregon%20Trail%20Deluxe/index.html",
+		icons: Window_icons("Oregon Trail Deluxe"),
+		title: "Oregon Trail Deluxe",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Deluxe-Oregon-Trail.MXW");
+	}, "Oregon-Trail-Deluxe.MXW");
 	hidemenu();
-	return new Task($win, "Deluxe-Oregon-Trail.MX7");
+	return new Task($win, "Oregon-Trail-Deluxe.MX7");
 }
 
-function Trail() {
+function OregonTrail() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Trail2/Oregon.exe.html",
-		icons: Window_icons("Trail"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Oregon%20Trail/index.html",
+		icons: Window_icons("Oregon Trail"),
 		title: "Oregon Trail",
 		innerWidth: 665,
 		innerHeight: 436
@@ -591,10 +591,10 @@ function Trail() {
 	return new Task($win, "Oregon-Trail.MX7");
 }
 
-function Castle() {
+function CastleWolfenstein() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/CW/CW.exe.html",
-		icons: Window_icons("Castle"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Castle%20Wolfenstein/index.html",
+		icons: Window_icons("Castle Wolfenstein"),
 		title: "Castle Wolfenstein",
 		innerWidth: 665,
 		innerHeight: 436
@@ -603,10 +603,10 @@ function Castle() {
 	return new Task($win, "Castle-Wolfenstein.MX7");
 }
 
-function Doom() {
+function UltimateDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom/Doom.exe.html",
-		icons: Window_icons("Doom"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Ultimate%20Doom/index.html",
+		icons: Window_icons("Ultimate Doom"),
 		title: "Ultimate Doom",
 		innerWidth: 665,
 		innerHeight: 436
@@ -617,7 +617,7 @@ function Doom() {
 
 function Heretic() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Heretic/Heretic.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Heretic/index.html",
 		icons: Window_icons("Heretic"),
 		title: "Heretic",
 		innerWidth: 665,
@@ -627,21 +627,21 @@ function Heretic() {
 	return new Task($win, "Heretic.MX7");
 }
 
-function Heretic2() {
+function HereticII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Heretic2/Heretic2.exe.html",
-		icons: Window_icons("Heretic2"),
-		title: "Heretic 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Heretic%20II/index.html",
+		icons: Window_icons("Heretic II"),
+		title: "Heretic II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Heretic-2.MXW");
+	}, "Heretic-II.MXW");
 	hidemenu();
-	return new Task($win, "Heretic-2.MX7");
+	return new Task($win, "Heretic-II.MX7");
 }
 
 function Hexen() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Hexen/Hexen.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Hexen/index.html",
 		icons: Window_icons("Hexen"),
 		title: "Hexen",
 		innerWidth: 665,
@@ -651,11 +651,11 @@ function Hexen() {
 	return new Task($win, "Hexen.MX7");
 }
 
-function Plutonia() {
+function ThePlutoniaExperiment() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Plutonia/Plutonia.exe.html",
-		icons: Window_icons("Plutonia"),
-		title: "The-Plutonia-Experiment.MXW",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/The%20Plutonia%20Experiment/index.html",
+		icons: Window_icons("The Plutonia Experiment"),
+		title: "The Plutonia Experiment",
 		innerWidth: 665,
 		innerHeight: 436
 	}, "The-Plutonia-Experiment.MXW");
@@ -663,22 +663,22 @@ function Plutonia() {
 	return new Task($win, "The-Plutonia-Experiment.MX7");
 }
 
-function Plutonia2() {
+function ThePlutoniaExperimentII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Plutonia2/PL2.exe.html",
-		icons: Window_icons("Plutonia2"),
-		title: "The Plutonia Experiment 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/The%20Plutonia%20Experiment%20II/index.html",
+		icons: Window_icons("The Plutonia Experiment II"),
+		title: "The Plutonia Experiment II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "The-Plutonia-Experiment-2.MXW");
+	}, "The-Plutonia-Experiment-II.MXW");
 	hidemenu();
-	return new Task($win, "The-Plutonia-Experiment-2.MX7");
+	return new Task($win, "The-Plutonia-Experiment-II.MX7");
 }
 
 function TNT() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/TNT/TNT.exe.html",
-		icons: Window_icons("FDoom"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/TNT%20Evilution/index.html",
+		icons: Window_icons("TNT Evilution"),
 		title: "TNT Evilution",
 		innerWidth: 665,
 		innerHeight: 436
@@ -689,9 +689,9 @@ function TNT() {
 
 function Sixty() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom64/64.exe.html",
-		icons: Window_icons("64"),
-		title: "Doom64",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%2064/index.html",
+		icons: Window_icons("Doom 64"),
+		title: "Doom 64",
 		innerWidth: 665,
 		innerHeight: 436
 	}, "Doom-64.MXW");
@@ -701,19 +701,19 @@ function Sixty() {
 
 function Zero() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Zero/Zero.exe.html",
-		icons: Window_icons("Zero"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20Zero/index.html",
+		icons: Window_icons("Doom Zero"),
 		title: "Doom Zero",
 		innerWidth: 665,
 		innerHeight: 436
 	}, "Doom-Zero.MXW");
 	hidemenu();
-	return new Task($win, "Doom-64.MX7");
+	return new Task($win, "Doom-Zero.MX7");
 }
 
 function Quake() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Quake/Quake.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Quake/index.html",
 		icons: Window_icons("Quake"),
 		title: "Quake",
 		innerWidth: 665,
@@ -725,62 +725,62 @@ function Quake() {
 
 function QuakeM1() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/QuakeM1/Quake.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Quake%20Mission%20Pack%20I/index.html",
 		icons: Window_icons("Q1M"),
-		title: "Quake Mission Pack 1",
+		title: "Quake Mission Pack I",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Quake-Mission-Pack-1.MXW");
+	}, "Quake-Mission-Pack-I.MXW");
 	hidemenu();
-	return new Task($win, "Quake-Mission-Pack-1.MX7");
+	return new Task($win, "Quake-Mission-Pack-I.MX7");
 }
 
 function QuakeM2() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/QuakeM2/Quake.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Quake%20Mission%20Pack%20II/index.html",
 		icons: Window_icons("Q1M"),
-		title: "Quake Mission Pack 2",
+		title: "Quake Mission Pack II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Quake-Mission-Pack-2.MXW");
+	}, "Quake-Mission-Pack-II.MXW");
 	hidemenu();
-	return new Task($win, "Quake-Mission-Pack-2.MX7");
+	return new Task($win, "Quake-Mission-Pack-II.MX7");
 }
 
 function Quake2() {
 	let $win = make_embed_window({
 		src: "https://adam-s-amir.github.io/Quake2-PlayN-MagnusPort/index.html",
-		icons: Window_icons("Quake2"),
-		title: "Quake 2",
+		icons: Window_icons("Quake II"),
+		title: "Quake II",
 		innerWidth: 1000,
 		innerHeight: 500
-	}, "Quake-2.MXW");
+	}, "Quake-II.MXW");
 	hidemenu();
-	return new Task($win, "Quake-2.MX7");
+	return new Task($win, "Quake-II.MX7");
 }
 
 function Shool() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/School/School.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20II%20School%20Shooter%20Edition/index.html",
 		icons: Window_icons("School"),
 		title: "Doom: School Shooter Edition",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Doom:-School-Shooter-Edition.MXW");
+	}, "Doom-School-Shooter-Edition.MXW");
 	hidemenu();
-	return new Task($win, "Doom:-School-Shooter-Edition.MX7");
+	return new Task($win, "Doom-School-Shooter-Edition.MX7");
 }
 
 function Spear() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Spear/Spear.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Wolfenstein%20Spear%20of%20Destiny/index.html",
 		icons: Window_icons("Spear"),
-		title: "Spear of Destiny",
+		title: "Wolfenstein: Spear of Destiny",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Spear-of-Destiny.MXW");
+	}, "Wolfenstein-Spear-of-Destiny.MXW");
 	hidemenu();
-	return new Task($win, "Spear-of-Destiny.MX7");
+	return new Task($win, "Wolfenstein-Spear-of-Destiny.MX7");
 }
 
 function Rekkr() {
@@ -797,7 +797,7 @@ function Rekkr() {
 
 function Strife() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Strife/Strife.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Strife/index.html",
 		icons: Window_icons("Strife"),
 		title: "Strife",
 		innerWidth: 665,
@@ -807,154 +807,47 @@ function Strife() {
 	return new Task($win, "Strife.MX7");
 }
 
-function FreeDm() {
+// function FreeDm() {
+// 	let $win = make_embed_window({
+// 		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/FreeDM/FreeDM.exe.html",
+// 		icons: Window_icons("FreeDoom"),
+// 		title: "FreeDM",
+// 		innerWidth: 665,
+// 		innerHeight: 436
+// 	}, "FreeDoom.MXW");
+// 	hidemenu();
+// 	return new Task($win, "FreeDoom.MX7");
+// }
+
+function FreeDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/FreeDM/FreeDM.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/FreeDoom%20Phase%20I/index.html",
 		icons: Window_icons("FreeDoom"),
-		title: "FreeDM",
+		title: "FreeDoom: Phase I",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "FreeDoom.MXW");
+	}, "FreeDoom-Phase-I.MXW");
 	hidemenu();
-	return new Task($win, "FreeDoom.MX7");
+	return new Task($win, "FreeDoom-Phase-I.MX7");
 }
 
-function Free1() {
+function FreeDoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/free1/FreeDoom.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/FreeDoom%20Phase%20II/index.html",
 		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: Phase 1",
+		title: "FreeDoom: Phase II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "FreeDoom:-Phase-1.MXW");
+	}, "FreeDoom-Phase-II.MXW");
 	hidemenu();
-	return new Task($win, "FreeDoom:-Phase-1.MX7");
+	return new Task($win, "FreeDoom-Phase-II.MX7");
 }
 
-function Free2() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/free2/FreeDoom2.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: Phase 2",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom:-Phase-2.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom:-Phase-2.MX7");
-}
 
-function FDoom() {
+function Wolfenstein3D() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom/FDoom.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "The Ultimate FreeDoom",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "The-Ultimate-FreeDoom.MXW");
-	hidemenu();
-	return new Task($win, "The-Ultimate-FreeDoom.MX7");
-}
-
-function FDoom2() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom2/FDoom2.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom Phase 2: Hell on Earth",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom-Phase-2:-Hell-on-Earth.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom-Phase-2:-Hell-on-Earth.MX7");
-}
-
-function FDoom64() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom64/F64.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom 64",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom-64.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom-64.MX7");
-}
-
-function FTNT() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/TNT/FTNT.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: TNT Evilution",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom:-TNT-Evilution.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom:-TNT-Evilution.MX7");
-}
-
-function FPL() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Plutonia/FPlutonia.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: The Plutonia Experiment",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom:-The-Plutonia-Experiment.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom:-The-Plutonia-Experiment.MX7");
-}
-
-function FPL2() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Plutonia2/FPl2.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: The Plutonia Experiment Phase 2",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom:-The-Plutonia-Experiment-Phase-2.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom:-The-Plutonia-Experiment-Phase-2.MX7");
-}
-
-function FChex() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex1/FChex.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: Chex Quest Phase 1",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom:-Chex-Quest-Phase-1.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom:-Chex-Quest-Phase-1.MX7");
-}
-
-function FChex2() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex2/FChex.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: Chex Quest Phase 2",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom:-Chex-Quest-Phase-2.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom:-Chex-Quest-Phase-2.MX7");
-}
-
-function FChex3() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex3/FChex.exe.html",
-		icons: Window_icons("FreeDoom"),
-		title: "FreeDoom: Chex Quest Phase 3",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "FreeDoom:-Chex-Quest-Phase-3.MXW");
-	hidemenu();
-	return new Task($win, "FreeDoom:-Chex-Quest-Phase-3.MX7");
-}
-
-function Wolf3D() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Wolf3D/Wolf.exe.html",
-		icons: Window_icons("Wolf"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Wolfenstein%203D/index.html",
+		icons: Window_icons("Wolfenstein 3D"),
 		title: "Wolfenstein 3D",
 		innerWidth: 665,
 		innerHeight: 436
@@ -965,80 +858,68 @@ function Wolf3D() {
 
 function BTSX() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/BTSX/BTSX.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/BTSX%20I/index.html",
 		icons: Window_icons("BTSX"),
-		title: "Back to Saturn X",
+		title: "Back to Saturn X I",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Back-to-Saturn-X.MXW");
+	}, "Back-to-Saturn-X-I.MXW");
 	hidemenu();
-	return new Task($win, "Back-to-Saturn-X.MX7");
+	return new Task($win, "Back-to-Saturn-X-I.MX7");
 }
 
 function BTSX2() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/BTSX2/BTSX2.exe.html",
-		icons: Window_icons("BTSX"),
-		title: "Back to Saturn X 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/BTSX%20II/index.html",
+		icons: Window_icons("BTSX II"),
+		title: "Back to Saturn X II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Back-to-Saturn-X-2.MXW");
+	}, "Back-to-Saturn-X-II.MXW");
 	hidemenu();
-	return new Task($win, "Back-to-Saturn-X-2.MX7");
+	return new Task($win, "Back-to-Saturn-X-II.MX7");
 }
 
-function Chex1() {
+function ChexQuestI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex1/Chex.exe.html",
-		icons: Window_icons("Chex"),
-		title: "Chex Quest 1",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex%20Quest%20I/index.html",
+		icons: Window_icons("Chex Quest I"),
+		title: "Chex Quest I",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Chex-Quest-1.MXW");
+	}, "Chex-Quest-I.MXW");
 	hidemenu();
-	return new Task($win, "Chex-Quest-1.MX7");
+	return new Task($win, "Chex-Quest-I.MX7");
 }
 
-function Chex2() {
+function ChexQuestII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex2/Chex.exe.html",
-		icons: Window_icons("Chex2"),
-		title: "Chex Quest 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex%20Quest%20II/index.html",
+		icons: Window_icons("Chex Quest II"),
+		title: "Chex Quest II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Chex-Quest-2.MXW");
+	}, "Chex-Quest-II.MXW");
 	hidemenu();
-	return new Task($win, "Chex-Quest-2.MX7");
+	return new Task($win, "Chex-Quest-II.MX7");
 }
 
-function Chex3() {
+function ChexQuestIII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex3/Chex.exe.html",
-		icons: Window_icons("Chex3"),
-		title: "Chex Quest 3",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex%20Quest%20III/index.html",
+		icons: Window_icons("Chex Quest III"),
+		title: "Chex Quest III",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Chex-Quest-3.MXW");
+	}, "Chex-Quest-III.MXW");
 	hidemenu();
-	return new Task($win, "Chex-Quest-3.MX7");
+	return new Task($win, "Chex-Quest-III.MX7");
 }
 
-function Doom2D() {
+function MarioDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom2D/Doom2D.exe.html",
-		icons: Window_icons("2D"),
-		title: "Doom 2D",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "Doom-2D.MXW");
-	hidemenu();
-	return new Task($win, "Doom-2D.MX7");
-}
-
-function Dario1() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Mario/Mario.exe.html",
-		icons: Window_icons("Dario"),
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Mario%20Doom/index.html",
+		icons: Window_icons("Mario Doom"),
 		title: "Mario Doom",
 		innerWidth: 665,
 		innerHeight: 436
@@ -1047,16 +928,16 @@ function Dario1() {
 	return new Task($win, "Mario-Doom.MX7");
 }
 
-function Dario2() {
+function MarioDoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Mario2/Mario2.exe.html",
-		icons: Window_icons("Dario"),
-		title: "Mario Doom 2",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Mario%20Doom%20II/index.html",
+		icons: Window_icons("Mario Doom"),
+		title: "Mario Doom II",
 		innerWidth: 665,
 		innerHeight: 436
-	}, "Mario-Doom-2.MXW");
+	}, "Mario-Doom-II.MXW");
 	hidemenu();
-	return new Task($win, "Mario-Doom-2.MX7");
+	return new Task($win, "Mario-Doom-II.MX7");
 }
 
 function CDG() {
@@ -1121,7 +1002,7 @@ function D4() {
 
 function SMWDX() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/SMWDX/SMWDX.exe.html",
+		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Super%20Mario%20World%20Deluxe/index.html",
 		icons: Window_icons("Mario"),
 		title: "Super Mario World Deluxe",
 		innerWidth: 665,
