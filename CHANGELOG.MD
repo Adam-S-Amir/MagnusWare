@@ -28,6 +28,8 @@
 - [ ] Added CHANGELOG.log to desktop
 
 - [ ] Refined settings page
+- [ ] Refined DOS titles
+- [ ] Refined image searching
 
 - [ ] Removed text border on unfocused icon titles
 - [ ] Removed Build ID from tab title
