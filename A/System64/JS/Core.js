@@ -61,6 +61,9 @@ if (document.getElementById("splash-screen")) {
     loadCSSSequentially(0);
 
     let scriptUrls = [
+        "Device.js",
+        "Notifications.js",
+        "Kernel.js",
         "TaskManager.js",
         "Program-Data.js",
         "Index.js",
@@ -70,7 +73,6 @@ if (document.getElementById("splash-screen")) {
         "MenuBar.js",
         "Window.js",
         "X-Window.js",
-        "Notifications.js",
         "Filesystem-Setup.js",
         "Embed-Windows.js",
         "Task.js",
@@ -85,7 +87,6 @@ if (document.getElementById("splash-screen")) {
         "Cursor.js",
         "Time.js",
         "StoreFront.js",
-        "Device.js",
         "Widgets.js",
         "Update.js",
         "System.js",
