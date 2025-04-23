@@ -41,7 +41,7 @@ let right = [
         <button id='bgOutrun' onclick='bgOutrun()'>Outrun</button>
         <button id='bgVerticle' onclick='bgVerticle()'>Verticle</button>
         <button id='bgWaves' onclick='bgWaves()'>Waves</button>
-        <button id='bgWindows1' onclick='bgWindows1()'>Windows 1.0</button>
+        <button id='bgWindows1' onclick='bgWindows1()'>MagnusSoft 1.0</button>
         <button id='bgWindows10' onclick='bgWindows10()'>Windows 10</button>
         <button id='bgWindows95' onclick='bgWindows95()'>Windows 95</button>
         <button id='bgWindows95C' onclick='bgWindows95C()'>Windows 95 Candy Edition</button>
@@ -235,7 +235,7 @@ function hideinfo() {
 
 function bgBliss() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Bliss.png);";
+        "background-image: url(./A/System64/Images/Common/Bliss.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgBliss()");
@@ -243,7 +243,7 @@ function bgBliss() {
 
 function bgCandy() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Candy.png);";
+        "background-image: url(./A/System64/Images/Common/Candy.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgCandy()");
@@ -251,7 +251,7 @@ function bgCandy() {
 
 function bgClouds() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/clouds.png);";
+        "background-image: url(./A/System64/Images/Common/Clouds.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgClouds()");
@@ -259,7 +259,7 @@ function bgClouds() {
 
 function bgGlacier() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/glacier.png);";
+        "background-image: url(./A/System64/Images/Common/Glacier.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgGlacier()");
@@ -267,7 +267,7 @@ function bgGlacier() {
 
 function bgGrass() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/grass.png);";
+        "background-image: url(./A/System64/Images/Common/Grass.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgGrass()");
@@ -275,7 +275,7 @@ function bgGrass() {
 
 function bgHome() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/home.png);";
+        "background-image: url(./A/System64/Images/Common/Home.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgHome()");
@@ -283,7 +283,7 @@ function bgHome() {
 
 function bgIntel() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/intel.png);";
+        "background-image: url(./A/System64/Images/Common/Intel.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgIntel()");
@@ -327,7 +327,7 @@ function bgInterstellar() {
 
 function bgNebula() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/nebula.png);";
+        "background-image: url(./A/System64/Images/Common/Nebula.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgNebula()");
@@ -335,7 +335,7 @@ function bgNebula() {
 
 function bgOutrun() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/outrun.png);";
+        "background-image: url(./A/System64/Images/Common/Outrun.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgOutrun()");
@@ -343,7 +343,7 @@ function bgOutrun() {
 
 function bgVerticle() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/verticle.png);";
+        "background-image: url(./A/System64/Images/Common/Verticle.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgVerticle()");
@@ -351,7 +351,7 @@ function bgVerticle() {
 
 function bgWaves() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Waves.png);";
+        "background-image: url(./A/System64/Images/Common/Waves.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgWaves()");
@@ -359,7 +359,7 @@ function bgWaves() {
 
 function bgWindows1() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/1.0.png);";
+        "background-image: url(./A/System64/Images/Common/1.0.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgWindows1()");
@@ -367,7 +367,7 @@ function bgWindows1() {
 
 function bgWindows10() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/10.png);";
+        "background-image: url(./A/System64/Images/Common/10.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgWindows10()");
@@ -375,7 +375,7 @@ function bgWindows10() {
 
 function bgWindows95() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/95.png);";
+        "background-image: url(./A/System64/Images/Common/95.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgWindows95()");
@@ -383,7 +383,7 @@ function bgWindows95() {
 
 function bgWindows95C() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/95C.png);";
+        "background-image: url(./A/System64/Images/Common/95C.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgWindows95C()");
@@ -391,7 +391,7 @@ function bgWindows95C() {
 
 function bgWindows98() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/9.8.png);";
+        "background-image: url(./A/System64/Images/Common/9.8.png);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "bgWindows98()");
@@ -399,7 +399,7 @@ function bgWindows98() {
 
 function bgMoonroof() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Moonroof.png);";
+        "background-image: url(./A/System64/Images/Common/Moonroof.png);";
     // background-image: linear-gradient(red, yellow);
     canvas.remove();
     localStorage.removeItem("bgz");
@@ -462,7 +462,7 @@ function bgOrb() {
 
 function bgDEFAULT() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Kryptonite.png);";
+        "background-image: url(./A/System64/Images/Common/Kryptonite.png);";
     // background-image: linear-gradient(red, yellow);
     canvas.remove();
     localStorage.removeItem("bgz");
@@ -471,7 +471,7 @@ function bgDEFAULT() {
 
 function lv0() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Abstract.gif);";
+        "background-image: url(./A/System64/Images/Common/Abstract.gif);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "lv0()");
@@ -479,7 +479,7 @@ function lv0() {
 
 function lv1() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Beach.gif);";
+        "background-image: url(./A/System64/Images/Common/Beach.gif);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "lv1()");
@@ -487,7 +487,7 @@ function lv1() {
 
 function lv2() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Clouds.gif);";
+        "background-image: url(./A/System64/Images/Common/Clouds.gif);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "lv2()");
@@ -495,7 +495,7 @@ function lv2() {
 
 function lv3() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Fast-Paint.gif);";
+        "background-image: url(./A/System64/Images/Common/Fast-Paint.gif);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "lv3()");
@@ -503,7 +503,7 @@ function lv3() {
 
 function lv4() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Glitch.gif);";
+        "background-image: url(./A/System64/Images/Common/Glitch.gif);";
     canvas.remove();
     localStorage.removeItem("bgz");
     // @import compass @function multiple-box-shadow ($n) $value: '#{random(2000)}px #{random(20000)}px #FFF' @for $i from 2 through $n $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF' @return unquote($value) $shadows-small:  multiple-box-shadow(700) $shadows-medium: multiple-box-shadow(200) $shadows-big:    multiple-box-shadow(100) html height: 100% background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%) overflow: hidden #stars width: 1px height: 1px background: transparent box-shadow: $shadows-small animation			: animStar 50s linear infinite &:after content: " " position: absolute top: 2000px width: 1px height: 1px background: transparent box-shadow: $shadows-small #stars2 width: 2px height: 2px background: transparent box-shadow: $shadows-medium animation			: animStar 100s linear infinite &:after content: " " position: absolute top: 2000px width: 2px height: 2px background: transparent box-shadow: $shadows-medium #stars3 width: 3px height: 3px background: transparent box-shadow: $shadows-big animation			: animStar 150s linear infinite &:after content: " " position: absolute top: 2000px width: 3px height: 3px background: transparent box-shadow: $shadows-big @keyframes animStar from transform: translateY(0px) to transform: translateY(-2000px)
@@ -512,7 +512,7 @@ function lv4() {
 
 function lv5() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/High.gif);";
+        "background-image: url(./A/System64/Images/Common/High.gif);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "lv5()");
@@ -520,7 +520,7 @@ function lv5() {
 
 function lv6() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/River.gif);";
+        "background-image: url(./A/System64/Images/Common/River.gif);";
     canvas.remove();
     localStorage.removeItem("bgz");
     localStorage.setItem("bgz", "lv6()");
@@ -528,7 +528,7 @@ function lv6() {
 
 function lv7() {
     document.getElementById("Image").style =
-        "background-image: url(./A/System64/Images/common/Space-Paint.gif);";
+        "background-image: url(./A/System64/Images/Common/Space-Paint.gif);";
 
     canvas.remove();
     localStorage.removeItem("bgz");

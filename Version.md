@@ -69,8 +69,3 @@
 ~ ~
 ? ?
 -->
-
-<!--
-	https://icons8.com/icons/3d-fluency
-	https://icons8.com/icons/fluency
--->

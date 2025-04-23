@@ -65,11 +65,12 @@ let ContextMenu = [`
 		<li onclick="window.open('https://google.com', '_blank')"><a id="New-Tab">New-Tab</a></li>
 		<li onclick="window.print();"><a id="Print">Print</a></li>
 		<li class="group" onclick="viewSource();"><a id="View-Source">View Page<br>Source</a></li>
-		<li onclick="GadgetsMenu();"><a id="Gadgets">Gadgets</a></li>
 		<li onclick="ChangeAgent();"><a id="Gadgets">Change Clippy<br>Agent</a></li>
 	</ul>
 </div>
-`]
+`
+// 		<li onclick="GadgetsMenu();"><a id="Gadgets">Gadgets</a></li>
+]
 
 const cmenu = document.createElement('div');
 cmenu.classList.add('cmenu');
@@ -87,13 +88,44 @@ desktop.appendChild(cmenu);
 // document.body.insertBefore(GameDiv, GadgetDiv);
 
 function viewSource() {
-    let source = "<html>";
-    source += document.getElementsByTagName('html')[0].innerHTML;
-    source += "</html>";
-    source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    source = "<pre style='background-color:black;color:blue;'>" + source + "</pre>";
-    sourceWindow = window.open('', '_blank');
-    sourceWindow.document.write(source);
+    let html = document.documentElement.outerHTML;
+    let escaped = html
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    const sourceHTML = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <title>Page Source</title>
+            <style>
+                body {
+                    margin: 0;
+                    background-color: azure;
+                    color: black;
+                    font-family: Consolas, monospace;
+                    font-size: 12px;
+                    /* line-height: 1.5; */
+                    padding: 1rem;
+                    overflow: auto;
+                }
+                pre {
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
+                }
+                ::selection {
+                    background-color: #007acc;
+                    color: white;
+                }
+            </style>
+        </head>
+        <body>
+            <pre>${escaped}</pre>
+        </body>
+        </html>
+    `;
+    const sourceWindow = window.open('', '_blank');
+    sourceWindow.document.open();
+    sourceWindow.document.write(sourceHTML);
     sourceWindow.document.close();
     if (window.focus) {
         sourceWindow.focus();

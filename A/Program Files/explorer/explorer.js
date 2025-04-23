@@ -715,11 +715,12 @@ ${doc.documentElement.outerHTML}`;
 									background: var(--Background); /* needed for mix-blend-mode */
 									color: var(--WindowText);
 								}
-								.desktop-icon .title {
+								.folder-view[data-view-mode="LARGE_ICONS"] .desktop-icon .title {
 									background: transparent;
 									/* mix-blend-mode seems to need a background (for the dotted focus effect) */
 									color: var(--WindowText);
-									font-family: "Verdana";
+									font-family: Arial, Helvetica, sans-serif;
+									font-size: 11px;
 								}
 							</style>
 						`);
@@ -982,7 +983,9 @@ function can_go_up() {
 }
 
 function go_home() {
-	go_to("https://github.com/Adam-S-Amir/"); // My personal homepage; I might use a search engine, but they don't support iframes
+	go_to("/");
+	// Routes to This PC
+	// might use a search engine, but they don't support iframe/embed tags
 }
 
 function executeFile(file_path) {

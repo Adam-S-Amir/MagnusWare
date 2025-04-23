@@ -18,7 +18,8 @@ body,
     outline: none;
 }
 
-html,body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -401,7 +402,7 @@ div#storefront-right-other>button>img {
     margin-top: 65px;
 }
 
-.sys-buttons > button {
+.sys-buttons>button {
     margin-bottom: 5px;
     width: 200px;
 }
@@ -454,7 +455,7 @@ div#storefront-right-other>button>img {
     position: fixed;
     bottom: 40px;
     right: 0;
-    /* width: 270px; */
+
 }
 
 #Wifi {
@@ -504,24 +505,116 @@ div#storefront-right-other>button>img {
     align-items: left;
 }
 
-#range {
+.jukebox-body button {
+    border: var(--ButtonText) 1px solid;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+}
+
+.range {
+    -webkit-appearance: none;
+    background-color: var(--ButtonShadow);
     width: 200px;
-    position: relative;
-    margin-top: 15px;
-    bottom: 10px;
+    outline: none;
+    margin: 10px 0;
+    border: 1px solid var(--ButtonShadow);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+
+.range::-webkit-slider-runnable-track {
+    height: 6px;
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    background: var(--ActiveTitle);
+    border-radius: 50%;
+    border: 2px solid var(--ButtonShadow);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.range::-webkit-slider-thumb:hover {
+    background: var(--Highlight);
+}
+
+
+.range::-moz-range-track {
+    height: 6px;
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+
+.range::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    background: var(--ActiveTitle);
+    border: 2px solid var(--ButtonShadow);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.range::-ms-track {
+    height: 6px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.range::-ms-fill-lower {
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+.range::-ms-fill-upper {
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+.range::-ms-thumb {
+    height: 16px;
+    width: 16px;
+    background: var(--ActiveTitle);
+    border: 2px solid var(--ButtonShadow);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #range_value {
-    display: inline-block;
-    align-self: flex-end;
-    position: absolute;
-    right: 15px;
-    top: 42px;
+    min-width: 40px;
+    color: var(--ButtonText);
+    font-weight: bold;
 }
 
 .jukebox-header {
     display: block;
     text-align: -webkit-center;
+}
+
+#now-playing {
+    color: var(--ButtonText);
 }
 
 .AM-FM {
@@ -990,7 +1083,7 @@ p {
     position: absolute;
     text-align: left;
     display: none;
-    /* width: 150px; */
+
     z-index: 1;
     background-color: var(--ButtonFace);
     border: 2px solid var(--ButtonShadow);
@@ -1032,12 +1125,13 @@ p {
 
 .context-menu ul li a {
     text-decoration: none;
-    color: var(--ActiveTitle);
+    color: var(--ButtonText);
     font-family: "Orbitron";
 }
 
 .context-menu ul li:hover {
     background-color: var(--ButtonShadow);
+    color: var(--ActiveTitle);
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -1045,13 +1139,19 @@ p {
     -o-border-radius: 3px;
 }
 
+.context-menu ul li:hover a {
+    color: var(--ActiveTitle);
+}
+
 .context-menu ul li:first-child:hover {
     background-color: var(--ButtonShadow);
+    color: var(--ActiveTitle);
 }
 
 .context-menu ul li:last-child:hover {
     background-color: var(--ButtonShadow);
 }
+
 
 #GameDiv {
     position: absolute;
@@ -1141,8 +1241,8 @@ p {
     position: absolute;
     height: 100%;
     width: 100%;
-    /* background-color: rgba(79, 101, 125, 0.8); */
-    /*opacity: 0.8; Makes all the child elements gay*/
+
+
     z-index: 200;
     top: 0;
     left: 0;
@@ -1209,7 +1309,7 @@ p {
 #Search_Programs>.desktop-icon {
     position: relative;
     display: inline-block;
-    /* text-align: unset; */
+
     margin: 35px;
 }
 
@@ -1349,24 +1449,7 @@ p {
     -o-transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* .glass::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1;
-    pointer-events: none;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
-    -moz-transition: background-color 0.3s ease, border-color 0.3s ease;
-    -ms-transition: background-color 0.3s ease, border-color 0.3s ease;
-    -o-transition: background-color 0.3s ease, border-color 0.3s ease;
-} */
+
 
 .glass img {
     display: block;
@@ -1375,5 +1458,3 @@ p {
     z-index: 2;
     position: relative;
 }
-
-/* # sourceURL=MagnusWare */

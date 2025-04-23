@@ -1,3 +1,4 @@
+
 window.music = (function () {
     let audio = new Audio();
     let song_location = "./A/System64/Audio/Music/";

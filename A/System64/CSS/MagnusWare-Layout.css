@@ -187,7 +187,6 @@ body>.window-titlebar {
 
 .desktop-icon .title {
 	margin-top: 0px;
-	font-family: sans-serif;
 	font-family: "Exo-Medium";
 	font-size: 9px;
 	background: transparent;
@@ -200,6 +199,7 @@ body>.window-titlebar {
 .folder-view[data-view-mode="DESKTOP"] .desktop-icon .title,
 .folder-view[data-view-mode="LARGE_ICONS"] .desktop-icon .title {
 	margin-top: 5px;
+	font-family: "Exo-Medium";
 }
 
 .folder-view:not([data-view-mode="DESKTOP"]):not([data-view-mode="LARGE_ICONS"]) .desktop-icon .title {
@@ -1144,6 +1144,7 @@ button.window-refresh-button.window-action-refresh.window-button>span.window-but
 .window-minimize-button {
 	margin-left: 2px;
 }
+
 .window-maximize-button {
 	margin-left: 2px;
 }
@@ -1506,9 +1507,10 @@ div.window.os-window>div.window-titlebar>button {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: var(--ButtonLight); /* Adjust the color and opacity as needed */
+	background-color: var(--ButtonLight);
+	/* Adjust the color and opacity as needed */
 	pointer-events: none;
-  }
+}
 
 ::-webkit-scrollbar-button:not(.disabled):hover:active {
 	border: 1px solid var(--ButtonShadow);

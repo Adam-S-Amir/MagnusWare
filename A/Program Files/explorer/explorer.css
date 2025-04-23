@@ -337,3 +337,7 @@ button {
 	min-height: 0;
 	border: 0;
 }
+
+.folder-view[data-view-mode="LARGE_ICONS"] .desktop-icon .title {
+	font-family: Arial, Helvetica, sans-serif;
+}

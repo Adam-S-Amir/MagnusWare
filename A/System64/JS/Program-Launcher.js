@@ -6,7 +6,7 @@ function hidemenu() {
 
 function About() {
 	let $win = make_embed_window({
-		src: "./A/Program Files/About/index.html",
+		src: systemLinks["About"],
 		icons: Window_icons("About"),
 		title: "About",
 		innerWidth: 420,
@@ -18,7 +18,7 @@ function About() {
 
 function Changelog() {
 	let $win = make_embed_window({
-		src: "./CHANGELOG.md",
+		src: systemLinks["Changelog"],
 		icons: Window_icons("HTML"),
 		title: "Changelog",
 		innerWidth: 420,
@@ -28,22 +28,22 @@ function Changelog() {
 	return new Task($win, "Changelog.MX7");
 }
 
-function JSCMD() {
+function MWCMD() {
 	let $win = new $EmbedWindow2({
 		src: null,
 		icons: Window_icons("msdos"),
-		title: "JS-CMD",
+		title: "MagnusWare CMD",
 		innerWidth: 420,
 		innerHeight: 400
-	}, "JS-CMD.MXW");
+	}, "-MWCMD.MXW");
 	jscmd();
 	hidemenu();
-	return new Task($win, "JS-CMD.MX7");
+	return new Task($win, "MWCMD.MX7");
 }
 
-function TaskMngr() {
+function TaskManager() {
 	let $win = new $EmbedWindow2({
-		src: "./A/Program Files/Task Manager/index.html",
+		src: systemLinks["TaskManager"],
 		icons: Window_icons("Task"),
 		title: "Task Manager",
 		innerWidth: 420,
@@ -58,7 +58,7 @@ function TaskMngr() {
 
 function Chat() {
 	let $win = make_embed_window({
-		src: "./A/Program%20Files/chat/index.php",
+		src: systemLinks["Chat"],
 		icons: Window_icons("Chat"),
 		title: "Chat Room",
 		innerWidth: 1000,
@@ -70,7 +70,7 @@ function Chat() {
 
 function WadCMD() {
 	let $win = make_embed_window({
-		src: "https://adam-s-amir.github.io/WadCMD/index.html",
+		src: gameLinks["WadCMD"],
 		icons: Window_icons("WadCMD"),
 		title: "WadCMD",
 		innerWidth: 1000,
@@ -80,9 +80,9 @@ function WadCMD() {
 	return new Task($win, "WadCMD.MX7");
 }
 
-function Theme1() {
+function ThemeEditor() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files/ThemeEditor/index.html",
+		src: systemLinks["ThemeEditor"],
 		icons: Window_icons("themes"),
 		title: "Theme Editor",
 		innerWidth: 1000,
@@ -92,9 +92,9 @@ function Theme1() {
 	return new Task($win, "Theme-Editor.MX7");
 }
 
-function Cookie() {
+function CookieClicker() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Cookie%20Clicker/index.html",
+		src: gameLinks["CookieClicker"],
 		icons: Window_icons("Cookie"),
 		title: "Cookie Clicker",
 		innerWidth: 660,
@@ -104,9 +104,9 @@ function Cookie() {
 	return new Task($win, "Cookie-Clicker.MX7");
 }
 
-function JellyM() {
+function JellyMario() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Mario%20Games/Jelly%20Mario/index.html",
+		src: gameLinks["JellyMario"],
 		icons: Window_icons("Mario"),
 		title: "Jelly Mario",
 		innerWidth: 800,
@@ -116,10 +116,10 @@ function JellyM() {
 	return new Task($win, "Jelly-Mario.MX7");
 }
 
-function MinecrapA() {
+function MineCrapAlpha() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Minecraft/MineCrap%20Alpha/index.html",
-		icons: Window_icons("Minecraft"),
+		src: gameLinks["MineCrapAlpha"],
+		icons: Window_icons("minecrap"),
 		title: "MineCrap Alpha",
 		innerWidth: 1000,
 		innerHeight: 500
@@ -128,10 +128,10 @@ function MinecrapA() {
 	return new Task($win, "MineCrap-Alpha.MX7");
 }
 
-function Minecrap3() {
+function MineCrap13() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Minecraft/MineCrap%201.3/index.html",
-		icons: Window_icons("Minecraft"),
+		src: gameLinks["MineCrap13"],
+		icons: Window_icons("minecrap"),
 		title: "MineCrap 1.3",
 		innerWidth: 1000,
 		innerHeight: 500
@@ -140,10 +140,10 @@ function Minecrap3() {
 	return new Task($win, "MineCrap-1.3.MX7");
 }
 
-function Minecrap5() {
+function MineCrap15() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Minecraft/MineCrap%201.5.2/index.html",
-		icons: Window_icons("Minecraft"),
+		src: gameLinks["MineCrap15"],
+		icons: Window_icons("minecrap"),
 		title: "MineCrap 1.5.2",
 		innerWidth: 1000,
 		innerHeight: 500
@@ -152,9 +152,9 @@ function Minecrap5() {
 	return new Task($win, "MineCrap-1.5.2-MX7");
 }
 
-function NoGame() {
+function ThereIsNoGame() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/There%20Is%20No%20Game/index.html",
+		src: gameLinks["ThereIsNoGame"],
 		icons: Window_icons("NoGame"),
 		title: "There is No Game",
 		innerWidth: 500,
@@ -164,9 +164,9 @@ function NoGame() {
 	return new Task($win, "There-is-No-Game.MX7");
 }
 
-function Power() {
+function PowerPlayerSuperJoyIII() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Power_Player_Super_Joy_III/index.html",
+		src: gameLinks["PowerPlayerSuperJoyIII"],
 		icons: Window_icons("Power"),
 		title: "Power Player Super Joy III",
 		innerWidth: 500,
@@ -176,9 +176,9 @@ function Power() {
 	return new Task($win, "");
 }
 
-function Baldi() {
+function BaldisBasics() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files%20(x86)/Baldis%20Basics/index.html",
+		src: gameLinks["BaldisBasics"],
 		icons: Window_icons("Baldi"),
 		title: "Baldi's Basics",
 		innerWidth: 500,
@@ -190,7 +190,7 @@ function Baldi() {
 
 function Rioluvania() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Sans%20Fight/Rioluvania/index.html",
+		src: gameLinks["Rioluvania"],
 		icons: Window_icons("Rioluvania"),
 		title: "Rioluvania",
 		innerWidth: 500,
@@ -200,9 +200,9 @@ function Rioluvania() {
 	return new Task($win, "Rioluvania.MX7");
 }
 
-function Sans() {
+function SansFight() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Sans%20Fight/Sans/index.html",
+		src: gameLinks["SansFight"],
 		icons: Window_icons("Sans"),
 		title: "Sans Fight",
 		innerWidth: 500,
@@ -218,9 +218,9 @@ function Funky() {
 	})
 }
 
-function Mario2() {
+function SuperMarioBros() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Mario%20Games/Super%20Mario/super.html",
+		src: gameLinks["SuperMarioBros"],
 		icons: Window_icons("Mario"),
 		title: "Super Mario Bros.",
 		innerWidth: 1000,
@@ -230,9 +230,9 @@ function Mario2() {
 	return new Task($win, "Super-Mario-Bros.MX7");
 }
 
-function MarMakr() {
+function SuperMarioMaker() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Mario%20Games/Super%20Mario/maker.html",
+		src: gameLinks["SuperMarioMaker"],
 		icons: Window_icons("Mario"),
 		title: "Super Mario Maker",
 		innerWidth: 1000,
@@ -242,9 +242,9 @@ function MarMakr() {
 	return new Task($win, "Super-Mario-Maker.MX7");
 }
 
-function iMario() {
+function InfiniteMario() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Mario%20Games/Infinite%20Mario/index.html",
+		src: gameLinks["InfiniteMario"],
 		icons: Window_icons("Mario"),
 		title: "Infinite Mario",
 		innerWidth: 660,
@@ -254,9 +254,9 @@ function iMario() {
 	return new Task($win, "Infinite-Mario.MX7");
 }
 
-function TBOI() {
+function TheBindingOfIsaac() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/The%20Binding%20of%20Isaac/index.html",
+		src: gameLinks["TheBindingOfIsaac"],
 		icons: Window_icons("TBOI"),
 		title: "The Binding of Isaac",
 		innerWidth: 970,
@@ -266,9 +266,9 @@ function TBOI() {
 	return new Task($win, "The-Binding-of-Isaac.MX7");
 }
 
-function Rocket() {
+function RocketCusta() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Rocket%20Custa/index.html",
+		src: gameLinks["RocketCusta"],
 		icons: Window_icons("Rocket"),
 		title: "Rocket Custa",
 		innerWidth: 500,
@@ -280,7 +280,7 @@ function Rocket() {
 
 function Spelunky() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Spelunky/index.html",
+		src: gameLinks["Spelunky"],
 		icons: Window_icons("Spelunky"),
 		title: "Spelunky",
 		innerWidth: 1000,
@@ -292,7 +292,7 @@ function Spelunky() {
 
 function Button() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files/Button/index.html",
+		src: systemLinks["Button"],
 		icons: Window_icons("Button"),
 		title: "Button",
 		innerWidth: 300,
@@ -304,7 +304,7 @@ function Button() {
 
 function Clock() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files/Clock/index.html",
+		src: systemLinks["Clock"],
 		icons: Window_icons("Clock"),
 		title: "Clock",
 		innerWidth: 500,
@@ -316,7 +316,7 @@ function Clock() {
 
 function AcidBox() {
 	let $win = make_embed_window({
-		src: "https://adam-s-amir.github.io/Acid-Box/index.html",
+		src: gameLinks["AcidBox"],
 		icons: Window_icons("AcidBox"),
 		title: "Acid Box",
 		innerWidth: 1000,
@@ -326,21 +326,9 @@ function AcidBox() {
 	return new Task($win, "Acid-Box.MX7");
 }
 
-function Star() {
-	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files/StrWrz/index.html",
-		icons: Window_icons("Starwars"),
-		title: "Star Wars Episode IV",
-		innerWidth: 830,
-		innerHeight: 500
-	}, "Star-Wars-Episode-IV.MXW");
-	hidemenu();
-	return new Task($win, "Star-Wars-Episode-IV.MX7");
-}
-
 function Zamboni() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Zamboni/index.html",
+		src: gameLinks["Zamboni"],
 		icons: Window_icons("Zamboni"),
 		title: "Frank Zamboni",
 		innerWidth: 670,
@@ -350,9 +338,9 @@ function Zamboni() {
 	return new Task($win, "Zamboni.MX7");
 }
 
-function Soda() {
+function VendingMachine() {
 	let $win = make_embed_window({
-		src: "./A/System64/Program%20Files/Soda/index.htm",
+		src: gameLinks["VendingMachine"],
 		icons: Window_icons("Soda"),
 		title: "Vending Machine",
 		innerWidth: 500,
@@ -364,7 +352,7 @@ function Soda() {
 
 function Prometheus() {
 	let $win = make_embed_window({
-		src: "https://prometheuz.vercel.app/index.html",
+		src: gameLinks["Prometheus"],
 		icons: Window_icons("Emu"),
 		title: "Prometheus",
 		innerWidth: 1000,
@@ -376,7 +364,7 @@ function Prometheus() {
 
 function Kronos() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Kronos/index.html",
+		src: gameLinks["Kronos"],
 		icons: Window_icons("Emu"),
 		title: "Kronos",
 		innerWidth: 1000,
@@ -386,9 +374,9 @@ function Kronos() {
 	return new Task($win, "Kronos.MX7");
 }
 
-function Drift() {
+function DriftHunters() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Drift%20Hunters/index.html",
+		src: gameLinks["DriftHunters"],
 		icons: Window_icons("Drift"),
 		title: "Drift Hunters",
 		innerWidth: 1000,
@@ -398,9 +386,9 @@ function Drift() {
 	return new Task($win, "Drift-Hunters.MX7");
 }
 
-function Surf1() {
+function EdgeSurfI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/S.U.R.F/S.U.R.F%201.0/index.html",
+		src: gameLinks["EdgeSurf1"],
 		icons: Window_icons("Surf"),
 		title: "Microsoft Surf 1.0",
 		innerWidth: 1000,
@@ -410,9 +398,9 @@ function Surf1() {
 	return new Task($win, "Microsoft-Surf-1.0.MX7");
 }
 
-function Surf2() {
+function EdgeSurfII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/S.U.R.F/S.U.R.F%202.0/index.html",
+		src: gameLinks["EdgeSurf2"],
 		icons: Window_icons("Surf"),
 		title: "Microsoft Surf 2.0",
 		innerWidth: 1000,
@@ -422,9 +410,9 @@ function Surf2() {
 	return new Task($win, "Microsoft-Surf-2.0.MX7");
 }
 
-function Surf3() {
+function EdgeSurfIII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/S.U.R.F/S.U.R.F%203.0/index.html",
+		src: gameLinks["EdgeSurf3"],
 		icons: Window_icons("Surf"),
 		title: "Microsoft Surf 3.0",
 		innerWidth: 1000,
@@ -434,11 +422,11 @@ function Surf3() {
 	return new Task($win, "Microsoft-Surf-3.0.MX7");
 }
 
-function Hex() {
+function HexGL() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Race/index.html",
+		src: gameLinks["HexGL"],
 		icons: Window_icons("Hex"),
-		title: "Hex GL",
+		title: "HexGL",
 		innerWidth: 500,
 		innerHeight: 500
 	}, "Hex-GL.MXW");
@@ -446,9 +434,9 @@ function Hex() {
 	return new Task($win, "Hex-GL.MX7");
 }
 
-function Box() {
+function BoxelRebound() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Boxel%20Rebound/index.html",
+		src: gameLinks["BoxelRebound"],
 		icons: Window_icons("Box"),
 		title: "Boxel Rebound",
 		innerWidth: 360,
@@ -460,7 +448,7 @@ function Box() {
 
 function DoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20II/index.html",
+		src: gameLinks["DoomII"],
 		icons: Window_icons("Doom II"),
 		title: "Doom II",
 		innerWidth: 665,
@@ -472,7 +460,7 @@ function DoomII() {
 
 function MasterLevelsForDoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Master%20Levels%20for%20Doom%20II/index.html",
+		src: gameLinks["MasterLevelsForDoomII"],
 		icons: Window_icons("Master Levels for Doom II"),
 		title: "The Master Levels for Doom II",
 		innerWidth: 665,
@@ -484,7 +472,7 @@ function MasterLevelsForDoomII() {
 
 function UltimateDoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Ultimate%20Doom%20II/index.html",
+		src: gameLinks["UltimateDoomII"],
 		icons: Window_icons("Ultimate Doom II"),
 		title: "The Ultimate Doom II",
 		innerWidth: 665,
@@ -494,10 +482,9 @@ function UltimateDoomII() {
 	return new Task($win, "The-Ultimate-Doom-II.MX7");
 }
 
-
 function StarWarsDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/StarWars%20Doom/index.html",
+		src: gameLinks["StarWarsDoom"],
 		icons: Window_icons("StarWars Doom"),
 		title: "Star Wars Doom",
 		innerWidth: 665,
@@ -509,7 +496,7 @@ function StarWarsDoom() {
 
 function BatmanDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Batman%20Doom/index.html",
+		src: gameLinks["BatmanDoom"],
 		icons: Window_icons("Batman Doom"),
 		title: "Batman Doom",
 		innerWidth: 665,
@@ -521,7 +508,7 @@ function BatmanDoom() {
 
 function BrutalDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Brutal%20Doom/index.html",
+		src: gameLinks["BrutalDoom"],
 		icons: Window_icons("Brutal Doom"),
 		title: "Brutal Doom",
 		innerWidth: 665,
@@ -533,7 +520,7 @@ function BrutalDoom() {
 
 function Windows95() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Windows%2095/index.html",
+		src: gameLinks["Windows95"],
 		icons: Window_icons("Windows 95"),
 		title: "Windows 95",
 		innerWidth: 665,
@@ -545,7 +532,7 @@ function Windows95() {
 
 function DukeNukem3D() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Duke%20Nukem%3D/index.html",
+		src: gameLinks["DukeNukem3D"],
 		icons: Window_icons("Duke Nukem 3D"),
 		title: "Duke Nukem 3D",
 		innerWidth: 665,
@@ -557,7 +544,7 @@ function DukeNukem3D() {
 
 function GTA() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/GTA/index.html",
+		src: gameLinks["GTA"],
 		icons: Window_icons("GTA"),
 		title: "Grand Theft Auto",
 		innerWidth: 665,
@@ -569,7 +556,7 @@ function GTA() {
 
 function OregonTrailDeluxe() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Oregon%20Trail%20Deluxe/index.html",
+		src: gameLinks["OregonTrailDeluxe"],
 		icons: Window_icons("Oregon Trail Deluxe"),
 		title: "Oregon Trail Deluxe",
 		innerWidth: 665,
@@ -581,7 +568,7 @@ function OregonTrailDeluxe() {
 
 function OregonTrail() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Oregon%20Trail/index.html",
+		src: gameLinks["OregonTrail"],
 		icons: Window_icons("Oregon Trail"),
 		title: "Oregon Trail",
 		innerWidth: 665,
@@ -593,7 +580,7 @@ function OregonTrail() {
 
 function CastleWolfenstein() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Castle%20Wolfenstein/index.html",
+		src: gameLinks["CastleWolfenstein"],
 		icons: Window_icons("Castle Wolfenstein"),
 		title: "Castle Wolfenstein",
 		innerWidth: 665,
@@ -605,7 +592,7 @@ function CastleWolfenstein() {
 
 function UltimateDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Ultimate%20Doom/index.html",
+		src: gameLinks["UltimateDoom"],
 		icons: Window_icons("Ultimate Doom"),
 		title: "Ultimate Doom",
 		innerWidth: 665,
@@ -617,7 +604,7 @@ function UltimateDoom() {
 
 function Heretic() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Heretic/index.html",
+		src: gameLinks["Heretic"],
 		icons: Window_icons("Heretic"),
 		title: "Heretic",
 		innerWidth: 665,
@@ -629,7 +616,7 @@ function Heretic() {
 
 function HereticII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Heretic%20II/index.html",
+		src: gameLinks["HereticII"],
 		icons: Window_icons("Heretic II"),
 		title: "Heretic II",
 		innerWidth: 665,
@@ -641,7 +628,7 @@ function HereticII() {
 
 function Hexen() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Hexen/index.html",
+		src: gameLinks["Hexen"],
 		icons: Window_icons("Hexen"),
 		title: "Hexen",
 		innerWidth: 665,
@@ -653,7 +640,7 @@ function Hexen() {
 
 function ThePlutoniaExperiment() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/The%20Plutonia%20Experiment/index.html",
+		src: gameLinks["ThePlutoniaExperiment"],
 		icons: Window_icons("The Plutonia Experiment"),
 		title: "The Plutonia Experiment",
 		innerWidth: 665,
@@ -665,7 +652,7 @@ function ThePlutoniaExperiment() {
 
 function ThePlutoniaExperimentII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/The%20Plutonia%20Experiment%20II/index.html",
+		src: gameLinks["ThePlutoniaExperimentII"],
 		icons: Window_icons("The Plutonia Experiment II"),
 		title: "The Plutonia Experiment II",
 		innerWidth: 665,
@@ -675,9 +662,9 @@ function ThePlutoniaExperimentII() {
 	return new Task($win, "The-Plutonia-Experiment-II.MX7");
 }
 
-function TNT() {
+function TNTEvilution() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/TNT%20Evilution/index.html",
+		src: gameLinks["TNTEvilution"],
 		icons: Window_icons("TNT Evilution"),
 		title: "TNT Evilution",
 		innerWidth: 665,
@@ -689,7 +676,7 @@ function TNT() {
 
 function Doom64() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%2064/index.html",
+		src: gameLinks["Doom64"],
 		icons: Window_icons("Doom 64"),
 		title: "Doom 64",
 		innerWidth: 665,
@@ -701,7 +688,7 @@ function Doom64() {
 
 function DoomZero() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20Zero/index.html",
+		src: gameLinks["DoomZero"],
 		icons: Window_icons("Doom Zero"),
 		title: "Doom Zero",
 		innerWidth: 665,
@@ -713,7 +700,7 @@ function DoomZero() {
 
 function Quake() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Quake/index.html",
+		src: gameLinks["Quake"],
 		icons: Window_icons("Quake"),
 		title: "Quake",
 		innerWidth: 665,
@@ -723,9 +710,9 @@ function Quake() {
 	return new Task($win, "Quake.MX7");
 }
 
-function QuakeM1() {
+function QuakeMissionPackI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Quake%20Mission%20Pack%20I/index.html",
+		src: gameLinks["QuakeMissionPackI"],
 		icons: Window_icons("Q1M"),
 		title: "Quake Mission Pack I",
 		innerWidth: 665,
@@ -735,9 +722,9 @@ function QuakeM1() {
 	return new Task($win, "Quake-Mission-Pack-I.MX7");
 }
 
-function QuakeM2() {
+function QuakeMissionPackII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Quake%20Mission%20Pack%20II/index.html",
+		src: gameLinks["QuakeMissionPackII"],
 		icons: Window_icons("Q1M"),
 		title: "Quake Mission Pack II",
 		innerWidth: 665,
@@ -749,7 +736,7 @@ function QuakeM2() {
 
 function QuakeII() {
 	let $win = make_embed_window({
-		src: "https://adam-s-amir.github.io/Quake2-PlayN-MagnusPort/index.html",
+		src: gameLinks["QuakeII"],
 		icons: Window_icons("Quake II"),
 		title: "Quake II",
 		innerWidth: 1000,
@@ -761,7 +748,7 @@ function QuakeII() {
 
 function DoomSchoolShooterEdition() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom%20II%20School%20Shooter%20Edition/index.html",
+		src: gameLinks["DoomSchoolShooterEdition"],
 		icons: Window_icons("School"),
 		title: "Doom: School Shooter Edition",
 		innerWidth: 665,
@@ -773,7 +760,7 @@ function DoomSchoolShooterEdition() {
 
 function WolfensteinSpearOfDestiny() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Wolfenstein%20Spear%20of%20Destiny/index.html",
+		src: gameLinks["WolfensteinSpearOfDestiny"],
 		icons: Window_icons("Spear"),
 		title: "Wolfenstein: Spear of Destiny",
 		innerWidth: 665,
@@ -785,7 +772,7 @@ function WolfensteinSpearOfDestiny() {
 
 function Rekkr() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Rekkr/Rekkr.exe.html",
+		src: gameLinks["Rekkr"],
 		icons: Window_icons("Rekkr"),
 		title: "Rekkr",
 		innerWidth: 665,
@@ -797,7 +784,7 @@ function Rekkr() {
 
 function Strife() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Strife/index.html",
+		src: gameLinks["Strife"],
 		icons: Window_icons("Strife"),
 		title: "Strife",
 		innerWidth: 665,
@@ -807,21 +794,21 @@ function Strife() {
 	return new Task($win, "Strife.MX7");
 }
 
-// function FreeDm() {
-// 	let $win = make_embed_window({
-// 		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/FreeDM/FreeDM.exe.html",
-// 		icons: Window_icons("FreeDoom"),
-// 		title: "FreeDM",
-// 		innerWidth: 665,
-// 		innerHeight: 436
-// 	}, "FreeDoom.MXW");
-// 	hidemenu();
-// 	return new Task($win, "FreeDoom.MX7");
-// }
-
-function FreeDoom() {
+function FreeDm() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/FreeDoom%20Phase%20I/index.html",
+		src: gameLinks["FreeDM"],
+		icons: Window_icons("FreeDoom"),
+		title: "FreeDeathMatch",
+		innerWidth: 665,
+		innerHeight: 436
+	}, "FreeDeathMatch.MXW");
+	hidemenu();
+	return new Task($win, "FreeDeathMatch.MX7");
+}
+
+function FreeDoomPhaseI() {
+	let $win = make_embed_window({
+		src: gameLinks["FreeDoomPhaseI"],
 		icons: Window_icons("FreeDoom"),
 		title: "FreeDoom: Phase I",
 		innerWidth: 665,
@@ -831,9 +818,9 @@ function FreeDoom() {
 	return new Task($win, "FreeDoom-Phase-I.MX7");
 }
 
-function FreeDoomII() {
+function FreeDoomPhaseII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/FreeDoom%20Phase%20II/index.html",
+		src: gameLinks["FreeDoomPhaseII"],
 		icons: Window_icons("FreeDoom"),
 		title: "FreeDoom: Phase II",
 		innerWidth: 665,
@@ -843,10 +830,9 @@ function FreeDoomII() {
 	return new Task($win, "FreeDoom-Phase-II.MX7");
 }
 
-
 function Wolfenstein3D() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Wolfenstein%203D/index.html",
+		src: gameLinks["Wolfenstein3D"],
 		icons: Window_icons("Wolfenstein 3D"),
 		title: "Wolfenstein 3D",
 		innerWidth: 665,
@@ -856,9 +842,9 @@ function Wolfenstein3D() {
 	return new Task($win, "Wolfenstein-3D.MX7");
 }
 
-function BTSX() {
+function BTSXI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/BTSX%20I/index.html",
+		src: gameLinks["BTSXI"],
 		icons: Window_icons("BTSX"),
 		title: "Back to Saturn X I",
 		innerWidth: 665,
@@ -868,9 +854,9 @@ function BTSX() {
 	return new Task($win, "Back-to-Saturn-X-I.MX7");
 }
 
-function BTSX2() {
+function BTSXII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/BTSX%20II/index.html",
+		src: gameLinks["BTSXII"],
 		icons: Window_icons("BTSX II"),
 		title: "Back to Saturn X II",
 		innerWidth: 665,
@@ -882,7 +868,7 @@ function BTSX2() {
 
 function ChexQuestI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex%20Quest%20I/index.html",
+		src: gameLinks["ChexQuestI"],
 		icons: Window_icons("Chex Quest I"),
 		title: "Chex Quest I",
 		innerWidth: 665,
@@ -894,7 +880,7 @@ function ChexQuestI() {
 
 function ChexQuestII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex%20Quest%20II/index.html",
+		src: gameLinks["ChexQuestII"],
 		icons: Window_icons("Chex Quest II"),
 		title: "Chex Quest II",
 		innerWidth: 665,
@@ -906,7 +892,7 @@ function ChexQuestII() {
 
 function ChexQuestIII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Chex%20Quest%20III/index.html",
+		src: gameLinks["ChexQuestIII"],
 		icons: Window_icons("Chex Quest III"),
 		title: "Chex Quest III",
 		innerWidth: 665,
@@ -918,7 +904,7 @@ function ChexQuestIII() {
 
 function MarioDoom() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Mario%20Doom/index.html",
+		src: gameLinks["MarioDoom"],
 		icons: Window_icons("Mario Doom"),
 		title: "Mario Doom",
 		innerWidth: 665,
@@ -930,7 +916,7 @@ function MarioDoom() {
 
 function MarioDoomII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Mario%20Doom%20II/index.html",
+		src: gameLinks["MarioDoomII"],
 		icons: Window_icons("Mario Doom"),
 		title: "Mario Doom II",
 		innerWidth: 665,
@@ -940,45 +926,33 @@ function MarioDoomII() {
 	return new Task($win, "Mario-Doom-II.MX7");
 }
 
-function CDG() {
+function ChromeDinoGames() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Dino%20Games/index.html",
+		src: gameLinks["ChromeDinoGames"],
 		icons: Window_icons("Dino"),
 		title: "Chrome Dino Games",
-		innerWidth: 1000,
-		innerHeight: 500
+		innerWidth: 550,
+		innerHeight: 300
 	}, "Chrome-Dino-Games.MXW");
 	hidemenu();
 	return new Task($win, "Chrome-Dino-Games.MX7");
 }
 
-function D3D() {
+function ChromeDino3D() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Dino%20 Games/3D/index.html",
+		src: gameLinks["ChromeDino3D"],
 		icons: Window_icons("Dino"),
-		title: "3D Dino",
+		title: "Chrome Dino 3D",
 		innerWidth: 1000,
 		innerHeight: 500
-	}, "3D-Dino.MXW");
+	}, "Chrome-Dino-3D.MXW");
 	hidemenu();
-	return new Task($win, "3D-Dino.MX7");
-}
-
-function Cat() {
-	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Mario%20Games/Catmario/chrome/index.html",
-		icons: Window_icons("Mario"),
-		title: "Cat Mario",
-		innerWidth: 500,
-		innerHeight: 500
-	}, "Cat-Mario.MXW");
-	hidemenu();
-	return new Task($win, "Cat-Mario.MX7");
+	return new Task($win, "Chrome-Dino-3D.MX7");
 }
 
 function Mari0() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Mario%20Games/Mari0/index.html",
+		src: gameLinks["Mari0"],
 		icons: Window_icons("Mario"),
 		title: "Mari0",
 		innerWidth: 800,
@@ -988,9 +962,9 @@ function Mari0() {
 	return new Task($win, "Mari0.MX7");
 }
 
-function D4() {
+function Doom4() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Doom4/Doom4.exe.html",
+		src: gameLinks["Doom4"],
 		icons: Window_icons("4"),
 		title: "Doom 4",
 		innerWidth: 665,
@@ -1000,9 +974,9 @@ function D4() {
 	return new Task($win, "Doom-4.MX7");
 }
 
-function SMWDX() {
+function SuperMarioWorldDeluxe() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/DOS/Super%20Mario%20World%20Deluxe/index.html",
+		src: gameLinks["SuperMarioWorldDeluxe"],
 		icons: Window_icons("Mario"),
 		title: "Super Mario World Deluxe",
 		innerWidth: 665,
@@ -1012,9 +986,9 @@ function SMWDX() {
 	return new Task($win, "Super-Mario-World-Deluxe.MX7");
 }
 
-function Ice() {
+function IceDodoI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Ice%20Dodo/ICE%201.0/index.html",
+		src: gameLinks["IceDodoI"],
 		icons: Window_icons("Ice"),
 		title: "Ice Dodo 1.0",
 		innerWidth: 500,
@@ -1024,9 +998,9 @@ function Ice() {
 	return new Task($win, "Ice-Dodo-1.0.MX7");
 }
 
-function Ice2() {
+function IceDodoII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Ice%20Dodo/ICE%202.0/index.html",
+		src: gameLinks["IceDodoII"],
 		icons: Window_icons("Ice"),
 		title: "Ice Dodo 2.0",
 		innerWidth: 500,
@@ -1038,7 +1012,7 @@ function Ice2() {
 
 function Contranoid() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Brain%20Games/Contranoid/index.html",
+		src: gameLinks["Contranoid"],
 		icons: Window_icons("Contranoid"),
 		title: "Contranoid",
 		innerWidth: 392,
@@ -1048,33 +1022,33 @@ function Contranoid() {
 	return new Task($win, "Contranoid.MX7");
 }
 
-function Hi() {
+function OhH1() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Brain%20Games/Oh%20Hi/index.html",
-		icons: Window_icons("0HH1"),
-		title: "OH H1",
+		src: gameLinks["OhH1"],
+		icons: Window_icons("0hH1"),
+		title: "Oh H1",
 		innerWidth: 500,
 		innerHeight: 500
-	}, "OH-H1.MXW");
+	}, "Oh-H1.MXW");
 	hidemenu();
-	return new Task($win, "OH-H1.MX7");
+	return new Task($win, "Oh-H1.MX7");
 }
 
-function No() {
+function OhN0() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Brain%20Games/Oh%20No/index.html",
-		icons: Window_icons("0HN0"),
-		title: "OH N0",
+		src: gameLinks["OhN0"],
+		icons: Window_icons("0hN0"),
+		title: "Oh N0",
 		innerWidth: 500,
 		innerHeight: 500
-	}, "OH-N0.MXW");
+	}, "Oh-N0.MXW");
 	hidemenu();
-	return new Task($win, "OH-N0.MX7");
+	return new Task($win, "Oh-N0.MX7");
 }
 
 function Quento() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Brain%20Games/Quento/index.html",
+		src: gameLinks["Quento"],
 		icons: Window_icons("Quento"),
 		title: "Quento",
 		innerWidth: 500,
@@ -1086,7 +1060,7 @@ function Quento() {
 
 function Hextris() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Brain%20Games/Hextris/index.html",
+		src: gameLinks["Hextris"],
 		icons: Window_icons("Hextris"),
 		title: "Hextris",
 		innerWidth: 500,
@@ -1096,45 +1070,45 @@ function Hextris() {
 	return new Task($win, "Hextris.MX7");
 }
 
-function Pac() {
+function PacMan() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/PacMan/PacMan/index.html",
+		src: gameLinks["PacMan"],
 		icons: Window_icons("Pacman"),
-		title: "PacMan 1.0",
+		title: "PacMan",
 		innerWidth: 500,
 		innerHeight: 500
-	}, "PacMan-1.0.MXW");
+	}, "PacMan.MXW");
 	hidemenu();
-	return new Task($win, "PacMan-1.0.MX7");
+	return new Task($win, "PacMan.MX7");
 }
 
-function Google1() {
+function GooglePacManI() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/PacMan/Google%20PacMan/index.html",
+		src: gameLinks["GooglePacManI"],
 		icons: Window_icons("Pacman"),
-		title: "Google PacMan 1.2",
+		title: "Google PacMan I",
 		innerWidth: 1000,
 		innerHeight: 500
-	}, "Google-PacMan-1.2.MXW");
+	}, "Google-PacMan-I.MXW");
 	hidemenu();
-	return new Task($win, "Google-PacMan-1.2.MX7");
+	return new Task($win, "Google-PacMan-I.MX7");
 }
 
-function Google2() {
+function GooglePacManII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/PacMan/Google%20PacMan%202/index.html",
+		src: gameLinks["GooglePacManII"],
 		icons: Window_icons("Pacman"),
-		title: "Google PacMan 1.0",
+		title: "Google PacMan II",
 		innerWidth: 1000,
 		innerHeight: 500
-	}, "Google-PacMan-1.0.MXW");
+	}, "Google-PacMan-II.MXW");
 	hidemenu();
-	return new Task($win, "Google-PacMan-1.0.MX7");
+	return new Task($win, "Google-PacMan-II.MX7");
 }
 
 function Snake() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/Snake.html",
+		src: gameLinks["Snake"],
 		icons: Window_icons("Snake"),
 		title: "Snake",
 		innerWidth: 500,
@@ -1146,7 +1120,7 @@ function Snake() {
 
 function Pong() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/Pong/index.html",
+		src: gameLinks["Pong"],
 		icons: Window_icons("Pong"),
 		title: "Pong",
 		innerWidth: 660,
@@ -1156,33 +1130,33 @@ function Pong() {
 	return new Task($win, "Pong.MX7");
 }
 
-function Tetriz() {
+function Tetris() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/Tetris/Simple/index.html",
+		src: gameLinks["Tetris"],
 		icons: Window_icons("Tetris"),
-		title: "Tetris 1.0",
+		title: "Tetris I",
 		innerWidth: 500,
 		innerHeight: 621
-	}, "Tetris-1.0.MXW");
+	}, "Tetris-I.MXW");
 	hidemenu();
-	return new Task($win, "Tetris-1.0.MX7");
+	return new Task($win, "Tetris-I.MX7");
 }
 
-function Cubes() {
+function TetrisII() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/Tetris/Cubes/index.html",
+		src: gameLinks["TetrisII"],
 		icons: Window_icons("Tetris"),
-		title: "Tetris 2.0",
+		title: "Tetris II",
 		innerWidth: 500,
 		innerHeight: 621
-	}, "Tetris-2.0.MXW");
+	}, "Tetris-II.MXW");
 	hidemenu();
-	return new Task($win, "Tetris-2.0.MX7");
+	return new Task($win, "Tetris-II.MX7");
 }
 
-function Jelly() {
+function JellyTetris() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/Tetris/Jelly/index.html",
+		src: gameLinks["JellyTetris"],
 		icons: Window_icons("Tetris"),
 		title: "Jelly Tetris",
 		innerWidth: 500,
@@ -1192,9 +1166,9 @@ function Jelly() {
 	return new Task($win, "Jelly-Tetris.MX7");
 }
 
-function AIT() {
+function AITetris() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/Tetris/AI/index.html",
+		src: gameLinks["AITetris"],
 		icons: Window_icons("Tetris"),
 		title: "AI Tetris",
 		innerWidth: 500,
@@ -1204,9 +1178,9 @@ function AIT() {
 	return new Task($win, "AI-Tetris.MX7");
 }
 
-function SpaceI() {
+function SpaceInvaders() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/Arcade/Space/index.html",
+		src: gameLinks["SpaceInvaders"],
 		icons: Window_icons("Space"),
 		title: "Space Invaders",
 		innerWidth: 850,
@@ -1218,7 +1192,7 @@ function SpaceI() {
 
 function Twenty() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/2048/2048/index.html",
+		src: gameLinks["Twenty"],
 		icons: Window_icons("2048"),
 		title: "2048",
 		innerWidth: 500,
@@ -1228,33 +1202,33 @@ function Twenty() {
 	return new Task($win, "2048.MX7");
 }
 
-function One() {
+function Flappy2048I() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/2048/Flappy-2048/index.html",
+		src: gameLinks["Flappy2048I"],
 		icons: Window_icons("2048"),
-		title: "Flappy 2048 1.0",
+		title: "Flappy 2048 I",
 		innerWidth: 500,
 		innerHeight: 500
-	}, "Flappy-2048-1.0.MXW");
+	}, "Flappy-2048-I.MXW");
 	hidemenu();
-	return new Task($win, "Flappy-2048-1.0.MX7");
+	return new Task($win, "Flappy-2048-I.MX7");
 }
 
-function Two() {
+function Flappy2048II() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/2048/Flappy-2048-2.0/index.html",
+		src: gameLinks["Flappy2048II"],
 		icons: Window_icons("2048"),
-		title: "Flappy 2048 2.0",
+		title: "Flappy 2048 II",
 		innerWidth: 500,
 		innerHeight: 500
-	}, "Flappy-2048-2.0.MXW");
+	}, "Flappy-2048-II.MXW");
 	hidemenu();
-	return new Task($win, "Flappy-2048-2.0.MX7");
+	return new Task($win, "Flappy-2048-II.MX7");
 }
 
 function Three() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/2048/2048-3D/index.html",
+		src: gameLinks["Three"],
 		icons: Window_icons("2048"),
 		title: "2048 3D",
 		innerWidth: 1000,
@@ -1266,7 +1240,7 @@ function Three() {
 
 function Four() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/2048/4/index.html",
+		src: gameLinks["Four"],
 		icons: Window_icons("2048"),
 		title: "4",
 		innerWidth: 500,
@@ -1276,33 +1250,33 @@ function Four() {
 	return new Task($win, "4.MX7");
 }
 
-function AI() {
+function AI2048() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/2048/2048-AI/index.html",
+		src: gameLinks["AI2048"],
 		icons: Window_icons("2048"),
-		title: "2048 AI",
+		title: "AI 2048",
 		innerWidth: 1000,
 		innerHeight: 650
-	}, "2048-AI.MXW");
+	}, "AI-2048.MXW");
 	hidemenu();
-	return new Task($win, "2048-AI.MX7");
+	return new Task($win, "AI-2048.MX7");
 }
 
-function Hardcore() {
+function Hardcore2048() {
 	let $win = make_embed_window({
-		src: "https://magnusware-libs.vercel.app/Application%20Files/2048/2048-Hardcore/index.html",
+		src: gameLinks["Hardcore2048"],
 		icons: Window_icons("2048"),
-		title: "2048 Hardcore",
+		title: "Hardcore 2048",
 		innerWidth: 500,
 		innerHeight: 500
-	}, "2048-Hardcore.MXW");
+	}, "Hardcore-2048.MXW");
 	hidemenu();
-	return new Task($win, "2048-Hardcore.MX7");
+	return new Task($win, "Hardcore-2048.MX7");
 }
 
-function Gore() {
+function GoreScriptClassic() {
 	let $win = make_embed_window({
-		src: "https://adam-s-amir.github.io/GoreScript/index.html",
+		src: gameLinks["GoreScriptClassic"],
 		icons: Window_icons("Gore"),
 		title: "GoreScript Classic",
 		innerWidth: 1000,
@@ -1314,7 +1288,7 @@ function Gore() {
 
 function VLC() {
 	let $win = make_embed_window({
-		src: "https://adam-s-amir.github.io/VLC-Media-Web-Player/index.html",
+		src: systemLinks["VLC"],
 		icons: Window_icons("VLC"),
 		title: "VLC Media Player",
 		innerWidth: 1000,
@@ -1322,6 +1296,58 @@ function VLC() {
 	}, "VLC-Media-Player.MXW");
 	hidemenu();
 	return new Task($win, "VLC-Media-Player.MX7");
+}
+
+function Settings() {
+	let $win = new $EmbedWindow2({
+		src: null,
+		icons: Window_icons("settings"),
+		title: "Settings",
+		innerWidth: 665,
+		innerHeight: 436
+	}, "Settings.MXW");
+	Settingz();
+	hidemenu();
+	return new Task($win, "Settings.MX7");
+}
+
+function Store() {
+	let $win = new $EmbedWindow2({
+		src: null,
+		icons: Window_icons("Store"),
+		title: "Software Center",
+		innerWidth: 665,
+		innerHeight: 436
+	}, "Software-Center.MXW");
+	StoreFront();
+	hidemenu();
+	return new Task($win, "Software-Center.MX7");
+}
+
+function Calculator() {
+	var $win = make_embed_window({
+		src: systemLinks["Calculator"],
+		icons: Window_icons("calculator"),
+		title: "Calculator",
+		innerWidth: 256,
+		innerHeight: 208 + 21,
+		minInnerWidth: 256,
+		minInnerHeight: 208 + 21,
+	}, "Calculator.MXW");
+	hidemenu();
+	return new Task($win, "Calculator.MX7");
+}
+
+function Pinball() {
+	var $win = make_embed_window({
+		src: gameLinks["Pinball"],
+		icons: Window_icons("pinball"),
+		title: "Pinball",
+		innerWidth: 600,
+		innerHeight: 442
+	}, "Pinball.MXW");
+	hidemenu();
+	return new Task($win, "Pinball.MXW");
 }
 
 function Notepad(file_path) {
@@ -1397,11 +1423,13 @@ function Paint(file_path) {
 		writeBlobToHandle: async (file_path, blob) => {
 			const arrayBuffer = await blob.arrayBuffer();
 			return new Promise((resolve, reject) => {
-				withFilesystem(()=> {
+				withFilesystem(() => {
 					const fs = BrowserFS.BFSRequire("fs");
-					const { Buffer } = BrowserFS.BFSRequire("buffer");
+					const {
+						Buffer
+					} = BrowserFS.BFSRequire("buffer");
 					const buffer = Buffer.from(arrayBuffer);
-					fs.writeFile(file_path, buffer, (err)=> {
+					fs.writeFile(file_path, buffer, (err) => {
 						if (err) {
 							return reject(err);
 						}
@@ -1422,7 +1450,7 @@ function Paint(file_path) {
 		},
 	};
 
-	waitUntil(()=> contentWindow.systemHooks, 500, ()=> {
+	waitUntil(() => contentWindow.systemHooks, 500, () => {
 		Object.assign(contentWindow.systemHooks, systemHooks);
 
 		let $help_window;
@@ -1566,32 +1594,6 @@ function showScreensaver(embedSrc) {
 	window.addEventListener("keydown", keydownHandler, true);
 }
 
-function Settings() {
-	let $win = new $EmbedWindow2({
-		src: null,
-		icons: Window_icons("settings"),
-		title: "Settings",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "Settings.MXW");
-	Settingz();
-	hidemenu();
-	return new Task($win, "Settings.MX7");
-}
-
-function Store() {
-	let $win = new $EmbedWindow2({
-		src: null,
-		icons: Window_icons("Store"),
-		title: "Software Center",
-		innerWidth: 665,
-		innerHeight: 436
-	}, "Software-Center.MXW");
-	StoreFront();
-	hidemenu();
-	return new Task($win, "Software-Center.MX7");
-}
-
 function tmr() {
 	let timer = document.getElementById("scvtmr").value;
 	setInterval(function () {
@@ -1638,32 +1640,6 @@ function Bubz() {
 	showScreensaver("./A/System64/Program%20Files/Bubbles/index.html");
 	localStorage.removeItem("scv");
 	localStorage.setItem("scv", "Bubz()");
-}
-
-function Calculator() {
-	var $win = make_embed_window({
-		src: "./A/Program Files/calculator/index.html",
-		icons: Window_icons("calculator"),
-		title: "Calculator",
-		innerWidth: 256,
-		innerHeight: 208 + 21,
-		minInnerWidth: 256,
-		minInnerHeight: 208 + 21,
-	}, "Calculator.MXW");
-	hidemenu();
-	return new Task($win, "Calculator.MX7");
-}
-
-function Pinball() {
-	var $win = make_embed_window({
-		src: "./A/Program Files/pinball/index.html",
-		icons: Window_icons("pinball"),
-		title: "Pinball",
-		innerWidth: 600,
-		innerHeight: 442
-	}, "Pinball.MXW");
-	hidemenu();
-	return new Task($win, "Pinball.MXW");
 }
 
 function Explorer(address) {
@@ -1726,7 +1702,6 @@ let $webamp;
 let winamp_task;
 let winamp_interface;
 let winamp_loading = false;
-
 
 function openWinamp(file_path) {
 	const filePathToBlob = (file_path) => {
@@ -2256,9 +2231,9 @@ Create_Icon({
 });
 
 Create_Icon({
-	title: "Solitaire",
-	iconID: "Solitaire",
-	open: Solitaire,
+	title: "Infinite Mario",
+	iconID: "mario",
+	open: InfiniteMario,
 	shortcut: false
 });
 
@@ -2276,21 +2251,21 @@ Create_Icon({
 });
 
 Create_Icon({
-	title: "Duke Nukem 3D",
-	iconID: "Duke Nukem 3D",
+	title: "GoreScript Classic",
+	iconID: "gore",
 	open: DukeNukem3D
 });
 
 Create_Icon({
-	title: "Oregon Trail",
-	iconID: "Oregon Trail",
-	open: OregonTrail
+	title: "Prometheus",
+	iconID: "emu",
+	open: Prometheus
 });
 
 Create_Icon({
-	title: "Doom 64",
-	iconID: "Doom 64",
-	open: Doom64
+	title: "MineCrap 1.5.2",
+	iconID: "minecrap",
+	open: MineCrap15
 });
 
 Create_Icon({
@@ -2300,9 +2275,9 @@ Create_Icon({
 });
 
 Create_Icon({
-	title: "Quake",
-	iconID: "Quake",
-	open: Quake
+	title: "Acidbox",
+	iconID: "acidbox",
+	open: AcidBox
 });
 
 Create_Icon({

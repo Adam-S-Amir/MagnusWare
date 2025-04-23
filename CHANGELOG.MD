@@ -12,6 +12,7 @@
   - [ ] Titlebar button color width is automatic
 - [ ] Tray items have an on-click effect
 - [ ] About is a standalone app
+- [ ] Merged JS-CMD with MWCMD
 
 - [ ] New UI Fonts
 - [ ] New UI theme
@@ -20,16 +21,25 @@
 - [ ] New default desktop helper
 - [ ] New taskbar style
 - [ ] New calendar style
+- [ ] New desktop icons
 
 - [ ] Fixed theme change function
 - [ ] Fixed start button animation
 - [ ] Fixed cursor effect
+- [ ] Fixed JukeBox style inconsistencies
+- [ ] Fixed File explorer style inconsistencies
+- [ ] Fixed UI customization issues
+
+- [ ] Improved app URL handling
+- [ ] Improved settings app
+- [ ] Improved system boot/process handling with Core.js
 
 - [ ] Added CHANGELOG.log to desktop
 
 - [ ] Refined settings page
 - [ ] Refined DOS titles
-- [ ] Refined image searching
+- [ ] Refined image fetching
+- [ ] Refined view source page generation & styling
 
 - [ ] Removed text border on unfocused icon titles
 - [ ] Removed Build ID from tab title
@@ -38,6 +48,7 @@
 - [ ] Removed Recycle Bin
 - [ ] Removed Internet Explorer
 - [ ] Removed start menu titlebar
+- [ ] Removed gadgets from context menu
 
 # MagnusWare 4.0 (Siamese/NightHawk)
 
@@ -64,13 +75,13 @@
   - [ ] Show past dates on calendar in grey
 - [ ] Resolved battery API issues
 - [ ] Taskbar divider has been removed
-- [ ] MagnusWare official icon has been utilized onb the start button
+- [ ] MagnusWare official icon has been utilized on the start button
 - [ ] Overall debugging has been streamlined
 - [ ] Version info animation has been refined
 - [ ] Created toast notifications
   - [ ] Battery info contained in a toast instead of popup dialog
 - [ ] Boot splash screen
-- [ ] Remove support for mobile devices (temporary ;P )
+- [ ] Remove support for mobile devices (temporary ;P)
 - [ ] Boot times have been lowered significantly
   - [ ] index.html has been reduced by 10 lines
 - [ ] Search feature added fully
@@ -161,8 +172,7 @@
 - [ ] New System sounds
   - [ ] On program Launch a Sound will play
   - [ ] Different System Alert Types
-  - [ ] Alerts are Now Customized with
-    Personalized Sounds
+  - [ ] Alerts are Now Customized with Personalized Sounds
 - [ ] New Battery Icon
   - [ ] Battery Icon onclick Brings up Alert with Battery Percent
   - [ ] Battery Icon Will Update with Battery Percent
