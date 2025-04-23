@@ -1,5 +1,9 @@
 # MagnusWare Dev Channel
 
+Run with
+
+```npm run dev```
+
 [Live Preview (Unstable)](https://magnusware-git-beta-adam-s-amirs-projects.vercel.app/index.html)
 [Live Preview (Stable)](https://manusware.vercel.app/index.html)
 
