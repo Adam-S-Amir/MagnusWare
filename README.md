@@ -1,44 +1,26 @@
 # MagnusWare Dev Channel
 
-Run with
+MagnusWare, formerly known as MagnusSoft, is an operating system created primarily for the purpose of testing and developing a desktop environment. My inspiration for delving into OS development came from reading Andrew S. Tanenbaum's "Modern Operating Systems" and "Distributed Operating Systems" textbooks.
 
-```npm run dev```
+## Authors
 
-[Live Preview (Unstable)](https://magnusware-git-beta-adam-s-amirs-projects.vercel.app/index.html)
-[Live Preview (Stable)](https://manusware.vercel.app/index.html)
+- [@Adam-S-Amir](https://www.github.com/Adam-S-Amir)
 
-## Get Better Than The Competition
+## FAQ
 
-  MagnusWare is better than marked entries.
+#### Why use JavaScript, & jQuery?
 
-  - [x] 98.js.org
-    - [x] https://98.js.org
-  - [ ] AaronOS
-    - [ ] https://aaronos.dev/AaronOS/aosBeta.php
-  - [ ] CloudDesk
-    - [ ] https://altaica.altervista.org/
-  - [ ] daedalOS
-    - [ ] https://dustinbrett.com/
-  - [x] Emupedia
-    - [x] https://emupedia.net/beta/emuos/
-    - [x] https://emuos.emupedia.net/
-  - [x] jQuery Desktop
-    - [x] https://desktop.sonspring.com/
-  - [x] macos-web
-    - [x] https://macos-web.app/
-  - [x] OS.js
-    - [x] https://www.os-js.org/
-  - [x] Packard Belle
-    - [x] https://packard-belle.netlify.app/
-  - [x] Rahul.io
-    - [x] https://rahul.io/
-  - [x] windows93
-    - [x] https://windows93.net/
-  - [x] Windows96
-    - [x] https://www.windows93.net/
-  - [x] winXP
-    - [x] https://winxp.vercel.app/
-  - [x] X-WebDesktop-Vue
-    - [x] https://oxoyo.co/X-WebDesktop-Vue/
-  - [ ] ZineOS
-    - [ ] https://whimsy.space/
+The languages are easy to write in and the most critical functions and components of an operating system can be easily replicated using JavaScript & jQuery.
+
+#### Did you create this by hand?
+
+Yes. My primary inspiration for creating MagnusWare was [Windows96.net](https://windows96.net). I saw that it had a plain appearance and thought I can make something cooler. While I took design inspiration from other JavaScript-based desktop environments, this is 100% my creation.
+
+#### Where did you get your icons from?
+
+Any and all icons have been recreated using Photopea, or sourced directly from game files.
+
+## Quick Links
+
+- [Vercel App Overview](https://vercel.com/adam-s-amirs-projects/magnusware)
+- [MagnusWare Stable Release](https://magnusware.vercel.app/index.html)
