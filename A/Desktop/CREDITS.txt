@@ -1,9 +1,0 @@
-A special thanks to those who have beta
-tested this Jerry Rig Javascript OS:
-
-Edward Gu
-Tucker D'Angelo
-Miriam Anderson
-Aiden Hawthorne
-Adam Amir
-Daniel Lopez

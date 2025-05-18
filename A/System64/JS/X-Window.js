@@ -24,7 +24,12 @@ function $Window2(options, id) {
         options.minimizeButton = false;
         options.maximizeButton = false;
     }
-    if (options.minimizeButton !== false) {
+    if (options.refreshButton !== false){
+        $w.$refresh = $(E("button")).addClass("window-refresh-button window-action-refresh window-button").appendTo($w.$titlebar);
+        $w.$refresh.attr("aria-label", "Refresh window");
+        $w.$refresh.append("<span class='window-button-icon'></span>");
+    }
+if (options.minimizeButton !== false) {
         $w.$minimize = $(E("button")).addClass("window-minimize-button window-action-minimize window-button").appendTo($w.$titlebar);
         $w.$minimize.attr("aria-label", "Minimize window");
         $w.$minimize.append("<span class='window-button-icon'></span>");
@@ -719,6 +724,16 @@ function $Window2(options, id) {
             $w.maximize();
         }
     };
+    $w.refresh = () => {
+        var embed = $w.find("embed");
+        if (embed.length) {
+            embed.attr("src", embed.attr("src"));
+        }
+    };
+    $w.$refresh ?.on("click", (e) => {
+        $w.refresh();
+        $w.refresh();
+    });
     $w.$minimize ?.on("click", (e) => {
         $w.minimize();
     });

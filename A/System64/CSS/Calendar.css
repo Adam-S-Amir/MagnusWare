@@ -269,23 +269,21 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker .ui-datepicker-next {
   position: absolute;
   top: 2px;
-  width: 1.8em;
+  width: 30px;
   height: 1.8em;
 }
 
 .ui-datepicker .ui-datepicker-prev {
-  left: -1px;
-  background-color: var(--MenuHilight);
+  left: 2px;
   height: 25px;
-  top: 2px;
+  top: 0;
   border: 2px solid var(--ButtonText);
 }
 
 .ui-datepicker .ui-datepicker-next {
-  right: -1px;
-  background-color: var(--MenuHilight);
+  right: 2px;
   height: 25px;
-  top: 2px;
+  top: 0;
   border: 2px solid var(--ButtonText);
 }
 
@@ -294,12 +292,13 @@ button.ui-button::-moz-focus-inner {
   display: inline;
   position: relative;
   bottom: 4px;
-  font-size: 8px;
-  color: cyan;
-  right: 7px;
+  font-size: 14px;
+  color: var(--White);
+  text-align: center;
 }
 
 .ui-datepicker .ui-datepicker-title {
+  font-size: 17px;
   margin-right: 15px;
   text-align: center;
   color: var(--ButtonText);
@@ -333,8 +332,8 @@ button.ui-button::-moz-focus-inner {
   border: 0;
   */
   font-size: 15px;
-  padding-left: 10px;
-  /* color: var(--ButtonText); */
+  text-align: center;
+  color: var(--ButtonText);
   border: 2px solid var(--ButtonShadow);
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -997,7 +996,7 @@ body .ui-tooltip {
 .ui-widget-content {
   /* border: 2px solid var(--ButtonShadow); */
   background: var(--ButtonFace);
-  color: var(--MenuText);
+  color: var(--ButtonText);
 }
 
 .ui-widget-content a {
@@ -1023,7 +1022,8 @@ body .ui-tooltip {
   border: 2px solid var(--ButtonShadow);
   background: var(--ButtonFace);
   font-weight: normal;
-  color: var(--MenuText);
+  color: var(--White);
+  text-align: center;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1062,10 +1062,10 @@ body .ui-tooltip {
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-  border: 1px solid #aaaaaa;
-  background: #ffffff 50% 50% repeat-x;
+  border: 1px solid var(ButtonLight);
+  background-color: var(--Black);
   font-weight: normal;
-  color: #212121;
+  color: var(--ButtonText);
 }
 
 .ui-state-active a,

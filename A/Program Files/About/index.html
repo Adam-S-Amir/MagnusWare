@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="../../System64/CSS/Stylesheet.css">
+    <link rel="stylesheet" href="../../System64/CSS/Fonts.css">
+</head>
+
+<body>
+    <div class="about">
+        <div class="about-header">
+            <img alt="About Icon" class="About-Icon" src="../../System64/Images/Common/MagnusWare.png">
+            <h1 class="about-heading">MagnusWare</h1>
+        </div>
+        <div class="about-body">
+            <p>
+                MagnusWare v<span id="MagnusWareV"></span>
+                <br>
+                Color Scheme: <span id=clrsh></span>
+                <br>
+                Code Name: <span id="cdnm"></span>
+                <br>
+                Release Date: <span id="Release_Date"></span>
+                <br>
+                Release State: <span id="Release_State"></span>
+                <br>
+                OS State: <span id="OS_State"></span>
+                <br>
+                Activation State: <span id="Activation_State"></span>
+                <br>
+                Build ID: <span id="build-id"></span>
+                <br>
+                UUID: <span id="uuid"></span>
+            </p>
+            <br>
+            <div class="about-body-center">
+                <p>
+                    Clippy made by <a rel="noopener" href="https://github.com/clippyjs/clippy.js"
+                        target='_blank'>clippyjs</a>
+                </p>
+                <p>
+                    Base files scraped from GitHub
+                </p>
+                <p>
+                    UI heavily based on <a rel="noopener" href="https://windows96.net/" target='_blank'>windows 96</a>,
+                    <a rel="noopener" href="https://emuos.org/beta/emuos/" target='_blank'>EmuOS</a>, and <a
+                        rel="noopener" href="https://linuxmint.com/" target='_blank'>Linux Mint</a>
+                </p>
+                <p>
+                    Theme Editor made by <a rel="noopener" href="https://github.com/tpenguinltg/winclassic"
+                        target='_blank'>tpenguinltg</a>
+                </p>
+                <p>
+                    Everything else created by Magnus Marks (Adam)
+                </p>
+                <p>
+                    <a href='../../Desktop/CHANGELOG.MD' target='_blank'>Full Changelog</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="../../System64/JS/Core.js"></script>
+    <script>
+        document.getElementById("MagnusWareV").innerHTML = MagnusWare_V;
+        document.getElementById("clrsh").innerHTML = Color_Scheme;
+        document.getElementById("cdnm").innerHTML = Codename;
+        document.getElementById("Release_Date").innerHTML = Release_Date;
+        document.getElementById("Release_State").innerHTML = Release_State;
+        document.getElementById("OS_State").innerHTML = OS_State;
+        document.getElementById("Activation_State").innerHTML = Activation_State;
+        document.getElementById("build-id").innerHTML = BN;
+        document.getElementById("uuid").innerHTML = uid;
+    </script>
+</body>
+
+</html>

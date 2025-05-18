@@ -1,0 +1,96 @@
+@font-face {
+	font-family: "Audiowide";
+	font-style: normal;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdlg_O.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: "Fixedsys Excelsior";
+	src: url("../Font/Fixedsys Excelsior/fsex300-webfont.eot");
+	src: url("../Font/Fixedsys Excelsior/fsex300-webfont.eot?#iefix") format("embedded-opentype"),
+		url("../Font/Fixedsys Excelsior/fsex300-webfont.woff") format("woff"),
+		url("../Font/Fixedsys Excelsior/fsex300-webfont.ttf") format("truetype"),
+		url("../Font/Fixedsys Excelsior/fsex300-webfont.svg#FixedsysExcelsior301Regular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	-webkit-font-smoothing: aliased;
+}
+
+@font-face {
+	font-size: small;
+	font-weight: normal;
+	-webkit-font-smoothing: aliased;
+	font-family: "Traffix";
+	src: url("../Font/Traffix/Traffix.ttf") format("truetype");
+}
+
+@font-face {
+	font-size: small;
+	font-weight: normal;
+	-webkit-font-smoothing: aliased;
+	font-family: "Arcade_R";
+	src: url("../Font/Arcade/ARCADE_R.TTF") format("truetype");
+}
+
+@font-face {
+	font-size: small;
+	font-weight: normal;
+	-webkit-font-smoothing: aliased;
+	font-family: "Arcade_N";
+	src: url("../Font/Arcade/ARCADE_N.TTF") format("truetype");
+}
+
+@font-face {
+	font-size: small;
+	font-weight: normal;
+	-webkit-font-smoothing: aliased;
+	font-family: "Arcade_I";
+	src: url("../Font/Arcade/ARCADE_I.TTF") format("truetype");
+}
+
+@font-face {
+	font-family: "Orbitron";
+	font-style: normal;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: "Exo";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("../Font/Exo/Exo2-Black.ttf") format("truetype");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: "Exo-Light";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("../Font/Exo/Exo2-Light.ttf") format("truetype");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: "Exo-Medium";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("../Font/Exo/Exo2-Medium.ttf") format("truetype");
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

@@ -6,7 +6,7 @@
 
 <html>
 	<style>
-		body		{font: 8pt/10pt verdana; margin: 0}
+		body		{font: 8pt; font-family: arial, helvetica, sans-serif; margin: 0}
 		#FileList	{position: absolute; left: 30%; width: 70%; height: 100%}
 		#Media		{margin-left: 15px}
 		#Panel		{position: absolute; width: 30%; height: 100%; overflow: auto}

@@ -1,184 +1,3 @@
-:root {
-	--tray: url("../Images/Common/Tray.png");
-
-	--checker: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAABtJREFUGFdjPHjm5v9DZ28wMDbP3PjfzliDAQBkbgk09F7oYQAAAABJRU5ErkJggg==);
-	--button-active-border-image: url(data:image/svg + xml,
- %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
-	--button-normal-border-image: url(data:image/svg + xml,
- %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
-	--inset-deep-border-image: url(data:image/svg + xml,
- %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
-	--button-default-border-image: url(data:image/svg + xml,
- %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(193%2C%20204%2C%20217)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h96v32h-64v64h-32v-96z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M160%2064h32v128h-128v-32h96v-96z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M96%2096h64v64h-64v-64z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 96 / 3px;
-	--button-default-active-border-image: url(data:image/svg + xml,
- %3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h192v192h-192v-192z%22%20fill%3D%22rgb(79%2C%20101%2C%20125)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22rgb(131%2C%20153%2C%20177)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E) 64 / 2px;
-	--scrollbar-arrows-ButtonText: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAFtJREFUOE9jZBhkgHGQuYeBVg76z8BAtNkoapEdBJJAB7gcTMhCmFmEPIyhDl0DsqPwOQbmcKqrwWYgPt8TG4pUCyFqpXFCUYpsD840RC3HUGQOoURHkeHkaAYAaF4QCuqIjIcAAAAASUVORK5CYII=);
-	--scrollbar-arrows-GrayText: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg7yT639v3F2M1Fmo6uFawJJoIcWLkMJWQgzi5CjsKlD8QWyo/A5BuZwWqjBCFZ8vic2FKkWQtRK4ISiFNkenGmIWo6h1ByicgKllpCiHwCi9kAK+UQY+QAAAABJRU5ErkJggg==);
-	--scrollbar-arrows-ButtonHilight: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAAXNSR0IArs4c6QAAAGBJREFUOE9jZBhkgHGQuYeBJg46eObmf3sTdaLMRlcL1wSSQA8tXIYSshBmFiFHYVOH4gtkR+FzDMzhtFCDEaz4fE9sKFIthKiVwAlFKbI9ONMQtRxDqTlE5QRKLSFFPwBQ1UAKPuXIywAAAABJRU5ErkJggg==);
-	--scrollbar-size: 13px;
-	--scrollbar-button-inner-size: 9px;
-	--ButtonAlternateFace: rgb(192 192 192);
-	--ButtonDkShadow: rgb(0 0 0);
-	--ButtonFace: rgb(131 153 177);
-	--ButtonHilight: rgb(193 204 217);
-	--ButtonLight: rgb(131 153 177);
-	--ButtonShadow: rgb(79 101 125);
-	--ButtonText: rgb(7 217 249);
-	--ActiveBorder: rgb(131 153 177);
-	--AppWorkspace: rgb(79 102 126);
-	--Background: rgb(79 101 125);
-	--InactiveBorder: rgb(131 153 177);
-	--Scrollbar: rgb(226 231 236);
-	--Window: rgb(255 255 255);
-	--WindowFrame: rgb(0 0 0);
-	--WindowText: rgb(0 0 0);
-	--ActiveTitle: rgb(9 235 235);
-	--GradientActiveTitle: rgb(216 204 208);
-	--GradientInactiveTitle: rgb(208 212 208);
-	--InactiveTitle: rgb(79 102 126);
-	--InactiveTitleText: rgb(193 204 217);
-	--TitleText: rgb(255 255 255);
-	--Menu: rgb(131 153 177);
-	--MenuBar: rgb(207 175 183);
-	--MenuHilight: rgb(0 0 0);
-	--MenuText: rgb(0 0 0);
-	--GrayText: rgb(79 101 125);
-	--Hilight: rgb(0 198 255);
-	--HilightText: rgb(255 255 255);
-	--HotTrackingColor: rgb(159 96 112);
-	--InfoText: rgb(0 0 0);
-	--InfoWindow: rgb(193 204 217);
-}
-
-@font-face {
-	font-family: "Audiowide";
-	font-style: normal;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format("woff2");
-	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-		U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-	font-family: "Audiowide";
-	font-style: normal;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdlg_O.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Fixedsys Excelsior";
-	src: url("../Font/Fixedsys Excelsior/fsex300-webfont.eot");
-	src: url("../Font/Fixedsys Excelsior/fsex300-webfont.eot?#iefix") format("embedded-opentype"),
-		url("../Font/Fixedsys Excelsior/fsex300-webfont.woff") format("woff"),
-		url("../Font/Fixedsys Excelsior/fsex300-webfont.ttf") format("truetype"),
-		url("../Font/Fixedsys Excelsior/fsex300-webfont.svg#FixedsysExcelsior301Regular") format("svg");
-	font-weight: normal;
-	font-style: normal;
-	-webkit-font-smoothing: aliased;
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Traffix";
-	src: url("../Font/Traffix/Traffix.ttf") format("truetype");
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Arcade_R";
-	src: url("../Font/Arcade/ARCADE_R.TTF") format("truetype");
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Arcade_N";
-	src: url("../Font/Arcade/ARCADE_N.TTF") format("truetype");
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Arcade_I";
-	src: url("../Font/Arcade/ARCADE_I.TTF") format("truetype");
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 600;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 800;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 900;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 .menus,
 .menu-popup,
 .os-window,
@@ -279,13 +98,14 @@ body>.window-titlebar {
 }
 
 .taskbar-time {
-	font-family: "Arcade_R";
-	font-size: 40%;
-	color: var(--ActiveTitle);
+	font-family: "Exo-Medium";
+	font-size: 12px;
+	color: var(--ButtonLight);
 	display: inline-table;
 	margin-top: 2px;
 	margin-right: 5px;
-	width: 60px;
+	margin-left: 5px;
+	width: 90px;
 	text-align: center;
 }
 
@@ -367,8 +187,7 @@ body>.window-titlebar {
 
 .desktop-icon .title {
 	margin-top: 0px;
-	font-family: sans-serif;
-	font-family: "Arcade_R";
+	font-family: "Exo-Medium";
 	font-size: 9px;
 	background: transparent;
 	color: white;
@@ -380,6 +199,7 @@ body>.window-titlebar {
 .folder-view[data-view-mode="DESKTOP"] .desktop-icon .title,
 .folder-view[data-view-mode="LARGE_ICONS"] .desktop-icon .title {
 	margin-top: 5px;
+	font-family: "Exo-Medium";
 }
 
 .folder-view:not([data-view-mode="DESKTOP"]):not([data-view-mode="LARGE_ICONS"]) .desktop-icon .title {
@@ -394,7 +214,7 @@ body>.window-titlebar {
 
 .folder-view:focus-within .desktop-icon.selected:not(.renaming) .title {
 	background: var(--Hilight);
-	color: var(--HilightText);
+	color: var(--Black);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -409,7 +229,7 @@ body>.window-titlebar {
 	top: 0;
 	bottom: 0;
 	right: 0;
-	border: 1px dotted #ffffff;
+	/* border: 1px dotted #ffffff; */
 	mix-blend-mode: exclusion;
 }
 
@@ -610,7 +430,7 @@ body {
 .start-menu-content {
 	overflow: auto;
 	overflow-x: hidden;
-	padding: 15px;
+	padding-top: 15px;
 }
 
 .start-menu-content,
@@ -644,19 +464,20 @@ body {
 .taskbar {
 	position: absolute;
 	z-index: 2;
-	border-radius: 1vmin;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	height: 27px;
+	height: 40px;
 	display: flex;
 	text-align: -webkit-center;
 	z-index: 1;
 	background-color: var(--Menu);
+	border-top: 2px solid var(--Hilight);
+	/* border-radius: 1vmin;
 	-webkit-border-radius: 1vmin;
 	-moz-border-radius: 1vmin;
 	-ms-border-radius: 1vmin;
-	-o-border-radius: 1vmin;
+	-o-border-radius: 1vmin; */
 }
 
 .taskbar,
@@ -704,17 +525,23 @@ body {
 	flex-direction: row;
 	box-sizing: border-box;
 	vertical-align: middle;
-	border-radius: 1vmin;
+	border-left: 1px solid var(--Hilight);
+	/* border-radius: 1vmin;
 	-webkit-border-radius: 1vmin;
 	-moz-border-radius: 1vmin;
 	-ms-border-radius: 1vmin;
-	-o-border-radius: 1vmin;
+	-o-border-radius: 1vmin; */
 }
 
 .tray-icons {
 	display: flex;
 	align-items: center;
 	margin-left: 2px;
+}
+
+.tray-icons>img {
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .tray-icon {
@@ -733,7 +560,7 @@ body {
 }
 
 .task img {
-	padding-right: 4px;
+	/* padding-right: 4px; */
 	flex: 0 0 auto;
 }
 
@@ -769,7 +596,7 @@ body {
 	flex: 1;
 }
 
-.desktop-icon {
+.desktop>.folder-view>.desktop-icon {
 	margin: 5px;
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
@@ -778,7 +605,7 @@ body {
 	-o-transition: all 0.2s ease-in-out;
 }
 
-.desktop-icon:hover {
+.desktop>.folder-view>.desktop-icon:hover {
 	transform: translateY(15px);
 	-webkit-transform: translateY(15px);
 	-moz-transform: translateY(15px);
@@ -805,8 +632,8 @@ body {
 }
 
 .desktop-icon .title {
-	line-height: 13px;
-	font-size: 9px;
+	line-height: 14px;
+	font-size: 12px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	word-wrap: break-word;
@@ -1023,7 +850,7 @@ button {
 
 button:not(.lightweight) {
 	outline: transparent;
-	border-color: var(--ButtonShadow);
+	border-color: var(--ButtonDkShadow);
 	background-color: var(--ButtonFace);
 	color: var(--ButtonText);
 	position: relative;
@@ -1082,10 +909,16 @@ button.lightweight.pressed {
 	border-color: var(--ButtonShadow) var(--ButtonHilight) var(--ButtonHilight) var(--ButtonShadow);
 	background-color: var(--ButtonFace);
 	color: var(--ButtonText);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
 
 button:disabled {
-	color: var(--GrayText);
+	color: var(--Gray);
 	text-shadow: 1px 1px 0px var(--ButtonHilight);
 }
 
@@ -1120,6 +953,13 @@ button:not(.lightweight).pressed {
 	border-image: var(--inset-deep-border-image);
 }
 
+/* button:not(.lightweight).toggle.selected,
+button:not(.lightweight).pressed {
+	border-color: var(--ButtonShadow);
+	border-style: solid;
+	border-width: 2px 2px;
+} */
+
 button:not(.lightweight).toggle.selected,
 button:not(.lightweight).pressed {
 	border-color: var(--ButtonShadow);
@@ -1127,16 +967,11 @@ button:not(.lightweight).pressed {
 	border-width: 2px 2px;
 }
 
-button:not(.lightweight).toggle.selected,
-button:not(.lightweight).pressed {
-	background: var(--checker) repeat;
-	-ms-interpolation-mode: nearest-neighbor;
-}
 
 input {
-    background-color: var(--ButtonHilight);
-    border: solid;
-    border-color: var(--ButtonShadow);
+	background-color: var(--ButtonHilight);
+	border: solid;
+	border-color: var(--ButtonShadow);
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -1221,7 +1056,7 @@ body>.window-titlebar {
 	--sprite-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAKCAYAAADo3z3CAAAAoUlEQVRIS9VVWw7AIAib9z/0FpZgCOFRgpluf9MClhYdV++7gfDhYLxYDw+UyiHd5F8S5lr6zNa6Xpv/KwhHOahQpLB1+CwfycgYrwmE0WK8MTsIR1aOGsR+NYkkYzN5/pGwVA9xA/diq8LeHCKuQxQ+aoYt2yJWtpSNZth0edRpGVC5eGQcSg4hXLml3fdpBeHs8evWyPKX9ruXVqnYCeAHA8IyC9K2kmkAAAAASUVORK5CYII=");
 	--sprite-y: 0;
 	-ms-interpolation-mode: nearest-neighbor;
-	width: 12px;
+	/* width: 12px; */
 	height: 10px;
 	position: relative;
 	pointer-events: none;
@@ -1251,6 +1086,10 @@ button.window-minimize-button.window-action-minimize.window-button>span.window-b
 	background-color: orange;
 }
 
+button.window-refresh-button.window-action-refresh.window-button>span.window-button-icon::before {
+	background-color: cyan;
+}
+
 .window-button .window-button-icon::before,
 .window-button .window-button-icon::after {
 	content: "";
@@ -1278,7 +1117,7 @@ button.window-minimize-button.window-action-minimize.window-button>span.window-b
 }
 
 .window-button:disabled .window-button-icon::after {
-	background-color: var(--GrayText);
+	background-color: var(--Gray);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1301,6 +1140,10 @@ button.window-minimize-button.window-action-minimize.window-button>span.window-b
 .window-action-minimize .window-button-icon {
 	--sprite-x: calc(-0 * 13px - 1px);
 } */
+
+.window-minimize-button {
+	margin-left: 2px;
+}
 
 .window-maximize-button {
 	margin-left: 2px;
@@ -1360,6 +1203,7 @@ div.window.os-window>div.window-titlebar>button {
 }
 
 .os-window .window-title {
+	font-family: "Exo-Medium";
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -1398,6 +1242,7 @@ div.window.os-window>div.window-titlebar>button {
 	padding: 2px 5px;
 	position: relative;
 	outline: 0;
+	color: var(--ButtonLight);
 	background: var(--Menu);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -1407,7 +1252,7 @@ div.window.os-window>div.window-titlebar>button {
 }
 
 .menu-button.highlight {
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
+	box-shadow: 1px 1px 0 var(--ButtonShadow) inset, -1px -1px 0 var(--ButtonShadow) inset;
 }
 
 .menu-button.highlight.active {
@@ -1611,26 +1456,24 @@ div.window.os-window>div.window-titlebar>button {
 ::-webkit-scrollbar-button {
 	width: 13px;
 	height: 13px;
-	border-radius: 1vmin;
-	-webkit-border-radius: 1vmin;
-	-moz-border-radius: 1vmin;
-	-ms-border-radius: 1vmin;
-	-o-border-radius: 1vmin;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
 }
 
 ::-webkit-scrollbar {
-	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC") repeat;
-	background: var(--checker) repeat;
-	image-rendering: pixelated;
+	/* background: var(--checker) repeat;
+	image-rendering: pixelated; */
 }
 
 ::-webkit-scrollbar-thumb {
 	background-color: var(--ButtonFace);
-	border-top: 1px solid var(--ButtonFace);
-	border-left: 1px solid var(--ButtonFace);
-	border-right: 1px solid var(--ButtonDkShadow);
-	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
+	border-top: 1px solid var(--ButtonLight);
+	border-left: 1px solid var(--ButtonLight);
+	border-right: 1px solid var(--ButtonLight);
+	border-bottom: 1px solid var(--ButtonLight);
 }
 
 ::-webkit-scrollbar-corner {
@@ -1639,13 +1482,10 @@ div.window.os-window>div.window-titlebar>button {
 
 ::-webkit-scrollbar-button {
 	background-color: var(--ButtonFace);
-	border-top: 1px solid var(--ButtonFace);
-	border-left: 1px solid var(--ButtonFace);
-	border-right: 1px solid var(--ButtonDkShadow);
-	border-bottom: 1px solid var(--ButtonDkShadow);
-	box-shadow: 1px 1px 0 var(--ButtonHilight) inset,
-		-1px -1px 0 var(--ButtonShadow) inset;
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAW0lEQVQ4T2NkGGSAcZC5h4FWDvrPwEC02ShqkR0EkkAHuBxMyEKYWYQ8jKEOXQOyo/A5BuZwqqvBZiA+3xMbilQLIWqlcUJRimwPzjRELcdQZA6hREeR4eRoBgBoXhAK6oiMhwAAAABJRU5ErkJggg==");
+	border-top: 1px solid var(--ButtonLight);
+	border-left: 1px solid var(--ButtonLight);
+	border-right: 1px solid var(--ButtonLight);
+	border-bottom: 1px solid var(--ButtonLight);
 	background-image: var(--scrollbar-arrows-ButtonText);
 	image-rendering: pixelated;
 	width: 13px;
@@ -1653,6 +1493,23 @@ div.window.os-window>div.window-titlebar>button {
 	height: 13px;
 	height: var(--scrollbar-size);
 	box-sizing: border-box;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+
+::-webkit-scrollbar-button::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--ButtonLight);
+	/* Adjust the color and opacity as needed */
+	pointer-events: none;
 }
 
 ::-webkit-scrollbar-button:not(.disabled):hover:active {
@@ -1661,8 +1518,6 @@ div.window.os-window>div.window-titlebar>button {
 }
 
 ::-webkit-scrollbar-button.disabled {
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDmpoaPjf0NBAlNnoauGaQBLooYXLUEIWwswi5Chs6lB8gewofI6BOZwWajCCFZ/viQ1FqoUQtRI4oShFtgdnGqKWYyg1h6icQKklpOgHAM9mQArEvm5+AAAAAElFTkSuQmCC"),
-		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAYElEQVQ4T2NkGGSAcZC5h4EmDvr///9/RkZGosxGVwvXBJJADy1chhKyEGYWIUdhU4fiC2RH4XMMzOG0UIMRrPh8T2woUi2EqJXACUUpsj040xC1HEOpOUTlBEotIUU/AKXFQAqyTJ6DAAAAAElFTkSuQmCC");
 	background-image: var(--scrollbar-arrows-GrayText),
 		var(--scrollbar-arrows-ButtonHilight);
 }
@@ -1810,133 +1665,4 @@ div.window.os-window>div.window-titlebar>button {
 ::-webkit-scrollbar-button:start:increment,
 ::-webkit-scrollbar-button:end:decrement {
 	display: none;
-}
-
-@font-face {
-	font-family: "Audiowide";
-	font-style: normal;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format("woff2");
-	unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
-		U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-	font-family: "Audiowide";
-	font-style: normal;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/audiowide/v16/l7gdbjpo0cum0ckerWCdlg_O.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Fixedsys Excelsior";
-	src: url("../Font/Fixedsys Excelsior/fsex300-webfont.eot");
-	src: url("../Font/Fixedsys Excelsior/fsex300-webfont.eot?#iefix") format("embedded-opentype"),
-		url("../Font/Fixedsys Excelsior/fsex300-webfont.woff") format("woff"),
-		url("../Font/Fixedsys Excelsior/fsex300-webfont.ttf") format("truetype"),
-		url("../Font/Fixedsys Excelsior/fsex300-webfont.svg#FixedsysExcelsior301Regular") format("svg");
-	font-weight: normal;
-	font-style: normal;
-	-webkit-font-smoothing: aliased;
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Traffix";
-	src: url("../Font/Traffix/Traffix.TTF") format("truetype");
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Arcade_R";
-	src: url("../Font/Arcade/ARCADE_R.TTF") format("truetype");
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Arcade_N";
-	src: url("../Font/Arcade/ARCADE_N.TTF") format("truetype");
-}
-
-@font-face {
-	font-size: small;
-	font-weight: normal;
-	-webkit-font-smoothing: aliased;
-	font-family: "Arcade_I";
-	src: url("../Font/Arcade/ARCADE_I.TTF") format("truetype");
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 600;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 800;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Orbitron";
-	font-style: normal;
-	font-weight: 900;
-	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/orbitron/v29/yMJRMIlzdpvBhQQL_Qq7dy0.woff2) format("woff2");
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-		U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-		U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

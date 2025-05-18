@@ -376,7 +376,6 @@ async function render_folder_template(folder_view, address, eventHandlers) {
 		`;
 		template_url = "https://github.com/Adam-S-Amir/"; // valid URL, but nonsense (I'm a little bit tired so doing things stupidly)
 	} else {
-		// @TODO: load FOLDER.HTT from the folder we're showing, if it exists
 		const template_file_name =
 			address === "/recycle-bin/" ? "recycle.htt" :
 			address === "/da-hood/" ? "nethood.htt" :
@@ -706,6 +705,7 @@ ${doc.documentElement.outerHTML}`;
 					this.shadowRoot.append(folder_view.element);
 					// jQuery's append does HTML, vs native which does Text
 					$(this.shadowRoot).append(`
+							<link href="/A/System64/CSS/Root.css" rel="stylesheet" type="text/css">
 							<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 							<style>
 								:host {
@@ -715,11 +715,12 @@ ${doc.documentElement.outerHTML}`;
 									background: var(--Background); /* needed for mix-blend-mode */
 									color: var(--WindowText);
 								}
-								.desktop-icon .title {
+								.folder-view[data-view-mode="LARGE_ICONS"] .desktop-icon .title {
 									background: transparent;
 									/* mix-blend-mode seems to need a background (for the dotted focus effect) */
 									color: var(--WindowText);
-									font-family: "Verdana";
+									font-family: Arial, Helvetica, sans-serif;
+									font-size: 11px;
 								}
 							</style>
 						`);
@@ -841,17 +842,23 @@ ${doc.documentElement.outerHTML}`;
 		p {margin: 0;}
 
 		#Panel {
+			overflow: visible;
 			scrollbar-gutter: stable;
 			background-color: var(--Background);
+			border-radius: 5px;
+			border: 10px solid transparent;
 		}
 
 		body {
+			height: auto;
+			width: auto
 			user-select: none;
 		}
 		</style>
 	`;
 
 	const head_end_injected_html = `
+		<link href="/A/System64/CSS/Root.css" rel="stylesheet" type="text/css">
 		<link href="/A/System64/CSS/MagnusWare-Layout.css" rel="stylesheet" type="text/css">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<script src="/A/System64/JS/jquery.min.js"></script>
@@ -976,7 +983,9 @@ function can_go_up() {
 }
 
 function go_home() {
-	go_to("https://github.com/Adam-S-Amir/"); // My personal homepage; I might use a search engine, but they don't support iframes
+	go_to("/");
+	// Routes to This PC
+	// might use a search engine, but they don't support iframe/embed tags
 }
 
 function executeFile(file_path) {

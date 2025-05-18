@@ -65,11 +65,12 @@ let ContextMenu = [`
 		<li onclick="window.open('https://google.com', '_blank')"><a id="New-Tab">New-Tab</a></li>
 		<li onclick="window.print();"><a id="Print">Print</a></li>
 		<li class="group" onclick="viewSource();"><a id="View-Source">View Page<br>Source</a></li>
-		<li onclick="GadgetsMenu();"><a id="Gadgets">Gadgets</a></li>
 		<li onclick="ChangeAgent();"><a id="Gadgets">Change Clippy<br>Agent</a></li>
 	</ul>
 </div>
-`]
+`
+// 		<li onclick="GadgetsMenu();"><a id="Gadgets">Gadgets</a></li>
+]
 
 const cmenu = document.createElement('div');
 cmenu.classList.add('cmenu');
@@ -87,13 +88,44 @@ desktop.appendChild(cmenu);
 // document.body.insertBefore(GameDiv, GadgetDiv);
 
 function viewSource() {
-    let source = "<html>";
-    source += document.getElementsByTagName('html')[0].innerHTML;
-    source += "</html>";
-    source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    source = "<pre style='background-color:black;color:blue;'>" + source + "</pre>";
-    sourceWindow = window.open('', '_blank');
-    sourceWindow.document.write(source);
+    let html = document.documentElement.outerHTML;
+    let escaped = html
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    const sourceHTML = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <title>Page Source</title>
+            <style>
+                body {
+                    margin: 0;
+                    background-color: azure;
+                    color: black;
+                    font-family: Consolas, monospace;
+                    font-size: 12px;
+                    /* line-height: 1.5; */
+                    padding: 1rem;
+                    overflow: auto;
+                }
+                pre {
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
+                }
+                ::selection {
+                    background-color: #007acc;
+                    color: white;
+                }
+            </style>
+        </head>
+        <body>
+            <pre>${escaped}</pre>
+        </body>
+        </html>
+    `;
+    const sourceWindow = window.open('', '_blank');
+    sourceWindow.document.open();
+    sourceWindow.document.write(sourceHTML);
     sourceWindow.document.close();
     if (window.focus) {
         sourceWindow.focus();
@@ -181,11 +213,15 @@ function hideGadgets() {
 //* Calendar
 function hidecal() {
     let x = document.getElementById("picker");
+    let y = document.getElementById("time");
+
     if (x.style.display === "none") {
         x.style.display = "block";
+        y.classList.add("glass");
         toggle_dp();
     } else {
         x.style.display = "none";
+        y.classList.remove("glass");
     }
 }
 
@@ -221,10 +257,13 @@ rangeInput.addEventListener('input', function () {
 
 function hidevol() {
     let x = document.getElementById("jukebox");
+    let y = document.getElementById("Volume");
     if (x.style.display === "none") {
         x.style.display = "block";
+        y.classList.add("glass");
     } else {
         x.style.display = "none";
+        y.classList.remove("glass");
     }
 }
 
@@ -392,10 +431,13 @@ wifieffectivetype.innerHTML = 'Effective Type: ' + navigator.connection.effectiv
 
 function WiFi() {
     let x = document.getElementById("Wifi");
+    let y = document.getElementById("WiFi");
     if (x.style.display === "none") {
         x.style.display = "block";
+        y.classList.add("glass");
     } else {
         x.style.display = "none";
+        y.classList.remove("glass");
     }
 }
 //* End Wifi
@@ -430,7 +472,7 @@ function CClippy() {
         try {
             div.remove();
             div2.remove();
-            clippy.load('Clippy', function (agent) {
+            clippy.load('Lynx', function (agent) {
                 agent.show();
                 agent.animate();
             });
@@ -444,7 +486,7 @@ function CClippy() {
         }
     } else {
         try {
-            clippy.load('Clippy', function (agent) {
+            clippy.load('Lynx', function (agent) {
                 agent.show();
                 agent.animate();
             });
@@ -458,82 +500,4 @@ function CClippy() {
     }
 }
 //* End Clippy
-
-//* User Settings
-let uid = localStorage.getItem("uid");
-let BN = localStorage.getItem("BN");
-
-if (uid === null && BN === null) {
-    UID();
-    BuildNumber();
-    console.log('Defining UID...')
-} else {
-    console.warn(`User ID [UID] is \n${uid}.`);
-    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
-}
-
-function UID() {
-    // A UUID is typically in the format "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
-    const UiD = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        const r = Math.random() * 16 | 0;
-        const v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-
-    localStorage.setItem('uid', UiD);
-}
-
-function BuildNumber() {
-    function randomString(length, chars) {
-        let result = '';
-        for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
-        return result;
-    }
-    let BuildNumber = randomString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
-    localStorage.setItem('BN', BuildNumber);
-}
-
-let uname = localStorage.getItem('username');
-
-if (uname !== null && uname !== undefined) {
-    detectDeviceType();
-    try {
-        toast({
-            message: `Welcome back, ${uname}!`,
-            sound: LogOn
-        });
-        setTimeout(() => {
-            getBatLevel()
-        }, 3000);
-    } catch (error) {
-        toast({
-            message: "You haven't interacted yet!"
-        });
-    }
-} else {
-    detectDeviceType();
-    let username = 'User';
-    localStorage.setItem('username', username);
-    console.error('Username Unspecified. Using Default Username.');
-    console.warn(`Current MagnusWare v${MagnusWare_V} Build Number is ${BN}.`);
-    toast({
-        message: `Welcome to MagnusWare v${MagnusWare_V}, ${username}!`,
-        sound: LogOn
-    });
-    setTimeout(() => {
-        toast({
-            message: "Click the start button in the bottom left corner!",
-            sound: Asterisk,
-        });
-        setTimeout(() => {
-            getBatLevel()
-        }, 2000);
-    }, 3000);
-}
-
-
-document.title = `MagnusWare | v${MagnusWare_V}`
-
-//* End User
 //# sourceURL=MagnusWare

@@ -6,10 +6,10 @@ var menuStylesNames = [];
 
 //--- Common
 var isHorizontal = 0;
-var smColumns = 1;
+var smColumns = 0;
 var smOrientation = 0;
 var dmRTL = 0;
-var pressedItem = -2;
+var pressedItem = 0;
 var itemCursor = "default";
 var itemTarget = "_self";
 var statusString = "";
@@ -18,7 +18,7 @@ var pathPrefix_img = "";
 var pathPrefix_link = "";
 
 //--- Dimensions
-var menuWidth = "fit-content";
+var menuWidth = "auto";
 var menuHeight = "-webkit-fill-available";
 var smWidth = "fit-content";
 var smHeight = "-webkit-fill-available";
@@ -36,7 +36,7 @@ var subMenuVAlign = "top";
 
 //--- Font
 var fontStyle = [""];
-var fontColor = ["#000000", "#ffffff"];
+var fontColor = ["var(--ButtonLight)", "var(--White)"];
 var fontDecoration = ["none", "none"];
 var fontColorDisabled = "#AAAAAA";
 
@@ -44,7 +44,7 @@ var fontColorDisabled = "#AAAAAA";
 var menuBackColor = "var(--ButtonFace)";
 var menuBackImage = "";
 var menuBackRepeat = "repeat";
-var menuBorderColor = "var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight)";
+var menuBorderColor = "rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1)";
 var menuBorderWidth = null;
 var menuBorderStyle = "solid";
 var menuBorderRadius = "5px";
@@ -89,7 +89,7 @@ var separatorHeight = "4px";
 var separatorColor = "black";
 var separatorAlignment = "right";
 var separatorVImage = "";
-var separatorVWidth = "5px";
+var separatorVWidth = "50px";
 var separatorVHeight = "100%";
 var separatorPadding = "0px";
 
@@ -101,7 +101,7 @@ var floatable = 1;
 var floatIterations = 5;
 var floatableX = 1;
 var floatableY = 1;
-var floatableDX = 15;
+var floatableDX = 20;
 var floatableDY = 15;
 
 //--- Movable Menu
@@ -183,84 +183,84 @@ var menuItems = [
     ["||4", "javascript:Four();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
     ["||2048", "javascript:Twenty();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
     ["||2048 3D", "javascript:Three();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
-    ["||2048 AI", "javascript:AI();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
-    ["||2048<br>Hardcore", "javascript:Hardcore();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Flappy<br>2048", "javascript:One();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Flappy<br>2048 2.0", "javascript:Two();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
+    ["||2048 AI", "javascript:AI2048();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
+    ["||2048<br>Hardcore", "javascript:Hardcore2048();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Flappy<br>2048", "javascript:Flappy2048I();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Flappy<br>2048 2.0", "javascript:Flappy2048II();", `${iconsAtTwoSizes("2048", size)}`, "", "", "", "", "", "", "", "",],
     ["|FPS Games", "", `${iconsAtTwoSizes("FPS", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Ultimate<br>Doom", "javascript:Doom();", `${iconsAtTwoSizes("Doom", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Doom 2", "javascript:Doom2();", `${iconsAtTwoSizes("Doom2", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Ultimate<br>Doom 2", "javascript:UD2();", `${iconsAtTwoSizes("UD2", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Master Levels<br>for Doom 2", "javascript:Master();", `${iconsAtTwoSizes("Master", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Brutal Doom 2", "javascript:BDoom2();", `${iconsAtTwoSizes("Brutal", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Doom 64", "javascript:Sixty();", `${iconsAtTwoSizes("64", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Doom 4", "javascript:D4();", `${iconsAtTwoSizes("4", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Duke Nukem", "javascript:Duke();", `${iconsAtTwoSizes("Duke", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Ultimate<br>Doom", "javascript:UltimateDoom();", `${iconsAtTwoSizes("Ultimate Doom", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Doom 2", "javascript:DoomII();", `${iconsAtTwoSizes("Doom II", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Ultimate<br>Doom 2", "javascript:UltimateDoomII();", `${iconsAtTwoSizes("Ultimate Doom II", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Master Levels<br>for Doom 2", "javascript:MasterLevelsForDoomII();", `${iconsAtTwoSizes("Master Levels for Doom II", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Brutal Doom 2", "javascript:BrutalDoomII();", `${iconsAtTwoSizes("Brutal Doom", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Doom 64", "javascript:Doom64();", `${iconsAtTwoSizes("Doom 64", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Doom 4", "javascript:Doom4();", `${iconsAtTwoSizes("Doom 4", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Duke Nukem", "javascript:DukeNukem3D();", `${iconsAtTwoSizes("Duke Nukem 3D", size)}`, "", "", "", "", "", "", "", "",],
     ["||FreeDoom", "", `${iconsAtTwoSizes("FreeDoom", size)}`, "", "", "", "", "", "", "", "",],
     ["||Heretic", "javascript:Heretic();", `${iconsAtTwoSizes("Heretic", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Heretic 2", "javascript:Heretic2();", `${iconsAtTwoSizes("Heretic2", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Heretic 2", "javascript:HereticII();", `${iconsAtTwoSizes("Heretic II", size)}`, "", "", "", "", "", "", "", "",],
     ["||Hexen", "javascript:Hexen();", `${iconsAtTwoSizes("Hexen", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Plutonia", "javascript:Plutonia();", `${iconsAtTwoSizes("Plutonia", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Plutonia 2", "javascript:Plutonia2();", `${iconsAtTwoSizes("Plutonia2", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Final Doom", "javascript:TNT();", `${iconsAtTwoSizes("FDoom", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Chex Quest", "javascript:Chex1();", `${iconsAtTwoSizes("Chex", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Chex Quest 2", "javascript:Chex2();", `${iconsAtTwoSizes("Chex2", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Chex Quest 3", "javascript:Chex3();", `${iconsAtTwoSizes("Chex3", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Plutonia", "javascript:ThePlutoniaExperiment();", `${iconsAtTwoSizes("The Plutonia Experiment", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Plutonia 2", "javascript:ThePlutoniaExperimentII();", `${iconsAtTwoSizes("The Plutonia Experiment II", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Final Doom", "javascript:TNTEvilution();", `${iconsAtTwoSizes("TNT Evilution", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Chex Quest", "javascript:ChexQuestI();", `${iconsAtTwoSizes("Chex Quest I", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Chex Quest 2", "javascript:ChexQuestII();", `${iconsAtTwoSizes("Chex Quest II", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Chex Quest 3", "javascript:ChexQuestIII();", `${iconsAtTwoSizes("Chex Quest III", size)}`, "", "", "", "", "", "", "", "",],
     ["||Quake", "javascript:Quake();", `${iconsAtTwoSizes("Quake", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Quake Mission<br>Pack 1", "javascript:QuakeM1();", `${iconsAtTwoSizes("Q1M", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Quake Mission<br>Pack 2", "javascript:QuakeM2();", `${iconsAtTwoSizes("Q1M", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Quake 2", "javascript:Quake2();", `${iconsAtTwoSizes("Quake2", size)}`, "", "", "", "", "", "", "", "",],
-    ["||School Shooter<br>Doom 2", "javascript:Shool();", `${iconsAtTwoSizes("School", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Batman Doom", "javascript:BatDoom();", `${iconsAtTwoSizes("Batman", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Mario Doom", "javascript:Dario1();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Mario Doom 2", "javascript:Dario2();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
-    ["||StarWars Doom", "javascript:StarDoom();", `${iconsAtTwoSizes("StarDoom", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Castle<br>Wolfenstein", "javascript:Castle();", `${iconsAtTwoSizes("Castle", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Wolfenstein 3D", "javascript:Wolf3D();", `${iconsAtTwoSizes("Wolf", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Spear of<br>Destiny", "javascript:Spear();", `${iconsAtTwoSizes("Spear", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Quake Mission<br>Pack 1", "javascript:QuakeMissionPackI();", `${iconsAtTwoSizes("Q1M", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Quake Mission<br>Pack 2", "javascript:QuakeMissionPackII();", `${iconsAtTwoSizes("Q1M", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Quake 2", "javascript:QuakeII();", `${iconsAtTwoSizes("Quake II", size)}`, "", "", "", "", "", "", "", "",],
+    ["||School Shooter<br>Doom 2", "javascript:DoomSchoolShooterEdition();", `${iconsAtTwoSizes("School", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Batman Doom", "javascript:BatmanDoom();", `${iconsAtTwoSizes("Batman Doom", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Mario Doom", "javascript:MarioDoom();", `${iconsAtTwoSizes("Mario Doom", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Mario Doom 2", "javascript:MarioDoomII();", `${iconsAtTwoSizes("Mario Doom", size)}`, "", "", "", "", "", "", "", "",],
+    ["||StarWars Doom", "javascript:StarWarsDoom();", `${iconsAtTwoSizes("StarWars Doom", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Castle<br>Wolfenstein", "javascript:CastleWolfenstein();", `${iconsAtTwoSizes("Castle Wolfenstein", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Wolfenstein 3D", "javascript:Wolfenstein3D();", `${iconsAtTwoSizes("Wolfenstein 3D", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Spear of<br>Destiny", "javascript:WolfensteinSpearOfDestiny();", `${iconsAtTwoSizes("Wolfenstein Spear of Destiny", size)}`, "", "", "", "", "", "", "", "",],
     ["||Strife", "javascript:Strife();", `${iconsAtTwoSizes("Strife", size)}`, "", "", "", "", "", "", "", "",],
     ["||Rekkr", "javascript:Rekkr();", `${iconsAtTwoSizes("Rekkr", size)}`, "", "", "", "", "", "", "", "",],
-    ["||GoreScript<br>Classic", "javascript:Gore();", `${iconsAtTwoSizes("Gore", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Doom<br>Zero", "javascript:Zero();", `${iconsAtTwoSizes("Zero", size)}`, "", "", "", "", "", "", "", "",],
+    ["||GoreScript<br>Classic", "javascript:GoreScriptClassic();", `${iconsAtTwoSizes("Gore", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Doom<br>Zero", "javascript:DoomZero();", `${iconsAtTwoSizes("Doom Zero", size)}`, "", "", "", "", "", "", "", "",],
     ["||<hr class='clear-hr'>"],
     ["|Brain Games", "", `${iconsAtTwoSizes("Brain", size)}`, "", "", "", "", "", "", "", "",],
     ["||Contranoid", "javascript:Contranoid();", `${iconsAtTwoSizes("Contranoid", size)}`, "", "", "", "", "", "", "", "",],
     ["||Hextris", "javascript:Hextris();", `${iconsAtTwoSizes("Hextris", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Oh Hi", "javascript:Hi();", `${iconsAtTwoSizes("0HH1", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Oh No", "javascript:No();", `${iconsAtTwoSizes("0HN0", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Oh Hi", "javascript:OhHi();", `${iconsAtTwoSizes("0HH1", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Oh No", "javascript:OhN0();", `${iconsAtTwoSizes("0HN0", size)}`, "", "", "", "", "", "", "", "",],
     ["||Quento", "javascript:Quento();", `${iconsAtTwoSizes("Quento", size)}`, "", "", "", "", "", "", "", "",],
     ["|Arcade Games", "", `${iconsAtTwoSizes("Arcade", size)}`, "", "", "", "", "", "", "", "",],
-    ["||PacMan", "javascript:Pac();", `${iconsAtTwoSizes("Pacman", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Google PacMan<br>1.0", "javascript:Google1();", `${iconsAtTwoSizes("Pacman", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Google PacMan<br>1.2", "javascript:Google2();", `${iconsAtTwoSizes("Pacman", size)}`, "", "", "", "", "", "", "", "",],
+    ["||PacMan", "javascript:PacMan();", `${iconsAtTwoSizes("Pacman", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Google PacMan<br>1.0", "javascript:GooglePacManI();", `${iconsAtTwoSizes("Pacman", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Google PacMan<br>1.2", "javascript:GooglePacManII();", `${iconsAtTwoSizes("Pacman", size)}`, "", "", "", "", "", "", "", "",],
     ["||Pong", "javascript:Pong();", `${iconsAtTwoSizes("pong", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Space Invaders", "javascript:SpaceI();", `${iconsAtTwoSizes("Space", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Tetris 1.0", "javascript:Tetriz();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Tetris 2.0", "javascript:Cubes();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Jelly Tetris", "javascript:Jelly();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Tetris with AI", "javascript:AIT();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Space Invaders", "javascript:SpaceInvaders();", `${iconsAtTwoSizes("Space", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Tetris 1.0", "javascript:Tetris();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Tetris 2.0", "javascript:TetrisII();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Jelly Tetris", "javascript:JellyTetris();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Tetris with AI", "javascript:AITetris();", `${iconsAtTwoSizes("Tetris", size)}`, "", "", "", "", "", "", "", "",],
     ["||<hr class='clear-hr'>"],
     ["|Mario Games", "", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Super Mario", "javascript:Mario2();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Infinite Mario", "javascript:iMario();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Super Mario Bros.", "javascript:SuperMarioBros();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Infinite Mario", "javascript:InfiniteMario();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
     ["||Mari0", "javascript:Mari0();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Super Mario<br>World DX", "javascript:SMWDX();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Mario Maker", "javascript:MarMakr();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Jelly Mario", "javascript:JellyM();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Super Mario<br>World Deluxe", "javascript:SuperMarioWorldDeluxe();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Mario Maker", "javascript:SuperMarioMaker();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Jelly Mario", "javascript:JellyMario();", `${iconsAtTwoSizes("Mario", size)}`, "", "", "", "", "", "", "", "",],
     ["|Microsoft<br>Surf", "", `${iconsAtTwoSizes("Surf", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Surf 1.0", "javascript:Surf1();", `${iconsAtTwoSizes("Surf", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Surf 2.0", "javascript:Surf2();", `${iconsAtTwoSizes("Surf", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Surf 3.0", "javascript:Surf3();", `${iconsAtTwoSizes("Surf", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Surf 1.0", "javascript:EdgeSurfI();", `${iconsAtTwoSizes("Surf", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Surf 2.0", "javascript:EdgeSurfII();", `${iconsAtTwoSizes("Surf", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Surf 3.0", "javascript:EdgeSurfIII();", `${iconsAtTwoSizes("Surf", size)}`, "", "", "", "", "", "", "", "",],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
-    ["|MineCrap", "", `${iconsAtTwoSizes("Minecraft", size)}`, "", "", "", "", "", "", "", "",],
-    ["||MineCrap<br>Alpha", "javascript:MinecrapA();", `${iconsAtTwoSizes("Minecraft", size)}`, "", "", "", "", "", "", "", "",],
-    ["||MineCrap<br>1.3", "", `${iconsAtTwoSizes("Minecraft", size)}`, "", "Coming Soon!", "", "", "", "", "", "",],
+    ["|MineCrap", "", `${iconsAtTwoSizes("minecrap", size)}`, "", "", "", "", "", "", "", "",],
+    ["||MineCrap<br>Alpha", "javascript:MineCrapAlpha();", `${iconsAtTwoSizes("minecrap", size)}`, "", "", "", "", "", "", "", "",],
+    ["||MineCrap<br>1.3", "", `${iconsAtTwoSizes("minecrap", size)}`, "", "Coming Soon!", "", "", "", "", "", "",],
     ["|||Coming Soon!", "", `${iconsAtTwoSizes("warning", size)}`, "", "Coming Soon!", "", "", "", "", "", "",],
-    ["||MineCrap<br>1.5.2", "javascript:Minecrap5();", `${iconsAtTwoSizes("Minecraft", size)}`, "", "", "", "", "", "", "", "",],
+    ["||MineCrap<br>1.5.2", "javascript:MineCrap15();", `${iconsAtTwoSizes("minecrap", size)}`, "", "", "", "", "", "", "", "",],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
@@ -277,8 +277,8 @@ var menuItems = [
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["|Chrome Dino<br>Games", "", `${iconsAtTwoSizes("Dino", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Regular Game", "javascript:CDG();", `${iconsAtTwoSizes("Dino", size)}`, "", "", "", "", "", "", "", "",],
-    ["||3D", "javascript:D3D();", `${iconsAtTwoSizes("Dino", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Regular Game", "javascript:ChromeDinoGames();", `${iconsAtTwoSizes("Dino", size)}`, "", "", "", "", "", "", "", "",],
+    ["||3D", "javascript:ChromeDino3D();", `${iconsAtTwoSizes("Dino", size)}`, "", "", "", "", "", "", "", "",],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
@@ -286,8 +286,8 @@ var menuItems = [
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["|Ice Dodo", "", `${iconsAtTwoSizes("ice", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Ice Dodo 1.0", "javascript:Ice();", `${iconsAtTwoSizes("ice", size)}`, "", "", "", "", "", "", "", "",],
-    ["||Ice Dodo 2.0", "javascript:Ice2();", `${iconsAtTwoSizes("ice", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Ice Dodo 1.0", "javascript:IceDodoI();", `${iconsAtTwoSizes("ice", size)}`, "", "", "", "", "", "", "", "",],
+    ["||Ice Dodo 2.0", "javascript:IceDodoII();", `${iconsAtTwoSizes("ice", size)}`, "", "", "", "", "", "", "", "",],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
@@ -303,15 +303,15 @@ var menuItems = [
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
-    ["|Cookie<br>Clicker", "javascript:Cookie();", `${iconsAtTwoSizes("Cookie", size)}`, "", "", "", "", "", "", "", "",],
+    ["|Cookie<br>Clicker", "javascript:CookieClicker();", `${iconsAtTwoSizes("Cookie", size)}`, "", "", "", "", "", "", "", "",],
     ["|Spelunky", "javascript:Spelunky();", `${iconsAtTwoSizes("Spelunky", size)}`, "", "", "", "", "", "", "", "",],
     ["|Funky Karts", "javascript:Funky();", `${iconsAtTwoSizes("Funky-Grey", size)}`, "", "Under Construction", "", "", "", "", "", "",],
-    ["|Rocket<br>Custa", "javascript:Rocket();", `${iconsAtTwoSizes("Rocket", size)}`, "", "", "", "", "", "", "", "",],
-    ["|HexGL", "javascript:Hex();", `${iconsAtTwoSizes("Hex", size)}`, "", "", "", "", "", "", "", "",],
-    ["|Boxel<br>Rebound", "javascript:Box();", `${iconsAtTwoSizes("Box", size)}`, "", "", "", "", "", "", "", "",],
-    ["|Drift<br>Hunters", "javascript:Drift();", `${iconsAtTwoSizes("Drift", size)}`, "", "", "", "", "", "", "", "",],
-    ["|The Binding<br> of Isaac", "javascript:TBOI();", `${iconsAtTwoSizes("TBOI", size)}`, "", "", "", "", "", "", "", "",],
-    ["|There is<br>No Game", "javascript:NoGame();", `${iconsAtTwoSizes("NoGame", size)}`, "", "", "", "", "", "", "", "",],
+    ["|Rocket<br>Custa", "javascript:RocketCusta();", `${iconsAtTwoSizes("Rocket", size)}`, "", "", "", "", "", "", "", "",],
+    ["|HexGL", "javascript:HexGL();", `${iconsAtTwoSizes("Hex", size)}`, "", "", "", "", "", "", "", "",],
+    ["|Boxel<br>Rebound", "javascript:BoxelRebound();", `${iconsAtTwoSizes("Box", size)}`, "", "", "", "", "", "", "", "",],
+    ["|Drift<br>Hunters", "javascript:DriftHunters();", `${iconsAtTwoSizes("Drift", size)}`, "", "", "", "", "", "", "", "",],
+    ["|The Binding<br> of Isaac", "javascript:TheBindingOfIsaac();", `${iconsAtTwoSizes("TBOI", size)}`, "", "", "", "", "", "", "", "",],
+    ["|There is<br>No Game", "javascript:ThereIsNoGame();", `${iconsAtTwoSizes("NoGame", size)}`, "", "", "", "", "", "", "", "",],
     ["|Frank Zamboni", "javascript:Zamboni();", `${iconsAtTwoSizes("Zamboni", size)}`, "", "", "", "", "", "", "", "",],
     ["Programs", "", `${iconsAtTwoSizes("programs-folder", size)}`, "", "", "", "", "", "", "", "",],
     ["|Time<br>Wasting", "", `${iconsAtTwoSizes("fonts-folder", size)}`, "", "", "", "", "", "", "", "",],
@@ -322,20 +322,19 @@ var menuItems = [
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
     ["||<hr class='clear-hr'>"],
-    ["|Task Manager", "javascript:TaskMngr()", `${iconsAtTwoSizes("Task", size)}`, "", "", "", "", "", "", "", "",],
+    ["|Task Manager", "javascript:TaskManager()", `${iconsAtTwoSizes("Task", size)}`, "", "", "", "", "", "", "", "", ],
     ["|Explorer", "javascript:Explorer()", `${iconsAtTwoSizes("hard-disk-drive", size)}`, "", "", "", "", "", "", "", "",],
-    ["|JS-CMD", "javascript:JSCMD()", `${iconsAtTwoSizes("msdos", size)}`, "", "", "", "", "", "", "", "",],
     ["|Software<br>Center", "javascript:Store();", `${iconsAtTwoSizes("Store", size)}`, "", "", "", "", "", "", "", "",],
     ["|Chat Room", "javascript:Chat();", `${iconsAtTwoSizes("Chat", size)}`, "", "", "", "", "", "", "", "",],
     ["|Sound<br>Recorder", "javascript:SoundRecorder();", `${iconsAtTwoSizes("speaker", size)}`, "", "", "", "", "", "", "", "",],
     ["|Calculator", "javascript:Calculator();", `${iconsAtTwoSizes("calculator", size)}`, "", "", "", "", "", "", "", "",],
     ["|WinAMP", "javascript:openWinamp();", `${iconsAtTwoSizes("winamp2", size)}`, "", "", "", "", "", "", "", "",],
     ["|VLC Media<br>Player", "javascript:VLC();", `${iconsAtTwoSizes("VLC", size)}`, "", "", "", "", "", "", "", "",],
-    ["|Theme Creator", "javascript:Theme1();", `${iconsAtTwoSizes("themes", size)}`, "", "", "", "", "", "", "", "",],
+    ["|Theme Creator", "javascript:ThemeEditor();", `${iconsAtTwoSizes("themes", size)}`, "", "", "", "", "", "", "", "",],
     ["|Paint", "javascript:Paint();", `${iconsAtTwoSizes("paint", size)}`, "", "", "", "", "", "", "", "",],
     ["|NotePad", "javascript:Notepad();", `${iconsAtTwoSizes("notepad", size)}`, "", "", "", "", "", "", "", "",],
     ["|Da Hood", "javascript:Network();", `${iconsAtTwoSizes("network", size)}`, "", "", "", "", "", "", "", "",],
-    ["|MW-CMD", "javascript:MWCMD();", `${iconsAtTwoSizes("msdos", size)}`, "", "", "", "", "", "", "", "",],
+    ["|MWCMD", "javascript:MWCMD();", `${iconsAtTwoSizes("msdos", size)}`, "", "", "", "", "", "", "", "",],
     ["|<hr class='clear-hr'>"],
     ["<hr class='hr-style'>"],
     ["Settings", "javascript:Settings();", `${iconsAtTwoSizes("settings", size)}`, "", "", "", "", "", "", "", "",],

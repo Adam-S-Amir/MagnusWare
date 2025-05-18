@@ -1,0 +1,71 @@
+<!--
+
+& Version List
+
+* |Release Phase| <Name> (Color Scheme Codename) [Codename] {Release Date} *
+    ~Release Info~ +Release State(stable,unstable,dev,commercial,TBD)+
+
+* |End-of-life_Alpha| <MagnusSoft 1.0> (Birman)[Clouds]{??/??/2020} *
+    ~Release~ +unstable,dev+
+* |End-of-life_Alpha-SP1| <MagnusSoft 1.1> (Siberian)[1.0]{??/??/2021} *
+    ~Feature Update~ +unstable,dev+
+* |End-of-life_Alpha-SP2| <MagnusSoft 1.2> (Bobtail)[95]{??/??/2021} *
+    ~Accessibility Update~ +unstable,dev+
+* |End-of-life_Beta-SP3| <MagnusSoft 1.3> (Russian Blue)[9.8]{??/??/2022} *
+    ~UI Update~ +unstable,commercial+
+* |End-of-life_Beta-SP4| <MagnusSoft 1.4> (Cornish Rex)[Glacier]{??/??/2022} *
+    ~Media Update~ +dev,commercial+
+* |End-of-life_Commercial| <MagnusWare 2.0> (Bombay)[Moonroof]{Nov-Dec/??/2022} *
+    ~Complete Re-Brand~ +stable,commercial+
+* |Post-Release_Commercial-SP1| <MagnusWare 2.1> (Ragamuffin)[Interstellar]{06/1/2023} *
+    ~New Games & features, minor bug fixes ~ +stable,commercial+
+* |Latest-Release_Commercial-SP2| <MagnusWare 2.2> (Tabby)[Zenith]{06/22/2023} *
+    ~New features, minor bug fixes ~ +stable,commercial+
+* |Commercial| <MagnusWare 3.0> (Egyptian Mau)[Xenon]{07/24/2023} *
+    ~New features, major bug fixes, new styles~ +stable,commercial+
+* |Post-Release_Commercial-SP1| <MagnusWare 3.1> (Sphynx)[Vortex]{08/16/2023} *
+    ~Minor bug fixes, new styles~ +stable,commercial+
+* |Latest-Release_Commercial-SP2| <MagnusWare 3.2> (SnowShoe)[Sigma]{10/05/2023} *
+    ~Minor bug fixes~ +stable,commercial+
+* |Commercial| <MagnusWare 4.0> (Siamese)[Nighthawk]{07/05/2024} *
+    ~MagnusWare was completely rebuilt from scratch (JS/jQuery Update)~ +stable,commercial+
+* |Beta| <MagnusWare ????> (Turkish Angora)[Kryptonite]{??/??/????} *
+    ~MaggnusWare was completely re-styled (CSS Update)~ +unstable,TBD+
+* |????| <MagnusWare ????> (Turkish Van)[Red Son]{??/??/????} *
+    ~TBA~ +unstable,TBD+`
+* |????| <MagnusWare ????> (????)[VaporWave]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Helix]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Matrix]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Nexus]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Exodus]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Delta]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Gamma]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Omega]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Kappa]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Omicron]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (????)[Unicron]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (Ocelot)[Zenith]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+* |????| <MagnusWare ????> (Lynx)[Lynx]{??/??/????} *
+    ~TBA~ +unstable,TBD+
+& -->
+
+<!--
+& &
+* *
+^ ^
+! !
+~ ~
+? ?
+-->

@@ -57,7 +57,7 @@ function UpdateTime() {
 	a.innerHTML = unitVal;
 	u.innerHTML = cHour + ":" + minVal + ":" + secVal;
 	x.innerHTML = dayVal + "," + mothVal + " " + dateVal + "," + yearVal;
-	v.innerHTML = cHour + ':' + minVal + ":" + secVal + "<span style='font-size:5px;'>" + unitVal + "</span>" + '<br>' + monthVal + "/" + dateVal + "/" + yearVal;
+	v.innerHTML = cHour + ':' + minVal + ":" + secVal + " " + unitVal + '<br>' + monthVal + "/" + dateVal + "/" + yearVal;
 
 	time.setAttribute('title', `${cHour + ":" + minVal + " " + unitVal}\n${dayVal + ", " + mothVal + " " + dateVal + ", " + yearVal}`)
 }

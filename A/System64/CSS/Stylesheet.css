@@ -13,12 +13,19 @@ body,
 * {
     image-rendering: optimizeSpeed;
     -webkit-interpolation-mode: nearest-neighbor;
-    font-family: "Arcade_R";
+    font-family: "Exo-Medium";
     cursor: inherit;
     outline: none;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
 #splash-screen {
+    font-family: Orbitron;
     background-color: #000000;
     position: absolute;
     display: block;
@@ -31,8 +38,8 @@ body,
 }
 
 #splash-log {
-    font-family: "Orbitron";
-    color: #00c6ff;
+    font-family: Orbitron;
+    color: var(--Hilight);
     top: 5px;
     left: 5px;
     position: relative;
@@ -63,27 +70,7 @@ embed {
 }
 
 #Image {
-    background: linear-gradient(217deg,
-            rgba(255, 0, 0, 0.8),
-            rgba(255, 0, 0, 0) 70.71%),
-        linear-gradient(127deg, rgba(0, 0, 255, 0.8), rgba(0, 255, 0, 0) 70.71%),
-        linear-gradient(336deg, #00c6ff, #f857a6 70.71%);
-
-    /* background: conic-gradient(from 222deg at 30% 50%,
-            #00c6ff,
-            #1fa2ff,
-            #0072ff,
-            #1a2980,
-            #000080,
-            #021b79,
-            #061161,
-            #061161,
-            #6B069F,
-            #780206,
-            #c21500,
-            #fc354c,
-            #d53369,
-            #f857a6); */
+    background-image: url("../Images/Common/Kryptonite.png");
     background-size: cover;
     background-position: center;
 }
@@ -143,19 +130,19 @@ span {
 
 .start-button {
     z-index: 1;
-    width: 23px;
-    height: 23px;
+    width: 35px;
+    height: 35px;
     background: -webkit-radial-gradient(50% 90%, circle closest-corner, #07d9f9, #03456f 100%, #fff 300%);
     border: 1px solid #00c6ff;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
     margin-top: 1.3px;
-    border-radius: 100px;
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    -ms-border-radius: 16px;
-    -o-border-radius: 16px;
+    border-radius: 10vmax;
+    -webkit-border-radius: 10vmax;
+    -moz-border-radius: 10vmax;
+    -ms-border-radius: 10vmax;
+    -o-border-radius: 10vmax;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(100px);
@@ -172,22 +159,21 @@ span {
         inset 0px 5px 2px rgba(255, 255, 255, 0.5),
         inset 0px 10px 10px rgba(255, 255, 255, 0.3),
         inset 0px -1px 1px rgba(255, 255, 255, 0.8);
-
 }
 
 .start-button-in {
-    animation: mouseIn 1s ease-in-out;
-    -webkit-animation: mouseIn 1s ease-in-out;
+    animation: mouseIn 0.5s ease-in;
+    -webkit-animation: mouseIn 0.5s ease-in;
 }
 
 .start-button-out {
-    animation: mouseOut 1s ease-out;
-    -webkit-animation: mouseOut 1s ease-out;
+    animation: mouseOut 0.5s ease-out;
+    -webkit-animation: mouseOut 0.5s ease-out;
 }
 
 #start-img {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     transform: translate(1%, 15%);
     -webkit-transform: translate(1%, 15%);
     -moz-transform: translate(1%, 15%);
@@ -202,8 +188,8 @@ span {
     border-width: 3px;
     border-style: solid;
     border-radius: 5px;
-    border-color: var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight);
-    bottom: 27px;
+    border-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1);
+    bottom: 42px;
 }
 
 ::selection {
@@ -220,8 +206,8 @@ span {
 .about-header {
     background: -webkit-radial-gradient(50% 90%,
             circle closest-corner,
-            #07d9f9,
-            #03456f 100%,
+            var(--Hilight),
+            var(--ButtonLight) 100%,
             #fff 300%);
     background-size: contain;
     background-repeat: round;
@@ -233,12 +219,14 @@ span {
     margin-left: 7px;
     top: 33px;
     position: relative;
+    box-shadow: 2px 2px 2px var(--Black);
 }
 
 .about-heading {
+    font-family: "Orbitron";
     text-align: -webkit-center;
-    color: #f857a6;
-    text-shadow: 2px 2px 2px #061161;
+    color: var(--ButtonDkShadow);
+    text-shadow: 2px 2px 2px var(--Hilight);
     transform: translateY(-70%);
     -webkit-transform: translateY(-70%);
     -moz-transform: translateY(-70%);
@@ -250,22 +238,27 @@ span {
     margin: 15px;
     overflow-wrap: break-word;
     overflow: hidden;
+    color: var(--ButtonLight);
 }
 
 #build-id,
 #uuid,
 #clrsh,
-#cdnm {
-    font-family: "Orbitron";
-    color: #07d9f9;
+#cdnm,
+#Release_Date,
+#Release_State,
+#MagnusWareV,
+#Activation_State,
+#OS_State {
+    color: var(--Hilight);
 }
 
 div.about-body>div.about-body-center>p a {
-    color: #f857a6;
+    color: var(--Hilight);
 }
 
 div.about-body>a:visited {
-    color: #f857a6;
+    color: var(--Hilight);
 }
 
 .about-body-center {
@@ -276,6 +269,7 @@ div.about-body>a:visited {
     border: none;
     border-width: 0;
     border-style: none;
+    margin-right: 20px;
 }
 
 .inner-menu tr {
@@ -285,10 +279,6 @@ div.about-body>a:visited {
     font-size: 10px;
 }
 
-#div1 {
-    overflow-y: auto;
-}
-
 #sidebar {
     position: fixed;
     margin-top: 5px;
@@ -296,7 +286,7 @@ div.about-body>a:visited {
     border: solid var(--Background);
     display: flex;
     text-align: -webkit-center;
-    font-size: 8px;
+    font-size: 15px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -312,6 +302,7 @@ div.about-body>a:visited {
 #right-1 {
     margin-left: 270px;
     height: 93%;
+    padding-right: 5px;
 }
 
 #right>div>h3 {
@@ -319,7 +310,7 @@ div.about-body>a:visited {
 }
 
 #right>div>* {
-    margin-left: -12px;
+    margin-top: 5px;
 }
 
 #right>div>ul {
@@ -330,7 +321,12 @@ div.about-body>a:visited {
 #right>div>ul>li {
     list-style-type: upper-roman;
     margin-bottom: 10px;
-    color: var(--Background);
+    color: var(--ButtonLight);
+    font-family: "Exo-Medium";
+}
+
+#right>div>ul>li>ol>li {
+    font-family: "Exo-Medium";
 }
 
 .changelog {
@@ -343,7 +339,7 @@ div.about-body>a:visited {
 
 #right>div>ul>li::marker,
 #right>div>ul>li>ol>li::marker {
-    color: var(--MenuHilight);
+    color: var(--Hilight);
 }
 
 #hrshrt2 {
@@ -400,10 +396,15 @@ div#storefront-right-other>button>img {
 
 .sys-buttons {
     display: inline-grid;
-    left: 5px;
+    left: 10px;
     position: absolute;
     margin-bottom: 5px;
-    margin-top: 45px;
+    margin-top: 65px;
+}
+
+.sys-buttons>button {
+    margin-bottom: 5px;
+    width: 200px;
 }
 
 .store-buttons {
@@ -452,9 +453,9 @@ div#storefront-right-other>button>img {
     z-index: 15;
     display: none;
     position: fixed;
-    bottom: 27px;
+    bottom: 40px;
     right: 0;
-    /* width: 270px; */
+
 }
 
 #Wifi {
@@ -466,7 +467,7 @@ div#storefront-right-other>button>img {
     background-color: var(--ButtonFace);
     display: none;
     position: fixed;
-    bottom: 27px;
+    bottom: 40px;
     right: 0;
     width: 270px;
     border: solid var(--ButtonShadow);
@@ -478,17 +479,23 @@ div#storefront-right-other>button>img {
 }
 
 .wifi-body {
+    font-family: "Exo";
     display: flex;
     flex-direction: column;
     align-items: self-start;
     text-align: start;
     background-color: var(--ButtonFace);
+    color: var(--ButtonLight);
     border: solid var(--ButtonShadow);
     border-radius: 1vmin;
     -webkit-border-radius: 1vmin;
     -moz-border-radius: 1vmin;
     -ms-border-radius: 1vmin;
     -o-border-radius: 1vmin;
+}
+
+.wifi-body>p>span {
+    font-family: "Exo-Medium";
 }
 
 .jukebox-body,
@@ -498,24 +505,116 @@ div#storefront-right-other>button>img {
     align-items: left;
 }
 
-#range {
+.jukebox-body button {
+    border: var(--ButtonText) 1px solid;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+}
+
+.range {
+    -webkit-appearance: none;
+    background-color: var(--ButtonShadow);
     width: 200px;
-    position: relative;
-    margin-top: 15px;
-    bottom: 10px;
+    outline: none;
+    margin: 10px 0;
+    border: 1px solid var(--ButtonShadow);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+
+.range::-webkit-slider-runnable-track {
+    height: 6px;
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    background: var(--ActiveTitle);
+    border-radius: 50%;
+    border: 2px solid var(--ButtonShadow);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.range::-webkit-slider-thumb:hover {
+    background: var(--Highlight);
+}
+
+
+.range::-moz-range-track {
+    height: 6px;
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+
+.range::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    background: var(--ActiveTitle);
+    border: 2px solid var(--ButtonShadow);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.range::-ms-track {
+    height: 6px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.range::-ms-fill-lower {
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+.range::-ms-fill-upper {
+    background: var(--ButtonShadow);
+    border-radius: 3px;
+}
+
+.range::-ms-thumb {
+    height: 16px;
+    width: 16px;
+    background: var(--ActiveTitle);
+    border: 2px solid var(--ButtonShadow);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #range_value {
-    display: inline-block;
-    align-self: flex-end;
-    position: absolute;
-    right: 15px;
-    top: 42px;
+    min-width: 40px;
+    color: var(--ButtonText);
+    font-weight: bold;
 }
 
 .jukebox-header {
     display: block;
     text-align: -webkit-center;
+}
+
+#now-playing {
+    color: var(--ButtonText);
 }
 
 .AM-FM {
@@ -561,6 +660,10 @@ div#storefront-right-other>button>img {
     background-color: var(--ButtonFace);
     color: var(--ButtonText);
     border-radius: 1vmin;
+    -webkit-border-radius: 1vmin;
+    -moz-border-radius: 1vmin;
+    -ms-border-radius: 1vmin;
+    -o-border-radius: 1vmin;
 }
 
 #unit {
@@ -913,7 +1016,6 @@ b,
 }
 
 p {
-    text-indent: 8px;
     line-height: 110%;
     margin-bottom: 6px;
 }
@@ -981,7 +1083,7 @@ p {
     position: absolute;
     text-align: left;
     display: none;
-    /* width: 150px; */
+
     z-index: 1;
     background-color: var(--ButtonFace);
     border: 2px solid var(--ButtonShadow);
@@ -1023,12 +1125,13 @@ p {
 
 .context-menu ul li a {
     text-decoration: none;
-    color: var(--ActiveTitle);
+    color: var(--ButtonText);
     font-family: "Orbitron";
 }
 
 .context-menu ul li:hover {
     background-color: var(--ButtonShadow);
+    color: var(--ActiveTitle);
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -1036,13 +1139,19 @@ p {
     -o-border-radius: 3px;
 }
 
+.context-menu ul li:hover a {
+    color: var(--ActiveTitle);
+}
+
 .context-menu ul li:first-child:hover {
     background-color: var(--ButtonShadow);
+    color: var(--ActiveTitle);
 }
 
 .context-menu ul li:last-child:hover {
     background-color: var(--ButtonShadow);
 }
+
 
 #GameDiv {
     position: absolute;
@@ -1066,9 +1175,7 @@ p {
     color: var(--ButtonShadow);
     background-color: var(--ButtonShadow);
     border-color: var(--ButtonShadow);
-    width: 120%;
     unicode-bidi: isolate;
-    left: -5%;
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
     margin-inline-start: auto;
@@ -1096,12 +1203,13 @@ p {
 }
 
 #version-info {
-    font-size: 5px;
+    font-family: Exo-Medium;
+    font-size: 8px;
     z-index: 1;
     position: absolute;
     color: rgb(183, 202, 202);
     opacity: 0.2;
-    bottom: 30px;
+    bottom: 45px;
     right: 2px;
     transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
     -webkit-transition: font-size 1s ease-in, opacity 1s ease-in, color 1s ease-in;
@@ -1133,8 +1241,8 @@ p {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: rgba(79, 101, 125, 0.8);
-    /*opacity: 0.8; Makes all the child elements gay*/
+
+
     z-index: 200;
     top: 0;
     left: 0;
@@ -1201,7 +1309,7 @@ p {
 #Search_Programs>.desktop-icon {
     position: relative;
     display: inline-block;
-    /* text-align: unset; */
+
     margin: 35px;
 }
 
@@ -1244,7 +1352,12 @@ p {
 
 #hideAllWindows {
     background-color: var(--ActiveTitle);
-    width: 0;
+    border: 1px solid var(--Hilight);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
 .Unsupported-Platform {
@@ -1320,32 +1433,28 @@ p {
     color: red;
 }
 
-/* background: repeating-linear-gradient(190deg,
-      #1a2980 40px,
-      #d53369 80px,
-      #000080 120px,
-      #00c6ff 160px,
-      rgba(0, 0, 255, 0.5) 200px,
-      rgba(75, 0, 130, 0.5) 240px,
-      rgba(238, 130, 238, 0.5) 280px,
-      #021b79 300px),
-    repeating-linear-gradient(-190deg,
-      #0072ff 30px,
-      #f857a6 60px,
-      #061161 90px,
-      #6B069F 120px,
-      rgba(0, 0, 255, 0.5) 150px,
-      rgba(75, 0, 130, 0.5) 180px,
-      #fc354c 210px, #d53369 230px),
-    repeating-linear-gradient(23deg,
-      red 50px,
-      #780206 100px,
-      #c21500 150px,
-      #061161 200px,
-      blue 250px,
-      indigo 300px,
-      #1fa2ff 350px,
-      red 370px); */
+.glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease, border-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease, border-color 0.3s ease;
+    -o-transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 
-/* min-inline-size: -webkit-fill-available; */
-/* # sourceURL=MagnusWare */
+
+
+.glass img {
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    position: relative;
+}
