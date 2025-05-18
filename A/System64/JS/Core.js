@@ -1,10 +1,10 @@
 const MagnusWare_V = "5.0";
 const Color_Scheme = "Turkish Angora";
 const Codename = "Kryptonite";
-const Release_Date = "??/??/????";
-const Release_State = "Developer";
-const OS_State = "unstable,dev,beta";
-const Activation_State = "Unactivated";
+const Release_Date = "05/18/2025";
+const Release_State = "Commercial";
+const OS_State = "stable,commercial";
+const Activation_State = "Activated";
 const uid = localStorage.getItem("uid");
 const BN = localStorage.getItem("BN");
 const splashScreen = document.querySelector("#splash-screen");
