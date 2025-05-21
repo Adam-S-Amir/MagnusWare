@@ -35,9 +35,10 @@ body {
     height: 100%;
     z-index: 9999999999999999999999999999;
     opacity: 1;
+    overflow-y: hidden;
 }
 
-#splash-log {
+.splash-log {
     font-family: Orbitron;
     color: var(--Hilight);
     top: 5px;
@@ -1315,7 +1316,7 @@ p {
 
 #Search_Programs>.desktop-icon>.title {
     position: absolute;
-    font-family: Orbitron;
+    /* font-family: Orbitron; */
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;

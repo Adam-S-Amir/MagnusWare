@@ -334,7 +334,7 @@ var menuItems = [
     ["|Paint", "javascript:Paint();", `${iconsAtTwoSizes("paint", size)}`, "", "", "", "", "", "", "", "",],
     ["|NotePad", "javascript:Notepad();", `${iconsAtTwoSizes("notepad", size)}`, "", "", "", "", "", "", "", "",],
     ["|Da Hood", "javascript:Network();", `${iconsAtTwoSizes("network", size)}`, "", "", "", "", "", "", "", "",],
-    ["|MWCMD", "javascript:MWCMD();", `${iconsAtTwoSizes("msdos", size)}`, "", "", "", "", "", "", "", "",],
+    ["|MagnusWare<br>Terminal", "javascript:MWTerminal();", `${iconsAtTwoSizes("msdos", size)}`, "", "", "", "", "", "", "", "",],
     ["|<hr class='clear-hr'>"],
     ["<hr class='hr-style'>"],
     ["Settings", "javascript:Settings();", `${iconsAtTwoSizes("settings", size)}`, "", "", "", "", "", "", "", "",],

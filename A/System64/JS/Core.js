@@ -1,10 +1,10 @@
-const MagnusWare_V = "5.0";
-const Color_Scheme = "Turkish Angora";
-const Codename = "Kryptonite";
-const Release_Date = "05/18/2025";
+const MagnusWare_V = "5.1";
+const Codename = "Turkish Angora";
+const Color_Scheme = "Kryptonite";
+const Release_Date = "??/??/????";
 const Release_State = "Commercial";
-const OS_State = "stable,commercial";
-const Activation_State = "Activated";
+const OS_State = "unstable,beta,dev";
+const Activation_State = "Unactivated";
 const uid = localStorage.getItem("uid");
 const BN = localStorage.getItem("BN");
 const splashScreen = document.querySelector("#splash-screen");
@@ -20,11 +20,15 @@ if (document.getElementById("splash-screen")) {
     });
 
     let pElement = document.createElement("p");
-    pElement.id = "splash-log";
+    pElement.className = "splash-log";
     let splashScreen = document.getElementById("splash-screen");
     pElement.innerHTML = "Successfully Initialized Kernel." + "<br>";
     splashScreen.appendChild(pElement);
     splashScreen.scrollTop = splashScreen.scrollHeight;
+    splashScreen.scrollTo({
+        top: splashScreen.scrollHeight,
+        behavior: "smooth"
+    });
 
     let CSSLinks = [
         "Root.css",
@@ -50,11 +54,14 @@ if (document.getElementById("splash-screen")) {
             let logMessage = (`Successfully Initialized ${output}.`);
             console.log(logMessage);
             let pElement = document.createElement("p");
-            pElement.id = "splash-log";
+            pElement.className = "splash-log";
             pElement.innerHTML = `${logMessage}<br>`;
             splashScreen.appendChild(pElement);
             splashScreen.scrollTop = splashScreen.scrollHeight;
-
+            splashScreen.scrollTo({
+                top: splashScreen.scrollHeight,
+                behavior: "smooth"
+            });
         }
     }
 
@@ -110,10 +117,14 @@ if (document.getElementById("splash-screen")) {
             let logMessage = (`Successfully Initialized ${output}.`);
             console.log(logMessage);
             let pElement = document.createElement("p");
-            pElement.id = "splash-log";
+            pElement.className = "splash-log";
             pElement.innerHTML = `${logMessage}<br>`;
             splashScreen.appendChild(pElement);
             splashScreen.scrollTop = splashScreen.scrollHeight;
+            splashScreen.scrollTo({
+                top: splashScreen.scrollHeight,
+                behavior: "smooth"
+            });
         } else {
             console.groupEnd();
             console.groupEnd();

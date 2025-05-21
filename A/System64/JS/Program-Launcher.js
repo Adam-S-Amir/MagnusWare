@@ -28,17 +28,17 @@ function Changelog() {
 	return new Task($win, "Changelog.MX7");
 }
 
-function MWCMD() {
+function MWTerminal() {
 	let $win = new $EmbedWindow2({
 		src: null,
 		icons: Window_icons("msdos"),
-		title: "MagnusWare CMD",
+		title: "MagnusWare Terminal",
 		innerWidth: 420,
 		innerHeight: 400
-	}, "-MWCMD.MXW");
-	jscmd();
+	}, "MWTerminal.MXW");
+	mwterminal();
 	hidemenu();
-	return new Task($win, "MWCMD.MX7");
+	return new Task($win, "MWTerminal.MX7");
 }
 
 function TaskManager() {

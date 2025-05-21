@@ -73,7 +73,7 @@ let right = [
         <button id='default' onclick='Default()'>Default</button>
         <button id='desert' onclick='Desert()'>Desert</button>
         <button id='eggplant' onclick='Eggplant()'>Eggplant</button>
-        <button id='fx' onclick='FX()'>FX</button>
+        <button id='efx' onclick='FX()'>FX</button>
         <button id='gen1' onclick='Gen1()'>Gen Test 1</button>
         <button id='gen2' onclick='Gen2()'>Gen Test 2</button>
         <button id='gen3' onclick='Gen3()'>Gen Test 3</button>
@@ -593,374 +593,374 @@ function lv8() {
 }
 
 function Ash() {
-    document.getElementById("Style").className = "ash1";
+    document.getElementById("HTML").className = "ash1";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Ash()");
 }
 
 function Baseball() {
-    document.getElementById("Style").className = "baseball";
+    document.getElementById("HTML").className = "baseball";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Baseball()");
 }
 
 function Blue() {
-    document.getElementById("Style").className = "blue";
+    document.getElementById("HTML").className = "blue";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Blue()");
 }
 
 function Brick() {
-    document.getElementById("Style").className = "brick";
+    document.getElementById("HTML").className = "brick";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Brick()");
 }
 
 function Dangerous() {
-    document.getElementById("Style").className = "dangerous-creatures";
+    document.getElementById("HTML").className = "dangerous-creatures";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Dangerous()");
 }
 
 function Default() {
-    document.getElementById("Style").className = "default-theme";
+    document.getElementById("HTML").className = "default-theme";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Default()");
 }
 
 function Moonroof() {
-    document.getElementById("Style").className = "moonroof";
+    document.getElementById("HTML").className = "moonroof";
     document.getElementById("CSS").href = "./assets/css/custom-tray.css";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Moonroof()");
 }
 
 function Desert() {
-    document.getElementById("Style").className = "desert";
+    document.getElementById("HTML").className = "desert";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Desert()");
 }
 
 function Eggplant() {
-    document.getElementById("Style").className = "eggplant";
+    document.getElementById("HTML").className = "eggplant";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Eggplant()");
 }
 
-function FX() {
-    document.getElementById("Style").className = "fx";
+function EFX() {
+    document.getElementById("HTML").className = "efx";
     localStorage.removeItem("tmz");
-    localStorage.setItem("tmz", "FX()");
+    localStorage.setItem("tmz", "EFX()");
 }
 
 function Gen1() {
-    document.getElementById("Style").className = "gen-test1";
+    document.getElementById("HTML").className = "gen-test1";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Gen1()");
 }
 
 function Gen2() {
-    document.getElementById("Style").className = "gen-test2";
+    document.getElementById("HTML").className = "gen-test2";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Gen2()");
 }
 
 function Gen3() {
-    document.getElementById("Style").className = "gen-test3";
+    document.getElementById("HTML").className = "gen-test3";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Gen3()");
 }
 
 function Honey() {
-    document.getElementById("Style").className = "honey";
+    document.getElementById("HTML").className = "honey";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Honey()");
 }
 
 function Inside() {
-    document.getElementById("Style").className = "inside-ur-computer";
+    document.getElementById("HTML").className = "inside-ur-computer";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Inside()");
 }
 
 function Jungle() {
-    document.getElementById("Style").className = "jungle";
+    document.getElementById("HTML").className = "jungle";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Jungle()");
 }
 
 function Vinci() {
-    document.getElementById("Style").className = "da-vinci";
+    document.getElementById("HTML").className = "da-vinci";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Vinci()");
 }
 
 function Lilac() {
-    document.getElementById("Style").className = "lilac";
+    document.getElementById("HTML").className = "lilac";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Lilac()");
 }
 
 function Maple() {
-    document.getElementById("Style").className = "maple";
+    document.getElementById("HTML").className = "maple";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Maple()");
 }
 
 function Marine() {
-    document.getElementById("Style").className = "marine";
+    document.getElementById("HTML").className = "marine";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Marine()");
 }
 
 function More() {
-    document.getElementById("Style").className = "more-windows";
+    document.getElementById("HTML").className = "more-windows";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "More()");
 }
 
 function Mystery() {
-    document.getElementById("Style").className = "mystery";
+    document.getElementById("HTML").className = "mystery";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Mystery()");
 }
 
 function Nature() {
-    document.getElementById("Style").className = "nature";
+    document.getElementById("HTML").className = "nature";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Nature()");
 }
 
 function Nighthawk() {
-    document.getElementById("Style").className = "nighthawk";
+    document.getElementById("HTML").className = "nighthawk";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Nighthawk()");
 }
 
 function Peggy() {
-    document.getElementById("Style").className = "peggy";
+    document.getElementById("HTML").className = "peggy";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Peggy()");
 }
 
 function Plum() {
-    document.getElementById("Style").className = "plum";
+    document.getElementById("HTML").className = "plum";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Plum()");
 }
 
 function Powershell() {
-    document.getElementById("Style").className = "powershell";
+    document.getElementById("HTML").className = "powershell";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Powershell()");
 }
 
 function Precision() {
-    document.getElementById("Style").className = "precision";
+    document.getElementById("HTML").className = "precision";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Precision()");
 }
 
 function Pumpkin() {
-    document.getElementById("Style").className = "pumpkin";
+    document.getElementById("HTML").className = "pumpkin";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Pumpkin()");
 }
 
 function Rainyday() {
-    document.getElementById("Style").className = "rainyday";
+    document.getElementById("HTML").className = "rainyday";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Rainyday()");
 }
 
 function Redwine() {
-    document.getElementById("Style").className = "red-wine";
+    document.getElementById("HTML").className = "red-wine";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Redwine()");
 }
 
 function RWB() {
-    document.getElementById("Style").className = "red-white-blue";
+    document.getElementById("HTML").className = "red-white-blue";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "RWB()");
 }
 
 function Rose() {
-    document.getElementById("Style").className = "rose";
+    document.getElementById("HTML").className = "rose";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Rose()");
 }
 
 function Science() {
-    document.getElementById("Style").className = "science";
+    document.getElementById("HTML").className = "science";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Science()");
 }
 
 function Slate() {
-    document.getElementById("Style").className = "slate";
+    document.getElementById("HTML").className = "slate";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Slate()");
 }
 
 function Solar() {
-    document.getElementById("Style").className = "solarized";
+    document.getElementById("HTML").className = "solarized";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Solar()");
 }
 
 function Space() {
-    document.getElementById("Style").className = "space";
+    document.getElementById("HTML").className = "space";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Space()");
 }
 
 function Sports() {
-    document.getElementById("Style").className = "sports";
+    document.getElementById("HTML").className = "sports";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Sports()");
 }
 
 function Spruce() {
-    document.getElementById("Style").className = "spruce";
+    document.getElementById("HTML").className = "spruce";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Spruce()");
 }
 
 function Storm() {
-    document.getElementById("Style").className = "storm";
+    document.getElementById("HTML").className = "storm";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Storm()");
 }
 
 function Steal() {
-    document.getElementById("Style").className = "teal-shelby";
+    document.getElementById("HTML").className = "teal-shelby";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Steal()");
 }
 
 function Teal() {
-    document.getElementById("Style").className = "teal";
+    document.getElementById("HTML").className = "teal";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Teal()");
 }
 
 function T6() {
-    document.getElementById("Style").className = "the-60s";
+    document.getElementById("HTML").className = "the-60s";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "T6()");
 }
 
 function Golden() {
-    document.getElementById("Style").className = "the-golden-era";
+    document.getElementById("HTML").className = "the-golden-era";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Golden()");
 }
 
 function Travel() {
-    document.getElementById("Style").className = "travel";
+    document.getElementById("HTML").className = "travel";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Travel()");
 }
 
 function Underwater() {
-    document.getElementById("Style").className = "underwater";
+    document.getElementById("HTML").className = "underwater";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Underwater()");
 }
 
 function Vista() {
-    document.getElementById("Style").className = "vista-dark";
+    document.getElementById("HTML").className = "vista-dark";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Vista()");
 }
 
 function Wheat() {
-    document.getElementById("Style").className = "wheat";
+    document.getElementById("HTML").className = "wheat";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Wheat()");
 }
 
 function W1() {
-    document.getElementById("Style").className = "windows-1";
+    document.getElementById("HTML").className = "windows-1";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "W1()");
 }
 
 function W98() {
-    document.getElementById("Style").className = "w98";
+    document.getElementById("HTML").className = "w98";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "W98()");
 }
 
 function Wdefault() {
-    document.getElementById("Style").className = "wdefault";
+    document.getElementById("HTML").className = "wdefault";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Wdefault()");
 }
 
 function Whybrid() {
-    document.getElementById("Style").className = "whybrid";
+    document.getElementById("HTML").className = "whybrid";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Whybrid()");
 }
 
 function WXP() {
-    document.getElementById("Style").className = "wxp";
+    document.getElementById("HTML").className = "wxp";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "WXP()");
 }
 
 function W93() {
-    document.getElementById("Style").className = "w93";
+    document.getElementById("HTML").className = "w93";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "W93()");
 }
 
 function Toner() {
-    document.getElementById("Style").className = "Toner";
+    document.getElementById("HTML").className = "Toner";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Toner()");
 }
 
 function Cherry() {
-    document.getElementById("Style").className = "Cherry";
+    document.getElementById("HTML").className = "Cherry";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Cherry()");
 }
 
 function precisiongreen() {
-    document.getElementById("Style").className = "precision-green";
+    document.getElementById("HTML").className = "precision-green";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "precisiongreen()");
 }
 
 function powershell() {
-    document.getElementById("Style").className = "Powershell";
+    document.getElementById("HTML").className = "Powershell";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "powershell()");
 }
 
 function storm() {
-    document.getElementById("Style").className = "Storm";
+    document.getElementById("HTML").className = "Storm";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "storm()");
 }
 
 function raspberry() {
-    document.getElementById("Style").className = "Raspberry";
+    document.getElementById("HTML").className = "Raspberry";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "raspberry()");
 }
 
 function seawater() {
-    document.getElementById("Style").className = "Seawater";
+    document.getElementById("HTML").className = "Seawater";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Seawater()");
 }
 
 function Xenon() {
-    document.getElementById("Style").className = "MagnusWare";
+    document.getElementById("HTML").className = "MagnusWare";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "MagnusWare()");
 }
@@ -970,8 +970,8 @@ function customTheme() {
     let css = JSON.parse(ctheme);
     let custom = css;
     console.log(custom);
-    document.getElementById("Style").removeAttribute('style');
-    document.getElementById("Style").className = custom;
+    document.getElementById("HTML").removeAttribute('style');
+    document.getElementById("HTML").className = custom;
     localStorage.removeItem("tmz");
     localStorage.setItem('tmz', "customTheme()");
 }
@@ -1199,93 +1199,93 @@ function Rover() {
 
 function fxnone() {
     let fxclass = localStorage.getItem("fx");
-    document.getElementById("FX").classList.remove = fxclass;
+    document.getElementById("HTML").classList.remove = fxclass;
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxnone()");
 }
 
 function fxspin() {
-    document.getElementById("FX").className = 'fx_spin'
+    document.getElementById("HTML").className = 'fx_spin'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxspin()");
 }
 
 function fxrotate() {
-    document.getElementById("FX").className = 'fx_rotate'
+    document.getElementById("HTML").className = 'fx_rotate'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxrotate()");
 }
 
 function fxacid() {
-    document.getElementById("FX").className = 'fx_acid'
+    document.getElementById("HTML").className = 'fx_acid'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxacid()");
 }
 
 function fxstrobe() {
-    document.getElementById("FX").className = 'fx_strobe'
+    document.getElementById("HTML").className = 'fx_strobe'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxstrobe()");
 }
 
 function fxstrasto() {
-    document.getElementById("FX").className = 'fx_strasto'
+    document.getElementById("HTML").className = 'fx_strasto'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxstrasto()");
 }
 
 function fxscato() {
-    document.getElementById("FX").className = 'fx_scato'
+    document.getElementById("HTML").className = 'fx_scato'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxscato()");
 }
 
 function fxblur() {
-    document.getElementById("FX").className = 'fx_blur'
+    document.getElementById("HTML").className = 'fx_blur'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxblur()");
 }
 
 function fxblurry() {
-    document.getElementById("FX").className = 'fx_blurry'
+    document.getElementById("HTML").className = 'fx_blurry'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxblurry()");
 }
 
 function fxdisco() {
-    document.getElementById("FX").className = 'fx_disco'
+    document.getElementById("HTML").className = 'fx_disco'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxdisco()");
 }
 
 function fxsepia() {
-    document.getElementById("FX").className = 'fx_sepia'
+    document.getElementById("HTML").className = 'fx_sepia'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxsepia()");
 }
 
 function fxgrayscale() {
-    document.getElementById("FX").className = 'fx_grayscale'
+    document.getElementById("HTML").className = 'fx_grayscale'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxgrayscale()");
 }
 
 function fxinvert() {
-    document.getElementById("FX").className = 'fx_invert'
+    document.getElementById("HTML").className = 'fx_invert'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxinvert()");
 }
 
 function fxinvertlights() {
-    document.getElementById("FX").className = 'fx_invertLight'
+    document.getElementById("HTML").className = 'fx_invertLight'
     localStorage.removeItem("fx");
     localStorage.setItem("fx", "fxinvertlights()");
 }
 
-function jscmd() {
+function mwterminal() {
     let cmd = [`
     <div class="Terminal">
-        <h3>JS-CMD</h3>
+        <h3>MagnusWare Terminal</h3>
         <textarea id="Terminal-Input" placeholder="Type Here..." rows="10"></textarea>
         <button onclick="Terminal();">Submit</button>
         <p id="Terminal-Output"></p>

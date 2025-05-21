@@ -1,3 +1,11 @@
+# MagnusWare v5.1 (Turkish Angora/Kryptonite)
+
+- [ ] Fix MagnusWare naming scheme
+- [ ] Fix broken desktop effects
+- [ ] Rename MagnusWare CMD to MagnusWare Terminal
+- [ ] Splash log scrolls
+- [ ] Changed Search screen font
+- [ ] Update filesystem
 
 # Magnusware v5.0 (Turkish Angora/Kryptonite)
 

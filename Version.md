@@ -2,7 +2,7 @@
 
 & Version List
 
-* |Release Phase| <Name> (Color Scheme Codename) [Codename] {Release Date} *
+* |Release Phase| <Name> (Codename) [Color Scheme] {Release Date} *
     ~Release Info~ +Release State(stable,unstable,dev,commercial,TBD)+
 
 * |End-of-life_Alpha| <MagnusSoft 1.0> (Birman)[Clouds]{??/??/2020} *
@@ -27,9 +27,9 @@
     ~Minor bug fixes, new styles~ +stable,commercial+
 * |Latest-Release_Commercial-SP2| <MagnusWare 3.2> (SnowShoe)[Sigma]{10/05/2023} *
     ~Minor bug fixes~ +stable,commercial+
-* |Commercial| <MagnusWare 4.0> (Siamese)[Nighthawk]{07/05/2024} *
+* |End-of-life-Commercial| <MagnusWare 4.0> (Siamese)[Nighthawk]{07/05/2024} *
     ~MagnusWare was completely rebuilt from scratch (JS/jQuery Update)~ +stable,commercial+
-* |Beta| <MagnusWare ????> (Turkish Angora)[Kryptonite]{??/??/????} *
+* |Commercial| <MagnusWare 5.0> (Turkish Angora)[Kryptonite]{05/18/2025} *
     ~MaggnusWare was completely re-styled (CSS Update)~ +unstable,TBD+
 * |????| <MagnusWare ????> (Turkish Van)[Red Son]{??/??/????} *
     ~TBA~ +unstable,TBD+`

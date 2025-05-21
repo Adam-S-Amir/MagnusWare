@@ -12,7 +12,7 @@
 ? function Theme() {
     ^ Function doesn't need ^
     ^ to be stored in this file ^
-?  document.getElementById("Style").className = "Theme";
+?  document.getElementById("HTML").className = "Theme";
     ^ Function stuffs ^
 ?  localStorage.removeItem("tmz");
     ^ Tell the browser to remove ^
