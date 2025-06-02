@@ -8,6 +8,8 @@ Because it's easy.
 
 #### Browser support?
 
-[X] Chrome
-[X] Firefox (kinda, some stuff breaks not everything)
-[ ] Safari
+- [x] Chrome
+
+- [x] Firefox (some stuff breaks, not everything)
+
+- [ ] Safari
