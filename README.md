@@ -10,6 +10,6 @@ Because it's easy.
 
 - [x] Chrome
 
-- [x] Firefox (some stuff breaks, not everything)
+- [x] Firefox (UI breaks, not everything)
 
 - [ ] Safari
