@@ -1285,7 +1285,6 @@ p {
 }
 
 #Search_Programs {
-    display: block;
     position: absolute;
     z-index: 201;
     top: 50%;
@@ -1299,28 +1298,26 @@ p {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     overflow-y: scroll;
-    border-radius: 1vmin;
-    -webkit-border-radius: 1vmin;
-    -moz-border-radius: 1vmin;
-    -ms-border-radius: 1vmin;
-    -o-border-radius: 1vmin;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 20px;
+    box-sizing: border-box;
 }
 
 #Search_Programs>.desktop-icon {
     position: relative;
-    display: inline-block;
-
-    margin: 35px;
+    display: grid;
+    margin: 25px;
+    text-align: center;
 }
 
 #Search_Programs>.desktop-icon>.title {
-    position: absolute;
-    font-family: Orbitron;
+    font-size: 10px;
+    color: white;
+    max-width: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
-    overflow-wrap: break-word;
-    text-align: center;
 }
 
 #Search_Programs>.desktop-icon>.icon {
