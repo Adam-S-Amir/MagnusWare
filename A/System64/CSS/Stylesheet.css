@@ -462,9 +462,13 @@ div#storefront-right-other>button>img {
     width: 270px;
 }
 
+.wifi-body,
+#jukebox {
+    background-color: color-mix(in srgb, var(--ButtonFace) 70%, transparent);
+}
+
 #jukebox {
     z-index: 15;
-    background-color: var(--ButtonFace);
     display: none;
     position: fixed;
     bottom: 40px;
@@ -484,7 +488,6 @@ div#storefront-right-other>button>img {
     flex-direction: column;
     align-items: self-start;
     text-align: start;
-    background-color: var(--ButtonFace);
     color: var(--ButtonLight);
     border: solid var(--ButtonShadow);
     border-radius: 1vmin;

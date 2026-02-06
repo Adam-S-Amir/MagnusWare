@@ -80,13 +80,9 @@ var file_extension_icons = {
 };
 
 const system_folder_path_to_name = {
-	"/": "Your PC",
-	"/your pictures/": "Your Pictures",
-	"/your documents/": "Your Documents",
-	"/da-hood/": "Network Neighborhood",
-	"/desktop/": "Desktop",
+	"/": "This PC",
+	"/da-hood/": "Da Hood",
 	"/Program Files/": "Program Files",
-	"/Program Files (x86)/": "Program Files (x86)",
 };
 const system_folder_name_to_path = Object.fromEntries(
 	Object.entries(system_folder_path_to_name).map(([key, value]) => [value, key])

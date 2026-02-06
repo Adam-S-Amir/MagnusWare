@@ -1655,11 +1655,9 @@ function Explorer(address) {
 			innerWidth: 765,
 			innerHeight: 500,
 		},
-
-
-		`${document_title.replace("/A/", "")}.MXW`);
+		"Explorer.MXW");
 	hidemenu();
-	return new Task($win, `${document_title.replace("/A/", "")}.MX7`);
+	return new Task($win, "Explorer.MX7");
 }
 Explorer.acceptsFilePaths = true;
 
@@ -2186,33 +2184,6 @@ Create_Icon({
 	iconID: "my-computer",
 	open: function () {
 		systemExecuteFile("/");
-	},
-	is_system_folder: true,
-});
-
-Create_Icon({
-	title: "Documents",
-	iconID: "my-documents-folder",
-	open: function () {
-		systemExecuteFile("/A/Documents");
-	},
-	is_system_folder: true,
-});
-
-Create_Icon({
-	title: "Da Hood",
-	iconID: "network",
-	open: function () {
-		systemExecuteFile("/A/da-hood");
-	},
-	is_system_folder: true,
-});
-
-Create_Icon({
-	title: "Photos",
-	iconID: "folder",
-	open: function () {
-		systemExecuteFile("/A/Photos");
 	},
 	is_system_folder: true,
 });

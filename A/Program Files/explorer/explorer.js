@@ -39,12 +39,8 @@ function get_display_name_for_address(address) {
 function get_icon_for_address(address) {
 	if (address === "/") {
 		return "hard-disk-drive";
-	} else if (address === "/A/your documents/") {
-		return "my-documents";
 	} else if (address === "/A/da-hood/") {
 		return "network";
-	} else if (address === "/A/desktop/") {
-		return "desktop";
 	} else if (address.match(/^\w+:\/\//) || address.match(/\.html?$/)) {
 		return "html";
 	} else {
@@ -717,8 +713,7 @@ ${doc.documentElement.outerHTML}`;
 								}
 								.folder-view[data-view-mode="LARGE_ICONS"] .desktop-icon .title {
 									background: transparent;
-									/* mix-blend-mode seems to need a background (for the dotted focus effect) */
-									color: var(--WindowText);
+									color: var(--White);
 									font-family: Arial, Helvetica, sans-serif;
 									font-size: 11px;
 								}
@@ -785,10 +780,7 @@ ${doc.documentElement.outerHTML}`;
 										// @TODO: DRY, and move file type code/data to one central place
 										const system_folder_path_to_name = {
 											"/": "This PC", //"My Computer",
-											"/Photos/": "Photos",
-											"/Documents/": "Documents",
-											"/da-hood/": "Network Neighborhood",
-											"/Desktop/": "Desktop",
+											"/da-hood/": "Da Hood",
 											"/Programs Files/": "Program Files",
 										};
 										if (system_folder_path_to_name[item._item.file_path]) {

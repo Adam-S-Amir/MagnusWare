@@ -1,17 +1,18 @@
 # TODO
 
-- [x] Task manager
 - [x] Explorer
   - [ ] Copy/paste/print
 - [ ] Migrate from JS-DOS to WadCMD
   - [ ] Single wad files
   - [ ] Multiple wad files
   - [ ] Wad and deh files
-- [ ] Make "Task Manager" standalone app
 - [ ] Help dialog per app
 - [ ] Replace Notepad with a code editor
 - [ ] Intro dialog
 - [ ] Activation state?
+- [ ] Fix paint
+- [ ] Fix start menu color
+  - [ ] make more transparent
 
 Centralized Management: Create a central management module that initializes and manages all critical components of the application, such as loading stylesheets, scripts, and other resources.
 

@@ -100,7 +100,7 @@ body>.window-titlebar {
 .taskbar-time {
 	font-family: "Exo-Medium";
 	font-size: 12px;
-	color: var(--ButtonLight);
+	color: var(--Hilight);
 	display: inline-table;
 	margin-top: 2px;
 	margin-right: 5px;
@@ -435,7 +435,6 @@ body {
 
 .start-menu-content,
 .start-menu-content * {
-	font-family: "Orbitron";
 	font-weight: bolder;
 	font-size: 12px;
 }
@@ -471,7 +470,6 @@ body {
 	display: flex;
 	text-align: -webkit-center;
 	z-index: 1;
-	background-color: var(--Menu);
 	border-top: 2px solid var(--Hilight);
 	/* border-radius: 1vmin;
 	-webkit-border-radius: 1vmin;
@@ -482,7 +480,7 @@ body {
 
 .taskbar,
 .tray {
-	background-color: var(--ButtonFace);
+	background-color: color-mix(in srgb, var(--Black) 30%, transparent);
 }
 
 .taskbar button,
@@ -1032,7 +1030,7 @@ body>.window-titlebar {
 	position: relative;
 	-o-border-image: var(--button-normal-border-image);
 	border-image: var(--button-normal-border-image);
-	border-color: var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight);
+	border-color: var(--ButtonShadow) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonShadow);
 	border-style: solid;
 	border-width: 2px 2px;
 	padding: 2px;

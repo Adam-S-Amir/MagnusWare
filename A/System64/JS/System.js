@@ -80,6 +80,7 @@ let right = [
         <button id='honey' onclick='Honey()'>Honey</button>
         <button id='inside' onclick='Inside()'>Inside Your Computer</button>
         <button id='jungle' onclick='Jungle()'>Jungle</button>
+        <button id='krypton' onclick='Krypton()'>Krypton</button>
         <button id='vinci' onclick='Vinci()'>Leonardo Da Vinci</button>
         <button id='lilac' onclick='Lilac()'>Lilac</button>
         <button id='maple' onclick='Maple()'>Maple</button>
@@ -687,6 +688,12 @@ function Jungle() {
     document.getElementById("Style").className = "jungle";
     localStorage.removeItem("tmz");
     localStorage.setItem("tmz", "Jungle()");
+}
+
+function Krypton() {
+    document.getElementById("Style").className = "Krypton";
+    localStorage.removeItem("tmz");
+    localStorage.setItem("tmz", "Krypton()");
 }
 
 function Vinci() {

@@ -1,4 +1,13 @@
 
+# MagnusWare v5.1 (Turkish Angora/Kryptonite)
+
+- [ ] Update styles
+  - [ ] Taskbar
+  - [ ] Tray submenus
+  - [ ] New theme
+  - [ ] Explorer looks better
+- [ ] Remove desktop icons
+
 # Magnusware v5.0 (Turkish Angora/Kryptonite)
 
 - [ ] Bigger taskbar

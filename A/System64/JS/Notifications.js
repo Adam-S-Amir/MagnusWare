@@ -125,7 +125,7 @@ window.toast = window.toast || (({
 			"width": '250px',
 			"height": '80px',
 			"background-color": "var(--Menu)",
-			"border-color": "var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight)",
+			"border-color": "var(--ButtonShadow)",
 			"border-style": "solid",
 			"border-width": "2px 2px",
 			"border-radius": "5px",
@@ -136,7 +136,7 @@ window.toast = window.toast || (({
 		bar.style.height = '18px';
 		bar.style.width = '0%';
 		bar.style.background = 'linear-gradient(to right, var(--ActiveTitle) 0%, var(--GradientActiveTitle) 100%)';
-		bar.style.borderTopLeftRadius = "5px";
+		bar.style.borderRadius = "5px";
 		bar.id = 'progressbar';
 		window.appendChild(bar);
 
