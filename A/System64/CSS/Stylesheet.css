@@ -1086,7 +1086,6 @@ p {
     position: absolute;
     text-align: left;
     display: none;
-
     z-index: 1;
     background-color: var(--ButtonFace);
     border: 2px solid var(--ButtonShadow);
@@ -1129,7 +1128,6 @@ p {
 .context-menu ul li a {
     text-decoration: none;
     color: var(--ButtonText);
-    font-family: "Orbitron";
 }
 
 .context-menu ul li:hover {

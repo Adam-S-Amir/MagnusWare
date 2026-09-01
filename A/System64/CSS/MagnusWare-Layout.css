@@ -848,7 +848,7 @@ button {
 
 button:not(.lightweight) {
 	outline: transparent;
-	border-color: var(--ButtonDkShadow);
+	border-color: var(--ButtonShadow);
 	background-color: var(--ButtonFace);
 	color: var(--ButtonText);
 	position: relative;

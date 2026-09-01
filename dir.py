@@ -4,7 +4,7 @@ import json
 def generate_dir_structure(path):
     result = {}
     for item in os.listdir(path):
-        if item in ['.git', '.vscode']:
+        if item in ['.git', '.vscode', 'node_modules']:
             continue
         item_path = os.path.join(path, item)
         if os.path.isdir(item_path):
